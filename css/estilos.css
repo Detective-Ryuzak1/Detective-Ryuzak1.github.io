@@ -104,7 +104,7 @@ main{
 }
 
 .text__enlaces-cover h1{
-    font-size: 26px;
+    font-size: 25px;
     color: grey;
     font-weight: normal;
 }
@@ -138,7 +138,7 @@ main{
 }
 
 .text__articulo-cover{
-    width: 80%;
+    width: 100%;
 }
 
 .text__articulo-cover h1{
