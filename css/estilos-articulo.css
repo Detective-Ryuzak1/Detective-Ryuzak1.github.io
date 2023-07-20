@@ -190,7 +190,7 @@ main{
 @media (max-width: 720px){
 
     .blog-image-doble img {
-        width: 40%; /* Ajusta el ancho de las imágenes para dejar espacio entre ellas */
+        width: 47%; /* Ajusta el ancho de las imágenes para dejar espacio entre ellas */
         margin-right: 4%;
     }
 
