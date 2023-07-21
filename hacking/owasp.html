@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Bonus">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <h1>OWASP Top 10: Las Principales Vulnerabilidades de Seguridad en Aplicaciones Web</h1>
+                <p>En el mundo cada vez más interconectado de hoy, la seguridad de las aplicaciones web es de suma importancia. Las vulnerabilidades en el software pueden exponer datos sensibles, permitir accesos no autorizados y poner en riesgo la privacidad y la integridad de los usuarios. Para abordar estas preocupaciones, la OWASP (Open Web Application Security Project) ha desarrollado el OWASP Top 10, una lista de las diez vulnerabilidades más críticas que afectan a las aplicaciones web. En este artículo, exploraremos el OWASP Top 10 a detalle, explicando cada vulnerabilidad de manera comprensible para todos.</p>
+                <p>1. Inyección de Código SQL (SQL Injection): La inyección de código SQL es una vulnerabilidad que permite a un atacante manipular una aplicación web para ejecutar comandos SQL no autorizados. Esto puede dar como resultado el acceso no autorizado a bases de datos, divulgación de información sensible y la posibilidad de modificar o eliminar datos valiosos.</p>
+                <p>2. Riesgo de Exposición a Datos Sensibles (Sensitive Data Exposure): Esta vulnerabilidad se refiere a la falta de cifrado adecuado o protección de datos sensibles, como contraseñas, números de tarjetas de crédito o información personal. Si los datos no se almacenan de manera segura, los atacantes pueden interceptarlos y utilizarlos de manera maliciosa.</p>
+                <p>3. Problemas de Seguridad en la Autenticación (Authentication Bypass): Esta vulnerabilidad permite que los atacantes eludan los mecanismos de autenticación y obtengan acceso no autorizado a cuentas o sistemas. Puede ser causada por debilidades en la implementación de contraseñas, sesiones o métodos de autenticación.</p>
+                <p>4. Exposición de Archivos Sensibles (XML External Entity - XXE): La exposición de archivos sensibles es una vulnerabilidad que permite a los atacantes acceder y leer archivos en el servidor, como archivos de configuración o contraseñas, a través de la manipulación de XML externo.</p>
+                <p>5. Problemas de Acceso Directo a Objetos (Broken Access Control): Los problemas de control de acceso roto se refieren a la falta de restricciones adecuadas sobre qué acciones pueden realizar los usuarios en una aplicación. Esto puede permitir a los atacantes acceder a información o funcionalidades que no deberían estar disponibles para ellos.</p>
+                <p>6. Referencias No Seguras (Security Misconfiguration): Esta vulnerabilidad se refiere a la configuración incorrecta o incompleta de la seguridad en la aplicación o en el servidor. Los atacantes pueden aprovechar esto para obtener acceso no autorizado a datos o funcionalidades.</p>
+                <p>7. Problemas de Cross-Site Scripting (XSS): El Cross-Site Scripting (XSS) es una vulnerabilidad que permite a los atacantes insertar scripts maliciosos en páginas web vistas por otros usuarios. Esto puede llevar al robo de sesiones, acceso a cookies o manipulación del contenido mostrado.</p>
+                <p>8. Ataques de Deserialización No Segura (Insecure Deserialization): Los ataques de deserialización no segura permiten a los atacantes manipular datos serializados para ejecutar código malicioso. Esto puede llevar a la ejecución remota de comandos y comprometer el servidor.</p>
+                <p>9. Esta vulnerabilidad se refiere al uso de componentes de software con vulnerabilidades conocidas. Los atacantes pueden explotar estas vulnerabilidades para obtener acceso no autorizado o controlar el sistema.</p>
+                <p>10. Insuficiente Monitoreo y Registro (Insufficient Logging & Monitoring): Esta vulnerabilidad se relaciona con la falta de monitoreo y registro adecuado de eventos de seguridad. La ausencia de un seguimiento adecuado dificulta la detección y respuesta a ataques.</p>
+                <br>
+                <p>El OWASP Top 10 es una valiosa guía para identificar y abordar las vulnerabilidades más críticas en aplicaciones web. La conciencia de estas amenazas es fundamental para el desarrollo y mantenimiento seguro de aplicaciones web. Al tomar medidas para protegerse contra estas vulnerabilidades, las organizaciones pueden proteger sus datos y garantizar una experiencia segura para los usuarios en el siempre cambiante mundo de la ciberseguridad.</p>
+                <div class="blog-image-zoom">
+                    <img src="media/owasp1.png" alt="">
+                </div>
+                <p>OWASP Top 10 ha cambiado a lo largo del tiempo para reflejar la evolución de las amenazas y vulnerabilidades en el ámbito de la seguridad de aplicaciones web. A continuación, te menciono algunas vulnerabilidades que solían formar parte del OWASP Top 10 en el pasado, pero que ya no están presentes en las ediciones más recientes:</p>
+                <p>- Inclusión de Archivos Local (Local File Inclusion - LFI): El LFI es una vulnerabilidad común que permite a los atacantes leer archivos en el servidor que no deberían estar accesibles públicamente. Esta vulnerabilidad solía permitir a los atacantes acceder a información confidencial, como archivos de configuración y contraseñas.</p>
+                <p>- Cross-Site Request Forgery (CSRF): CSRF es una vulnerabilidad que permite a los atacantes engañar a los usuarios autenticados para que realicen acciones no deseadas en una aplicación web. Los atacantes podían aprovechar esta vulnerabilidad para realizar acciones en nombre del usuario sin que este lo supiera.</p>
+                <p>- Inyección de Comandos (Command Injection): La inyección de comandos es una vulnerabilidad que permite a los atacantes ejecutar comandos en el servidor web, lo que podía llevar a la ejecución remota de comandos y comprometer el sistema.</p>
+                <p>- Detección de Números de Tarjeta de Crédito (Credit Card Number Exposure): Esta vulnerabilidad se refiere a la exposición inadvertida de números de tarjetas de crédito u otra información confidencial en la aplicación web.</p>
+                <p>- Falla en Configuración de Seguridad de HTTP (HTTP Security Configuration Failure): Esta vulnerabilidad se centra en la falta de configuración segura de encabezados HTTP, lo que podía permitir ataques de Cross-Site Scripting (XSS) y Clickjacking.</p>
+                <div class="blog-image-grande">
+                    <img src="media/owasp2.jpg" alt="">
+                </div>               
+                <p>Es importante tener en cuenta que el OWASP Top 10 se actualiza periódicamente para reflejar las vulnerabilidades más relevantes en el momento actual. A medida que se desarrollan nuevas técnicas de ataque y se descubren vulnerabilidades emergentes, algunas vulnerabilidades anteriores pueden quedar obsoletas o ser reemplazadas por otras más críticas. Por lo tanto, es esencial mantenerse informado sobre las últimas tendencias y mejores prácticas en seguridad de aplicaciones web para proteger de manera efectiva los sistemas y datos en línea.</p>
+                <p>Más adelante se tocarán más a detalle algunas de las vulnerabilidades más interesantes y se explicará la metodología que siguen los atacantes para realizar estos ataques. Así que mantente en sintonía para poder comprender cómo funciona el mundo de la ciberseguridad y cómo mantenerte protegido.</p>
+                <br>
+                <br>
+            </div>   
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>

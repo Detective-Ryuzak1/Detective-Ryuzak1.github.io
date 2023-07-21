@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Bonus">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <h1>DNS (Domain Name System)</h1>
+                <p>¿Alguna vez te has preguntado cómo funciona la magia detrás de la navegación en Internet? Cuando escribes una dirección web en tu navegador, como "www.ejemplo.com", esperas que te lleve a la página que deseas. Detrás de esta aparente simplicidad, se encuentra un componente esencial y fundamental de la infraestructura de Internet: el Sistema de Nombres de Dominio o DNS.</p>
+                <p>El DNS es una compleja red de servidores y protocolos que traduce los nombres de dominio legibles para los humanos, como "ejemplo.com", en direcciones IP (Protocolo de Internet) numéricas que las máquinas puedan entender y localizar en la red. En esencia, actúa como una agenda telefónica gigante que permite que los navegadores encuentren y se conecten con los servidores que alojan las páginas web y otros servicios en línea.</p>
+                <p>Por ejemplo, cuando se visita Google, en realidad estamos visitando la dirección 142.250.149.142, lo cual es difícil de recordar, sin mencionar que a veces cambia la dirección a visitar. Por lo cual, es más fácil para las personas recordar el nombre del dominio, que en este caso sería www.google.com.</p>
+                <div class="blog-image-grande">
+                    <img src="media/dns1.jpg" alt="">
+                </div>
+                <p>Cuando ingresas una URL en tu navegador, como "www.ejemplo.com", el navegador envía una solicitud al servidor DNS más cercano que tenga almacenada una copia de la "agenda telefónica". Este servidor, conocido como servidor DNS recursivo, busca la dirección IP asociada al nombre de dominio "ejemplo.com" en su base de datos o contacta a otros servidores DNS para obtener la información.</p>
+                <p>El servidor DNS recursivo luego devuelve la dirección IP al navegador, lo que permite que el navegador establezca una conexión con el servidor web que aloja "www.ejemplo.com". Finalmente, la página web se carga y aparece en tu pantalla, todo en cuestión de milisegundos.</p>
+                <h1>Importancia y Seguridad del DNS</h1>
+                <p>El DNS es esencial para el funcionamiento de Internet. Sin él, sería extremadamente difícil recordar o utilizar las direcciones IP numéricas de todos los sitios web que deseamos visitar. Además, el DNS juega un papel crítico en la distribución del tráfico de Internet y ayuda a mejorar la eficiencia de la navegación web.</p>
+                <p>Sin embargo, debido a su importancia, el DNS también se convierte en un objetivo atractivo para ataques cibernéticos, como el envenenamiento de caché DNS o los ataques de denegación de servicio distribuido (DDoS). Por esta razón, se han implementado diversas medidas de seguridad para proteger la integridad y la confiabilidad del DNS.</p>
+                <div class="blog-image-grande">
+                    <img src="media/dns2.jpg" alt="">
+                </div>
+                <br>
+                <br>
+            </div>   
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>

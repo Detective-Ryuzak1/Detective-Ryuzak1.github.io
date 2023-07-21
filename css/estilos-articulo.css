@@ -143,6 +143,19 @@ main{
     height: auto;
 }
 
+.blog-image-zoom {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+  
+.blog-image-zoom img {
+    max-width: 100%;
+    width: 700px;
+    height: auto;
+}
+
 @media (max-width: 1024px){
     .container__header,main{
         padding: 20px;

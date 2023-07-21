@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Bonus">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <h1>SMTP (Simple Mail Transfer Protocol)</h1>
+                <p>En el apasionante mundo de la comunicación en línea, el correo electrónico se ha convertido en una herramienta esencial para mantenernos conectados y compartir información en todo el mundo. Detrás de esta forma de comunicación se encuentra el SMTP (Simple Mail Transfer Protocol), un protocolo fundamental que permite el envío y la recepción de correos electrónicos de manera rápida y confiable.</p>
+                <p>SMTP, o Protocolo de Transferencia de Correo Simple, es un protocolo de red estándar utilizado para enviar y entregar correos electrónicos entre servidores de correo electrónico. Fue definido por Jon Postel en 1982 y desde entonces se ha convertido en el pilar de la infraestructura de correo electrónico en Internet.</p>
+                <p>El funcionamiento del SMTP es relativamente sencillo pero efectivo. Cuando envías un correo electrónico, tu cliente de correo (como Gmail o Outlook) se comunica con el servidor de correo saliente, conocido como servidor SMTP. El servidor SMTP se encarga de enviar el mensaje de correo electrónico al servidor de correo del destinatario.</p>
+                <p>Una vez que el servidor de correo del destinatario recibe el mensaje, almacena temporalmente el correo en su bandeja de entrada hasta que el destinatario lo recupera utilizando su cliente de correo entrante (como el correo web o un cliente de correo de escritorio).</p>
+                <div class="blog-image-grande">
+                    <img src="media/smtp1.png" alt="">
+                </div>
+                <h1>Roles del Servidor SMTP y del Servidor de Correo Entrante</h1>
+                <p>- Servidor SMTP: Su función principal es enviar correos electrónicos. Cuando envías un correo, tu cliente se comunica con el servidor SMTP saliente, y este se encarga de entregar el mensaje al servidor de correo del destinatario.</p>
+                <p>- Servidor de Correo Entrante (IMAP o POP3): Este servidor se encarga de recibir y almacenar los correos electrónicos en la bandeja de entrada del destinatario. Los protocolos más comunes utilizados para recuperar correos son IMAP (Internet Message Access Protocol) y POP3 (Post Office Protocol version 3).</p>
+                <h1>Seguridad y Autenticación en el SMTP</h1>
+                <p>Dado que el SMTP ha sido ampliamente utilizado, también ha sido objeto de preocupación por problemas de seguridad. Para garantizar la privacidad y la autenticidad en el envío y recepción de correos, se han desarrollado extensiones de seguridad como SMTP sobre TLS (SMTPS) y SMTP con autenticación (SMTP AUTH). Estas extensiones cifran los datos enviados entre los servidores de correo y autentican a los usuarios para prevenir el acceso no autorizado.</p>
+                <div class="blog-image">
+                    <img src="media/smtp2.png" alt="">
+                </div>
+                <p>El SMTP ha sido un pilar fundamental en la comunicación por correo electrónico desde sus inicios. Ha permitido que millones de personas se comuniquen rápidamente, compartan información y realicen negocios en línea. Aunque han surgido tecnologías de mensajería instantánea y otras formas de comunicación, el correo electrónico sigue siendo una herramienta esencial en el ámbito personal y empresarial.</p>
+                <p>En resumen, el SMTP es la tecnología detrás del correo electrónico que ha revolucionado la forma en que nos comunicamos. Su simplicidad y eficacia lo han convertido en un protocolo estándar ampliamente adoptado en todo el mundo. Gracias al SMTP, el correo electrónico se ha convertido en una herramienta indispensable en la era digital actual y seguirá siendo una forma confiable y conveniente de comunicación en el futuro.</p>
+                <br>
+                <br>
+            </div>   
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
