@@ -93,9 +93,17 @@ main{
 
 .text__articulo-cover h1{
     font-size: 26px;
-    color: royalblue;
+    color: rgb(122, 162, 235);
     font-weight: normal;
     margin-bottom: 40px;
+}
+
+.text__articulo-cover h2{
+    font-size: 21px;
+    color: rgb(161, 235, 235);
+    font-weight: normal;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .text__articulo-cover p{
@@ -127,6 +135,18 @@ main{
   
 .blog-image-doble img {
     width: 25%; /* Ajusta el ancho de las imágenes para dejar espacio entre ellas */
+    margin-right: 4%;
+}
+
+.blog-image-doble-grande {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+  
+.blog-image-doble-grande img {
+    width: 40%; /* Ajusta el ancho de las imágenes para dejar espacio entre ellas */
     margin-right: 4%;
 }
 
@@ -203,6 +223,11 @@ main{
 @media (max-width: 720px){
 
     .blog-image-doble img {
+        width: 47%; /* Ajusta el ancho de las imágenes para dejar espacio entre ellas */
+        margin-right: 4%;
+    }
+
+    .blog-image-doble-grande img {
         width: 47%; /* Ajusta el ancho de las imágenes para dejar espacio entre ellas */
         margin-right: 4%;
     }
