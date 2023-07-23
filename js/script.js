@@ -14,34 +14,45 @@ window.onscroll = function () {
     elemento2.style.top = posicion * 0.1 + "px";
 }
 
-// Función para copiar el texto del comando al portapapeles
-function copiarTexto(comando) {
-    // Crea un elemento de texto temporal
-    const textoTemp = document.createElement('textarea');
-    textoTemp.value = comando;
-    
-    // Agrega el elemento al DOM para copiar el texto
-    document.body.appendChild(textoTemp);
-    
-    // Selecciona el texto del elemento
-    textoTemp.select();
-    
-    // Copia el texto seleccionado al portapapeles
-    document.execCommand('copy');
-    
-    // Remueve el elemento temporal
-    document.body.removeChild(textoTemp);
+  // Función para ajustar el ancho del input en función de su contenido
+  function ajustarAncho(input) {
+    input.style.width = 'auto';
+    const nuevoAncho = input.scrollWidth + 10; // Agregar un poco de margen
+    input.style.width = nuevoAncho + 'px';
   }
-  
-  // Obtén todos los botones de copiar
-  const botonesCopiar = document.querySelectorAll('.btn-copiar');
-  
-  // Agrega el evento click a cada botón
-  botonesCopiar.forEach(boton => {
-    boton.addEventListener('click', () => {
-      const comando = boton.previousElementSibling.textContent; // Obtiene el texto del comando
-      copiarTexto(comando);
-      alert('Comando copiado al portapapeles: ' + comando);
-    });
+
+  // Llamar a la función para que los inputs se ajusten al cargarse la página
+  const inputs = document.querySelectorAll('.comandos input');
+  inputs.forEach((input) => {
+    ajustarAncho(input);
   });
-  
+
+function copiarValorConsola(event) {
+  const comandos = event.currentTarget.parentElement;
+  const input = comandos.querySelector('.text');
+  const valorInput = input.value;
+
+  // Copiar el valor del input a la clipboard
+  const tempTextArea = document.createElement('textarea');
+  tempTextArea.value = valorInput;
+  document.body.appendChild(tempTextArea);
+  tempTextArea.select();
+  document.execCommand('copy');
+  document.body.removeChild(tempTextArea);
+
+  console.log(valorInput);
+
+  // Agregar la clase 'active' al contenedor 'comandos'
+  comandos.classList.add('active');
+
+  // Eliminar la clase 'active' después de unos segundos
+  setTimeout(() => {
+    comandos.classList.remove('active');
+  }, 2000); // 2000 milisegundos (2 segundos)
+}
+
+// Asociar la función al botón de ambos contenedores
+const botones = document.querySelectorAll('.comandos button');
+botones.forEach((boton) => {
+  boton.addEventListener('click', copiarValorConsola);
+});

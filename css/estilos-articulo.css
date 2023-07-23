@@ -9,7 +9,7 @@
 
 body{
     background: rgba(0, 0, 0, 0.800);
-    opacity: 0.6;
+    opacity: 0.7;
 }
 
 header{
@@ -114,15 +114,90 @@ main{
 }
 
 /* Estilos para la sección de comandos */
+.contenedor{
+    position: relative;
+}
+
+.etiqueta{
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+}
+
 .comandos {
-    margin-bottom: 10px;
+    position: relative;
+    padding: 5px;
+    border-radius: 10px;
+    display: flex;
   }
-  
+
+.comandos input.text{
+    padding: 10px;
+    font-size: 16px;
+    color: #555;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    font-family: monospace;
+    max-width: 1100px;
+    width: auto;
+}
+
+.comandos button{
+    padding: 10px;
+    background: #5784f5;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.comandos button:active{
+    background: #809ce2;
+}
+
+.comandos button:before{
+    content: "copiado!";
+    position: absolute;
+    top: -45px;
+    left: 0px;
+    background: #5c81dc;
+    padding: 8px 10px;
+    border-radius: 20px;
+    font-size: 15px;
+    display: none;
+}
+
+.comandos button:after{
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: 25px;
+    width: 10px;
+    height: 10px;
+    background: #5c81dc;
+    transform: rotate(45deg);
+    display: none;
+}
+
+.comandos.active button:before,
+.comandos.active button:after{
+    display: block;
+}
+
   /* Estilos para el código */
   code {
     background-color: #f4f4f4;
     padding: 4px;
     font-family: monospace;
+    border: none;
+    border-radius: 10px;
+
+    font-size: 18px;
+    color: #555;
+    outline: none;
   }
   
   /* Estilos para el botón */
@@ -132,6 +207,7 @@ main{
     border: none;
     padding: 6px 12px;
     cursor: pointer;
+    border-radius: 10px;
   }
 
 .blog-image {

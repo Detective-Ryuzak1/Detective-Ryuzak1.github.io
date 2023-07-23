@@ -92,177 +92,347 @@
                     <img src="media/linux4.jpg" alt="">
                 </div>
                 <h2>Comandos de Linux</h2>
-                <p>La CLI (Command Line Interface) de Linux es una interfaz de línea de comandos que permite a los usuarios interactuar con el sistema operativo mediante comandos de texto. Es una forma poderosa y eficiente de realizar tareas, administrar archivos, configurar el sistema y ejecutar programas sin necesidad de una interfaz gráfica.</p>
-                <p>Muestra una cadena de caracteres en consola, en este caso: '¡Hola, mundo!'</p>
-                <div class="comandos">
-                    <code>echo 'Hola, mundo!'</code>
-                    <button class="btn-copiar">Copiar</button>
+                <p>La CLI (Command Line Interface) de Linux es una interfaz de línea de comandos que permite a los usuarios interactuar con el sistema operativo mediante comandos de texto. Es una forma poderosa y eficiente de realizar tareas, administrar archivos, configurar el sistema y ejecutar programas sin necesidad de una interfaz gráfica.</p>                
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Muestra una cadena de caracteres en consola, en este caso: '¡Hola, mundo!'
                   </div>
-                <p>Muestra el contenido de una carpeta.</p>
                   <div class="comandos">
-                    <code>ls -l</code>
-                    <button class="btn-copiar">Copiar</button>
+                    <input type="text" class="text" value="echo 'Hola, mundo!'" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"> copy</i></button>
                   </div>
-                <p>Muestra el contenido de una carpeta, incluyendo archivos y carpetas ocultas.</p>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Muestra el contenido de una carpeta.
+                  </div>
                   <div class="comandos">
-                    <code>ls -la</code>
-                    <button class="btn-copiar">Copiar</button>
+                    <input type="text" class="text" value="ls -l" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"> copy</i></button>
                   </div>
-                <p>Escribe un texto dentro de un archivo.</p>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Muestra el contenido de una carpeta, incluyendo archivos y carpetas ocultas.
+                  </div>
                   <div class="comandos">
-                    <code>echo 'Hola Mundo!' > archivo.txt</code>
-                    <button class="btn-copiar">Copiar</button>
+                    <input type="text" class="text" value="ls -la" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"> copy</i></button>
                   </div>
-                <p>Crea un archivo vacío.</p>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Escribe un texto dentro de un archivo.
+                  </div>
                   <div class="comandos">
-                    <code>touch archivo.php</code>
-                    <button class="btn-copiar">Copiar</button>
+                    <input type="text" class="text" value="echo 'Hola Mundo!' > archivo.txt" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"> copy</i></button>
                   </div>
-                <p>Instala un programa o herramienta disponible en los repositorios de Linux.</p>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Crea un archivo vacío.
+                  </div>
                   <div class="comandos">
-                    <code>sudo apt-get install "nombre de la herramienta"</code>
-                    <button class="btn-copiar">Copiar</button>
+                    <input type="text" class="text" value="touch archivo.php" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"> copy</i></button>
                   </div>
-                <p>Instala un programa una librería o herramienta de python.</p>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Instala un programa o herramienta disponible en los repositorios de Linux.
+                  </div>
                   <div class="comandos">
-                    <code>pip3 install "nombre de la librería"</code>
-                    <button class="btn-copiar">Copiar</button>
+                    <input type="text" class="text" value="sudo apt-get install 'nombre de la herramienta'" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"> copy</i></button>
                   </div>
-                <p>Muestra el contenido de un archivo.</p>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Instala un programa una librería o herramienta de python.
+                  </div>
                   <div class="comandos">
-                    <code>cat archivo.txt</code>
-                    <button class="btn-copiar">Copiar</button>
+                    <input type="text" class="text" value="pip3 install 'nombre de la librería'" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"> copy</i></button>
                   </div>
-                <p>Para poder realizar una segunda acción sobre un comando, se hace uso de la tubería o pipe "|". En este ejemplo, se copiará en el portapapeles el contenido de un archivo para que pueda ser pegado en otra parte (Puede que se necesite instalar antes "xclip").</p>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Muestra el contenido de un archivo.
+                  </div>
                   <div class="comandos">
-                    <code>cat archivo | xclip -sel clip</code>
-                    <button class="btn-copiar">Copiar</button>
+                    <input type="text" class="text" value="cat archivo.txt" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"> copy</i></button>
                   </div>
-                <p>Moverte entre carpetas.</p>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Para poder realizar una segunda acción sobre un comando, se hace uso de la tubería o pipe "|". En este ejemplo, se copiará en el portapapeles el contenido de un archivo para que pueda ser pegado en otra parte (Puede que se necesite instalar antes "xclip").
+                  </div>
                   <div class="comandos">
-                    <code>cd Documentos</code>
-                    <button class="btn-copiar">Copiar</button>
+                    <input type="text" class="text" value="cat archivo | xclip -sel clip" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"> copy</i></button>
                   </div>
-                <p>Regresar a la carpeta anterior.</p>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Moverte entre carpetas.
+                  </div>
                   <div class="comandos">
-                    <code>cd ..</code>
-                    <button class="btn-copiar">Copiar</button>
-                  </div>  
-                <p>Crea un directorio.</p>
+                    <input type="text" class="text" value="cd Documentos" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"> copy</i></button>
+                  </div>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Regresar a la carpeta anterior.
+                  </div>
                   <div class="comandos">
-                    <code>mkdir carpeta</code>
-                    <button class="btn-copiar">Copiar</button>
+                    <input type="text" class="text" value="cd .." oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"> copy</i></button>
                   </div>
-                <p>Crea un árbol de directorios.</p>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Crea un directorio.
+                  </div>
                   <div class="comandos">
-                    <code>mkdir -p /x/y/z/carpeta</code>
-                    <button class="btn-copiar">Copiar</button>
+                    <input type="text" class="text" value="mkdir carpeta" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"> copy</i></button>
                   </div>
-                <p>Copia un archivo a el lugar donde estamos posicionados en la CLI.</p>
+                </div>
+ 
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Crea un árbol de directorios.
+                  </div>
                   <div class="comandos">
-                    <code>cp /home/usuario/descargas/archivo.txt .</code>
-                    <button class="btn-copiar">Copiar</button>
+                    <input type="text" class="text" value="mkdir -p /x/y/z/carpeta" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"> copy</i></button>
                   </div>
-                <p>Mueve una carpeta y su contenido a otra ruta.</p>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Copia un archivo a el lugar donde estamos posicionados en la CLI.
+                  </div>
                   <div class="comandos">
-                    <code>cp -r carpeta/ Documentos/nombre_de_copia</code>
-                    <button class="btn-copiar">Copiar</button>
+                    <input type="text" class="text" value="cp /home/usuario/descargas/archivo.txt ." oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"> copy</i></button>
                   </div>
-                <p>Mueve un archivo a la ruta en la que estamos posicionados.</p>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Mueve una carpeta y su contenido a otra ruta.
+                  </div>
                   <div class="comandos">
-                    <code>mv /home/usuario/descargas/archivo.txt .</code>
-                    <button class="btn-copiar">Copiar</button>
+                    <input type="text" class="text" value="cp -r carpeta/ Documentos/nombre_de_copia" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"> copy</i></button>
                   </div>
-                <p>Cambia el nombre de un archivo.</p> 
-                    <div class="comandos">
-                    <code>mv viejo.py nuevo.py</code>
-                    <button class="btn-copiar">Copiar</button>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Mueve un archivo a la ruta en la que estamos posicionados.
                   </div>
-                <p>Mueve un archivo a la carpeta anterior.</p>
                   <div class="comandos">
-                    <code>mv imagen.jpg ../imagen-jpg</code>
-                    <button class="btn-copiar">Copiar</button>
+                    <input type="text" class="text" value="mv /home/usuario/descargas/archivo.txt ." oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"> copy</i></button>
                   </div>
-                <p>Borra un archivo.</p>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Cambia el nombre de un archivo.
+                  </div>
                   <div class="comandos">
-                    <code>rm archivo.txt</code>
-                    <button class="btn-copiar">Copiar</button>
+                    <input type="text" class="text" value="mv viejo.py nuevo.py" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"> copy</i></button>
                   </div>
-                <p>Borra una carpeta y su contenido.</p>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Mueve un archivo a la carpeta anterior.
+                  </div>
                   <div class="comandos">
-                    <code>rm -rf Documentos/carpeta</code>
-                    <button class="btn-copiar">Copiar</button>
+                    <input type="text" class="text" value="mv imagen.jpg ../imagen.jpg" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"> copy</i></button>
                   </div>
-                <p>Borra todos los archivos de la carpeta en la que nos encontramos.</p>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Borra un archivo.
+                  </div>
                   <div class="comandos">
-                    <code>rm *</code>
-                    <button class="btn-copiar">Copiar</button>
+                    <input type="text" class="text" value="rm archivo.txt" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"> copy</i></button>
                   </div>
-                <p>Desinstala un programa.</p>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Borra una carpeta y su contenido.
+                  </div>
                   <div class="comandos">
-                    <code>sudo apt-get --purge remove "nombre del programa"</code>
-                    <button class="btn-copiar">Copiar</button>
+                    <input type="text" class="text" value="rm -rf Documentos/carpeta" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"> copy</i></button>
                   </div>
-                <p>Te convierte en el usuario con máximos privilegios al proporcionar la contraseña.</p>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Borra todos los archivos de la carpeta en la que nos encontramos.
+                  </div>
                   <div class="comandos">
-                    <code>sudo su</code>
-                    <button class="btn-copiar">Copiar</button>
+                    <input type="text" class="text" value="rm *" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"> copy</i></button>
                   </div>
-                <p>Busca directorios y archivos que tengan un nombre clave.</p>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Desinstala un programa.
+                  </div>
                   <div class="comandos">
-                    <code>locate "nombre clave"</code>
-                    <button class="btn-copiar">Copiar</button>
+                    <input type="text" class="text" value="sudo apt-get --purge remove 'nombre del programa'" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"> copy</i></button>
                   </div>
-                <p>Busca todos los archivos contenidos en ruta actual de manera recursiva.</p>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Te convierte en el usuario con máximos privilegios al proporcionar la contraseña.
+                  </div>
                   <div class="comandos">
-                    <code>find . -type f</code>
-                    <button class="btn-copiar">Copiar</button>
+                    <input type="text" class="text" value="sudo su" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"> copy</i></button>
                   </div>
-                <p>Busca un "archivo.txt" partiendo del punto actual.</p>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Busca directorios y archivos que tengan un nombre clave.
+                  </div>
                   <div class="comandos">
-                    <code>find . -name archivo.txt</code>
-                    <button class="btn-copiar">Copiar</button>
+                    <input type="text" class="text" value="locate 'nombre clave'" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"> copy</i></button>
                   </div>
-                <p>Busca un "archivo.txt" partiendo de la raíz del sistema.</p>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Busca todos los archivos contenidos en ruta actual de manera recursiva.
+                  </div>
                   <div class="comandos">
-                    <code>find / -name archivo.txt</code>
-                    <button class="btn-copiar">Copiar</button>
+                    <input type="text" class="text" value="find . -type f " oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"> copy</i></button>
                   </div>
-                <p>Muestra el contenido de un archivo, haciendo uso del paginado (con "/" se puede filtrar palabras dentro del archivo).</p>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Busca un "archivo.txt" partiendo del punto actual.
+                  </div>
                   <div class="comandos">
-                    <code>less archivo.txt</code>
-                    <button class="btn-copiar">Copiar</button>
+                    <input type="text" class="text" value="find . -name archivo.txt" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"> copy</i></button>
                   </div>
-                <p>Compara dos archivos dentro de dos directorios distintos.</p>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Busca un "archivo.txt" partiendo de la raíz del sistema.
+                  </div>
                   <div class="comandos">
-                    <code>diff main/commands.go dev/commands.go</code>
-                    <button class="btn-copiar">Copiar</button>
+                    <input type="text" class="text" value="find / -name archivo.txt" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"> copy</i></button>
                   </div>
-                <p>Muestra el árbol de directorios o carpetas completo.</p>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Muestra el contenido de un archivo, haciendo uso del paginado (con "/" se puede filtrar palabras dentro del archivo).
+                  </div>
                   <div class="comandos">
-                    <code>tree</code>
-                    <button class="btn-copiar">Copiar</button>
+                    <input type="text" class="text" value="less archivo.txt" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"> copy</i></button>
                   </div>
-                <p>Comprime varios.</p>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Compara dos archivos dentro de dos directorios distintos.
+                  </div>
                   <div class="comandos">
-                    <code>zip -q archivos.zip archivo1 archivo2 archivo3</code>
-                    <button class="btn-copiar">Copiar</button>
+                    <input type="text" class="text" value="diff main/commands.go dev/commands.go" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"> copy</i></button>
                   </div>
-                <p>Comprime una carpeta.</p>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Muestra el árbol de directorios o carpetas completo.
+                  </div>
                   <div class="comandos">
-                    <code>zip -r carpeta.zip carpeta</code>
-                    <button class="btn-copiar">Copiar</button>
+                    <input type="text" class="text" value="tree" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"> copy</i></button>
                   </div>
-                <p>Descomprime un zip (Existen otras herramientas para comprimir y descomprimir, como: gunzip, tar y 7z).</p>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Comprime varios archivos.
+                  </div>
                   <div class="comandos">
-                    <code>unzip archivo.zip</code>
-                    <button class="btn-copiar">Copiar</button>
+                    <input type="text" class="text" value="zip -q archivos.zip archivo1 archivo2 archivo3" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"> copy</i></button>
                   </div>
-                <p>Abre el editor de texto en consola (con "ctrl + o" se guardan los cambios y con "ctrl + x" se sale del modo edición).</p>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Comprime una carpeta.
+                  </div>
                   <div class="comandos">
-                    <code>nano archivo.txt</code>
-                    <button class="btn-copiar">Copiar</button>
+                    <input type="text" class="text" value="zip -r carpeta.zip carpeta" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"> copy</i></button>
                   </div>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Descomprime un zip (Existen otras herramientas para comprimir y descomprimir, como: gunzip, tar y 7z).
+                  </div>
+                  <div class="comandos">
+                    <input type="text" class="text" value="unzip archivo.zip" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"> copy</i></button>
+                  </div>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Abre el editor de texto en consola (con "ctrl + o" se guardan los cambios y con "ctrl + x" se sale del modo edición).
+                  </div>
+                  <div class="comandos">
+                    <input type="text" class="text" value="nano archivo.txt" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"> copy</i></button>
+                  </div>
+                </div>
+
                 <br>                    
                 <p>Si bien las interfaces gráficas son más accesibles para usuarios no técnicos, aprender la CLI es una habilidad valiosa para aquellos que desean profundizar en el funcionamiento interno de los sistemas y maximizar su productividad. A través de la práctica y la familiarización con los comandos más comunes, los usuarios pueden adquirir confianza y aprovechar al máximo el potencial de la línea de comandos.</p>
                 <p>En resumen, la CLI es una herramienta imprescindible para cualquier entusiasta de la tecnología, desarrollador o profesional de la informática que busque mejorar su eficiencia y conocimientos en el manejo de sistemas operativos y aplicaciones. A medida que se avanza en el dominio de la línea de comandos, se descubre un mundo de posibilidades y se adquiere una valiosa habilidad que puede marcar la diferencia en el ámbito tecnológico.</p>
