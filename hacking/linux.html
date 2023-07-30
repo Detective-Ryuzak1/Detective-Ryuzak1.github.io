@@ -166,6 +166,36 @@
 
                 <div class="contenedor">
                   <div class="etiqueta">
+                    Instala las herramientas de Kali Linux. Es importante tener en mente que algunos comandos necesitan privilegios de administrador, por lo que se necesita hacer uso de 'sudo' antes de un comando.
+                  </div>
+                  <div class="comandos">
+                    <input type="text" class="text" value="sudo apt install kali-linux-large -y" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                  </div>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Actualiza el sistema por completo.
+                  </div>
+                  <div class="comandos">
+                    <input type="text" class="text" value="sudo apt update && full-upgrade -y" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                  </div>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Actualiza la distribución de Linux a su última versión.
+                  </div>
+                  <div class="comandos">
+                    <input type="text" class="text" value="sudo apt-get dist-upgrade" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                  </div>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
                     Instala un programa o herramienta disponible en los repositorios de Linux.
                   </div>
                   <div class="comandos">
@@ -453,6 +483,170 @@
                     <button><i class="fa fa-clone"></i><span> Copy</span></button>
                   </div>
                 </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Muestra los procesos del sistema.
+                  </div>
+                  <div class="comandos">
+                    <input type="text" class="text" value="ps aux" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                  </div>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Muestra los procesos del sistema en tiempo real.
+                  </div>
+                  <div class="comandos">
+                    <input type="text" class="text" value="htop" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                  </div>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Mata un proceso que no se quiera cerrar.
+                  </div>
+                  <div class="comandos">
+                    <input type="text" class="text" value="kill -9 'El PID'" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                  </div>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Mata un proceso que no se quiera cerrar, por ejemplo, Chrome.
+                  </div>
+                  <div class="comandos">
+                    <input type="text" class="text" value="pkill Nombre del Proceso" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                  </div>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Mata un proceso que no se quiera cerrar, al seleccionarlo con el puntero del mouse.
+                  </div>
+                  <div class="comandos">
+                    <input type="text" class="text" value="xkill" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                  </div>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Cambia los permisos de un archivo para que se pueda ejecutar.
+                  </div>
+                  <div class="comandos">
+                    <input type="text" class="text" value="chmod +x script.sh" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                  </div>
+                </div>
+
+                <ol>
+                  <li>Root (Superusuario):</li>
+                    <ul>
+                      <li>En Linux, "root" es el usuario con el máximo nivel de privilegios en el sistema, también conocido como el superusuario.</li>
+                      <li>El usuario "root" tiene control total sobre el sistema y puede acceder, modificar y eliminar cualquier archivo, directorio o configuración, así como instalar y desinstalar programas.</li>
+                      <li>Debido a su amplio alcance, se debe usar con precaución, ya que los cambios realizados por "root" pueden afectar negativamente al sistema si se hacen de manera incorrecta.</li>
+                      <li>Las tareas administrativas críticas, como la instalación de software o la configuración del sistema, a menudo requieren permisos de "root".</li>
+                    </ul>
+                  <li>Grupo:</li>
+                    <ul>
+                      <li>En Linux, los usuarios pueden agruparse en categorías llamadas grupos para facilitar la gestión de permisos y accesos.</li>
+                      <li>Los grupos permiten que varios usuarios tengan los mismos permisos en ciertos archivos y directorios, lo que simplifica la administración de permisos para conjuntos de usuarios relacionados.</li>
+                      <li>Por ejemplo, si un archivo necesita ser accesible para un equipo de desarrollo, el administrador puede crear un grupo llamado "desarrollo" y agregar a todos los miembros del equipo a ese grupo.</li>
+                      <li>Luego, se pueden configurar los permisos de ese archivo para que solo los miembros del grupo "desarrollo" tengan acceso a él.</li>
+                    </ul>
+                  <li>Usuario:</li>
+                    <ul>
+                      <li>Los usuarios en Linux son cuentas individuales que utilizan el sistema operativo.</li>
+                      <li>Cada usuario tiene su propio espacio de trabajo, directorio de inicio, configuraciones y permisos de acceso a archivos y directorios.</li>
+                      <li>Cuando un usuario inicia sesión en el sistema, se identifica mediante un nombre de usuario (username) y una contraseña (password) únicos.</li>
+                      <li>Los usuarios no tienen permisos de administrador predeterminados, lo que significa que no pueden realizar cambios críticos en el sistema sin proporcionar credenciales de "root".</li>
+                      <li>Los usuarios pueden pertenecer a uno o varios grupos, lo que les otorga permisos adicionales en archivos y directorios compartidos con esos grupos.</li>
+                    </ul>
+                </ol>
+                <p>En resumen, el "root" es el superusuario con poderes elevados para administrar todo el sistema, los grupos permiten agrupar usuarios para una gestión más sencilla de permisos, y los usuarios individuales tienen sus propios espacios y permisos en el sistema. La combinación de estos roles permite una administración segura y eficiente del sistema Linux.</p>
+                
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Muestra a que grupos pertenece un usuario.
+                  </div>
+                  <div class="comandos">
+                    <input type="text" class="text" value="groups usuario" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                  </div>
+                </div>
+
+                <p>El comando chmod en Linux se utiliza para cambiar los permisos de archivos y directorios. Puedes modificar los permisos para permitir o restringir diferentes acciones a usuarios, grupos y otros en el sistema. La sintaxis básica del comando es la siguiente:</p>
+
+                <ol>
+                  <li>Notación numérica:</li>
+                    <ul>
+                      <li>4: Lectura (r)</li>
+                      <li>2: Escritura (w)</li>
+                      <li>1: Ejecución (x)</li>
+                    </ul>
+
+                    <div class="contenedor">
+                      <div class="etiqueta">
+                        Para dar permisos de lectura y escritura al propietario, y solo permiso de lectura a otros (El primer número se refiere al usuario root, el segundo número al grupo y el tercero al usuario):
+                      </div>
+                      <div class="comandos">
+                        <input type="text" class="text" value="chmod 644 archivo.txt" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                      </div>
+                    </div>
+
+                    <div class="contenedor">
+                      <div class="etiqueta">
+                        Para dar permisos de lectura, escritura y ejecución al propietario, y solo permiso de ejecución a otros:
+                      </div>
+                      <div class="comandos">
+                        <input type="text" class="text" value="chmod 711 directorio/" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                      </div>
+                    </div>
+
+                  <li>Notación alfabética:</li>
+                    <ul>
+                      <li>u: Usuario (propietario)</li>
+                      <li>g: Grupo</li>
+                      <li>o: Otros (usuarios que no son el propietario ni están en el grupo)</li>
+                      <li>a: Todos (equivalente a ugo)</li>
+                    </ul>
+
+                    <div class="contenedor">
+                      <div class="etiqueta">
+                        Para dar permisos de escritura al usuario y al grupo:
+                      </div>
+                      <div class="comandos">
+                        <input type="text" class="text" value="chmod ug+w archivo.txt" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                      </div>
+                    </div>
+
+                    <div class="contenedor">
+                      <div class="etiqueta">
+                        Para quitar el permiso de escritura a otros:
+                      </div>
+                      <div class="comandos">
+                        <input type="text" class="text" value="chmod o-w archivo.txt" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                      </div>
+                    </div>
+
+                  <li>Opciones adicionales:</li>
+                    <ul>
+                      <li>'+': Añadir permiso.</li>
+                      <li>'-': Quitar permiso.</li>
+                      <li>'=': Establecer los permisos exactamente como se especifiquen, eliminando los permisos previos.</li>
+                    </ul>
+                </ol>
+
+                <p>Por favor, ten en cuenta que cambiar los permisos incorrectamente podría afectar el funcionamiento normal de los archivos y directorios, así que asegúrate de saber lo que estás haciendo antes de utilizar chmod. Siempre es recomendable tener cuidado al cambiar los permisos en el sistema.</p>
 
                 <br>                    
                 <p>Si bien las interfaces gráficas son más accesibles para usuarios no técnicos, aprender la CLI es una habilidad valiosa para aquellos que desean profundizar en el funcionamiento interno de los sistemas y maximizar su productividad. A través de la práctica y la familiarización con los comandos más comunes, los usuarios pueden adquirir confianza y aprovechar al máximo el potencial de la línea de comandos.</p>
