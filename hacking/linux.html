@@ -179,14 +179,14 @@
                     Actualiza el sistema por completo.
                   </div>
                   <div class="comandos">
-                    <input type="text" class="text" value="sudo apt update && full-upgrade -y" oninput="ajustarAncho(this)">
+                    <input type="text" class="text" value="sudo apt update && apt full-upgrade -y" oninput="ajustarAncho(this)">
                     <button><i class="fa fa-clone"></i><span> Copy</span></button>
                   </div>
                 </div>
 
                 <div class="contenedor">
                   <div class="etiqueta">
-                    Actualiza la distribución de Linux a su última versión.
+                    Actualiza la distribución de Linux a su última versión (Se necesita ejecutar antes 'sudo apt update' para actualizar la lista de paquetes disponibles).
                   </div>
                   <div class="comandos">
                     <input type="text" class="text" value="sudo apt-get dist-upgrade" oninput="ajustarAncho(this)">
@@ -545,6 +545,7 @@
                 </div>
 
                 <ol>
+                <h2>Permisos</h2>  
                 <p>Existen tres roles dentro de Linux que son útiles para poder administrar el sistema y los archivos que se encuentran dentro, tales como son:</p>
                   <li>Root (Superusuario):</li>
                     <ul>
@@ -580,7 +581,7 @@
                     <button><i class="fa fa-clone"></i><span> Copy</span></button>
                   </div>
                 </div>
-
+                <br>
                 <p>El comando chmod en Linux se utiliza para cambiar los permisos de archivos y directorios. Puedes modificar los permisos para permitir o restringir diferentes acciones a usuarios, grupos y otros en el sistema. La sintaxis básica del comando es la siguiente:</p>
 
                 <ol>
