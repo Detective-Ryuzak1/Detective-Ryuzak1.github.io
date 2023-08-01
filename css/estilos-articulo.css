@@ -127,6 +127,23 @@ main{
     color: white;
 }
 
+.text__articulo-cover table{
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: white;
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 100%;
+    border-spacing: 8px;
+}
+
+.text__articulo-cover table td, th {
+    border: 1px solid blueviolet; /* Define el estilo del borde de las celdas */
+    padding: 8px; /* Añade espacio interno a las celdas */
+    text-align: right; /* Alinea el contenido de las celdas a la derecha */
+  }
+
 /* Estilos para la sección de comandos */
 .contenedor{
     position: relative;
@@ -274,6 +291,20 @@ main{
     height: auto;
 }
 
+.blog-image-blanco {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+  
+.blog-image-blanco img {
+    max-width: 100%;
+    width: 200px;
+    height: auto;
+    filter: invert(100%) sepia(0%) saturate(7447%) hue-rotate(35deg) brightness(106%) contrast(100%);
+}
+
 .blog-image-zoom {
     width: 100%;
     text-align: center;
@@ -342,6 +373,14 @@ main{
         width: 47%; /* Ajusta el ancho de las imágenes para dejar espacio entre ellas */
         margin-right: 4%;
     }
+
+    .text__articulo-cover ol li{
+       list-style-position: inside;
+    }
+
+    .text__articulo-cover ul li{
+        list-style-position: inside;
+     }
 
     .comandos button span {
         display: none;
