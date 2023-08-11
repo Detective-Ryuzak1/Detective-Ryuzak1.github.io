@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Bonus">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <h1>Telnet y SSH</h1>
+                <p>Cuando se trata de conectarse y administrar sistemas remotos, dos protocolos fundamentales surgen en el mundo de la informática: SSH y Telnet. Ambos permiten la comunicación entre dispositivos a través de una red, pero presentan diferencias esenciales en términos de seguridad y funcionalidad. En este artículo, exploraremos qué son SSH y Telnet, cómo se utilizan en entornos Linux y Windows, y cómo difieren en sus características técnicas.</p>
+                <p>Tanto SSH como Telnet pueden utilizarse en sistemas operativos Linux y Windows para acceder y administrar dispositivos remotos. Sin embargo, debido a las diferencias en seguridad y funcionalidad, se recomienda encarecidamente el uso de SSH en lugar de Telnet siempre que sea posible.</p>
+                <p>En resumen, SSH es la elección más segura y recomendada para la comunicación y administración remota en entornos Linux y Windows. Proporciona cifrado de datos y autenticación sólida, protegiendo la información de posibles amenazas. Por otro lado, Telnet, aunque todavía se encuentra en uso en algunos casos, es menos seguro debido a la falta de cifrado en la transmisión de datos. Siempre es importante priorizar la seguridad de tus comunicaciones y elegir la opción que mejor se adapte a tus necesidades.</p>
+                <p>Puedes utilizar SSH y Telnet para conectarte a una variedad de dispositivos y sistemas remotos en una red.</p>
+                <h2>Conexiones</h2>
+                <ol>
+                    <li>Servidores Linux y Unix: Puedes conectarte a servidores Linux y sistemas Unix para administrarlos, ejecutar comandos, transferir archivos y realizar tareas de configuración.</li>
+                    <li>Dispositivos de Red: Muchos dispositivos de red, como enrutadores, switches y firewalls, admiten conexiones SSH para su administración y configuración.</li>
+                    <li>Hospedaje en la Nube: Muchos proveedores de servicios en la nube permiten el acceso SSH a las instancias virtuales, lo que te permite administrar tus recursos de manera segura.</li>
+                    <li>Máquinas Virtuales: Si estás ejecutando máquinas virtuales en plataformas como VMware o VirtualBox, puedes conectarte a ellas a través de SSH.</li>
+                    <li>Git Repositorios: Puedes utilizar SSH para acceder y administrar repositorios Git, lo que facilita la colaboración en proyectos de desarrollo.</li>
+                </ol>
+                <h2>Telnet</h2>
+                <p>Telnet, por otro lado, es un protocolo más antiguo que permite la comunicación entre dispositivos a través de la red, pero carece del nivel de seguridad que ofrece SSH. Los datos transmitidos a través de Telnet no están cifrados, lo que puede dejarlos vulnerables a ataques.</p>
+                <p>El puerto por defecto utilizado por Telnet es el puerto 23.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Para conectarse a un sistema remoto utilizando Telnet desde un terminal, utiliza el siguiente comando:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="telnet direccion_ip_o_nombre_de_host" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Por ejemplo:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="telnet 192.168.1.100" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <h2>Desventajas de Telnet:</h2>
+                <ul style="list-style-type: circle;">
+                    <li>Falta de cifrado, lo que hace que los datos sean susceptibles a interceptaciones maliciosas.</li>
+                    <li>Contraseñas transmitidas en texto plano, lo que las hace vulnerables.</li>
+                    <li>Riesgo de ataques de "hombre en el medio" (Man-in-the-Middle).</li>
+                </ul>
+                <div class="blog-image">
+                    <img src="media/ssh2.png" alt="">
+                </div> 
+                <h2>SSH (Secure Shell)</h2>
+                <p>SSH (Secure Shell) es un protocolo de red que proporciona un nivel de seguridad superior a la comunicación remota en comparación con Telnet. SSH establece una conexión cifrada entre dos dispositivos, lo que significa que los datos transmitidos están protegidos de posibles ataques o interceptaciones.</p>
+                <p>El puerto por defecto utilizado por SSH es el puerto 22.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Para conectarse a un sistema remoto utilizando SSH desde un terminal, utiliza el siguiente comando:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="ssh usuario@direccion_ip_o_nombre_de_host" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Por ejemplo:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="ssh usuario@192.168.1.100" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <h2>Ventajas de SSH:</h2>
+                <ul style="list-style-type: circle;">
+                    <li>Cifrado de datos para una comunicación segura.</li>
+                    <li>Autenticación sólida a través de contraseñas o claves públicas/privadas.</li>
+                    <li>Posibilidad de transferir archivos de manera segura utilizando el comando 'scp'.</li>
+                </ul>  
+                <h2>Clave Privada y Clave Pública en SSH</h2>
+                <p>En SSH, se utilizan pares de claves criptográficas: una clave privada y una clave pública. Estas claves trabajan juntas para establecer conexiones seguras y autenticadas.</p>
+                <ol>
+                   <li>Clave Privada: La clave privada es una pieza secreta y confidencial de información que se almacena en el sistema del usuario o cliente SSH. Nunca debe ser compartida ni revelada a terceros. Esta clave se utiliza para desbloquear información cifrada que se ha codificado con la clave pública correspondiente. La clave privada es esencial para demostrar la identidad del usuario.</li>
+                   <li>Clave Pública: La clave pública es la contraparte de la clave privada y se comparte con otros sistemas o servidores a los que deseas acceder de manera segura. Puede ser compartida libremente sin comprometer la seguridad del sistema. Cuando se establece una conexión SSH, el servidor utiliza la clave pública para cifrar datos que solo pueden ser desbloqueados por la clave privada correspondiente.</li> 
+                </ol>
+                <h2>Funcionamiento del Proceso de Autenticación</h2>
+                <ol>
+                    <li>Generación de las Claves: El usuario genera un par de claves (pública y privada) en su sistema local utilizando herramientas como 'ssh-keygen'.</li>
+                    <li>Distribución de la Clave Pública: La clave pública se copia en el servidor remoto al que se desea acceder. Usualmente se agrega al archivo ~/.ssh/authorized_keys en el servidor.</li>
+                    <li>Inicio de Sesión Seguro: Cuando el usuario intenta iniciar sesión en el servidor remoto, el servidor envía un desafío cifrado utilizando la clave pública del usuario.</li>
+                    <li>Autenticación del Cliente: El cliente SSH utiliza su clave privada para descifrar el desafío y lo devuelve al servidor.</li>
+                    <li>Verificación en el Servidor: El servidor compara el desafío recibido con su propia versión cifrada utilizando la clave pública del usuario.</li>
+                    <li>Conexión Establecida: Si el desafío coincide, el servidor sabe que el cliente tiene la clave privada correspondiente y permite la conexión segura.</li>
+                </ol>  
+                <h2>Ventajas de las Claves Públicas y Privadas</h2>
+                <ul style="list-style-type: circle;">
+                    <li>Mayor Seguridad: Las claves públicas y privadas proporcionan una autenticación más segura que las contraseñas. No se envían contraseñas por la red, lo que minimiza el riesgo de interceptación.</li>
+                    <li>Sin Contraseñas: Los usuarios no necesitan ingresar contraseñas cada vez que se conectan, lo que agiliza el proceso y reduce la posibilidad de ataques de fuerza bruta.</li>
+                    <li>Fácil Gestión: Las claves públicas pueden ser distribuidas en varios servidores, lo que permite el acceso seguro a múltiples sistemas sin la necesidad de recordar diferentes contraseñas.</li>
+                </ul>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Esta es una forma de conectarse por SSH utilizando la clave privada del usuario de un sistema al que se desea acceder. Normalmente, estas claves se encuentran en la ruta '/home/usuario/.ssh', donde se valida que sea la misma clave que se proporcionó.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="ssh -i id_rsa usuario@192.168.0.2" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Es importante tener en mente que para una clave privada 'id_rsa' generada con el comando 'ssh-keygen', es necesario modificar los permisos para poder acceder al servidor remoto con el comando 'chmod 600 id_rsa'.</p>
+                <h2>Comandos adicionales</h2>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Realiza un reenvío de puerto (port forwarding), el cual abre un puerto interno del servidor en la computadora desde la cual nos conectamos mediante la dirección de localhost (127.0.0.1). Este puerto podría estar siendo utilizado para un sitio web, una base de datos u otro servicio.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="ssh -i key -L 8000:127.0.0.1:8000 usuario@192.168.0.5" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Descarga un archivo ubicado en la ruta indicada, en este caso '/usr/lib/apache2', a la carpeta en la cual nos encontramos ubicados.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="scp usuario@10.10.10.146:/usr/lib/apache2/archivo.js ." oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Este comando SCP utiliza el archivo de clave privada "id_rsa" para establecer una conexión segura a través del puerto 2222 con el servidor en la dirección IP 10.129.128.214. Luego, copia el archivo "nc" ubicado en "/usr/bin/nc" desde la máquina local al directorio "/tmp/" en el servidor remoto, permitiendo la transferencia segura de archivos entre sistemas.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="scp -P 2222 -i id_rsa /usr/bin/nc usuario@10.129.128.214:/tmp/nc" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <h2>¿Qué es PuTTY?</h2>
+                <p>PuTTY es una aplicación de código abierto ampliamente utilizada que ofrece una interfaz gráfica intuitiva para conectar de manera segura a sistemas remotos a través de SSH y Telnet en sistemas Windows.</p>
+                <h2>Características de PuTTY:</h2>
+                <ul style="list-style-type: circle;">
+                    <li>Interfaz fácil de usar para establecer conexiones SSH y Telnet.</li>
+                    <li>Admite una variedad de autenticaciones, incluidas contraseñas y claves públicas.</li>
+                    <li>Capacidad de transferir archivos de manera segura a través de SCP y SFTP.</li>
+                    <li>Configuraciones avanzadas, como túneles SSH (SSH tunneling) para redireccionamiento de puertos.</li>
+                </ul> 
+                <h2>Uso de PuTTY:</h2>
+                <ol>
+                    <li>Descarga PuTTY desde su sitio web oficial e instálalo en tu sistema Windows.</li>
+                    <li>Abre PuTTY y completa los campos requeridos, como la dirección IP o el nombre de host del sistema remoto.</li>
+                    <li>Selecciona el protocolo (SSH o Telnet) y configura las opciones de autenticación.</li>
+                    <li>Haz clic en "Abrir" para establecer la conexión.</li>
+                </ol>
+                <div class="blog-image-grande">
+                    <img src="media/ssh1.png" alt="">
+                </div>  
+                <br>
+                <br>
+            </div>   
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
