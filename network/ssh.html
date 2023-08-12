@@ -140,7 +140,7 @@
                 <h2>Comandos adicionales</h2>
                 <div class="contenedor">
                     <div class="etiqueta">
-                        Realiza un reenvío de puerto (port forwarding), el cual abre un puerto interno del servidor en la computadora desde la cual nos conectamos mediante la dirección de localhost (127.0.0.1). Este puerto podría estar siendo utilizado para un sitio web, una base de datos u otro servicio.
+                        Realiza un reenvío de puerto (port forwarding), el cual abre un puerto interno del servidor que no es accesible desde Internet en la red local de nuestra computadora, desde la cual nos conectamos mediante la dirección de localhost (127.0.0.1). Este puerto podría estar siendo utilizado para un sitio web, una base de datos u otro servicio. En caso de ser un sitio web, se podría acceder ingresando '127.0.0.1:8000' en nuestro navegador.
                     </div>
                     <div class="comandos">
                       <input type="text" class="text" value="ssh -i key -L 8000:127.0.0.1:8000 usuario@192.168.0.5" oninput="ajustarAncho(this)">
@@ -149,7 +149,7 @@
                 </div>
                 <div class="contenedor">
                     <div class="etiqueta">
-                        Descarga un archivo ubicado en la ruta indicada, en este caso '/usr/lib/apache2', a la carpeta en la cual nos encontramos ubicados.
+                        Descarga un archivo ubicado en la ruta indicada del servidor, en este caso '/usr/lib/apache2', a la carpeta en la cual nos encontramos ubicados en nuestra computadora.
                     </div>
                     <div class="comandos">
                       <input type="text" class="text" value="scp usuario@10.10.10.146:/usr/lib/apache2/archivo.js ." oninput="ajustarAncho(this)">
@@ -158,7 +158,7 @@
                 </div>
                 <div class="contenedor">
                     <div class="etiqueta">
-                        Este comando SCP utiliza el archivo de clave privada "id_rsa" para establecer una conexión segura a través del puerto 2222 con el servidor en la dirección IP 10.129.128.214. Luego, copia el archivo "nc" ubicado en "/usr/bin/nc" desde la máquina local al directorio "/tmp/" en el servidor remoto, permitiendo la transferencia segura de archivos entre sistemas.
+                        Este comando SCP utiliza el archivo de clave privada "id_rsa" para establecer una conexión segura a través del puerto 2222 (el puerto default de ssh es el 22, pero en caso de usar otro, se debe especificar) con el servidor en la dirección IP 10.129.128.214. Luego, copia el archivo "nc" ubicado en "/usr/bin/nc" desde la máquina local al directorio "/tmp/" en el servidor remoto, permitiendo la transferencia segura de archivos entre sistemas.
                     </div>
                     <div class="comandos">
                       <input type="text" class="text" value="scp -P 2222 -i id_rsa /usr/bin/nc usuario@10.129.128.214:/tmp/nc" oninput="ajustarAncho(this)">

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Bonus">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <h1>HTTPS</h1>
+                <p>En el mundo digital actual, la seguridad de la información es esencial. Una de las formas más importantes de proteger tus datos mientras navegas por la web es a través de HTTPS, o Protocolo de Transferencia de Hipertexto Seguro. En este artículo, te explicaremos qué es HTTPS, cómo funciona y por qué es crucial para tu seguridad en línea. ¡Incluso te sumergiremos brevemente en el mundo técnico para que puedas comprender mejor este proceso vital!</p>
+                <p>Imagina que estás enviando una carta importante por correo. Si alguien interceptara esa carta en el camino, podría leer su contenido. HTTPS es como un sobre cerrado para tu información en línea. Protege los datos que compartes entre tu navegador y los sitios web, asegurando que solo tú y el sitio puedan acceder a ellos.</p>
+                <h2>El Proceso de Handshake</h2>
+                <p>Cuando visitas un sitio web con HTTPS, ocurre un proceso llamado "handshake" o apretón de manos. Es como establecer un acuerdo seguro antes de compartir información sensible. Aquí hay una visión general:</p>
+                <ol>
+                    <li>Hola, Soy Tu Navegador: Tu navegador (por ejemplo, Chrome o Firefox) envía un saludo al servidor del sitio web al que estás accediendo. Esto se llama "ClientHello". Es como decir "¡Hola! Quiero comunicarme contigo de manera segura".</li>
+                    <li>Respuesta Segura: El servidor responde con un "ServerHello". Este mensaje incluye información sobre la configuración de seguridad, como el tipo de cifrado que se utilizará para proteger los datos.</li>
+                    <li>¡Intercambiamos Llaves!: Tanto el navegador como el servidor acuerdan una "clave" secreta para cifrar y descifrar los datos. Esto se llama "intercambio de claves". Es como si ambos se dieran una llave para abrir el sobre cerrado.</li>
+                    <li>Cerrando el Acuerdo: Luego, se confirma que ambas partes estén listas para comunicarse de manera segura. Esto completa el proceso de "handshake" y establece una conexión segura.</li>
+                </ol>
+                <div class="blog-image-grande">
+                    <img src="media/https1.png" alt="">
+                </div>
+                <h2>Certificados SSL/TLS</h2>
+                <p>Los certificados SSL/TLS son como identificaciones digitales que aseguran que un sitio web es legítimo y seguro. Funcionan de esta manera:</p>
+                <ol>
+                    <li>Solicitud del Certificado: El propietario del sitio web solicita un certificado a una Autoridad de Certificación (CA por sus siglas en inglés). Esto es como obtener una licencia para operar un negocio.</li>
+                    <li>Verificación: La CA verifica la identidad del propietario del sitio web. Esto puede involucrar confirmar la propiedad del dominio, revisar documentos legales, etc.</li>
+                    <li>Generación del Certificado: Una vez verificada la identidad, se genera un certificado. Contiene la clave pública del sitio web, que se utilizará para cifrar los datos.</li>
+                    <li>Uso del Certificado: Cuando visitas un sitio web seguro, el servidor envía su certificado a tu navegador. Tu navegador verifica que el certificado sea válido y confiable. Si es así, se establece la conexión segura.</li>
+                </ol>
+                <div class="blog-image">
+                    <img src="media/https2.jpg" alt="">
+                </div>
+                <p>El SSL/TLS (Secure Sockets Layer/Transport Layer Security) es como un guardaespaldas digital para tus datos mientras navegas por la web. Tiene tres objetivos principales: confidencialidad, integridad y autenticación. Aquí tienes una explicación simple de cada uno:</p>
+                <ul style="list-style-type: square;">
+                    <li>Confidencialidad: Imagina que estás enviando una carta secreta a un amigo. Quieres asegurarte de que nadie más pueda leer lo que escribiste. El SSL/TLS cifra tus datos, como esa carta, para que solo tú y el destinatario puedan entenderlo. Así, aunque alguien intente espiar la comunicación, no podrán entender lo que dices.</li>
+                    <li>Integridad: Piensa en una caja que contiene un regalo valioso. Quieres asegurarte de que nadie abra la caja y cambie lo que hay adentro sin que lo sepas. El SSL/TLS protege tus datos para que no puedan ser alterados en el camino. Si alguien intenta cambiar algo en el mensaje, el receptor sabrá que ha sido modificado.</li>
+                    <li>Autenticación: Supongamos que tienes un amigo que siempre lleva una identificación para demostrar que es realmente quien dice ser. SSL/TLS hace algo similar con los sitios web. Verifica que estás realmente hablando con el sitio web que crees que es. Esto ayuda a prevenir que caigas en trampas o sitios falsos que intentan engañarte.</li>
+                </ul>
+                <div class="blog-image">
+                    <img src="media/https3.jpg" alt="">
+                </div>
+                <p>Te proporcionaré un resumen breve de los algoritmos que desempeñan un papel importante en HTTPS:</p>
+                <ol>
+                    <li>Algoritmos de Cifrado Simétrico: Estos algoritmos son utilizados para cifrar y descifrar datos utilizando una clave secreta compartida. Ejemplos comunes son AES (Advanced Encryption Standard) y 3DES (Triple Data Encryption Standard). Estos algoritmos son rápidos y eficientes para el cifrado y descifrado de grandes cantidades de datos.</li>
+                    <p>Imagina que tienes un candado con una llave y quieres enviar una carta secreta a tu amigo. Tú y tu amigo tienen la misma llave. Antes de enviar la carta, la cifras utilizando el candado. Cuando llega a tu amigo, él usa la misma llave para abrir el candado y leer la carta.</p>
+                    <p>En términos de seguridad en línea, el cifrado simétrico es como compartir una clave secreta entre dos partes para cifrar y descifrar los datos. Ejemplos de algoritmos de cifrado simétrico son AES y 3DES.</p>
+                    <li>Algoritmos de Cifrado Asimétrico (Criptografía de Clave Pública): Estos algoritmos se basan en pares de claves, una pública y otra privada. La clave pública se comparte ampliamente y se utiliza para cifrar datos, mientras que la clave privada se mantiene en secreto y se utiliza para descifrar los datos cifrados. Ejemplos comunes son RSA y Diffie-Hellman. Estos algoritmos son utilizados en el proceso de intercambio de claves durante el handshake.</li>
+                    <p>Imagina que tienes una caja con dos cerraduras: una cerradura pública y otra cerradura privada. Puedes dar la llave de la cerradura pública a cualquiera. Cuando alguien coloca algo en la caja y la cierra con la cerradura pública, solo tú puedes abrirla con tu llave privada.</p>
+                    <p>En términos de seguridad en línea, el cifrado asimétrico es similar. Cada persona tiene un par de claves: una pública y otra privada. La clave pública se comparte con todos, y la clave privada se mantiene en secreto. Si alguien quiere enviarte un mensaje secreto, lo cifra con tu clave pública, y solo tú puedes descifrarlo con tu clave privada.</p>
+                    <li>Funciones de Hash: Las funciones de hash son utilizadas para generar valores únicos (hash) a partir de los datos originales. Un pequeño cambio en los datos resultará en un hash completamente diferente. Ejemplos comunes son SHA-256 (Secure Hash Algorithm 256 bits) y SHA-3. Estas funciones son cruciales para garantizar la integridad de los datos, ya que cualquier cambio en los datos se reflejará en el hash.</li>
+                    <li>Firmas Digitales: Las firmas digitales son una forma de autenticación en la que se utiliza la clave privada para firmar un conjunto de datos. La firma puede ser verificada por otros utilizando la clave pública correspondiente. Esto se utiliza para garantizar que los datos no han sido alterados y que provienen de la fuente auténtica. Ejemplos comunes son las firmas basadas en RSA y ECDSA (Elliptic Curve Digital Signature Algorithm).</li>
+                    <li>Protocolos de Intercambio de Claves: En el proceso de handshake, se utilizan protocolos como el protocolo de intercambio de claves Diffie-Hellman para generar claves de sesión compartidas de manera segura sin tener que enviarlas directamente a través de la red.</li>
+                </ol>
+                <p>Voy a usar ejemplos sencillos para explicar cómo funcionan los algoritmos de integridad, autenticación y confidencialidad en HTTPS.</p>
+                <ol style="list-style-type: square;">
+                    <li>Integridad:</li>
+                    <p>Imagina que estás enviando una carta importante por correo. Antes de cerrar el sobre, tomas una fotografía de su contenido. Luego, colocas la foto dentro del sobre junto con la carta. Cuando tu amigo recibe la carta, compara la foto que tomaste con lo que hay dentro del sobre. Si la foto coincide exactamente con el contenido, sabes que la carta no fue alterada en el camino.</p>
+                    <p>En HTTPS, usamos funciones de hash como estas fotos digitales. Antes de enviar datos, se crea un "hash" (una especie de huella digital) de los datos. Cuando los datos llegan al destino, se vuelve a calcular el hash y se compara con el hash original. Si coinciden, sabemos que los datos no fueron modificados.</p>
+                    <li>Autenticación:</li>
+                    <p>Imagina que quieres comprar algo en línea. Antes de ingresar tu número de tarjeta de crédito, verificas si el sitio web tiene un candado en la barra de direcciones. Ese candado es como la identificación de un amigo. Te dice que es seguro compartir tu información.</p>
+                    <p>En HTTPS, los sitios web tienen identificaciones digitales llamadas certificados. Estos certificados son emitidos por entidades confiables y garantizan que el sitio web es quien dice ser. Tu navegador verifica esta identificación antes de confiar en el sitio.</p>
+                    <li>Confidencialidad:</li>
+                    <p>Imagina que estás en una habitación con tu amigo y quieres contarle un secreto. Pero hay mucha gente afuera que podría escuchar. Así que tomas una caja especial y pones tu mensaje dentro. Luego, pones un candado en la caja y solo tú y tu amigo tienen la llave para abrirlo.</p>
+                    <p>En HTTPS, usamos cifrado para proteger tus datos mientras viajan por Internet. Tus datos se cifran en el navegador y solo el sitio web tiene la clave para descifrarlos. Incluso si alguien intercepta los datos en el camino, solo verán información ilegible.</p>
+                </ol>
+                <p>En resumen, SSL/TLS trabaja como un protector digital que mantiene tus datos en secreto, asegura que no se cambien sin tu conocimiento y confirma que estás hablando con quienes dices estar hablando. Así puedes navegar y comunicarte en línea de manera más segura y tranquila.</p>
+                <h2>Intercambio de información</h2>
+                <p>Durante el proceso de handshake en una conexión HTTPS, se intercambia una cantidad de información crucial entre el cliente (tu navegador) y el servidor web. Esto se hace para establecer una comunicación segura y cifrada. Aquí está la información que se comparte durante el proceso de handshake:</p>
+                <ol>
+                    <li>ClientHello: Tu navegador envía un mensaje ClientHello al servidor. Este mensaje contiene:</li>
+                    <ul>
+                        <li>Versión de Protocolo: La versión de SSL/TLS que tu navegador admite.</li>
+                        <li>Cifrado y Compresión Soportados: Los algoritmos de cifrado y métodos de compresión que tu navegador puede utilizar.</li>
+                        <li>Datos Aleatorios: Un valor aleatorio único generado por el navegador. Este valor se utiliza para añadir entropía y seguridad a la conexión.</li>
+                        <li>Sesión ID: Si ya has visitado el sitio web antes y se estableció una sesión segura, esta ID se incluirá para reanudar la sesión anterior (opcional).</li>
+                    </ul>
+                    <li>ServerHello: El servidor web responde al ClientHello con un mensaje ServerHello, que contiene:</li>
+                    <ul>
+                        <li>Versión de Protocolo: La versión de SSL/TLS que el servidor y el cliente usarán para la conexión (normalmente seleccionando la versión más alta compatible).</li>
+                        <li>Cifrado y Compresión Seleccionados: El servidor elige uno de los algoritmos de cifrado y métodos de compresión proporcionados por el cliente.</li>
+                        <li>Datos Aleatorios: Al igual que en el ClientHello, el servidor envía su propio valor aleatorio único.</li>
+                        <li>Sesión ID: Si la reanudación de la sesión está habilitada y se encontró una coincidencia con la ID proporcionada por el cliente, el servidor incluye la ID de sesión correspondiente.</li>
+                    </ul>
+                    <li>Intercambio de Claves: Durante esta etapa, se realiza un proceso llamado "intercambio de claves" para establecer una clave secreta compartida que se utilizará para cifrar y descifrar los datos. Esto implica los siguientes pasos:</li>
+                    <ul>
+                        <li>Envío de Clave Pública del Servidor: El servidor envía su certificado, que incluye su clave pública. Esta clave pública se utiliza para cifrar los datos que el cliente enviará al servidor.</li>
+                        <li>Generación de Clave Secreta: Tanto el cliente como el servidor generan una clave secreta compartida llamada "clave de sesión". Esto se hace utilizando la información intercambiada anteriormente y ciertos algoritmos matemáticos.</li>
+                        <li>Cifrado de la Clave de Sesión: La clave de sesión se cifra con la clave pública del servidor y se envía de vuelta al servidor. Esto asegura que solo el servidor puede descifrar la clave de sesión.</li>
+                    </ul>
+                </ol>
+                <p>Estos pasos del handshake establecen una base segura para la comunicación encriptada entre el cliente y el servidor durante el resto de la conexión HTTPS. La información compartida y los cálculos criptográficos aseguran que los datos transmitidos estén protegidos contra la interceptación y manipulación no autorizadas.</p>
+                <div class="blog-image-grande">
+                    <img src="media/https4.jpg" alt="">
+                </div>
+                <h2>Conexión</h2>
+                <p>Una vez que se establece la conexión segura, los datos que compartes con el sitio web están cifrados, lo que significa que son ilegibles para cualquiera que intente interceptarlos. Esto es crucial al enviar información confidencial, como contraseñas o datos de tarjetas de crédito.</p>
+                <p>Después de la conexión, tu navegador y el servidor seguirán intercambiando datos de manera segura. Siempre verás un icono de candado en la barra de direcciones y "https://" en la URL para saber que estás en un sitio web seguro.</p>
+                <p>Cuando la conexión entre tu navegador y el servidor web termina, el certificado SSL/TLS que se utilizó durante la comunicación no es almacenado por tu navegador de forma permanente. En lugar de eso, tu navegador podría realizar ciertas acciones para gestionar la información del certificado:</p>
+                <ol>
+                    <li>Descarte de Datos Sensibles: Después de que la sesión segura finaliza, tu navegador generalmente descarta cualquier información sensible, incluyendo la clave pública del servidor y otros datos utilizados para establecer la conexión segura. Esto garantiza que no haya datos confidenciales dejados en tu dispositivo.</li>
+                    <li>Caché y Almacenamiento Temporal: Algunos detalles del certificado y la información del sitio web podrían ser almacenados en la memoria caché o en almacenamiento temporal, pero estos datos se eliminan periódicamente para evitar que información obsoleta o innecesaria se acumule.</li>
+                    <li>Actualización y Verificación: La próxima vez que visites el mismo sitio web, tu navegador puede volver a solicitar y verificar el certificado para asegurarse de que aún sea válido y confiable. Los navegadores también pueden utilizar mecanismos de "revocación de certificados" para detectar si un certificado ha sido revocado o ya no es válido antes de confiar en él.</li>
+                </ol>
+                <p>Los certificados SSL/TLS tienen fechas de vencimiento. Estas fechas están incluidas en los certificados y son parte integral de su seguridad. Un certificado expirado no se considera confiable, ya que no garantiza que el sitio web sea quien dice ser.</p>
+                <p>Las Autoridades de Certificación (CAs) emiten certificados con un período de validez limitado, generalmente de 1 a 2 años. Después de ese período, el certificado debe ser renovado. La renovación implica un proceso similar al de la emisión inicial, que incluye la verificación de la identidad del propietario del sitio web. Este enfoque de caducidad ayuda a mantener la seguridad, ya que cualquier problema de seguridad o cambio en la autenticidad del sitio web se abordará durante la renovación.</p>
+                <h2>Conclusión</h2>
+                <p>En resumen, HTTPS es la capa de seguridad que protege tus datos mientras navegas por la web. El proceso de handshake establece una conexión segura, y los certificados SSL/TLS garantizan la autenticidad y seguridad de los sitios web. La próxima vez que veas un candado en tu navegador, sabrás que tu información está protegida, ¡así que navega con tranquilidad!</p>
+                <br>
+                <br>
+            </div>   
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>

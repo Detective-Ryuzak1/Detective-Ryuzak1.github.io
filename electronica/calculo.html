@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Bonus">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <h1>Cálculo básico de componentes electrónicos</h1>
+                <p>En el apasionante mundo de la electrónica, cada dispositivo y circuito es como un intrincado rompecabezas de componentes interconectados. Para cualquier entusiasta de la tecnología, comprender cómo funcionan y cómo interactúan estos componentes es fundamental. Desde resistencias hasta condensadores y más allá, el cálculo básico de componentes electrónicos es el punto de partida esencial para desentrañar los secretos detrás de la creación y operación de dispositivos electrónicos. En este blog, vamos a adentrarnos en el fascinante reino de los componentes electrónicos, explorando los conceptos clave que nos permitirán comprender su comportamiento y aplicaciones en el mundo real.</p>
+                <h2>Suma de Resistencias en Serie:</h2>
+                <p>Cuando las resistencias están en serie, se suman simplemente para obtener la resistencia total. Es como poner una detrás de otra en un camino.</p>
+                <br>
+                <p><strong>Fórmula para Resistencias en Serie:</strong></p>
+                <p>R<sub>total</sub> = R<sub>1</sub> + R<sub>2</sub> + R<sub>3</sub> + ...</p>
+                <p>Por ejemplo, si R<sub>1</sub>= 10 kΩ, R<sub>2</sub>= 12 kΩ y R<sub>3</sub>= 15 kΩ:</p>
+                <p>R<sub>total</sub>= 10 kΩ + 12 kΩ + 15 kΩ = 37 kΩ</p>
+                <div class="blog-image-grande">
+                    <img src="media/calculo1.png" alt="">
+                </div>
+                <h2>Suma de Resistencias en Paralelo:</h2>
+                <p>Cuando las resistencias están en paralelo, el cálculo es un poco más complicado. La resistencia total es menor que la resistencia más pequeña en el conjunto.</p>
+                <p><strong>Fórmula para Resistencias en Paralelo:</strong></p>
+                <p><sup>1</sup>/<sub>R<sub>total</sub></sub> = <sup>1</sup>/<sub>R<sub>1</sub></sub> + <sup>1</sup>/<sub>R<sub>2</sub></sub> + <sup>1</sup>/<sub>R<sub>3</sub></sub> + ...</p>
+                <p>Utilizando los valores R<sub>1</sub> = 10 kΩ, R<sub>2</sub> = 12 kΩ y R<sub>3</sub> = 15 kΩ:</p>
+                <p><sup>1</sup>/<sub>R<sub>total</sub></sub> = <sup>1</sup>/<sub>10 kΩ</sub> + <sup>1</sup>/<sub>12 kΩ</sub> + <sup>1</sup>/<sub>15 kΩ</sub></p>
+                <p>1. Multiplica cada fracción por el producto de los denominadores restantes:</p>
+                <p>\( \frac{1}{R_{\text{total}}} = \frac{12 \cdot 15}{10 \cdot 12 \cdot 15} + \frac{10 \cdot 15}{10 \cdot 12 \cdot 15} + \frac{10 \cdot 12}{10 \cdot 12 \cdot 15} \)</p>
+                <p>2. Suma los numeradores de las fracciones resultantes:</p>
+                <p>\( \frac{1}{R_{\text{total}}} = \frac{180}{180 \cdot 15} + \frac{150}{10 \cdot 12 \cdot 15} + \frac{120}{10 \cdot 12 \cdot 15} \)</p>
+                <p>3. Continúa sumando los numeradores:</p>
+                <p>\( \frac{1}{R_{\text{total}}} = \frac{180 + 150 + 120}{10 \cdot 12 \cdot 15} \)</p>
+                <p>4. Suma los numeradores finales:</p>
+                <p>\( \frac{1}{R_{\text{total}}} = \frac{450}{10 \cdot 12 \cdot 15} \)</p>
+                <p>5. Simplifica el denominador:</p>
+                <p>\( \frac{1}{R_{\text{total}}} = \frac{3}{12} \, \text{S} \)</p>
+                <p>6. Toma el recíproco para obtener la resistencia total:</p>
+                <p>\( R_{\text{total}} = \frac{1}{\frac{3}{12}} \, \text{k}\Omega \)</p>
+                <p>\( R_{\text{total}} = \frac{12}{3} \, \text{k}\Omega \)</p>
+                <p>\( R_{\text{total}} = 4 \, \text{k}\Omega \)</p>
+                <div class="blog-image">
+                    <img src="media/calculo2.png" alt="">
+                </div>
+                <h2>Suma de Capacitores en Serie:</h2>
+                <p><strong>Fórmula para Capacitores en Serie</strong></p>
+                <p>Dado: \(C_1 = 100 \, \mu\text{F}\), \(C_2 = 150 \, \mu\text{F}\), \(C_3 = 200 \, \mu\text{F}\)</p>
+                <p>1. La fórmula correcta para capacitores en serie involucra el uso del inverso de las capacitancias:</p>
+                <p>\( \frac{1}{C_{\text{total}}} = \frac{1}{C_1} + \frac{1}{C_2} + \frac{1}{C_3} \)</p>
+                <p>2. Sustituye los valores dados:</p>
+                <p>\( \frac{1}{C_{\text{total}}} = \frac{1}{100 \, \mu\text{F}} + \frac{1}{150 \, \mu\text{F}} + \frac{1}{200 \, \mu\text{F}} \)</p>
+                <p>3. Calcula la suma de los inversos correctamente:</p>
+                <p>\( \frac{1}{C_{\text{total}}} = \frac{1}{100} + \frac{1}{150} + \frac{1}{200} \, \text{F}^{-1} \)</p>
+                <p>\( \frac{1}{C_{\text{total}}} = \frac{15 + 10 + 7.5}{1500} \, \text{F}^{-1} \)</p>
+                <p>\( \frac{1}{C_{\text{total}}} = \frac{32.5}{1500} \, \text{F}^{-1} \)</p>
+                <p>4. Toma el recíproco para encontrar \(C_{\text{total}}\):</p>
+                <p>\( C_{\text{total}} = \frac{1500}{32.5} \, \mu\text{F} \approx 46.15 \, \mu\text{F} \)</p>
+                <div class="blog-image-grande">
+                    <img src="media/calculo3.png" alt="">
+                </div>
+                <h2>Suma de Capacitores en Paralelo:</h2>
+                <p><strong>Fórmula para Capacitores en Paralelo</strong></p>
+                <p>Dado: \(C_1 = 100 \, \mu\text{F}\), \(C_2 = 150 \, \mu\text{F}\), \(C_3 = 200 \, \mu\text{F}\)</p>
+                <p>1. La fórmula para capacitores en paralelo es la suma simple de las capacitancias:</p>
+                <p>\( C_{\text{total}} = C_1 + C_2 + C_3 \)</p>
+                <p>2. Sustituye los valores dados:</p>
+                <p>\( C_{\text{total}} = 100 \, \mu\text{F} + 150 \, \mu\text{F} + 200 \, \mu\text{F} \)</p>
+                <p>3. Calcula la suma:</p>
+                <p>\( C_{\text{total}} = 450 \, \mu\text{F} \)</p>
+                <div class="blog-image">
+                    <img src="media/calculo4.png" alt="">
+                </div>
+                <h2>Suma de Inductancias en Serie:</h2>
+                <p>Dado: \(L_1 = 50 \, \text{mH}\), \(L_2 = 75 \, \text{mH}\), \(L_3 = 100 \, \text{mH}\)</p>
+                <p>1. La fórmula para inductancias en serie es la suma simple de las inductancias:</p>
+                <p>\( L_{\text{total}} = L_1 + L_2 + L_3 \)</p>
+                <p>2. Sustituye los valores dados:</p>
+                <p>\( L_{\text{total}} = 50 \, \text{mH} + 75 \, \text{mH} + 100 \, \text{mH} \)</p>
+                <p>3. Calcula la suma:</p>
+                <p>\( L_{\text{total}} = 225 \, \text{mH} \)</p>
+                <div class="blog-image-grande">
+                    <img src="media/calculo5.png" alt="">
+                </div>
+                <h2>Suma de Inductancias en Paralelo:</h2>
+                <p>Dado: \(L_1 = 50 \, \text{mH}\), \(L_2 = 75 \, \text{mH}\), \(L_3 = 100 \, \text{mH}\)</p>
+                <p>1. La fórmula para inductancias en paralelo involucra el uso del inverso de las inductancias:</p>
+                <p>\( \frac{1}{L_{\text{total}}} = \frac{1}{L_1} + \frac{1}{L_2} + \frac{1}{L_3} \)</p>
+                <p>2. Sustituye los valores dados:</p>
+                <p>\( \frac{1}{L_{\text{total}}} = \frac{1}{50 \, \text{mH}} + \frac{1}{75 \, \text{mH}} + \frac{1}{100 \, \text{mH}} \)</p>
+                <p>3. Calcula la suma de los inversos:</p>
+                <p>\( \frac{1}{L_{\text{total}}} = \frac{6 + 4 + 3}{300} \, \text{H}^{-1} \)</p>
+                <p>\( \frac{1}{L_{\text{total}}} = \frac{13}{300} \, \text{H}^{-1} \)</p>
+                <p>4. Toma el recíproco para encontrar \(L_{\text{total}}\):</p>
+                <p>\( L_{\text{total}} = \frac{300}{13} \, \text{mH} \approx 23.077 \, \text{mH} \)</p>
+                <div class="blog-image">
+                    <img src="media/calculo6.png" alt="">
+                </div>
+                <h2>Mallas</h2>
+                <p>Esta ley se basa en la conservación de la energía en un bucle cerrado en un circuito. Afirma que la suma algebraica de las caídas de voltaje en una malla es igual a cero.</p>
+                <p>\( \sum V_{\text{subida}} - \sum V_{\text{bajada}} = 0 \)</p>
+                <div class="blog-image-grande">
+                    <img src="media/calculo8.png" alt="">
+                </div>
+                <p>I<sub>3</sub>= I<sub>1</sub> + I<sub>2</sub></p>
+                <p>Malla 1:</p>
+                <p>2V + 4V = 2I<sub>1</sub> + 2I<sub>1</sub> + 4 (I<sub>1</sub>+I<sub>2</sub>)</p>
+                <p>6V = 2I<sub>1</sub> + 2I<sub>1</sub> + 4I<sub>1</sub>+ 4I<sub>2</sub></p>
+                <p>6V = 8I<sub>1</sub> + 4I<sub>2</sub> ... ecuación (1)</p>
+                <p>Malla 2:</p>
+                <p>4V + 2V = 3I<sub>2</sub> + 1I<sub>2</sub> + 4 (I<sub>1</sub>+I<sub>2</sub>)</p>
+                <p>6V = 3I<sub>2</sub> + 1I<sub>2</sub> + 4I<sub>1</sub>+ 4I<sub>2</sub></p>
+                <p>6V = 8I<sub>2</sub> + 4I<sub>1</sub> ... ecuación (2)</p>
+                <p>Igualación:</p>
+                <p>8I<sub>1</sub> + 4I<sub>2</sub> = 8I<sub>2</sub> + 4I<sub>1</sub></p>
+                <p>8I<sub>1</sub> - 4I<sub>1</sub> = 8I<sub>2</sub> - 4I<sub>2</sub></p>
+                <p>4I<sub>1</sub> = 4I<sub>2</sub></p>
+                <p>I<sub>1</sub> = I<sub>2</sub></p>
+                <p>Sustitución:</p>
+                <p>6V = 8I<sub>1</sub> + 4I<sub>2</sub></p>
+                <p>6V = 12I<sub>1</sub></p>
+                <p>I<sub>1</sub> = 6/12</p>
+                <p>I<sub>1</sub> = 0.5 Amp</p>
+                <p>Finalmente:</p>
+                <p>I<sub>3</sub>= I<sub>1</sub> + I<sub>2</sub></p>
+                <p>I<sub>3</sub> = 0.5 Amp + 0.5 Amp</p>
+                <p>I<sub>3</sub> = 1 Amp</p>
+                <h2>Nodos</h2>
+                <p>Esta ley se basa en la conservación de la corriente en un nodo. Afirma que la suma de todas las corrientes que entran a un nodo es igual a la suma de todas las corrientes que salen del nodo.</p>
+                <p>\( \sum I_{\text{entrante}} = \sum I_{\text{saliente}} \)</p>
+                <div class="blog-image-grande">
+                    <img src="media/calculo7.png" alt="">
+                </div>
+                <p>Al tener la polaridad de las dos fuentes conectadas de tal forma, tenemos que la corriente I1 e I2 entran al nodo A, dando como resultado una corriente de salida I3. El nodo B, en la parte inferior al estar en contacto con la polaridad negativa, se toma como tierra; por lo tanto, no se calcula.</p>
+                <p>Nodo A:</p>
+                <p>\( \frac{20 - VA}{10 + 20} + \frac{15 - VA}{40 + 25} \)</p>
+                <p>\( \frac{20 - VA}{30} + \frac{15 - VA}{65} \)</p>
+                <p>\( \frac{20 - VA}{30} + \frac{15 - VA}{65} = \frac{VA - VB}{30} \)</p>
+                <p>\( \frac{20}{30} - \frac{VA}{30} + \frac{15}{65} - \frac{VA}{65} = \frac{VA}{30} \)</p>
+                <p>\( \frac{20}{30}  + \frac{15}{65}  = \frac{VA}{30} + \frac{VA}{30} + \frac{VA}{65} \)</p>
+                <p>El mínimo común múltiplo de 30 y 65 es 390.</p>
+                <p>Se divide el mínimo común múltiplo por el denominador y se multiplica el numerador a cada fracción para obtener el numerador de la fracción final.</p>
+                <p>\( \frac{260 + 90}{390}  = \frac{13VA + 13VA + 6VA}{390} \)</p>
+                <p>350 = 32VA</p>
+                <p>\( \frac{350}{32}  = VA \)</p>
+                <p>VA = 10.93 V</p>
+                <p>Corrintes:</p>
+                <p>I<sub>1</sub> = \( \frac{20 - VA}{30} \)</p>
+                <p>I<sub>1</sub> = \( \frac{(20 - 10.93)V}{30} \)</p>
+                <p>I<sub>1</sub> = 0.302 Amp</p>
+                <p>I<sub>2</sub> = \( \frac{15 - VA}{65} \)</p>
+                <p>I<sub>2</sub> = \( \frac{(15 - 10.93)V}{65} \)</p>
+                <p>I<sub>2</sub> = 0.062 Amp</p>
+                <p>I<sub>3</sub> = \( \frac{VA}{30} \)</p>
+                <p>I<sub>3</sub> = \( \frac{10.93V}{30} \)</p>
+                <p>I<sub>3</sub> = 0.364 Amp</p>
+                <p>Voltaje en R2:</p>
+                <p>V<sub>R2</sub> = I<sub>2</sub> * 25</p>
+                <p>V<sub>R2</sub> = 0.062 * 25</p>
+                <p>V<sub>R2</sub> = 1.55 V</p>
+                <p>Potencia en R1:</p>
+                <p>P<sub>R1</sub> = I<sub>1</sub><sup>2</sup> * 20</p>
+                <p>P<sub>R1</sub> = (0.302<sup>2</sup>) (20)</p>
+                <p>P<sub>R1</sub> = 1.82 W</p>
+                <h2>Circuito RLC</h2>
+                <p>Supongamos que tenemos el siguiente circuito:</p>
+                <div class="blog-image-grande">
+                    <img src="media/calculo9.png" alt="">
+                </div>
+                <ul>
+                    <li>Resistencia (R) = 5Ω</li>
+                    <li>Inductor (L) = 0.1H (henrios)</li>
+                    <li>Capacitor (C) = 50μF (microfaradios)</li>
+                </ul>
+                <p>Para calcular la corriente en el circuito en serie, necesitamos conocer la fuente de voltaje o la corriente inicial en el inductor o el capacitor. Supongamos que conectamos una fuente de voltaje de 10V a este circuito.</p>
+                <p>Paso 1 - Cálculo de la corriente: Para calcular la corriente en el circuito, podemos utilizar la Ley de Ohm. La impedancia total (Z) de un circuito en serie con resistancia (R), inductancia (L) y capacitancia (C) es la suma de las impedancias individuales:</p>
+                <p>Z = R + jωL + 1/(jωC)</p>
+                <p>Donde: j = Unidad imaginaria (j = √(-1)) ω = Frecuencia angular (ω = 2πf, donde f es la frecuencia en Hz)</p>
+                <p>Supongamos una frecuencia de 50 Hz (esto implica ω = 2π * 50 Hz = 100π rad/s).</p>
+                <p>Ahora, podemos calcular la impedancia total Z y luego la corriente (I) usando la Ley de Ohm:</p>
+                <p>Z = 5Ω + j * 100π * 0.1H + 1/(j * 100π * 50μF)</p>
+                <p>Calculamos los valores en la forma rectangular (real + imaginario * j) para Z:</p>
+                <p>Z = 5 + j31.42 + j6.366</p>
+                <p>Sumamos las partes imaginarias:</p>
+                <p>Z = 5 + j37.786</p>
+                <p>Ahora podemos calcular la corriente I utilizando la Ley de Ohm:</p>
+                <p>I = V / Z</p>
+                <p>Supongamos que la fuente de voltaje es de 10V:</p>
+                <p>I = 10V / (5 + j37.786) ≈ 0.249A ∠ -85.964°</p>
+                <p>Paso 2 - Otro cálculo (por ejemplo, el voltaje en el inductor): Podemos calcular el voltaje en el inductor usando la Ley de Ohm nuevamente:</p>
+                <p>V<sub>L</sub> = I * jωL</p>
+                <p>V<sub>L</sub> = 0.249A ∠ -85.964° * j * 100π * 0.1H</p>
+                <p>Calculamos el valor del voltaje en el inductor:</p>
+                <p>V<sub>L</sub> ≈ 15.708V ∠ 4.036°</p>
+                <h2>Conclusión</h2>
+                <p>Recuerda que estos cálculos se basan en valores inventados para los componentes del circuito. En una aplicación práctica, estos valores pueden variar y afectar los resultados.</p>
+                <div class="blog-image-grande">
+                    <img src="media/calculo10.jpg" alt="">
+                </div>
+                <br>
+                <br>
+            </div>   
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
