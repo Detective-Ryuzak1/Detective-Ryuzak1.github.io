@@ -136,7 +136,7 @@
                 <p>\( L_{\text{total}} = \frac{300}{13} \, \text{mH} \)</p>
                 <p>\( L_{\text{total}} = \frac{300}{13} \, \text{mH} \approx 23.07 \, \text{mH} \)</p>
                 <h2>Mallas</h2>
-                <p>Esta ley se basa en la conservación de la energía en un bucle cerrado en un circuito. Afirma que la suma algebraica de las caídas de voltaje en una malla es igual a cero.</p>
+                <p>La Ley de Voltajes de Kirchhoff (Ley de Mallas) establece que la suma algebraica de los voltajes en un circuito cerrado (malla) es igual a cero. Esto se deriva de la conservación de la energía.</p>
                 <p>\( \sum V_{\text{subida}} - \sum V_{\text{bajada}} = 0 \)</p>
                 <div class="blog-image-grande">
                     <img src="media/calculo8.png" alt="">
@@ -164,16 +164,137 @@
                 <p>I<sub>3</sub>= I<sub>1</sub> + I<sub>2</sub></p>
                 <p>I<sub>3</sub> = 0.5 Amp + 0.5 Amp</p>
                 <p>I<sub>3</sub> = 1 Amp</p>
+                <h2>Mallas 2</h2>
+                <p>Para el siguiente circuito, tenemos corrientes que van en sentidos contrarios, lo que afectará en los signos al realizar la sumatoria de voltajes, dependiendo de qué malla se esté analizando.</p>
+                <div class="blog-image-grande">
+                    <img src="media/calculo8-2.png" alt="">
+                </div>
+                <p>Malla 1:</p>
+                <p>25V - 10V = (7+2+9+10)I<sub>1</sub> + (7+2)I<sub>3</sub> - 9I<sub>2</sub></p>
+                <p>15V = 28I<sub>1</sub> - 9I<sub>2</sub> + 3I<sub>3</sub></p>
+                <p>Malla 2:</p>
+                <p>10V = (9+3+6)I<sub>2</sub> - 9I<sub>1</sub> + 3I<sub>3</sub></p>
+                <p>10V = -9I<sub>1</sub> + 18I<sub>2</sub> + 3I<sub>3</sub></p>
+                <p>Malla 3:</p>
+                <p>15V = (8+7+2+3)I<sub>3</sub> + (7+2)I<sub>1</sub> + 3I<sub>2</sub></p>
+                <p>15V = 9I<sub>1</sub> + 3I<sub>2</sub> + 20I<sub>3</sub></p>
+                <p>Para el siguiente circuito, tenemos corrientes que van en sentidos contrarios, lo que afectará en los signos al realizar la sumatoria de voltajes, dependiendo de qué malla se esté analizando.</p>
+                <p>Para resolver sistemas de ecuaciones con más variables y ecuaciones, se pueden utilizar matrices para realizar el cálculo. Por lo tanto, utilizaremos el método de determinantes en esta ocasión.</p>
+                <div class="blog-image-grande">
+                    <img src="media/calculo8-3.png" alt="">
+                </div>
+                <p>28I<sub>1</sub> - 9I<sub>2</sub> + 3I<sub>3</sub> = 15V</p>
+                <p>-9I<sub>1</sub> + 18I<sub>2</sub> + 3I<sub>3</sub> = 10V</p>
+                <p>9I<sub>1</sub> + 3I<sub>2</sub> + 20I<sub>3</sub> = 15V</p>
+                <br>
+                <p>Cálculo para DI<sub>1</sub>:</p>
+                <div class="matrix">
+                    <div class="number">15</div>
+                    <div class="number">-9</div>
+                    <div class="number">9</div>
+                    <div class="number">10</div>
+                    <div class="number">18</div>
+                    <div class="number">3</div>
+                    <div class="number">15</div>
+                    <div class="number">3</div>
+                    <div class="number">20</div>
+                    <div class="number">15</div>
+                    <div class="number">-9</div>
+                    <div class="number">9</div>
+                    <div class="number">10</div>
+                    <div class="number">18</div>
+                    <div class="number">3</div>
+                </div>
+                <p>DI<sub>1</sub> = (15*18*20) + (10*3*9) + (15*-9*3) - (10*-9*20) - (15*3*3) - (15*18*9)</p>
+                <p>DI<sub>1</sub> = (5400 + 270 - 405) - (-1800 + 135 + 2430)</p>
+                <p>DI<sub>1</sub> = 5265 - 765 = 4500</p>
+                <p>Cálculo para DI<sub>2</sub>:</p>
+                <div class="matrix">
+                    <div class="number">28</div>
+                    <div class="number">15</div>
+                    <div class="number">9</div>
+                    <div class="number">-9</div>
+                    <div class="number">10</div>
+                    <div class="number">3</div>
+                    <div class="number">9</div>
+                    <div class="number">15</div>
+                    <div class="number">20</div>
+                    <div class="number">28</div>
+                    <div class="number">15</div>
+                    <div class="number">9</div>
+                    <div class="number">-9</div>
+                    <div class="number">10</div>
+                    <div class="number">3</div>
+                </div>
+                <p>DI<sub>2</sub> = (28*10*20) + (-9*15*9) + (9*15*3) - (-9*15*20) - (28*15*3) - (9*10*9)</p>
+                <p>DI<sub>2</sub> = (5400 - 1215 + 405) - (-2700 + 1260 + 810)</p>
+                <p>DI<sub>2</sub> = 4790 + 630 = 5420</p>
+                <p>Cálculo para DI<sub>3</sub>:</p>
+                <div class="matrix">
+                    <div class="number">28</div>
+                    <div class="number">-9</div>
+                    <div class="number">15</div>
+                    <div class="number">-9</div>
+                    <div class="number">18</div>
+                    <div class="number">10</div>
+                    <div class="number">9</div>
+                    <div class="number">3</div>
+                    <div class="number">15</div>
+                    <div class="number">28</div>
+                    <div class="number">-9</div>
+                    <div class="number">15</div>
+                    <div class="number">-9</div>
+                    <div class="number">18</div>
+                    <div class="number">10</div>
+                </div>
+                <p>DI<sub>3</sub> = (28*18*15) + (-9*3*15) + (9*-9*10) - (-9*-9*15) - (28*3*10) - (9*18*15)</p>
+                <p>DI<sub>3</sub> = (7560 - 405 - 810) - (1215 + 840 + 2430)</p>
+                <p>DI<sub>3</sub> = 6345 - 4485 = 1860</p>
+                <p>Cálculo para DI:</p>
+                <div class="matrix">
+                    <div class="number">28</div>
+                    <div class="number">-9</div>
+                    <div class="number">9</div>
+                    <div class="number">-9</div>
+                    <div class="number">18</div>
+                    <div class="number">3</div>
+                    <div class="number">9</div>
+                    <div class="number">3</div>
+                    <div class="number">20</div>
+                    <div class="number">28</div>
+                    <div class="number">-9</div>
+                    <div class="number">9</div>
+                    <div class="number">-9</div>
+                    <div class="number">18</div>
+                    <div class="number">3</div>
+                </div>
+                <p>DI = (28*18*20) + (-9*3*9) + (9*-9*3) - (-9*-9*20) - (28*3*3) - (9*18*9)</p>
+                <p>DI = (10080 - 243 - 243) - (1620 + 252 + 1458)</p>
+                <p>DI = 9594 - 3330 = 6264</p>
+                <p>Corrientes:</p>
+                <p>I<sub>1</sub> = 4500/6264 = 0.718mA</p>
+                <p>I<sub>2</sub> = 5420/6264 = 0.865mA</p>
+                <p>I<sub>3</sub> = 1860/6264 = 0.296mA</p>
+                <p>Potencia para la resistencia de 3k:</p>
+                <p>P<sub>3k</sub> = I<sup>2</sup>R</p>
+                <p>I = I<sub>2</sub> + I <sub>3</sub> = 0.865mA + 0.296mA = 1.161mA</p>
+                <p>(1.161x10<sup>-3</sup>)<sup>2</sup>(3000) = 4.04x10<sup>-3</sup>W</p>
+
+
+
+
+
                 <h2>Nodos</h2>
-                <p>Esta ley se basa en la conservación de la corriente en un nodo. Afirma que la suma de todas las corrientes que entran a un nodo es igual a la suma de todas las corrientes que salen del nodo.</p>
+                <p>Las leyes de Kirchhoff son reglas fundamentales en circuitos eléctricos. La Ley de Corrientes de Kirchhoff (Ley de Nodos) establece que la suma de las corrientes que entran en un nodo es igual a la suma de las corrientes que salen. Esto se basa en la conservación de la carga eléctrica.</p>
                 <p>\( \sum I_{\text{entrante}} = \sum I_{\text{saliente}} \)</p>
                 <div class="blog-image-grande">
                     <img src="media/calculo7.png" alt="">
                 </div>
                 <p>Al tener la polaridad de las dos fuentes conectadas de tal forma, tenemos que la corriente I1 e I2 entran al nodo A, dando como resultado una corriente de salida I3. El nodo B, en la parte inferior al estar en contacto con la polaridad negativa, se toma como tierra; por lo tanto, no se calcula.</p>
                 <p>Nodo A:</p>
-                <p>\( \frac{20 - VA}{10 + 20} + \frac{15 - VA}{40 + 25} \)</p>
-                <p>\( \frac{20 - VA}{30} + \frac{15 - VA}{65} \)</p>
+                <p>I<sub>1</sub> + I<sub>2</sub> = I<sub>3</sub></p>
+                <p>\( \frac{20 - VA}{10 + 20} + \frac{15 - VA}{40 + 25} = \frac{VA - VB}{30} \)</p>
+                <p>\( \frac{20 - VA}{30} + \frac{15 - VA}{65} = \frac{VA - VB}{30} \)</p>
                 <p>\( \frac{20 - VA}{30} + \frac{15 - VA}{65} = \frac{VA - VB}{30} \)</p>
                 <p>\( \frac{20}{30} - \frac{VA}{30} + \frac{15}{65} - \frac{VA}{65} = \frac{VA}{30} \)</p>
                 <p>\( \frac{20}{30}  + \frac{15}{65}  = \frac{VA}{30} + \frac{VA}{30} + \frac{VA}{65} \)</p>
@@ -201,6 +322,32 @@
                 <p>P<sub>R1</sub> = I<sub>1</sub><sup>2</sup> * 20</p>
                 <p>P<sub>R1</sub> = (0.302)<sup>2</sup> (20)</p>
                 <p>P<sub>R1</sub> = 1.82 W</p>
+                <h2>Nodos 2</h2>
+                <div class="blog-image-grande">
+                    <img src="media/calculo7-2.png" alt="">
+                </div>
+                <p>En el siguiente circuito, las corrientes que fluyen van en sentido contrario con respecto al nodo B, ya que las fuentes de voltaje están conectadas en sentidos contrarios.</p>
+                <p>La ley de nodos dice que las corrientes que entran al nodo se toman como positivas y las que salen como negativas. Por lo tanto, nos queda la ecuación de corrientes de la siguiente forma:</p>
+                <p>-I<sub>1</sub> + I<sub>2</sub> + (-I<sub>3</sub>) = 0</p>
+                <p>-I<sub>1</sub> + I<sub>2</sub> - I<sub>3</sub> = 0</p>
+                <p>Para calcular la intensidad, sirve tomar como referencia el voltaje mayor como positivo en la ecuación y el voltaje de menor valor como negativo.</p>
+                <p>I<sub>1</sub> = \( \frac{VB - VA}{R1} \) = \( \frac{VB - (-6V)}{6} \)</p>
+                <p>I<sub>1</sub> = \( \frac{VB}{6} \) + \( \frac{6V}{6} \) = \( \frac{VB}{6} \) + 1A</p>
+                <p>I<sub>2</sub> = \( \frac{VC - VB}{R2} \) = \( \frac{22V - VB}{2} \)</p>
+                <p>I<sub>2</sub> = \( \frac{22V}{2} \) - \( \frac{VB}{2} \) = 11A - \( \frac{VB}{2} \)</p>
+                <p>I<sub>3</sub> = \( \frac{VB - VD}{R3} \) = \( \frac{VB - 0V}{3} \)</p>
+                <p>I<sub>3</sub> = \( \frac{VB}{3} \) - 0V = \( \frac{VB}{3} \)</p>
+                <p>Suma de corrientes:</p>
+                <p>- (\( \frac{VB}{6} \) + 1A) + (11A - \( \frac{VB}{2} \)) - (\( \frac{VB}{3} \)) = 0</p>
+                <p>10A - \( \frac{VB}{6} \)  - \( \frac{3VB}{6} \) - \( \frac{2VB}{6} \) = 0</p>
+                <p>10A - \( \frac{6VB}{6} \) = 0</p>
+                <p>10A = \( \frac{6VB}{6} \)</p>
+                <p>10A * 6 = 6VB</p>
+                <p>\( \frac{60A}{6} \) = VB</p>
+                <p>VB = 10V</p>
+                <p>I<sub>1</sub> = \( \frac{10}{6} \) + 1A = 2.66A</p>
+                <p>I<sub>2</sub> = 11A - \( \frac{10}{2} \) = 6A</p>
+                <p>I<sub>3</sub> = \( \frac{10}{3} \) = 3.33A</p>
                 <h2>Circuito RLC en Alterna</h2>
                 <p>Supongamos que tenemos el siguiente circuito:</p>
                 <div class="blog-image-grande">
@@ -253,10 +400,13 @@
                 </div>
                 <p>Obtenemos el ángulo del triangulo de impedancias:</p>
                 <p>Ángulo entre Z y R (θ<sub>impedancia</sub>):</p>
-                <p>θ<sub>impedancia</sub> = arccos(R / Z) ≈ arccos(5 / 32.62) ≈ 81.18 grados</p>
-                <p>Potencia aparente (S): S = V * I = 10 * 0.31 = 3.1 VA</p>
-                <p>Potencia reactiva (Q): Q = V * I * sin(θ<sub>impedancia</sub>) = 10 * 0.31 * sin(81.18) = 3.1 VAR</p>
-                <p>Potencia activa (P): P = V * I * cos(θ<sub>impedancia</sub>) = 10 * 0.31 * cos(81.18) = 0.4753 W</p>
+                <p>θ<sub>impedancia</sub> = arccos(R / Z) = arccos(5 / 32.62) ≈ 81.18∘</p>
+                <p>Potencia aparente (S):</p>
+                <p>S = V * I = 10 * 0.31 ≈ 3.1 VA</p>
+                <p>Potencia reactiva (Q):</p>
+                <p>Q = V * I * sin(θ<sub>impedancia</sub>) = 10 * 0.31 * sin(81.18) ≈ 3.1 VAR</p>
+                <p>Potencia activa (P):</p>
+                <p>P = V * I * cos(θ<sub>impedancia</sub>) = 10 * 0.31 * cos(81.18) ≈ 0.4753 W</p>
                 <div class="blog-image-grande">
                     <img src="media/calculo9.png" alt="">
                 </div>
@@ -265,22 +415,25 @@
                 <p>Z = R + j(ωL - 1/(ωC))</p>
                 <p>Calculamos Z:</p>
                 <p>Z = 5 + j(2π × 50 × 0.1 - 1/(2π × 50 × 0.00005))</p>
-                <p>Z = 5 + j(31.42 - 63.66j)</p>
+                <p>Z = 5 + j(31.42 - 63.66)</p>
                 <p>Z = 5 - 32.24j Ω</p>
                 <p>Se necesita hacer uso de la calculadora para realizar la conversión entre números polares y reales, ya que el cálculo de la conversión es largo.</p>
                 <p>En números polares:</p>
                 <p>Z = 32.625Ω ∠−81.238∘</p>
                 <p>La corriente total I se calcula mediante I = V/Z:</p>
-                <p>I = (10 ∠0∘)/(32.625Ω ∠−81.238∘) = 0.3065 ∠81.238∘ Amp</p>
+                <p>I = (10 ∠0∘)/(32.625Ω ∠−81.238∘) ≈ 0.3065 ∠81.238∘ Amp</p>
                 <ul>
-                    <li>Voltaje en la resistencia VR = I × R ≈ 5 * 0.3065 ∠81.238∘ = 1.53 ∠81.238∘ V</li>
+                    <li>Voltaje en la resistencia:</li>
+                    <p>VR = I × R ≈ 5 * 0.3065 ∠81.238∘ ≈ 1.53 ∠81.238∘ V</p>
                     <p>La inductancia al ser un número imaginario positivo, tiene 90 grados</p>
-                    <li>Voltaje en la inductancia VXL = I × ωL = 31.42 ∠90∘ * 0.3065 ∠81.238∘ = 9.63 ∠171.238∘ V</li>
+                    <li>Voltaje en la inductancia:</li>
+                    <p>VXL = I × ωL = 31.42 ∠90∘ * 0.3065 ∠81.238∘ ≈ 9.63 ∠171.238∘ V</p>
                     <p>La capacitancia al ser un número imaginario negativo, tiene -90 grados</p>
-                    <li>Voltaje en el capacitor VXC = I × 1/(ωC) = 63.66 ∠-90∘ * 0.3065 ∠81.238∘ = 19.51 ∠-8.762∘ V</li>
+                    <li>Voltaje en el capacitor:</li>
+                    <p>VXC = I × 1/(ωC) = 63.66 ∠-90∘ * 0.3065 ∠81.238∘ ≈ 19.51 ∠-8.762∘ V</p>
                 </ul>
                 <p>La potencia aparente S = VI se descompone en potencia activa P y potencia reactiva Q, utilizando el ángulo θ:</p>
-                <p>S = 10 ∠0∘ × (0.3065 ∠81.238∘) ≈ 3.065 ∠81.238∘ VA ≈ 0.467 + 3.03j</p>
+                <p>S = 10 ∠0∘ × (0.3065 ∠81.238∘) ≈ 3.065 ∠81.238∘ VA ≈ 0.467 + 3.03j VA</p>
                 <p>La potencia activa es la parte real y la imaginaria la potencia reactiva.</p>
                 <h2>Conclusión</h2>
                 <p>Recuerda que estos cálculos se basan en valores inventados para los componentes del circuito. En una aplicación práctica, estos valores pueden variar y afectar los resultados.</p>
