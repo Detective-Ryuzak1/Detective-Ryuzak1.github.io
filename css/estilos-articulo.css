@@ -144,6 +144,21 @@ main{
     text-align: right; /* Alinea el contenido de las celdas a la derecha */
   }
 
+.matrix {
+    display: grid;
+    grid-template-columns: repeat(3, 50px); /* Cambia el número para ajustar el número de columnas */
+    gap: 5px; /* Espacio entre celdas */
+}
+.number {
+    border: 1px solid white;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
 /* Estilos para la sección de comandos */
 .contenedor{
     position: relative;
@@ -385,5 +400,12 @@ main{
     .comandos button span {
         display: none;
       }
+    .number {
+        width: 30px;
+        height: 30px;  
+    }
+    .matrix {
+        gap: 2px;
+        grid-template-columns: repeat(3, 30px);
     }
 }    
