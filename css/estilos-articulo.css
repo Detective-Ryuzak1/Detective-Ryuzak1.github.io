@@ -159,6 +159,10 @@ main{
     color: #fff;
 }
 
+.matrix .number:nth-last-child(-n+6) {
+    border: 1px solid mediumspringgreen;
+}
+
 /* Estilos para la sección de comandos */
 .contenedor{
     position: relative;

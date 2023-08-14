@@ -45,8 +45,8 @@
                     <img src="media/calculo1.png" alt="">
                 </div>
                 <p><strong>Fórmula para Resistencias en Serie:</strong></p>
-                <p>R<sub>total</sub> = R<sub>1</sub> + R<sub>2</sub> + R<sub>3</sub> + ...</p>
                 <p>Por ejemplo, si R<sub>1</sub>= 10 kΩ, R<sub>2</sub>= 12 kΩ y R<sub>3</sub>= 15 kΩ:</p>
+                <p>R<sub>total</sub> = R<sub>1</sub> + R<sub>2</sub> + R<sub>3</sub> + ...</p>
                 <p>R<sub>total</sub>= 10 kΩ + 12 kΩ + 15 kΩ = 37 kΩ</p>
                 <h2>Suma de Resistencias en Paralelo:</h2>
                 <p>Cuando las resistencias están en paralelo, el cálculo es un poco más complicado. La resistencia total es menor que la resistencia más pequeña en el conjunto.</p>
@@ -131,7 +131,7 @@
                 <p>\( \frac{1}{L_{\text{total}}} = \frac{3750 + 5000 + 7500}{50 \cdot 75 \cdot 100} \,  \text{H}^{-1} \)</p>
                 <p>\( \frac{1}{L_{\text{total}}} = \frac{16250}{50 \cdot 75 \cdot 100} \, \text{H}^{-1} \)</p>
                 <p>\( \frac{1}{L_{\text{total}}} = \frac{13}{300} \, \text{H}^{-1} \)</p>
-                <p>4. Toma el recíproco para encontrar \(C_{\text{total}}\):</p>
+                <p>4. Toma el recíproco para encontrar \(L_{\text{total}}\):</p>
                 <p>\( L_{\text{total}} = \frac{1}{\frac{13}{300}} \, \text{mH} \)</p>
                 <p>\( L_{\text{total}} = \frac{300}{13} \, \text{mH} \)</p>
                 <p>\( L_{\text{total}} = \frac{300}{13} \, \text{mH} \approx 23.07 \, \text{mH} \)</p>
@@ -169,21 +169,22 @@
                 <div class="blog-image-grande">
                     <img src="media/calculo8-2.png" alt="">
                 </div>
+                <p>Suma de voltajes en las mallas. Se tiene que tener en cuenta la dirección de la corriente para realizar el análisis de forma correcta.</p>
                 <p>Malla 1:</p>
                 <p>25V - 10V = (7+2+9+10)I<sub>1</sub> + (7+2)I<sub>3</sub> - 9I<sub>2</sub></p>
-                <p>15V = 28I<sub>1</sub> - 9I<sub>2</sub> + 3I<sub>3</sub></p>
+                <p>15V = 28I<sub>1</sub> - 9I<sub>2</sub> + 9I<sub>3</sub></p>
                 <p>Malla 2:</p>
                 <p>10V = (9+3+6)I<sub>2</sub> - 9I<sub>1</sub> + 3I<sub>3</sub></p>
                 <p>10V = -9I<sub>1</sub> + 18I<sub>2</sub> + 3I<sub>3</sub></p>
                 <p>Malla 3:</p>
                 <p>15V = (8+7+2+3)I<sub>3</sub> + (7+2)I<sub>1</sub> + 3I<sub>2</sub></p>
                 <p>15V = 9I<sub>1</sub> + 3I<sub>2</sub> + 20I<sub>3</sub></p>
-                <p>Para el siguiente circuito, tenemos corrientes que van en sentidos contrarios, lo que afectará en los signos al realizar la sumatoria de voltajes, dependiendo de qué malla se esté analizando.</p>
+                <p>Como se está utilizando un circuito con un número mayor de mallas, es necesario usar un método de cálculo para sistemas 3x3.</p>
                 <p>Para resolver sistemas de ecuaciones con más variables y ecuaciones, se pueden utilizar matrices para realizar el cálculo. Por lo tanto, utilizaremos el método de determinantes en esta ocasión.</p>
                 <div class="blog-image-grande">
                     <img src="media/calculo8-3.png" alt="">
                 </div>
-                <p>28I<sub>1</sub> - 9I<sub>2</sub> + 3I<sub>3</sub> = 15V</p>
+                <p>28I<sub>1</sub> - 9I<sub>2</sub> + 9I<sub>3</sub> = 15V</p>
                 <p>-9I<sub>1</sub> + 18I<sub>2</sub> + 3I<sub>3</sub> = 10V</p>
                 <p>9I<sub>1</sub> + 3I<sub>2</sub> + 20I<sub>3</sub> = 15V</p>
                 <br>
@@ -279,11 +280,6 @@
                 <p>P<sub>3k</sub> = I<sup>2</sup>R</p>
                 <p>I = I<sub>2</sub> + I <sub>3</sub> = 0.865mA + 0.296mA = 1.161mA</p>
                 <p>(1.161x10<sup>-3</sup>)<sup>2</sup>(3000) = 4.04x10<sup>-3</sup>W</p>
-
-
-
-
-
                 <h2>Nodos</h2>
                 <p>Las leyes de Kirchhoff son reglas fundamentales en circuitos eléctricos. La Ley de Corrientes de Kirchhoff (Ley de Nodos) establece que la suma de las corrientes que entran en un nodo es igual a la suma de las corrientes que salen. Esto se basa en la conservación de la carga eléctrica.</p>
                 <p>\( \sum I_{\text{entrante}} = \sum I_{\text{saliente}} \)</p>
@@ -364,7 +360,9 @@
                 <p>Para calcular la corriente en el circuito en serie, necesitamos conocer la fuente de voltaje o la corriente inicial en el inductor o el capacitor. Supongamos que conectamos una fuente de voltaje de 10V a este circuito.</p>
                 <p>Para calcular la corriente en el circuito, podemos utilizar la Ley de Ohm. La impedancia total (Z) de un circuito en serie con resistancia (R), inductancia (L) y capacitancia (C) es la suma de las impedancias individuales:</p>
                 <p>Z = R + jωL + 1/(jωC)</p>
-                <p>Donde: j = Unidad imaginaria (j = √(-1)) ω = Frecuencia angular (ω = 2πf, donde f es la frecuencia en Hz)</p>
+                <p>Donde:</p>
+                <p>j = Unidad imaginaria (j = √(-1))</p> 
+                <p>ω = Frecuencia angular (ω = 2πf, donde f es la frecuencia en Hz)</p>
                 <p>Supongamos una frecuencia de 50 Hz (esto implica ω = 2π * 50 Hz = 100π rad/s).</p>
                 <p>Ahora, podemos calcular la impedancia total Z y luego la corriente (I) usando la Ley de Ohm:</p>
                 <p>Z = 5Ω + j * 100π * 0.1H + 1/(j * 100π * 50μF)</p>
@@ -377,10 +375,13 @@
                     <li>Reactancia capacitiva (XC):</li>
                     <p>XC = 1 / (2π * F * C) = 1 / (2 * π * 50 * 0.00005) ≈ 63.66</p>
                 </ul>
-                <p>En este circuito, la reactancia inductiva es mayor que la reactancia capacitiva:</p>
+                <p>En este circuito, la reactancia capacitiva es mayor que la reactancia inductiva:</p>
                 <p>XC > XL</p>
                 <p>Impedancia total (Z):</p>
                 <p>Z = √(R² + (XC - XL)²) = √(5² + (63.66 - 31.42)²) ≈ 32.62</p>
+                <div class="blog-image">
+                    <img src="media/calculo9-1.png" alt="">
+                </div>
                 <p>Ahora podemos calcular la corriente I utilizando la Ley de Ohm:</p>
                 <p>I = V / Z</p>
                 <p>Corriente total (I): I = V / Z = 10 / 32.62 ≈ 0.31 A</p>
@@ -399,14 +400,14 @@
                     <img src="media/calculo11.png" alt="">
                 </div>
                 <p>Obtenemos el ángulo del triangulo de impedancias:</p>
-                <p>Ángulo entre Z y R (θ<sub>impedancia</sub>):</p>
-                <p>θ<sub>impedancia</sub> = arccos(R / Z) = arccos(5 / 32.62) ≈ 81.18∘</p>
+                <p>Ángulo entre Z y R (ϕ<sub>impedancia</sub>):</p>
+                <p>ϕ<sub>impedancia</sub> = arccos(R / Z) = arccos(5 / 32.62) ≈ 81.18∘</p>
                 <p>Potencia aparente (S):</p>
                 <p>S = V * I = 10 * 0.31 ≈ 3.1 VA</p>
                 <p>Potencia reactiva (Q):</p>
-                <p>Q = V * I * sin(θ<sub>impedancia</sub>) = 10 * 0.31 * sin(81.18) ≈ 3.1 VAR</p>
+                <p>Q = V * I * sin(ϕ<sub>impedancia</sub>) = 10 * 0.31 * sin(81.18) ≈ 3.1 VAR</p>
                 <p>Potencia activa (P):</p>
-                <p>P = V * I * cos(θ<sub>impedancia</sub>) = 10 * 0.31 * cos(81.18) ≈ 0.4753 W</p>
+                <p>P = V * I * cos(ϕ<sub>impedancia</sub>) = 10 * 0.31 * cos(81.18) ≈ 0.4753 W</p>
                 <div class="blog-image-grande">
                     <img src="media/calculo9.png" alt="">
                 </div>
@@ -425,10 +426,10 @@
                 <ul>
                     <li>Voltaje en la resistencia:</li>
                     <p>VR = I × R ≈ 5 * 0.3065 ∠81.238∘ ≈ 1.53 ∠81.238∘ V</p>
-                    <p>La inductancia al ser un número imaginario positivo, tiene 90 grados</p>
+                    <p>La inductancia al ser un número imaginario positivo, tiene 90 grados.</p>
                     <li>Voltaje en la inductancia:</li>
                     <p>VXL = I × ωL = 31.42 ∠90∘ * 0.3065 ∠81.238∘ ≈ 9.63 ∠171.238∘ V</p>
-                    <p>La capacitancia al ser un número imaginario negativo, tiene -90 grados</p>
+                    <p>La capacitancia al ser un número imaginario negativo, tiene -90 grados.</p>
                     <li>Voltaje en el capacitor:</li>
                     <p>VXC = I × 1/(ωC) = 63.66 ∠-90∘ * 0.3065 ∠81.238∘ ≈ 19.51 ∠-8.762∘ V</p>
                 </ul>
