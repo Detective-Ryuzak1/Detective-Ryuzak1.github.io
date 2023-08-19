@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Bonus">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <h1>ARP</h1>
+                <p>El Protocolo de Resolución de Dirección (ARP, por sus siglas en inglés) es una parte crucial de la comunicación en redes de área local (LAN) basadas en Ethernet. ARP se encarga de mapear direcciones IP a direcciones físicas MAC, permitiendo que los dispositivos se comuniquen de manera eficiente en una red. En este artículo, exploraremos en detalle el funcionamiento de ARP y su estructura de encabezado.</p>
+                <h2>Dirección IP</h2>
+                <P>Una dirección IP (Protocolo de Internet) es una etiqueta numérica única asignada a cada dispositivo conectado a una red que utiliza el protocolo IP. Las direcciones IP son esenciales para identificar y localizar dispositivos en redes IP. Hay dos versiones principales de direcciones IP: IPv4 e IPv6. IPv4 utiliza direcciones numéricas de 32 bits (por ejemplo, 192.168.1.1), mientras que IPv6 utiliza direcciones hexadecimales de 128 bits (por ejemplo, 2001:0db8:85a3:0000:0000:8a2e:0370:7334).</P>
+                <p>En una red local, como una red doméstica, las direcciones IP generalmente son asignadas por un enrutador o un servidor DHCP (Protocolo de Configuración Dinámica de Host). Las direcciones IP permiten la identificación única de dispositivos en la red y el enrutamiento de datos a través de la red global de Internet.</p>
+                <h2>Dirección MAC</h2>
+                <p>Una dirección MAC (Control de Acceso al Medio) es un identificador único y permanente asignado a la interfaz de red de un dispositivo físico, como una tarjeta de red Ethernet. Cada tarjeta de red tiene una dirección MAC única de 48 bits, generalmente representada en notación hexadecimal y formateada en grupos de seis dígitos separados por dos puntos (por ejemplo, 00:1A:2B:3C:4D:5E).</p>
+                <p>La dirección MAC se utiliza en la capa de enlace de datos para identificar dispositivos en la misma red local. A diferencia de las direcciones IP, que pueden cambiar cuando un dispositivo se conecta a diferentes redes, la dirección MAC es fija y se asigna en el momento de fabricación del hardware.</p>
+                <div class="blog-image-grande">
+                    <img src="media/protocolos3.png" alt="">
+                </div>
+                <p>En una red, la dirección IP y la dirección MAC se utilizan en conjunto para permitir la comunicación. Cuando un dispositivo desea comunicarse con otro en la misma red, utiliza la dirección IP de destino para identificar el destino y la dirección MAC para direccionar el tráfico en la red local. Los protocolos como ARP permiten la resolución de direcciones IP a direcciones MAC, lo que facilita la comunicación dentro de la red.</p>
+                <h2>Funcionamiento de ARP</h2>
+                <p>ARP resuelve la diferencia entre las direcciones IP y las direcciones MAC. Cuando un dispositivo necesita enviar datos a otro dispositivo en la misma red, debe conocer la dirección MAC correspondiente para entregar el paquete de manera adecuada. Aquí está cómo funciona el proceso de resolución de dirección en ARP:</p>
+                <ol>
+                    <li>Solicitud ARP: Un dispositivo envía una solicitud ARP (ARP Request) a la red preguntando por la dirección MAC asociada a una dirección IP específica.</li>
+                    <li>Respuesta ARP: El dispositivo destino, si está presente en la misma red, responde con una respuesta ARP (ARP Reply) que contiene su dirección MAC.</li>
+                </ol>
+                <div class="blog-image-grande">
+                    <img src="media/protocolo4.jpg" alt="">
+                </div>
+                <h2>Ejemplo de ARP</h2>
+                <ul style="list-style-type: square;">
+                    <li>Solicitud ARP</li>
+                    <p>Supongamos que el dispositivo con dirección IP 192.168.1.10 necesita la dirección MAC del dispositivo con dirección IP 192.168.1.20:</p>
+                    <ol>
+                        <li>El dispositivo 192.168.1.10 envía una solicitud ARP preguntando por la dirección MAC asociada a 192.168.1.20.</li>
+                        <li>El dispositivo 192.168.1.20, al estar en la misma red, responde con su dirección MAC.</li>
+                    </ol>
+                    <li>Respuesta ARP</li>
+                    <p>Supongamos que el dispositivo con dirección IP 192.168.1.20 responde a la solicitud ARP:</p>
+                    <ol>
+                        <li>El dispositivo 192.168.1.20 recibe la solicitud ARP de 192.168.1.10.</li>
+                        <li>El dispositivo 192.168.1.20 envía una respuesta ARP a 192.168.1.10, incluyendo su dirección MAC.</li>
+                    </ol>
+                </ul>
+                <h2>Estructura del Encabezado ARP</h2>
+                <p>El encabezado ARP consta de varios campos que permiten la resolución de direcciones de manera efectiva. Aquí están los campos principales del encabezado ARP:</p>
+                <ul style="list-style-type: circle;">
+                    <li>Tipo de hardware (Hardware Type): Indica el tipo de medio de transmisión utilizado en la red, como Ethernet.</li>
+                    <li>Tipo de protocolo (Protocol Type): Indica el protocolo de capa superior que se utilizará, generalmente IPv4.</li>
+                    <li>Longitud de dirección de hardware (Hardware Address Length): Especifica la longitud de las direcciones físicas en bytes.</li>
+                    <li>Longitud de dirección de protocolo (Protocol Address Length): Especifica la longitud de las direcciones IP en bytes.</li>
+                    <li>Código de operación (Operation Code): Indica si la solicitud ARP es una solicitud (1) o una respuesta (2).</li>
+                    <li>Dirección de hardware del remitente (Sender Hardware Address): Contiene la dirección MAC del remitente.</li>
+                    <li>Dirección de protocolo del remitente (Sender Protocol Address): Contiene la dirección IP del remitente.</li>
+                    <li>Dirección de hardware del destino (Target Hardware Address): Se llena solo en las respuestas ARP, contiene la dirección MAC del destinatario.</li>
+                    <li>Dirección de protocolo del destino (Target Protocol Address): Contiene la dirección IP del destinatario.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/protocolos5.png" alt="">
+                </div>
+                <br>
+                <br>
+            </div>   
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
