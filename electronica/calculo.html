@@ -137,11 +137,8 @@
                 <p>\( L_{\text{total}} = \frac{300}{13} \, \text{mH} \approx 23.07 \, \text{mH} \)</p>
                 <h2>Ley de Joule</h2>
                 <p>La Ley de Joule es un principio en la física que establece la relación entre la energía eléctrica, la corriente eléctrica, la resistencia eléctrica y el calor generado en un conductor eléctrico. Fue formulada por el físico británico James Prescott Joule en la década de 1840 y es fundamental en la comprensión de cómo se comporta la electricidad en circuitos y cómo se transforma la energía eléctrica en otras formas de energía, como el calor.</p>
-
                 <p>La Ley de Joule establece que la cantidad de calor generado (\(Q\)) en un conductor eléctrico es directamente proporcional al cuadrado de la corriente (\(I\)) que fluye a través del conductor, a la resistencia (\(R\)) del conductor y al tiempo (\(t\)) durante el cual fluye la corriente. Matemáticamente, se expresa como:</p>
-
                 <p>\(Q = I^2 \cdot R \cdot t\)</p>
-
                 <p>Donde:</p>
                 <ul>
                   <li>\(Q\) es la cantidad de calor generada (en joules).</li>
@@ -153,12 +150,14 @@
                 <p>1J = 0.24 cal</p>
                 <p>La fórmula de la Ley de Joule para calcular la resistencia es:</p>
                 <p>\(R = \frac{Q}{I^2 \cdot t}\)</p>
+                <p>La fórmula para calcular la inductancia es:</p>
+                <p>\(I = \frac{Q}{t}\)</p>
                 <p>Primero, convirtamos el tiempo a segundos:</p>
                 <p>\(t = 2 \, \text{horas} = 2 \times 3600 \, \text{segundos} = 7200 \, \text{segundos}\)</p>
                 <p>Ahora, calculemos la resistencia:</p>
                 <p>\(R = \frac{2000 \, \text{J}}{(5 \, \text{A})^2 \cdot 7200 \, \text{segundos}}\)</p>
                 <p>\(R = 0.0111 \, \Omega\)</p>
-                <p>Por lo tanto, con los valores dados, la resistencia sería aproximadamente \(0.0556 \, \Omega\).</p>
+                <p>Por lo tanto, con los valores dados, la resistencia sería aproximadamente \(0.0111 \, \Omega\).</p>
                 <p>V = RI</p>
                 <p>Q = IVt</p>
                 <p>\(V = \frac{Q}{I \cdot t} = \frac{2000 \, \text{J}}{5 \, \text{A} \cdot 2 \, \text{horas}}\)</p>
@@ -213,8 +212,8 @@
                     <li>Distancia (r) = 25 cm</li>
                     <li>Constante (K) = 9x10<sup>9</sup> \( \frac{Nm^{2}}{C^{2}} \)</li>
                 </ul>
-                <p>Para este ejercicio, se analizará el valor de la carga para la carga inferior izquierda, que será denominada como q<sub>4</sub>.</p>
-                <p>Basándose en el gráfico que nos muestra cómo actúan las cargas entre sí, tenemos que existen 3 fuerzas en diversos sentidos actuando, resultando en una fuerza de repulsión sobre q<sub>4</sub>.</p>
+                <p>Para este ejercicio, se analizará el valor de la carga para la carga inferior derecha, que será denominada como q<sub>4</sub>.</p>
+                <p>Basándose en el gráfico que nos muestra cómo actúan las cargas entre sí, tenemos que existen 3 fuerzas actuando en diversos sentidos actuando con una fuerza de repulsión sobre q<sub>4</sub>.</p>
                 <p><strong>Fuerza q<sub>4</sub> y q<sub>3</sub></strong></p>
                 <p>\( F_{1} = (9x10^{9} \frac{Nm^{2}}{C^{2}}) \frac{0.14x10^{-6}C*0.14x10^{-6}C}{0.25m^{2}} \)</p>
                 <p>\( F_{1} = 2.82x10^{-3}N (i) \)</p>
@@ -230,13 +229,43 @@
                 <p>\( F_{3} = 1.44x10^{-3}N (i, j) \)</p>
                 <p>\( F_{3} = 1.44x10^{-3} (Cos 45, Sen 45) \)</p>
                 <p>\( F_{3} = 1.018x10^{-3}N (i) - 1.018x10^{-3}N (j) \)</p>
-                <p>La fuerza tiene actua en el eje x y.</p>
+                <p>La fuerza F<sub>3</sub> actua en el eje x y.</p>
                 <p><strong>Fuerza Resultante</strong></p>
                 <p>\( F_{R} = 2.82x10^{-3}i - 2.82x10^{-3}j + 1.018x10^{-3}i - 1.018x10^{-3}j \)</p>
                 <p>\( F_{R} = 3.838x10^{-3}i - 3.838x10^{-3}j \)</p>
-                <p>\(F{R} = \sqrt{(3.838)^{2} + (-3.838)^{2}} \)</p>
+                <p>\(F{R} = \sqrt{(3.838x10^{-3})^{2} + (-3.838x10^{-3})^{2}} \)</p>
                 <p>\(F{R} = \sqrt{2.94x10^{-5}} \)</p>
                 <p>\(F{R} = 5.42x10^{-3}N \)</p>
+                <div class="blog-image-grande">
+                    <img src="media/calculo1-4.png" alt="">
+                </div>
+                <p>Suponiendo que existen 3 cargas organizadas como se muestra en el esquema anterior. ¿Cuál sería la fuerza resultante que actúa sobre la carga q1 (la carga de la izquierda)?</p>
+                <p>En este ejercicio, vamos a hacer uso del método del paralelogramo para encontrar la fuerza resultante sobre q1.</p>
+                <p>\( F_{2} = (9x10^{9} \frac{Nm^{2}}{C^{2}}) \frac{16x10^{-9}C*-12x10^{-9}C}{0.12m^{2}} \)</p>
+                <p>\( F_{2} = 1.2x10^{-4}N \)</p>
+                <p>\(r^2 = 9^2 + 12^2 = 225\)</p>
+                <p>\(r = \sqrt{225} = 15\, \text{cm}\)</p>
+                <p>\( F_{3} = (9x10^{9} \frac{Nm^{2}}{C^{2}}) \frac{16x10^{-9}C*8x10^{-9}C}{0.15m^{2}} \)</p>
+                <p>\( F_{3} = 5.12x10^{-5}N \)</p>
+                <div class="blog-image">
+                    <img src="media/calculo1-5.jpeg" alt="">
+                </div>
+                <p>Ahora utilizaremos el método del paralelogramo para obtener el ángulo θ.</p>
+                <p>El método del paralelogramo se utiliza para sumar dos vectores usando regla del paralelogramo, y a menudo implica trabajar con ángulos.</p>
+                <p>tan θ = 9cm/12cm = 0.75</p>
+                <p>θ = arctan 0.75</p>
+                <p>θ = 36.87∘</p>
+                <div class="blog-image">
+                    <img src="media/calculo1-6.png" alt="">
+                </div>
+                <p>Por último, necesitamos aplicar el teorema del coseno para encontrar la fuerza resultante que actúa sobre q1.</p>
+                <p>\( F_{R}^{2} = (120x10^{-6})^{2} + (51.2x10^{-6})^{2} - 2(120x10^{-6})(51.2x10^{-6})cos36.87 \)</p>
+                <p>\( F_{R}^{2} = 7191.05x10^{-6}N^{2} \)</p>
+                <p>\( F_{R} = \sqrt{7191.05x10^{-6}} = 84.8x10^{-6} N  \)</p>
+                <p>Usaremos el teorema del seno para poder obtener el ángulo dirección de nuestro vector resultante.</p>
+                <p>\( \frac{Sen \delta}{51.2x10^{-6}} = \frac{Sen 36.87}{84.8x10^{-6}} \)</p>
+                <p>\( {Sen \delta} = \frac{Sen 36.87}{84.8x10^{-6}} * 51.2x10^{-6} = 0.36 \)</p>
+                <p>&delta; = arcsen 0.36 = 21.24∘</p>
                 <h2>Mallas</h2>
                 <p>La Ley de Voltajes de Kirchhoff (Ley de Mallas) establece que la suma algebraica de los voltajes en un circuito cerrado (malla) es igual a cero. Esto se deriva de la conservación de la energía.</p>
                 <p>\( \sum V_{\text{subida}} - \sum V_{\text{bajada}} = 0 \)</p>
@@ -513,7 +542,7 @@
                 <div class="blog-image-grande">
                     <img src="media/calculo9.png" alt="">
                 </div>
-                <p><strong>Cálculo para números complejos</strong></p>
+                <p><strong>Cálculo por números complejos</strong></p>
                 <p>Dado que ω = 2π × 50 rad/s y j es la unidad imaginaria (j^2 = -1), la impedancia total Z se calcula de la siguiente manera:</p>
                 <p>Z = R + j(ωL - 1/(ωC))</p>
                 <p>Calculamos Z:</p>
@@ -538,6 +567,126 @@
                 <p>La potencia aparente S = VI se descompone en potencia activa P y potencia reactiva Q, utilizando el ángulo θ:</p>
                 <p>S = 10 ∠0∘ × (0.3065 ∠81.238∘) ≈ 3.065 ∠81.238∘ VA ≈ 0.467 + 3.03j VA</p>
                 <p>La potencia activa es la parte real y la imaginaria la potencia reactiva.</p>
+                <h2>Nodos en Alterna</h2>
+                <div class="blog-image-grande">
+                    <img src="media/calculo9-4.png" alt="">
+                </div>
+                <ul>
+                    <li>Fuente (V) = 10 ∠30∘ V</li>
+                    <li>Voltaje 1 (V) = 3.02 ∠65.2∘ V</li>
+                    <li>Voltaje 2 (V) = 1.34 ∠-31.3∘ V</li>
+                    <li>Corriente (I<sub>10 ∠30∘</sub>) = 1.44 ∠38.8∘ V</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/calculo9-3.png" alt="">
+                </div>
+                <p>V<sub>1</sub> = (5 - j2)I<sub>a</sub> + 10 ∠30∘</p>
+                <p>I<sub>a</sub> = \( \frac{V_{1} - 10 ∠30^\circ}{5 - j2} \)</p>
+                <p>V<sub>1</sub> = 3I<sub>b</sub> => I<sub>b</sub> = \( \frac{V_{1}}{3} \)</p>
+                <p>V<sub>1</sub> = j5I<sub>c</sub> + V<sub>2</sub></p>
+                <p>I<sub>c</sub> = \( \frac{V_{1} - V_{2}}{j5} \)</p>
+                <p><strong>Aplicamos L.K.I. al nodo 1:</strong></p>
+                <p>I<sub>a</sub> + I<sub>b</sub> + I<sub>c</sub> = 0</p>
+                <p>\( \frac{V_{1} - 10 ∠30^\circ}{5 - j2} \) + \( \frac{V_{1}}{3} \) + \( \frac{V_{1} - V{2}}{j5} \) = 0</p>
+                <p>\( (\frac{1}{5 - j2} +  \frac{1}{3} + \frac{1}{j5})V_{1} \) - \( (\frac{1}{j5})V_{2} \) = \( \frac{10 ∠30^\circ}{5 - j2} \)</p>
+                <p>\( (\frac{1}{5.385 ∠-21.8^\circ} +  0.333 - j0.2)V_{1} \) + (j0.2)V<sub>2</sub> = \( \frac{10 ∠30^\circ}{5.385 ∠-21.8^\circ} \)</p>
+                <p> \( (0.1857 ∠21.8^\circ +  0.333 - j0.2)V_{1} \) + \( (j0.2)V_{2} \)  = \( 1.875 ∠51.8^\circ \)</p>
+                <p> \( (0.1724 - j0.069 +  0.333 - j0.2)V_{1} \) + \( (j0.2)V_{2} \)  = \( 1.875 ∠51.8^\circ \)</p>
+                <p> \( (0.5054 - j0.131)V_{1} \) + \( (j0.2)V_{2} \)  = \( 1.875 ∠51.8^\circ \)</p>
+                <div class="blog-image-grande">
+                    <img src="media/calculo9-2.png" alt="">
+                </div>
+                <p>V<sub>2</sub> = j5I<sub>c</sub> + V<sub>1</sub></p>
+                <p>I<sub>c</sub> = \( \frac{V_{2} - V_{1}}{j5} \)</p> 
+                <p>V<sub>2</sub> = 5I<sub>d</sub> => I<sub>d</sub> = \( \frac{V_{2}}{5} \)</p>
+                <p>I<sub>e</sub> = \( \frac{V_{2}}{2 - j2} \)</p>
+                <p><strong>Aplicamos L.K.I. al nodo 2:</strong></p>
+                <p>I<sub>c</sub> + I<sub>d</sub> + I<sub>e</sub> = 0</p>
+                <p>\( \frac{V_{2} - V_{1}}{j5} \) + \( \frac{V_{2}}{5} \) + \( \frac{V_{2}}{2 - j2} \) = 0</p>
+                <p>\( (\frac{-1}{j5})V_{1} \) + \( (\frac{1}{j5} +  \frac{1}{5} + \frac{1}{2 - j2})V_{2} \) = 0</p>
+                <p>\( (j0.2)V_{1} \) + \( (-j0.2 +  0.2 + \frac{1}{2.8284 ∠-45^\circ})V_{2} \) = 0</p>
+                <p>\( (j0.2)V_{1} \) + \( (-j0.2 +  0.2 + 0.3536 ∠45^\circ )V_{2} \) = 0</p>
+                <p>\( (j0.2)V_{1} \) + \( (-j0.2 +  0.2 + 0.25 + j0.25)V_{2} \) = 0</p>
+                <p>\( (j0.2)V_{1} \) + \( (0.45 + j0.05)V_{2} \) = 0</p>
+                <br>
+                <div class="matrix-mul">
+                    <div class="matrixMul2x2 matrix-a2x2">
+                        
+                        <div class="cell">0.5054 - j0.131</div>
+                        <div class="cell">j0.2</div>
+                        <div class="cell">j0.2</div>
+                        <div class="cell">0.45 + j0.05</div>
+                    </div>
+                    <div class="sign">*</div>
+                    <div class="matrixMul2x1 matrix-b2x1">
+                        
+                        <div class="cell">V<sub>1</sub></div>
+                        <div class="cell">V<sub>2</sub></div>
+                    </div>
+                    <div class="equals">=</div>
+                    <div class="matrixMul2x1 matrix-c2x1">
+                        
+                        <div class="cell">1.875 ∠51.8∘</div>
+                        <div class="cell">0</div>
+                    </div>                    
+                </div>
+                <div class="matrix-division">
+                    <p>V<sub>2</sub></p>
+                    <div class="equals">=</div>
+                    <div class="matrixDiv matrix-a">
+                        
+                        <div class="cell">0.5054 - j0.131</div>
+                        <div class="cell">1.875 ∠51.8∘</div>
+                        <div class="cell">j0.2</div>
+                        <div class="cell">0</div>
+                    </div>
+                    <div class="division">÷</div>
+                    <div class="matrixDiv matrix-b">
+                        
+                        <div class="cell">0.5054 - j0.131</div>
+                        <div class="cell">j0.2</div>
+                        <div class="cell">j0.2</div>
+                        <div class="cell">0.45 + j0.05</div>
+                    </div>
+                    <div class="equals">=</div>
+                    <p>\( \frac{-(j0.2)(1.875 ∠51.8^\circ)}{(0.5054 - j0.131)(0.45 + j0.05) - (j0.2)(j0.2)} \)</p>                    
+                </div>
+                <p>V<sub>2</sub> = \( \frac{(0.2 ∠-90^\circ)(1.875 ∠51.8^\circ)}{(0.22743 + j0.0253 - j0.059 + 0.0066) + 0.04} \)</p> 
+                <p>V<sub>2</sub> = \( \frac{0.375 ∠-38.2^\circ}{0.27403 - j0.0337} \)</p> 
+                <p>V<sub>2</sub> = \( \frac{0.375 ∠-38.2^\circ}{0.2761 ∠-7.01^\circ} \)</p>
+                <p>V<sub>2</sub> = \( 1.358 ∠-31.19^\circ \)</p> 
+                <br>
+                <div class="matrix-division">
+                    <p>V<sub>1</sub></p>
+                    <div class="equals">=</div>
+                    <div class="matrixDiv matrix-a">
+                        
+                        <div class="cell">1.875 ∠51.8∘</div>
+                        <div class="cell">j0.2</div>
+                        <div class="cell">0</div>
+                        <div class="cell">0.45 + j0.05</div>
+                    </div>
+                    <div class="division">÷</div>
+                    <div class="matrixDiv matrix-b">
+                        
+                        <div class="cell">0.5054 - j0.131</div>
+                        <div class="cell">j0.2</div>
+                        <div class="cell">j0.2</div>
+                        <div class="cell">0.45 + j0.05</div>
+                    </div>
+                    <div class="equals">=</div>
+                    <p>\( \frac{(1.875 ∠51.8^\circ)(0.45 + j0.05)}{(0.5054 - j0.131)(0.45 + j0.05) - (j0.2)(j0.2)} \)</p>                    
+                </div>
+                <p>V<sub>1</sub> = \( \frac{(1.875 ∠51.8^\circ)(0.4528 ∠6.34^\circ)}{0.27403 - j0.0337} \)</p> 
+                <p>V<sub>1</sub> = \( \frac{0.849 ∠58.14^\circ}{0.2761 ∠-7.01^\circ} \)</p>
+                <p>V<sub>1</sub> = \( 3.075 ∠65.15^\circ \)</p>
+                <p>I<sub>a</sub> = \( \frac{V_{1} - 10 ∠30^\circ}{5 - j2} \)</p>
+                <p>I<sub>a</sub> = \( \frac{3.075 ∠65.15^\circ - 10 ∠30^\circ}{5 - j2} \)</p>
+                <p>I<sub>a</sub> = \( \frac{1.3 + j2.8 - 8.66 -j5}{5 - j2} \)</p>
+                <p>I<sub>a</sub> = \( \frac{-7.36 -j2.2}{5 - j2} \) = \( \frac{-7.68 ∠16.64^\circ}{5.38 ∠-21.801^\circ} \)</p>
+                <p>I<sub>a</sub> = -1.428 ∠38.44∘</p>
+                <p>I<sub>a</sub> = -I<sub>10 ∠30∘</sub></p>
+                <p>I<sub>10 ∠30∘</sub> = 1.428 ∠38.44∘</p>
                 <h2>Conclusión</h2>
                 <p>Recuerda que estos cálculos se basan en valores inventados para los componentes del circuito. En una aplicación práctica, estos valores pueden variar y afectar los resultados.</p>
                 <div class="blog-image-grande">

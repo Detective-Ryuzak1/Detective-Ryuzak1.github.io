@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Bonus">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <h1>Guía a los Directorios del Sistema en Linux y sus Funciones</h1>
+                <p>Linux es un sistema operativo de código abierto que utiliza una estructura de directorios jerárquica para organizar los archivos y recursos del sistema. Cada directorio tiene una función específica que contribuye al funcionamiento eficiente del sistema. En este artículo, exploraremos los directorios más importantes del sistema Linux y analizaremos sus respectivas funciones.</p>
+                <br>
+                <ul style="list-style-type: circle;">
+                    <li>/bin - Ejecutables del Sistema</li>
+                    <p>El directorio '/bin' contiene archivos ejecutables esenciales para el arranque y funcionamiento básico del sistema. Estos ejecutables son accesibles para todos los usuarios y son esenciales incluso si el sistema se inicia en un modo de recuperación.</p>
+                    <li>/boot - Archivos de Arranque</li>
+                    <p>El directorio '/boot' almacena los archivos relacionados con el proceso de arranque del sistema. Esto incluye los archivos del gestor de arranque (como GRUB) y las imágenes del kernel que se utilizan durante el inicio.</p>
+                    <li>/dev - Dispositivos</li>
+                    <p>El directorio '/dev' contiene archivos especiales que representan dispositivos hardware y pseudo-dispositivos del sistema. Estos archivos permiten a los programas interactuar con el hardware como si fueran archivos regulares.</p>
+                    <li>/etc - Archivos de Configuración</li>
+                    <p>El directorio '/etc' alberga archivos de configuración del sistema y de aplicaciones. Aquí es donde los administradores pueden ajustar el comportamiento de los programas y configurar opciones del sistema.</p>
+                    <li>/home - Directorios de Usuarios</li>
+                    <p>Cada usuario del sistema tiene su propio directorio personal en '/home', donde pueden almacenar sus archivos y configuraciones individuales. Los nombres de los directorios coinciden con los nombres de usuario.</p>
+                    <li>/lib y /lib64 - Bibliotecas Compartidas</li>
+                    <p>Los directorios '/lib' y '/lib64' contienen bibliotecas compartidas esenciales utilizadas por los ejecutables del sistema y las aplicaciones. Estas bibliotecas proporcionan funciones y rutinas necesarias para la ejecución de programas.</p>
+                    <li>/media - Puntos de Montaje para Dispositivos Extraíbles</li>
+                    <p>El directorio '/media' se utiliza para montar dispositivos extraíbles, como unidades USB y CD/DVD, cuando se conectan al sistema.</p>
+                    <li>/mnt - Puntos de Montaje Temporales</li>
+                    <p>El directorio '/mnt' se utiliza para montar temporalmente sistemas de archivos adicionales. A menudo, se utiliza para montar sistemas de archivos externos o temporales.</p>
+                    <li>/opt - Software Adicional</li>
+                    <p>El directorio '/opt' se utiliza para instalar software adicional que no es parte del sistema operativo base. Esto puede incluir aplicaciones comerciales o software personalizado.</p>
+                    <li>/proc - Información del Proceso</li>
+                    <p>El directorio '/proc' proporciona información sobre los procesos en ejecución y el estado del sistema en forma de archivos virtuales.</p>
+                    <li>/root - Directorio del Usuario Root</li>
+                    <p>El directorio '/root' es el directorio personal del usuario root, el administrador del sistema. Se diferencia del directorio /home/root.</p>
+                    <li>/run - Archivos Temporales de Ejecución</li>
+                    <p>El directorio '/run' almacena archivos temporales utilizados por servicios y aplicaciones en ejecución. Especifica información sobre el estado actual del sistema.</p>
+                    <li>/sbin - Ejecutables del Sistema (Superusuario)</li>
+                    <p>El directorio '/sbin' almacena archivos ejecutables del sistema que solo pueden ser utilizados por el superusuario (root). Estos ejecutables suelen ser esenciales para la administración del sistema.</p>
+                    <li>/srv - Datos de Servicio</li>
+                    <p>El directorio '/srv' almacena datos específicos de servicios proporcionados por el sistema.</p>
+                    <li>/sys - Archivos de Información del Kernel</li>
+                    <p>El directorio '/sys' contiene archivos que representan parámetros y estadísticas del kernel y permiten a los usuarios y aplicaciones interactuar con el kernel.</p>
+                    <li>/tmp - Archivos Temporales</li>
+                    <p>El directorio '/tmp' se utiliza para almacenar archivos temporales que se eliminan al reiniciar el sistema. Los usuarios y aplicaciones pueden utilizarlo para operaciones temporales.</p>
+                    <li>/usr - Recursos Compartidos del Usuario</li>
+                    <p>El directorio '/usr' alberga la mayoría de los recursos compartidos del sistema, como aplicaciones, bibliotecas y documentación. Puede ser montado en una partición separada para facilitar la administración.</p>
+                    <li>/var - Datos Variables</li>
+                    <p>El directorio '/var' almacena datos variables que cambian con el tiempo, como registros de sistema, correos electrónicos y archivos de caché.</p>
+                </ul>
+                <p>La estructura de directorios del sistema en Linux es una parte fundamental de su funcionamiento. Cada directorio tiene un propósito específico y contribuye al orden, rendimiento y funcionamiento del sistema operativo. Comprender la función de cada directorio es esencial para la administración y el mantenimiento.</p>
+                <div class="blog-image-grande">
+                    <img src="media/linux2-1.jpg" alt="">
+                </div>
+                <h2>Instalación de Linux</h2>
+                <p>Instalar Linux es una experiencia enriquecedora que te brinda acceso a un sistema operativo robusto y de código abierto. Hay varias formas de instalar Linux, y en este artículo, exploraremos tres de los métodos más comunes: a través de máquinas virtuales, mediante particiones de disco y usando un USB booteable. Cada método tiene sus propias ventajas y desafíos, lo que te permite elegir el enfoque que mejor se adapte a tus necesidades.</p>
+                <p>Existen muchos tutoriales en internet que te guían paso a paso para poder realizar la instalación por cualquiera de estos métodos, pero es importante saber cuál es el método que se ajuste más a tus necesidades. En caso de tener una PC con bajos recursos, te recomiendo que realices una partición de disco.</p>
+                <p>Aquí están los pasos a seguir para cada método de instalación en caso de que tengas experiencia y no requieras un tutorial paso a paso:</p>
+                <br>
+                <ul style="list-style-type: square;">
+                    <li>Instalación en Máquinas Virtuales</li>
+                    <p>Las máquinas virtuales (VMs) permiten ejecutar un sistema operativo dentro de otro, lo que te brinda un entorno aislado y seguro para probar Linux sin afectar tu sistema principal. Aquí están los pasos generales para instalar Linux en una máquina virtual:</p>
+                    <ol>
+                        <li>Elige un Software de Virtualización: Utiliza herramientas populares como VirtualBox, VMware o Hyper-V para crear y gestionar máquinas virtuales.</li>
+                        <li>Descarga la Imagen de Linux: Descarga una imagen ISO de la distribución de Linux que deseas instalar, como Ubuntu, Fedora o Debian.</li>
+                        <li>Crea una Nueva Máquina Virtual: Configura la VM con la cantidad adecuada de memoria RAM, espacio en disco y otros ajustes.</li>
+                        <li>Monta la Imagen ISO: Asocia la imagen ISO de Linux con la VM y configura el arranque desde la imagen.</li>
+                        <li>Instala Linux: Inicia la VM y sigue las instrucciones del instalador de Linux para seleccionar la partición, configurar el sistema y crear un usuario.</li>
+                        <li>Finaliza la Instalación: Reinicia la VM y disfruta de tu nueva instalación de Linux en una máquina virtual.</li>
+                    </ol>
+                    <br>
+                    <li>Instalación en Particiones de Disco</li>
+                    <p>Instalar Linux en una partición de disco es una forma más permanente de usar el sistema. Aquí tienes los pasos básicos:</p>
+                    <ol>
+                        <li>Prepara una Partición: Redimensiona tu disco duro para crear espacio no asignado donde se instalará Linux.</li>
+                        <li>Descarga la Imagen de Linux: Descarga la imagen ISO de la distribución de Linux de tu elección.</li>
+                        <li>Crea un USB Booteable: Graba la imagen ISO en un USB para usarlo como medio de instalación.</li>
+                        <li>Arranca desde el USB: Reinicia tu computadora y arranca desde el USB. Inicia el instalador de Linux.</li>
+                        <li>Configura las Particiones: Durante la instalación, elige la partición no asignada para instalar Linux. Configura las particiones raíz, de intercambio y home según tus necesidades.</li>
+                        <li>Configura Usuarios y Contraseñas: Crea una cuenta de usuario y establece una contraseña.</li>
+                        <li>Completa la Instalación: Sigue las instrucciones del instalador para finalizar la instalación.</li>
+                    </ol>
+                    <br>
+                    <li>Instalación con USB Booteable</li>
+                    <p>La instalación desde un USB booteable es una forma conveniente de instalar Linux en una computadora sin necesidad de particionar el disco duro. Sigue estos pasos:</p>
+                    <ol>
+                        <li>Descarga la Imagen de Linux: Descarga la imagen ISO de la distribución que deseas instalar.</li>
+                        <li>Crea un USB Booteable: Utiliza herramientas como Rufus o Etcher para grabar la imagen ISO en un USB.</li>
+                        <li>Arranca desde el USB: Reinicia tu computadora y configura el arranque desde el USB.</li>
+                        <li>Instala Linux: Inicia el instalador y sigue las instrucciones para configurar las particiones y el sistema.</li>
+                        <li>Configura Usuarios y Contraseñas: Crea una cuenta de usuario y establece una contraseña.</li>
+                        <li>Finaliza la Instalación: Una vez completada la configuración, reinicia tu computadora y disfruta de Linux.</li>
+                    </ol>
+                </ul>
+                <br>
+                <p>Elegir el método de instalación adecuado depende de tus necesidades y nivel de experiencia. Las máquinas virtuales ofrecen flexibilidad y seguridad, mientras que la instalación en particiones de disco proporciona una experiencia más cercana al sistema nativo. Los USB booteables son ideales para probar Linux en diferentes sistemas sin comprometer la instalación principal. Sea cual sea el método que elijas, Linux te brinda un mundo de posibilidades para explorar y aprovechar. ¡Anímate a sumergirte en el emocionante universo de Linux!</p>
+                <div class="blog-image-grande">
+                    <img src="media/linux2-2.jpg" alt="">
+                </div>
+                <br>
+                <br>
+            </div>   
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
