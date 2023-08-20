@@ -9,7 +9,7 @@
 
 body{
     background: rgba(0, 0, 0, 0.800);
-    opacity: 0.7;
+    
 }
 
 header{
@@ -46,6 +46,7 @@ header{
     text-decoration: none;
     color: white;
     transition: opacity 300ms;
+    opacity: 0.7;
 }
 
 .menu nav ul a:hover{
@@ -96,6 +97,7 @@ main{
     color: rgb(122, 162, 235);
     font-weight: normal;
     margin-bottom: 40px;
+    opacity: 0.7;
 }
 
 .text__articulo-cover h2{
@@ -104,6 +106,7 @@ main{
     font-weight: normal;
     margin-top: 20px;
     margin-bottom: 20px;
+    opacity: 0.7;
 }
 
 .text__articulo-cover p{
@@ -111,6 +114,7 @@ main{
     margin-top: 10px;
     margin-bottom: 10px;
     color: white;
+    opacity: 0.7;
 }
 
 .text__articulo-cover ul li{
@@ -118,6 +122,7 @@ main{
     margin-top: 10px;
     margin-bottom: 10px;
     color: white;
+    opacity: 0.7;
 }
 
 .text__articulo-cover ol li{
@@ -125,6 +130,7 @@ main{
     margin-top: 10px;
     margin-bottom: 10px;
     color: white;
+    opacity: 0.7;
 }
 
 .text__articulo-cover table{
@@ -136,12 +142,14 @@ main{
     border-collapse: collapse;
     width: 100%;
     border-spacing: 8px;
+    opacity: 0.7;
 }
 
 .text__articulo-cover table td, th {
     border: 1px solid blueviolet; /* Define el estilo del borde de las celdas */
     padding: 8px; /* Añade espacio interno a las celdas */
     text-align: right; /* Alinea el contenido de las celdas a la derecha */
+    opacity: 0.7;
   }
 
 .matrix {
@@ -157,10 +165,12 @@ main{
     align-items: center;
     justify-content: center;
     color: #fff;
+    opacity: 0.7;
 }
 
 .matrix .number:nth-last-child(-n+6) {
     border: 1px solid mediumspringgreen;
+    opacity: 0.7;
 }
 
 
@@ -178,6 +188,7 @@ main{
     border: 1px solid white;
     padding: 5px;
     color: white;
+    opacity: 0.7;
 }
 
 .matrix-mul {
@@ -195,6 +206,7 @@ main{
     gap: 5px;
     align-items: center;
     color: white;
+    opacity: 0.7;
 }
 
 .matrixMul2x1 {
@@ -204,17 +216,20 @@ main{
     gap: 5px;
     align-items: center;
     color: white;
+    opacity: 0.7;
 }
 
 .cell {
     border: 1px solid white;
     padding: 5px;
+    opacity: 0.7;
 }
 
 .division, .sign, .equals {
     font-size: 20px;
     margin: 0 5px;
     color: white;
+    opacity: 0.7;
 }
 
 /* Additional styling for specific cells */
@@ -240,6 +255,7 @@ main{
     padding: 10px;
     font-size: 16px;
     color: #fff;
+    opacity: 0.7;
 }
 
 .comandos {
@@ -270,6 +286,7 @@ main{
     outline: none;
     border-radius: 10px;
     cursor: pointer;
+    opacity: 0.9;
 }
 
 .comandos button:active{
@@ -316,6 +333,7 @@ main{
     font-size: 18px;
     color: #555;
     outline: none;
+    opacity: 0.7;
   }
   
   /* Estilos para el botón */
@@ -326,6 +344,7 @@ main{
     padding: 6px 12px;
     cursor: pointer;
     border-radius: 10px;
+    
   }
 
 .blog-image {
