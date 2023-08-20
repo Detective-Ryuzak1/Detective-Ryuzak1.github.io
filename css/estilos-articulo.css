@@ -146,7 +146,7 @@ main{
 }
 
 .text__articulo-cover table td, th {
-    border: 1px solid blueviolet; /* Define el estilo del borde de las celdas */
+    border: 1px solid white; /* Define el estilo del borde de las celdas */
     padding: 8px; /* Añade espacio interno a las celdas */
     text-align: right; /* Alinea el contenido de las celdas a la derecha */
     opacity: 0.7;
