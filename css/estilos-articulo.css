@@ -144,7 +144,6 @@ main{
     border-collapse: collapse;
     width: 100%;
     border-spacing: 8px;
-    opacity: 0.7;
 }
 
 .text__articulo-cover table td, th {
@@ -181,6 +180,7 @@ main{
     grid-template-columns: auto 30px auto 30px auto;
     align-items: center;
     text-align: center;
+    margin-bottom: 10px;
     opacity: 0.7;
 }
 
