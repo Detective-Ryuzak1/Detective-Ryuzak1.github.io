@@ -69,6 +69,7 @@ header{
 .btn__header-botonMenu:hover{
     background: mediumpurple;
     color: white;
+    opacity: 0.9;
 }
 
 #icon_menu{
