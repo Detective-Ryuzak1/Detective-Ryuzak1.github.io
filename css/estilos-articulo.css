@@ -271,29 +271,30 @@ main{
 .comandos input.text{
     padding: 10px;
     font-size: 16px;
-    color: #252323;
+    color: white;
     border: none;
     outline: none;
     border-radius: 10px;
     font-family: monospace;
     max-width: 1100px;
     width: auto;
+    background-color: #252323;
 }
 
 .comandos button{
     padding: 10px;
-    background: #5784f5;
+    background: darkblue;
     color: #fff;
     font-size: 18px;
     border: none;
     outline: none;
     border-radius: 10px;
     cursor: pointer;
-    opacity: 0.9;
+    opacity: 0.7;
 }
 
 .comandos button:active{
-    background: #809ce2;
+    background: blue;
 }
 
 .comandos button:before{
@@ -301,7 +302,7 @@ main{
     position: absolute;
     top: -45px;
     left: 0px;
-    background: #5c81dc;
+    background: darkblue;
     padding: 8px 10px;
     border-radius: 20px;
     font-size: 15px;
@@ -315,7 +316,7 @@ main{
     left: 25px;
     width: 10px;
     height: 10px;
-    background: #5c81dc;
+    background: darkblue;
     transform: rotate(45deg);
     display: none;
 }
