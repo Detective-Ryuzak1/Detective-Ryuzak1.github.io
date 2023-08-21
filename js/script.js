@@ -48,7 +48,7 @@ function copiarValorConsola(event) {
   // Eliminar la clase 'active' después de unos segundos
   setTimeout(() => {
     comandos.classList.remove('active');
-  }, 2000); // 2000 milisegundos (2 segundos)
+  }, 2500); // 2000 milisegundos (2 segundos)
 }
 
 // Asociar la función al botón de ambos contenedores
