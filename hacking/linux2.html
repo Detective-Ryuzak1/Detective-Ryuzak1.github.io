@@ -104,22 +104,28 @@
                     <ol>
                         <li>Prepara una Partición: Redimensiona tu disco duro para crear espacio no asignado donde se instalará Linux.</li>
                         <li>Descarga la Imagen de Linux: Descarga la imagen ISO de la distribución de Linux de tu elección.</li>
-                        <li>Crea un USB Booteable: Graba la imagen ISO en un USB para usarlo como medio de instalación.</li>
+                        <li>Crea un USB Booteable: Utiliza herramientas como Rufus o Etcher para grabar la imagen ISO en un USB.</li>
                         <li>Arranca desde el USB: Reinicia tu computadora y arranca desde el USB. Inicia el instalador de Linux.</li>
                         <li>Configura las Particiones: Durante la instalación, elige la partición no asignada para instalar Linux. Configura las particiones raíz, de intercambio y home según tus necesidades.</li>
                         <li>Configura Usuarios y Contraseñas: Crea una cuenta de usuario y establece una contraseña.</li>
                         <li>Completa la Instalación: Sigue las instrucciones del instalador para finalizar la instalación.</li>
                     </ol>
                     <br>
-                    <li>Instalación con USB Booteable</li>
-                    <p>La instalación desde un USB booteable es una forma conveniente de instalar Linux en una computadora sin necesidad de particionar el disco duro. Sigue estos pasos:</p>
+                    <li>Instalación en USB</li>
+                    <p>La instalación en un USB booteable es una forma conveniente de instalar Linux en una computadora sin necesidad de particionar el disco duro. Sigue estos pasos:</p>
                     <ol>
-                        <li>Descarga la Imagen de Linux: Descarga la imagen ISO de la distribución que deseas instalar.</li>
-                        <li>Crea un USB Booteable: Utiliza herramientas como Rufus o Etcher para grabar la imagen ISO en un USB.</li>
-                        <li>Arranca desde el USB: Reinicia tu computadora y configura el arranque desde el USB.</li>
-                        <li>Instala Linux: Inicia el instalador y sigue las instrucciones para configurar las particiones y el sistema.</li>
-                        <li>Configura Usuarios y Contraseñas: Crea una cuenta de usuario y establece una contraseña.</li>
-                        <li>Finaliza la Instalación: Una vez completada la configuración, reinicia tu computadora y disfruta de Linux.</li>
+                        <li>Descarga la imagen ISO de la distribución de Linux que deseas instalar desde el sitio web oficial.</li>
+                        <li>Consigue una unidad USB con suficiente capacidad (al menos 8 GB se recomienda) y asegúrate de que no haya datos importantes en ella, ya que el proceso borrará todo.</li>
+                        <li>Descarga una herramienta de creación de medios de arranque, como Rufus (Windows) o balenaEtcher (Windows, macOS, Linux).</li>
+                        <li>Ejecuta la herramienta y selecciona la imagen ISO descargada y la unidad USB como destino.</li>
+                        <li>Ajusta las opciones necesarias, como el sistema de archivos y el tipo de partición (generalmente MBR o GPT).</li>
+                        <li>Inicia el proceso de escritura.</li>
+                        <li>Reinicia tu computadora y entra en la configuración de arranque (puede requerir presionar una tecla como F2, F12, ESC, etc., durante el inicio).</li>
+                        <li>Configura el orden de arranque para que la USB sea la primera opción.</li>
+                        <li>Inicia desde la USB y selecciona la opción de instalación en el menú.</li>
+                        <li>Sigue las instrucciones en pantalla para seleccionar idioma, zona horaria, distribución de teclado, particionado (puedes elegir instalar junto a otro sistema o en la USB completa), nombre de usuario y contraseña.</li>
+                        <li>Una vez completada la instalación, podrás arrancar en Linux desde la unidad USB en cualquier computadora compatible.</li>
+                        <li>En muchas distribuciones, solo es necesario seleccionar la imagen adecuada para la instalación en una USB y grabar la imagen, para así poder arrancar Linux desde la USB.</li>
                     </ol>
                 </ul>
                 <br>
@@ -140,10 +146,10 @@
                         <li>Diferencias: La instalación en particiones de disco crea una instalación nativa en una partición del disco duro. Puede ser un proceso más involucrado, ya que requiere la reorganización del espacio en disco y la configuración de particiones.</li>
                         <li>Ventajas: Obtienes un rendimiento óptimo, ya que Linux se ejecuta directamente en el hardware. Tienes acceso completo a los recursos del sistema y no estás limitado por la capa de virtualización. Puedes configurar tu sistema para que Linux sea el sistema operativo principal.</li>
                     </ul>
-                    <li>USB Booteable:</li>
+                    <li>USB:</li>
                     <ul>
-                        <li>Diferencias: Instalar Linux desde un USB booteable implica arrancar tu computadora directamente desde el USB y luego seguir el proceso de instalación. No requiere particionar el disco duro.</li>
-                        <li>Ventajas: Es una forma portable de instalar Linux, ya que puedes usar el mismo USB en diferentes sistemas. Puedes probar Linux antes de comprometerte a una instalación permanente. Ideal para sistemas que no deseas modificar o que no te pertenecen.</li>
+                        <li>Diferencias: Instalar Linux desde un USB booteable implica arrancar tu computadora directamente desde el USB. No requiere particionar el disco duro.</li>
+                        <li>Ventajas: Puedes probar Linux antes de comprometerte a una instalación permanente. Ideal para sistemas que no deseas modificar o que no te pertenecen. Es una forma de llevar tu sistema operativo y tus datos a cualquier lugar y ejecutarlo en diferentes computadoras y, al ejecutar tu sistema desde una unidad USB, evitas dejar rastros en la máquina anfitriona y tus datos quedan en la USB.También en una USB no afectará al sistema anfitrión, lo que es especialmente útil para probar diferentes distribuciones o entornos sin comprometer la instalación existente.</li>
                     </ul>
                 </ul>
                 <br>
