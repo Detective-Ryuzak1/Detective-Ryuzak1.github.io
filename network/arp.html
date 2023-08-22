@@ -37,7 +37,7 @@
         <div class="cover">
             <div class="text__articulo-cover">
                 <h1>ARP</h1>
-                <p>El Protocolo de Resolución de Dirección (ARP, por sus siglas en inglés) es una parte crucial de la comunicación en redes de área local (LAN) basadas en Ethernet. ARP se encarga de mapear direcciones IP a direcciones físicas MAC, permitiendo que los dispositivos se comuniquen de manera eficiente en una red. En este artículo, exploraremos en detalle el funcionamiento de ARP y su estructura de encabezado.</p>
+                <p>El Protocolo de Resolución de Dirección (ARP, por sus siglas en inglés) es una parte crucial de la comunicación en redes de área local (LAN). ARP se encarga de traducir direcciones IP a direcciones MAC en redes locales, como Ethernet, permitiendo que los dispositivos se comuniquen de manera eficiente en una red. Las direcciones IP son utilizadas a nivel de capa de red (capa 3), mientras que las direcciones MAC son utilizadas en la capa de enlace de datos (capa 2). En este artículo, exploraremos en detalle el funcionamiento de ARP y su estructura de encabezado.</p>
                 <h2>Dirección IP</h2>
                 <P>Una dirección IP (Protocolo de Internet) es una etiqueta numérica única asignada a cada dispositivo conectado a una red que utiliza el protocolo IP. Las direcciones IP son esenciales para identificar y localizar dispositivos en redes IP. Hay dos versiones principales de direcciones IP: IPv4 e IPv6. IPv4 utiliza direcciones numéricas de 32 bits (por ejemplo, 192.168.1.1), mientras que IPv6 utiliza direcciones hexadecimales de 128 bits (por ejemplo, 2001:0db8:85a3:0000:0000:8a2e:0370:7334).</P>
                 <p>En una red local, como una red doméstica, las direcciones IP generalmente son asignadas por un enrutador o un servidor DHCP (Protocolo de Configuración Dinámica de Host). Las direcciones IP permiten la identificación única de dispositivos en la red y el enrutamiento de datos a través de la red global de Internet.</p>
@@ -51,12 +51,14 @@
                 <h2>Funcionamiento de ARP</h2>
                 <p>ARP resuelve la diferencia entre las direcciones IP y las direcciones MAC. Cuando un dispositivo necesita enviar datos a otro dispositivo en la misma red, debe conocer la dirección MAC correspondiente para entregar el paquete de manera adecuada. Aquí está cómo funciona el proceso de resolución de dirección en ARP:</p>
                 <ol>
-                    <li>Solicitud ARP: Un dispositivo envía una solicitud ARP (ARP Request) a la red preguntando por la dirección MAC asociada a una dirección IP específica.</li>
-                    <li>Respuesta ARP: El dispositivo destino, si está presente en la misma red, responde con una respuesta ARP (ARP Reply) que contiene su dirección MAC.</li>
+                    <li>Solicitud ARP (ARP Request): Cuando un dispositivo en una red necesita encontrar la dirección MAC correspondiente a una dirección IP destino, envía una solicitud ARP. La solicitud ARP se envía como un mensaje de broadcast dentro de la red local. El mensaje de broadcast se dirige a todas las máquinas en la red, y esto se hace utilizando la dirección MAC de broadcast, que es FF:FF:FF:FF:FF:FF. La solicitud ARP contiene la dirección IP del dispositivo emisor y la dirección IP destino para la que se busca la dirección MAC.</li>
+                    <li>Respuesta ARP (ARP Reply): La máquina con la dirección IP destino en la solicitud ARP recibe el mensaje de broadcast y responde con un mensaje ARP de respuesta. Esta respuesta contiene la dirección IP y la dirección MAC de la máquina emisora. El mensaje de respuesta ARP se envía directamente al dispositivo emisor, no como un broadcast.</li>
+                    <li>Actualización de la tabla ARP: Cuando el dispositivo emisor recibe la respuesta ARP, actualiza su tabla ARP con la dirección MAC correspondiente a la dirección IP destino. Esta tabla ARP es una tabla de caché que almacena las asociaciones entre direcciones IP y direcciones MAC para agilizar futuras comunicaciones.</li>
                 </ol>
+                <p>Es importante mencionar que las tablas ARP tienen una duración limitada. Esto se debe a que las direcciones IP pueden cambiar con el tiempo debido a reconfiguraciones de red o movimientos de dispositivos. Cuando una entrada en la tabla ARP expira, el dispositivo debe repetir el proceso ARP para actualizar la información.</p>
                 <div class="blog-image-grande">
-                    <img src="media/protocolo4.jpg" alt="">
-                </div>
+                    <img src="media/protocolo7.png" alt="">
+                </div>                
                 <h2>Ejemplo de ARP</h2>
                 <ul style="list-style-type: square;">
                     <li>Solicitud ARP</li>
@@ -72,6 +74,9 @@
                         <li>El dispositivo 192.168.1.20 envía una respuesta ARP a 192.168.1.10, incluyendo su dirección MAC.</li>
                     </ol>
                 </ul>
+                <div class="blog-image-grande">
+                    <img src="media/protocolo4.jpg" alt="">
+                </div>
                 <h2>Estructura del Encabezado ARP</h2>
                 <p>El encabezado ARP consta de varios campos que permiten la resolución de direcciones de manera efectiva. Aquí están los campos principales del encabezado ARP:</p>
                 <ul style="list-style-type: circle;">
@@ -88,6 +93,23 @@
                 <div class="blog-image-grande">
                     <img src="media/protocolos5.png" alt="">
                 </div>
+                <h2>Encapsulamiento de los mensajes ARP</h2>
+                <p>En cuanto al encapsulamiento de los mensajes ARP en paquetes IP:</p>
+                <ul style="list-style-type: circle;">
+                    <li>Los mensajes ARP son encapsulados dentro de tramas Ethernet en redes locales.</li>
+                    <li>Los mensajes ARP Request y ARP Reply son encapsulados en tramas Ethernet utilizando las direcciones MAC de origen y destino apropiadas.</li>
+                    <li>El campo de tipo en la trama Ethernet se establece en el valor correspondiente a ARP (0x0806) para indicar que contiene un mensaje ARP.</li>
+                </ul>
+                <p>El proceso de llenado de tablas ARP implica la emisión de solicitudes ARP (broadcast) para obtener la dirección MAC correspondiente a una dirección IP y recibir respuestas ARP (unidireccionales) con la información necesaria. Esto permite a los dispositivos construir y mantener tablas ARP que se utilizan para traducir direcciones IP a direcciones MAC en redes locales.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Una forma de verificar las tablas ARP dentro de dispositivos de red Cisco es con el comando.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="show ip arp" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
                 <h2>Ataques Relacionados a ARP</h2>
                 <ul style="list-style-type: circle;">
                     <li>ARP Spoofing (ARP Poisoning): En este ataque, un atacante envía mensajes ARP falsificados a los dispositivos en la red para asociar su dirección MAC con la dirección IP de otro dispositivo legítimo. Esto puede hacer que el tráfico de red pase por el atacante, lo que le permite interceptar y analizar el tráfico. También puede llevar a la suplantación de identidad.</li>
@@ -100,8 +122,6 @@
                 <div class="blog-image-grande">
                     <img src="media/protocolo6.jpg" alt="">
                 </div>
-                <br>
-                <br>
             </div>   
     </main>
     <script src="../js/script.js"></script>
