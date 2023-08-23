@@ -263,6 +263,7 @@
                 <p>\( F_{R}^{2} = 7191.05x10^{-6}N^{2} \)</p>
                 <p>\( F_{R} = \sqrt{7191.05x10^{-6}} = 84.8x10^{-6} N  \)</p>
                 <p>Usaremos el teorema del seno para poder obtener el ángulo dirección de nuestro vector resultante.</p>
+                <p>\( \frac{Sen \delta}{F_{3}} = \frac{Sen θ}{F_{R}} \)</p>
                 <p>\( \frac{Sen \delta}{51.2x10^{-6}} = \frac{Sen 36.87}{84.8x10^{-6}} \)</p>
                 <p>\( {Sen \delta} = \frac{Sen 36.87}{84.8x10^{-6}} * 51.2x10^{-6} = 0.36 \)</p>
                 <p>&delta; = arcsen 0.36 = 21.24∘</p>
@@ -272,7 +273,9 @@
                 <div class="blog-image-grande">
                     <img src="media/calculo8.png" alt="">
                 </div>
+                <p>V = R*I</p>
                 <p>I<sub>3</sub>= I<sub>1</sub> + I<sub>2</sub></p>
+                <p>Se calcula la suma de corrientes utilizando la ley de Ohm con los valores indicados por el circuito.</p>
                 <p>Malla 1:</p>
                 <p>2V + 4V = 2I<sub>1</sub> + 2I<sub>1</sub> + 4 (I<sub>1</sub>+I<sub>2</sub>)</p>
                 <p>6V = 2I<sub>1</sub> + 2I<sub>1</sub> + 4I<sub>1</sub>+ 4I<sub>2</sub></p>
@@ -319,6 +322,7 @@
                 <p>-9I<sub>1</sub> + 18I<sub>2</sub> + 3I<sub>3</sub> = 10V</p>
                 <p>9I<sub>1</sub> + 3I<sub>2</sub> + 20I<sub>3</sub> = 15V</p>
                 <br>
+                <p>Calculamos el determinante para la corriente 1.</p>
                 <p>Cálculo para DI<sub>1</sub>:</p>
                 <div class="matrix">
                     <div class="number">15</div>
@@ -340,6 +344,7 @@
                 <p>DI<sub>1</sub> = (15*18*20) + (10*3*9) + (15*-9*3) - (10*-9*20) - (15*3*3) - (15*18*9)</p>
                 <p>DI<sub>1</sub> = (5400 + 270 - 405) - (-1800 + 135 + 2430)</p>
                 <p>DI<sub>1</sub> = 5265 - 765 = 4500</p>
+                <p>Calculamos el determinante para la corriente 2.</p>
                 <p>Cálculo para DI<sub>2</sub>:</p>
                 <div class="matrix">
                     <div class="number">28</div>
@@ -361,6 +366,7 @@
                 <p>DI<sub>2</sub> = (28*10*20) + (-9*15*9) + (9*15*3) - (-9*15*20) - (28*15*3) - (9*10*9)</p>
                 <p>DI<sub>2</sub> = (5400 - 1215 + 405) - (-2700 + 1260 + 810)</p>
                 <p>DI<sub>2</sub> = 4790 + 630 = 5420</p>
+                <p>Calculamos el determinante para la corriente 3.</p>
                 <p>Cálculo para DI<sub>3</sub>:</p>
                 <div class="matrix">
                     <div class="number">28</div>
@@ -382,6 +388,7 @@
                 <p>DI<sub>3</sub> = (28*18*15) + (-9*3*15) + (9*-9*10) - (-9*-9*15) - (28*3*10) - (9*18*15)</p>
                 <p>DI<sub>3</sub> = (7560 - 405 - 810) - (1215 + 840 + 2430)</p>
                 <p>DI<sub>3</sub> = 6345 - 4485 = 1860</p>
+                <p>Calculamos el determinante para la corriente.</p>
                 <p>Cálculo para DI:</p>
                 <div class="matrix">
                     <div class="number">28</div>
@@ -420,6 +427,12 @@
                 <p>Al tener la polaridad de las dos fuentes conectadas de tal forma, tenemos que la corriente I1 e I2 entran al nodo A, dando como resultado una corriente de salida I3. El nodo B, en la parte inferior al estar en contacto con la polaridad negativa, se toma como tierra; por lo tanto, no se calcula.</p>
                 <p>Nodo A:</p>
                 <p>I<sub>1</sub> + I<sub>2</sub> = I<sub>3</sub></p>
+                <p>20 = I<sub>1</sub>(10+20) + VA</p>
+                <p>15 = I<sub>2</sub>(40+25) + VA</p>
+                <p>VA = I<sub>3</sub>(30) + VB</p>
+                <p>I<sub>1</sub> = \( \frac{20 - VA}{10 + 20} \)</p>
+                <p>I<sub>2</sub> = \( \frac{15 - VA}{40 + 25} \)</p>
+                <p>I<sub>3</sub> = \( \frac{VA - VB}{30} \)</p>
                 <p>\( \frac{20 - VA}{10 + 20} + \frac{15 - VA}{40 + 25} = \frac{VA - VB}{30} \)</p>
                 <p>\( \frac{20 - VA}{30} + \frac{15 - VA}{65} = \frac{VA - VB}{30} \)</p>
                 <p>\( \frac{20 - VA}{30} + \frac{15 - VA}{65} = \frac{VA - VB}{30} \)</p>
@@ -457,6 +470,9 @@
                 <p>La ley de nodos dice que las corrientes que entran al nodo se toman como positivas y las que salen como negativas. Por lo tanto, nos queda la ecuación de corrientes de la siguiente forma:</p>
                 <p>-I<sub>1</sub> + I<sub>2</sub> + (-I<sub>3</sub>) = 0</p>
                 <p>-I<sub>1</sub> + I<sub>2</sub> - I<sub>3</sub> = 0</p>
+                <p>-VA = I<sub>1</sub>(R1) - VB</p>
+                <p>VC = I<sub>2</sub>(R2) + VB</p>
+                <p>VB = I<sub>3</sub>(R3) - VD</p>
                 <p>Para calcular la intensidad, sirve tomar como referencia el voltaje mayor como positivo en la ecuación y el voltaje de menor valor como negativo.</p>
                 <p>I<sub>1</sub> = \( \frac{VB - VA}{R1} \) = \( \frac{VB - (-6V)}{6} \)</p>
                 <p>I<sub>1</sub> = \( \frac{VB}{6} \) + \( \frac{6V}{6} \) = \( \frac{VB}{6} \) + 1A</p>
@@ -609,6 +625,7 @@
                 <p>\( (j0.2)V_{1} \) + \( (-j0.2 +  0.2 + 0.25 + j0.25)V_{2} \) = 0</p>
                 <p>\( (j0.2)V_{1} \) + \( (0.45 + j0.05)V_{2} \) = 0</p>
                 <br>
+                <p>Se realiza una multiplicación matricial considerando las ecuaciones de los nodos 1 y 2, así como los voltajes 1 y 2 correspondientes a cada nodo.</p>
                 <div class="matrix-mul">
                     <div class="matrixMul2x2 matrix-a2x2">
                         
@@ -630,6 +647,8 @@
                         <div class="cell">0</div>
                     </div>                    
                 </div>
+                <br>
+                <p>Se sustituyen los valores del voltaje 2 en las dos ecuaciones con el resultado de ambas ecuaciones.</p>
                 <div class="matrix-division">
                     <div class="equals">V<sub>2</sub></div>
                     <div class="equals">=</div>
@@ -655,6 +674,7 @@
                 <p>V<sub>2</sub> = \( \frac{0.375 ∠-38.2^\circ}{0.2761 ∠-7.01^\circ} \)</p>
                 <p>V<sub>2</sub> = \( 1.358 ∠-31.19^\circ \)</p> 
                 <br>
+                <p>Se sustituyen los valores del voltaje 1 en las dos ecuaciones con el resultado de ambas ecuaciones.</p>
                 <div class="matrix-division">
                     <div class="equals">V<sub>1</sub></div>
                     <div class="equals">=</div>
@@ -690,8 +710,6 @@
                 <div class="blog-image-grande">
                     <img src="media/calculo10.jpg" alt="">
                 </div>
-                <br>
-                <br>
             </div>   
     </main>
     <script src="../js/script.js"></script>
