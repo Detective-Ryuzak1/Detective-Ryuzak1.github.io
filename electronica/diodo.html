@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Bonus">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <h1>Diodo</h1>
+                <p>En el vasto mundo de la electrónica, los componentes desempeñan papeles cruciales en la construcción y operación de circuitos. Uno de los componentes más fundamentales es el diodo. Al igual que la resistencia eléctrica, el diodo desempeña un papel esencial en el control y la dirección del flujo de corriente eléctrica. Este artículo explorará en profundidad el diodo, su funcionamiento y su importancia en la electrónica.</p>
+                <p>Un diodo es un dispositivo semiconductor que permite que la corriente eléctrica fluya en una dirección, pero la bloquea en la dirección opuesta. Este comportamiento unidireccional es crucial en una variedad de aplicaciones eléctricas y electrónicas, ya que permite la rectificación de señales (cambio de corriente alterna a continua), la protección contra polaridades inversas y el control de flujo de corriente.</p>
+                <p>El diodo consta de dos regiones semiconductoras: una región P (positiva) y una región N (negativa), que están unidas en un solo dispositivo. La unión PN es una interfaz donde ocurren procesos electrónicos importantes. Cuando una tensión se aplica en la dirección correcta (forward bias), los electrones pueden fluir a través del diodo con facilidad, permitiendo la circulación de corriente eléctrica. Sin embargo, cuando se aplica una tensión en la dirección opuesta (reverse bias), la circulación de electrones se bloquea efectivamente.</p>
+                <div class="blog-image">
+                    <img src="media/diodo1.jpg" alt="">
+                </div>
+                <h2>Funcionamiento del Diodo</h2>
+                <p>Para comprender mejor el funcionamiento del diodo, podemos compararlo con una válvula en un sistema de tuberías de agua. En la dirección correcta, la válvula permite que el agua fluya libremente, mientras que en la dirección opuesta, bloquea el flujo de agua. De manera similar, el diodo actúa como una "válvula eléctrica" que controla el flujo de electrones.</p>
+                <p>Cuando se aplica una tensión positiva en el ánodo (la región P) y una tensión negativa en el cátodo (la región N), se crea un camino conductivo para los electrones, y el diodo se enciende, permitiendo que la corriente fluya. En la dirección opuesta, el diodo se apaga y bloquea la corriente eléctrica.</p>
+                <h2>Aplicaciones de los Diodos</h2>
+                <p>Los diodos se encuentran en una amplia variedad de dispositivos electrónicos y aplicaciones. Algunas de sus aplicaciones más comunes incluyen:</p>
+                <ul style="list-style-type: circle;">
+                    <li>Rectificación: Los diodos se utilizan para convertir corriente alterna (CA) en corriente continua (CC) en fuentes de alimentación y cargadores.</li>
+                    <li>Protección contra polaridad inversa: Se utilizan para evitar daños a los dispositivos electrónicos al prevenir la inversión accidental de la polaridad de la tensión de alimentación.</li>
+                    <li>Modulación de señal: Los diodos se utilizan en aplicaciones de modulación, como la modulación en amplitud (AM) y la modulación en frecuencia (FM) en radiocomunicaciones.</li>
+                    <li>Circuitos de conmutación: Los diodos se utilizan en circuitos de conmutación para proteger componentes sensibles y direccionar el flujo de corriente en momentos específicos.</li>
+                </ul>
+                <h2>Cálculo</h2>
+                <p>Supongamos que tienes un circuito en serie que consta de una fuente de alimentación de 10 voltios (V), un diodo y una resistencia de 100 ohmios (Ω). El diodo se encuentra en la dirección correcta (forward bias), lo que significa que permite que la corriente fluya en esa dirección. El objetivo es calcular la corriente que fluye a través del diodo en estas condiciones.</p>
+                <div class="blog-image">
+                    <img src="media/diodo.png" alt="">
+                </div>
+                <br>
+                <center>
+                    <p>I = (V<sub>fuente</sub> - V<sub>diodo</sub>) / R</p>
+                    <p>Donde:</p>
+                    <p>     I es la corriente en amperios (A).</p>
+                    <p>     V<sub>fuente</sub> es la tensión de la fuente de alimentación, que es 10 V.</p>
+                    <p>     V<sub>diodo</sub> es la caída de tensión a través del diodo, que es 0.7 V.</p>
+                    <p>     R es la resistencia, que es 100 ohmios (Ω).</p>
+                </center>
+                <br>
+                <p>10V = V<sub>D</sub> + V<sub>R</sub></p>
+                <p>10V = 0.7V + (100)I<sub>D</sub></p>
+                <p>I = (10 V - 0.7 V) / 100 Ω = 0.093 A = 93 mA</p>
+                <h2>Tipos de Diodos</h2>
+                <p>Existen varios tipos de diodos, cada uno diseñado para aplicaciones específicas. Algunos de los tipos más comunes incluyen:</p>
+                <ul style="list-style-type: circle;">
+                    <li>Diodo rectificador: Diseñado para convertir CA en CC.</li>
+                    <li>Diodo Zener: Utilizado para mantener una tensión constante en un circuito.</li>
+                    <li>Diodo emisor de luz (LED): Emite luz cuando se le aplica una corriente.</li>
+                    <li>Diodo Schottky: Conduce con menor pérdida de energía que los diodos estándar.</li>
+                    <li>Diodo de avalancha: Utilizado en aplicaciones de alta tensión.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/diodo2.jpg" alt="">
+                </div>
+            </div>   
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
