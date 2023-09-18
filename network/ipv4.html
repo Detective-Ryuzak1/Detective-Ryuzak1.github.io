@@ -41,7 +41,7 @@
                 <p>IPv4 es el cuarto y más ampliamente utilizado protocolo de Internet en la historia de Internet. Fue desarrollado en la década de 1980 y se convirtió en el estándar predominante para la comunicación en línea y la asignación de direcciones IP. IPv4 utiliza direcciones IP de 32 bits, lo que permite aproximadamente 4.3 mil millones de direcciones únicas.</p>
                 <p>Sin embargo, a medida que Internet ha crecido exponencialmente y más dispositivos se han conectado a la red, se ha vuelto evidente que el espacio de direcciones IPv4 es limitado y se está agotando rápidamente. Esto ha llevado a la necesidad de una transición a IPv6, o Protocolo de Internet versión 6.</p>
                 <div class="blog-image-grande">
-                    <img src="media/IPv4-3.png" alt="">
+                    <img src="media/ipv4-3.png" alt="">
                 </div>
                 <h2>Tipos de Direcciones IP</h2>
                 <ol>
@@ -107,7 +107,7 @@
                 <ol>
                     <li>Finanzas (Requiere 14 direcciones IP):</li>
                     <ul style="list-style-type: square;">
-                        <li>Máscara de Subred: Necesitas al menos 16 direcciones disponibles, por lo que usamos los primeros 4 bits del último octeto (los primeros cuatro bits en el tercer octeto) para los hosts. La máscara de subred sería 11111111.11111111.11111111.1111 0000 en binario o /28 en notación CIDR.</li>
+                        <li>Máscara de Subred: Necesitas al menos 14 direcciones disponibles, por lo que usamos los primeros 4 bits del último octeto (los primeros cuatro bits en el tercer octeto) para los hosts. La máscara de subred sería 11111111.11111111.11111111.1111 0000 en binario o /28 en notación CIDR.</li>
                         <li>Dirección de Red: 192.168.1.0/28. Los últimos 4 bits son ceros (dirección de red).</li>
                         <li>Dirección de Broadcast: 192.168.1.15/28. Los últimos 4 bits son unos (dirección de broadcast).</li>
                         <li>Rango Utilizable: Desde 192.168.1.1 hasta 192.168.1.14.</li>
@@ -115,7 +115,7 @@
                     <br>
                     <li>Recursos Humanos (RH) (Requiere 14 direcciones IP):</li>
                     <ul style="list-style-type: square;">
-                        <li>Máscara de Subred: Necesitas al menos 14 direcciones disponibles. Usamos los primeros 3 bits del último octeto para los hosts. La máscara de subred sería 11111111.11111111.11111111.1110 0000 en binario o /27 en notación CIDR.</li>
+                        <li>Máscara de Subred: Necesitas al menos 14 direcciones disponibles. Usamos los primeros 4 bits del último octeto para los hosts. La máscara de subred sería 11111111.11111111.11111111.1111 0000 en binario o /28 en notación CIDR.</li>
                         <li>Dirección de Red: 192.168.1.16/28.</li>
                         <li>Dirección de Broadcast: 192.168.1.31/28.</li>
                         <li>Rango Utilizable: Desde 192.168.1.17 hasta 192.168.1.30.</li>
@@ -123,7 +123,7 @@
                     <br>
                     <li>Ventas (Requiere 30 direcciones IP):</li>
                     <ul style="list-style-type: square;">
-                        <li>Máscara de Subred: Necesitas al menos 32 direcciones disponibles. Usamos los primeros 5 bits del último octavo para los hosts. La máscara de subred sería 11111111.11111111.11111111.1110 0000 en binario o /27 en notación CIDR.</li>
+                        <li>Máscara de Subred: Necesitas al menos 30 direcciones disponibles. Usamos los primeros 5 bits del último octavo para los hosts. La máscara de subred sería 11111111.11111111.11111111.1110 0000 en binario o /27 en notación CIDR.</li>
                         <li>Dirección de Red: 192.168.1.32/27.</li>
                         <li>Dirección de Broadcast: 192.168.1.63/27.</li>
                         <li>Rango Utilizable: Desde 192.168.1.33 hasta 192.168.1.62.</li>
@@ -131,7 +131,7 @@
                     <br>
                     <li>Administración (Requiere 6 direcciones IP):</li>
                     <ul style="list-style-type: square;">
-                        <li>Máscara de Subred: Necesitas al menos 8 direcciones disponibles. Usamos los primeros 4 bits del último octavo para los hosts. La máscara de subred sería 11111111.11111111.11111111.1111 1000 en binario o /29 en notación CIDR.</li>
+                        <li>Máscara de Subred: Necesitas al menos 6 direcciones disponibles. Usamos los primeros 3 bits del último octavo para los hosts. La máscara de subred sería 11111111.11111111.11111111.1111 1000 en binario o /29 en notación CIDR.</li>
                         <li>Dirección de Red: 192.168.1.64/29.</li>
                         <li>Dirección de Broadcast: 192.168.1.71/29.</li>
                         <li>Rango Utilizable: Desde 192.168.1.65 hasta 192.168.1.70.</li>
