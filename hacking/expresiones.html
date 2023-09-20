@@ -99,15 +99,6 @@
                 </div>
                 <div class="contenedor">
                     <div class="etiqueta">
-                        Filtrar líneas que contienen la palabra "error" y mostrar las 2 líneas antes y después
-                    </div>
-                    <div class="comandos">
-                      <input type="text" class="text" value="grep -A 2 -B 2 &quot;error&quot; archivo.log" oninput="ajustarAncho(this)">
-                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
-                    </div>
-                </div>
-                <div class="contenedor">
-                    <div class="etiqueta">
                         Contar la cantidad de veces que aparece la palabra "linux" en un archivo y mostrar solo el resultado
                     </div>
                     <div class="comandos">
@@ -389,7 +380,7 @@
                         Ordenar un archivo por la tercera columna y eliminar duplicados
                     </div>
                     <div class="comandos">
-                      <input type="text" class="text" value="sort -t ',' -k 3,3 archivo.csv | sort -u -t ',' -k 3,3 > archivo_ordenado.csv" oninput="ajustarAncho(this)">
+                      <input type="text" class="text" value="sort -u -t ',' -k 3,3 archivo.csv > archivo_ordenado.csv" oninput="ajustarAncho(this)">
                       <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                 </div>

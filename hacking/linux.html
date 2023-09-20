@@ -536,6 +536,56 @@
 
                 <div class="contenedor">
                   <div class="etiqueta">
+                    Descargar un archivo llamado "archivo.zip" desde una URL
+                  </div>
+                  <div class="comandos">
+                    <input type="text" class="text" value="wget https://ejemplo.com/archivo.zip" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                  </div>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Descargar el mismo archivo "archivo.zip" desde una URL
+                  </div>
+                  <div class="comandos">
+                    <input type="text" class="text" value="curl -O https://ejemplo.com/archivo.zip" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                  </div>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Este comando se utiliza para realizar una solicitud HTTP GET a una URL y recuperar datos desde un servidor web. La opción -s significa "silent" o "quiet", lo que suprime la salida adicional y muestra solo el contenido descargado. Descargar el contenido de una página web usando GET.
+                  </div>
+                  <div class="comandos">
+                    <input type="text" class="text" value="curl -s -X GET https://ejemplo.com/pagina.html" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                  </div>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Este comando se utiliza para realizar una solicitud HTTP POST a una URL con encabezados personalizados. La opción -H se usa para agregar encabezados HTTP a la solicitud. Enviar datos a un servidor web con una solicitud POST y encabezados personalizados.
+                  </div>
+                  <div class="comandos">
+                    <input type="text" class="text" value="curl -s -X POST -H 'Content-Type: application/json' -H 'Authorization: Bearer token' -d '{&quot;key&quot;: &quot;value&quot;}' https://api.ejemplo.com/endpoint" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                  </div>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Este comando se utiliza para cargar un archivo a través de FTP o SCP usando curl. La opción -u se utiliza para proporcionar credenciales de usuario. Cargar un archivo a un servidor remoto a través de FTP.
+                  </div>
+                  <div class="comandos">
+                    <input type="text" class="text" value="curl -s -u usuario:contraseña --upload-file archivo.txt ftp://servidor.com/carpeta/" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                  </div>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
                     Cambia los permisos de un archivo para que se pueda ejecutar.
                   </div>
                   <div class="comandos">

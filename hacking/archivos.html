@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Bonus">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <h1>Archivos Sensibles en Linux: Protegiendo la Privacidad y la Seguridad</h1>
+                <p>Los sistemas Linux son ampliamente utilizados en todo el mundo debido a su estabilidad, rendimiento y, sobre todo, su seguridad. Sin embargo, para mantener esa seguridad, es esencial conocer y proteger los archivos y rutas sensibles que pueden contener información crítica o conceder acceso privilegiado al sistema. En este artículo, exploraremos algunas de las rutas y archivos más sensibles en sistemas Linux y por qué es importante protegerlos.</p>
+                <div class="blog-image-grande">
+                    <img src="media/archivos1.jpg" alt="">
+                </div>
+                <h2>Usuarios y Autenticación</h2>
+                <ul style="list-style-type: circle;">
+                    <li>/etc/passwd</li>
+                    <p>Este archivo contiene información sobre las cuentas de usuario, incluyendo nombres de usuario, IDs y rutas de inicio de sesión. Aunque no almacena contraseñas directamente, es una parte crucial del sistema de autenticación.</p>
+                    <li>/etc/shadow</li>
+                    <p>En contraste con /etc/passwd, este archivo almacena las contraseñas encriptadas de los usuarios y las políticas de contraseñas, y es vital para proteger la integridad de las contraseñas de los usuarios.</p>
+                    <li>/etc/sudoers</li>
+                    <p>Este archivo define qué usuarios o grupos tienen permiso para ejecutar comandos con privilegios de superusuario a través de sudo. Una configuración incorrecta puede conducir a riesgos de seguridad.</p>
+                    <li>/etc/aliases</li>
+                    <p>Especifica alias de correo electrónico para los usuarios, lo que puede utilizarse para manipular el envío de correo.</p>
+                </ul>
+                <h2>Información del Sistema y Procesos</h2>
+                <ul style="list-style-type: circle;">
+                    <li>/sys/class/dmi/id/product_name</li>
+                    <p>Este archivo identifica el tipo de máquina en la que se está ejecutando Linux.</p>
+                    <li>/sys/class/dmi/id/sys_vendor</li>
+                    <p>Proporciona información sobre la marca que distribuye la máquina.</p>
+                    <li>/sys/class/dmi/id/bios_vendor</li>
+                    <p>Muestra al fabricante de la BIOS.</p>
+                    <li>/proc/self/cmdline</li>
+                    <p>Muestra las aplicaciones ejecutadas por el usuario actual.</p>
+                    <li>/proc/net/tcp</li>
+                    <p>Lista los puertos TCP activos en el sistema. Al estar en hexadecimal, se necesita transformarlos a un formato decimal con el siguiente comando: cat /proc/net/tcp | awk '{print $2}' | awk -F ':' '{print $2}' | xargs -I '{}' echo '{}' | while read port; do echo "[+] Puerto $port -> $(echo "obase=10; ibase=16; $port" | bc)"; done </p>
+                    <li>/proc/net/fib_trie</li>
+                    <p>Proporciona información sobre las interfaces de red.</p>
+                    <li>/proc/sched_debug</li>
+                    <p>Ofrece detalles sobre los procesos en ejecución en el sistema.</p>
+                    <li>/proc/NúmeroDeProceso/cmdline</li>
+                    <p>Muestra el comando de inicio de un proceso específico.</p>
+                    <li>/proc/self/fd/Número</li>
+                    <p>Algunos de estos archivos pueden contener registros que pueden ser útiles en la investigación.</p>
+                    <li>/proc/self/stat</li>
+                    <p>Muestra información detallada sobre los procesos del sistema.</p>
+                    <li>/etc/mtab</li>
+                    <p>Proporciona información sobre sistemas de archivos montados actualmente en el sistema.</p>
+                    <li>/etc/fstab</li>
+                    <p>Define las particiones y sistemas de archivos montados automáticamente durante el inicio, lo que puede revelar información sobre el almacenamiento y la estructura del sistema.</p>
+                    <li>/etc/crontab</li>
+                    <p>Contiene las tareas programadas en el sistema, lo que podría revelar información sobre la automatización de tareas.</p>
+                    <li>/etc/hostname</li>
+                    <p>Almacena el nombre del host del sistema, que puede utilizarse para identificar un servidor en la red.</p>
+                    <li>/etc/hosts</li>
+                    <p>Asocia nombres de host a direcciones IP locales, lo que podría ser explotado para redirigir tráfico.</p>
+                    <li>/etc/network/interfaces</li>
+                    <p>Define la configuración de red, incluyendo direcciones IP, máscaras de subred y gateways.</p>
+                    <li>/etc/security/access.conf</li>
+                    <p>Controla el acceso de los usuarios y grupos a recursos del sistema.</p>
+                    <li>/etc/login.defs</li>
+                    <p>Define políticas de seguridad relacionadas con la autenticación y las contraseñas.</p>
+                    <li>/etc/profile</li>
+                    <p>Contiene configuraciones de perfil global para los usuarios, incluyendo rutas y variables de entorno.</p>
+                    <li>/etc/environment</li>
+                    <p>Configuración global de variables de entorno.</p>
+                    <li>/etc/backup/</li>
+                    <p>Directorio para almacenar copias de seguridad de configuraciones críticas.</p>
+                    <li>/etc/skel</li>
+                    <p>Directorio que contiene archivos y configuraciones predeterminados para la creación de nuevos usuarios.</p>
+                    <li>/etc/bind/named.conf</li>
+                    <p>Es el archivo de configuración del servicio DNS BIND.</p>
+                    <li>/etc/systemd/system/privesc.service</li>
+                    <p>Esta es la ruta donde se alojan los servicios systemd.</p>
+                    <li>/etc/mail/sendmail.mc</li>
+                    <p>Configuración del servidor Sendmail, que gestiona el correo saliente.</p>
+                    <li>/etc/samba/smb.conf</li>
+                    <p>Configuración del servidor Samba para compartir archivos e impresoras en redes Windows.</p>
+                    <li>/etc/krb5.conf</li>
+                    <p>Contiene la configuración de Kerberos, un sistema de autenticación seguro.</p>
+                    <li>/var/log/auth.log</li>
+                    <p>Registra eventos de autenticación, como intentos de inicio de sesión fallidos.</p>
+                    <li>/var/log/secure</li>
+                    <p>Registra información sobre la seguridad del sistema, incluyendo eventos de autenticación y cambios en la política de seguridad.</p>
+                </ul>
+                <h2>Servidor Nginx</h2>
+                <ul style="list-style-type: circle;">
+                    <li>/etc/nginx/nginx.conf</li>
+                    <p>Configuración principal de Nginx.</p>
+                    <li>/etc/nginx/sites-available/</li>
+                    <p>Directorio que contiene configuraciones de sitios virtuales.</p>
+                    <li>/etc/nginx/snippets/</li>
+                    <p>Directorio con fragmentos de configuración reutilizables.</p>
+                    <li>/etc/nginx/conf.d/</li>
+                    <p>Directorio para archivos de configuración adicionales.</p>
+                    <li>/etc/nginx/conf.d/.htpasswd</li>
+                    <p>Almacena credenciales de autenticación para el servidor web Nginx.</p>
+                    <li>/var/log/nginx/access.log</li>
+                    <p>Muestra registros de acceso de Nginx y puede ayudar a detectar actividades sospechosas en el servidor web.</p>
+                </ul>
+                <h2>WordPress</h2>
+                <ul style="list-style-type: circle;">
+                    <li>/var/www/html/wordpress/</li>
+                    <p>El directorio raíz de WordPress que contiene todos los archivos del sistema de gestión de contenido.</p>
+                    <li>/var/www/html/wordpress/wp-config.php</li>
+                    <p>El archivo de configuración de WordPress que contiene credenciales de la base de datos y configuraciones críticas.</p>
+                    <li>/var/www/html/wordpress/wp-user.php</li>
+                    <p>Gestiona la autenticación en WordPress.</p>
+                    <li>wp-json/wp/v2/users/</li>
+                    <p>Contiene información sobre los usuarios de WordPress.</p>
+                    <li>/var/www/html/wordpress/wp-content/plugins/</li>
+                    <p>El directorio que almacena todos los complementos instalados en WordPress.</p>
+                    <li>/var/www/html/wordpress/wp-content/themes/</li>
+                    <p>El directorio que contiene todos los temas instalados en WordPress.</p>
+                    <li>/var/www/html/wordpress/wp-content/uploads/</li>
+                    <p>El directorio donde se almacenan los archivos multimedia cargados por los usuarios.</p>
+                    <li>/var/www/html/wordpress/.htaccess</li>
+                    <p>El archivo de configuración de Apache que controla las reglas de redirección y seguridad para WordPress.</p>
+                    <li>/var/www/html/wordpress/wp-content/debug.log</li>
+                    <p>El archivo de registro de WordPress donde se almacenan registros y archivos de registro.</p>
+                    <li>/var/www/html/wordpress/wp-content/cache/</li>
+                    <p>El directorio que puede contener datos almacenados en caché si se utiliza un complemento de caché.</p>
+                    <li>/var/www/html/wordpress/wp-content/uploads/backup-export/</li>
+                    <p>Si se realizan exportaciones de contenido, estos archivos pueden contener información sensible.</p>
+                    <li>/var/www/html/wordpress/wp-content/upgrade/</li>
+                    <p>El directorio donde WordPress descarga y almacena actualizaciones de núcleo, temas y complementos.</p>
+                </ul>
+                <h2>Servidor Apache</h2>
+                <ul style="list-style-type: circle;">
+                    <li>/etc/apache2/apache2.conf</li>
+                    <p>Configuración principal de Apache.</p>
+                    <li>/etc/apache2/sites-available/</li>
+                    <p>Directorio de configuraciones de sitios virtuales.</p>
+                    <li>/etc/apache2/mods-available/</li>
+                    <p>Directorio de módulos disponibles.</p>
+                    <li>/var/log/apache2/access.log</li>
+                    <p>Contiene registros de acceso de Apache, que pueden ser explotados si se inyecta código malicioso en las solicitudes HTTP.</p>
+                </ul>
+                <h2>Servidor Tomcat</h2>
+                <ul style="list-style-type: circle;">
+                    <li>/etc/tomcatX/</li>
+                    <p>Directorio de configuración de Tomcat (donde "X" es la versión de Tomcat).</p>
+                    <li>/var/log/tomcatX/</li>
+                    <p>Registros de Tomcat.</p>
+                </ul>
+                <h2>Shopify</h2>
+                <ul style="list-style-type: circle;">
+                    <li>/config/settings_data.json</li>
+                    <p>El archivo de configuración de Shopify que contiene información de la tienda, como las claves de API.</p>
+                    <li>/config/settings_schema.json</li>
+                    <p>El archivo que define el esquema de configuración de Shopify.</p>
+                    <li>/config/settings_data_schema.json</li>
+                    <p>El archivo que define el esquema de datos de configuración de Shopify.</p>
+                    <li>/assets/</li>
+                    <p>El directorio que contiene recursos como imágenes y hojas de estilo de la tienda Shopify.</p>
+                    <li>/sections/</li>
+                    <p>El directorio que contiene fragmentos de sección personalizados de la tienda Shopify.</p>
+                    <li>/templates/</li>
+                    <p>El directorio que contiene plantillas de temas personalizados de Shopify.</p>
+                </ul>
+                <h2>MySQL</h2>
+                <ul style="list-style-type: circle;">
+                    <li>/etc/mysql/mysql.conf.d/</li>
+                    <p>Configuración de MySQL.</p>
+                    <li>/var/lib/mysql/</li>
+                    <p>Datos de MySQL (bases de datos).</p>
+                </ul>
+                <h2>PostgreSQL</h2>
+                <ul style="list-style-type: circle;">
+                    <li>/etc/postgresql/X.Y/main/</li>
+                    <p>Configuración de PostgreSQL (donde "X.Y" es la versión de PostgreSQL).</p>
+                    <li>/var/lib/postgresql/X.Y/main/</li>
+                    <p>Datos de PostgreSQL.</p>
+                </ul>
+                <h2>LDAP</h2>
+                <ul style="list-style-type: circle;">
+                    <li>/etc/ldap/</li>
+                    <p>Configuración de LDAP.</p>
+                    <li>/var/lib/ldap/</li>
+                    <p>Datos de LDAP.</p>
+                </ul>
+                <h2>Correo Electrónico (Postfix)</h2>
+                <ul style="list-style-type: circle;">
+                    <li>/etc/postfix/main.cf</li>
+                    <p>Configuración principal de Postfix.</p>
+                    <li>/etc/postfix/master.cf</li>
+                    <p>Configuración de servicios de Postfix.</p>
+                </ul>
+                <h2>Firewall (iptables)</h2>
+                <ul style="list-style-type: circle;">
+                    <li>/etc/iptables/</li>
+                    <p>Reglas de firewall personalizadas.</p>
+                    <li>/etc/network/</li>
+                    <p>Configuración de red, incluyendo interfaces y enrutamiento.</p>
+                </ul>
+                <h2>Claves de SSH</h2>
+                <ul style="list-style-type: circle;">
+                    <li>/etc/ssh/ssh_host_*_key</li>
+                    <p>Claves privadas de SSH.</p>
+                    <li>/home/usuario/.ssh/authorized_keys</li>
+                    <p>Claves públicas autorizadas para acceso SSH.</p>
+                </ul>
+                <h2>Certificados SSL/TLS</h2>
+                <ul style="list-style-type: circle;">
+                    <li>/etc/ssl/certs/</li>
+                    <p>Certificados SSL/TLS.</p>
+                    <li>/etc/ssl/private/</li>
+                    <p>Claves privadas SSL/TLS.</p>
+                </ul>
+                <h2>Logs de Aplicaciones</h2>
+                <ul style="list-style-type: circle;">
+                    <li>/var/log/</li>
+                    <p>Registros de aplicaciones y sistema, incluyendo /var/log/nginx/, /var/log/apache2/, y otros.</p>
+                    <li>/var/log/audit/</li>
+                    <p>Registros de auditoría de SELinux.</p>
+                </ul>
+                <h2>Directorio de Aplicaciones Sensibles</h2>
+                <ul style="list-style-type: circle;">
+                    <li>/var/www/</li>
+                    <p>Directorio predeterminado para archivos y aplicaciones web.</p>
+                    <li>C:\inetpub\wwwroot</li>
+                    <p>Es la ubicación predeterminada para almacenar sitios web en servidores Microsoft IIS.</p>
+                </ul>
+                <h2>Linpeas</h2>
+                <p>Cuando se trata de evaluaciones de seguridad en sistemas Linux, es esencial contar con herramientas efectivas para la enumeración y recopilación de información. Linpeas es una de esas herramientas que simplifica este proceso al proporcionar una amplia gama de comprobaciones y análisis automatizados en sistemas Linux. En este artículo, exploraremos qué es Linpeas, cómo funciona y cómo puede ser utilizado para identificar posibles vulnerabilidades y configuraciones incorrectas en sistemas Linux.</p>
+                <p>Linpeas es una herramienta de escaneo y recopilación de información diseñada para sistemas operativos Linux. Su nombre proviene de "Linux Privilege Escalation Awesome Script" (Script Increíble de Escalada de Privilegios en Linux), y es un proyecto de código abierto disponible en GitHub. Linpeas es ampliamente utilizado por profesionales de la seguridad y pentesters para recopilar información crucial sobre sistemas Linux, lo que puede ser fundamental para identificar debilidades y posibles rutas de ataque.</p>
+                <p>Linpeas ofrece una amplia variedad de funciones y comprobaciones automatizadas para sistemas Linux. Algunas de sus características clave incluyen:</p>
+                <ul style="list-style-type: square;">
+                    <li>Escaneo Exhaustivo del Sistema</li>
+                    <p>Linpeas realiza un escaneo exhaustivo del sistema en busca de información relevante, incluyendo detalles sobre usuarios, grupos, archivos, directorios, servicios en ejecución, versiones de software, y más. Esto permite a los usuarios tener una visión completa de la configuración y el estado del sistema.</p>
+                    <li>Detección de Vulnerabilidades y Rutas de Escalada de Privilegios</li>
+                    <p>La herramienta identifica posibles vulnerabilidades y rutas de escalada de privilegios en el sistema. Puede ayudar a identificar configuraciones incorrectas, permisos inadecuados y otros problemas de seguridad que podrían ser explotados por atacantes.</p>
+                    <li>Información Detallada del Sistema</li>
+                    <p>Linpeas proporciona información detallada sobre el sistema, incluyendo la versión del kernel, la configuración de red, los archivos de inicio de sesión, las configuraciones de sudo, y mucho más. Esta información es esencial para comprender el entorno objetivo.</p>
+                    <li>Análisis de Configuración de Servicios</li>
+                    <p>La herramienta realiza un análisis de la configuración de servicios específicos, como Apache, MySQL, SSH, entre otros. Esto puede ayudar a identificar configuraciones inseguras o erróneas que podrían ser explotadas.</p>
+                    <li>Personalización y Flexibilidad</li>
+                    <p>Linpeas es altamente personalizable y permite a los usuarios habilitar o deshabilitar comprobaciones específicas según sus necesidades. Esto es útil para adaptar la herramienta a diferentes escenarios y entornos.</p>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/archivos4.png" alt="">
+                </div>
+                <h2>Cómo Utilizar Linpeas</h2>
+                <ol>
+                    <li>Descarga Linpeas: Clona el repositorio de Linpeas desde GitHub o descárgalo desde la fuente oficial.</li>
+                    <li>Copia Linpeas al Sistema Objetivo: Transfiere el archivo Linpeas.sh al sistema Linux que deseas analizar. Puedes hacerlo mediante SCP, Wget o cualquier otro método de transferencia de archivos.</li>
+                    <li>Otorga Permisos de Ejecución: Asegúrate de que Linpeas.sh tenga permisos de ejecución. Puedes hacerlo con el comando 'chmod +x Linpeas.sh'.</li>
+                    <li>Ejecuta Linpeas: Ejecuta Linpeas.sh como usuario con suficientes privilegios. Esto puede requerir permisos de sudo.</li>
+                    <li>Espera la Salida: Linpeas realizará una serie de comprobaciones y análisis en el sistema. Esto puede llevar algún tiempo. Una vez que se complete, se generará un informe en texto plano que contiene los resultados del análisis.</li>
+                    <li>Analiza el Informe: Examina el informe generado por Linpeas para identificar posibles problemas de seguridad, vulnerabilidades o configuraciones incorrectas en el sistema. Esto te ayudará a tomar medidas para mejorar la seguridad.</li>
+                </ol>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Ejecutar Linpeas en un sistema Linux
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="./Linpeas.sh" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <br>
+                <p>Linpeas es una herramienta poderosa para la enumeración y recopilación de información en sistemas Linux. Su capacidad para identificar vulnerabilidades y configuraciones incorrectas lo convierte en una elección popular entre los profesionales de la seguridad y pentesters. Al utilizar Linpeas de manera efectiva, puedes obtener información crítica sobre la seguridad de un sistema y tomar medidas para mejorar su protección.</p>
+                <p>Es importante mencionar que Linpeas no es la única herramienta de este tipo disponible. También existe una versión diseñada para sistemas Windows llamada Winpeas, que se utiliza para la enumeración y recopilación de información en entornos Windows. Al igual que Linpeas, Winpeas es una herramienta valiosa para evaluar la seguridad de sistemas Windows y descubrir posibles vulnerabilidades.</p>
+                <p>Sin embargo, es importante recordar que Linpeas debe ser utilizado de manera ética y en sistemas para los cuales tienes permiso para realizar pruebas de seguridad. El uso indebido de esta herramienta puede tener consecuencias legales y éticas. Siempre sigue las leyes y regulaciones aplicables y obtén autorización antes de realizar pruebas de seguridad en sistemas que no te pertenecen.</p>
+                <h2>Conclusión</h2>
+                <p>Estos son ejemplos adicionales de archivos y rutas sensibles en sistemas Linux, especialmente relacionados con servidores web y aplicaciones comunes. La protección y el acceso seguro a estos archivos y directorios son fundamentales para mantener la seguridad y la integridad del sistema y los datos.</p>
+                <p>Proteger estos archivos y rutas sensibles es esencial para garantizar la seguridad y la privacidad en sistemas Linux. La pérdida de control sobre estos recursos puede tener graves consecuencias para la integridad del sistema y los datos. Por lo tanto, se recomienda encarecidamente tomar medidas para restringir el acceso a estas áreas y configurar adecuadamente los permisos de archivo.</p>
+                <p>Recuerda que esta lista no es exhaustiva, y las aplicaciones y servicios adicionales pueden tener sus propios archivos y rutas sensibles. La seguridad en sistemas Linux es un esfuerzo continuo que implica la comprensión y la protección de estos recursos críticos.</p>
+                <p>Este artículo proporciona una visión general de algunos de los archivos y rutas más sensibles en sistemas Linux, pero es importante tener en cuenta que la seguridad y la administración de sistemas Linux son temas amplios y en constante evolución. Siempre se recomienda consultar las guías de seguridad específicas de las distribuciones y servicios que estés utilizando para obtener orientación detallada sobre cómo proteger tu sistema de manera efectiva.</p>
+                <div class="blog-image-grande">
+                    <img src="media/archivos3.jpeg" alt="">
+                </div>
+                
+ <!--               
+                <div class="mi-contenedor">
+                    <div class="barra-superior">
+                        <button id="boton-copiar"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo">
+                        <pre>
+<code>// Tu código aquí
+function holaMundo() {
+    console.log("Hola, mundo!");
+}</code>
+                        </pre>
+                    </div>
+                </div>
+-->
+
+
+            </div>   
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>

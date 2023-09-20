@@ -277,14 +277,17 @@ main{
     outline: none;
     border-radius: 10px;
     font-family: monospace;
-    max-width: 1100px;
-    width: auto;
+    max-width: 1000px; 
+    /*border: 1px solid rgb(152, 182, 238);*/
+    overflow-x: scroll;
+    white-space: nowrap; /* Evitar el ajuste de línea */
+    width: auto; 
     background-color: #252323;
 }
 
 .comandos button{
     padding: 10px;
-    background: rgb(152, 182, 238);
+    background: rgb(122, 162, 235);
     color: #000;
     font-size: 18px;
     border: none;
@@ -294,20 +297,25 @@ main{
     
 }
 
+.comandos button span{
+    font-family: monospace;
+}
+
 .comandos button:active{
-    background: rgb(110, 182, 238);
+    background: rgb(122, 162, 235);
 }
 
 .comandos button:before{
-    content: "copiado!";
+    content: "Copied!";
     position: absolute;
     top: -45px;
     left: 0px;
-    background: rgb(152, 182, 238);
+    background: rgb(122, 162, 235);
+    font-family: monospace;
     color: #000;
     padding: 8px 10px;
     border-radius: 20px;
-    font-size: 15px;
+    font-size: 13px;
     display: none;
 }
 
@@ -318,7 +326,7 @@ main{
     left: 25px;
     width: 10px;
     height: 10px;
-    background: rgb(152, 182, 238);
+    background: rgb(122, 162, 235);
     transform: rotate(45deg);
     display: none;
 }
@@ -327,8 +335,7 @@ main{
 .comandos.active button:after{
     display: block;
 }
-
-  /* Estilos para el código */
+  /* Estilos para el código 
   code {
     background-color: #f4f4f4;
     padding: 4px;
@@ -341,8 +348,9 @@ main{
     outline: none;
     opacity: 0.7;
   }
+  */
   
-  /* Estilos para el botón */
+  /* Estilos para el botón 
   .btn-copiar {
     background-color: #007bff;
     color: #fff;
@@ -352,6 +360,75 @@ main{
     border-radius: 10px;
     
   }
+*/
+
+
+/* Estilos para el contenedor */
+.mi-contenedor {
+    background-color: #f4f4f4;
+    padding: 0;
+    border-radius: 10px;
+    margin: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para la barra superior */
+.barra-superior {
+    text-align: right;
+    background-color: rgb(122, 162, 235);
+    color: #fff;
+    height: 35px;
+    line-height: 30px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 0 10px;
+}
+
+/* Estilos para el botón */
+#boton-copiar {
+    background-color: rgb(122, 162, 235);
+    font-family: monospace;
+    color: #000;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    border-radius: 0;
+}
+
+#boton-copiar:hover {
+    background-color: rgb(122, 162, 235);
+}
+
+/* Estilos para el código */
+.codigo {
+    background-color: #f4f4f4;
+    padding: 0;
+    font-family: monospace;
+    border-radius: 0 0 10px 10px;
+    border-top: 1px solid #ccc;
+    margin: 0; /* Elimina los márgenes predeterminados */
+}
+.codigo pre {
+    white-space: pre-wrap; /* Permite saltos de línea automáticos */
+    tab-size: 4; /* Establece el tamaño de tabulación */
+    font-size: 16px; /* Tamaño de fuente */
+    line-height: 1.5; /* Altura de línea */
+    background-color: #252323; /* Fondo */
+    padding: 10px; /* Espaciado interno */
+    border-radius: 0; /* Bordes redondeados */
+    border: none; /* Borde */
+    overflow-x: auto; /* Barra de desplazamiento horizontal si es necesario */
+    text-align: left; /* Alinea el texto a la izquierda */
+    margin: 0; /* Elimina los márgenes predeterminados */
+    margin-top: -10px;
+}
+.codigo pre code {
+    /* Estilos específicos para el código dentro del bloque pre */
+    color: white; /* Color del texto */
+    margin: 0;
+    font-size: 16px;
+    font-family: monospace;
+}
 
 .blog-image {
     width: 100%;
@@ -475,6 +552,12 @@ main{
 
 }
 
+@media (max-width: 1200px){
+    .comandos button span {
+        display: none;
+      }
+}    
+
 @media (max-width: 720px){
 
     .blog-image-doble img {
@@ -495,9 +578,6 @@ main{
         list-style-position: inside;
      }
 
-    .comandos button span {
-        display: none;
-      }
     .number {
         width: 30px;
         height: 30px;  
