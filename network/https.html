@@ -82,6 +82,7 @@
                     <li>Firmas Digitales: Las firmas digitales son una forma de autenticación en la que se utiliza la clave privada para firmar un conjunto de datos. La firma puede ser verificada por otros utilizando la clave pública correspondiente. Esto se utiliza para garantizar que los datos no han sido alterados y que provienen de la fuente auténtica. Ejemplos comunes son las firmas basadas en RSA y ECDSA (Elliptic Curve Digital Signature Algorithm).</li>
                     <li>Protocolos de Intercambio de Claves: En el proceso de handshake, se utilizan protocolos como el protocolo de intercambio de claves Diffie-Hellman para generar claves de sesión compartidas de manera segura sin tener que enviarlas directamente a través de la red.</li>
                 </ol>
+                <br>
                 <p>Voy a usar ejemplos sencillos para explicar cómo funcionan los algoritmos de integridad, autenticación y confidencialidad en HTTPS.</p>
                 <ol style="list-style-type: square;">
                     <li>Integridad:</li>
@@ -94,7 +95,8 @@
                     <p>Imagina que estás en una habitación con tu amigo y quieres contarle un secreto. Pero hay mucha gente afuera que podría escuchar. Así que tomas una caja especial y pones tu mensaje dentro. Luego, pones un candado en la caja y solo tú y tu amigo tienen la llave para abrirlo.</p>
                     <p>En HTTPS, usamos cifrado para proteger tus datos mientras viajan por Internet. Tus datos se cifran en el navegador y solo el sitio web tiene la clave para descifrarlos. Incluso si alguien intercepta los datos en el camino, solo verán información ilegible.</p>
                 </ol>
-                <p>En resumen, SSL/TLS trabaja como un protector digital que mantiene tus datos en secreto, asegura que no se cambien sin tu conocimiento y confirma que estás hablando con quienes dices estar hablando. Así puedes navegar y comunicarte en línea de manera más segura y tranquila.</p>
+                <br>
+                <p>SSL/TLS trabaja como un protector digital que mantiene tus datos en secreto, asegura que no se cambien sin tu conocimiento y confirma que estás hablando con quienes dices estar hablando. Así puedes navegar y comunicarte en línea de manera más segura y tranquila.</p>
                 <h2>Intercambio de información</h2>
                 <p>Durante el proceso de handshake en una conexión HTTPS, se intercambia una cantidad de información crucial entre el cliente (tu navegador) y el servidor web. Esto se hace para establecer una comunicación segura y cifrada. Aquí está la información que se comparte durante el proceso de handshake:</p>
                 <ol>
@@ -135,7 +137,7 @@
                 <p>Los certificados SSL/TLS tienen fechas de vencimiento. Estas fechas están incluidas en los certificados y son parte integral de su seguridad. Un certificado expirado no se considera confiable, ya que no garantiza que el sitio web sea quien dice ser.</p>
                 <p>Las Autoridades de Certificación (CAs) emiten certificados con un período de validez limitado, generalmente de 1 a 2 años. Después de ese período, el certificado debe ser renovado. La renovación implica un proceso similar al de la emisión inicial, que incluye la verificación de la identidad del propietario del sitio web. Este enfoque de caducidad ayuda a mantener la seguridad, ya que cualquier problema de seguridad o cambio en la autenticidad del sitio web se abordará durante la renovación.</p>
                 <h2>Conclusión</h2>
-                <p>En resumen, HTTPS es la capa de seguridad que protege tus datos mientras navegas por la web. El proceso de handshake establece una conexión segura, y los certificados SSL/TLS garantizan la autenticidad y seguridad de los sitios web. La próxima vez que veas un candado en tu navegador, sabrás que tu información está protegida, ¡así que navega con tranquilidad!</p>
+                <p>HTTPS es la capa de seguridad que protege tus datos mientras navegas por la web. El proceso de handshake establece una conexión segura, y los certificados SSL/TLS garantizan la autenticidad y seguridad de los sitios web. La próxima vez que veas un candado en tu navegador, sabrás que tu información está protegida, ¡así que navega con tranquilidad!</p>
                 <br>
                 <br>
             </div>   
