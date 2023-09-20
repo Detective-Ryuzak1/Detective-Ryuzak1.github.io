@@ -74,6 +74,7 @@
                     <li>Regresión Lineal</li>
                     <p>La regresión lineal es un algoritmo de Machine Learning supervisado que se utiliza para predecir valores numéricos basados en una relación lineal entre variables. Por ejemplo, si queremos predecir el precio de una casa en función de su área, podemos usar la regresión lineal para encontrar una línea que mejor se ajuste a los datos.</p>
                     <p>Ejemplo: Supongamos que tenemos los siguientes datos que representan el área (X) y el precio (Y) de algunas casas:</p>
+                    <br>
                     <table>
                         <tr>
                             <th>Área (X)</th>
@@ -92,6 +93,7 @@
                             <td>$300,000</td>
                         </tr>
                     </table>
+                    <br>
                     <p>Utilizando la regresión lineal, podemos encontrar la línea que mejor se ajusta a estos puntos, y luego utilizarla para predecir el precio de una casa con un área desconocida.</p>
                     <li>Regresión Logística</li>
                     <p>La regresión logística es un algoritmo de Machine Learning supervisado que se utiliza para la clasificación binaria. Se emplea para predecir la probabilidad de que un ejemplo pertenezca a una de las dos categorías posibles. Por ejemplo, podemos usar la regresión logística para predecir si un correo electrónico es spam o no spam.</p>
@@ -168,7 +170,7 @@
                         <li>Clasificación: Finalmente, la última capa de la CNN realiza la clasificación de la imagen en diferentes categorías. Dependiendo del problema, puede haber diferentes funciones de activación en esta capa. Por ejemplo, para problemas de clasificación binaria, se puede usar una función sigmoide, y para problemas de clasificación multiclase, se puede usar una función Softmax.</li>
                     </ol>
                     <p>La magia de las CNN radica en su capacidad para aprender automáticamente características relevantes de las imágenes. A través de múltiples capas de convolución y agrupación, la red puede reconocer patrones cada vez más complejos y realizar tareas sofisticadas de clasificación, detección de objetos y más.</p>
-                    <p>En resumen, una Convolutional Neural Network (CNN) es un tipo de red neuronal especializada en el procesamiento de imágenes. Utiliza capas de convolución, funciones de activación, agrupación y capas completamente conectadas para extraer y aprender automáticamente características relevantes de las imágenes y realizar tareas como clasificación y detección de objetos. Es una de las arquitecturas más poderosas para el procesamiento de datos de imágenes y ha impulsado avances significativos en la visión por computadora.</p>
+                    <p>Una Convolutional Neural Network (CNN) es un tipo de red neuronal especializada en el procesamiento de imágenes. Utiliza capas de convolución, funciones de activación, agrupación y capas completamente conectadas para extraer y aprender automáticamente características relevantes de las imágenes y realizar tareas como clasificación y detección de objetos. Es una de las arquitecturas más poderosas para el procesamiento de datos de imágenes y ha impulsado avances significativos en la visión por computadora.</p>
                     <p>Ejemplo: Supongamos que queremos clasificar imágenes de diferentes animales, como perros y gatos. Utilizaríamos una CNN para aprender automáticamente características como bordes, formas y texturas que son relevantes para distinguir entre los diferentes animales.</p>
                     <div class="blog-image-grande">
                         <img src="media/algoritmo11.jpeg" alt="">
@@ -186,7 +188,7 @@
                     </ol>
                     <p>Las RNN son especialmente útiles para tareas que involucran datos secuenciales, como el procesamiento del lenguaje natural (NLP), la generación de texto, el reconocimiento de voz, el análisis de series temporales y más.</p>
                     <p>A pesar de su utilidad, las RNN también tienen algunas limitaciones, como el problema de desvanecimiento y explosión del gradiente, que puede dificultar el entrenamiento de secuencias muy largas. Como resultado, han surgido variantes más avanzadas de RNN, como las Long Short-Term Memory (LSTM) y las Gated Recurrent Unit (GRU), que abordan estos problemas y son ampliamente utilizadas en aplicaciones prácticas.</p>
-                    <p>En resumen, las Redes Neuronales Recurrentes (RNN) son un tipo de red neuronal diseñado para procesar secuencias de datos, manteniendo una "memoria" a través de conexiones recurrentes. Son útiles para tareas que implican datos secuenciales, como el procesamiento del lenguaje natural y el análisis de series temporales. Sin embargo, variantes como LSTM y GRU se han vuelto más populares debido a sus capacidades mejoradas para manejar secuencias largas y problemas de desvanecimiento y explosión del gradiente.</p>
+                    <p>Las Redes Neuronales Recurrentes (RNN) son un tipo de red neuronal diseñado para procesar secuencias de datos, manteniendo una "memoria" a través de conexiones recurrentes. Son útiles para tareas que implican datos secuenciales, como el procesamiento del lenguaje natural y el análisis de series temporales. Sin embargo, variantes como LSTM y GRU se han vuelto más populares debido a sus capacidades mejoradas para manejar secuencias largas y problemas de desvanecimiento y explosión del gradiente.</p>
                     <p>Ejemplo: Supongamos que queremos generar texto que parezca escrito por un autor específico. Utilizamos una RNN para aprender el estilo de escritura del autor a partir de sus libros y luego generamos texto que se asemeje a su estilo.</p>
                     <div class="blog-image-grande">
                         <img src="media/algoritmo12.png" alt="">
@@ -204,7 +206,7 @@
                     <p>Al finalizar, obtendremos "K" clusters, cada uno con su centroide y una colección de puntos de datos asignados a ellos.</p>
                     <p>K-Means es un algoritmo muy popular y ampliamente utilizado en el campo del aprendizaje no supervisado y la minería de datos. Se utiliza en aplicaciones como segmentación de clientes, compresión de imágenes, agrupamiento de datos y más.</p>
                     <p>Es importante destacar que la elección del número "K" de clusters es un parámetro crítico en K-Means. No hay una regla fija para determinar el valor óptimo de "K", pero se pueden utilizar técnicas como la validación cruzada o la evaluación visual de los resultados para encontrar un valor adecuado de "K".</p>
-                    <p>En resumen, K-Means es un algoritmo de agrupamiento que divide un conjunto de puntos de datos en "K" clusters, donde cada cluster tiene un centroide que representa el centro del cluster. El algoritmo asigna iterativamente los puntos a los clusters y actualiza los centroides hasta que convergen. Es una herramienta poderosa para agrupar datos y encontrar estructuras ocultas en conjuntos de datos no etiquetados.</p>
+                    <p>K-Means es un algoritmo de agrupamiento que divide un conjunto de puntos de datos en "K" clusters, donde cada cluster tiene un centroide que representa el centro del cluster. El algoritmo asigna iterativamente los puntos a los clusters y actualiza los centroides hasta que convergen. Es una herramienta poderosa para agrupar datos y encontrar estructuras ocultas en conjuntos de datos no etiquetados.</p>
                     <p>Ejemplo: Supongamos que tenemos un conjunto de datos con información sobre clientes de una tienda y queremos agruparlos en diferentes segmentos de acuerdo con sus patrones de compra. Utilizamos K-Means para dividir a los clientes en K grupos basados en sus hábitos de compra.</p>
                     <div class="blog-image-grande">
                         <img src="media/algoritmo13.png" alt="">
@@ -235,7 +237,7 @@
                     </ol>
                     <p>Con cada generación, los individuos de la población tienden a ser más aptos, ya que las mejores soluciones tienen más probabilidades de ser seleccionadas y reproducidas. Con el tiempo, los Algoritmos Genéticos convergen hacia una solución que se acerca a la óptima para el problema dado.</p>
                     <p>Los Algoritmos Genéticos son muy versátiles y se utilizan para resolver una amplia gama de problemas de optimización, como encontrar la mejor ruta en un problema de viajante de comercio, diseñar estructuras, optimizar parámetros de modelos matemáticos y mucho más.</p>
-                    <p>En resumen, los Algoritmos Genéticos son una técnica de búsqueda y optimización basada en la teoría de la evolución. Generan soluciones candidatas a partir de una población inicial, seleccionan y reproducen las mejores soluciones, y aplican mutaciones para explorar y mejorar progresivamente las soluciones. Son útiles para encontrar soluciones cercanas a la óptima en problemas complejos y difíciles de resolver con métodos tradicionales.</p>
+                    <p>Los Algoritmos Genéticos son una técnica de búsqueda y optimización basada en la teoría de la evolución. Generan soluciones candidatas a partir de una población inicial, seleccionan y reproducen las mejores soluciones, y aplican mutaciones para explorar y mejorar progresivamente las soluciones. Son útiles para encontrar soluciones cercanas a la óptima en problemas complejos y difíciles de resolver con métodos tradicionales.</p>
                     <p>Ejemplo: Supongamos que queremos encontrar la mejor ruta para entregar paquetes a diferentes ubicaciones. Utilizamos algoritmos genéticos para generar posibles soluciones (rutas) y luego seleccionamos, cruzamos y mutamos las mejores soluciones hasta encontrar una ruta óptima.</p>
                     <div class="blog-image-grande">
                         <img src="media/algoritmo16.png" alt="">
