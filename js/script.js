@@ -14,18 +14,18 @@ window.onscroll = function () {
     elemento2.style.top = posicion * 0.1 + "px";
 }
 
-  // Función para ajustar el ancho del input en función de su contenido
-  function ajustarAncho(input) {
-    input.style.width = 'auto';
-    const nuevoAncho = input.scrollWidth + 10; // Agregar un poco de margen
-    input.style.width = nuevoAncho + 'px';
-  }
+// Función para ajustar el ancho del input en función de su contenido
+function ajustarAncho(input) {
+  input.style.width = 'auto';
+  const nuevoAncho = input.scrollWidth + 10; // Agregar un poco de margen
+  input.style.width = nuevoAncho + 'px';
+}
 
-  // Llamar a la función para que los inputs se ajusten al cargarse la página
-  const inputs = document.querySelectorAll('.comandos input');
-  inputs.forEach((input) => {
-    ajustarAncho(input);
-  });
+// Llamar a la función para que los inputs se ajusten al cargarse la página
+const inputs = document.querySelectorAll('.comandos input');
+inputs.forEach((input) => {
+  ajustarAncho(input);
+});
 
 function copiarValorConsola(event) {
   const comandos = event.currentTarget.parentElement;
@@ -55,4 +55,27 @@ function copiarValorConsola(event) {
 const botones = document.querySelectorAll('.comandos button');
 botones.forEach((boton) => {
   boton.addEventListener('click', copiarValorConsola);
+});
+
+//mi-contenedor
+document.getElementById("boton-copiar").addEventListener("click", function() {
+  const boton = this;
+  const codigo = document.querySelector(".codigo");
+  const codigoTexto = codigo.innerText;
+
+  // Crear un elemento de textarea para copiar el código
+  const textarea = document.createElement("textarea");
+  textarea.value = codigoTexto;
+  document.body.appendChild(textarea);
+  textarea.select();
+  document.execCommand("copy");
+  document.body.removeChild(textarea);
+
+  // Cambiar el texto del botón a "Copiado"
+  this.innerText = "Copied!";
+
+  // Restaurar el texto original después de un segundo
+  setTimeout(() => {
+    this.innerHTML = '<i class="fas fa-copy"></i> Copy';
+  }, 2750);
 });
