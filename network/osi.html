@@ -44,103 +44,101 @@
                 <h2>Capas del Modelo OSI</h2>
                 <p>En el vasto universo de las redes de comunicación, diversos protocolos y tecnologías trabajan en conjunto para permitir el intercambio fluido de información. A través del Modelo OSI, este complejo tejido se organiza en capas interconectadas, cada una con su propio propósito y función en la comunicación. Desde la capa de aplicación, donde los usuarios interactúan directamente con las aplicaciones, hasta la capa física, donde los bits fluyen a través de medios físicos, cada nivel contribuye a la robustez y la eficiencia de las redes modernas.</p>
                 <br>
-                <ol>
-                    <li>Capa Física</li>
-                    <p>Esta capa se encuentra en el nivel más básico de la comunicación de redes. Su tarea esencial es transmitir bits brutos a través de medios físicos como cables y señales inalámbricas. Define aspectos como la topología (la estructura física de la red), el voltaje de señal y la sincronización. En esta capa, la información se representa mediante señales eléctricas, de luz o de radiofrecuencia. Ejemplos de medios físicos son los cables Ethernet, la fibra óptica y las ondas de radio.</p>
-                    <p>Protocolos y Tecnologías:</p>
-                    <ul>
-                        <li>RJ45 (Conector Ethernet)</li>
-                        <li>DSL (Línea de Suscriptor Digital)</li>
-                        <li>10base-TX (Ethernet a 10 Mbps)</li>
-                        <li>USB (Bus Universal en Serie)</li>
-                        <li>Bluetooth</li>
-                        <li>NFC (Comunicación de Campo Cercano)</li>
-                        <li>Fibra Óptica</li>
-                        <li>Coaxial</li>
-                    </ul>
-                    <br>
-                    <li>Capa de Enlace de Datos</li>
-                    <p>Aquí es donde entra en juego la administración confiable de tramas (frames) entre dispositivos conectados directamente. Se introduce el concepto de direcciones MAC (Media Access Control) para identificar de manera única cada dispositivo en la red local. Además, se implementan técnicas de detección y corrección de errores para garantizar la integridad de los datos durante la transmisión. En esta capa, los switches y los bridges son los dispositivos protagonistas que facilitan la segmentación y la administración del tráfico.</p>
-                    <p>Protocolos y Tecnologías:</p>
-                    <ul>
-                        <li>Ethernet</li>
-                        <li>HDLC (Control de Enlace de Alto Nivel)</li>
-                        <li>PPP (Protocolo de Punto a Punto)</li>
-                        <li>L2TP (Protocolo de Tunelización de Capa 2)</li>
-                        <li>IEEE 802.1Q (VLAN Tagging)</li>
-                        <li>Frame Relay (Red de Marcos)</li>
-                        <li>MAC (Dirección de Control de Acceso a Medio)</li>
-                        <li>Wi-Fi (802.11)</li>
-                    </ul>
-                    <br>
-                    <li>Capa de Red</li>
-                    <p>La capa de red es responsable de dirigir los paquetes de datos a través de la red hasta su destino final. Aquí es donde se manejan las direcciones lógicas (como las direcciones IP) y se decide la mejor ruta para el transporte de los paquetes. Los routers, componentes clave en esta capa, toman decisiones sobre el enrutamiento de datos en función de las direcciones IP de origen y destino. Además, se implementan protocolos de enrutamiento para optimizar la entrega.</p>
-                    <p>Protocolos y Tecnologías:</p>
-                    <ul>
-                        <li>IP (Protocolo de Internet)</li>
-                        <li>ICMP (Protocolo de Mensajes de Control de Internet)</li>
-                        <li>OSPF (Protocolo de Estado de Enlace Abierto)</li>
-                        <li>BGP (Protocolo de Pasarela de Frontera)</li>
-                        <li>EIGRP (Protocolo de Enrutamiento de Información Mejorada por Gateway)</li>
-                        <li>RIP (Protocolo de Información de Enrutamiento)</li>
-                        <li>IPSec (Protocolo de Seguridad de Internet)</li>
-                        <li>IGMP (Protocolo de Administración de Grupos de Internet)</li>
-                    </ul>
-                    <br>
-                    <li>Capa de Transporte</li>
-                    <p>La capa de transporte garantiza la transferencia confiable y eficiente de datos entre los extremos de la comunicación. Se encarga de segmentar y ensamblar los datos en unidades manejables llamadas segmentos. Los dos protocolos más prominentes en esta capa son el TCP (Protocolo de Control de Transmisión) y el UDP (Protocolo de Datagramas de Usuario). Mientras que TCP establece conexiones y garantiza la entrega confiable y ordenada, UDP ofrece una comunicación más rápida pero menos confiable, ideal para aplicaciones en tiempo real.</p>
-                    <p>Protocolos y Tecnologías:</p>
-                    <ul>
-                        <li>TCP (Protocolo de Control de Transmisión)</li>
-                        <li>UDP (Protocolo de Datagramas de Usuario)</li>
-                        <li>SCTP (Protocolo de Control de Transmisión Simplificado)</li>
-                        <li>TLS/SSL (Seguridad de Transporte)</li>
-                        <li>SPX (Protocolo de Secuencia de Paquetes)</li>
-                        <li>DCCP (Protocolo de Control de Congestión de Datagramas)</li>
-                    </ul>
-                    <br>
-                    <li>Capa de Sesión</li>
-                    <p>La capa de sesión se encarga de establecer, mantener y finalizar las conexiones entre aplicaciones. Aquí es donde se controla el diálogo entre dispositivos y se sincroniza la comunicación. Los protocolos y tecnologías en esta capa garantizan que las aplicaciones puedan colaborar y comunicarse de manera efectiva.</p>
-                    <p>Protocolos y Tecnologías:</p>
-                    <ul>
-                        <li>NetBIOS (Servicios Básicos de Entrada/Salida de Red)</li>
-                        <li>PPTP (Protocolo de Tunelización de Punto a Punto)</li>
-                        <li>RPC (Llamada a Procedimiento Remoto)</li>
-                        <li>SMB (Protocolo de Mensaje de Servidor)</li>
-                        <li>AFP (Protocolo de Archivos de Apple)</li>
-                        <li>SSH (Protocolo Seguro de Shell)</li>
-                        <li>SLP (Protocolo de Localización de Servicio)</li>
-                        <li>ISO 8327 (Protocolo de Comunicación Orientado a la Sesión)</li>
+                <h3>Capa Física</h3>
+                <p>Esta capa se encuentra en el nivel más básico de la comunicación de redes. Su tarea esencial es transmitir bits brutos a través de medios físicos como cables y señales inalámbricas. Define aspectos como la topología (la estructura física de la red), el voltaje de señal y la sincronización. En esta capa, la información se representa mediante señales eléctricas, de luz o de radiofrecuencia. Ejemplos de medios físicos son los cables Ethernet, la fibra óptica y las ondas de radio.</p>
+                <p>Protocolos y Tecnologías:</p>
+                <ul>
+                    <li>RJ45 (Conector Ethernet)</li>
+                    <li>DSL (Línea de Suscriptor Digital)</li>
+                    <li>10base-TX (Ethernet a 10 Mbps)</li>
+                    <li>USB (Bus Universal en Serie)</li>
+                    <li>Bluetooth</li>
+                    <li>NFC (Comunicación de Campo Cercano)</li>
+                    <li>Fibra Óptica</li>
+                    <li>Coaxial</li>
+                </ul>
+                <br>
+                <h3>Capa de Enlace de Datos</h3>
+                <p>Aquí es donde entra en juego la administración confiable de tramas (frames) entre dispositivos conectados directamente. Se introduce el concepto de direcciones MAC (Media Access Control) para identificar de manera única cada dispositivo en la red local. Además, se implementan técnicas de detección y corrección de errores para garantizar la integridad de los datos durante la transmisión. En esta capa, los switches y los bridges son los dispositivos protagonistas que facilitan la segmentación y la administración del tráfico.</p>
+                <p>Protocolos y Tecnologías:</p>
+                <ul>
+                    <li>Ethernet</li>
+                    <li>HDLC (Control de Enlace de Alto Nivel)</li>
+                    <li>PPP (Protocolo de Punto a Punto)</li>
+                    <li>L2TP (Protocolo de Tunelización de Capa 2)</li>
+                    <li>IEEE 802.1Q (VLAN Tagging)</li>
+                    <li>Frame Relay (Red de Marcos)</li>
+                    <li>MAC (Dirección de Control de Acceso a Medio)</li>
+                    <li>Wi-Fi (802.11)</li>
+                </ul>
+                <br>
+                <h3>Capa de Red</marcador></h3>
+                <p>La capa de red es responsable de dirigir los paquetes de datos a través de la red hasta su destino final. Aquí es donde se manejan las direcciones lógicas (como las direcciones IP) y se decide la mejor ruta para el transporte de los paquetes. Los routers, componentes clave en esta capa, toman decisiones sobre el enrutamiento de datos en función de las direcciones IP de origen y destino. Además, se implementan protocolos de enrutamiento para optimizar la entrega.</p>
+                <p>Protocolos y Tecnologías:</p>
+                <ul>
+                    <li>IP (Protocolo de Internet)</li>
+                    <li>ICMP (Protocolo de Mensajes de Control de Internet)</li>
+                    <li>OSPF (Protocolo de Estado de Enlace Abierto)</li>
+                    <li>BGP (Protocolo de Pasarela de Frontera)</li>
+                    <li>EIGRP (Protocolo de Enrutamiento de Información Mejorada por Gateway)</li>
+                    <li>RIP (Protocolo de Información de Enrutamiento)</li>
+                    <li>IPSec (Protocolo de Seguridad de Internet)</li>
+                    <li>IGMP (Protocolo de Administración de Grupos de Internet)</li>
+                </ul>
+                <br>
+                <h3>Capa de Transporte</marcador></h3>
+                <p>La capa de transporte garantiza la transferencia confiable y eficiente de datos entre los extremos de la comunicación. Se encarga de segmentar y ensamblar los datos en unidades manejables llamadas segmentos. Los dos protocolos más prominentes en esta capa son el TCP (Protocolo de Control de Transmisión) y el UDP (Protocolo de Datagramas de Usuario). Mientras que TCP establece conexiones y garantiza la entrega confiable y ordenada, UDP ofrece una comunicación más rápida pero menos confiable, ideal para aplicaciones en tiempo real.</p>
+                <p>Protocolos y Tecnologías:</p>
+                <ul>
+                    <li>TCP (Protocolo de Control de Transmisión)</li>
+                    <li>UDP (Protocolo de Datagramas de Usuario)</li>
+                    <li>SCTP (Protocolo de Control de Transmisión Simplificado)</li>
+                    <li>TLS/SSL (Seguridad de Transporte)</li>
+                    <li>SPX (Protocolo de Secuencia de Paquetes)</li>
+                    <li>DCCP (Protocolo de Control de Congestión de Datagramas)</li>
+                </ul>
+                <br>
+                <h3>Capa de Sesión</marcador></h3>
+                <p>La capa de sesión se encarga de establecer, mantener y finalizar las conexiones entre aplicaciones. Aquí es donde se controla el diálogo entre dispositivos y se sincroniza la comunicación. Los protocolos y tecnologías en esta capa garantizan que las aplicaciones puedan colaborar y comunicarse de manera efectiva.</p>
+                <p>Protocolos y Tecnologías:</p>
+                <ul>
+                    <li>NetBIOS (Servicios Básicos de Entrada/Salida de Red)</li>
+                    <li>PPTP (Protocolo de Tunelización de Punto a Punto)</li>
+                    <li>RPC (Llamada a Procedimiento Remoto)</li>
+                    <li>SMB (Protocolo de Mensaje de Servidor)</li>
+                    <li>AFP (Protocolo de Archivos de Apple)</li>
+                    <li>SSH (Protocolo Seguro de Shell)</li>
+                    <li>SLP (Protocolo de Localización de Servicio)</li>
+                    <li>ISO 8327 (Protocolo de Comunicación Orientado a la Sesión)</li>
 
-                    </ul>    
-                    <br>
-                    <li>Capa de Presentación</li>
-                    <p>En la capa de presentación, los datos se transforman y traducen para que las aplicaciones puedan interpretarlos de manera correcta. Es aquí donde los protocolos y tecnologías se encargan de la conversión de datos en formatos comprensibles para el usuario y las aplicaciones, además de garantizar la seguridad en la transmisión.</p>
-                    <p>Protocolos y Tecnologías:</p>
-                    <ul>
-                        <li>SSL/TLS (Capa de Seguridad de Transporte/Protocolo de Seguridad de Transporte)</li>
-                        <li>MIME (Extensión de Multipropósito de Correo en Internet)</li>
-                        <li>ASN.1 (Notación de Sintaxis Abstracta 1)</li>
-                    </ul>
-                    <br>
-                    <li>Capa de Aplicación</li>
-                    <p>En la cima del Modelo OSI, la capa de aplicación engloba las interfaces que los usuarios interactúan directamente, brindando una experiencia fluida y rica en aplicaciones. Aquí es donde la comunicación se vuelve palpable, desde la navegación web hasta el intercambio de correos electrónicos. En esta capa, los protocolos y tecnologías trabajan para que las aplicaciones funcionen sin problemas y los usuarios accedan a la información de manera eficiente.</p>
-                    <p>Protocolos y Tecnologías:</p>
-                    <ul>
-                        <li>DNS (Sistema de Nombres de Dominio)</li>
-                        <li>HTTP (Protocolo de Transferencia de Hipertexto)</li>
-                        <li>SMTP (Protocolo Simple de Transferencia de Correo)</li>
-                        <li>FTP (Protocolo de Transferencia de Archivos)</li>
-                        <li>SNMP (Protocolo Simple de Administración de Red)</li>
-                        <li>SIP (Protocolo de Inicio de Sesión)</li>
-                        <li>Telnet (Protocolo de Terminal Virtual)</li>
-                        <li>IMAP (Protocolo de Acceso a Mensajes de Internet)</li>
-                        <li>POP3 (Protocolo de Oficina de Correo de Internet, versión 3)</li>
-                        <li>SSH (Protocolo Seguro de Shell)</li>
-                        <li>SMB (Protocolo de Mensaje de Servidor)</li>
-                        <li>IRC (Protocolo de Chat en Internet)</li>
-                    </ul>
-                </ol>
+                </ul>    
+                <br>
+                <h3>Capa de Presentación</marcador></h3>
+                <p>En la capa de presentación, los datos se transforman y traducen para que las aplicaciones puedan interpretarlos de manera correcta. Es aquí donde los protocolos y tecnologías se encargan de la conversión de datos en formatos comprensibles para el usuario y las aplicaciones, además de garantizar la seguridad en la transmisión.</p>
+                <p>Protocolos y Tecnologías:</p>
+                <ul>
+                    <li>SSL/TLS (Capa de Seguridad de Transporte/Protocolo de Seguridad de Transporte)</li>
+                    <li>MIME (Extensión de Multipropósito de Correo en Internet)</li>
+                    <li>ASN.1 (Notación de Sintaxis Abstracta 1)</li>
+                </ul>
+                <br>
+                <h3>Capa de Aplicación</marcador></h3>
+                <p>En la cima del Modelo OSI, la capa de aplicación engloba las interfaces que los usuarios interactúan directamente, brindando una experiencia fluida y rica en aplicaciones. Aquí es donde la comunicación se vuelve palpable, desde la navegación web hasta el intercambio de correos electrónicos. En esta capa, los protocolos y tecnologías trabajan para que las aplicaciones funcionen sin problemas y los usuarios accedan a la información de manera eficiente.</p>
+                <p>Protocolos y Tecnologías:</p>
+                <ul>
+                    <li>DNS (Sistema de Nombres de Dominio)</li>
+                    <li>HTTP (Protocolo de Transferencia de Hipertexto)</li>
+                    <li>SMTP (Protocolo Simple de Transferencia de Correo)</li>
+                    <li>FTP (Protocolo de Transferencia de Archivos)</li>
+                    <li>SNMP (Protocolo Simple de Administración de Red)</li>
+                    <li>SIP (Protocolo de Inicio de Sesión)</li>
+                    <li>Telnet (Protocolo de Terminal Virtual)</li>
+                    <li>IMAP (Protocolo de Acceso a Mensajes de Internet)</li>
+                    <li>POP3 (Protocolo de Oficina de Correo de Internet, versión 3)</li>
+                    <li>SSH (Protocolo Seguro de Shell)</li>
+                    <li>SMB (Protocolo de Mensaje de Servidor)</li>
+                    <li>IRC (Protocolo de Chat en Internet)</li>
+                </ul>
                 <div class="blog-image">
                     <img src="media/osi1.png" alt="">
                 </div>
@@ -149,20 +147,20 @@
                 <p>Los puertos son números de identificación que permiten que múltiples aplicaciones en un mismo dispositivo compartan la misma dirección IP. Actúan como puntos de acceso virtuales que permiten que los datos se entreguen a la aplicación correcta en una computadora. Los puertos se dividen en dos rangos: puertos bien conocidos (0-1023), puertos registrados (1024-49151) y puertos dinámicos o privados (49152-65535).</p>
                 <p>Los protocolos de transporte TCP (Protocolo de Control de Transmisión) y UDP (Protocolo de Datagramas de Usuario) utilizan puertos para distinguir diferentes aplicaciones en la misma máquina. A través de estos puertos, se logra una comunicación eficiente y organizada en las redes.</p>
                 <h2>Diferencias entre TCP y UDP</h2>
-                <ul style="list-style-type: square;">
+                <ul >
                     <li>TCP (Protocolo de Control de Transmisión) proporciona una comunicación confiable y orientada a la conexión. Establece una conexión antes de enviar datos y garantiza la entrega secuencial.</li>
                     <ol>
-                        <li>Establecimiento de la conexión: Cuando dos dispositivos (cliente y servidor) desean comunicarse, se inicia una conexión TCP. Esto se logra mediante un "apretón de manos" de tres pasos, donde se acuerdan los parámetros de la comunicación.</li>
-                        <li>Transferencia de datos: Una vez establecida la conexión, los datos se dividen en segmentos y se envían a través de la red. Cada segmento contiene el número de puerto de origen y destino, lo que permite que los dispositivos sepan a qué aplicación deben entregar los datos.</li>
-                        <li>Confirmación y reordenamiento: Después de recibir los segmentos, el receptor envía confirmaciones (ACK) al emisor. Si se pierde un segmento, el emisor lo reenvía. Además, TCP se encarga de reordenar los segmentos en el orden correcto, ya que podrían llegar fuera de secuencia.</li>
-                        <li>Cierre de la conexión: Una vez que se completa la transferencia, se inicia el proceso de cierre de la conexión. Al igual que en el establecimiento, se realiza un "apretón de manos" de cuatro pasos para finalizar la conexión de manera ordenada.</li>
+                        <li><marcador class="resaltado6">Establecimiento de la conexión:</marcador> Cuando dos dispositivos (cliente y servidor) desean comunicarse, se inicia una conexión TCP. Esto se logra mediante un "apretón de manos" de tres pasos, donde se acuerdan los parámetros de la comunicación.</li>
+                        <li><marcador class="resaltado6">Transferencia de datos:</marcador> Una vez establecida la conexión, los datos se dividen en segmentos y se envían a través de la red. Cada segmento contiene el número de puerto de origen y destino, lo que permite que los dispositivos sepan a qué aplicación deben entregar los datos.</li>
+                        <li><marcador class="resaltado6">Confirmación y reordenamiento:</marcador> Después de recibir los segmentos, el receptor envía confirmaciones (ACK) al emisor. Si se pierde un segmento, el emisor lo reenvía. Además, TCP se encarga de reordenar los segmentos en el orden correcto, ya que podrían llegar fuera de secuencia.</li>
+                        <li><marcador class="resaltado6">Cierre de la conexión:</marcador> Una vez que se completa la transferencia, se inicia el proceso de cierre de la conexión. Al igual que en el establecimiento, se realiza un "apretón de manos" de cuatro pasos para finalizar la conexión de manera ordenada.</li>
                     </ol>
                     <br>
                     <li>UDP (Protocolo de Datagramas de Usuario) es más rápido pero menos confiable. Es útil para aplicaciones en tiempo real, como streaming y videojuegos, donde la velocidad es crucial y la pérdida ocasional de datos es aceptable.</li>
                     <ol>
-                        <li>Envío de datos: En UDP, no hay un proceso de establecimiento de conexión. Los datos se dividen en datagramas y se envían a través de la red. Cada datagrama contiene la información del número de puerto de origen y destino.</li>
-                        <li>Entrega sin confirmación: A diferencia de TCP, UDP no proporciona confirmaciones de recepción ni reenvía datos perdidos. Esto hace que UDP sea más rápido pero menos confiable.</li>
-                        <li>Aplicaciones en tiempo real: UDP es adecuado para aplicaciones en tiempo real, como videoconferencias y transmisiones en vivo, donde la velocidad es crucial y la pérdida ocasional de datos es aceptable.</li>
+                        <li><marcador class="resaltado6">Envío de datos:</marcador> En UDP, no hay un proceso de establecimiento de conexión. Los datos se dividen en datagramas y se envían a través de la red. Cada datagrama contiene la información del número de puerto de origen y destino.</li>
+                        <li><marcador class="resaltado6">Entrega sin confirmación:</marcador> A diferencia de TCP, UDP no proporciona confirmaciones de recepción ni reenvía datos perdidos. Esto hace que UDP sea más rápido pero menos confiable.</li>
+                        <li><marcador class="resaltado6">Aplicaciones en tiempo real:</marcador> UDP es adecuado para aplicaciones en tiempo real, como videoconferencias y transmisiones en vivo, donde la velocidad es crucial y la pérdida ocasional de datos es aceptable.</li>
                     </ol>
                 </ul>
                 <br>
@@ -172,8 +170,8 @@
                 </div>
                 <h2>Dispositivos en el Modelo OSI</h2>
                 <ul>
-                    <li>Switches: Operan en la capa de enlace de datos. Aprenden direcciones MAC y envían tráfico solo a los dispositivos necesarios, mejorando la eficiencia en la red local.</li>
-                    <li>Routers: Trabajan en la capa de red. Deciden la mejor ruta para enviar paquetes entre redes y utilizan tablas de enrutamiento para tomar decisiones.</li>
+                    <li><marcador class="resaltado8">Switches:</marcador> Operan en la capa de enlace de datos. Aprenden direcciones MAC y envían tráfico solo a los dispositivos necesarios, mejorando la eficiencia en la red local.</li>
+                    <li><marcador class="resaltado8">Routers:</marcador> Trabajan en la capa de red. Deciden la mejor ruta para enviar paquetes entre redes y utilizan tablas de enrutamiento para tomar decisiones.</li>
                 </ul>
                 <h2>Conclusión</h2>
                 <p>El Modelo OSI es un pilar fundamental en la comprensión de cómo los dispositivos de red interactúan y colaboran para transmitir datos. Cada capa tiene su propio conjunto de funciones y protocolos, y la interacción fluida entre ellas permite que la comunicación sea exitosa. Desde la capa física hasta la capa de aplicación, cada nivel desempeña un papel esencial en el proceso de comunicación que impulsa nuestras redes modernas.</p>

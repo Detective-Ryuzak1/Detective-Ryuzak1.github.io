@@ -54,13 +54,13 @@
                 </div>
                 <h2>Encabezado ICMP y Códigos</h2>
                 <p>El encabezado ICMP consta de varias partes esenciales que permiten a los dispositivos de red comunicarse y diagnosticar problemas en la red. Además del campo "Type" (Tipo), también está el campo "Code" (Código), que proporciona información adicional sobre la naturaleza específica del mensaje ICMP.</p>
-                <ul style="list-style-type: circle;">
-                    <li>Tipo 0 (Echo Reply): Utilizado para responder a los mensajes de solicitud de eco (ping).</li>
-                    <li>Tipo 3 (Destino inalcanzable): Indica que la máquina de destino no es accesible o que un puerto específico en el destino no está disponible.</li>
-                    <li>Tipo 8 (Solicitud de eco - Ping): Se utiliza para verificar la conectividad entre dos dispositivos enviando un paquete de solicitud de eco y esperando una respuesta.</li>
-                    <li>Tipo 11 (Tiempo excedido): Indica que el paquete IP no pudo ser entregado dentro del tiempo esperado.</li>
-                    <li>Tipo 13 (Timestamp Request): Solicita que el host destino responda con su hora actual.</li>
-                    <li>Tipo 14 (Timestamp Reply): Respuesta a una solicitud de marca de tiempo.</li>
+                <ul>
+                    <li><marcador class="resaltado4">Tipo 0 (Echo Reply):</marcador> Utilizado para responder a los mensajes de solicitud de eco (ping).</li>
+                    <li><marcador class="resaltado4">Tipo 3 (Destino inalcanzable):</marcador> Indica que la máquina de destino no es accesible o que un puerto específico en el destino no está disponible.</li>
+                    <li><marcador class="resaltado4">Tipo 8 (Solicitud de eco - Ping):</marcador> Se utiliza para verificar la conectividad entre dos dispositivos enviando un paquete de solicitud de eco y esperando una respuesta.</li>
+                    <li><marcador class="resaltado4">Tipo 11 (Tiempo excedido):</marcador> Indica que el paquete IP no pudo ser entregado dentro del tiempo esperado.</li>
+                    <li><marcador class="resaltado4">Tipo 13 (Timestamp Request):</marcador> Solicita que el host destino responda con su hora actual.</li>
+                    <li><marcador class="resaltado4">Tipo 14 (Timestamp Reply):</marcador> Respuesta a una solicitud de marca de tiempo.</li>
                 </ul>
                 <div class="blog-image-grande">
                     <img src="media/protocolos1.png" alt="">
@@ -68,8 +68,8 @@
                 <p>El campo "Code" dentro del encabezado ICMP trabaja en conjunto con el campo "Type" para proporcionar detalles adicionales sobre el propósito del mensaje. Por ejemplo, para un mensaje ICMP de "Destino inalcanzable" (Type 3), el campo "Code" indica la razón exacta por la cual el destino es inalcanzable, como "Red inalcanzable", "Host inalcanzable", "Protocolo inalcanzable", etc.</p>
                 <p>Algunos tipos y códigos ICMP comunes incluyen:</p>
                 <br>
-                <p>Tipo 3: Destino inalcanzable</p>
-                <ul style="list-style-type: circle;">
+                <h6>Tipo 3: Destino inalcanzable</h6>
+                <ul>
                     <li>Código 0: Red inalcanzable.</li>
                     <li>Código 1: Host inalcanzable.</li>
                     <li>Código 2: Protocolo inalcanzable.</li>
@@ -83,61 +83,61 @@
                     <li>Código 11: Red de destino inalcanzable debido a la falta de rutas disponibles.</li>
                 </ul>
                 <br>
-                <p>Tipo 8: Solicitud de eco (Ping)</p>
-                <ul style="list-style-type: circle;">
+                <h6>Tipo 8: Solicitud de eco (Ping)</h6>
+                <ul>
                     <li>Código 0: Código de respuesta por defecto para una solicitud de eco.</li>
                 </ul>
                 <br>
-                <p>Tipo 11: Tiempo excedido</p>
-                <ul style="list-style-type: circle;">
+                <h6>Tipo 11: Tiempo excedido</h6>
+                <ul>
                     <li>Código 0: Tiempo excedido en el tránsito.</li>
                     <li>Código 1: Tiempo excedido en el reensamblaje.</li>
                 </ul>
                 <br>
-                <p>Tipo 12: Problema en los parámetros de Datagrama</p>
-                <ul style="list-style-type: circle;">
+                <h6>Tipo 12: Problema en los parámetros de Datagrama</h6>
+                <ul>
                     <li>Código 0: Punto de inicio de fragmentación no válido.</li>
                     <li>Código 1: Punto final de fragmentación no válido.</li>
                     <li>Código 2: Campo de encabezado "Desplazamiento" de fragmento no válido.</li>
                 </ul>
                 <br>
-                <p>Tipo 13: Solicitud de marca de tiempo</p>
-                <ul style="list-style-type: circle;">
+                <h6>Tipo 13: Solicitud de marca de tiempo</h6>
+                <ul>
                     <li>Código 0: Solicitud de marca de tiempo.</li>
                     <li>Código 1: Respuesta de marca de tiempo.</li>
                 </ul>
                 <br>
-                <p>Tipo 14: Marca de tiempo</p>
-                <ul style="list-style-type: circle;">
+                <h6>Tipo 14: Marca de tiempo</h6>
+                <ul>
                     <li>Código 0: Marca de tiempo.</li>
                 </ul>
                 <br>
-                <p>Tipo 15: Solicitud de información de dirección</p>
-                <ul style="list-style-type: circle;">
+                <h6>Tipo 15: Solicitud de información de dirección</h6>
+                <ul>
                     <li>Código 0: Solicitud de información de dirección.</li>
                     <li>Código 1: Respuesta de información de dirección.</li>
                 </ul>
                 <br>
-                <p>Tipo 16: Información de dirección</p>
-                <ul style="list-style-type: circle;">
+                <h6>Tipo 16: Información de dirección</h6>
+                <ul>
                     <li>Código 0: Información de dirección.</li>
                 </ul>
                 <br>
-                <p>Tipo 17: Solicitud de máscara de subred</p>
-                <ul style="list-style-type: circle;">
+                <h6>Tipo 17: Solicitud de máscara de subred</h6>
+                <ul>
                     <li>Código 0: Solicitud de máscara de subred.</li>
                     <li>Código 1: Respuesta de máscara de subred.</li>
                 </ul>
                 <br>
-                <p>Tipo 18: Máscara de subred</p>
-                <ul style="list-style-type: circle;">
+                <h6>Tipo 18: Máscara de subred</h6>
+                <ul>
                     <li>Código 0: Máscara de subred.</li>
                 </ul>
                 <h2>Datos Adicionales y Suma de Comprobación (Checksum)</h2>
                 <p>Aparte de los campos "Type" y "Code", el encabezado ICMP también contiene otros campos importantes:</p>
-                <ul style="list-style-type: square;">
-                    <li>Checksum (Suma de comprobación): Se utiliza para verificar la integridad del paquete ICMP. La suma de comprobación se calcula sobre todo el encabezado ICMP y los datos, y el valor resultante se coloca en este campo. Si el valor de la suma de comprobación no coincide con el valor calculado, el paquete podría estar dañado o haber sido modificado en tránsito.</li>
-                    <li>Resto del encabezado y datos: Dependiendo del tipo y el código del mensaje ICMP, puede haber información adicional en el encabezado, como números de secuencia y de identificación para los mensajes de solicitud y respuesta de eco.</li>
+                <ul>
+                    <li><marcador class="resaltado18">Checksum (Suma de comprobación):</marcador> Se utiliza para verificar la integridad del paquete ICMP. La suma de comprobación se calcula sobre todo el encabezado ICMP y los datos, y el valor resultante se coloca en este campo. Si el valor de la suma de comprobación no coincide con el valor calculado, el paquete podría estar dañado o haber sido modificado en tránsito.</li>
+                    <li><marcador class="resaltado18">Resto del encabezado y datos:</marcador> Dependiendo del tipo y el código del mensaje ICMP, puede haber información adicional en el encabezado, como números de secuencia y de identificación para los mensajes de solicitud y respuesta de eco.</li>
                 </ul>
                 <h2>Ejemplo de Encabezado ICMP</h2>
                 <p>Supongamos que tenemos un mensaje ICMP de "Destino inalcanzable" con el código "Red inalcanzable". El encabezado ICMP para este mensaje se vería así:</p>
@@ -146,23 +146,19 @@
                 <p>+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</p>
                 <p>El valor en el campo "Tipo" es 3 para indicar "Destino inalcanzable", y el valor en el campo "Code" es 0 para indicar "Red inalcanzable". El campo de suma de comprobación contendría el valor calculado para garantizar la integridad del paquete, y los datos adicionales podrían incluir información adicional sobre la red inalcanzable.</p>
                 <h2>Ataques Relacionados a ICMP</h2>
-                <ul style="list-style-type: square;">
-                    <li>Ping of Death</li>
-                    <p>El ataque Ping of Death es un ataque de denegación de servicio (DoS) que explota vulnerabilidades en la implementación de ICMP. Consiste en enviar paquetes ICMP de tamaño excesivamente grande, lo que lleva a que el sistema objetivo no pueda manejarlos y se bloquee. Esto se debe a que muchos sistemas operativos no estaban preparados para manejar paquetes ICMP que superaran cierto tamaño.</p>
-                    <li>Ataque Smurf</li>
-                    <p>El ataque Smurf aprovecha la funcionalidad de difusión (broadcast) de las redes. El atacante envía paquetes ICMP de solicitud de eco (ping) con la dirección IP de la víctima como dirección de origen, a una red que permite la difusión. Esto provoca que todos los sistemas en esa red respondan al ping y saturen la víctima con respuestas, abrumando su capacidad de red.</p>
-                    <ol>
-                        <li>El atacante envía una gran cantidad de paquetes ICMP de solicitud de eco a una red que permite la difusión, utilizando la dirección IP de la víctima como dirección de origen.</li>
-                        <li>Todos los sistemas en la red responden al ping, generando una gran cantidad de tráfico hacia la dirección IP de la víctima.</li>
-                        <li>La víctima se ve abrumada por la cantidad de respuestas y sufre una denegación de servicio.</li>
-                    </ol>
-                    <li>Ataque DDoS</li>
-                    <p>En los ataques de denegación de servicio distribuido (DDoS), los atacantes utilizan una red de dispositivos comprometidos para inundar un objetivo con una gran cantidad de tráfico. Los ataques DDoS también pueden involucrar paquetes ICMP, generando un alto volumen de tráfico ICMP para saturar los recursos del objetivo y hacer que sea inaccesible.</p>
-                    <ol>
-                        <li>Un atacante controla una botnet (red de dispositivos comprometidos).</li>
-                        <li>La botnet envía una gran cantidad de paquetes ICMP a un objetivo específico.</li>
-                        <li>El objetivo recibe un tráfico ICMP abrumador, lo que consume sus recursos y lo hace inaccesible para los usuarios legítimos.</li>
-                    </ol>
+                <p><marcador class="resaltado2">Ping of Death:</marcador> El ataque Ping of Death es un ataque de denegación de servicio (DoS) que explota vulnerabilidades en la implementación de ICMP. Consiste en enviar paquetes ICMP de tamaño excesivamente grande, lo que lleva a que el sistema objetivo no pueda manejarlos y se bloquee. Esto se debe a que muchos sistemas operativos no estaban preparados para manejar paquetes ICMP que superaran cierto tamaño.</p>
+                <p><marcador class="resaltado2">Ataque Smurf:</marcador> El ataque Smurf aprovecha la funcionalidad de difusión (broadcast) de las redes. El atacante envía paquetes ICMP de solicitud de eco (ping) con la dirección IP de la víctima como dirección de origen, a una red que permite la difusión. Esto provoca que todos los sistemas en esa red respondan al ping y saturen la víctima con respuestas, abrumando su capacidad de red.</p>
+                <ol>
+                    <li>El atacante envía una gran cantidad de paquetes ICMP de solicitud de eco a una red que permite la difusión, utilizando la dirección IP de la víctima como dirección de origen.</li>
+                    <li>Todos los sistemas en la red responden al ping, generando una gran cantidad de tráfico hacia la dirección IP de la víctima.</li>
+                    <li>La víctima se ve abrumada por la cantidad de respuestas y sufre una denegación de servicio.</li>
+                </ol>
+                <p><marcador class="resaltado2">Ataque DDoS:</marcador> En los ataques de denegación de servicio distribuido (DDoS), los atacantes utilizan una red de dispositivos comprometidos para inundar un objetivo con una gran cantidad de tráfico. Los ataques DDoS también pueden involucrar paquetes ICMP, generando un alto volumen de tráfico ICMP para saturar los recursos del objetivo y hacer que sea inaccesible.</p>
+                <ol>
+                    <li>Un atacante controla una botnet (red de dispositivos comprometidos).</li>
+                    <li>La botnet envía una gran cantidad de paquetes ICMP a un objetivo específico.</li>
+                    <li>El objetivo recibe un tráfico ICMP abrumador, lo que consume sus recursos y lo hace inaccesible para los usuarios legítimos.</li>
+                </ol>
                 </ul>
                 <div class="blog-image-grande">
                     <img src="media/protocolos2.png" alt="">
