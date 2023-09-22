@@ -48,42 +48,46 @@
                 <p>Cuando se aplica una tensión positiva en el ánodo (la región P) y una tensión negativa en el cátodo (la región N), se crea un camino conductivo para los electrones, y el diodo se enciende, permitiendo que la corriente fluya. En la dirección opuesta, el diodo se apaga y bloquea la corriente eléctrica.</p>
                 <h2>Aplicaciones de los Diodos</h2>
                 <p>Los diodos se encuentran en una amplia variedad de dispositivos electrónicos y aplicaciones. Algunas de sus aplicaciones más comunes incluyen:</p>
-                <ul style="list-style-type: circle;">
-                    <li>Rectificación: Los diodos se utilizan para convertir corriente alterna (CA) en corriente continua (CC) en fuentes de alimentación y cargadores.</li>
-                    <li>Protección contra polaridad inversa: Se utilizan para evitar daños a los dispositivos electrónicos al prevenir la inversión accidental de la polaridad de la tensión de alimentación.</li>
-                    <li>Modulación de señal: Los diodos se utilizan en aplicaciones de modulación, como la modulación en amplitud (AM) y la modulación en frecuencia (FM) en radiocomunicaciones.</li>
-                    <li>Circuitos de conmutación: Los diodos se utilizan en circuitos de conmutación para proteger componentes sensibles y direccionar el flujo de corriente en momentos específicos.</li>
+                <ul>
+                    <li><marcador class="resaltado8">Rectificación:</marcador> Los diodos se utilizan para convertir corriente alterna (CA) en corriente continua (CC) en fuentes de alimentación y cargadores.</li>
+                    <li><marcador class="resaltado8">Protección contra polaridad inversa:</marcador> Se utilizan para evitar daños a los dispositivos electrónicos al prevenir la inversión accidental de la polaridad de la tensión de alimentación.</li>
+                    <li><marcador class="resaltado8">Modulación de señal:</marcador> Los diodos se utilizan en aplicaciones de modulación, como la modulación en amplitud (AM) y la modulación en frecuencia (FM) en radiocomunicaciones.</li>
+                    <li><marcador class="resaltado8">Circuitos de conmutación:</marcador> Los diodos se utilizan en circuitos de conmutación para proteger componentes sensibles y direccionar el flujo de corriente en momentos específicos.</li>
                 </ul>
+                <h2>Tipos de Diodos</h2>
+                <p>Existen varios tipos de diodos, cada uno diseñado para aplicaciones específicas. Algunos de los tipos más comunes incluyen:</p>
+                <ul>
+                    <li><marcador class="resaltado8">Diodo rectificador:</marcador> Diseñado para convertir CA en CC.</li>
+                    <li><marcador class="resaltado8">Diodo Zener:</marcador> Utilizado para mantener una tensión constante en un circuito.</li>
+                    <li><marcador class="resaltado8">Diodo emisor de luz (LED):</marcador> Emite luz cuando se le aplica una corriente.</li>
+                    <li><marcador class="resaltado8">Diodo Schottky:</marcador> Conduce con menor pérdida de energía que los diodos estándar.</li>
+                    <li><marcador class="resaltado8">Diodo de avalancha:</marcador> Utilizado en aplicaciones de alta tensión.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/diodo2.jpg" alt="">
+                </div>
                 <h2>Cálculo</h2>
                 <p>Supongamos que tienes un circuito en serie que consta de una fuente de alimentación de 10 voltios (V), un diodo y una resistencia de 100 ohmios (Ω). El diodo se encuentra en la dirección correcta (forward bias), lo que significa que permite que la corriente fluya en esa dirección. El objetivo es calcular la corriente que fluye a través del diodo en estas condiciones.</p>
                 <div class="blog-image">
                     <img src="media/diodo.png" alt="">
                 </div>
                 <br>
-                <center>
-                    <p>I = (V<sub>fuente</sub> - V<sub>diodo</sub>) / R</p>
-                    <p>Donde:</p>
-                    <p>     I es la corriente en amperios (A).</p>
-                    <p>     V<sub>fuente</sub> es la tensión de la fuente de alimentación, que es 10 V.</p>
-                    <p>     V<sub>diodo</sub> es la caída de tensión a través del diodo, que es 0.7 V.</p>
-                    <p>     R es la resistencia, que es 100 ohmios (Ω).</p>
-                </center>
+                <p>I = (V<sub>fuente</sub> - V<sub>diodo</sub>) / R</p>
                 <br>
+                <p>Donde:</p>
+                <ul>
+                    <li>I es la corriente en amperios (A).</li>
+                    <li>V<sub>fuente</sub> es la tensión de la fuente de alimentación, que es 10 V.</li>
+                    <li>V<sub>diodo</sub> es la caída de tensión a través del diodo, que es 0.7 V.</li>
+                    <li>R es la resistencia, que es 100 ohmios (Ω).</li>
+                </ul>
+                <br>
+                <h5>Ejemplo de cálculo:</h5>
                 <p>10V = V<sub>D</sub> + V<sub>R</sub></p>
                 <p>10V = 0.7V + (100)I<sub>D</sub></p>
-                <p>I = (10 V - 0.7 V) / 100 Ω = 0.093 A = 93 mA</p>
-                <h2>Tipos de Diodos</h2>
-                <p>Existen varios tipos de diodos, cada uno diseñado para aplicaciones específicas. Algunos de los tipos más comunes incluyen:</p>
-                <ul style="list-style-type: circle;">
-                    <li>Diodo rectificador: Diseñado para convertir CA en CC.</li>
-                    <li>Diodo Zener: Utilizado para mantener una tensión constante en un circuito.</li>
-                    <li>Diodo emisor de luz (LED): Emite luz cuando se le aplica una corriente.</li>
-                    <li>Diodo Schottky: Conduce con menor pérdida de energía que los diodos estándar.</li>
-                    <li>Diodo de avalancha: Utilizado en aplicaciones de alta tensión.</li>
-                </ul>
-                <div class="blog-image-grande">
-                    <img src="media/diodo2.jpg" alt="">
-                </div>
+                <p><marcador class="resaltado7">I = (10 V - 0.7 V) / 100 Ω = 0.093 A = 93 mA</marcador></p>
+                <br>
+                <br>
             </div>   
     </main>
     <script src="../js/script.js"></script>

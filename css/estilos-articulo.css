@@ -5,10 +5,12 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
+    /*font-family: 'Lato', sans-serif;*/
 }
 
 body{
-    background: rgba(0, 0, 0, 0.800);
+    /*background: rgba(0, 0, 0, 0.800);*/
+    background: rgb(0, 0, 0, 0.870);
     
 }
 
@@ -48,6 +50,7 @@ header{
     color: white;
     transition: opacity 300ms;
     opacity: 0.7;
+    font-family: 'Roboto', sans-serif;
 }
 
 .menu nav ul a:hover{
@@ -61,6 +64,7 @@ header{
     color: black;
     font-weight: 500;
     font-size: 16px;
+    font-family: 'Roboto', sans-serif;
     cursor: pointer;
     transition: background, color, 300ms;
     opacity: 0.7;
@@ -96,16 +100,58 @@ main{
 }
 
 .text__articulo-cover h1{
-    font-size: 26px;
-    color: rgb(122, 162, 235);
+    font-size: 31px;
+    /*color: rgb(122, 162, 235);*/
+    color: rgb(119, 99, 207);
     font-weight: normal;
     margin-bottom: 40px;
-    
+    font-weight: bold;
 }
 
 .text__articulo-cover h2{
-    font-size: 21px;
-    color: rgb(122, 162, 235);
+    font-size: 24px;
+    /*color: rgb(122, 162, 235);*/
+    color: rgb(119, 99, 207);
+    font-weight: normal;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.text__articulo-cover h3{
+    font-size: 20px;
+    /*color: rgb(122, 162, 235);*/
+    color: rgb(233, 94, 94);
+    font-weight: normal;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+}
+
+.text__articulo-cover h4{
+    font-size: 18px;
+    /*color: rgb(122, 162, 235);*/
+    color: rgb(243, 145, 53);
+    font-weight: normal;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+}
+
+.text__articulo-cover h5{
+    font-size: 18px;
+    /*color: rgb(122, 162, 235);*/
+    color: rgb(94, 177, 62);
+    font-weight: normal;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+}
+
+.text__articulo-cover h6{
+    font-size: 18px;
+    /*color: rgb(122, 162, 235);*/
+    color: rgb(201, 226, 61);
     font-weight: normal;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -120,6 +166,98 @@ main{
     opacity: 0.7;
 }
 
+.subrayado {
+    background-color: #080808;
+    border-radius: 3px;
+    padding-left: 3px; /* Agrega padding a la izquierda */
+    padding-right: 3px; /* Agrega padding a la derecha */
+
+  }
+
+.resaltado1 {
+    /*color: rgb(137, 170, 231);
+    opacity: 1;*/
+    background-color: #360d0d;
+    border-radius: 3px;
+    padding-left: 3px; /* Agrega padding a la izquierda */
+    padding-right: 3px; /* Agrega padding a la derecha */
+}
+
+.resaltado2 {
+    color: rgb(120, 190, 88);
+    font-style: italic;
+    opacity: 1;
+}
+
+.resaltado3 {
+    color: rgb(128, 25, 201);
+    color: rgb(67, 151, 67);
+    color: #009933
+    opacity: 1;
+}
+
+.resaltado4 {
+    color: rgb(93, 202, 204);
+    font-style: italic;
+    opacity: 1;
+}
+
+.resaltado5 {
+    color: rgb(231, 104, 104);
+    font-style: italic;
+    opacity: 1;
+}
+
+.resaltado6 {
+    font-style: italic;
+    opacity: 1;
+    color: rgb(201, 226, 61); /* Cambia el color a tu preferencia */
+
+}
+
+.resaltado7 {
+    border: 1px solid #d7e93a;
+    padding: 8px;
+
+}
+
+.resaltado17 {
+    border: 1px solid #d7e93a;
+    padding: 4px;
+
+}
+
+.resaltado8 {
+    font-weight: bold;
+}
+
+.resaltado18 {
+    font-weight: bold;
+    font-style: italic;
+}
+
+.resaltado9 {
+    text-decoration: underline;
+    color: #0066cc; /* Cambia el color a tu preferencia */ 
+}
+
+.resaltado10 {
+    font-style: italic;
+    color: #ff99ee; /* Cambia el color a tu preferencia */
+}
+
+.resaltado11 {
+    font-style: italic;
+    color: #f39965; /* Cambia el color a tu preferencia */
+    opacity: 1;
+}
+
+.resaltado12 {
+    opacity: 1;
+    color: #7678f7; /* Cambia el color a tu preferencia */
+    font-style: italic;
+}
+
 .text__articulo-cover ul li{
     font-size: 16px;
     margin-top: 10px;
@@ -128,6 +266,7 @@ main{
     opacity: 0.7;
 }
 
+
 .text__articulo-cover ol li{
     font-size: 16px;
     margin-top: 10px;
@@ -135,6 +274,7 @@ main{
     color: white;
     opacity: 0.7;
 }
+
 
 .text__articulo-cover table{
     font-size: 16px;
@@ -283,12 +423,12 @@ main{
     overflow-x: scroll;
     white-space: nowrap; /* Evitar el ajuste de línea */
     width: auto; 
-    background-color: #252323;
+    background-color: #161515;
 }
 
 .comandos button{
     padding: 10px;
-    background: rgb(122, 162, 235);
+    background: rgb(93, 138, 221);
     color: #000;
     font-size: 18px;
     border: none;
@@ -303,7 +443,7 @@ main{
 }
 
 .comandos button:active{
-    background: rgb(122, 162, 235);
+    background: rgb(93, 138, 221);
 }
 
 .comandos button:before{
@@ -311,7 +451,7 @@ main{
     position: absolute;
     top: -45px;
     left: 0px;
-    background: rgb(122, 162, 235);
+    background: rgb(93, 138, 221);
     font-family: monospace;
     color: #000;
     padding: 8px 10px;
@@ -327,7 +467,7 @@ main{
     left: 25px;
     width: 10px;
     height: 10px;
-    background: rgb(122, 162, 235);
+    background: rgb(93, 138, 221);
     transform: rotate(45deg);
     display: none;
 }
