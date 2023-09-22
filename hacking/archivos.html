@@ -42,214 +42,215 @@
                 <div class="blog-image-grande">
                     <img src="media/archivos1.jpg" alt="">
                 </div>
-                <h2>Usuarios y Autenticación</h2>
-                <ul style="list-style-type: circle;">
-                    <li>/etc/passwd</li>
+                <h6>Usuarios y Autenticación</h6>
+                <ul>
+                    <li><marcador class="resaltado1">/etc/passwd</marcador></li>
                     <p>Este archivo contiene información sobre las cuentas de usuario, incluyendo nombres de usuario, IDs y rutas de inicio de sesión. Aunque no almacena contraseñas directamente, es una parte crucial del sistema de autenticación.</p>
-                    <li>/etc/shadow</li>
+                    <li><marcador class="resaltado1">/etc/shadow</marcador></li>
                     <p>En contraste con /etc/passwd, este archivo almacena las contraseñas encriptadas de los usuarios y las políticas de contraseñas, y es vital para proteger la integridad de las contraseñas de los usuarios.</p>
-                    <li>/etc/sudoers</li>
+                    <li><marcador class="resaltado1">/etc/sudoers</marcador></li>
                     <p>Este archivo define qué usuarios o grupos tienen permiso para ejecutar comandos con privilegios de superusuario a través de sudo. Una configuración incorrecta puede conducir a riesgos de seguridad.</p>
-                    <li>/etc/aliases</li>
+                    <li><marcador class="resaltado1">/etc/aliases</marcador></li>
                     <p>Especifica alias de correo electrónico para los usuarios, lo que puede utilizarse para manipular el envío de correo.</p>
                 </ul>
-                <h2>Información del Sistema y Procesos</h2>
-                <ul style="list-style-type: circle;">
-                    <li>/sys/class/dmi/id/product_name</li>
+                <h6>Información del Sistema y Procesos</h6>
+                <ul>
+                    <li><marcador class="resaltado1">/sys/class/dmi/id/product_name</marcador></li>
                     <p>Este archivo identifica el tipo de máquina en la que se está ejecutando Linux.</p>
-                    <li>/sys/class/dmi/id/sys_vendor</li>
+                    <li><marcador class="resaltado1">/sys/class/dmi/id/sys_vendor</marcador></li>
                     <p>Proporciona información sobre la marca que distribuye la máquina.</p>
-                    <li>/sys/class/dmi/id/bios_vendor</li>
+                    <li><marcador class="resaltado1">/sys/class/dmi/id/bios_vendor</marcador></li>
                     <p>Muestra al fabricante de la BIOS.</p>
-                    <li>/proc/self/cmdline</li>
+                    <li><marcador class="resaltado1">/proc/self/cmdline</marcador></li>
                     <p>Muestra las aplicaciones ejecutadas por el usuario actual.</p>
-                    <li>/proc/net/tcp</li>
-                    <p>Lista los puertos TCP activos en el sistema. Al estar en hexadecimal, se necesita transformarlos a un formato decimal con el siguiente comando: cat /proc/net/tcp | awk '{print $2}' | awk -F ':' '{print $2}' | xargs -I '{}' echo '{}' | while read port; do echo "[+] Puerto $port -> $(echo "obase=10; ibase=16; $port" | bc)"; done </p>
-                    <li>/proc/net/fib_trie</li>
+                    <li><marcador class="resaltado1">/proc/net/tcp</marcador></li>
+                    <p>Lista los puertos TCP activos en el sistema. Al estar en hexadecimal, se necesita transformarlos a un formato decimal con el siguiente comando:</p>
+                    <p><marcador class="subrayado">cat /proc/net/tcp | awk '{print $2}' | awk -F ':' '{print $2}' | xargs -I '{}' echo '{}' | while read port; do echo "[+] Puerto $port -> $(echo "obase=10; ibase=16; $port" | bc)"; done</marcador></p>
+                    <li><marcador class="resaltado1">/proc/net/fib_trie</marcador></li>
                     <p>Proporciona información sobre las interfaces de red.</p>
-                    <li>/proc/sched_debug</li>
+                    <li><marcador class="resaltado1">/proc/sched_debug</marcador></li>
                     <p>Ofrece detalles sobre los procesos en ejecución en el sistema.</p>
-                    <li>/proc/NúmeroDeProceso/cmdline</li>
+                    <li><marcador class="resaltado1">/proc/NúmeroDeProceso/cmdline</marcador></li>
                     <p>Muestra el comando de inicio de un proceso específico.</p>
-                    <li>/proc/self/fd/Número</li>
+                    <li><marcador class="resaltado1">/proc/self/fd/Número</marcador></li>
                     <p>Algunos de estos archivos pueden contener registros que pueden ser útiles en la investigación.</p>
-                    <li>/proc/self/stat</li>
+                    <li><marcador class="resaltado1">/proc/self/stat</marcador></li>
                     <p>Muestra información detallada sobre los procesos del sistema.</p>
-                    <li>/etc/mtab</li>
+                    <li><marcador class="resaltado1">/etc/mtab</marcador></li>
                     <p>Proporciona información sobre sistemas de archivos montados actualmente en el sistema.</p>
-                    <li>/etc/fstab</li>
+                    <li><marcador class="resaltado1">/etc/fstab</marcador></li>
                     <p>Define las particiones y sistemas de archivos montados automáticamente durante el inicio, lo que puede revelar información sobre el almacenamiento y la estructura del sistema.</p>
-                    <li>/etc/crontab</li>
+                    <li><marcador class="resaltado1">/etc/crontab</marcador></li>
                     <p>Contiene las tareas programadas en el sistema, lo que podría revelar información sobre la automatización de tareas.</p>
-                    <li>/etc/hostname</li>
+                    <li><marcador class="resaltado1">/etc/hostname</marcador></li>
                     <p>Almacena el nombre del host del sistema, que puede utilizarse para identificar un servidor en la red.</p>
-                    <li>/etc/hosts</li>
+                    <li><marcador class="resaltado1">/etc/hosts</marcador></li>
                     <p>Asocia nombres de host a direcciones IP locales, lo que podría ser explotado para redirigir tráfico.</p>
-                    <li>/etc/network/interfaces</li>
+                    <li><marcador class="resaltado1">/etc/network/interfaces</marcador></li>
                     <p>Define la configuración de red, incluyendo direcciones IP, máscaras de subred y gateways.</p>
-                    <li>/etc/security/access.conf</li>
+                    <li><marcador class="resaltado1">/etc/security/access.conf</marcador></li>
                     <p>Controla el acceso de los usuarios y grupos a recursos del sistema.</p>
-                    <li>/etc/login.defs</li>
+                    <li><marcador class="resaltado1">/etc/login.defs</marcador></li>
                     <p>Define políticas de seguridad relacionadas con la autenticación y las contraseñas.</p>
-                    <li>/etc/profile</li>
+                    <li><marcador class="resaltado1">/etc/profile</marcador></li>
                     <p>Contiene configuraciones de perfil global para los usuarios, incluyendo rutas y variables de entorno.</p>
-                    <li>/etc/environment</li>
+                    <li><marcador class="resaltado1">/etc/environment</marcador></li>
                     <p>Configuración global de variables de entorno.</p>
-                    <li>/etc/backup/</li>
+                    <li><marcador class="resaltado1">/etc/backup/</marcador></li>
                     <p>Directorio para almacenar copias de seguridad de configuraciones críticas.</p>
-                    <li>/etc/skel</li>
+                    <li><marcador class="resaltado1">/etc/skel</marcador></li>
                     <p>Directorio que contiene archivos y configuraciones predeterminados para la creación de nuevos usuarios.</p>
-                    <li>/etc/bind/named.conf</li>
+                    <li><marcador class="resaltado1">/etc/bind/named.conf</marcador></li>
                     <p>Es el archivo de configuración del servicio DNS BIND.</p>
-                    <li>/etc/systemd/system/privesc.service</li>
+                    <li><marcador class="resaltado1">/etc/systemd/system/privesc.service</marcador></li>
                     <p>Esta es la ruta donde se alojan los servicios systemd.</p>
-                    <li>/etc/mail/sendmail.mc</li>
+                    <li><marcador class="resaltado1">/etc/mail/sendmail.mc</marcador></li>
                     <p>Configuración del servidor Sendmail, que gestiona el correo saliente.</p>
-                    <li>/etc/samba/smb.conf</li>
+                    <li><marcador class="resaltado1">/etc/samba/smb.conf</marcador></li>
                     <p>Configuración del servidor Samba para compartir archivos e impresoras en redes Windows.</p>
-                    <li>/etc/krb5.conf</li>
+                    <li><marcador class="resaltado1">/etc/krb5.conf</marcador></li>
                     <p>Contiene la configuración de Kerberos, un sistema de autenticación seguro.</p>
-                    <li>/var/log/auth.log</li>
+                    <li><marcador class="resaltado1">/var/log/auth.log</marcador></li>
                     <p>Registra eventos de autenticación, como intentos de inicio de sesión fallidos.</p>
-                    <li>/var/log/secure</li>
+                    <li><marcador class="resaltado1">/var/log/secure</marcador></li>
                     <p>Registra información sobre la seguridad del sistema, incluyendo eventos de autenticación y cambios en la política de seguridad.</p>
                 </ul>
-                <h2>Servidor Nginx</h2>
-                <ul style="list-style-type: circle;">
-                    <li>/etc/nginx/nginx.conf</li>
+                <h6>Servidor Nginx</h6>
+                <ul>
+                    <li><marcador class="resaltado1">/etc/nginx/nginx.conf</marcador></li>
                     <p>Configuración principal de Nginx.</p>
-                    <li>/etc/nginx/sites-available/</li>
+                    <li><marcador class="resaltado1">/etc/nginx/sites-available/</marcador></li>
                     <p>Directorio que contiene configuraciones de sitios virtuales.</p>
-                    <li>/etc/nginx/snippets/</li>
+                    <li><marcador class="resaltado1">/etc/nginx/snippets/</marcador></li>
                     <p>Directorio con fragmentos de configuración reutilizables.</p>
-                    <li>/etc/nginx/conf.d/</li>
+                    <li><marcador class="resaltado1">/etc/nginx/conf.d/</marcador></li>
                     <p>Directorio para archivos de configuración adicionales.</p>
-                    <li>/etc/nginx/conf.d/.htpasswd</li>
+                    <li><marcador class="resaltado1">/etc/nginx/conf.d/.htpasswd</marcador></li>
                     <p>Almacena credenciales de autenticación para el servidor web Nginx.</p>
-                    <li>/var/log/nginx/access.log</li>
+                    <li><marcador class="resaltado1">/var/log/nginx/access.log</marcador></li>
                     <p>Muestra registros de acceso de Nginx y puede ayudar a detectar actividades sospechosas en el servidor web.</p>
                 </ul>
-                <h2>WordPress</h2>
-                <ul style="list-style-type: circle;">
-                    <li>/var/www/html/wordpress/</li>
+                <h6>WordPress</h6>
+                <ul>
+                    <li><marcador class="resaltado1">/var/www/html/wordpress/</marcador></li>
                     <p>El directorio raíz de WordPress que contiene todos los archivos del sistema de gestión de contenido.</p>
-                    <li>/var/www/html/wordpress/wp-config.php</li>
+                    <li><marcador class="resaltado1">/var/www/html/wordpress/wp-config.php</marcador></li>
                     <p>El archivo de configuración de WordPress que contiene credenciales de la base de datos y configuraciones críticas.</p>
-                    <li>/var/www/html/wordpress/wp-user.php</li>
+                    <li><marcador class="resaltado1">/var/www/html/wordpress/wp-user.php</marcador></li>
                     <p>Gestiona la autenticación en WordPress.</p>
-                    <li>wp-json/wp/v2/users/</li>
+                    <li><marcador class="resaltado1">wp-json/wp/v2/users/</marcador></li>
                     <p>Contiene información sobre los usuarios de WordPress.</p>
-                    <li>/var/www/html/wordpress/wp-content/plugins/</li>
+                    <li><marcador class="resaltado1">/var/www/html/wordpress/wp-content/plugins/</marcador></li>
                     <p>El directorio que almacena todos los complementos instalados en WordPress.</p>
-                    <li>/var/www/html/wordpress/wp-content/themes/</li>
+                    <li><marcador class="resaltado1">/var/www/html/wordpress/wp-content/themes/</marcador></li>
                     <p>El directorio que contiene todos los temas instalados en WordPress.</p>
-                    <li>/var/www/html/wordpress/wp-content/uploads/</li>
+                    <li><marcador class="resaltado1">/var/www/html/wordpress/wp-content/uploads/</marcador></li>
                     <p>El directorio donde se almacenan los archivos multimedia cargados por los usuarios.</p>
-                    <li>/var/www/html/wordpress/.htaccess</li>
+                    <li><marcador class="resaltado1">/var/www/html/wordpress/.htaccess</marcador></li>
                     <p>El archivo de configuración de Apache que controla las reglas de redirección y seguridad para WordPress.</p>
-                    <li>/var/www/html/wordpress/wp-content/debug.log</li>
+                    <li><marcador class="resaltado1">/var/www/html/wordpress/wp-content/debug.log</marcador></li>
                     <p>El archivo de registro de WordPress donde se almacenan registros y archivos de registro.</p>
-                    <li>/var/www/html/wordpress/wp-content/cache/</li>
+                    <li><marcador class="resaltado1">/var/www/html/wordpress/wp-content/cache/</marcador></li>
                     <p>El directorio que puede contener datos almacenados en caché si se utiliza un complemento de caché.</p>
-                    <li>/var/www/html/wordpress/wp-content/uploads/backup-export/</li>
+                    <li><marcador class="resaltado1">/var/www/html/wordpress/wp-content/uploads/backup-export/</marcador></li>
                     <p>Si se realizan exportaciones de contenido, estos archivos pueden contener información sensible.</p>
-                    <li>/var/www/html/wordpress/wp-content/upgrade/</li>
+                    <li><marcador class="resaltado1">/var/www/html/wordpress/wp-content/upgrade/</marcador></li>
                     <p>El directorio donde WordPress descarga y almacena actualizaciones de núcleo, temas y complementos.</p>
                 </ul>
-                <h2>Servidor Apache</h2>
-                <ul style="list-style-type: circle;">
-                    <li>/etc/apache2/apache2.conf</li>
+                <h6>Servidor Apache</h6>
+                <ul>
+                    <li><marcador class="resaltado1">/etc/apache2/apache2.conf</marcador></li>
                     <p>Configuración principal de Apache.</p>
-                    <li>/etc/apache2/sites-available/</li>
+                    <li><marcador class="resaltado1">/etc/apache2/sites-available/</marcador></li>
                     <p>Directorio de configuraciones de sitios virtuales.</p>
-                    <li>/etc/apache2/mods-available/</li>
+                    <li><marcador class="resaltado1">/etc/apache2/mods-available/</marcador></li>
                     <p>Directorio de módulos disponibles.</p>
-                    <li>/var/log/apache2/access.log</li>
+                    <li><marcador class="resaltado1">/var/log/apache2/access.log</marcador></li>
                     <p>Contiene registros de acceso de Apache, que pueden ser explotados si se inyecta código malicioso en las solicitudes HTTP.</p>
                 </ul>
-                <h2>Servidor Tomcat</h2>
-                <ul style="list-style-type: circle;">
-                    <li>/etc/tomcatX/</li>
+                <h6>Servidor Tomcat</h6>
+                <ul>
+                    <li><marcador class="resaltado1">/etc/tomcatX/</marcador></li>
                     <p>Directorio de configuración de Tomcat (donde "X" es la versión de Tomcat).</p>
-                    <li>/var/log/tomcatX/</li>
+                    <li><marcador class="resaltado1">/var/log/tomcatX/</marcador></li>
                     <p>Registros de Tomcat.</p>
                 </ul>
-                <h2>Shopify</h2>
-                <ul style="list-style-type: circle;">
-                    <li>/config/settings_data.json</li>
+                <h6>Shopify</h6>
+                <ul>
+                    <li><marcador class="resaltado1">/config/settings_data.json</marcador></li>
                     <p>El archivo de configuración de Shopify que contiene información de la tienda, como las claves de API.</p>
-                    <li>/config/settings_schema.json</li>
+                    <li><marcador class="resaltado1">/config/settings_schema.json</marcador></li>
                     <p>El archivo que define el esquema de configuración de Shopify.</p>
-                    <li>/config/settings_data_schema.json</li>
+                    <li><marcador class="resaltado1">/config/settings_data_schema.json</marcador></li>
                     <p>El archivo que define el esquema de datos de configuración de Shopify.</p>
-                    <li>/assets/</li>
+                    <li><marcador class="resaltado1">/assets/</marcador></li>
                     <p>El directorio que contiene recursos como imágenes y hojas de estilo de la tienda Shopify.</p>
-                    <li>/sections/</li>
+                    <li><marcador class="resaltado1">/sections/</marcador></li>
                     <p>El directorio que contiene fragmentos de sección personalizados de la tienda Shopify.</p>
-                    <li>/templates/</li>
+                    <li><marcador class="resaltado1">/templates/</marcador></li>
                     <p>El directorio que contiene plantillas de temas personalizados de Shopify.</p>
                 </ul>
-                <h2>MySQL</h2>
-                <ul style="list-style-type: circle;">
-                    <li>/etc/mysql/mysql.conf.d/</li>
+                <h6>MySQL</h6>
+                <ul>
+                    <li><marcador class="resaltado1">/etc/mysql/mysql.conf.d/</marcador></li>
                     <p>Configuración de MySQL.</p>
-                    <li>/var/lib/mysql/</li>
+                    <li><marcador class="resaltado1">/var/lib/mysql/</marcador></li>
                     <p>Datos de MySQL (bases de datos).</p>
                 </ul>
-                <h2>PostgreSQL</h2>
-                <ul style="list-style-type: circle;">
-                    <li>/etc/postgresql/X.Y/main/</li>
+                <h6>PostgreSQL</h6>
+                <ul>
+                    <li><marcador class="resaltado1">/etc/postgresql/X.Y/main/</marcador></li>
                     <p>Configuración de PostgreSQL (donde "X.Y" es la versión de PostgreSQL).</p>
-                    <li>/var/lib/postgresql/X.Y/main/</li>
+                    <li><marcador class="resaltado1">/var/lib/postgresql/X.Y/main/</marcador></li>
                     <p>Datos de PostgreSQL.</p>
                 </ul>
-                <h2>LDAP</h2>
-                <ul style="list-style-type: circle;">
-                    <li>/etc/ldap/</li>
+                <h6>LDAP</h6>
+                <ul>
+                    <li><marcador class="resaltado1">/etc/ldap/</marcador></li>
                     <p>Configuración de LDAP.</p>
-                    <li>/var/lib/ldap/</li>
+                    <li><marcador class="resaltado1">/var/lib/ldap/</marcador></li>
                     <p>Datos de LDAP.</p>
                 </ul>
-                <h2>Correo Electrónico (Postfix)</h2>
-                <ul style="list-style-type: circle;">
-                    <li>/etc/postfix/main.cf</li>
+                <h6>Correo Electrónico (Postfix)</h6>
+                <ul>
+                    <li><marcador class="resaltado1">/etc/postfix/main.cf</marcador></li>
                     <p>Configuración principal de Postfix.</p>
-                    <li>/etc/postfix/master.cf</li>
+                    <li><marcador class="resaltado1">/etc/postfix/master.cf</marcador></li>
                     <p>Configuración de servicios de Postfix.</p>
                 </ul>
-                <h2>Firewall (iptables)</h2>
-                <ul style="list-style-type: circle;">
-                    <li>/etc/iptables/</li>
+                <h6>Firewall (iptables)</h6>
+                <ul>
+                    <li><marcador class="resaltado1">/etc/iptables/</marcador></li>
                     <p>Reglas de firewall personalizadas.</p>
-                    <li>/etc/network/</li>
+                    <li><marcador class="resaltado1">/etc/network/</marcador></li>
                     <p>Configuración de red, incluyendo interfaces y enrutamiento.</p>
                 </ul>
-                <h2>Claves de SSH</h2>
-                <ul style="list-style-type: circle;">
-                    <li>/etc/ssh/ssh_host_*_key</li>
+                <h6>Claves de SSH</h6>
+                <ul>
+                    <li><marcador class="resaltado1">/etc/ssh/ssh_host_*_key</marcador></li>
                     <p>Claves privadas de SSH.</p>
-                    <li>/home/usuario/.ssh/authorized_keys</li>
+                    <li><marcador class="resaltado1">/home/usuario/.ssh/authorized_keys</marcador></li>
                     <p>Claves públicas autorizadas para acceso SSH.</p>
                 </ul>
-                <h2>Certificados SSL/TLS</h2>
-                <ul style="list-style-type: circle;">
-                    <li>/etc/ssl/certs/</li>
+                <h6>Certificados SSL/TLS</h6>
+                <ul>
+                    <li><marcador class="resaltado1">/etc/ssl/certs/</marcador></li>
                     <p>Certificados SSL/TLS.</p>
-                    <li>/etc/ssl/private/</li>
+                    <li><marcador class="resaltado1">/etc/ssl/private/</marcador></li>
                     <p>Claves privadas SSL/TLS.</p>
                 </ul>
-                <h2>Logs de Aplicaciones</h2>
-                <ul style="list-style-type: circle;">
-                    <li>/var/log/</li>
+                <h6>Logs de Aplicaciones</h6>
+                <ul>
+                    <li><marcador class="resaltado1">/var/log/</marcador></li>
                     <p>Registros de aplicaciones y sistema, incluyendo /var/log/nginx/, /var/log/apache2/, y otros.</p>
-                    <li>/var/log/audit/</li>
+                    <li><marcador class="resaltado1">/var/log/audit/</marcador></li>
                     <p>Registros de auditoría de SELinux.</p>
                 </ul>
-                <h2>Directorio de Aplicaciones Sensibles</h2>
-                <ul style="list-style-type: circle;">
-                    <li>/var/www/</li>
+                <h6>Directorio de Aplicaciones Sensibles</h6>
+                <ul>
+                    <li><marcador class="resaltado1">/var/www/</marcador></li>
                     <p>Directorio predeterminado para archivos y aplicaciones web.</p>
-                    <li>C:\inetpub\wwwroot</li>
+                    <li><marcador class="resaltado1">C:\inetpub\wwwroot</marcador></li>
                     <p>Es la ubicación predeterminada para almacenar sitios web en servidores Microsoft IIS.</p>
                 </ul>
                 <h2>Linpeas</h2>
@@ -257,15 +258,15 @@
                 <p>Linpeas es una herramienta de escaneo y recopilación de información diseñada para sistemas operativos Linux. Su nombre proviene de "Linux Privilege Escalation Awesome Script" (Script Increíble de Escalada de Privilegios en Linux), y es un proyecto de código abierto disponible en GitHub. Linpeas es ampliamente utilizado por profesionales de la seguridad y pentesters para recopilar información crucial sobre sistemas Linux, lo que puede ser fundamental para identificar debilidades y posibles rutas de ataque.</p>
                 <p>Linpeas ofrece una amplia variedad de funciones y comprobaciones automatizadas para sistemas Linux. Algunas de sus características clave incluyen:</p>
                 <ul style="list-style-type: square;">
-                    <li>Escaneo Exhaustivo del Sistema</li>
+                    <li><marcador class="resaltado2">Escaneo Exhaustivo del Sistema</marcador></li>
                     <p>Linpeas realiza un escaneo exhaustivo del sistema en busca de información relevante, incluyendo detalles sobre usuarios, grupos, archivos, directorios, servicios en ejecución, versiones de software, y más. Esto permite a los usuarios tener una visión completa de la configuración y el estado del sistema.</p>
-                    <li>Detección de Vulnerabilidades y Rutas de Escalada de Privilegios</li>
+                    <li><marcador class="resaltado2">Detección de Vulnerabilidades y Rutas de Escalada de Privilegios</marcador></li>
                     <p>La herramienta identifica posibles vulnerabilidades y rutas de escalada de privilegios en el sistema. Puede ayudar a identificar configuraciones incorrectas, permisos inadecuados y otros problemas de seguridad que podrían ser explotados por atacantes.</p>
-                    <li>Información Detallada del Sistema</li>
+                    <li><marcador class="resaltado2">Información Detallada del Sistema</marcador></li>
                     <p>Linpeas proporciona información detallada sobre el sistema, incluyendo la versión del kernel, la configuración de red, los archivos de inicio de sesión, las configuraciones de sudo, y mucho más. Esta información es esencial para comprender el entorno objetivo.</p>
-                    <li>Análisis de Configuración de Servicios</li>
+                    <li><marcador class="resaltado2">Análisis de Configuración de Servicios</marcador></li>
                     <p>La herramienta realiza un análisis de la configuración de servicios específicos, como Apache, MySQL, SSH, entre otros. Esto puede ayudar a identificar configuraciones inseguras o erróneas que podrían ser explotadas.</p>
-                    <li>Personalización y Flexibilidad</li>
+                    <li><marcador class="resaltado2">Personalización y Flexibilidad</marcador></li>
                     <p>Linpeas es altamente personalizable y permite a los usuarios habilitar o deshabilitar comprobaciones específicas según sus necesidades. Esto es útil para adaptar la herramienta a diferentes escenarios y entornos.</p>
                 </ul>
                 <div class="blog-image-grande">
@@ -275,7 +276,7 @@
                 <ol>
                     <li>Descarga Linpeas: Clona el repositorio de Linpeas desde GitHub o descárgalo desde la fuente oficial.</li>
                     <li>Copia Linpeas al Sistema Objetivo: Transfiere el archivo Linpeas.sh al sistema Linux que deseas analizar. Puedes hacerlo mediante SCP, Wget o cualquier otro método de transferencia de archivos.</li>
-                    <li>Otorga Permisos de Ejecución: Asegúrate de que Linpeas.sh tenga permisos de ejecución. Puedes hacerlo con el comando 'chmod +x Linpeas.sh'.</li>
+                    <li>Otorga Permisos de Ejecución: Asegúrate de que Linpeas.sh tenga permisos de ejecución. Puedes hacerlo con el comando <marcador class="subrayado">chmod +x Linpeas.sh</marcador>.</li>
                     <li>Ejecuta Linpeas: Ejecuta Linpeas.sh como usuario con suficientes privilegios. Esto puede requerir permisos de sudo.</li>
                     <li>Espera la Salida: Linpeas realizará una serie de comprobaciones y análisis en el sistema. Esto puede llevar algún tiempo. Una vez que se complete, se generará un informe en texto plano que contiene los resultados del análisis.</li>
                     <li>Analiza el Informe: Examina el informe generado por Linpeas para identificar posibles problemas de seguridad, vulnerabilidades o configuraciones incorrectas en el sistema. Esto te ayudará a tomar medidas para mejorar la seguridad.</li>
