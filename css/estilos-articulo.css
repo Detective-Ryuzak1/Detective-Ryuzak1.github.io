@@ -177,7 +177,7 @@ main{
 .resaltado1 {
     /*color: rgb(137, 170, 231);
     opacity: 1;*/
-    background-color: #360d0d;
+    background-color: #3a0e0e;
     border-radius: 3px;
     padding-left: 3px; /* Agrega padding a la izquierda */
     padding-right: 3px; /* Agrega padding a la derecha */
@@ -264,6 +264,12 @@ main{
     color: #009933
     text-decoration: underline;
     opacity: 1;
+}
+
+.resaltado14 {
+    opacity: 1;
+    color: #f776e2; /* Cambia el color a tu preferencia */
+    font-style: italic;
 }
 
 .text__articulo-cover ul li{
