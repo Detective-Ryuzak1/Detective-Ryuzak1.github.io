@@ -45,9 +45,9 @@
                 </div>
                 <h2>Tipos de Direcciones IP</h2>
 
-                <h3>Direcciones IP Públicas</h3>
+                <h6>Direcciones IP Públicas</h6>
                 <p>Las direcciones IP públicas son aquellas que son únicas y se utilizan para identificar dispositivos en la red pública de Internet. Estas direcciones son asignadas por organizaciones como la Autoridad de Asignación de Números de Internet (IANA) y se utilizan para enrutar el tráfico a través de la Internet global. Ejemplos de direcciones IP públicas incluyen las que se asignan a servidores web y sitios web públicos.</p>
-                <h3>Direcciones IP Privadas</h3>
+                <h6>Direcciones IP Privadas</h6>
                 <p>Las direcciones IP privadas son utilizadas en redes privadas y locales, como redes domésticas y redes corporativas internas. Estas direcciones no son únicas en Internet y se pueden reutilizar en múltiples redes locales sin conflicto. Esto permite a muchas organizaciones utilizar direcciones privadas detrás de una única dirección IP pública para acceder a Internet. Algunos rangos de direcciones IP privadas comunes incluyen:</p>
                 <br>
                 <ul>
@@ -62,11 +62,11 @@
                 </div>
                 <p>Las direcciones IP pública y privada trabajan en conjunto en un sistema de enrutamiento jerárquico para permitir la comunicación de dispositivos a través de Internet. Aquí hay un breve resumen de cómo funcionan juntas:</p>
                 <ol>
-                    <li><marcador class="resaltado6">Direcciones IP Privadas:</marcador> En una red local, como una red doméstica o corporativa, los dispositivos se configuran con direcciones IP privadas que no son únicas en Internet. Estas direcciones se utilizan para identificar dispositivos dentro de la red local y permitir la comunicación interna.</li>
-                    <li><marcador class="resaltado6">NAT (Network Address Translation):</marcador> Para que los dispositivos con direcciones IP privadas puedan acceder a Internet, se utiliza un enrutador que realiza la traducción de direcciones de red (NAT). El enrutador asigna una dirección IP pública única a la conexión de Internet y realiza el seguimiento de las comunicaciones internas y externas.</li>
-                    <li><marcador class="resaltado6">Direcciones IP Públicas:</marcador> La dirección IP pública del enrutador se utiliza como punto de entrada/salida a Internet. Todos los dispositivos con direcciones IP privadas comparten esta única dirección IP pública cuando acceden a Internet.</li>
-                    <li><marcador class="resaltado6">Enrutamiento Jerárquico:</marcador> Cuando un dispositivo en la red local desea comunicarse con un servidor o dispositivo en Internet, envía datos al enrutador. El enrutador modifica la dirección de origen de los datos para que coincida con su dirección IP pública y enruta los datos a través de Internet.</li>
-                    <li><marcador class="resaltado6">Respuestas y Enrutamiento de Regreso:</marcador> Cuando el servidor en Internet responde, envía los datos de vuelta a la dirección IP pública del enrutador. El enrutador utiliza la información de seguimiento NAT para redirigir los datos a la dirección IP privada del dispositivo correspondiente en la red local.</li>
+                    <li><marcador class="resaltado9">Direcciones IP Privadas:</marcador> En una red local, como una red doméstica o corporativa, los dispositivos se configuran con direcciones IP privadas que no son únicas en Internet. Estas direcciones se utilizan para identificar dispositivos dentro de la red local y permitir la comunicación interna.</li>
+                    <li><marcador class="resaltado9">NAT (Network Address Translation):</marcador> Para que los dispositivos con direcciones IP privadas puedan acceder a Internet, se utiliza un enrutador que realiza la traducción de direcciones de red (NAT). El enrutador asigna una dirección IP pública única a la conexión de Internet y realiza el seguimiento de las comunicaciones internas y externas.</li>
+                    <li><marcador class="resaltado9">Direcciones IP Públicas:</marcador> La dirección IP pública del enrutador se utiliza como punto de entrada/salida a Internet. Todos los dispositivos con direcciones IP privadas comparten esta única dirección IP pública cuando acceden a Internet.</li>
+                    <li><marcador class="resaltado9">Enrutamiento Jerárquico:</marcador> Cuando un dispositivo en la red local desea comunicarse con un servidor o dispositivo en Internet, envía datos al enrutador. El enrutador modifica la dirección de origen de los datos para que coincida con su dirección IP pública y enruta los datos a través de Internet.</li>
+                    <li><marcador class="resaltado9">Respuestas y Enrutamiento de Regreso:</marcador> Cuando el servidor en Internet responde, envía los datos de vuelta a la dirección IP pública del enrutador. El enrutador utiliza la información de seguimiento NAT para redirigir los datos a la dirección IP privada del dispositivo correspondiente en la red local.</li>
                 </ol>
                 <div class="blog-image-grande">
                     <img src="media/IPv4-2.jpg" alt="">
@@ -74,11 +74,11 @@
                 <h2>Rangos y Clasificaciones</h2>
                 <p>Las direcciones IP se dividen en cinco clases principales: A, B, C, D y E. Sin embargo, en la mayoría de las redes de hoy en día, la clasificación de clase A, B o C es la más relevante.</p>
                 <ul>
-                    <li><marcador class="resaltado4">Clase A:</marcador> Estas direcciones comienzan con un rango de 1.0.0.0 a 126.0.0.0 y tienen un primer octeto en el rango de 1 a 126. Las direcciones de clase A se utilizan para redes muy grandes.</li>
-                    <li><marcador class="resaltado4">Clase B:</marcador> Los rangos de clase B van desde 128.0.0.0 hasta 191.255.0.0 y tienen los dos primeros octetos para identificar la red y el tercer y cuarto octetos para identificar los hosts. Las direcciones de clase B se utilizan para redes de tamaño mediano.</li>
-                    <li><marcador class="resaltado4">Clase C:</marcador> Los rangos de clase C van desde 192.0.0.0 hasta 223.255.255.0 y tienen los tres primeros octetos para la identificación de la red y solo el cuarto octeto para identificar los hosts. Las direcciones de clase C son adecuadas para redes pequeñas.</li>
-                    <li><marcador class="resaltado4">Clase D:</marcador> Se reservan para multicast, lo que significa que se utilizan para enviar datos a múltiples receptores al mismo tiempo. No se usan para identificar hosts individuales.</li>
-                    <li><marcador class="resaltado4">Clase E:</marcador> Están reservadas para fines experimentales y de investigación. No se utilizan en la mayoría de las redes comerciales o públicas.</li>
+                    <li><marcador class="resaltado8">Clase A:</marcador> Estas direcciones comienzan con un rango de 1.0.0.0 a 126.0.0.0 y tienen un primer octeto en el rango de 1 a 126. Las direcciones de clase A se utilizan para redes muy grandes.</li>
+                    <li><marcador class="resaltado8">Clase B:</marcador> Los rangos de clase B van desde 128.0.0.0 hasta 191.255.0.0 y tienen los dos primeros octetos para identificar la red y el tercer y cuarto octetos para identificar los hosts. Las direcciones de clase B se utilizan para redes de tamaño mediano.</li>
+                    <li><marcador class="resaltado8">Clase C:</marcador> Los rangos de clase C van desde 192.0.0.0 hasta 223.255.255.0 y tienen los tres primeros octetos para la identificación de la red y solo el cuarto octeto para identificar los hosts. Las direcciones de clase C son adecuadas para redes pequeñas.</li>
+                    <li><marcador class="resaltado8">Clase D:</marcador> Se reservan para multicast, lo que significa que se utilizan para enviar datos a múltiples receptores al mismo tiempo. No se usan para identificar hosts individuales.</li>
+                    <li><marcador class="resaltado8">Clase E:</marcador> Están reservadas para fines experimentales y de investigación. No se utilizan en la mayoría de las redes comerciales o públicas.</li>
                 </ul>
                 <h2>Dirección de Red, Gateway y Broadcast</h2>
                 <p><marcador class="resaltado2">Dirección de Red:</marcador> La dirección de red es la dirección IP que identifica la red en sí misma. Es la primera dirección en un rango de direcciones IP asignado a una red específica. La dirección de red se utiliza para representar toda la red y no se asigna a ningún dispositivo específico dentro de esa red. Por ejemplo, si tienes una red con direcciones IP en el rango de 192.168.1.0 a 192.168.1.255, la dirección de red es 192.168.1.0.</p>
@@ -108,7 +108,7 @@
                 <p>Ahora, procedemos a dividir la red en subredes más pequeñas:</p>
                 <br>
                 <ol>
-                    <li><marcador class="resaltado11">Finanzas (Requiere 14 direcciones IP):</marcador></li>
+                    <li><marcador class="resaltado5">Finanzas (Requiere 14 direcciones IP):</marcador></li>
                     <ul style="list-style-type: square;">
                         <li><marcador class="resaltado8">Máscara de Subred:</marcador> Necesitas al menos 14 direcciones disponibles, por lo que usamos los primeros 4 bits del último octeto (los primeros cuatro bits en el tercer octeto) para los hosts. La máscara de subred sería 11111111.11111111.11111111.1111 0000 en binario o /28 en notación CIDR.</li>
                         <li><marcador class="resaltado8">Dirección de Red:</marcador> 192.168.1.0/28. Los últimos 4 bits son ceros (dirección de red).</li>
@@ -116,7 +116,7 @@
                         <li><marcador class="resaltado8">Rango Utilizable:</marcador> Desde 192.168.1.1 hasta 192.168.1.14.</li>
                     </ul>
                     <br>
-                    <li><marcador class="resaltado11">Recursos Humanos (RH) (Requiere 14 direcciones IP):</marcador></li>
+                    <li><marcador class="resaltado5">Recursos Humanos (RH) (Requiere 14 direcciones IP):</marcador></li>
                     <ul style="list-style-type: square;">
                         <li><marcador class="resaltado8">Máscara de Subred:</marcador> Necesitas al menos 14 direcciones disponibles. Usamos los primeros 4 bits del último octeto para los hosts. La máscara de subred sería 11111111.11111111.11111111.1111 0000 en binario o /28 en notación CIDR.</li>
                         <li><marcador class="resaltado8">Dirección de Red:</marcador> 192.168.1.16/28.</li>
@@ -124,7 +124,7 @@
                         <li><marcador class="resaltado8">Rango Utilizable:</marcador> Desde 192.168.1.17 hasta 192.168.1.30.</li>
                     </ul>
                     <br>
-                    <li><marcador class="resaltado11">Ventas (Requiere 30 direcciones IP):</marcador></li>
+                    <li><marcador class="resaltado5">Ventas (Requiere 30 direcciones IP):</marcador></li>
                     <ul style="list-style-type: square;">
                         <li><marcador class="resaltado8">Máscara de Subred:</marcador> Necesitas al menos 30 direcciones disponibles. Usamos los primeros 5 bits del último octavo para los hosts. La máscara de subred sería 11111111.11111111.11111111.1110 0000 en binario o /27 en notación CIDR.</li>
                         <li><marcador class="resaltado8">Dirección de Red:</marcador> 192.168.1.32/27.</li>
@@ -132,7 +132,7 @@
                         <li><marcador class="resaltado8">Rango Utilizable:</marcador> Desde 192.168.1.33 hasta 192.168.1.62.</li>
                     </ul>
                     <br>
-                    <li><marcador class="resaltado11">Administración (Requiere 6 direcciones IP):</marcador></li>
+                    <li><marcador class="resaltado5">Administración (Requiere 6 direcciones IP):</marcador></li>
                     <ul style="list-style-type: square;">
                         <li><marcador class="resaltado8">Máscara de Subred:</marcador> Necesitas al menos 6 direcciones disponibles. Usamos los primeros 3 bits del último octavo para los hosts. La máscara de subred sería 11111111.11111111.11111111.1111 1000 en binario o /29 en notación CIDR.</li>
                         <li><marcador class="resaltado8">Dirección de Red:</marcador> 192.168.1.64/29.</li>

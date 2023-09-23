@@ -51,9 +51,9 @@
                 <h2>Funcionamiento de ARP</h2>
                 <p>ARP resuelve la diferencia entre las direcciones IP y las direcciones MAC. Cuando un dispositivo necesita enviar datos a otro dispositivo en la misma red, debe conocer la dirección MAC correspondiente para entregar el paquete de manera adecuada. Aquí está cómo funciona el proceso de resolución de dirección en ARP:</p>
                 <ol>
-                    <li><marcador class="resaltado6">Solicitud ARP (ARP Request):</marcador> Cuando un dispositivo en una red necesita encontrar la dirección MAC correspondiente a una dirección IP destino, envía una solicitud ARP. La solicitud ARP se envía como un mensaje de broadcast dentro de la red local. El mensaje de broadcast se dirige a todas las máquinas en la red, y esto se hace utilizando la dirección MAC de broadcast, que es FF:FF:FF:FF:FF:FF. La solicitud ARP contiene la dirección IP del dispositivo emisor y la dirección IP destino para la que se busca la dirección MAC.</li>
-                    <li><marcador class="resaltado6">Respuesta ARP (ARP Reply):</marcador> La máquina con la dirección IP destino en la solicitud ARP recibe el mensaje de broadcast y responde con un mensaje ARP de respuesta. Esta respuesta contiene la dirección IP y la dirección MAC de la máquina emisora. El mensaje de respuesta ARP se envía directamente al dispositivo emisor, no como un broadcast.</li>
-                    <li><marcador class="resaltado6">Actualización de la tabla ARP:</marcador> Cuando el dispositivo emisor recibe la respuesta ARP, actualiza su tabla ARP con la dirección MAC correspondiente a la dirección IP destino. Esta tabla ARP es una tabla de caché que almacena las asociaciones entre direcciones IP y direcciones MAC para agilizar futuras comunicaciones.</li>
+                    <li><marcador class="resaltado9">Solicitud ARP (ARP Request):</marcador> Cuando un dispositivo en una red necesita encontrar la dirección MAC correspondiente a una dirección IP destino, envía una solicitud ARP. La solicitud ARP se envía como un mensaje de broadcast dentro de la red local. El mensaje de broadcast se dirige a todas las máquinas en la red, y esto se hace utilizando la dirección MAC de broadcast, que es FF:FF:FF:FF:FF:FF. La solicitud ARP contiene la dirección IP del dispositivo emisor y la dirección IP destino para la que se busca la dirección MAC.</li>
+                    <li><marcador class="resaltado9">Respuesta ARP (ARP Reply):</marcador> La máquina con la dirección IP destino en la solicitud ARP recibe el mensaje de broadcast y responde con un mensaje ARP de respuesta. Esta respuesta contiene la dirección IP y la dirección MAC de la máquina emisora. El mensaje de respuesta ARP se envía directamente al dispositivo emisor, no como un broadcast.</li>
+                    <li><marcador class="resaltado9">Actualización de la tabla ARP:</marcador> Cuando el dispositivo emisor recibe la respuesta ARP, actualiza su tabla ARP con la dirección MAC correspondiente a la dirección IP destino. Esta tabla ARP es una tabla de caché que almacena las asociaciones entre direcciones IP y direcciones MAC para agilizar futuras comunicaciones.</li>
                 </ol>
                 <p>Es importante mencionar que las tablas ARP tienen una duración limitada. Esto se debe a que las direcciones IP pueden cambiar con el tiempo debido a reconfiguraciones de red o movimientos de dispositivos. Cuando una entrada en la tabla ARP expira, el dispositivo debe repetir el proceso ARP para actualizar la información.</p>
                 <div class="blog-image-grande">
@@ -80,15 +80,15 @@
                 <h2>Estructura del Encabezado ARP</h2>
                 <p>El encabezado ARP consta de varios campos que permiten la resolución de direcciones de manera efectiva. Aquí están los campos principales del encabezado ARP:</p>
                 <ul>
-                    <li><marcador class="resaltado4">Tipo de hardware (Hardware Type):</marcador> Indica el tipo de medio de transmisión utilizado en la red, como Ethernet.</li>
-                    <li><marcador class="resaltado4">Tipo de protocolo (Protocol Type):</marcador> Indica el protocolo de capa superior que se utilizará, generalmente IPv4.</li>
-                    <li><marcador class="resaltado4">Longitud de dirección de hardware (Hardware Address Length):</marcador> Especifica la longitud de las direcciones físicas en bytes.</li>
-                    <li><marcador class="resaltado4">Longitud de dirección de protocolo (Protocol Address Length):</marcador> Especifica la longitud de las direcciones IP en bytes.</li>
-                    <li><marcador class="resaltado4">Código de operación (Operation Code):</marcador> Indica si la solicitud ARP es una solicitud (1) o una respuesta (2).</li>
-                    <li><marcador class="resaltado4">Dirección de hardware del remitente (Sender Hardware Address):</marcador> Contiene la dirección MAC del remitente.</li>
-                    <li><marcador class="resaltado4">Dirección de protocolo del remitente (Sender Protocol Address):</marcador> Contiene la dirección IP del remitente.</li>
-                    <li><marcador class="resaltado4">Dirección de hardware del destino (Target Hardware Address):</marcador> Se llena solo en las respuestas ARP, contiene la dirección MAC del destinatario.</li>
-                    <li><marcador class="resaltado4">Dirección de protocolo del destino (Target Protocol Address):</marcador> Contiene la dirección IP del destinatario.</li>
+                    <li><marcador class="resaltado4">Tipo de hardware:</marcador> Indica el tipo de medio de transmisión utilizado en la red, como Ethernet.</li>
+                    <li><marcador class="resaltado4">Tipo de protocolo:</marcador> Indica el protocolo de capa superior que se utilizará, generalmente IPv4.</li>
+                    <li><marcador class="resaltado4">Longitud de dirección de hardware:</marcador> Especifica la longitud de las direcciones físicas en bytes.</li>
+                    <li><marcador class="resaltado4">Longitud de dirección de protocolo:</marcador> Especifica la longitud de las direcciones IP en bytes.</li>
+                    <li><marcador class="resaltado4">Código de operación:</marcador> Indica si la solicitud ARP es una solicitud (1) o una respuesta (2).</li>
+                    <li><marcador class="resaltado4">Dirección de hardware del remitente:</marcador> Contiene la dirección MAC del remitente.</li>
+                    <li><marcador class="resaltado4">Dirección de protocolo del remitente:</marcador> Contiene la dirección IP del remitente.</li>
+                    <li><marcador class="resaltado4">Dirección de hardware del destino:</marcador> Se llena solo en las respuestas ARP, contiene la dirección MAC del destinatario.</li>
+                    <li><marcador class="resaltado4">Dirección de protocolo del destino:</marcador> Contiene la dirección IP del destinatario.</li>
                 </ul>
                 <div class="blog-image-grande">
                     <img src="media/protocolos5.png" alt="">

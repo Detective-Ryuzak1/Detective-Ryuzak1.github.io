@@ -112,12 +112,12 @@
                 <p><marcador class="resaltado2">Clave Pública:</marcador> La clave pública es la contraparte de la clave privada y se comparte con otros sistemas o servidores a los que deseas acceder de manera segura. Puede ser compartida libremente sin comprometer la seguridad del sistema. Cuando se establece una conexión SSH, el servidor utiliza la clave pública para cifrar datos que solo pueden ser desbloqueados por la clave privada correspondiente.</p> 
                 <h2>Funcionamiento del Proceso de Autenticación</h2>
                 <ol>
-                    <li><marcador class="resaltado6">Generación de las Claves:</marcador> El usuario genera un par de claves (pública y privada) en su sistema local utilizando herramientas como <marcador class="subrayado">ssh-keygen</marcador>.</li>
-                    <li><marcador class="resaltado6">Distribución de la Clave Pública:</marcador> La clave pública se copia en el servidor remoto al que se desea acceder. Usualmente se agrega al archivo ~/.ssh/authorized_keys en el servidor.</li>
-                    <li><marcador class="resaltado6">Inicio de Sesión Seguro:</marcador> Cuando el usuario intenta iniciar sesión en el servidor remoto, el servidor envía un desafío cifrado utilizando la clave pública del usuario.</li>
-                    <li><marcador class="resaltado6">Autenticación del Cliente:</marcador> El cliente SSH utiliza su clave privada para descifrar el desafío y lo devuelve al servidor.</li>
-                    <li><marcador class="resaltado6">Verificación en el Servidor:</marcador> El servidor compara el desafío recibido con su propia versión cifrada utilizando la clave pública del usuario.</li>
-                    <li><marcador class="resaltado6">Conexión Establecida:</marcador> Si el desafío coincide, el servidor sabe que el cliente tiene la clave privada correspondiente y permite la conexión segura.</li>
+                    <li><marcador class="resaltado9">Generación de las Claves:</marcador> El usuario genera un par de claves (pública y privada) en su sistema local utilizando herramientas como <marcador class="subrayado">ssh-keygen</marcador>.</li>
+                    <li><marcador class="resaltado9">Distribución de la Clave Pública:</marcador> La clave pública se copia en el servidor remoto al que se desea acceder. Usualmente se agrega al archivo ~/.ssh/authorized_keys en el servidor.</li>
+                    <li><marcador class="resaltado9">Inicio de Sesión Seguro:</marcador> Cuando el usuario intenta iniciar sesión en el servidor remoto, el servidor envía un desafío cifrado utilizando la clave pública del usuario.</li>
+                    <li><marcador class="resaltado9">Autenticación del Cliente:</marcador> El cliente SSH utiliza su clave privada para descifrar el desafío y lo devuelve al servidor.</li>
+                    <li><marcador class="resaltado9">Verificación en el Servidor:</marcador> El servidor compara el desafío recibido con su propia versión cifrada utilizando la clave pública del usuario.</li>
+                    <li><marcador class="resaltado9">Conexión Establecida:</marcador> Si el desafío coincide, el servidor sabe que el cliente tiene la clave privada correspondiente y permite la conexión segura.</li>
                 </ol>  
                 <h2>Ventajas de las Claves Públicas y Privadas</h2>
                 <ul>
