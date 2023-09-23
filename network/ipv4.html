@@ -81,10 +81,10 @@
                     <li><marcador class="resaltado8">Clase E:</marcador> Están reservadas para fines experimentales y de investigación. No se utilizan en la mayoría de las redes comerciales o públicas.</li>
                 </ul>
                 <h2>Dirección de Red, Gateway y Broadcast</h2>
-                <p><marcador class="resaltado2">Dirección de Red:</marcador> La dirección de red es la dirección IP que identifica la red en sí misma. Es la primera dirección en un rango de direcciones IP asignado a una red específica. La dirección de red se utiliza para representar toda la red y no se asigna a ningún dispositivo específico dentro de esa red. Por ejemplo, si tienes una red con direcciones IP en el rango de 192.168.1.0 a 192.168.1.255, la dirección de red es 192.168.1.0.</p>
+                <p><marcador class="resaltado5">Dirección de Red:</marcador> La dirección de red es la dirección IP que identifica la red en sí misma. Es la primera dirección en un rango de direcciones IP asignado a una red específica. La dirección de red se utiliza para representar toda la red y no se asigna a ningún dispositivo específico dentro de esa red. Por ejemplo, si tienes una red con direcciones IP en el rango de 192.168.1.0 a 192.168.1.255, la dirección de red es 192.168.1.0.</p>
                 <p>La dirección de red es fundamental en el enrutamiento de datos, ya que indica a los dispositivos y routers cómo llegar a una red específica. Cuando se envían datos desde una red a otra, los dispositivos y routers utilizan la dirección de red como destino para enrutar adecuadamente los datos hacia la red de destino.</p>
-                <p><marcador class="resaltado2">Dirección de Gateway (Puerta de enlace):</marcador> La dirección de gateway es una dirección IP utilizada como punto de entrada o salida de una red local hacia otra red, como Internet. Es el punto de contacto entre la red local y la red externa, como un router o un firewall. El gateway se utiliza para enrutar el tráfico desde la red local hacia destinos fuera de esa red. Cada red local tiene una dirección de gateway única que conecta la red a otras redes, permitiendo así la comunicación entre ellas.La dirección de gateway suele ser la primera dirección en un rango de direcciones IP para una red determinada (Usualmente ocupada por el módem en una red local).</p>
-                <p><marcador class="resaltado2">Dirección de Broadcast:</marcador> La dirección de broadcast es una dirección especial utilizada para enviar datos a todos los dispositivos en una red local. Cuando un dispositivo envía datos a la dirección de broadcast, todos los dispositivos en la misma red reciben y procesan esos datos. Es una forma eficiente de difundir información a todos los dispositivos en una red sin la necesidad de conocer las direcciones IP individuales de cada dispositivo. La dirección de broadcast suele ser la última dirección en un rango de direcciones IP para una red determinada y se utiliza para difusiones locales en lugar de difundir información a través de Internet o redes externas.</p>
+                <p><marcador class="resaltado5">Dirección de Gateway (Puerta de enlace):</marcador> La dirección de gateway es una dirección IP utilizada como punto de entrada o salida de una red local hacia otra red, como Internet. Es el punto de contacto entre la red local y la red externa, como un router o un firewall. El gateway se utiliza para enrutar el tráfico desde la red local hacia destinos fuera de esa red. Cada red local tiene una dirección de gateway única que conecta la red a otras redes, permitiendo así la comunicación entre ellas.La dirección de gateway suele ser la primera dirección en un rango de direcciones IP para una red determinada (Usualmente ocupada por el módem en una red local).</p>
+                <p><marcador class="resaltado5">Dirección de Broadcast:</marcador> La dirección de broadcast es una dirección especial utilizada para enviar datos a todos los dispositivos en una red local. Cuando un dispositivo envía datos a la dirección de broadcast, todos los dispositivos en la misma red reciben y procesan esos datos. Es una forma eficiente de difundir información a todos los dispositivos en una red sin la necesidad de conocer las direcciones IP individuales de cada dispositivo. La dirección de broadcast suele ser la última dirección en un rango de direcciones IP para una red determinada y se utiliza para difusiones locales en lugar de difundir información a través de Internet o redes externas.</p>
                 <h2>Subneteo y Número de Direcciones</h2>
                 <p>El subneteo es el proceso de dividir una red IP en subredes más pequeñas. Esto se hace mediante el ajuste de la máscara de subred para asignar una parte de la dirección IP a la red y otra parte a los hosts. El número de direcciones que se pueden obtener en una subred depende de la máscara de subred utilizada.</p>
                 <p>Por ejemplo, si tienes una dirección de clase C (como 192.168.1.0) y deseas dividirla en cuatro áreas (Finanzas, RH, Ventas y Administración) con 14, 14, 30 y 6 IPs, necesitarás máscaras de subred adecuadas para cada área. Aquí hay un ejemplo:</p>
@@ -108,7 +108,7 @@
                 <p>Ahora, procedemos a dividir la red en subredes más pequeñas:</p>
                 <br>
                 <ol>
-                    <li><marcador class="resaltado5">Finanzas (Requiere 14 direcciones IP):</marcador></li>
+                    <li><marcador class="resaltado15">Finanzas (Requiere 14 direcciones IP):</marcador></li>
                     <ul style="list-style-type: square;">
                         <li><marcador class="resaltado8">Máscara de Subred:</marcador> Necesitas al menos 14 direcciones disponibles, por lo que usamos los primeros 4 bits del último octeto (los primeros cuatro bits en el tercer octeto) para los hosts. La máscara de subred sería 11111111.11111111.11111111.1111 0000 en binario o /28 en notación CIDR.</li>
                         <li><marcador class="resaltado8">Dirección de Red:</marcador> 192.168.1.0/28. Los últimos 4 bits son ceros (dirección de red).</li>
@@ -116,7 +116,7 @@
                         <li><marcador class="resaltado8">Rango Utilizable:</marcador> Desde 192.168.1.1 hasta 192.168.1.14.</li>
                     </ul>
                     <br>
-                    <li><marcador class="resaltado5">Recursos Humanos (RH) (Requiere 14 direcciones IP):</marcador></li>
+                    <li><marcador class="resaltado15">Recursos Humanos (RH) (Requiere 14 direcciones IP):</marcador></li>
                     <ul style="list-style-type: square;">
                         <li><marcador class="resaltado8">Máscara de Subred:</marcador> Necesitas al menos 14 direcciones disponibles. Usamos los primeros 4 bits del último octeto para los hosts. La máscara de subred sería 11111111.11111111.11111111.1111 0000 en binario o /28 en notación CIDR.</li>
                         <li><marcador class="resaltado8">Dirección de Red:</marcador> 192.168.1.16/28.</li>
@@ -124,7 +124,7 @@
                         <li><marcador class="resaltado8">Rango Utilizable:</marcador> Desde 192.168.1.17 hasta 192.168.1.30.</li>
                     </ul>
                     <br>
-                    <li><marcador class="resaltado5">Ventas (Requiere 30 direcciones IP):</marcador></li>
+                    <li><marcador class="resaltado15">Ventas (Requiere 30 direcciones IP):</marcador></li>
                     <ul style="list-style-type: square;">
                         <li><marcador class="resaltado8">Máscara de Subred:</marcador> Necesitas al menos 30 direcciones disponibles. Usamos los primeros 5 bits del último octavo para los hosts. La máscara de subred sería 11111111.11111111.11111111.1110 0000 en binario o /27 en notación CIDR.</li>
                         <li><marcador class="resaltado8">Dirección de Red:</marcador> 192.168.1.32/27.</li>
@@ -132,7 +132,7 @@
                         <li><marcador class="resaltado8">Rango Utilizable:</marcador> Desde 192.168.1.33 hasta 192.168.1.62.</li>
                     </ul>
                     <br>
-                    <li><marcador class="resaltado5">Administración (Requiere 6 direcciones IP):</marcador></li>
+                    <li><marcador class="resaltado15">Administración (Requiere 6 direcciones IP):</marcador></li>
                     <ul style="list-style-type: square;">
                         <li><marcador class="resaltado8">Máscara de Subred:</marcador> Necesitas al menos 6 direcciones disponibles. Usamos los primeros 3 bits del último octavo para los hosts. La máscara de subred sería 11111111.11111111.11111111.1111 1000 en binario o /29 en notación CIDR.</li>
                         <li><marcador class="resaltado8">Dirección de Red:</marcador> 192.168.1.64/29.</li>
