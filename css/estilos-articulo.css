@@ -184,15 +184,13 @@ main{
 }
 
 .resaltado2 {
-    color: rgb(120, 190, 88);
+    color: rgb(132, 194, 104);
     font-style: italic;
     opacity: 1;
 }
 
 .resaltado3 {
-    color: rgb(128, 25, 201);
-    color: rgb(67, 151, 67);
-    color: #009933
+    color: rgb(146, 92, 185);
     opacity: 1;
 }
 
@@ -229,6 +227,7 @@ main{
 
 .resaltado8 {
     font-weight: bold;
+    opacity: 0.9;
 }
 
 .resaltado18 {
@@ -237,8 +236,9 @@ main{
 }
 
 .resaltado9 {
-    text-decoration: underline;
-    color: #0066cc; /* Cambia el color a tu preferencia */ 
+    font-style: italic;
+    color: #8d95ff; /* Cambia el color a tu preferencia */ 
+    
 }
 
 .resaltado10 {
@@ -256,6 +256,14 @@ main{
     opacity: 1;
     color: #7678f7; /* Cambia el color a tu preferencia */
     font-style: italic;
+}
+
+.resaltado13 {
+    color: rgb(128, 25, 201);
+    color: rgb(67, 151, 67);
+    color: #009933
+    text-decoration: underline;
+    opacity: 1;
 }
 
 .text__articulo-cover ul li{
