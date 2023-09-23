@@ -117,7 +117,7 @@
 
                 <p>Las funciones de activación son bloques de construcción fundamentales en las redes neuronales artificiales. Se aplican a la salida de cada neurona en una capa de la red y determinan si una neurona debe "activarse" (enviar una señal) o no. Introducen no linealidad en el modelo, lo que permite a las redes neuronales aprender relaciones complejas en los datos.</p>
                 <p>Las funciones de activación son como chispazos que hacen que las neuronas se activen. Aquí hay algunas de las más usadas:</p>
-                <ul style="list-style-type: circle;">
+                <ul>
                     <li><marcador class="resaltado2">ReLU (Rectified Linear Unit):</marcador> La función ReLU mapea los valores negativos a cero y mantiene los valores positivos sin cambios. Es simple y eficiente en términos de cálculos y ha demostrado ser efectiva en muchas aplicaciones.</li>
                     <p>Imagina que solo te emocionas si alguien te grita ¡Sí! ReLU se activa cuando una señal es positiva, y en caso contrario, permanece en silencio.</p>
                     <li><marcador class="resaltado2">Sigmoid:</marcador> Mapea los valores de entrada en un rango entre 0 y 1, lo que se asemeja a una curva en forma de "S". Aunque fue ampliamente utilizado en el pasado, se ha vuelto menos popular en redes neuronales profundas debido a problemas de desvanecimiento del gradiente.</li>
@@ -134,7 +134,7 @@
 
                 <p>La optimización se refiere al proceso de ajustar los parámetros (pesos y sesgos) de una red neuronal para minimizar una función de pérdida. La función de pérdida cuantifica la diferencia entre las predicciones del modelo y los valores reales del conjunto de datos. El objetivo es encontrar los valores de los parámetros que hagan que la función de pérdida sea lo más pequeña posible.</p>
                 <p>Existen varios algoritmos de optimización que se utilizan para actualizar los parámetros durante el entrenamiento de una red neuronal. Algunos de los algoritmos de optimización más populares son:</p>
-                <ul style="list-style-type: circle;">
+                <ul>
                     <li><marcador class="resaltado2">Descenso de Gradiente Estocástico (SGD):</marcador> Actualiza los parámetros en función del gradiente de la función de pérdida calculada en un subconjunto aleatorio (lote) de datos en cada iteración.</li>
                     <p>Imagina que estás descendiendo una montaña nebulosa. En lugar de ver todo el paisaje a la vez, solo puedes ver una pequeña parte a través de la niebla. Para bajar más rápido, das pasos basados en la pendiente de la colina que ves en ese momento. A medida que avanzas, ajustas tus pasos para no dar saltos demasiado grandes ni pequeños. Eso es lo que hace el Descenso de Gradiente Estocástico: toma pequeños pasos en dirección descendente según la pendiente (gradiente) de la función de pérdida, pero solo mirando un pequeño grupo de datos a la vez.</p>
                     <li><marcador class="resaltado2">Adam (Adaptive Moment Estimation):</marcador> Un algoritmo de optimización adaptativo que ajusta las tasas de aprendizaje para cada parámetro según su historial de gradientes.</li>
