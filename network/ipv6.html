@@ -90,6 +90,18 @@
                     <li>/48 se asigna a organizaciones.</li>
                     <li>/32 se utiliza para direcciones IPv6 globales únicas.</li>
                 </ul>
+                <h2>Header</h2>
+                <p>El encabezado IPv6, también conocido como header IPv6 en inglés, es una parte fundamental de un paquete IPv6 y contiene información esencial para el enrutamiento y el procesamiento del paquete a medida que viaja a través de la red. Aquí tienes una explicación de los campos más importantes del encabezado IPv6:</p>
+                <ul>
+                    <li><marcador class="resaltado4">Versión (Version):</marcador> Este campo ocupa 4 bits y especifica la versión del protocolo IPv6 que se está utilizando. En IPv6, este campo siempre tiene el valor de 6.</li>
+                    <li><marcador class="resaltado4">Clase de Tráfico (Traffic Class):</marcador> Este campo, que también utiliza 8 bits, se utiliza para indicar la clase de tráfico y puede usarse para dar prioridad a ciertos tipos de tráfico sobre otros. Junto con el campo de Flujo de Etiqueta, se puede realizar una gestión avanzada del tráfico.</li>
+                    <li><marcador class="resaltado4">Flujo de Etiqueta (Flow Label):</marcador> El campo de Flujo de Etiqueta ocupa 20 bits y se utiliza para identificar y etiquetar un flujo de tráfico específico. Puede ayudar a mantener conexiones de flujo único y proporcionar una calidad de servicio mejorada.</li>
+                    <li><marcador class="resaltado4">Longitud del Payload (Payload Length):</marcador> Este campo, de 16 bits, indica la longitud total del paquete, incluyendo el encabezado IPv6 y la carga útil (payload) que le sigue. La unidad de medida es octetos (bytes).</li>
+                    <li><marcador class="resaltado4">Siguiente Cabecera (Next Header):</marcador> El campo de Siguiente Cabecera es un byte (8 bits) que indica qué tipo de información sigue después del encabezado IPv6. Puede apuntar a extensiones de encabezado, como encabezados de enrutamiento, o a protocolos de capa superior, como TCP o UDP.</li>
+                    <li><marcador class="resaltado4">Límite de Saltos (Hop Limit):</marcador> Este campo utiliza 8 bits y es similar al campo "TTL" (Time to Live) en IPv4. Indica el número máximo de saltos o enrutadores que un paquete puede atravesar antes de ser descartado. Su propósito es evitar bucles infinitos en la red.</li>
+                    <li><marcador class="resaltado4">Dirección de Origen (Source Address):</marcador> Este campo es una dirección IPv6 de 128 bits que especifica la dirección del remitente del paquete.</li>
+                    <li><marcador class="resaltado4">Dirección de Destino (Destination Address):</marcador> Similar al campo de Dirección de Origen, este campo es una dirección IPv6 de 128 bits que indica la dirección del destinatario del paquete.</li>
+                </ul>
                 <div class="blog-image-grande">
                     <img src="media/ipv63.gif" alt="">
                 </div>
@@ -103,13 +115,18 @@
                 <p>El subneteo en IPv6 se realiza mediante la asignación de prefijos de longitud variable a las redes. El número de direcciones IPv6 en una subred depende de la longitud del prefijo. Por ejemplo:</p>
                 <ul style="list-style-type: square;">
                     <li>Una subred con prefijo /64 permite 2^64 direcciones.</li>
-                    <li>Una subred con prefijo /48 permite 2^80 subredes, cada una con 2^64 direcciones.</li>
+                    <li>Una subred con prefijo /48 permite 2^16 subredes, cada una con 2^64 direcciones.</li>
                 </ul>
                 <p>Cuando divides un espacio de direcciones de 48 bits en subredes internas de 64 bits cada una, obtienes 2^(16) subredes internas. Esto se debe a que tienes 48 bits totales, y al restarle 16 bits para las subredes internas, te quedan 32 bits para las direcciones dentro de cada subred interna.</p>
                 <p>Cada una de estas 2^(16) subredes internas tiene 2^(64) direcciones disponibles. Esto se debe a que, dentro de cada subred interna de 64 bits, tienes esos 64 bits para las direcciones, lo que da como resultado 2^(64) direcciones únicas en cada subred interna.</p>
-                <br>
+                <div class="blog-image-grande">
+                    <img src="media/ipv66.png" alt="">
+                </div>
                 <p>Puedes seleccionar un rango de direcciones IPv6 específico definiendo el prefijo adecuado y calculando las direcciones en función de ese prefijo. Esto te permitirá crear subredes y asignar direcciones de red, gateway y hosts de manera eficiente.</p>
                 <p>IPv6 ofrece una amplia gama de tipos de direcciones, capacidades de direccionamiento y ventajas sobre IPv4. El uso de prefijos de longitud variable y la comprensión de cómo funcionan los tipos de direcciones son fundamentales para administrar eficazmente las direcciones IPv6 en tu red.</p>
+                <h2>Conclusión</h2>
+                <p>A pesar de sus ventajas, IPv4 aún se utiliza en gran medida, y la transición a IPv6 es un proceso gradual. Existen tecnologías y técnicas, como la traducción de direcciones de red (NAT64) y la coexistencia de IPv4 e IPv6, que permiten que ambas versiones funcionen en conjunto mientras se migra a IPv6.</p>
+                <p>IPv6 es el futuro del protocolo de Internet debido a su capacidad de direccionamiento y características mejoradas de seguridad y rendimiento. A medida que más dispositivos se conectan a Internet, IPv6 se convertirá en una parte fundamental de la infraestructura de la red global.</p>
                 <div class="blog-image">
                     <img src="media/ipv64.jpeg" alt="">
                 </div>
