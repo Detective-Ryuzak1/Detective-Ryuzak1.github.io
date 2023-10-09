@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Bonus">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <h1>IPv6</h1>
+                <p>IPv6, o Protocolo de Internet versión 6, es la sexta revisión del protocolo fundamental que impulsa Internet. Fue desarrollado como una solución al agotamiento de direcciones IPv4 y ofrece una cantidad virtualmente ilimitada de direcciones IP. A pesar de su introducción, IPv4 sigue siendo ampliamente utilizado, pero IPv6 se está implementando gradualmente para satisfacer las crecientes demandas de direcciones IP en un mundo cada vez más conectado.</p>
+                <p>IPv6 utiliza direcciones IP de 128 bits, en comparación con las direcciones IPv4 de 32 bits, lo que permite una cantidad masiva de direcciones únicas. Esto es esencial para acomodar la creciente cantidad de dispositivos y servicios en línea. A continuación, exploraremos los aspectos clave de IPv6.</p>
+                <div class="blog-image">
+                    <img src="media/ipv61.jpg" alt="">
+                </div>
+                <p>Las direcciones IPv6 son mucho más largas y complejas que las direcciones IPv4, pero proporcionan una capacidad de direccionamiento prácticamente infinita. Una dirección IPv6 típica tiene el siguiente formato:</p>
+                <p>2001:0db8:85a3:0000:0000:8a2e:0370:7334</p>
+                <p>IPv6 también permite la abreviación de direcciones utilizando reglas específicas. Por ejemplo, la dirección anterior podría abreviarse como:</p>
+                <p>2001:db8:85a3::8a2e:370:7334</p>
+                <p>La doble colon (::) indica que se han omitido los grupos de ceros consecutivos. Esto facilita la escritura y comprensión de direcciones IPv6 largas.</p>
+                <div class="blog-image-grande">
+                    <img src="media/ipv62.png" alt="">
+                </div>
+                <p>IPv6 se diseñó teniendo en cuenta la simplicidad y la eficiencia en la notación de direcciones. Para simplificar las direcciones IPv6, se siguen algunas reglas clave:</p>
+                <ul>
+                    <li><marcador class="resaltado8">Omisiones de Ceros en Bits Más Significativos:</marcador> En un bloque de cuatro dígitos hexadecimales, si hay un cero en el bit más significativo, este solo se omite. Por ejemplo, 2001:0db8:0c01:0042 se puede simplificar como 2001:db8:c01:42.</li>
+                    <li><marcador class="resaltado8">Omisiones de Ceros en Bloques:</marcador> Puedes omitir ceros consecutivos en cualquier bloque de cuatro dígitos hexadecimales. Por ejemplo, 2001:0db8:0000:0042:0000:8a2e:0370:7334 se puede simplificar como 2001:db8:0:42:0:8a2e:370:7334.</li>
+                    <li><marcador class="resaltado8">Omisiones de Bloques de Ceros:</marcador> Puedes simplificar bloques de ceros continuos contiguos en la dirección IPv6 escribiendo ::. Sin embargo, esta omisión solo se permite una vez en una dirección IPv6. Por ejemplo, 2001:0db8:0000:0042:0000:8a2e:0370:7334 se puede simplificar como 2001:db8:0:42::8a2e:370:7334.</li>
+                    <li><marcador class="resaltado8">Notación de Cero Múltiple:</marcador> Cuando hay múltiples bloques de ceros contiguos, solo puedes usar :: para omitir un solo bloque de ceros consecutivos. Por ejemplo, 2001:0db8:0000:0000:0000:0000:0370:7334 se puede simplificar como 2001:db8::370:7334, pero no se puede simplificar aún más.</li>
+                    <li><marcador class="resaltado8">Caso Insensible:</marcador> IPv6 es insensible a mayúsculas y minúsculas, por lo que abcd y ABCD representan la misma dirección.</li>
+                    <li><marcador class="resaltado8">Prefijo de Longitud de Máscara:</marcador> A veces, las direcciones IPv6 se acompañan de un prefijo de longitud de máscara, que indica cuántos bits de la dirección están en uso. Por ejemplo, 2001:db8::/32 significa que los primeros 32 bits están en uso y el resto se pueden asignar en subredes.</li>
+                </ul>
+                
+                <h2>Ventajas de IPv6</h2>
+                <p>IPv6 ofrece varias ventajas sobre IPv4:</p>
+                <ul>
+                    <li><marcador class="resaltado8">Mayor Capacidad de Direccionamiento:</marcador> IPv6 proporciona 340 sextillones de direcciones IP únicas, lo que resuelve el agotamiento de direcciones IPv4.</li>
+                    <li><marcador class="resaltado8">Mejor Seguridad:</marcador> IPv6 incluye características de seguridad integradas, como IPsec, que eran opcionales en IPv4.</li>
+                    <li><marcador class="resaltado8">Mejor Rendimiento:</marcador> IPv6 mejora el enrutamiento y la eficiencia en la entrega de paquetes, lo que puede traducirse en un mejor rendimiento en la red.</li>
+                    <li><marcador class="resaltado8">Soporte para Multicast:</marcador> IPv6 facilita la transmisión eficiente de datos a múltiples destinos, lo que es útil para aplicaciones como la transmisión en vivo y la comunicación en grupo.</li>
+                    <li><marcador class="resaltado8">Configuración Automática de Direcciones:</marcador> IPv6 permite la configuración automática de direcciones IP sin necesidad de servidores DHCP.</li>
+                </ul>
+                <h2>Tipos de Direcciones IPv6</h2>
+                <p>IPv6 incluye varios tipos de direcciones, cada una con un propósito específico:</p>
+                <ul>
+                    <li><marcador class="resaltado5">Dirección IPv6 Global:</marcador> Estas direcciones son equivalentes a las direcciones IP públicas en IPv4. Son direcciones únicas y se utilizan para la comunicación en Internet. Por ejemplo: 2001:0db8:85a3:0000:0000:8a2e:0370:7334.</li>
+                    <p>Las direcciones IPv6 globales se toman del espacio de direcciones IPv6 global unicast, que está definido por el RFC 4291. El espacio de direcciones IPv6 global unicast se divide en tres bloques principales:</p>
+                    <ul>
+                        <li><marcador class="resaltado6">Global Unicast Address:</marcador> Este es el tipo de dirección IPv6 utilizado para la comunicación global en Internet. El rango de direcciones IPv6 globales unicast se encuentra en el bloque 2000::/3, lo que significa que las direcciones IPv6 globales unicast comienzan con los tres bits más significativos establecidos en 001. En otras palabras, las direcciones IPv6 globales unicast tienen un formato similar a 2000:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx, donde x representa dígitos hexadecimales.</li>
+                        <li><marcador class="resaltado6">Site-Local Address:</marcador> Anteriormente, había un tipo de dirección llamado "Site-Local Address," pero ha sido obsoleto en favor de las direcciones de enlace local y global unicast. El espacio de direcciones fec0::/10 se asignaba anteriormente a las direcciones de sitio local, pero ya no se recomienda su uso.</li>
+                        <li><marcador class="resaltado6">Unique Local Address (ULA):</marcador> Estas direcciones se utilizan para comunicación dentro de un dominio específico, como una red corporativa o una red local privada. El rango para direcciones ULA es fc00::/7, y las direcciones ULA se crean típicamente con un esquema de asignación específico que garantiza su unicidad dentro del dominio.</li>
+                    </ul>
+                    <li><marcador class="resaltado5">Dirección IPv6 de Loopback:</marcador> Similar a localhost en IPv4 (127.0.0.1), ::1 es la dirección de loopback en IPv6. Se utiliza para la comunicación interna del dispositivo y siempre se refiere a sí mismo.</li>
+                    <li><marcador class="resaltado5">Dirección IPv6 de Enlace Local:</marcador> Estas direcciones se utilizan para la comunicación en la red local y no se enrutan en Internet. Son equivalentes a las direcciones privadas en IPv4. Por ejemplo: fe80::1.</li>
+                    <li><marcador class="resaltado5">Dirección IPv6 de Anycast:</marcador> Las direcciones anycast representan un grupo de dispositivos que ofrecen un servicio similar. Cuando se envía un paquete a una dirección anycast, se entrega al dispositivo más cercano que ofrezca ese servicio.</li>
+                </ul>
+                <h2>Rangos y Clasificaciones</h2>
+                <p>En IPv6, los conceptos de clases A, B y C se han reemplazado por prefijos de longitud variable. Estos prefijos indican la longitud de la porción de red de la dirección. Algunos ejemplos de prefijos comunes incluyen /64, /48 y /32. Por ejemplo:</p>
+                <ul>
+                    <li>/64 se utiliza típicamente para redes locales.</li>
+                    <li>/48 se asigna a organizaciones.</li>
+                    <li>/32 se utiliza para direcciones IPv6 globales únicas.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/ipv63.gif" alt="">
+                </div>
+                <h2>Dirección de Red, Gateway y Broadcast</h2>
+                <ul>
+                    <li><marcador class="resaltado5">Dirección de Red IPv6:</marcador> La dirección de red en IPv6 se forma a partir del prefijo de red y se utiliza para identificar la red en sí misma. Por ejemplo, si tienes el prefijo 2001:0db8:85a3::/48, la dirección de red sería 2001:0db8:85a3::. Esta dirección no se asigna a ningún dispositivo específico dentro de la red.</li>
+                    <li><marcador class="resaltado5">Dirección de Gateway (Puerta de Enlace) IPv6:</marcador> La dirección de gateway en IPv6 es la dirección del enrutador que conecta tu red local a otras redes, como Internet. Suele ser la primera o la última dirección en el rango de direcciones de tu red local.</li>
+                    <li><marcador class="resaltado5">Dirección de Broadcast IPv6:</marcador> A diferencia de IPv4, IPv6 no utiliza una dirección de broadcast tradicional. En su lugar, utiliza direcciones multicast para enviar datos a múltiples destinatarios en una red.</li>
+                </ul>
+                <h2>Subneteo y Número de Direcciones</h2>
+                <p>El subneteo en IPv6 se realiza mediante la asignación de prefijos de longitud variable a las redes. El número de direcciones IPv6 en una subred depende de la longitud del prefijo. Por ejemplo:</p>
+                <ul style="list-style-type: square;">
+                    <li>Una subred con prefijo /64 permite 2^64 direcciones.</li>
+                    <li>Una subred con prefijo /48 permite 2^80 subredes, cada una con 2^64 direcciones.</li>
+                </ul>
+                <p>Cuando divides un espacio de direcciones de 48 bits en subredes internas de 64 bits cada una, obtienes 2^(16) subredes internas. Esto se debe a que tienes 48 bits totales, y al restarle 16 bits para las subredes internas, te quedan 32 bits para las direcciones dentro de cada subred interna.</p>
+                <p>Cada una de estas 2^(16) subredes internas tiene 2^(64) direcciones disponibles. Esto se debe a que, dentro de cada subred interna de 64 bits, tienes esos 64 bits para las direcciones, lo que da como resultado 2^(64) direcciones únicas en cada subred interna.</p>
+                <br>
+                <p>Puedes seleccionar un rango de direcciones IPv6 específico definiendo el prefijo adecuado y calculando las direcciones en función de ese prefijo. Esto te permitirá crear subredes y asignar direcciones de red, gateway y hosts de manera eficiente.</p>
+                <p>IPv6 ofrece una amplia gama de tipos de direcciones, capacidades de direccionamiento y ventajas sobre IPv4. El uso de prefijos de longitud variable y la comprensión de cómo funcionan los tipos de direcciones son fundamentales para administrar eficazmente las direcciones IPv6 en tu red.</p>
+                <div class="blog-image">
+                    <img src="media/ipv64.jpeg" alt="">
+                </div>
+            </div>   
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
