@@ -436,13 +436,29 @@ main{
     color: white;
     border: none;
     outline: none;
-    border-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
     font-family: monospace;
     max-width: 1000px; 
     /*border: 1px solid rgb(152, 182, 238);*/
     overflow-x: scroll;
     white-space: nowrap; /* Evitar el ajuste de línea */
-    width: auto; 
+    width: auto;
+    background-color: #161515;
+}
+
+.comandos textarea.text {
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+    border: none;
+    outline: none;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    font-family: monospace;
+    max-width: 1000px;
+    overflow-x: auto;
+    white-space: nowrap;
     background-color: #161515;
 }
 
@@ -453,7 +469,8 @@ main{
     font-size: 18px;
     border: none;
     outline: none;
-    border-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
     cursor: pointer;
     
 }
@@ -495,6 +512,27 @@ main{
 .comandos.active button:before,
 .comandos.active button:after{
     display: block;
+}
+
+.comandos textarea.text {
+    scrollbar-width: thin; /* Ancho de la barra de desplazamiento en Firefox */
+    scrollbar-color: #ccc #161515; /* Color de la barra de desplazamiento en Firefox */
+}
+
+/* Estilos para la barra de desplazamiento horizontal */
+.comandos textarea.text::-webkit-scrollbar {
+    width: 5px; /* Ancho de la barra de desplazamiento */
+    transition: all 0.3s;
+}
+
+.comandos textarea.text::-webkit-scrollbar-thumb {
+    background-color: #ccc; /* Color de la barra de desplazamiento */
+    border-radius: 2px; /* Radio de borde de la barra de desplazamiento */
+    transition: background-color 0.3s;
+}
+
+.comandos textarea.text::-webkit-scrollbar-thumb:hover {
+    background-color: #aaa; /* Color de la barra de desplazamiento al pasar el cursor sobre ella */
 }
   /* Estilos para el código 
   code {
@@ -614,6 +652,13 @@ main{
 .blog-image-doble img {
     width: 25%; /* Ajusta el ancho de las imágenes para dejar espacio entre ellas */
     margin-right: 4%;
+}
+
+.blog-image-doble-grande {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .blog-image-doble-grande {
