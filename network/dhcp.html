@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <link rel="icon" href="../media/imagen9.png" type="image/png">
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Bonus">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <h1>DHCP</h1>
+                <p>El Protocolo de Configuración Dinámica de Host (DHCP, por sus siglas en inglés) es una parte esencial de la infraestructura de redes modernas. Este protocolo permite la asignación automática y dinámica de direcciones IP a dispositivos en una red.</p>
+                <p>DHCP es un protocolo de red que permite la asignación de direcciones IP y otros parámetros de configuración de red a dispositivos, como computadoras, impresoras y dispositivos móviles, en una red local. Antes de profundizar en el proceso, es importante comprender algunos términos clave:</p>
+                <ul>
+                    <li><marcador class="resaltado5">Dirección IP: </marcador>Es un identificador numérico único que se utiliza para identificar dispositivos en una red. Hay direcciones IP públicas (accesibles desde Internet) y direcciones IP privadas (utilizadas en redes locales).</li>
+                    <li><marcador class="resaltado5">Servidor DHCP:</marcador> Es un dispositivo, como un enrutador o un servidor dedicado, que administra y proporciona direcciones IP a dispositivos clientes.</li>
+                    <li><marcador class="resaltado5">Cliente DHCP:</marcador> Es un dispositivo que solicita una dirección IP al servidor DHCP. Los clientes DHCP pueden ser computadoras, teléfonos, tabletas y otros dispositivos en la red.</li>
+                </ul>
+                <h2>Proceso de Asignación de Direcciones IP</h2>
+                <p>El proceso de asignación de direcciones IP a través del protocolo DHCP implica varias etapas:</p>
+                <ol>
+                    <li><marcador class="resaltado9">Solicitud DHCP:</marcador> Cuando un dispositivo se conecta a la red, envía una solicitud DHCP (DHCP Discover) a través de la red. Esta solicitud busca un servidor DHCP disponible. La solicitud es una señal de difusión, lo que significa que se envía a todas las máquinas en la red local.</li>
+                    <li><marcador class="resaltado9">Oferta DHCP:</marcador> Cuando el servidor DHCP recibe la solicitud, responde con una oferta DHCP (DHCP Offer). Esta oferta contiene una dirección IP disponible para el cliente y otros parámetros de configuración de red. A menudo, varios servidores DHCP pueden responder, pero el cliente selecciona una oferta y la acepta.</li>
+                    <li><marcador class="resaltado9">Solicitud DHCP:</marcador> Después de seleccionar una oferta, el cliente envía una solicitud DHCP (DHCP Request) para confirmar que desea utilizar la dirección IP ofrecida. Este paso evita conflictos de direcciones IP.</li>
+                    <li><marcador class="resaltado9">Confirmación DHCP:</marcador> El servidor DHCP recibe la solicitud y responde con una confirmación DHCP (DHCP Acknowledge). El cliente ahora tiene una dirección IP válida y puede usarla para comunicarse en la red.</li>
+                    <li><marcador class="resaltado9">Renovación de IP:</marcador> La asignación de direcciones IP tiene un período de tiempo limitado, conocido como tiempo de arrendamiento. Antes de que expire, el cliente puede solicitar una renovación de la dirección IP al servidor DHCP, lo que prolonga su uso.</li>
+                </ol>
+                <div class="blog-image-grande">
+                    <img src="media/dhcp1.png" alt="">
+                </div> 
+                <h2>Protocolos relacionados</h2>
+                <p>DHCP no opera en aislamiento y se relaciona con otros protocolos y tecnologías para garantizar el funcionamiento adecuado de una red. Algunos de los protocolos relacionados son:</p>
+                <ul>
+                    <li><marcador class="resaltado8">DNS (Domain Name System):</marcador> DHCP puede proporcionar la información del servidor DNS al dispositivo, permitiendo la resolución de nombres de dominio en direcciones IP.</li>
+                    <li><marcador class="resaltado8">TFTP (Trivial File Transfer Protocol):</marcador> DHCP puede proporcionar la ubicación de un servidor TFTP, lo que es útil para dispositivos que necesitan cargar archivos de configuración o firmware.</li>
+                    <li><marcador class="resaltado8">NTP (Network Time Protocol):</marcador> DHCP puede suministrar servidores NTP para garantizar que los dispositivos tengan una hora precisa.</li>
+                    <li><marcador class="resaltado8">SNMP (Simple Network Management Protocol):</marcador> DHCP puede proporcionar la dirección de un servidor SNMP para la gestión y supervisión de dispositivos de red.</li>
+                </ul>
+                <h2>Configuración de DHCP</h2>
+                <ul>
+                    <li><marcador class="resaltado8">Routers y switches:</Servidores DHCP dedicados:marcador> Los dispositivos de red, como routers y switches, a menudo actúan como servidores DHCP en pequeñas redes o redirigen solicitudes DHCP a servidores dedicados.</li>
+                    <li><marcador class="resaltado8">Servidores DHCP dedicados:</marcador> En redes más grandes, se utilizan servidores DHCP dedicados que gestionan la asignación de direcciones IP y otros parámetros.</li>
+                    <li><marcador class="resaltado8">Módems y enrutadores combinados:</marcador> Son dispositivos proporcionados por los proveedores de servicios de Internet tienen funcionalidad DHCP para facilitar la configuración de direcciones IP y otros parámetros de red en dispositivos conectados.</li>
+                </ul>
+                <br>
+                <p>La configuración de DHCP en dispositivos, como routers o switches, implica varios pasos clave. A continuación, te mostraré cómo configurar un servidor DHCP en un router Cisco utilizando comandos de ejemplo en el sistema operativo Cisco IOS (Internetwork Operating System). Ten en cuenta que los detalles específicos pueden variar según el modelo y la versión del dispositivo, pero los conceptos generales son similares.</p>
+                <h6>Cisco</h6>
+                <div class="mi-contenedor">
+                    <div class="barra-superior">
+                        <button id="boton-copiar"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo">
+                        <pre>
+<code>Router> enable
+Router# configure terminal
+Router(config)#
+Router(config)# ip dhcp pool Mi_Pool_DHCP
+Router(dhcp-config)# network 192.168.1.0 255.255.255.0
+Router(dhcp-config)# default-router 192.168.1.1
+Router(dhcp-config)# exclude address 192.168.1.1 192.168.1.10
+Router(dhcp-config)# dns-server 8.8.8.8
+Router(dhcp-config)# dns-server 8.8.4.4
+Router(dhcp-config)# lease 1 0 0
+Router(dhcp-config)# exit
+Router(config)# exit
+Router#
+Router# configure terminal
+Router(config)# interface FastEthernet0/0
+Router(config-if)# ip address 192.168.1.1 255.255.255.0
+Router(config-if)# ip helper-address 192.168.1.1
+Router(config-if)# exit
+Router(config)# exit
+Router#
+Router(config)# show running-config
+Router(config)# show ip dhcp binding</code></pre>
+                    </div>
+                </div>
+                <ol>
+                    <li><marcador class="resaltado9">Acceder al modo de configuración global:</marcador> Inicia una sesión de administración en el router y accede al modo de configuración global mediante el comando <marcador class="subrayado">enable</marcador>, que te permitirá acceder al nivel de configuración global.</li>
+                    <li><marcador class="resaltado9">Crear el grupo de direcciones IP para DHCP:</marcador> A continuación, debes definir un grupo de direcciones IP que se asignarán a los clientes DHCP. En este ejemplo, configuraremos un grupo de direcciones IP en la red 192.168.1.0/24.</li>
+                    <p>Aquí, "Mi_Pool_DHCP" es el nombre del grupo que estamos creando. "network 192.168.1.0 255.255.255.0" define el rango de direcciones IP que se asignarán a los clientes DHCP.</p>
+                    <li><marcador class="resaltado9">Configurar la puerta de enlace predeterminada y los servidores DNS:</marcador> Define la puerta de enlace predeterminada (gateway) y los servidores DNS que se proporcionarán a los clientes DHCP.</li>
+                    <p>Aquí, "default-router" se establece como la puerta de enlace predeterminada, que es la dirección IP de tu router. "dns-server" se utiliza para especificar los servidores DNS que se proporcionarán a los clientes.</p>
+                    <p>Utiliza el comando <marcador class="subrayado">exclude</marcador> para asegurar que las direcciones desde 192.168.1.1 hasta 192.168.1.10 no se asignen a ningún dispositivo cliente. Este tipo de exclusión es útil, por ejemplo, cuando deseas reservar direcciones IP específicas para servidores o dispositivos de red críticos que deben tener direcciones fijas.</p>
+                    <li><marcador class="resaltado9">Configurar la duración de arrendamiento (lease duration):</marcador> Puedes especificar cuánto tiempo se asigna una dirección IP a un cliente DHCP. En este ejemplo, configuraremos un arrendamiento de 24 horas.</li>
+                    <li><marcador class="resaltado9">Finalizar la configuración:</marcador> Sal del modo de configuración de DHCP y luego sal del modo de configuración global.</li>
+                    <li><marcador class="resaltado9">Habilitar DHCP en la interfaz:</marcador> Finalmente, debes habilitar el servidor DHCP en la interfaz a la que se conectarán los clientes. Supongamos que la interfaz se llama FastEthernet0/0.</li>
+                    <p>Aquí, "ip helper-address" se utiliza para redirigir las solicitudes DHCP a la dirección IP del router, que es el servidor DHCP.</p>
+                    <br>
+                    <p>Ahora, el router Cisco está configurado como un servidor DHCP que asignará direcciones IP y otros parámetros de configuración a los dispositivos de la red que se conecten a la interfaz FastEthernet0/0. Asegúrate de guardar la configuración para que persista después de reiniciar el dispositivo.</p>
+                    <p>Para verificar la configuración de DHCP, utiliza el comando <marcador class="subrayado">show running-config</marcador> para ver la configuración actual del dispositivo.</p>
+                    <p>Por último se mostrará una lista de las direcciones IP asignadas por el servidor DHCP, junto con la dirección MAC y otra información relacionada.</p>
+                </ol>
+                <h6>Huawei</h6>
+                <div class="mi-contenedor">
+                    <div class="barra-superior">
+                        <button id="boton-copiar"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo">
+                        <pre>
+<code><Router> system-view
+[Router]#
+[Router] dhcp enable
+[Router] dhcp server group Mi_Pool_DHCP
+[Router-dhcp-group-Mi_Pool_DHCP] subnet 192.168.1.0 255.255.255.0
+[Router-dhcp-group-Mi_Pool_DHCP] gateway-list 192.168.1.1
+[Router-dhcp-group-Mi_Pool_DHCP] address excluded 192.168.1.1 192.168.1.2
+[Router-dhcp-group-Mi_Pool_DHCP] dns-list 8.8.8.8 8.8.4.4
+[Router-dhcp-group-Mi_Pool_DHCP] lease day 1 hour 0 minute 0
+[Router] interface GigabitEthernet0/0/1
+[Router-GigabitEthernet0/0/1] ip address 192.168.1.1 255.255.255.0
+[Router-GigabitEthernet0/0/1] dhcp select server
+[Router-GigabitEthernet0/0/1] quit
+[Router] display current-configuration
+[Router] display dhcp server</code></pre>
+                    </div>
+                </div>
+                <ol>
+                    <li><marcador class="resaltado9">Acceder al modo de configuración global:</marcador> Inicia una sesión de administración en el dispositivo Huawei y accede al modo de configuración global mediante el comando <marcador class="subrayado">system-view</marcador>. Esto te permitirá acceder al nivel de configuración global.</li>
+                    <li><marcador class="resaltado9">Crear el grupo de direcciones IP para DHCP:</marcador> Define un grupo de direcciones IP que se asignarán a los clientes DHCP. En este ejemplo, configuraremos un grupo de direcciones IP en la red 192.168.1.0/24.</li>
+                    <p>En este caso, "Mi_Pool_DHCP" es el nombre del grupo que estamos creando, y "subnet 192.168.1.0 255.255.255.0" define el rango de direcciones IP que se asignarán a los clientes DHCP.</p>
+                    <li><marcador class="resaltado9">Configurar la puerta de enlace predeterminada y los servidores DNS:</marcador> Define la puerta de enlace predeterminada y los servidores DNS que se proporcionarán a los clientes DHCP en el grupo.</li>
+                    <p>Aquí, "gateway-list" se utiliza para especificar la puerta de enlace predeterminada, que es la dirección IP de tu router, y "dns-list" se utiliza para especificar los servidores DNS.</p>
+                    <p>Utilizando el comando <marcador class="subrayado">address excluded</marcador> aseguramos que las direcciones 192.168.1.1 y 192.168.1.2 no se asignen a ningún dispositivo cliente.</p>
+                    <li><marcador class="resaltado9">Configurar la duración de arrendamiento (lease duration):</marcador> Puedes especificar cuánto tiempo se asigna una dirección IP a un cliente DHCP en el grupo. En este ejemplo, configuraremos un arrendamiento de 24 horas.</li>
+                    <li><marcador class="resaltado9">Habilitar DHCP en la interfaz:</marcador> Finalmente, debes habilitar el servidor DHCP en la interfaz a la que se conectarán los clientes. Supongamos que la interfaz se llama GigabitEthernet0/0/1.</li>
+                    <br>
+                    <p>Ahora, el dispositivo Huawei está configurado como un servidor DHCP que asignará direcciones IP y otros parámetros de configuración a los dispositivos de la red que se conecten a la interfaz GigabitEthernet0/0/1. No olvides guardar la configuración para que persista después de reiniciar el dispositivo.</p>
+                    <p>Para verificar la configuración de DHCP, utiliza el comando <marcador class="subrayado">display current-configuration</marcador> para ver la configuración actual del dispositivo</p>
+                    <p>Por último se mostrará una lista de las direcciones IP asignadas por el servidor DHCP, junto con la dirección MAC y otra información relacionada.</p>
+                </ol>
+                <br>
+                <p>La exclusión de direcciones IP se utiliza en situaciones en las que deseas reservar direcciones específicas para dispositivos que no deben recibir asignaciones DHCP. Algunos casos típicos de exclusión de direcciones incluyen:</p>
+                <ul>
+                    <li><marcador class="resaltado8">Servidores críticos:</marcador> Si tienes servidores que deben tener direcciones IP fijas, puedes excluir esas direcciones de la asignación DHCP para garantizar que no se asignen a otros dispositivos.</li>
+                    <li><marcador class="resaltado8">Dispositivos de red:</marcador> Routers, switches y otros dispositivos de red pueden requerir direcciones IP estáticas para facilitar la administración y la configuración.</li>
+                    <li><marcador class="resaltado8">Impresoras de red:</marcador> Las impresoras de red a menudo se configuran con direcciones IP estáticas para garantizar que siempre estén disponibles en la misma dirección.</li>
+                    <li><marcador class="resaltado8">Dispositivos de seguridad:</marcador> Algunos dispositivos de seguridad, como cámaras IP o sistemas de seguridad, pueden necesitar direcciones IP fijas para funcionar correctamente.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/dhcp2.jpg" alt="">
+                </div> 
+                <h2>Conclusión</h2>
+                <p>El Protocolo de Configuración Dinámica de Host (DHCP) es una pieza fundamental en la administración de redes modernas. Facilita la asignación automática de direcciones IP y otros parámetros de configuración de red, eliminando la necesidad de configuración manual y reduciendo errores. Al comprender cómo funciona DHCP y su relación con otros protocolos, los administradores de red pueden mantener redes eficientes y conectadas en todo momento.</p>
+                <br>
+                <br>
+            </div>
+        </div>       
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
