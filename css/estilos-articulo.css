@@ -573,7 +573,7 @@ main{
 /* Estilos para la barra superior */
 .barra-superior {
     text-align: right;
-    background-color: rgb(122, 162, 235);
+    background-color: rgb(153, 229, 231);
     color: #fff;
     height: 35px;
     line-height: 30px;
@@ -584,7 +584,7 @@ main{
 
 /* Estilos para el botón */
 #boton-copiar {
-    background-color: rgb(122, 162, 235);
+    background-color: rgb(153, 229, 231);
     font-family: monospace;
     color: #000;
     border: none;
@@ -594,7 +594,7 @@ main{
 }
 
 #boton-copiar:hover {
-    background-color: rgb(122, 162, 235);
+    background-color: rgb(138, 212, 214);
 }
 
 /* Estilos para el código */
