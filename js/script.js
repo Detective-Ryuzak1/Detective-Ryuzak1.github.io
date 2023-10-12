@@ -90,25 +90,32 @@ botones.forEach((boton) => {
 
 
 
-//mi-contenedor
-document.getElementById("boton-copiar").addEventListener("click", function() {
-  const boton = this;
-  const codigo = document.querySelector(".codigo");
-  const codigoTexto = codigo.innerText;
 
-  // Crear un elemento de textarea para copiar el código
-  const textarea = document.createElement("textarea");
-  textarea.value = codigoTexto;
-  document.body.appendChild(textarea);
-  textarea.select();
-  document.execCommand("copy");
-  document.body.removeChild(textarea);
 
-  // Cambiar el texto del botón a "Copiado"
-  this.innerText = "Copied!";
+// Obtén todos los botones con la clase "boton-copiar"
+const botonesCopiar = document.querySelectorAll(".boton-copiar");
 
-  // Restaurar el texto original después de un segundo
-  setTimeout(() => {
-    this.innerHTML = '<i class="fas fa-copy"></i> Copy';
-  }, 2750);
+// Itera a través de los botones y agrega un controlador de eventos a cada uno
+botonesCopiar.forEach((boton) => {
+  boton.addEventListener("click", function () {
+    // Encuentra el elemento ".codigo" dentro del contenedor actual
+    const codigo = this.parentElement.nextElementSibling.querySelector("pre code");
+    const codigoTexto = codigo.textContent;
+
+    // Crea un elemento de textarea para copiar el código
+    const textarea = document.createElement("textarea");
+    textarea.value = codigoTexto;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand("copy");
+    document.body.removeChild(textarea);
+
+    // Cambia el texto del botón a "Copiado"
+    this.innerText = "Copied!";
+
+    // Restaura el texto original después de un segundo
+    setTimeout(() => {
+      this.innerText = "Copy";
+    }, 2000);
+  });
 });
