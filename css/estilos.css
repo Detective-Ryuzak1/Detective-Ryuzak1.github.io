@@ -257,6 +257,28 @@ main{
     opacity: 0.6;
 }
 
+body::-webkit-scrollbar {
+    width: 8px; /* Ancho de la barra de desplazamiento */
+    background: #f5f5f5;
+    transition: all 0.3s;
+}
+
+body::-webkit-scrollbar-thumb {
+    /*background: rgba(255, 255, 255, 0.2);*/ /* Color de la barra de desplazamiento */
+    background: linear-gradient(45deg, #FFF, #000);
+    border-radius: 2px; /* Radio de borde de la barra de desplazamiento */
+    transition: background-color 0.3s;
+    border-right: 2px solid #f5f5f5;
+    border-left: 2px solid #f5f5f5;
+    border-top: 2px solid #f5f5f5;
+    border-bottom: 2px solid #f5f5f5;
+    min-width: 10px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.3); //* Color de la barra de desplazamiento al pasar el cursor sobre ella */
+}
+
 @media (max-width: 1024px){
     .container__header,main{
         padding: 20px;
