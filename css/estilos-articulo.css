@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono');
 
 *{
     margin: 0;
@@ -129,7 +131,7 @@ main{
 }
 
 .text__articulo-cover h4{
-    font-size: 18px;
+    font-size: 20px;
     /*color: rgb(122, 162, 235);*/
     color: rgb(243, 145, 53);
     font-weight: normal;
@@ -139,7 +141,7 @@ main{
 }
 
 .text__articulo-cover h5{
-    font-size: 18px;
+    font-size: 20px;
     /*color: rgb(122, 162, 235);*/
     color: rgb(94, 177, 62);
     font-weight: normal;
@@ -149,7 +151,7 @@ main{
 }
 
 .text__articulo-cover h6{
-    font-size: 18px;
+    font-size: 20px;
     /*color: rgb(122, 162, 235);*/
     color: rgb(201, 226, 61);
     font-weight: normal;
@@ -463,6 +465,7 @@ main{
     scrollbar-width: thin; /* Ancho de la barra de desplazamiento en Firefox */
     scrollbar-color: #ccc #161515; /* Color de la barra de desplazamiento en Firefox */
     padding-top: 5px;
+    padding-right: 5px;
     padding-bottom: 0px;
 }
 
@@ -595,7 +598,7 @@ main{
 }
 
 /* Estilos para el botón */
-#boton-copiar {
+.boton-copiar {
     background-color: rgb(153, 229, 231);
     font-family: monospace;
     color: #000;
@@ -605,8 +608,8 @@ main{
     border-radius: 0;
 }
 
-#boton-copiar:hover {
-    background-color: rgb(138, 212, 214);
+.boton-copiar:hover {
+    background: linear-gradient(45deg, #99E5E7, #89d3a2);
 }
 
 /* Estilos para el código */
@@ -679,6 +682,138 @@ body::-webkit-scrollbar-thumb {
 
 body::-webkit-scrollbar-thumb:hover {
     background-color: rgba(255, 255, 255, 0.3); //* Color de la barra de desplazamiento al pasar el cursor sobre ella */
+}
+
+/*#container {  
+    display: flex;  
+    justify-content: center;  
+    align-items: center;  
+    height: 100vh;
+    background: linear-gradient(45deg, #57003f 0%,#f57453 100%); 
+    font-family: Ubuntu;
+}*/ 
+#terminal {  
+    width: 100%;  
+    height: auto;
+    box-shadow: 2px 4px 10px rgba(0,0,0,0.5);
+} 
+#terminal__bar {  
+    display: flex;  
+    width: 100%;  
+    height: 30px;  
+    align-items: center;  
+    padding: 0 8px;  
+    box-sizing: border-box;  
+    border-top-left-radius: 5px;  
+    border-top-right-radius: 5px;  
+    background: linear-gradient(#504b45 0%,#3c3b37 100%);
+} 
+#bar__buttons {  
+    display: flex;  
+    align-items: center;
+} 
+.bar__button {  
+    display: flex;  
+    justify-content: center;  
+    align-items: center;  
+    padding: 0;  
+    margin-right: 5px;  
+    font-size: 8px;  
+    height: 12px;  
+    width: 12px;  
+    box-sizing: border-box;  
+    border: none;  
+    border-radius: 100%;  
+    background: linear-gradient(#7d7871 0%, #595953 100%);  
+    text-shadow: 0px 1px 0px rgba(255,255,255,0.2);  
+    box-shadow: 0px 0px 1px 0px #41403A, 0px 1px 1px 0px #474642;
+}
+.bar__button:hover {  
+    cursor: pointer;
+}
+.bar__button:focus {  
+    outline: none;
+}
+#bar__button--exit {  
+    background: linear-gradient(#f37458 0%, #de4c12 100%);    
+    background-clip: padding-box;
+} 
+#bar__user {   
+    color: #d5d0ce;  
+    margin-left: 6px;  
+    font-size: 14px;  
+    line-height: 15px;
+} 
+#terminal__body {  
+    background: rgba(56, 4, 40, 0.8);  
+    font-family: 'Ubuntu Mono';  
+    height: calc(100% - 30px);  
+    padding-top: 2px;  
+    margin-top: -1px;
+    padding-bottom: 2em;
+    overflow: auto;
+} 
+#terminal__prompt {  
+    display: flex;
+    flex-wrap: wrap;
+}
+#terminal__prompt--user {  
+    color: #7eda28;
+    white-space: nowrap;
+}
+#terminal__prompt--location { 
+    color: #4878c0;
+}
+#terminal__prompt--command { 
+    color: white;
+    display: inline;
+    white-space: nowrap;
+}
+#terminal__prompt--response {
+    color: white;
+    white-space: pre;
+}
+
+
+#terminal__prompt--bling {  
+    color: #dddddd;
+}
+#terminal__prompt--cursor {  
+    display: block;  
+    height: 17px;  
+    width: 1px;  
+    margin-left: 9px;  
+    animation: blink 1200ms linear infinite;
+}  
+.command-response-container {
+    display: flex;
+    flex-direction: column;
+    white-space: pre;
+    text-align: left;
+    color: white;
+    align-items: flex-start;
+  }
+@keyframes blink {  
+    0% {    
+      background: #ffffff;  
+    }  
+    49% {    
+      background: #ffffff;  
+    }  
+    60% {    
+      background: transparent;  
+    }  
+    99% {    
+      background: transparent;  
+    }  100% {    
+      background: #ffffff;  
+    }
+} 
+@media (max-width: 600px) {  
+    #terminal {    
+      max-height: 90%;    
+      width: 90%;  
+    }
 }
 
 .blog-image {
