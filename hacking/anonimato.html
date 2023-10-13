@@ -95,8 +95,8 @@ Permanent MAC: aa:bb:cc:dd:ee:ff (unknown)
                  
                 <br>
                 <p>Puedes cambiar la dirección MAC de una interfaz de red de forma aleatoria utilizando el siguiente comando:</p>
-                <p>Antes tienes que detener los procesos que podrían estar utilizando la interfaz antes de ejecutar el comando. Intentar desactivar manualmente la interfaz de red usando el siguiente comando y luego ejecutar el comando macchanger: <marcador class="subrayado">sudo ifconfig wlan0 down</marcador></p>
-                <p>No olvides volver a habilitar la interfaz después de realizar los cambios con el siguiente comando: <marcador class="subrayado">sudo ifconfig wlan0 up</marcador></p>
+                <p>Antes tienes que detener los procesos que podrían estar utilizando la interfaz antes de ejecutar el comando. Intentar desactivar manualmente la interfaz de red usando el siguiente comando y luego ejecutar el comando macchanger: <marcador class="subrayado">sudo ifconfig wlan0 down</marcador>.</p>
+                <p>No olvides volver a habilitar la interfaz después de realizar los cambios con el siguiente comando: <marcador class="subrayado">sudo ifconfig wlan0 up</marcador>.</p>
                 <div id="terminal">
                     <section id="terminal__bar">
                         <div id="bar__buttons">
@@ -117,6 +117,45 @@ Permanent MAC: aa:bb:cc:dd:ee:ff (unknown)
 Current MAC:   aa:bb:cc:dd:ee:ff (unknown)
 Permanent MAC: aa:bb:cc:dd:ee:ff (unknown)
 New MAC:       e6:06:77:f0:cf:5a (unknown)
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <br>
+                <p>El siguiente comando se utiliza para mostrar la lista de direcciones MAC (Media Access Control) que se pueden utilizar como valores de dirección MAC aleatorios o específicos. Este comando muestra las direcciones MAC que están disponibles para usar en el sistema y que son compatibles con el formato esperado para las direcciones MAC.</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9723;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">macchanger</marcador> <marcador class="param">-l</marcador></span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">
+Misc MACs:
+Num    MAC        Vendor
+
+0000 - 00:00:00 - XEROX CORPORATION
+0001 - 00:00:01 - XEROX CORPORATION
+0002 - 00:00:02 - XEROX CORPORATION
+0003 - 00:00:03 - XEROX CORPORATION
+0004 - 00:00:04 - XEROX CORPORATION
+0005 - 00:00:05 - XEROX CORPORATION
+0006 - 00:00:06 - XEROX CORPORATION
+0007 - 00:00:07 - XEROX CORPORATION
+0008 - 00:00:08 - XEROX CORPORATION
+0009 - 00:00:09 - XEROX CORPORATION
+0010 - 00:00:0a - OMRON TATEISI ELECTRONICS CO.
+0011 - 00:00:0b - MATRIX CORPORATION
+0012 - 00:00:0c - CISCO SYSTEMS, INC.
+0013 - 00:00:0d - FIBRONICS LTD. 
+. . . [ snip ] . . .                             
                             </span>
                         </div>
                     </section>
@@ -210,7 +249,7 @@ New MAC:       aa:bb:cc:dd:ee:ff (unknown)
                 <p>Para utilizar OpenVPN en Linux, debes seguir estos pasos básicos:</p>
                 <p>Asegúrate de tener OpenVPN instalado en tu sistema. Puedes hacerlo utilizando el administrador de paquetes de tu distribución Linux. Por ejemplo, en un sistema basado en Debian o Ubuntu, puedes usar el siguiente comando: <marcador class="subrayado">sudo apt-get install openvpn</marcador>.</p>
                 <p>Necesitarás tener los archivos de configuración necesarios para conectarte a tu servicio VPN. Por lo general, estos archivos son proporcionados por tu proveedor de servicios VPN. Coloca los archivos de configuración en un directorio específico, por ejemplo, en <marcador class="resaltado1">/home/usuario/Documentos/openvpn</marcador>.</p>
-                <p>Una vez que hayas colocado los archivos de configuración en el directorio adecuado, puedes iniciar la conexión utilizando el siguiente comando: <marcador class="subrayado">sudo openvpn --config /home/usuario/Documentos/openvpn/archivo.ovpn</marcador></p>
+                <p>Una vez que hayas colocado los archivos de configuración en el directorio adecuado, puedes iniciar la conexión utilizando el siguiente comando: <marcador class="subrayado">sudo openvpn --config /home/usuario/Documentos/openvpn/archivo.ovpn</marcador>.</p>
                 <p>OpenVPN te solicitará las credenciales de autenticación si son necesarias para la conexión. Ingresa tu nombre de usuario y contraseña según las indicaciones.</p>
                 <p>Una vez que la conexión se haya establecido correctamente, verás un mensaje que indica que estás conectado. También puedes verificar tu dirección IP para asegurarte de que estás navegando a través de la VPN.</p>
                 <h6>Cambiador y Gestor de User Agent</h6>
