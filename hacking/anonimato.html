@@ -94,8 +94,7 @@ Permanent MAC: aa:bb:cc:dd:ee:ff (unknown)
             <!-- </div> -->
                  
                 <br>
-                <p>Puedes cambiar la dirección MAC de una interfaz de red de forma aleatoria utilizando el siguiente comando:</p>
-                <p>Antes tienes que detener los procesos que podrían estar utilizando la interfaz antes de ejecutar el comando. Intentar desactivar manualmente la interfaz de red usando el siguiente comando y luego ejecutar el comando macchanger: <marcador class="subrayado">sudo ifconfig wlan0 down</marcador>.</p>
+                <p>A continuación se muestra una forma en la que puedes cambiar la dirección MAC de una interfaz de red de forma aleatoria, pero tienes que detener los procesos que podrían estar utilizando la interfaz antes de ejecutar el comando. Intenta desactivar manualmente la interfaz de red usando el comando <marcador class="subrayado">sudo ifconfig wlan0 down</marcador> y luego ejecuta el comando macchanger.</p>
                 <p>No olvides volver a habilitar la interfaz después de realizar los cambios con el siguiente comando: <marcador class="subrayado">sudo ifconfig wlan0 up</marcador>.</p>
                 <div id="terminal">
                     <section id="terminal__bar">
@@ -228,12 +227,12 @@ New MAC:       aa:bb:cc:dd:ee:ff (unknown)
                 <p>En el archivo de configuración, encontrarás una línea que comienza con "dynamic_chain". Asegúrate de que esté descomentada quitando el símbolo "#" al principio de la línea. Esto permite que ProxyChains elija automáticamente un proxy aleatorio de la lista cada vez que se realiza una conexión.</p>
                 <p>Dentro del archivo de configuración, debes especificar los proxies que deseas utilizar. Añade las direcciones IP y los puertos de los proxies en la sección [ProxyList] del archivo.</p>
                 <div class="archivo">
-                    <h5>[ProxyList]</h5>
-                    <h5># add proxy here ..</h5>
-                    <h5># meanwile</h5>
-                    <h5># defaults set to "tor"</h5>
-                    <h5>#socks4         127.0.0.1 9050</h5>
-                    <h5>socks5          127.0.0.1 1080</h5>
+[ProxyList]
+# add proxy here ..
+# meanwile
+# defaults set to "tor"
+#socks4         127.0.0.1 9050
+socks5          127.0.0.1 1080
                 </div>
                 <p>Por ejemplo:</p>
                 <p><marcador class="resaltado5">socks5 127.0.0.1 9050</marcador> o <marcador class="resaltado5">http 192.168.1.1 8080</marcador></p>
