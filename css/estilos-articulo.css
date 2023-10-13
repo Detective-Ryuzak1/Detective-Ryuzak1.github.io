@@ -826,6 +826,7 @@ body::-webkit-scrollbar-thumb:hover {
     text-align: left;
     color: white;
     align-items: flex-start;
+    tab-size: 4;
 }
 @keyframes blink {  
     0% {    
