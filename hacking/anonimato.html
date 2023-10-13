@@ -60,7 +60,8 @@
                 <h6>Cambiador de Dirección MAC (macchanger)</h6>
                 
                 <p>Macchanger es una herramienta de línea de comandos disponible en sistemas basados en Linux que permite a los usuarios cambiar la dirección MAC de sus interfaces de red, lo que puede dificultar que los sitios web y las redes rastreen tu dispositivo a través de esta identificación única. La dirección MAC (Media Access Control) es un identificador único que se utiliza para identificar dispositivos en una red. Cambiar la dirección MAC de tu dispositivo puede proporcionar un mayor nivel de anonimato y seguridad al navegar por la red. Linux y algunas otras plataformas ofrecen comandos incorporados para cambiar la dirección MAC.</p>
-                <p>Para ver la dirección MAC actual de una interfaz de red, puedes usar el siguiente comando:</p>
+                <p>Reemplaza "nombre_de_interfaz" por el nombre de la interfaz de red que deseas verificar, como "eth0" o "wlan0".</p>
+                <p>Para ver la dirección MAC actual de una interfaz de red, puedes usar el siguiente comando (Para ver el nombre de las interfaces de red, puedes utilizar el comando <marcador class="subrayado">ifconfig</marcador>) :</p>
                 <!-- <div id="container"> -->
             <div id="terminal">
                 <!-- Terminal Bar -->
@@ -75,35 +76,155 @@
                 <!-- Terminal Body -->
                 <section id="terminal__body">
                     <div id="terminal__prompt">
-                    <span id="terminal__prompt--user">ryuzak1@ubuntu:</span>
+                <!--    <span id="terminal__prompt--user">ryuzak1@ubuntu:</span>
                     <span id="terminal__prompt--location">~</span>
-                    <span id="terminal__prompt--bling">$&nbsp;</span>
-                    <span id="terminal__prompt--command">macchanger -s nombre_de_interfaz</span>
+                    <span id="terminal__prompt--bling">$&nbsp;</span>-->
+                    <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">macchanger</marcador> <marcador class="param">-s</marcador> nombre_de_interfaz</span>
                     <span id="terminal__prompt--cursor"></span>
+
+                    </div>
                     <div class="command-response-container">
                         <span id="terminal__prompt--response" class="multiline-text">
-Current MAC:   AA:BB:CC:DD:EE:FF (unknown)
-Permanent MAC: AA:BB:CC:DD:EE:FF (unknown)
+Current MAC:   aa:bb:cc:dd:ee:ff (unknown)
+Permanent MAC: aa:bb:cc:dd:ee:ff (unknown)
                         </span>
                     </div>
-                    </div>
                 </section>
+            </div>                          
+            <!-- </div> -->
+                 
+                <br>
+                <p>Puedes cambiar la dirección MAC de una interfaz de red de forma aleatoria utilizando el siguiente comando:</p>
+                <p>Antes tienes que detener los procesos que podrían estar utilizando la interfaz antes de ejecutar el comando. Intentar desactivar manualmente la interfaz de red usando el siguiente comando y luego ejecutar el comando macchanger: <marcador class="subrayado">sudo ifconfig wlan0 down</marcador></p>
+                <p>No olvides volver a habilitar la interfaz después de realizar los cambios con el siguiente comando: <marcador class="subrayado">sudo ifconfig wlan0 up</marcador></p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9723;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="sudo">sudo </marcador><marcador class="tool">macchanger</marcador> <marcador class="param">-r</marcador> wlan0</span>
+                        
+    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">
+Current MAC:   aa:bb:cc:dd:ee:ff (unknown)
+Permanent MAC: aa:bb:cc:dd:ee:ff (unknown)
+New MAC:       e6:06:77:f0:cf:5a (unknown)
+                            </span>
+                        </div>
+                    </section>
                 </div>
-                      
-                      
-                          
-                <!-- </div> -->
-                  
+                <br>
+                <p>Si deseas establecer manualmente una dirección MAC específica, puedes hacerlo con el siguiente comando:</p>
+                <p>Reemplaza "XX:XX:XX:XX:XX:XX" por la dirección MAC que deseas usar.</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9723;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="sudo">sudo </marcador><marcador class="tool">macchanger</marcador> <marcador class="param">--mac=</marcador>XX:XX:XX:XX:XX:XX wlan0</span>
+                        
+    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">
+Current MAC:   aa:bb:cc:dd:ee:ff (unknown)
+Permanent MAC: aa:bb:cc:dd:ee:ff (unknown)
+New MAC:       aa:bb:cc:aa:bb:cc (unknown)
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <br>
+                <p>Para restaurar la dirección MAC original de una interfaz, puedes utilizar el siguiente comando:</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9723;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="sudo">sudo </marcador><marcador class="tool">macchanger</marcador> <marcador class="param">-p</marcador> wlan0</span>
+                        
+    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">
+Current MAC:   aa:bb:cc:aa:bb:cc (unknown)
+Permanent MAC: aa:bb:cc:dd:ee:ff (unknown)
+New MAC:       aa:bb:cc:dd:ee:ff (unknown)
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <br>
+                <p>Cambiar la Dirección MAC en el Arranque: Si deseas que la dirección MAC se cambie automáticamente en cada arranque del sistema, puedes agregar el comando de cambio de MAC a un script de inicio. Esto garantiza que la dirección MAC se cambie cada vez que el sistema se reinicie.</p>
                 <h6>Proxychains</h6>
                 <p>Proxychains es una herramienta que te permite enrutar tus conexiones a través de múltiples servidores proxy, ocultando tu dirección IP y dificultando el rastreo de tus actividades en línea.</p>
+                <p>ProxyChains forza para que cualquier aplicación pase a través de un proxy como si fuera un túnel. Puede ser útil para realizar tareas relacionadas con la privacidad, la seguridad y el anonimato en línea. Aquí te explico cómo puedes utilizar ProxyChains en un sistema Linux:</p>
+                <p>Asegúrate de que ProxyChains esté instalado en tu sistema. Puedes hacerlo utilizando el administrador de paquetes de tu distribución Linux. Por ejemplo, en un sistema basado en Debian o Ubuntu, puedes usar el siguiente comando: <marcador class="subrayado">sudo apt-get install proxychains</marcador>.</p>
+                <p>Una vez que ProxyChains esté instalado, debes configurarlo para que utilice los proxies que desees. El archivo de configuración principal se encuentra en la ruta <marcador class="resaltado1">/etc/proxychains.conf</marcador>. Puedes editarlo con un editor de texto como nano o vim: <marcador class="subrayado">sudo nano /etc/proxychains.conf</marcador>.</p>
+                <p>ProxyChains ofrece tres modos de cadena distintos: "dynamic_chain", "strict_chain" y "random_chain". Cada uno de estos modos tiene su propia funcionalidad y propósito específicos.</p>
+                <p>El modo "dynamic_chain" es el más flexible, ya que selecciona automáticamente un proxy aleatorio de la lista cada vez que se realiza una conexión. Esto lo hace útil para situaciones en las que deseas mantener una cierta anonimidad y no te importa la secuencia de proxies utilizados.</p>
+                <p>Por otro lado, el modo "strict_chain" te permite definir una secuencia fija de proxies a través de los cuales se enrutarán todas las conexiones. Este modo es útil si necesitas una configuración específica y fija de proxies para tu caso de uso.</p>
+                <p>Finalmente, el modo "random_chain" elige aleatoriamente una secuencia de proxies de la lista de proxies disponibles para cada conexión. Esta opción proporciona un cierto nivel de anonimato, ya que la secuencia de proxies utilizados puede variar, lo que dificulta el rastreo de la conexión.</p>
+                <p>Es importante tener en cuenta que al configurar ProxyChains, solo se debe dejar una opción descomentada en el archivo de configuración. Las otras opciones deben estar comentadas, lo que significa que deben tener un "#" al principio de la línea. De este modo, se evitan conflictos y se garantiza que ProxyChains funcione correctamente con el modo elegido.</p>
+                <p>En el archivo de configuración, encontrarás una línea que comienza con "dynamic_chain". Asegúrate de que esté descomentada quitando el símbolo "#" al principio de la línea. Esto permite que ProxyChains elija automáticamente un proxy aleatorio de la lista cada vez que se realiza una conexión.</p>
+                <p>Dentro del archivo de configuración, debes especificar los proxies que deseas utilizar. Añade las direcciones IP y los puertos de los proxies en la sección [ProxyList] del archivo.</p>
+                <div class="archivo">
+                    <h5>[ProxyList]</h5>
+                    <h5># add proxy here ..</h5>
+                    <h5># meanwile</h5>
+                    <h5># defaults set to "tor"</h5>
+                    <h5>#socks4         127.0.0.1 9050</h5>
+                    <h5>socks5          127.0.0.1 1080</h5>
+                </div>
+                <p>Por ejemplo:</p>
+                <p><marcador class="resaltado5">socks5 127.0.0.1 9050</marcador> o <marcador class="resaltado5">http 192.168.1.1 8080</marcador></p>
+                <p>Guarda y cierra el archivo de configuración.</p>
+                <p>Después de configurar los proxies, puedes usar ProxyChains para ejecutar una aplicación a través de un proxy. Por ejemplo, si quieres ejecutar el navegador Firefox a través del proxy, puedes usar el siguiente comando: <marcador class="subrayado">proxychains firefox</marcador>.</p>
+                <p>Esto iniciará el navegador Firefox y todo el tráfico de red de Firefox pasará a través del proxy configurado en ProxyChains.</p>
+                <p>Recuerda que el uso de proxies y herramientas como ProxyChains debe realizarse de acuerdo con las leyes locales y las políticas de red. Además, el uso de proxies no garantiza un anonimato completo y puede haber vulnerabilidades en el tráfico de red que podrían exponer tu identidad. Utiliza estas herramientas con precaución y responsabilidad.</p>
+                <div class="blog-image-grande">
+                    <img src="media/anonimato2.jpg" alt="">
+                </div> 
                 <h6>OpenVPN</h6>
                 <p>OpenVPN es una solución de código abierto para establecer conexiones VPN seguras y cifradas. Utilizar una VPN es una forma efectiva de proteger tus datos y ocultar tu dirección IP al enrutar tu tráfico a través de servidores remotos.</p>
+                <p>Para utilizar OpenVPN en Linux, debes seguir estos pasos básicos:</p>
+                <p>Asegúrate de tener OpenVPN instalado en tu sistema. Puedes hacerlo utilizando el administrador de paquetes de tu distribución Linux. Por ejemplo, en un sistema basado en Debian o Ubuntu, puedes usar el siguiente comando: <marcador class="subrayado">sudo apt-get install openvpn</marcador>.</p>
+                <p>Necesitarás tener los archivos de configuración necesarios para conectarte a tu servicio VPN. Por lo general, estos archivos son proporcionados por tu proveedor de servicios VPN. Coloca los archivos de configuración en un directorio específico, por ejemplo, en <marcador class="resaltado1">/home/usuario/Documentos/openvpn</marcador>.</p>
+                <p>Una vez que hayas colocado los archivos de configuración en el directorio adecuado, puedes iniciar la conexión utilizando el siguiente comando: <marcador class="subrayado">sudo openvpn --config /home/usuario/Documentos/openvpn/archivo.ovpn</marcador></p>
+                <p>OpenVPN te solicitará las credenciales de autenticación si son necesarias para la conexión. Ingresa tu nombre de usuario y contraseña según las indicaciones.</p>
+                <p>Una vez que la conexión se haya establecido correctamente, verás un mensaje que indica que estás conectado. También puedes verificar tu dirección IP para asegurarte de que estás navegando a través de la VPN.</p>
                 <h6>Cambiador y Gestor de User Agent</h6>
                 <p>Cambiar tu User Agent en tu navegador es otra técnica que puedes usar para ocultar tu identidad. Herramientas como User-Agent Switcher and Manager te permiten modificar esta información, lo que puede confundir a los sitios web que intentan identificar tu navegador y sistema operativo.</p>
+                <div class="blog-image-grande">
+                    <img src="media/anonimato5.jpg" alt="">
+                </div>
                 <h6>Navegadores Privados y VPNs</h6>
                 <p>Además de las herramientas específicas mencionadas anteriormente, el uso de navegadores privados como Tor Browser y servicios VPN (Redes Privadas Virtuales) pueden mejorar tu privacidad en línea. Los navegadores privados enrutan el tráfico a través de la red Tor, mientras que las VPN enmascaran tu dirección IP real.</p>
                 <h6>VeraCrypt</h6>
                 <p>VeraCrypt es una herramienta de cifrado de disco que te permite crear volúmenes cifrados para proteger tus archivos y datos. Esto puede ser especialmente útil para mantener tus archivos personales seguros y fuera del alcance de terceros no deseados.</p>
+                <div class="blog-image-grande">
+                    <img src="media/anonimato4.jpg" alt="">
+                </div>
             </div>
         </div>       
     </main>
