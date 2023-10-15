@@ -282,6 +282,15 @@
                 </div>
                 <div class="contenedor">
                     <div class="etiqueta">
+                        Reemplazar comas con espacios en un archivo
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="sed &quot;s/,/\r\n/g&quot; archivo.txt" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
                         Eliminar espacios en blanco al principio de cada línea en un archivo
                     </div>
                     <div class="comandos">
@@ -524,7 +533,7 @@
                         Este comando se utiliza para limpiar y filtrar el contenido del archivo /etc/hosts, eliminando líneas de comentarios (que comienzan con #) y líneas en blanco, y luego guarda el resultado en el mismo archivo /etc/hosts
                     </div>
                     <div class="comandos">
-                      <input type="text" class="text" value="cat /etc/hosts | grep -v '^#.*' | sed '/^\s*$/d' | sponge" oninput="ajustarAncho(this)">
+                      <input type="text" class="text" value="cat /etc/hosts | grep -v '^#.*' | sed '/^\s*$/d' | sponge /etc/hosts" oninput="ajustarAncho(this)">
                       <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                 </div>
