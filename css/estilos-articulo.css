@@ -1017,7 +1017,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 }
 
-@media (max-width: 1200px){
+@media (max-width: 5200px){
     .comandos button span {
         display: none;
       }
