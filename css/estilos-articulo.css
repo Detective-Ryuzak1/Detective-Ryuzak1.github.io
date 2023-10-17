@@ -6,8 +6,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
-    /*font-family: 'Lato', sans-serif;*/
+    /*font-family: 'Roboto', "Segoe UI" "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: 'Lato', sans-serif;*/
 }
 
 body{
@@ -101,6 +101,7 @@ main{
     font-weight: normal;
     margin-bottom: 40px;
     font-weight: bold;
+    font-family: 'Roboto';
 }
 .text__articulo-cover h2{
     font-size: 24px;
@@ -110,6 +111,7 @@ main{
     margin-top: 20px;
     margin-bottom: 20px;
     font-weight: bold;
+    font-family: 'Roboto';
 }
 .text__articulo-cover h3{
     font-size: 20px;
@@ -118,7 +120,7 @@ main{
     font-weight: normal;
     margin-top: 20px;
     margin-bottom: 20px;
-    
+    font-family: 'Roboto';
 }
 .text__articulo-cover h4{
     font-size: 20px;
@@ -128,7 +130,7 @@ main{
     font-weight: normal;
     margin-top: 20px;
     margin-bottom: 20px;
-    
+    font-family: 'Roboto';
 }
 .text__articulo-cover h5{
     font-size: 16px;
@@ -136,6 +138,7 @@ main{
     margin-bottom: 10px;
     color: white;
     font-weight: normal;
+    font-family: 'Roboto';
 }
 .text__articulo-cover h6{
     font-size: 20px;
@@ -144,7 +147,7 @@ main{
     font-weight: normal;
     margin-top: 20px;
     margin-bottom: 20px;
-    
+    font-family: 'Roboto';
 }
 .text__articulo-cover p{
     font-size: 16px;
@@ -152,6 +155,7 @@ main{
     margin-bottom: 10px;
     color: white;
     opacity: 0.7;
+    font-family: 'Roboto';
 }
 
 /* Marcador*/
@@ -160,7 +164,7 @@ main{
     border-radius: 3px;
     padding-left: 3px; /* Agrega padding a la izquierda */
     padding-right: 3px; /* Agrega padding a la derecha */
-
+    font-family: 'Roboto';
   }
 .resaltado1 {
     /*color: rgb(137, 170, 231);
@@ -169,6 +173,7 @@ main{
     border-radius: 3px;
     padding-left: 3px; /* Agrega padding a la izquierda */
     padding-right: 3px; /* Agrega padding a la derecha */
+    font-family: 'Roboto';
 }
 
 /* Colores de letra */
@@ -176,36 +181,42 @@ main{
     color: rgb(163, 221, 136);
     font-style: italic;
     opacity: 1;
+    font-family: 'Roboto';
 }
 .resaltado3 {
     color: rgb(199, 131, 248);
     opacity: 1;
+    font-family: 'Roboto';
 }
 .resaltado4 {
     color: rgb(153, 229, 231);
     font-style: italic;
     opacity: 1;
+    font-family: 'Roboto';
 }
 .resaltado5 {
     color: rgb(233, 129, 129);
     font-style: italic;
     opacity: 1;
+    font-family: 'Roboto';
 }
 .resaltado6 {
     font-style: italic;
     opacity: 1;
     color: rgb(239, 255, 148); /* Cambia el color a tu preferencia */
-
+    font-family: 'Roboto';
 }
 
 /* Resultado de ecuaciones */
 .resaltado7 {
     border: 1px solid #d7e93a;
     padding: 8px;
+    font-family: 'Roboto'
 }
 .resaltado17 {
     border: 1px solid #d7e93a;
     padding: 4px;
+    font-family: 'Roboto';
 }
 
  /* Subrayado */
@@ -213,41 +224,49 @@ main{
     opacity: 1;
     text-decoration: underline;
     font-style: oblique;
+    font-family: 'Roboto';
 }
 
 /* Negrita */
 .resaltado8 {
     font-weight: bold;
     font-size: 16px;
+    font-family: 'Roboto';
 }
 .resaltado18 {
     font-weight: bold;
     font-style: italic;
+    font-family: 'Roboto';
 }
 
 /* Italic */
 .resaltado9 {
     font-style: italic;
-    color: #acb1fc; /* Cambia el color a tu preferencia */    
+    color: #acb1fc; /* Cambia el color a tu preferencia */  
+    font-family: 'Roboto'; 
 }
 .resaltado10 {
     font-style: italic;
     color: #ff99ee; /* Cambia el color a tu preferencia */
+    font-family: 'Roboto';
 }
 .resaltado11 {
     font-style: italic;
     color: #f39965; /* Cambia el color a tu preferencia */
     opacity: 1;
+    font-family: 'Roboto';
 }
 .resaltado12 {
     opacity: 1;
     color: #7678f7; /* Cambia el color a tu preferencia */
     font-style: italic;
+    font-family: 'Roboto';
 }
 .resaltado14 {
     opacity: 1;
     color: #f776e2; /* Cambia el color a tu preferencia */
     font-style: italic;
+    font-family: 'Roboto';
 }
 
 .resaltado13 {
@@ -255,6 +274,7 @@ main{
     color: rgb(67, 151, 67);
     color: #009933
     text-decoration: underline;
+    font-family: 'Roboto';
     opacity: 1;
 }
 
@@ -264,6 +284,7 @@ main{
     margin-top: 10px;
     margin-bottom: 10px;
     color: white;
+    font-family: 'Roboto';
     opacity: 0.7;
 }
 .text__articulo-cover ol li{
@@ -271,6 +292,7 @@ main{
     margin-top: 10px;
     margin-bottom: 10px;
     color: white;
+    font-family: 'Roboto';
     opacity: 0.7;
 }
 
@@ -282,7 +304,7 @@ main{
     color: white;
     margin: 0 auto;
     border-collapse: collapse;
-    
+    font-family: 'Roboto';
     border-spacing: 8px;
 }
 .text__articulo-cover table td, th {
@@ -290,6 +312,7 @@ main{
     border: 1px solid white; /* Define el estilo del borde de las celdas */
     padding: 8px; /* Añade espacio interno a las celdas */
     text-align: right; /* Alinea el contenido de las celdas a la derecha */
+    font-family: 'Roboto';
     opacity: 0.7;
   }
 
@@ -301,6 +324,7 @@ main{
 .etiqueta{
     padding: 10px;
     font-size: 16px;
+    font-family: 'Roboto';
     color: #fff;
     opacity: 0.7;
 }
@@ -420,32 +444,16 @@ main{
     background-color: rgba(255, 255, 255, 0.3); /* Color de la barra de desplazamiento al pasar el cursor sobre ella */
 }
 
-  /* Estilos para el código 
-  code {
-    background-color: #f4f4f4;
-    padding: 4px;
-    font-family: monospace;
-    border: none;
-    border-radius: 10px;
 
-    font-size: 18px;
-    color: #555;
-    outline: none;
-    opacity: 0.7;
-  }
-  */
-  
-  /* Estilos para el botón 
-  .btn-copiar {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 6px 12px;
-    cursor: pointer;
-    border-radius: 10px;
-    
-  }
-*/
+/*<div class="contenedor">
+    <div class="etiqueta">
+        Muestra una lista de archivos y carpetas en el directorio actual.
+    </div>
+    <div class="comandos scrollbar">      
+      <textarea class="text" oninput="ajustarAncho(this)">comando</textarea>
+      <button><i class="fa fa-clone"></i><span></span></button>
+    </div>
+</div>*/
 
 
 /* Consola de configuración de red */
@@ -586,6 +594,7 @@ main{
 } 
 #terminal__body {  
     background: rgba(56, 4, 40, 0.8);  
+    font-size: 17px;
     font-family: 'Ubuntu Mono';  
     height: calc(100% - 30px);  
     padding-top: 2px;  
@@ -643,7 +652,7 @@ main{
     display: inline; /* Permanece en la misma línea que el texto */
     height: 17px;  
     width: 1px;  
-    margin-left: 9px;  
+    margin-left: 12px;  
     animation: blink 1200ms linear infinite;
 }  
 .command-response-container {
@@ -826,6 +835,7 @@ body::-webkit-scrollbar-thumb:hover {
 }
 .number {
     border: 1px solid white;
+    font-family: 'Roboto';
     width: 50px;
     height: 50px;
     display: flex;
@@ -841,6 +851,7 @@ body::-webkit-scrollbar-thumb:hover {
 /* División de matrices*/
 .matrix-division {
     display: grid;
+    font-family: 'Roboto';
     grid-template-columns: auto 30px auto 30px auto;
     align-items: center;
     text-align: center;
@@ -860,6 +871,7 @@ body::-webkit-scrollbar-thumb:hover {
 /* Multiplicación de matrices*/
 .matrix-mul {
     display: flex;
+    font-family: 'Roboto';
     align-items: center;
     text-align: center;
     font-size: 20px;
@@ -987,4 +999,172 @@ body::-webkit-scrollbar-thumb:hover {
         gap: 2px;
         grid-template-columns: repeat(3, 30px);
     }
-}    
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Consola de ejemplo */
+/* Code formatting*/
+/*
+pre,
+code {
+ font-size: 15px;
+ border: 1px solid #565656;
+ border-radius: 3px;
+ background-color: #eef;
+}
+
+code {
+    padding: 1px 5px;
+}
+
+pre {
+    padding: 8px 12px;
+    overflow-x: auto;
+}
+pre > code {
+    border: 0;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.highlighter-rogue > .highlight {
+    background-color: #22272e;
+}  
+.highlighter-rouge pre {
+    background: #22272e !important;
+}  
+.highlighter-rouge code {
+    background-color: #22272e;
+    color: #e6e6e6;
+}  
+div .highlight {
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+.highlighter-rouge .ne,
+.highlighter-rouge .nf {
+    color: #ff6666bb;
+}  
+.highlighter-rouge .s,
+.highlighter-rouge .se,
+.highlighter-rouge .s1,
+.highlighter-rouge .s2,
+.highlighter-rouge .si {
+    color: #e46;
+}  
+.highlighter-rouge .mi,
+.highlighter-rouge .nb {
+    color: #3cc;
+}  
+.highlighter-rouge .nt,
+  .highlighter-rouge .nn {
+    color: #77f;
+}  
+.highlighter-rouge .err {
+    background-color: unset;
+}
+*/  
+  /* console last to override default codeblocks */
+/*.language-console:before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    margin: -20px 0 0 5px;
+    border-radius: 5px;
+    background:  #f25d2b;
+    box-shadow: 0 0 0 1px #595953, 15px 0 #7d7871, 15px 0 0 1px #595953, 30px 0 #7d7871, 30px 0 0 1px #595953;
+    position: absolute;
+  }
+*/
+.language-console {
+    padding: 26px 0px 0px;
+    border-radius: 5px;
+    font-family: Segoe UI;
+    /* last one defines what's below the bar - eef is original */
+    background: linear-gradient(#504b45, #3c3b37 20px, #3c3b37 20px, #3c3b37 21px, #380428 21px);
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.25);
+}  
+.language-console pre {
+    border: none;
+    background: #380428 !important;
+}  
+.language-console code {
+    background-color: #380428;
+    color: #ffd;
+}  
+.language-console .gp {
+    color: #8d4;
+}  
+.language-console .nt {
+    color: #99f;
+} 
+.language-console .go {
+    color: #fff;
+}
+.language-console .highlight {
+    border: none;
+}
+  .language-console .s,
+  .language-console .s2,
+  .language-console .nn {
+    color: #2ad;
+}
+
+/*
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">user@ubutu$</span><span class="w"> </span>feroxbuster <span class="nt">-u</span> http://object.htb
+<span class="go">
+ ___  ___  __   __     __      __         __   ___
+|__  |__  |__) |__) | /  `    /  \ \_/ | |  \ |__
+|    |___ |  \ |  \ | \__,    \__/ / \ | |__/ |___
+by Ben "epi" Risher 🤓                 ver: 2.5.0
+───────────────────────────┬──────────────────────
+ 🎯  Target Url            │ http://object.htb
+ 🚀  Threads               │ 50
+ 📖  Wordlist              │ /usr/share/seclists/Discovery/Web-Content/raft-medium-directories.txt
+ 👌  Status Codes          │ [200, 204, 301, 302, 307, 308, 401, 403, 405, 500]
+ 💥  Timeout (secs)        │ 7
+ 🦡  User-Agent            │ feroxbuster/2.5.0
+ 🏁  HTTP methods          │ [GET]
+ 🔃  Recursion Depth       │ 4
+───────────────────────────┴──────────────────────
+ 🏁  Press [ENTER] to use the Scan Management Menu™
+──────────────────────────────────────────────────
+[####################] - 59s    29999/29999   0s      found:0       errors:0      
+[####################] - 58s    29999/29999   508/s   http://object.htb 
+</span></code></pre></div></div>
+*/
