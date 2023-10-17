@@ -704,6 +704,7 @@ main{
 .archivo {
     background-color: rgb(31, 41, 31);
     color: white;
+    font-family: Roboto;
     padding-left: 10px;
     border-radius: 5px;
     border: 2px solid rgba(194, 74, 74, 0.438);
