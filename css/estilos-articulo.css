@@ -336,7 +336,7 @@ main{
     font-family: monospace;
     max-width: 1000px;
     overflow-y: hidden;
-    overflow-x: hidden;
+    overflow-x: auto;
     white-space: nowrap;
     width: auto;
     background-color: #161515;
