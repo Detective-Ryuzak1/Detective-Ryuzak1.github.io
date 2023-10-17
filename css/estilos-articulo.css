@@ -19,7 +19,6 @@ body{
 header{
     height: 100px;
 }
-
 .container__header{
     max-width: 1200px;
     height: 100%;
@@ -40,12 +39,10 @@ header{
 .menu nav ul{
     display: flex;
 }
-
 .menu nav ul li{
     list-style: none;
     padding: 0px 20px;
 }
-
 .menu nav ul a{
     font-size: 16px;
     text-decoration: none;
@@ -54,7 +51,6 @@ header{
     opacity: 0.7;
     font-family: 'Roboto', sans-serif;
 }
-
 .menu nav ul a:hover{
     color: silver;
 }
@@ -71,7 +67,6 @@ header{
     transition: background, color, 300ms;
     opacity: 0.7;
 }
-
 .btn__header-botonMenu:hover{
     background: mediumpurple;
     color: white;
@@ -83,24 +78,22 @@ header{
 }
 
 /* PORTADA - COVER */
-
 main{
     max-width: 1200px;
     height: calc(100vh + 800px);
     padding: 40px;
     margin: auto;
 }
-
 .cover{
     display: flex;
     justify-content: center;
     margin-top: 60px;   
 }
-
 .text__articulo-cover{
     width: 100%;
 }
 
+/* Título y Subtítulo*/
 .text__articulo-cover h1{
     font-size: 31px;
     /*color: rgb(122, 162, 235);*/
@@ -109,7 +102,6 @@ main{
     margin-bottom: 40px;
     font-weight: bold;
 }
-
 .text__articulo-cover h2{
     font-size: 24px;
     /*color: rgb(122, 162, 235);*/
@@ -119,7 +111,6 @@ main{
     margin-bottom: 20px;
     font-weight: bold;
 }
-
 .text__articulo-cover h3{
     font-size: 20px;
     /*color: rgb(122, 162, 235);*/
@@ -129,7 +120,6 @@ main{
     margin-bottom: 20px;
     
 }
-
 .text__articulo-cover h4{
     font-size: 20px;
     /*color: rgb(122, 162, 235);
@@ -140,7 +130,6 @@ main{
     margin-bottom: 20px;
     
 }
-
 .text__articulo-cover h5{
     font-size: 16px;
     margin-top: 10px;
@@ -148,7 +137,6 @@ main{
     color: white;
     font-weight: normal;
 }
-
 .text__articulo-cover h6{
     font-size: 20px;
     /*color: rgb(122, 162, 235);*/
@@ -158,9 +146,6 @@ main{
     margin-bottom: 20px;
     
 }
-
-
-
 .text__articulo-cover p{
     font-size: 16px;
     margin-top: 10px;
@@ -169,6 +154,7 @@ main{
     opacity: 0.7;
 }
 
+/* Marcador*/
 .subrayado {
     background-color: #080808;
     border-radius: 3px;
@@ -176,7 +162,6 @@ main{
     padding-right: 3px; /* Agrega padding a la derecha */
 
   }
-
 .resaltado1 {
     /*color: rgb(137, 170, 231);
     opacity: 1;*/
@@ -186,29 +171,26 @@ main{
     padding-right: 3px; /* Agrega padding a la derecha */
 }
 
+/* Colores de letra */
 .resaltado2 {
     color: rgb(163, 221, 136);
     font-style: italic;
     opacity: 1;
 }
-
 .resaltado3 {
     color: rgb(199, 131, 248);
     opacity: 1;
 }
-
 .resaltado4 {
     color: rgb(153, 229, 231);
     font-style: italic;
     opacity: 1;
 }
-
 .resaltado5 {
     color: rgb(233, 129, 129);
     font-style: italic;
     opacity: 1;
 }
-
 .resaltado6 {
     font-style: italic;
     opacity: 1;
@@ -216,48 +198,55 @@ main{
 
 }
 
+/* Resultado de ecuaciones */
 .resaltado7 {
     border: 1px solid #d7e93a;
     padding: 8px;
-
 }
-
 .resaltado17 {
     border: 1px solid #d7e93a;
     padding: 4px;
-
 }
 
+ /* Subrayado */
+ .resaltado15 {
+    opacity: 1;
+    text-decoration: underline;
+    font-style: oblique;
+}
+
+/* Negrita */
 .resaltado8 {
     font-weight: bold;
     font-size: 16px;
 }
-
 .resaltado18 {
     font-weight: bold;
     font-style: italic;
 }
 
+/* Italic */
 .resaltado9 {
     font-style: italic;
-    color: #acb1fc; /* Cambia el color a tu preferencia */ 
-    
+    color: #acb1fc; /* Cambia el color a tu preferencia */    
 }
-
 .resaltado10 {
     font-style: italic;
     color: #ff99ee; /* Cambia el color a tu preferencia */
 }
-
 .resaltado11 {
     font-style: italic;
     color: #f39965; /* Cambia el color a tu preferencia */
     opacity: 1;
 }
-
 .resaltado12 {
     opacity: 1;
     color: #7678f7; /* Cambia el color a tu preferencia */
+    font-style: italic;
+}
+.resaltado14 {
+    opacity: 1;
+    color: #f776e2; /* Cambia el color a tu preferencia */
     font-style: italic;
 }
 
@@ -269,18 +258,7 @@ main{
     opacity: 1;
 }
 
-.resaltado14 {
-    opacity: 1;
-    color: #f776e2; /* Cambia el color a tu preferencia */
-    font-style: italic;
-}
-
-.resaltado15 {
-    opacity: 1;
-    text-decoration: underline;
-    font-style: oblique;
-}
-
+/* Listas */
 .text__articulo-cover ul li{
     font-size: 16px;
     margin-top: 10px;
@@ -288,8 +266,6 @@ main{
     color: white;
     opacity: 0.7;
 }
-
-
 .text__articulo-cover ol li{
     font-size: 16px;
     margin-top: 10px;
@@ -298,7 +274,7 @@ main{
     opacity: 0.7;
 }
 
-
+/* Tablas */
 .text__articulo-cover table{
     font-size: 16px;
     margin-top: 10px;
@@ -309,7 +285,6 @@ main{
     
     border-spacing: 8px;
 }
-
 .text__articulo-cover table td, th {
     width: 200px;
     border: 1px solid white; /* Define el estilo del borde de las celdas */
@@ -318,120 +293,23 @@ main{
     opacity: 0.7;
   }
 
-.matrix {
-    display: grid;
-    grid-template-columns: repeat(3, 50px); /* Cambia el número para ajustar el número de columnas */
-    gap: 5px; /* Espacio entre celdas */
-}
-.number {
-    border: 1px solid white;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    opacity: 0.7;
-}
-
-.matrix .number:nth-last-child(-n+6) {
-    border: 1px solid mediumspringgreen;
-    
-}
-
-
-.matrix-division {
-    display: grid;
-    grid-template-columns: auto 30px auto 30px auto;
-    align-items: center;
-    text-align: center;
-    margin-bottom: 10px;
-    opacity: 0.7;
-}
-
-.matrixDiv {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    border: 1px solid white;
-    padding: 5px;
-    color: white;
-    
-}
-
-.matrix-mul {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    font-size: 20px;
-    margin: 20px 0;
-    opacity: 0.7;
-}
-
-.matrixMul2x2 {
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    grid-template-rows: repeat(2, auto);
-    gap: 5px;
-    align-items: center;
-    color: white;
-    
-}
-
-.matrixMul2x1 {
-    display: grid;
-    grid-template-columns: repeat(1, auto);
-    grid-template-rows: repeat(2, auto);
-    gap: 5px;
-    align-items: center;
-    color: white;
-    
-}
-
-.cell {
-    border: 1px solid white;
-    padding: 5px;
-    
-}
-
-.division, .sign, .equals {
-    font-size: 20px;
-    margin: 0 5px;
-    color: white;
-}
-
-/* Additional styling for specific cells */
-.matrix-a2x2 .cell:nth-child(1), .matrix-a2x2 .cell:nth-child(4) {
-    color: #f0f0f0;
-}
-
-.matrix-b2x1 .cell:nth-child(1), .matrix-b2x1 .cell:nth-child(2) {
-    grid-row: span 2;
-}
-
-.matrix-c2x1 .cell:nth-child(1) {
-    grid-row: span 2;
-}
-
 
 /* Estilos para la sección de comandos */
 .contenedor{
     position: relative;
 }
-
 .etiqueta{
     padding: 10px;
     font-size: 16px;
     color: #fff;
     opacity: 0.7;
 }
-
 .comandos {
     position: relative;
     padding: 5px;
     border-radius: 10px;
     display: flex;
-  }
+}
 
 .comandos input.text{
     padding: 10px;
@@ -448,8 +326,7 @@ main{
     background-color: #161515;
 }
 
-.comandos textarea.text {
-    padding: 5px;
+.comandos textarea.text { 
     font-size: 16px;
     color: white;
     border: none;
@@ -465,9 +342,10 @@ main{
     background-color: #161515;
     scrollbar-width: thin; /* Ancho de la barra de desplazamiento en Firefox */
     scrollbar-color: #ccc #161515; /* Color de la barra de desplazamiento en Firefox */
-    padding-top: 5px;
-    padding-right: 5px;
+    padding-top: 10px;
+    padding-left: 10px;
     padding-bottom: 0px;
+    resize: none;
 }
 
 .comandos button{
@@ -482,15 +360,12 @@ main{
     cursor: pointer;
     
 }
-
 .comandos button span{
     font-family: monospace;
 }
-
 .comandos button:active{
     background: rgb(93, 138, 221);
 }
-
 .comandos button:before{
     content: "Copied!";
     position: absolute;
@@ -504,7 +379,6 @@ main{
     font-size: 13px;
     display: none;
 }
-
 .comandos button:after{
     content: "";
     position: absolute;
@@ -516,7 +390,6 @@ main{
     transform: rotate(45deg);
     display: none;
 }
-
 .comandos.active button:before,
 .comandos.active button:after{
     display: block;
@@ -528,12 +401,10 @@ main{
     background: #161515;
     transition: all 0.3s;
 }
-
 .comandos textarea.text::-webkit-scrollbar-track {
     border 1px solid #fff;
     box-shadow: 0 0 5px 5px #161515 inset;
 }    
-
 .comandos textarea.text::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.2); /* Color de la barra de desplazamiento */
     /*background: linear-gradient(45deg, #7678f7, #009933);*/
@@ -544,9 +415,9 @@ main{
     border-right: 2px solid #161515;
     border-left: 2px solid #161515;
 }
-
 .comandos textarea.text::-webkit-scrollbar-thumb:hover {
     background-color: rgba(255, 255, 255, 0.3); /* Color de la barra de desplazamiento al pasar el cursor sobre ella */
+    cursor: pointer;
 }
 
   /* Estilos para el código 
@@ -577,17 +448,16 @@ main{
 */
 
 
-/* Estilos para el contenedor */
-.mi-contenedor {
+/* Consola de configuración de red */
+.consola {
     background-color: #f4f4f4;
     padding: 0;
     border-radius: 5px;
     margin: 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
 /* Estilos para la barra superior */
-.barra-superior {
+.barra-superior-consola {
     text-align: right;
     background-color: rgb(153, 229, 231);
     color: #fff;
@@ -597,9 +467,8 @@ main{
     border-top-right-radius: 5px;
     padding: 0 10px;
 }
-
 /* Estilos para el botón */
-.boton-copiar {
+.boton-copiar-consola {
     background-color: rgb(153, 229, 231);
     font-family: monospace;
     color: #000;
@@ -609,12 +478,11 @@ main{
     border-radius: 0;
 }
 
-.boton-copiar:hover {
+.boton-copiar-consola:hover {
     background: linear-gradient(45deg, #99E5E7, #89d3a2);
 }
-
 /* Estilos para el código */
-.codigo {
+.codigo-consola {
     background-color: #f4f4f4;
     padding: 0;
     font-family: monospace;
@@ -622,7 +490,7 @@ main{
     border-top: 1px solid #ccc;
     margin: 0; /* Elimina los márgenes predeterminados */
 }
-.codigo pre {
+.codigo-consola pre {
     white-space: pre; /* Permite saltos de línea automáticos */
     tab-size: 4; /* Establece el tamaño de tabulación */
     font-size: 16px; /* Tamaño de fuente */
@@ -636,22 +504,20 @@ main{
     margin: 0; /* Elimina los márgenes predeterminados */
     margin-top: -10px;
 }
-.codigo pre code {
+.codigo-consola pre code {
     /* Estilos específicos para el código dentro del bloque pre */
     color: white; /* Color del texto */
     margin: 0;
     font-size: 16px;
     font-family: monospace;
 }
-
 /* Estilos para la barra de desplazamiento horizontal */
-.codigo pre::-webkit-scrollbar {
+.codigo-consola pre::-webkit-scrollbar {
     width: 5px; /* Ancho de la barra de desplazamiento */
     background: #252323;
     transition: all 0.3s;
 }
-
-.codigo pre::-webkit-scrollbar-thumb {
+.codigo-consola pre::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.2); /* Color de la barra de desplazamiento */
     /*background: linear-gradient(45deg, #7678f7, #009933);*/
     border-radius: 2px; /* Radio de borde de la barra de desplazamiento */
@@ -660,72 +526,12 @@ main{
     border-top: 6px solid #252323;
     min-width: 10px;
 }
-
-.codigo pre::-webkit-scrollbar-thumb:hover {
+.codigo-consola pre::-webkit-scrollbar-thumb:hover {
     background-color: rgba(255, 255, 255, 0.3); //* Color de la barra de desplazamiento al pasar el cursor sobre ella */
 }
 
-body::-webkit-scrollbar {
-    width: 7px; /* Ancho de la barra de desplazamiento */
-    background: #252323;
-    transition: all 0.3s;
-}
 
-body::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.2); /* Color de la barra de desplazamiento */
-    /*background: linear-gradient(45deg, #7678f7, #009933);*/
-    border-radius: 2px; /* Radio de borde de la barra de desplazamiento */
-    transition: background-color 0.3s;
-    border-bottom: 6px solid #252323;
-    border-top: 6px solid #252323;
-    min-width: 10px;
-}
-
-body::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(255, 255, 255, 0.3); //* Color de la barra de desplazamiento al pasar el cursor sobre ella */
-}
-
-.archivo {
-    background-color: rgb(31, 41, 31);
-    color: white;
-    padding-left: 10px;
-    border-radius: 5px;
-    border: 2px solid rgba(194, 74, 74, 0.438);
-    width: 100%;
-    text-align: left;
-    margin-left: auto;
-    margin-right: auto;
-    overflow-x: auto; 
-    white-space: pre;
-}
-
-.archivo::-webkit-scrollbar {
-    width: 5px; /* Ancho de la barra de desplazamiento */
-    background: rgb(31, 41, 31);
-    transition: all 0.3s;
-}
-
-.archivo::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.2); /* Color de la barra de desplazamiento */
-    /*background: linear-gradient(45deg, #7678f7, #009933);*/
-    border-radius: 2px; /* Radio de borde de la barra de desplazamiento */
-    transition: background-color 0.3s;
-    border-bottom: 6px solid rgb(31, 41, 31);
-    border-top: 6px solid rgb(31, 41, 31);
-    min-width: 10px;
-}
-
-.archivo::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(255, 255, 255, 0.3); //* Color de la barra de desplazamiento al pasar el cursor sobre ella */
-}
-/*#container {  
-    display: flex;  
-    justify-content: center;  
-    align-items: center;  
-    height: 100vh;
-    background: linear-gradient(45deg, #57003f 0%,#f57453 100%); 
-    font-family: Ubuntu;
-}*/ 
+/*Linux Terminal*/ 
 #terminal {  
     width: 100%;  
     height: auto;
@@ -825,7 +631,6 @@ body::-webkit-scrollbar-thumb:hover {
     color: white;
     
 }
-
 .bling{
     color: #dddddd;   
 }
@@ -866,14 +671,12 @@ body::-webkit-scrollbar-thumb:hover {
       background: #ffffff;  
     }
 } 
-
 #terminal__body::-webkit-scrollbar {
     width: 5px; /* Ancho de la barra de desplazamiento */
     background: rgba(56, 4, 40, 0.405); 
     transition: all 0.3s;
     
 }
-
 #terminal__body::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.034); /* Color de la barra de desplazamiento */
     /*background: linear-gradient(45deg, #7678f7, #009933);*/
@@ -883,18 +686,73 @@ body::-webkit-scrollbar-thumb:hover {
     
     min-width: 10px;
 }
-
 #terminal__body::-webkit-scrollbar-thumb:hover {
     background: rgba(255, 255, 255, 0.1); //* Color de la barra de desplazamiento al pasar el cursor sobre ella */
 }
 
+
+/* Contenido de un archivo */
+.archivo {
+    background-color: rgb(31, 41, 31);
+    color: white;
+    padding-left: 10px;
+    border-radius: 5px;
+    border: 2px solid rgba(194, 74, 74, 0.438);
+    width: 100%;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-x: auto; 
+    white-space: pre;
+}
+.archivo::-webkit-scrollbar {
+    width: 5px; /* Ancho de la barra de desplazamiento */
+    background: rgb(31, 41, 31);
+    transition: all 0.3s;
+}
+.archivo::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2); /* Color de la barra de desplazamiento */
+    /*background: linear-gradient(45deg, #7678f7, #009933);*/
+    border-radius: 2px; /* Radio de borde de la barra de desplazamiento */
+    transition: background-color 0.3s;
+    border-bottom: 6px solid rgb(31, 41, 31);
+    border-top: 6px solid rgb(31, 41, 31);
+    min-width: 10px;
+}
+.archivo::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.3); //* Color de la barra de desplazamiento al pasar el cursor sobre ella */
+}
+
+
+/* Barra de desplazamiento vertical */
+body::-webkit-scrollbar {
+    width: 7px; /* Ancho de la barra de desplazamiento */
+    background: #252323;
+    transition: all 0.3s;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2); /* Color de la barra de desplazamiento */
+    /*background: linear-gradient(45deg, #7678f7, #009933);*/
+    border-radius: 2px; /* Radio de borde de la barra de desplazamiento */
+    transition: background-color 0.3s;
+    border-bottom: 6px solid #252323;
+    border-top: 6px solid #252323;
+    min-width: 10px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.3); //* Color de la barra de desplazamiento al pasar el cursor sobre ella */
+}
+
+
+/* Imagenes */
 .blog-image {
     width: 100%;
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
 }
-  
 .blog-image img {
     max-width: 100%;
     width: 300px;
@@ -906,8 +764,7 @@ body::-webkit-scrollbar-thumb:hover {
     justify-content: center;
     margin-top: 20px;
     margin-bottom: 20px;
-}
-  
+} 
 .blog-image-doble img {
     width: 25%; /* Ajusta el ancho de las imágenes para dejar espacio entre ellas */
     margin-right: 4%;
@@ -918,15 +775,7 @@ body::-webkit-scrollbar-thumb:hover {
     justify-content: center;
     margin-top: 20px;
     margin-bottom: 20px;
-}
-
-.blog-image-doble-grande {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-  
+} 
 .blog-image-doble-grande img {
     width: 40%; /* Ajusta el ancho de las imágenes para dejar espacio entre ellas */
     margin-right: 4%;
@@ -938,7 +787,6 @@ body::-webkit-scrollbar-thumb:hover {
     margin-top: 20px;
     margin-bottom: 20px;
 }
-  
 .blog-image-grande img {
     max-width: 100%;
     width: 500px;
@@ -950,8 +798,7 @@ body::-webkit-scrollbar-thumb:hover {
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
-}
-  
+} 
 .blog-image-blanco img {
     max-width: 100%;
     width: 200px;
@@ -965,13 +812,102 @@ body::-webkit-scrollbar-thumb:hover {
     margin-top: 20px;
     margin-bottom: 20px;
 }
-  
 .blog-image-zoom img {
     max-width: 100%;
     width: 700px;
     height: auto;
 }
 
+/* Matriz determinante 3x3*/
+.matrix {
+    display: grid;
+    grid-template-columns: repeat(3, 50px); /* Cambia el número para ajustar el número de columnas */
+    gap: 5px; /* Espacio entre celdas */
+}
+.number {
+    border: 1px solid white;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    opacity: 0.7;
+}
+.matrix .number:nth-last-child(-n+6) {
+    border: 1px solid mediumspringgreen;   
+}
+
+/* División de matrices*/
+.matrix-division {
+    display: grid;
+    grid-template-columns: auto 30px auto 30px auto;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 10px;
+    opacity: 0.7;
+}
+.matrixDiv {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    border: 1px solid white;
+    padding: 5px;
+    color: white;   
+}
+
+
+/* Multiplicación de matrices*/
+.matrix-mul {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: 20px;
+    margin: 20px 0;
+    opacity: 0.7;
+}
+.matrixMul2x2 {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, auto);
+    gap: 5px;
+    align-items: center;
+    color: white;
+    
+}
+.matrixMul2x1 {
+    display: grid;
+    grid-template-columns: repeat(1, auto);
+    grid-template-rows: repeat(2, auto);
+    gap: 5px;
+    align-items: center;
+    color: white;   
+}
+
+.cell {
+    border: 1px solid white;
+    padding: 5px;
+    
+}
+.division, .sign, .equals {
+    font-size: 20px;
+    margin: 0 5px;
+    color: white;
+}
+
+/* Additional styling for specific cells */
+.matrix-a2x2 .cell:nth-child(1), .matrix-a2x2 .cell:nth-child(4) {
+    color: #f0f0f0;
+}
+.matrix-b2x1 .cell:nth-child(1), .matrix-b2x1 .cell:nth-child(2) {
+    grid-row: span 2;
+}
+.matrix-c2x1 .cell:nth-child(1) {
+    grid-row: span 2;
+}
+
+
+/* Tamaño de pantalla */
 @media (max-width: 1024px){
     .container__header,main{
         padding: 20px;
