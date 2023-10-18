@@ -118,7 +118,7 @@
                     <li>Una subred con prefijo /64 permite 2^64 direcciones.</li>
                     <li>Una subred con prefijo /48 permite 2^16 subredes, cada una con 2^64 direcciones.</li>
                 </ul>
-                <p>Cuando divides un espacio de direcciones de 48 bits en subredes internas de 64 bits cada una, obtienes 2^(16) subredes internas. Esto se debe a que tienes 48 bits totales, y al restarle 16 bits para las subredes internas, te quedan 32 bits para las direcciones dentro de cada subred interna.</p>
+                <p>Cuando divides un espacio de direcciones de 48 bits en subredes internas de 64 bits cada una, obtienes 2^(16) subredes internas. Esto se debe a que tienes 48 bits totales, y al restarle 16 bits para las subredes internas, te quedan 64 bits para las direcciones dentro de cada subred interna.</p>
                 <p>Cada una de estas 2^(16) subredes internas tiene 2^(64) direcciones disponibles. Esto se debe a que, dentro de cada subred interna de 64 bits, tienes esos 64 bits para las direcciones, lo que da como resultado 2^(64) direcciones únicas en cada subred interna.</p>
                 <div class="blog-image-grande">
                     <img src="media/ipv66.png" alt="">
