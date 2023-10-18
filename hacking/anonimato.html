@@ -60,6 +60,47 @@
                 <h6>Cambiador de Dirección MAC (macchanger)</h6>
                 
                 <p>Macchanger es una herramienta de línea de comandos disponible en sistemas basados en Linux que permite a los usuarios cambiar la dirección MAC de sus interfaces de red, lo que puede dificultar que los sitios web y las redes rastreen tu dispositivo a través de esta identificación única. La dirección MAC (Media Access Control) es un identificador único que se utiliza para identificar dispositivos en una red. Cambiar la dirección MAC de tu dispositivo puede proporcionar un mayor nivel de anonimato y seguridad al navegar por la red. Linux y algunas otras plataformas ofrecen comandos incorporados para cambiar la dirección MAC.</p>
+                <p>El siguiente comando se utiliza para mostrar la lista de direcciones MAC (Media Access Control) que se pueden utilizar como valores de dirección MAC aleatorios o específicos. Este comando muestra las direcciones MAC que están disponibles para usar en el sistema y que son compatibles con el formato esperado para las direcciones MAC.</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9723;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">macchanger</marcador> <marcador class="param">-l</marcador></span>    
+                        <span id="terminal__prompt--cursor"></span>
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">
+Misc MACs:
+Num    MAC        Vendor
+
+0000 - 00:00:00 - XEROX CORPORATION
+0001 - 00:00:01 - XEROX CORPORATION
+0002 - 00:00:02 - XEROX CORPORATION
+0003 - 00:00:03 - XEROX CORPORATION
+0004 - 00:00:04 - XEROX CORPORATION
+0005 - 00:00:05 - XEROX CORPORATION
+0006 - 00:00:06 - XEROX CORPORATION
+0007 - 00:00:07 - XEROX CORPORATION
+0008 - 00:00:08 - XEROX CORPORATION
+0009 - 00:00:09 - XEROX CORPORATION
+0010 - 00:00:0a - OMRON TATEISI ELECTRONICS CO.
+0011 - 00:00:0b - MATRIX CORPORATION
+0012 - 00:00:0c - CISCO SYSTEMS, INC.
+0013 - 00:00:0d - FIBRONICS LTD. 
+. . . [ snip ] . . .                             
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>El comando <marcardor class="subrayado">macchanger -l | grep -i Sony</marcardor> devuelve todas las direcciones MAC que contienen el término "Sony" en la descripción, lo que permite identificar y filtrar rápidamente las direcciones MAC relacionadas con dispositivos de Sony en el sistema.</p>
+                <br>
                 <p>Reemplaza "nombre_de_interfaz" por el nombre de la interfaz de red que deseas usar, como "eth0" o "wlan0".</p>
                 <p>Para ver la dirección MAC actual de una interfaz de red, puedes usar el siguiente comando (Para ver el nombre de las interfaces de red, puedes utilizar el comando <marcador class="subrayado">ifconfig</marcador>) :</p>
                 <!-- <div id="container"> -->
@@ -80,8 +121,6 @@
                     <span id="terminal__prompt--location">~</span>
                     <span id="terminal__prompt--bling">$&nbsp;</span>-->
                     <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">macchanger</marcador> <marcador class="param">-s</marcador> nombre_de_interfaz</span>
-                    <span id="terminal__prompt--cursor"></span>
-
                     </div>
                     <div class="command-response-container">
                         <span id="terminal__prompt--response" class="multiline-text">
@@ -116,45 +155,6 @@ Permanent MAC: aa:bb:cc:dd:ee:ff (unknown)
 Current MAC:   aa:bb:cc:dd:ee:ff (unknown)
 Permanent MAC: aa:bb:cc:dd:ee:ff (unknown)
 New MAC:       e6:06:77:f0:cf:5a (unknown)
-                            </span>
-                        </div>
-                    </section>
-                </div>
-                <br>
-                <p>El siguiente comando se utiliza para mostrar la lista de direcciones MAC (Media Access Control) que se pueden utilizar como valores de dirección MAC aleatorios o específicos. Este comando muestra las direcciones MAC que están disponibles para usar en el sistema y que son compatibles con el formato esperado para las direcciones MAC.</p>
-                <div id="terminal">
-                    <section id="terminal__bar">
-                        <div id="bar__buttons">
-                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
-                        <button class="bar__button">&#9723;</button>
-                        <button class="bar__button">&#9472;</button>
-                        </div>
-                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
-                    </section>
-                    <section id="terminal__body">
-                        <div id="terminal__prompt">
-                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">macchanger</marcador> <marcador class="param">-l</marcador></span>    
-                        </div>
-                        <div class="command-response-container">
-                            <span id="terminal__prompt--response" class="multiline-text">
-Misc MACs:
-Num    MAC        Vendor
-
-0000 - 00:00:00 - XEROX CORPORATION
-0001 - 00:00:01 - XEROX CORPORATION
-0002 - 00:00:02 - XEROX CORPORATION
-0003 - 00:00:03 - XEROX CORPORATION
-0004 - 00:00:04 - XEROX CORPORATION
-0005 - 00:00:05 - XEROX CORPORATION
-0006 - 00:00:06 - XEROX CORPORATION
-0007 - 00:00:07 - XEROX CORPORATION
-0008 - 00:00:08 - XEROX CORPORATION
-0009 - 00:00:09 - XEROX CORPORATION
-0010 - 00:00:0a - OMRON TATEISI ELECTRONICS CO.
-0011 - 00:00:0b - MATRIX CORPORATION
-0012 - 00:00:0c - CISCO SYSTEMS, INC.
-0013 - 00:00:0d - FIBRONICS LTD. 
-. . . [ snip ] . . .                             
                             </span>
                         </div>
                     </section>

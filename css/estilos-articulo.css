@@ -652,7 +652,7 @@ main{
     display: inline; /* Permanece en la misma línea que el texto */
     height: 17px;  
     width: 1px;  
-    margin-left: -103px;  
+    margin-left: 0px;  
     animation: blink 1200ms linear infinite;
 }  
 .command-response-container {
