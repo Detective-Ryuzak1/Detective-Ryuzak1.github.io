@@ -769,6 +769,18 @@ body::-webkit-scrollbar-thumb:hover {
     height: auto;
 }
 
+.blog-image-mediana {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.blog-image-mediana img {
+    max-width: 100%;
+    width: 400px;
+    height: auto;
+}
+
 .blog-image-grande {
     width: 100%;
     text-align: center;
