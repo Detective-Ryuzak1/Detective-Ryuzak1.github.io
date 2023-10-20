@@ -236,13 +236,44 @@ socks5          127.0.0.1 1080
                 </div>
                 <p>Por ejemplo:</p>
                 <p><marcador class="resaltado5">socks5 127.0.0.1 9050</marcador> o <marcador class="resaltado5">http 192.168.1.1 8080</marcador></p>
+                <p>En el sitio web "hidemy.io" ofrecen servicios de proxy que permiten a los usuarios navegar de forma anónima y acceder a contenido restringido en Internet. Proporciona una lista de proxies disponibles que los usuarios pueden utilizar para enmascarar su dirección IP y proteger su privacidad en línea. Además de ofrecer servicios de proxy, el sitio web también proporciona información detallada sobre el tipo de proxy, su velocidad y su país de origen, lo que permite a los usuarios seleccionar un proxy adecuado según sus necesidades específicas de navegación.</p>
+                <p>Para acceder a la lista de proxies, haz clic <a href="https://hidemy.io/es/proxy-list/">aquí</a>. Asegúrate de seguir la estructura de <strong>[Protocolo]</strong>, <em>[IP]</em> y <em>[Puerto]</em>.</p></p>
                 <p>Guarda y cierra el archivo de configuración.</p>
                 <p>Después de configurar los proxies, puedes usar ProxyChains para ejecutar una aplicación a través de un proxy. Por ejemplo, si quieres ejecutar el navegador Firefox a través del proxy, puedes usar el siguiente comando: <marcador class="subrayado">proxychains firefox</marcador>.</p>
                 <p>Esto iniciará el navegador Firefox y todo el tráfico de red de Firefox pasará a través del proxy configurado en ProxyChains.</p>
+                <p>Cuando intentas utilizar proxychains con Firefox, a veces te puedes encontrar con problemas relacionados con los certificados, especialmente si el proxy que estás utilizando no es de confianza o si Firefox no reconoce el certificado del proxy como válido. Esto puede provocar errores de certificados al intentar establecer una conexión segura.</p>
+                <p>Para solucionar este problema, hay algunos pasos que puedes seguir. En primer lugar, verifica la confiabilidad del proxy que estás utilizando y asegúrate de que esté configurado correctamente en Firefox. Esto puede ayudar a descartar problemas relacionados con la autenticidad y confianza del proxy en sí mismo.</p>
+                <p>Además, es importante considerar la posibilidad de actualizar los certificados de confianza en Firefox para asegurarte de que esté al tanto de los certificados actuales y pueda reconocer el certificado del proxy como válido. Esto puede ser especialmente útil si el certificado del proxy ha sido recientemente actualizado o renovado.</p>
+                <p>Si confías en el proxy y estás seguro de que es seguro, otra opción es agregar una excepción de certificado en Firefox para permitir la conexión segura a través del proxy. Esto implica configurar Firefox para confiar específicamente en el certificado del proxy, lo que puede ayudar a evitar errores de certificados al intentar establecer una conexión.</p>
                 <p>Recuerda que el uso de proxies y herramientas como ProxyChains debe realizarse de acuerdo con las leyes locales y las políticas de red. Además, el uso de proxies no garantiza un anonimato completo y puede haber vulnerabilidades en el tráfico de red que podrían exponer tu identidad. Utiliza estas herramientas con precaución y responsabilidad.</p>
                 <div class="blog-image-grande">
                     <img src="media/anonimato2.jpg" alt="">
                 </div> 
+                <h6>Tor Browser</h6>
+                <p>El navegador Tor es un software de navegación web que se basa en la red Tor, un sistema diseñado para proporcionar anonimato y privacidad en línea. Al usar la red Tor, los usuarios pueden ocultar su ubicación y actividad en línea de posibles observadores, como proveedores de servicios de internet y sitios web que recopilan datos.</p>
+                <p>Una de las características principales del navegador Tor es su capacidad para enrutar el tráfico web a través de una serie de nodos aleatorios, lo que dificulta el rastreo de la actividad en línea de un usuario. Esto se logra mediante el uso de un enrutamiento de cebolla, donde los datos se cifran en capas sucesivas, pasando a través de diferentes nodos de la red antes de llegar a su destino final.</p>
+                <p>El objetivo principal del navegador Tor es proteger la privacidad y la identidad en línea de los usuarios, permitiéndoles acceder a contenido de internet de forma anónima y eludir la censura y el seguimiento en línea. Se utiliza comúnmente para acceder a sitios web censurados, comunicarse de forma segura y confidencial, y realizar actividades en línea de manera privada y segura.</p>
+                <p>Aunque el navegador Tor proporciona un alto nivel de privacidad y anonimato en línea, también es importante tener en cuenta sus limitaciones. La velocidad de navegación puede ser más lenta en comparación con otros navegadores convencionales debido al enrutamiento a través de múltiples nodos, y no garantiza el anonimato completo si se utilizan aplicaciones o plugins que puedan revelar la identidad del usuario. Además, aunque el uso del navegador Tor puede proteger la identidad en línea, no proporciona protección contra el malware o las amenazas de seguridad en línea.</p>
+                <p>En general, el navegador Tor ofrece a los usuarios la posibilidad de navegar por internet de forma anónima y segura, brindando una capa adicional de privacidad y protección en un entorno en línea cada vez más vigilado. Sin embargo, es esencial comprender sus capacidades y limitaciones para utilizarlo de manera efectiva y proteger la privacidad en línea.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Instala Tor Browser y la herramientas necesarias para su ejecución.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="sudo apt install torbrowser-launcher tor" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Lanza el Browser desde consola.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="torbrowser-launcher" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Para mayor anonimato en la web, es probable que se deba cambiar al idioma inglés una vez te lo indique después de su lanzamiento.</p>
                 <h6>OpenVPN</h6>
                 <p>OpenVPN es una solución de código abierto para establecer conexiones VPN seguras y cifradas. Utilizar una VPN es una forma efectiva de proteger tus datos y ocultar tu dirección IP al enrutar tu tráfico a través de servidores remotos.</p>
                 <p>Para utilizar OpenVPN en Linux, debes seguir estos pasos básicos:</p>
