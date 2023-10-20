@@ -157,6 +157,15 @@ main{
     opacity: 0.7;
     font-family: 'Roboto';
 }
+.text__articulo-cover a{
+    color: rgb(199, 131, 248);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+a:hover {
+    color: rgb(167, 111, 207);
+}
+
 
 /* Marcador*/
 .subrayado {
