@@ -778,6 +778,18 @@ body::-webkit-scrollbar-thumb:hover {
     height: auto;
 }
 
+.blog-image-normal {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.blog-image-normal img {
+    max-width: 100%;
+    width: 45%;
+    height: auto;
+}
+
 .blog-image-mediana {
     width: 100%;
     text-align: center;
@@ -1014,10 +1026,6 @@ body::-webkit-scrollbar-thumb:hover {
         list-style-position: inside;
      }
 
-     .blog-image-zoom img {
-        width: 100%;
-    }
-
     .number {
         width: 30px;
         height: 30px;  
@@ -1025,6 +1033,14 @@ body::-webkit-scrollbar-thumb:hover {
     .matrix {
         gap: 2px;
         grid-template-columns: repeat(3, 30px);
+    }
+
+    .blog-image-zoom img {
+        width: 100%;
+    }
+
+    .blog-image-normal img {
+        width: 100%;
     }
 } 
 

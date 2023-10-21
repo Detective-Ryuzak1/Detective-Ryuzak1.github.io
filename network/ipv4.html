@@ -81,6 +81,26 @@
                     <li><marcador class="resaltado8">Clase D:</marcador> Se reservan para multicast, lo que significa que se utilizan para enviar datos a múltiples receptores al mismo tiempo. No se usan para identificar hosts individuales.</li>
                     <li><marcador class="resaltado8">Clase E:</marcador> Están reservadas para fines experimentales y de investigación. No se utilizan en la mayoría de las redes comerciales o públicas.</li>
                 </ul>
+                <h2>Header</h2>
+                <p>La cabecera de un paquete IPv4 consta de varios campos que se utilizan para controlar y dirigir el tráfico de red.</p>
+                <ul>
+                    <li><marcador class="resaltado4">Versión:</marcador> Indica la versión del protocolo IP utilizado, y generalmente es "4" para IPv4.</li>
+                    <li><marcador class="resaltado4">Longitud de cabecera:</marcador> Indica el tamaño de la cabecera en palabras de 32 bits. Este campo es importante ya que la cabecera puede variar en tamaño debido a la presencia de opciones adicionales.</li>
+                    <li><marcador class="resaltado4">Tipo de servicio:</marcador> Define el tipo de servicio que se debe dar a este paquete en términos de prioridad y calidad de servicio.</li>
+                    <li><marcador class="resaltado4">Longitud total:</marcador> Especifica la longitud total del paquete IPv4, incluyendo la cabecera y los datos.</li>
+                    <li><marcador class="resaltado4">Identificación:</marcador> Identifica de manera única cada paquete que se envía desde un host a otro. Se utiliza para ayudar en la reensamblaje de paquetes.</li>
+                    <li><marcador class="resaltado4">Banderas:</marcador> Estos son indicadores de control utilizados durante el proceso de fragmentación de paquetes.</li>
+                    <li><marcador class="resaltado4">Desplazamiento de fragmento:</marcador> Indica la posición del fragmento en el datagrama original, útil para el proceso de reensamblaje en el destino.</li>
+                    <li><marcador class="resaltado4">Tiempo de vida:</marcador> Especifica el tiempo máximo que el paquete puede permanecer en la red antes de ser descartado. Se utiliza para evitar que los paquetes queden atrapados en bucles infinitos.</li>
+                    <li><marcador class="resaltado4">Protocolo:</marcador> Identifica el protocolo de nivel superior que está utilizando el paquete encapsulado. Puede ser TCP, UDP, ICMP, entre otros.</li>
+                    <li><marcador class="resaltado4">Suma de comprobación:</marcador>Suma de comprobación: Se utiliza para verificar si la cabecera del paquete IP contiene errores.</li>
+                    <li><marcador class="resaltado4">Dirección de origen:</marcador> Es la dirección IP del remitente.</li>
+                    <li><marcador class="resaltado4">Dirección de destino:</marcador> Es la dirección IP del receptor.</li>
+                    <li><marcador class="resaltado4">Opciones:</marcador> Este campo es opcional y se utiliza para agregar funcionalidades adicionales a la cabecera, como la marca de tiempo, registro de ruta, seguridad, etc.</li>
+                </ul>
+                <div class="blog-image-normal">
+                    <img src="media/ipv4-6.png" alt="">
+                </div>
                 <h2>Dirección de Red, Gateway y Broadcast</h2>
                 <p><marcador class="resaltado5">Dirección de Red:</marcador> La dirección de red es la dirección IP que identifica la red en sí misma. Es la primera dirección en un rango de direcciones IP asignado a una red específica. La dirección de red se utiliza para representar toda la red y no se asigna a ningún dispositivo específico dentro de esa red. Por ejemplo, si tienes una red con direcciones IP en el rango de 192.168.1.0 a 192.168.1.255, la dirección de red es 192.168.1.0.</p>
                 <p>La dirección de red es fundamental en el enrutamiento de datos, ya que indica a los dispositivos y routers cómo llegar a una red específica. Cuando se envían datos desde una red a otra, los dispositivos y routers utilizan la dirección de red como destino para enrutar adecuadamente los datos hacia la red de destino.</p>
