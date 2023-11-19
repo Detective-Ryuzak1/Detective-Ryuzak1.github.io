@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <link rel="icon" href="../media/imagen9.png" type="image/png">
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Bonus">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <h1>Comandos Básicos en Dispositivos de Red</h1>
+                <p>Los equipos de red Huawei y Cisco son ampliamente utilizados en entornos de red para proporcionar conectividad confiable y segura. Aquí se presentan algunos comandos básicos para la administración y configuración de estos equipos.</p>
+                
+                <h6>Cisco</h6>
+
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Acceder al Modo Privilegiado.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="enable" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Acceder al Modo de Configuración.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="configure terminal" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Establecer el Nombre del Dispositivo.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="hostname Router-1" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Configurar un Mensaje de Bienvenida.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="banner motd &quot;SOLO PERSONAL AUTORIZADO&quot;" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Salir del Modo de Configuración.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="end" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Salir del Modo de Configuración o punto actual.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="exit" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Guardar la Configuración.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="write memory" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Guardar la Configuración.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="copy running-config startup-config" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Ver Contenido de la Memoria Flash.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="dir flash:/" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Configurar la Hora y Fecha.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="clock set 10:44:00 October 2 2019" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Mostrar Hora y Fecha Actual.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="show clock" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Visualizar Configuración Actual.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="show running-config" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Mostrar Información del Sistema.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="show version" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Mostrar Información de las Interfaces.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="show interfaces" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Mostrar una Interfaz Específica.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="show interfaces f0/1" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Entrar en una Interfaz.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="interface FastEthernet 0/1" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Pedir Ayuda con Parámetros.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="?" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Configurar una Contraseña para Acceder al Modo Privilegiado.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="enable secret 12345" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Configurar una Contraseña en la Línea de Consola.
+                    </div>
+                    <div class="comandos scrollbar">      
+                      <textarea class="text" oninput="ajustarAncho(this)">line console 0
+password 12345
+login
+exec-timeout 20
+logging synchronous
+service password-encryption</textarea>
+                      <button><i class="fa fa-clone"></i><span></span></button>
+                    </div>
+                </div>
+                <ul>
+                    <li>password: Establece la contraseña para acceder a la línea de consola.</li>
+                    <li>login: Habilita el requerimiento de inicio de sesión.</li>
+                    <li>exec-timeout: Configura el tiempo de espera para la desconexión por inactividad.</li>
+                    <li>logging synchronous: Mantiene la salida de mensajes sincronizada con las entradas del usuario.</li>
+                    <li>service password-encryption: Encripta las contraseñas en la configuración.</li>
+                </ul>
+
+                <div class="blog-image-grande">
+                    <img src="media/comandos1.jpg" alt="">
+                </div>
+
+                <h6>Huawei</h6>
+
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Acceder al Modo Privilegiado.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="system-view" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Acceder al Modo de Configuración.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="interface <nombre de interfaz>" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Establecer el Nombre del Dispositivo.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="sysname Router-1" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Configurar un Mensaje de Bienvenida.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="banner motd &quot;SOLO PERSONAL AUTORIZADO&quot;" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Salir del Modo de Configuración.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="quit" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Guardar la Configuración.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="save" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Ver Contenido de la Memoria Flash.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="dir flash:/" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Configurar la Hora y Fecha.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="clock datetime 10:44:00 2019-10-02" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Mostrar Hora y Fecha Actual.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="display clock" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Visualizar Configuración Actual.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="display current-configuration" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Mostrar Información del Sistema.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="display version" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Mostrar Información de las Interfaces.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="display interface" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Mostrar una Interfaz Específica.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="display interface GigabitEthernet 0/1" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Entrar en una Interfaz.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="interface GigabitEthernet 0/1" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Pedir Ayuda con Parámetros.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="?" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Configurar una Contraseña para Acceder al Modo Privilegiado.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="enable secret 12345" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Configurar una Contraseña en la Línea de Consola.
+                    </div>
+                    <div class="comandos scrollbar">      
+                      <textarea class="text" oninput="ajustarAncho(this)">user-interface console 0
+authentication-mode password
+set authentication password cipher 12345
+screen-length 0
+return</textarea>
+                      <button><i class="fa fa-clone"></i><span></span></button>
+                    </div>
+                </div>
+                <ul>
+                    <li>authentication-mode password: Establece el modo de autenticación mediante contraseña.</li>
+                    <li>set authentication password cipher: Configura la contraseña cifrada.</li>
+                    <li>screen-length 0: Desactiva la paginación de pantalla para mostrar la salida completa.</li>
+                </ul>
+
+                <div class="blog-image-grande">
+                    <img src="media/comandos2.jpeg" alt="">
+                </div>
+                
+            </div>
+        </div>       
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>

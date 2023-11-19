@@ -13,40 +13,38 @@ window.onscroll = function () {
 }
 
 
-// Función para ajustar el ancho del input en función de su contenido
-function ajustarAncho(input) {
-  input.style.width = 'auto';
-  const nuevoAncho = input.scrollWidth + 10; // Agregar un poco de margen
-  input.style.width = nuevoAncho + 'px';
+function ajustarAnchoYAltura(element) {
+  element.style.width = 'auto'; // Restablece el ancho a automático
+  element.style.height = 'auto'; // Restablece la altura a automático
+
+  // Establece el ancho y la altura al ancho y altura del contenido
+  element.style.width = element.scrollWidth + 'px';
+  element.style.height = element.scrollHeight + 'px';
 }
-// Función para ajustar el ancho del textarea en función de su contenido
-function ajustarAncho(textarea) {
-  textarea.style.width = 'auto';
-  textarea.style.width = textarea.scrollWidth + 'px';
-}
-// Llamar a la función para que los inputs se ajusten al cargarse la página
-const inputs = document.querySelectorAll('.comandos input');
-inputs.forEach((input) => {
-  ajustarAncho(input);
-});
-function ajustarAncho(textarea) {
-  textarea.style.width = 'auto'; // Restablece el ancho a automático
-  textarea.style.width = textarea.scrollWidth + 'px'; // Establece el ancho al ancho del contenido
-}
-function ajustarAnchoTextarea() {
+
+// Llamar a la función después de cargar la página
+window.addEventListener('load', () => {
+  const inputs = document.querySelectorAll('.comandos input');
+  inputs.forEach((input) => {
+    ajustarAnchoYAltura(input);
+  });
+
   const textareas = document.querySelectorAll('.comandos textarea');
   textareas.forEach((textarea) => {
-    textarea.style.width = 'auto';
-    textarea.style.width = textarea.scrollWidth + 'px';
+    ajustarAnchoYAltura(textarea);
   });
-}
-// Llamar a la función después de cargar la página
-window.addEventListener('load', ajustarAnchoTextarea);
+});
+
 // También puedes llamar a esta función cada vez que se introduzca nuevo texto en el textarea
 const textareas = document.querySelectorAll('.comandos textarea');
 textareas.forEach((textarea) => {
-  textarea.addEventListener('input', ajustarAnchoTextarea);
+  textarea.addEventListener('input', () => {
+    ajustarAnchoYAltura(textarea);
+  });
 });
+
+
+
 
 
 function copiarValorConsola(event) {
@@ -98,5 +96,8 @@ botonesCopiar.forEach((boton) => {
     }, 2000);
   });
 });
+
+
+
 
 
