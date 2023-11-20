@@ -377,7 +377,7 @@ a:hover {
     scrollbar-color: #ccc #161515; /* Color de la barra de desplazamiento en Firefox */
     padding-top: 10px;
     padding-left: 10px;
-    padding-bottom: 0px;
+    padding-bottom: 10px;
     resize: none;
 }
 

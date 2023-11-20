@@ -222,12 +222,13 @@
                     </div>
                 </div>
 
+
                 <div class="contenedor">
                     <div class="etiqueta">
                         Configurar una Contraseña en la Línea de Consola.
                     </div>
                     <div class="comandos scrollbar">      
-                      <textarea class="text" oninput="ajustarAncho(this)">line console 0
+                      <textarea class="text" oninput="ajustarAnchoTextarea(this)">line console 0
 password 12345
 login
 exec-timeout 20
@@ -236,6 +237,7 @@ service password-encryption</textarea>
                       <button><i class="fa fa-clone"></i><span></span></button>
                     </div>
                 </div>
+
                 <ul>
                     <li>password: Establece la contraseña para acceder a la línea de consola.</li>
                     <li>login: Habilita el requerimiento de inicio de sesión.</li>
@@ -415,7 +417,7 @@ service password-encryption</textarea>
                         Configurar una Contraseña en la Línea de Consola.
                     </div>
                     <div class="comandos scrollbar">      
-                      <textarea class="text" oninput="ajustarAncho(this)">user-interface console 0
+                      <textarea class="text" oninput="ajustarAnchoTextarea(this)">user-interface console 0
 authentication-mode password
 set authentication password cipher 12345
 screen-length 0
@@ -423,6 +425,7 @@ return</textarea>
                       <button><i class="fa fa-clone"></i><span></span></button>
                     </div>
                 </div>
+
                 <ul>
                     <li>authentication-mode password: Establece el modo de autenticación mediante contraseña.</li>
                     <li>set authentication password cipher: Configura la contraseña cifrada.</li>

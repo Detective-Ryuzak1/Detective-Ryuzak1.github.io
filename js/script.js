@@ -13,38 +13,40 @@ window.onscroll = function () {
 }
 
 
-function ajustarAnchoYAltura(element) {
-  element.style.width = 'auto'; // Restablece el ancho a automático
-  element.style.height = 'auto'; // Restablece la altura a automático
 
-  // Establece el ancho y la altura al ancho y altura del contenido
-  element.style.width = element.scrollWidth + 'px';
-  element.style.height = element.scrollHeight + 'px';
+// Función para ajustar el ancho del input en función de su contenido
+function ajustarAncho(input) {
+  input.style.width = 'auto';
+  const nuevoAncho = input.scrollWidth + 10; // Agregar un poco de margen
+  input.style.width = nuevoAncho + 'px';
 }
 
-// Llamar a la función después de cargar la página
-window.addEventListener('load', () => {
-  const inputs = document.querySelectorAll('.comandos input');
-  inputs.forEach((input) => {
-    ajustarAnchoYAltura(input);
-  });
+// Función para ajustar el ancho y la altura del textarea en función de su contenido
+function ajustarAnchoTextarea(textarea) {
+  textarea.style.width = 'auto';
+  textarea.style.width = textarea.scrollWidth + 'px';
+  textarea.style.height = 'auto';
+  textarea.style.height = textarea.scrollHeight + 'px';
+}
 
-  const textareas = document.querySelectorAll('.comandos textarea');
-  textareas.forEach((textarea) => {
-    ajustarAnchoYAltura(textarea);
-  });
+// Llamar a la función para que los inputs y textareas se ajusten al cargarse la página
+const elementos = document.querySelectorAll('.comandos input, .comandos textarea');
+elementos.forEach((elemento) => {
+  if (elemento.tagName === 'INPUT') {
+    ajustarAncho(elemento);
+  } else if (elemento.tagName === 'TEXTAREA') {
+    ajustarAnchoTextarea(elemento);
+  }
 });
 
 // También puedes llamar a esta función cada vez que se introduzca nuevo texto en el textarea
-const textareas = document.querySelectorAll('.comandos textarea');
-textareas.forEach((textarea) => {
-  textarea.addEventListener('input', () => {
-    ajustarAnchoYAltura(textarea);
+elementos.forEach((elemento) => {
+  elemento.addEventListener('input', () => {
+    if (elemento.tagName === 'TEXTAREA') {
+      ajustarAnchoTextarea(elemento);
+    }
   });
 });
-
-
-
 
 
 function copiarValorConsola(event) {
