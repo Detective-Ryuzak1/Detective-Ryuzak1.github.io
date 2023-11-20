@@ -370,7 +370,7 @@ a:hover {
     max-width: 1000px;
     overflow-y: hidden;
     overflow-x: auto;
-    white-space: nowrap;
+    white-space: pre-wrap;
     width: auto;
     background-color: #161515;
     scrollbar-width: thin; /* Ancho de la barra de desplazamiento en Firefox */
