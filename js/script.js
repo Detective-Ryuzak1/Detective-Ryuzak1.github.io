@@ -20,15 +20,24 @@ function ajustarAncho(input) {
   const nuevoAncho = input.scrollWidth + 10; // Agregar un poco de margen
   input.style.width = nuevoAncho + 'px';
 }
-
 // Función para ajustar el ancho y la altura del textarea en función de su contenido
 function ajustarAnchoTextarea(textarea) {
   textarea.style.width = 'auto';
   textarea.style.width = textarea.scrollWidth + 'px';
-  textarea.style.height = 'auto';
-  textarea.style.height = textarea.scrollHeight + 'px';
-}
+  // Obtener el número de líneas en el textarea
+  const lineas = textarea.value.split('\n').length;
 
+  // Establecer la altura en función del número de líneas
+  const alturaLinea = 25; // Ajusta este valor según sea necesario
+  const nuevaAltura = alturaLinea * lineas;
+  textarea.style.height = nuevaAltura + 'px';
+  const isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+  if (isFirefox) {
+    textarea.style.whiteSpace = 'pre-wrap';
+  } else {
+    textarea.style.whiteSpace = 'nowrap';
+  }
+}
 // Llamar a la función para que los inputs y textareas se ajusten al cargarse la página
 const elementos = document.querySelectorAll('.comandos input, .comandos textarea');
 elementos.forEach((elemento) => {
@@ -38,7 +47,6 @@ elementos.forEach((elemento) => {
     ajustarAnchoTextarea(elemento);
   }
 });
-
 // También puedes llamar a esta función cada vez que se introduzca nuevo texto en el textarea
 elementos.forEach((elemento) => {
   elemento.addEventListener('input', () => {
