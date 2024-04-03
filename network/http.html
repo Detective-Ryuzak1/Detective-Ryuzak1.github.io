@@ -53,6 +53,19 @@
                 <li><marcador class="resaltado4">404 Not Found:</marcador> El recurso solicitado no se encuentra en el servidor.</li>
                 <li><marcador class="resaltado4">500 Internal Server Error:</marcador> Se produjo un error interno en el servidor al procesar la solicitud.</li>
                 </ul>
+                <h2>Three Way Handshake</h2>
+                <p>El "three-way handshake" es un proceso utilizado en la comunicación de red para establecer una conexión TCP (Transmission Control Protocol). Este proceso se lleva a cabo entre un cliente y un servidor para asegurar que ambos extremos están listos para iniciar la transferencia de datos de manera confiable. Aquí está cómo funciona:</p>
+                <ol>
+                    <li><marcador class="resaltado9">Solicitud de conexión (SYN): </marcador>El cliente envía un paquete SYN al servidor, indicando su intención de establecer una conexión. Este paquete contiene un número de secuencia inicial (ISN), que es un número aleatorio generado por el cliente para identificar los datos en la secuencia de comunicación.</li>
+                    <li><marcador class="resaltado9">Confirmación de conexión (SYN-ACK): </marcador>El servidor recibe el paquete SYN, y si está dispuesto a establecer la conexión, responde con un paquete SYN-ACK. Este paquete contiene su propio número de secuencia inicial, así como el número de secuencia del cliente más uno (ACK), indicando que ha recibido correctamente el paquete SYN.</li>
+                    <li><marcador class="resaltado9">Confirmación de conexión del cliente (ACK): </marcador>Finalmente, el cliente recibe el paquete SYN-ACK del servidor y responde con un paquete ACK. Este paquete también contiene el número de secuencia del servidor más uno (ACK), indicando que ha recibido correctamente el paquete SYN-ACK.</li>
+                </ol>
+                <br>
+                <p>Después de completar este proceso de tres pasos, la conexión TCP se considera establecida y ambas partes pueden comenzar a intercambiar datos de manera confiable. Si en algún momento del proceso uno de los paquetes se pierde o no se recibe correctamente, el protocolo TCP retransmitirá los paquetes necesarios para asegurar una conexión estable.</p>
+                <p>El three-way handshake es un componente fundamental del protocolo TCP y es utilizado por una variedad de protocolos y servicios que dependen de él para establecer conexiones fiables, como HTTP (Hypertext Transfer Protocol), FTP (File Transfer Protocol), SSH (Secure Shell), entre otros.</p>
+                <div class="blog-image">
+                    <img src="media/http3.jpg" alt="">
+                </div>
                 <h2>HTTP y seguridad</h2>
                 <p>Aunque HTTP es un protocolo ampliamente utilizado, presenta algunas vulnerabilidades de seguridad. Debido a que los datos se transfieren en texto claro, los hackers pueden interceptar y leer la información enviada entre el cliente y el servidor. Para abordar este problema, se ha desarrollado HTTPS (HTTP Seguro), que utiliza una capa de seguridad SSL/TLS para cifrar los datos y garantizar una comunicación segura y privada.</p>
                 <div class="blog-image">

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <link rel="icon" href="../media/imagen9.png" type="image/png">
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Bonus">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <h1>Seguridad de Puertos</h1>
+                <p>En el mundo de la tecnología de redes, la seguridad es una preocupación primordial. Con la creciente cantidad de amenazas cibernéticas, es fundamental implementar medidas sólidas de seguridad en todos los niveles de la infraestructura de red. Una de las áreas clave en la que las organizaciones pueden mejorar su postura de seguridad es mediante el uso de funcionalidades de seguridad de puerto. En este artículo, exploraremos las soluciones de seguridad de puerto ofrecidas por dos de los principales proveedores de equipos de red: Cisco y Huawei.</p>
+                <h2>¿Qué es la seguridad de puerto?</h2>
+                <p>Antes de sumergirnos en las soluciones específicas de Cisco y Huawei, es importante comprender qué es la seguridad de puerto y por qué es importante. La seguridad de puerto se refiere a las técnicas utilizadas para proteger los puertos de los dispositivos de red contra accesos no autorizados o actividades maliciosas. Esto puede incluir la autenticación de dispositivos conectados, la limitación del tráfico a través de un puerto y la detección de dispositivos no autorizados.</p>
+                <div class="blog-image-grande">
+                    <img src="media/portsecurity2.png" alt="">
+                </div>
+                <h2>Soluciones de seguridad de puerto de Cisco</h2>
+                <p>Cisco es uno de los líderes en el mercado de equipos de red y ofrece una variedad de soluciones de seguridad de puerto a través de su suite de productos IOS (Internetwork Operating System) y IOS-XE. Algunas de las características clave de seguridad de puerto ofrecidas por Cisco incluyen:</p>
+                <ul>
+                    <li><marcador class="resaltado5">Port Security: </marcador>Esta característica permite a los administradores de red limitar el número de dispositivos que pueden conectarse a un puerto específico. Se pueden configurar políticas para permitir solo dispositivos autorizados por dirección MAC o por tipo de dispositivo.</li>
+                    <li><marcador class="resaltado5">IEEE 802.1X Authentication: </marcador>Cisco ofrece soporte para IEEE 802.1X, un estándar de autenticación de puerto basado en el Protocolo de Autenticación EAP (Extensible Authentication Protocol). Con 802.1X, los dispositivos deben autenticarse antes de que se les permita acceder a la red.</li>
+                    <li><marcador class="resaltado5">Dynamic ARP Inspection (DAI): </marcador>DAI es una característica de seguridad que ayuda a prevenir los ataques de envenenamiento de ARP al validar los paquetes ARP entrantes y descartar aquellos que no cumplen con ciertos criterios de seguridad.</li>
+                </ul>
+                <h2>Configuración en equipos Cisco</h2>
+                <p>Configurar la seguridad de puerto en dispositivos Cisco es una tarea relativamente sencilla y se puede lograr utilizando la interfaz de línea de comandos (CLI) de los dispositivos Cisco IOS. A continuación, te proporcionaré una guía básica para configurar la seguridad de puerto en un switch Cisco.</p>
+                <ol>
+                    <li><marcador class="resaltado9">Acceder al modo de configuración del switch: </marcador>Primero, accede al switch Cisco utilizando un programa de emulación de terminal como PuTTY o a través de una conexión de consola directa.</li>
+                    <li><marcador class="resaltado9">Configurar la seguridad de puerto en un puerto específico: </marcador>En este ejemplo, vamos a configurar la seguridad de puerto en el puerto Ethernet 0/1. Puedes sustituirlo por el puerto que desees.</li>
+                    <li><marcador class="resaltado9">Configurar las opciones de seguridad de puerto: </marcador>Puedes establecer políticas específicas de seguridad de puerto, como el número máximo de direcciones MAC permitidas en el puerto y la acción a tomar si se supera este límite.</li>
+                    <li><marcador class="resaltado9">Otras opciones de configuración (opcional): </marcador>Puedes configurar otras opciones según tus necesidades, como el modo de aprendizaje de direcciones MAC, el tiempo de envejecimiento de direcciones MAC, etc.</li>
+                    <li><marcador class="resaltado9">Verificar la configuración: </marcador>Una vez completada la configuración, es recomendable verificarla para asegurarse de que se haya aplicado correctamente.</li>
+                    <li><marcador class="resaltado9">Guardar la configuración: </marcador>Por último, asegúrate de guardar la configuración para que sea persistente después de reiniciar el switch.</li>
+                </ol>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+                        <pre><code>Switch> enable
+Switch# configure terminal
+Switch(config)#
+Switch(config)# interface FastEthernet0/1
+Switch(config-if)# switchport mode access   //Configura un puerto de switch como un puerto de acceso
+Switch(config-if)# switchport port-security maximum 2   // Establece un máximo de 2 direcciones MAC permitidas
+Switch(config-if)# switchport port-security violation restrict   // Restringe el tráfico si se supera el límite
+Switch(config-if)# switchport port-security mac-address sticky   // Configura el aprendizaje automático de direcciones MAC
+Switch(config-if)# switchport port-security aging time 86400   // Establece el tiempo de envejecimiento de direcciones MAC en segundos (por ejemplo, un día)
+Switch(config-if)# switchport port-security
+Switch(config-if)# exit
+Switch(config)# exit
+Switch# show port-security interface FastEthernet0/1   // Muestra la configuración de seguridad de puerto para el puerto especificado
+Switch# show port-security address   // Muestra las direcciones MAC seguras aprendidas por el switch
+Switch# copy running-config startup-config</code></pre>
+                    </div>
+                </div>
+                <p>Cuando se configura un puerto como "modo de acceso", significa que el puerto será parte de una sola VLAN y no realizará etiquetado de tráfico IEEE 802.1Q (trunking). Esto es útil cuando se conectan dispositivos finales, como computadoras o impresoras, que no necesitan enviar tráfico de múltiples VLAN a través del puerto.</p>
+                <p>El comando <marcador class="subrayado">switchport port-security violation</marcador> se utiliza en dispositivos de red como switches Ethernet para configurar la acción que se tomará cuando se detecte una violación de seguridad en un puerto configurado con seguridad de puerto. Esta configuración específica establece que cuando se detecte una violación de seguridad en el puerto, se tomarán medidas para restringir el tráfico.</p>
+                <ul>
+                    <li><marcador class="resaltado8">Shutdown (Desactivar): </marcador>Esta es la opción predeterminada y más estricta. Cuando se detecta una violación de seguridad en el puerto, el switch desactivará el puerto, lo que significa que se cerrará y no se permitirá el tráfico a través de él. Esto puede afectar la conectividad de red para el dispositivo conectado al puerto.</li>
+                    <li><marcador class="resaltado8">Restrict (Restringir): </marcador>Esta opción es menos restrictiva que la opción de desactivar. Cuando se detecta una violación de seguridad en el puerto, el switch tomará medidas para restringir el tráfico en lugar de cerrar completamente el puerto. Esto significa que el switch descartará cualquier tráfico adicional que provenga de las direcciones MAC no autorizadas, pero permitirá que el tráfico existente continúe fluyendo. Esta opción puede ayudar a minimizar el impacto en la conectividad de red mientras se aborda la violación de seguridad.</li>
+                    <li><marcador class="resaltado8">Protect (Proteger): </marcador>Esta opción es aún menos restrictiva. Cuando se detecta una violación de seguridad en el puerto, el switch simplemente descarta cualquier tráfico adicional que provenga de las direcciones MAC no autorizadas, pero no toma ninguna acción adicional. El tráfico existente continúa fluyendo sin interrupción.</li>
+                    <p>Esto significa que el switch no bloquea por completo el tráfico de la dirección MAC no autorizada, sino que simplemente deja de aceptar más tráfico proveniente de esa dirección. El tráfico que ya está fluyendo desde la dirección no autorizada puede continuar hasta que termine o se detenga por otras razones.</p>
+                </ul>
+                <p>Si deseas agregar manualmente una dirección MAC a la lista, puedes hacerlo utilizando el comando <marcador class="subrayado">switchport port-security mac-address sticky &lt;dirección_MAC&gt;</marcador>.</p>
+                <p>El comando <marcador class="subrayado">switchport port-security aging time</marcador>, establece el tiempo de envejecimiento para la seguridad de puertos en un switch Cisco. Este comando establece la cantidad de tiempo que una dirección MAC aprendida permanece en la tabla de direcciones antes de ser eliminada si no se ha vuelto a detectar en el puerto.</p>
+                <h2>Soluciones de seguridad de puerto de Huawei</h2>
+                <p>Huawei, otro gigante en el espacio de la red, también ofrece una variedad de funciones de seguridad de puerto en sus dispositivos. Algunas de las características destacadas son:</p>
+                <ul>
+                    <li><marcador class="resaltado5">Port Security: </marcador>Similar a la solución de Cisco, Huawei proporciona capacidades de seguridad de puerto que permiten a los administradores de red limitar el acceso a los dispositivos autorizados basados en direcciones MAC.</li>
+                    <li><marcador class="resaltado5">MACsec (Media Access Control Security): </marcador>Huawei ofrece soporte para MACsec, un estándar de seguridad de capa 2 que proporciona cifrado de tráfico entre dispositivos conectados a través de enlaces Ethernet.</li>
+                    <li><marcador class="resaltado5">IP Source Guard: </marcador>Esta función ayuda a mitigar los ataques de spoofing de IP al restringir el tráfico entrante en un puerto a direcciones IP específicas autorizadas.</li>
+                </ul>
+                <h2>Configuración en equipos Huawei</h2>
+                <p>Para configurar la seguridad de puerto (Port Security) en equipos Huawei, generalmente se utiliza la interfaz de línea de comandos (CLI) de los dispositivos. A continuación, te proporcionaré los pasos generales para configurar Port Security en un switch Huawei:</p>
+                <ol>
+                    <li><marcador class="resaltado9">Accede al dispositivo: </marcador>Inicia sesión en el switch Huawei a través de la interfaz de línea de comandos (CLI) utilizando un software de terminal como PuTTY o directamente desde la consola de gestión.</li>
+                    <li><marcador class="resaltado9">Accede al modo de configuración de interfaz: </marcador>Accede al modo de configuración de la interfaz del switch que deseas asegurar.</li>
+                    <li><marcador class="resaltado9">Habilita Port Security: </marcador>Habilita la seguridad de puerto en la interfaz utilizando el comando port-security enable. Esto activará la funcionalidad de Port Security en la interfaz especificada.</li>
+                    <li><marcador class="resaltado9">Configura la política de seguridad de puerto: </marcador>Define la política de seguridad de puerto. Puedes configurar cosas como la cantidad máxima de direcciones MAC permitidas en el puerto y si se debe tomar alguna acción cuando se excede este límite.</li>
+                    <li><marcador class="resaltado9">Opcional: Configuración adicional: </marcador>Puedes configurar otras opciones de seguridad de puerto según tus necesidades específicas, como el tiempo de envejecimiento de la dirección MAC, el método de aprendizaje de la dirección MAC, etc.</li>
+                    <li><marcador class="resaltado9">Guarda la configuración: </marcador>Una vez que hayas configurado Port Security según tus requisitos, asegúrate de guardar la configuración para que persista después de un reinicio del dispositivo.</li>
+                </ol>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+                        <pre><code><switch>system-view
+[Switch] interface gigabitethernet 0/0/1
+[Switch-GigabitEthernet0/0/1] port-security enable
+[Switch-GigabitEthernet0/0/1] port-security mac-address sticky  // Configura el aprendizaje automático de direcciones MAC 
+[Switch-GigabitEthernet0/0/1] port-security max-mac-num 3   // Establece un límite de 3 direcciones MAC permitidas
+[Switch-GigabitEthernet0/0/1] port-security action shutdown   // Configura la acción a tomar cuando se excede el límite (puedes elegir diferentes acciones como apagar el puerto, enviar una notificación, etc.)
+[Switch-GigabitEthernet0/0/1] commit
+[Switch-GigabitEthernet0/0/1] quit
+[Switch] display port-security interface GigabitEthernet0/1   // Muestra la configuración de seguridad de puerto para el puerto especificado
+[Switch] display mac-address   // Muestra las direcciones MAC seguras aprendidas por el switch</code></pre>
+                    </div>
+                </div>
+                <div class="blog-image-grande">
+                    <img src="media/portsecurity1.jpg" alt="">
+                </div>
+            </div>
+        </div>       
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
