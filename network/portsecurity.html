@@ -84,6 +84,7 @@ Switch# show port-security address   // Muestra las direcciones MAC seguras apre
 Switch# copy running-config startup-config</code></pre>
                     </div>
                 </div>
+                <h3>Opciones</h3>
                 <p>Cuando se configura un puerto como "modo de acceso", significa que el puerto será parte de una sola VLAN y no realizará etiquetado de tráfico IEEE 802.1Q (trunking). Esto es útil cuando se conectan dispositivos finales, como computadoras o impresoras, que no necesitan enviar tráfico de múltiples VLAN a través del puerto.</p>
                 <p>El comando <marcador class="subrayado">switchport port-security violation</marcador> se utiliza en dispositivos de red como switches Ethernet para configurar la acción que se tomará cuando se detecte una violación de seguridad en un puerto configurado con seguridad de puerto. Esta configuración específica establece que cuando se detecte una violación de seguridad en el puerto, se tomarán medidas para restringir el tráfico.</p>
                 <ul>
