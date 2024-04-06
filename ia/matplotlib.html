@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <link rel="icon" href="../media/imagen9.png" type="image/png">
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Bonus">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <h1>Matplolib</h1>
+                <p>Matplotlib es una biblioteca de visualización de datos en Python que proporciona una amplia gama de herramientas para crear gráficos estáticos, interactivos y tridimensionales de alta calidad. Junto con Seaborn, otra biblioteca de visualización popular.</p>
+                <p>Con Matplotlib es posible realizar un trazado 2D que produce figuras en una variedad de formatos y se integra en muchos entornos diferentes, incluidos Python scripts, Jupyter notebooks, interfaces gráficas de usuario, y más. Es flexible y permite a los usuarios crear una amplia gama de visualizaciones, desde simples gráficos de línea hasta sofisticados gráficos tridimensionales.</p>
+                <p>Fue creado por John D. Hunter en 2003 como una alternativa a las herramientas de trazado existentes en ese momento y desde entonces se ha convertido en una de las bibliotecas más populares para la visualización de datos en Python.</p>
+                <div class="blog-image-grande">
+                    <img src="media/matplotlib1.png" alt="">
+                </div>
+                <h2>Características</h2>
+                <ul>
+                    <li><marcador class="resaltado2">Figuras y Subtramas: </marcador>En Matplotlib, una figura es el contenedor que contiene todos los elementos de la trama. Dentro de una figura, puedes crear una o más subtramas (también conocidas como ejes) donde realmente se dibujan los gráficos.</li>
+                    <li><marcador class="resaltado2">Tipos de Gráficos Soportados: </marcador>Matplotlib ofrece una amplia gama de tipos de gráficos, incluyendo gráficos de línea, gráficos de dispersión, histogramas, gráficos de barras, gráficos de torta, diagramas de caja y más.</li>
+                </ul>
+                <h2>Usos Comunes de Matplotlib</h2>
+                <ul>
+                    <li><marcador class="resaltado8">Exploración de Datos: </marcador>Matplotlib es una herramienta invaluable para la exploración inicial de datos. Puedes crear rápidamente gráficos simples para entender la distribución de tus datos, identificar tendencias y detectar patrones.</li>
+                    <li><marcador class="resaltado8">Presentación de Resultados: </marcador>Una vez que hayas analizado tus datos, Matplotlib te permite crear visualizaciones informativas y atractivas para presentar tus resultados. Ya sea en informes, presentaciones o publicaciones, las visualizaciones generadas con Matplotlib son altamente personalizables y de calidad de publicación.</li>
+                    <li><marcador class="resaltado8">Visualización de Procesos: </marcador>En el ámbito de la ingeniería y la ciencia, Matplotlib es ampliamente utilizado para visualizar el comportamiento de sistemas y procesos. Desde señales temporales hasta gráficos de contorno, Matplotlib proporciona herramientas para representar una amplia variedad de fenómenos.</li>
+                    <li><marcador class="resaltado8">Creación de Dashboards Interactivos: </marcador>Si bien Matplotlib es conocido principalmente por sus gráficos estáticos, también se puede integrar con herramientas como Jupyter Notebooks o bibliotecas de visualización interactiva como Plotly para crear dashboards interactivos y aplicaciones web.</li>
+                </ul>
+                <h2>Instalación</h2>
+                <p>Matplotlib es una librería de Python que puede instalarse fácilmente utilizando pip, el gestor de paquetes de Python.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Abre tu terminal o línea de comandos y ejecuta el siguiente comando:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="pip install matplotlib" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <h2>Ejemplos</h2>
+                <p>Haz click <a href="https://github.com/Detective-Ryuzak1/Machine-Learnig-examples/blob/main/MatplotLib/Matplotlib.ipynb">aquí</a> para ver algunos ejemplos de uso con Matplotlib.</p>
+                <p>También <a href="https://github.com/Detective-Ryuzak1/Machine-Learnig-examples/blob/main/MatplotLib/fifa-world-cup-data-analysis.ipynb">aquí</a> hay un ejemplo de cómo realizar una limpieza de datos y un análisis sobre datos recolectados de las anteriores ediciones de la Copa del Mundo.</p>
+                <div class="blog-image-grande">
+                    <img src="media/matplotlib2.png" alt="">
+                </div>
+            </div>  
+        </div>     
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
