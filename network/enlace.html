@@ -59,11 +59,16 @@
                 <h2>Características técnicas y parámetros ajustables</h2>
                 <ul>
                     <li><marcador class="resaltado5">Modo de operación: </marcador>Los enlaces de agregación pueden funcionar en diferentes modos, como activo-activo y activo-pasivo.</li>
+                    <p>el modo activo-activo aprovecha completamente todos los enlaces disponibles, mientras que el activo-pasivo utiliza solo un enlace activo con respaldo.</p>
                     <li><marcador class="resaltado5">Protocolo de control de enlaces: </marcador>Se pueden utilizar protocolos como LACP (Link Aggregation Control Protocol) o PAgP (Port Aggregation Protocol) para controlar la formación y el mantenimiento de los enlaces de agregación.</li>
                     <li><marcador class="resaltado5">Número de enlaces: </marcador>Se puede especificar cuántos enlaces físicos se van a agregar.</li>
                     <li><marcador class="resaltado5">Balanceo de carga: </marcador>Se pueden ajustar los algoritmos de balanceo de carga para distribuir el tráfico de manera eficiente entre los enlaces disponibles.</li>
                     <li><marcador class="resaltado5">Prioridad de enlace: </marcador>Se puede configurar la prioridad de cada enlace para determinar qué enlaces se utilizan primero en caso de fallo o congestión.</li>
                     <li><marcador class="resaltado5">Velocidad y dúplex: </marcador>Se pueden configurar las velocidades y modos dúplex de los enlaces individuales dentro del grupo de agregación.</li>
+                    <ul>
+                        <li><marcador class="resaltado9">Full duplex: </marcador>Permite la transmisión y recepción de datos al mismo tiempo. Es como una autopista de doble sentido, donde los datos pueden fluir en ambas direcciones simultáneamente. Esto proporciona un rendimiento óptimo y una comunicación bidireccional sin colisiones.</li>
+                        <li><marcador class="resaltado9">Half duplex: </marcador>Permite la transmisión y recepción de datos, pero no simultáneamente. Es como una calle de un solo carril donde los autos deben esperar su turno para ir en una dirección u otra. En este caso, los dispositivos pueden enviar o recibir datos, pero no ambas cosas al mismo tiempo. Esto puede causar latencia y retrasos en la comunicación, especialmente en redes con mucho tráfico.</li>
+                    </ul>
                 </ul>
                 <h2>Configuración de LACP</h2>
                 <p>La configuración de LACP en dispositivos, como routers o switches, implica varios pasos clave. A continuación, te mostraré cómo configurar un servidor LACP en un router Cisco utilizando comandos de ejemplo en el sistema operativo Cisco IOS (Internetwork Operating System). Ten en cuenta que los detalles específicos pueden variar según el modelo y la versión del dispositivo, pero los conceptos generales son similares.</p>
