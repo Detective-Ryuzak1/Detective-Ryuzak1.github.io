@@ -264,6 +264,15 @@
                 </div>
                 <div class="contenedor">
                     <div class="etiqueta">
+                        Para borrar las líneas que contienen la palabra "contraseña" en un archivo ".zsh_history"
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="sed -i '/contraseña/d' .zsh_history" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
                         Eliminar líneas en blanco
                     </div>
                     <div class="comandos">
