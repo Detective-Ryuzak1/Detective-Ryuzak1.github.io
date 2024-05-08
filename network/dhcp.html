@@ -74,7 +74,7 @@
                 </ul>
                 <br>
                 <p>La configuración de DHCP en dispositivos, como routers o switches, implica varios pasos clave. A continuación, te mostraré cómo configurar un servidor DHCP en un router Cisco utilizando comandos de ejemplo en el sistema operativo Cisco IOS (Internetwork Operating System). Ten en cuenta que los detalles específicos pueden variar según el modelo y la versión del dispositivo, pero los conceptos generales son similares.</p>
-                <h6>Cisco</h6>
+                <h3>Cisco</h3>
                 <div class="consola">
                     <div class="barra-superior-consola">
                         <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
@@ -122,15 +122,14 @@ Router(config)# show ip dhcp binding</code></pre>
                     <p>Para verificar la configuración de DHCP, utiliza el comando <marcador class="subrayado">show running-config</marcador> para ver la configuración actual del dispositivo.</p>
                     <p>Por último se mostrará una lista de las direcciones IP asignadas por el servidor DHCP, junto con la dirección MAC y otra información relacionada.</p>
                 </ol>
-                <h6>Huawei</h6>
+                <h3>Huawei</h3>
                 <div class="consola">
                     <div class="barra-superior-consola">
                         <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
                     </div>
                     <div class="codigo-consola">
                         <!-- Contenido del código -->
-                        <pre><code>system-view
-[Router]#
+                        <pre><code>&lt;Router&gt; system-view
 [Router] dhcp enable
 [Router] dhcp server group Mi_Pool_DHCP
 [Router-dhcp-group-Mi_Pool_DHCP] subnet 192.168.1.0 255.255.255.0

@@ -51,15 +51,15 @@
                     <li><marcador class="resaltado8">Mejora de la fiabilidad: </marcador>La agregación de enlaces proporciona redundancia, lo que significa que si una de las conexiones falla, el tráfico de datos puede ser redirigido automáticamente a través de las conexiones restantes.</li>
                     <li><marcador class="resaltado8">Balanceo de carga: </marcador>El balanceo de carga en la agregación de enlaces distribuye el tráfico de red entre los diferentes enlaces físicos disponibles, optimizando así el rendimiento y la eficiencia de la red. Se basa en algoritmos que dividen el tráfico de manera equitativa según ciertos criterios, como direcciones IP, direcciones MAC o puertos, entre otros. Además, se utiliza la prioridad de los enlaces para determinar qué enlace se utiliza primero para enviar datos. Esta prioridad se asigna mediante la configuración de parámetros como la prioridad de puerto LACP, donde valores más bajos indican una mayor prioridad. De esta manera, se asegura una distribución efectiva del tráfico y se evita la congestión en la red.</li>
                     <li><marcador class="resaltado8">Configuración flexible: </marcador>Los enlaces de agregación pueden configurarse para adaptarse a diferentes necesidades y requisitos de red, como el tipo de enlace utilizado y el modo de operación (activo-pasivo o activo-activo).</li>
-                    <ol type="none">
-                        <li><marcador class="resaltado18">Modo Pasivo: </marcador>En este modo, el dispositivo espera a que el otro extremo del enlace envíe un mensaje de negociación. Si el otro extremo está configurado en modo activo y envía una solicitud de agregación, entonces el enlace se establecerá. Si el otro extremo no envía ninguna solicitud de agregación, el enlace no se formará.</li>
-                        <li><marcador class="resaltado18">Modo Activo: </marcador>En este modo, el dispositivo envía activamente solicitudes de agregación al otro extremo del enlace. Si el otro extremo también está configurado en modo activo y responde positivamente, entonces el enlace se establece. Si el otro extremo está configurado en modo pasivo, el enlace se formará si responde a la solicitud de agregación.</li>
-                    </ol>
                 </ul>
                 <h2>Características técnicas y parámetros ajustables</h2>
                 <ul>
                     <li><marcador class="resaltado5">Modo de operación: </marcador>Los enlaces de agregación pueden funcionar en diferentes modos, como activo-activo y activo-pasivo.</li>
                     <p>el modo activo-activo aprovecha completamente todos los enlaces disponibles, mientras que el activo-pasivo utiliza solo un enlace activo con respaldo.</p>
+                    <ol type="none">
+                        <li><marcador class="resaltado6">Modo Pasivo: </marcador>En este modo, el dispositivo espera a que el otro extremo del enlace envíe un mensaje de negociación. Si el otro extremo está configurado en modo activo y envía una solicitud de agregación, entonces el enlace se establecerá. Si el otro extremo no envía ninguna solicitud de agregación, el enlace no se formará.</li>
+                        <li><marcador class="resaltado6">Modo Activo: </marcador>En este modo, el dispositivo envía activamente solicitudes de agregación al otro extremo del enlace. Si el otro extremo también está configurado en modo activo y responde positivamente, entonces el enlace se establece. Si el otro extremo está configurado en modo pasivo, el enlace se formará si responde a la solicitud de agregación.</li>
+                    </ol>
                     <li><marcador class="resaltado5">Protocolo de control de enlaces: </marcador>Se pueden utilizar protocolos como LACP (Link Aggregation Control Protocol) o PAgP (Port Aggregation Protocol) para controlar la formación y el mantenimiento de los enlaces de agregación.</li>
                     <li><marcador class="resaltado5">Número de enlaces: </marcador>Se puede especificar cuántos enlaces físicos se van a agregar.</li>
                     <li><marcador class="resaltado5">Balanceo de carga: </marcador>Se pueden ajustar los algoritmos de balanceo de carga para distribuir el tráfico de manera eficiente entre los enlaces disponibles.</li>
@@ -76,8 +76,10 @@
                 <div class="blog-image-grande">
                     <img src="media/enlace2.jpg" alt="">
                 </div>
-                <h6>Cisco</h6>
-                <p></p>
+                <h3>Cisco</h3>
+                <p>Se establece la velocidad en modo automático y el dúplex en modo full para los puertos individuales que se agregarán al grupo de agregación. Se especifica el balanceo de carga como "src-dst-ip", que equilibra el tráfico basado en las direcciones IP de origen y destino. Además, se asigna una prioridad de puerto LACP de 32768 al canal de agregación. Los valores de prioridad más bajos tienen mayor prioridad.</p>
+                <p>En la configuración proporcionada, ambos switches están configurados con la misma prioridad de puerto LACP (32768) en todos los enlaces. Dado que todos los enlaces tienen la misma prioridad, el protocolo LACP seleccionará el puerto activo basándose en otros criterios como la ID del sistema y la ID del puerto.</p>
+                <p>El protocolo LACP utiliza un algoritmo para determinar qué puerto será el activo en un enlace troncal. Este algoritmo tiene en cuenta la prioridad del puerto, pero también considera otros factores como la ID del sistema y la ID del puerto. En caso de que todos los enlaces tengan la misma prioridad, el switch elegirá el puerto activo basándose en otros criterios, como la ID del sistema.</p>
                 <div class="consola">
                     <div class="barra-superior-consola">
                         <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
@@ -85,38 +87,62 @@
                     <div class="codigo-consola">
                         <!-- Contenido del código -->
 <pre><code># En el Switch1
-interface range GigabitEthernet0/1 - 3
-    speed auto
-    duplex full
-    channel-group 1 mode active
-    channel-group 1 load-balance src-dst-ip
-    no shutdown
-    exit
-                            
-interface Port-channel 1
-    switchport mode trunk
-    switchport trunk allowed vlan 10,20,30
-    lacp port-priority 32768
-    exit
-                            
-# En el Switch2
-interface range GigabitEthernet0/1 - 3
-    speed auto
-    duplex full
-    channel-group 1 mode active
-    channel-group 1 load-balance src-dst-ip
-    no shutdown
-    exit
+Switch1> enable
+Switch1# configure terminal
+Switch1(config)# interface range GigabitEthernet0/1 - 3
+Switch1(config-if-range)# speed auto
+Switch1(config-if-range)# duplex full
+Switch1(config-if-range)# channel-group 1 mode active
+Switch1(config-if-range)# channel-group 1 load-balance src-dst-ip
+Switch1(config-if-range)# no shutdown
+Switch1(config-if-range)# exit
+Switch1(config)# interface Port-channel 1
+Switch1(config-if)# switchport mode trunk
+Switch1(config-if)# switchport trunk allowed vlan 10,20,30
+Switch1(config-if)# lacp port-priority 32768
+Switch1(config-if)# exit
+Switch1(config)# exit
+Switch1# exit
 
-interface Port-channel 1
-    switchport mode trunk
-    switchport trunk allowed vlan 10,20,30
-    lacp port-priority 32768
-    exit</code></pre>
+# En el Switch2
+Switch2> enable
+Switch2# configure terminal
+Switch2(config)# interface range GigabitEthernet0/1 - 3
+Switch2(config-if-range)# speed auto
+Switch2(config-if-range)# duplex full
+Switch2(config-if-range)# channel-group 1 mode active
+Switch2(config-if-range)# channel-group 1 load-balance src-dst-ip
+Switch2(config-if-range)# no shutdown
+Switch2(config-if-range)# exit
+Switch2(config)# interface Port-channel 1
+Switch2(config-if)# switchport mode trunk
+Switch2(config-if)# switchport trunk allowed vlan 10,20,30
+Switch2(config-if)# lacp port-priority 32768
+Switch2(config-if)# exit
+Switch2(config)# exit
+Switch2# exit</code></pre>
                     </div>
                 </div>
-                <p>Se establece la velocidad y el dúplex en modo automático para los puertos individuales que se agregarán al grupo de agregación. Se especifica el balanceo de carga como "src-dst-ip", que equilibra el tráfico basado en las direcciones IP de origen y destino. Además, se asigna una prioridad de puerto LACP de 32768 al canal de agregación. Los valores de prioridad más bajos tienen mayor prioridad.</p>
-                <h6>Huawei</h6>
+                <p>Para establecer una prioridad más alta en el enlace GigabitEthernet0/1 en ambos switches, y dejar la prioridad predeterminada (32768) para los otros enlaces, puedes ajustar la prioridad del puerto específico. En este caso, debes reducir la prioridad del puerto GigabitEthernet0/1 para que sea menor que 32768. Aquí se muestra cómo hacerlo:</p>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code># En el Switch1 y Switch2
+Switch2> enable
+Switch2# configure terminal
+Switch2(config)# interface GigabitEthernet0/1
+Switch2(config-if)# lacp port-priority 16384
+Switch2(config-if)# exit
+Switch2(config)# exit
+Switch2# exit</code></pre>
+                    </div>
+                </div>
+                <h3>Huawei</h3>
+                <p>Se configura la velocidad en modo automático y el dúplex en modo full para los puertos individuales. Se especifica el balanceo de carga como "dst-mac", que equilibra el tráfico basado en las direcciones MAC de destino. Además, se asigna una prioridad de 32768 al grupo de agregación, que es el valor por defecto para Huawei. Este valor puede ajustarse según las necesidades y prioridades específicas del usuario.</p>
+                <p>El modo static configura manualmente la agregación de enlaces, sin la utilización de protocolos de control dinámico como LACP o PAgP. Se configuran los puertos específicos para formar parte de un grupo de agregación, y la configuración se mantiene estática sin necesidad de negociación dinámica.</p>
                 <div class="consola">
                     <div class="barra-superior-consola">
                         <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
@@ -124,34 +150,35 @@ interface Port-channel 1
                     <div class="codigo-consola">
                     <!-- Contenido del código -->
                         <pre><code># En el Switch1
-interface eth-trunk 1
-    trunkport GigabitEthernet0/1
-    trunkport GigabitEthernet0/2
-    trunkport GigabitEthernet0/3
-    mode lacp-static
-    description Aggregation to Switch2
-    link-speed auto
-    link-duplex full
-    load-balance dst-mac
-    priority 32768
-    exit
+&lt;Switch1&gt; system-view
+[Switch1] interface eth-trunk 1
+[Switch1-Eth-Trunk1] trunkport GigabitEthernet0/1
+[Switch1-Eth-Trunk1] trunkport GigabitEthernet0/2
+[Switch1-Eth-Trunk1] trunkport GigabitEthernet0/3
+[Switch1-Eth-Trunk1] mode lacp-static
+[Switch1-Eth-Trunk1] description Aggregation to Switch2
+[Switch1-Eth-Trunk1] link-speed auto
+[Switch1-Eth-Trunk1] link-duplex full
+[Switch1-Eth-Trunk1] load-balance dst-mac
+[Switch1-Eth-Trunk1] priority 32768
+[Switch1-Eth-Trunk1] quit
+                                
 
 # En el Switch2
-interface eth-trunk 1
-    trunkport GigabitEthernet0/1
-    trunkport GigabitEthernet0/2
-    trunkport GigabitEthernet0/3
-    mode lacp-static
-    description Aggregation to Switch1
-    link-speed auto
-    link-duplex full
-    load-balance dst-mac
-    priority 32768
-    exit</code></pre>
+&lt;Switch2&gt; system-view
+[Switch2] interface eth-trunk 1
+[Switch2-Eth-Trunk1] trunkport GigabitEthernet0/1
+[Switch2-Eth-Trunk1] trunkport GigabitEthernet0/2
+[Switch2-Eth-Trunk1] trunkport GigabitEthernet0/3
+[Switch2-Eth-Trunk1] mode lacp-static
+[Switch2-Eth-Trunk1] description Aggregation to Switch1
+[Switch2-Eth-Trunk1] link-speed auto
+[Switch2-Eth-Trunk1] link-duplex full
+[Switch2-Eth-Trunk1] load-balance dst-mac
+[Switch2-Eth-Trunk1] priority 32768
+[Switch2-Eth-Trunk1] quit</code></pre>
                     </div>
             </div>
-            <p>Se configura la velocidad y el dúplex en modo automático para los puertos individuales. Se especifica el balanceo de carga como "dst-mac", que equilibra el tráfico basado en las direcciones MAC de destino. Además, se asigna una prioridad de 32768 al grupo de agregación, que es el valor por defecto para Huawei. Este valor puede ajustarse según las necesidades y prioridades específicas del usuario.</p>
-            <p>El modo static configura manualmente la agregación de enlaces, sin la utilización de protocolos de control dinámico como LACP o PAgP. Se configuran los puertos específicos para formar parte de un grupo de agregación, y la configuración se mantiene estática sin necesidad de negociación dinámica.</p>
             <br>
             <br>
             </div>
