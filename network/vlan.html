@@ -44,7 +44,158 @@
                 <div class="blog-image-grande">
                     <img src="media/vlan1.jpeg" alt="">
                 </div>
-                <p></p>
+                <h2>Parámetros Clave</h2>
+                <ul>
+                    <li><marcador class="resaltado5">ID de VLAN: </marcador>Cada VLAN se identifica mediante un número de identificación único (ID de VLAN) que puede variar de 1 a 4096. Algunos números de VLAN, como la VLAN 1, suelen reservarse para propósitos especiales.</li>
+                    <li><marcador class="resaltado5">Troncales (Trunks): </marcador>Los enlaces de red que transportan el tráfico de múltiples VLANs se llaman troncales. Los troncales utilizan protocolos como IEEE 802.1Q para etiquetar el tráfico de VLAN.</li>
+                    <li><marcador class="resaltado5">Asignación de Puertos: </marcador>Los puertos en un switch se pueden asignar a una o más VLANs. Un puerto puede ser un puerto de acceso, que pertenece a una sola VLAN, o un puerto de troncal, que transporta el tráfico de múltiples VLANs.</li>
+                </ul>
+                <h2>Puntos Importantes</h2>
+                <ol>
+                    <li>Las VLANs proporcionan aislamiento de tráfico, lo que aumenta la seguridad al evitar que el tráfico de una VLAN se mezcle con el de otras VLANs, a menos que sea configurado explícitamente para hacerlo.</li>
+                    <li>Las VLANs también mejoran la eficiencia de la red al reducir el tráfico no deseado y permitir un mejor control sobre el ancho de banda disponible.</li>
+                    <li>En muchos switches, la VLAN 1 se configura de forma predeterminada como la VLAN nativa, que se utiliza para la administración y el tráfico de control del switch.</li>
+                    <li>La mayoría de los switches tienen todos los puertos configurados inicialmente en la VLAN 1 como puertos de acceso.</li>
+                </ol>
+                <h2>Configuración de VLAN</h2>
+                <p>Configura cada switch con sus puertos GigabitEthernet0/0/1, GigabitEthernet0/0/2 y GigabitEthernet0/0/3 en las VLANs 10, 20 y 30 respectivamente</p>
+                <div class="blog-image-grande">
+                    <img src="media/vlan2.png" alt="">
+                </div>
+                <h3>Cisco</h3>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>Switch1(config)# interface GigabitEthernet0/1
+Switch1(config-if)# switchport mode trunk
+Switch1(config-if)# switchport trunk allowed vlan 10,20,30
+Switch1(config-if)# end
+Switch1# copy running-config startup-config
+
+Switch2(config)# interface range GigabitEthernet0/1
+Switch2(config-if-range)# switchport mode access
+Switch2(config-if-range)# switchport access vlan 10
+Switch2(config)# interface range GigabitEthernet0/2
+Switch2(config-if-range)# switchport mode access
+Switch2(config-if-range)# switchport access vlan 20
+Switch2(config)# interface range GigabitEthernet0/3
+Switch2(config-if-range)# switchport mode access
+Switch2(config-if-range)# switchport access vlan 30
+Switch2(config-if-range)# end
+Switch2# copy running-config startup-config
+
+Switch3(config)# interface range GigabitEthernet0/1
+Switch3(config-if-range)# switchport mode access
+Switch3(config-if-range)# switchport access vlan 10
+Switch3(config)# interface range GigabitEthernet0/2
+Switch3(config-if-range)# switchport mode access
+Switch3(config-if-range)# switchport access vlan 20
+Switch3(config)# interface range GigabitEthernet0/3
+Switch3(config-if-range)# switchport mode access
+Switch3(config-if-range)# switchport access vlan 30
+Switch3(config-if-range)# end
+Switch3# copy running-config startup-config
+
+Switch4(config)# interface range GigabitEthernet0/1
+Switch4(config-if-range)# switchport mode access
+Switch4(config-if-range)# switchport access vlan 10
+Switch4(config)# interface range GigabitEthernet0/2
+Switch4(config-if-range)# switchport mode access
+Switch4(config-if-range)# switchport access vlan 20
+Switch4(config)# interface range GigabitEthernet0/3
+Switch4(config-if-range)# switchport mode access
+Switch4(config-if-range)# switchport access vlan 30
+Switch4(config-if-range)# end
+Switch4# copy running-config startup-config</code></pre>
+                    </div>
+                </div>
+                <p>El comando <marcador class="subrayado">switchport trunk native vlan 10</marcador> establece la VLAN 10 como la VLAN nativa para el tráfico no etiquetado que ingresa al troncal. El tráfico que ingresa a la VLAN nativa no necesita etiquetarse con una VLAN específica.</p>
+                <h3>Huawei</h3>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code># Acceder al modo de configuración
+&lt;Switch1&gt;system-view
+[Switch1]interface GigabitEthernet0/0/1
+[Switch1-GigabitEthernet0/0/1]port link-type access
+[Switch1-GigabitEthernet0/0/1]port default vlan 10
+[Switch1-GigabitEthernet0/0/1]save
+
+&lt;Switch2&gt;system-view
+[Switch2]interface GigabitEthernet0/0/1
+[Switch2-GigabitEthernet0/0/1]port link-type access
+[Switch2-GigabitEthernet0/0/1]port default vlan 10
+[Switch2-GigabitEthernet0/0/1]interface GigabitEthernet0/0/2
+[Switch2-GigabitEthernet0/0/2]port link-type access
+[Switch2-GigabitEthernet0/0/2]port default vlan 20
+[Switch2-GigabitEthernet0/0/2]interface GigabitEthernet0/0/3
+[Switch2-GigabitEthernet0/0/3]port link-type access
+[Switch2-GigabitEthernet0/0/3]port default vlan 30
+[Switch2-GigabitEthernet0/0/3]save
+
+&lt;Switch3&gt;system-view
+[Switch3]interface GigabitEthernet0/0/1
+[Switch3-GigabitEthernet0/0/1]port link-type access
+[Switch3-GigabitEthernet0/0/1]port default vlan 10
+[Switch3-GigabitEthernet0/0/1]interface GigabitEthernet0/0/2
+[Switch3-GigabitEthernet0/0/2]port link-type access
+[Switch3-GigabitEthernet0/0/2]port default vlan 20
+[Switch3-GigabitEthernet0/0/2]interface GigabitEthernet0/0/3
+[Switch3-GigabitEthernet0/0/3]port link-type access
+[Switch3-GigabitEthernet0/0/3]port default vlan 30
+[Switch3-GigabitEthernet0/0/3]save
+
+&lt;Switch4&gt;system-view
+[Switch4]interface GigabitEthernet0/0/1
+[Switch4-GigabitEthernet0/0/1]port link-type access
+[Switch4-GigabitEthernet0/0/1]port default vlan 10
+[Switch4-GigabitEthernet0/0/1]interface GigabitEthernet0/0/2
+[Switch4-GigabitEthernet0/0/2]port link-type access
+[Switch4-GigabitEthernet0/0/2]port default vlan 20
+[Switch4-GigabitEthernet0/0/2]interface GigabitEthernet0/0/3
+[Switch4-GigabitEthernet0/0/3]port link-type access
+[Switch4-GigabitEthernet0/0/3]port default vlan 30
+[Switch4-GigabitEthernet0/0/3]save</code></pre>
+                    </div>
+                </div>
+                <h2></h2>
+                <p>Un puerto VLAN híbrido es una característica en switches Huawei que permite que un puerto participe en múltiples VLANs simultáneamente, y maneje tanto tráfico etiquetado con VLAN como tráfico que no está etiquetado. Esta configuración es particularmente útil en situaciones donde necesitas conectar dispositivos que operan en VLANs específicas con aquellos que no están configurados para usar VLANs.</p>
+                <p>Imagina una red donde tienes varios dispositivos, algunos configurados para operar en diferentes VLANs y otros que no están configurados para VLANs en absoluto. Aquí es donde entra en juego el puerto VLAN híbrido. Puedes configurar este tipo de puerto para permitir que un dispositivo conectado maneje tanto tráfico etiquetado con VLAN como tráfico nativo no etiquetado.</p>
+                <p>Por ejemplo, podrías tener un punto de acceso inalámbrico que necesita comunicarse con dispositivos en diferentes VLANs, así como con dispositivos que no están configurados para VLANs, como teléfonos o impresoras. Al conectar este punto de acceso a un puerto VLAN híbrido, puedes permitir que maneje el tráfico de todas las VLANs necesarias, así como el tráfico no etiquetado.</p>
+                <p>La flexibilidad de un puerto VLAN híbrido radica en su capacidad para definir qué VLANs pasan por el puerto como tráfico etiquetado y cuáles se manejan como tráfico nativo no etiquetado. Esto proporciona una solución versátil para la conectividad en redes donde se requiere la coexistencia de dispositivos con y sin VLANs.</p>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code># Acceder al modo de configuración
+&lt;Huawei&gt;system-view
+
+# Configurar el puerto en modo híbrido
+[Switch1]interface GigabitEthernet0/0/1
+[Switch1-GigabitEthernet0/0/1]port link-type hybrid
+
+# Permitir la VLAN 10 en el puerto
+[Switch1-GigabitEthernet0/0/1]port hybrid untagged vlan 10
+
+# Permitir el paso de tráfico no etiquetado
+[Switch1-GigabitEthernet0/0/1]port hybrid pvid vlan 10
+
+# Guardar la configuración
+[Switch1-GigabitEthernet0/0/1]save</code></pre>
+                    </div>
+                </div>
+                <p>Con esta configuración, el puerto GigabitEthernet0/0/1 será un puerto VLAN híbrido que pertenece a la VLAN 10 y también permite el paso de tráfico no etiquetado. Esto significa que puede comunicarse con dispositivos que operan en la VLAN 10 y también con dispositivos que no están configurados para usar VLANs.</p>
+                <div class="blog-image-grande">
+                    <img src="media/vlan3.jpg" alt="">
+                </div>
             </div>
         </div>       
     </main>
