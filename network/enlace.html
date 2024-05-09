@@ -53,16 +53,29 @@
                     <li><marcador class="resaltado8">Configuración flexible: </marcador>Los enlaces de agregación pueden configurarse para adaptarse a diferentes necesidades y requisitos de red, como el tipo de enlace utilizado y el modo de operación (activo-pasivo o activo-activo).</li>
                 </ul>
                 <h2>Características técnicas y parámetros ajustables</h2>
+                <p>La cantidad máxima de enlaces que se pueden agrupar en un EtherChannel depende del tipo de plataforma de red que estés utilizando y de las capacidades del hardware y del software. Sin embargo, en general, el límite máximo de enlaces en un EtherChannel puede variar desde 2 hasta 16 enlaces físicos.</p>
+                <p>El STP se utiliza para evitar bucles de red en topologías de red con redundancia. Cuando tienes múltiples enlaces entre dispositivos, STP determina el mejor camino hacia un destino y bloquea los enlaces redundantes para evitar bucles.</p>
+                <p>Es importante asegurarse de que los enlaces del EtherChannel estén correctamente configurados para que STP los vea como un solo enlace lógico. Si los enlaces no están configurados correctamente, podrían aparecer problemas de convergencia de STP o bucles de red.</p>
+                <p>Si tienes 2 enlaces EtherChannel con STP configurado, STP solo bloqueará uno de los enlaces físicos mientras que el otro permanecerá activo como parte del EtherChannel activo.</p>
+                <p>En un EtherChannel, los enlaces no necesitan ser pares en términos de velocidad o tipo de enlace (por ejemplo, no necesitan ser todos Gigabit Ethernet o todos 10 Gigabit Ethernet). Sin embargo, es importante que los enlaces que forman parte del EtherChannel tengan configuraciones compatibles en cuanto a velocidad, tipo de enlace y configuración de troncal (si corresponde).</p>
                 <ul>
                     <li><marcador class="resaltado5">Modo de operación: </marcador>Los enlaces de agregación pueden funcionar en diferentes modos, como activo-activo y activo-pasivo.</li>
                     <p>el modo activo-activo aprovecha completamente todos los enlaces disponibles, mientras que el activo-pasivo utiliza solo un enlace activo con respaldo.</p>
                     <ol type="none">
-                        <li><marcador class="resaltado6">Modo Pasivo: </marcador>En este modo, el dispositivo espera a que el otro extremo del enlace envíe un mensaje de negociación. Si el otro extremo está configurado en modo activo y envía una solicitud de agregación, entonces el enlace se establecerá. Si el otro extremo no envía ninguna solicitud de agregación, el enlace no se formará.</li>
-                        <li><marcador class="resaltado6">Modo Activo: </marcador>En este modo, el dispositivo envía activamente solicitudes de agregación al otro extremo del enlace. Si el otro extremo también está configurado en modo activo y responde positivamente, entonces el enlace se establece. Si el otro extremo está configurado en modo pasivo, el enlace se formará si responde a la solicitud de agregación.</li>
+                        <li><marcador class="resaltado6">Modo "On": </marcador>En este modo, el EtherChannel se configura sin negociación de protocolo de agregación de enlaces (LACP o PAgP). Los enlaces se agregan al EtherChannel sin intercambiar información de control con el otro extremo. Este modo es útil cuando el otro extremo no es compatible con LACP o PAgP.</li>
+                        <li><marcador class="resaltado6">Modo "Active" (LACP) o "Desirable" (PAgP):</marcador>En este modo, el dispositivo envía paquetes LACP o PAgP para negociar la formación de un EtherChannel. El dispositivo intentará formar un EtherChannel con el otro extremo si detecta que está en modo "Active" (LACP) o "Desirable" (PAgP) en el otro extremo. Este modo permite una negociación dinámica y automática de EtherChannel.</li>
+                        <li><marcador class="resaltado6">Modo "Passive" (LACP) o "Auto" (PAgP):</marcador>En este modo, el dispositivo no envía paquetes LACP o PAgP activamente, pero responderá a los paquetes recibidos del otro extremo. Si el otro extremo está en modo "Active" (LACP) o "Desirable" (PAgP), se formará un EtherChannel. Si el otro extremo también está en modo "Passive" (LACP) o "Auto" (PAgP), no se formará un EtherChannel. Este modo es útil cuando solo se desea una configuración unidireccional de EtherChannel.</li>
                     </ol>
                     <li><marcador class="resaltado5">Protocolo de control de enlaces: </marcador>Se pueden utilizar protocolos como LACP (Link Aggregation Control Protocol) o PAgP (Port Aggregation Protocol) para controlar la formación y el mantenimiento de los enlaces de agregación.</li>
+                    <p>PAgP es específico de los dispositivos Cisco y se utiliza para la formación dinámica de grupos de enlaces EtherChannel.</p>
+                    <p>El Link Aggregation Control Protocol (LACP) es un estándar de la IEEE (Institute of Electrical and Electronics Engineers) definido en la especificación IEEE 802.3ad. Este estándar proporciona un método estándar para la agregación de enlaces o la formación de grupos de enlaces Ethernet, lo que permite combinar varios enlaces físicos en un solo enlace lógico con el fin de aumentar el ancho de banda y mejorar la redundancia.</p>
                     <li><marcador class="resaltado5">Número de enlaces: </marcador>Se puede especificar cuántos enlaces físicos se van a agregar.</li>
                     <li><marcador class="resaltado5">Balanceo de carga: </marcador>Se pueden ajustar los algoritmos de balanceo de carga para distribuir el tráfico de manera eficiente entre los enlaces disponibles.</li>
+                    <p>Existen varios métodos para realizar el balanceo de carga en un Port Channel, y la elección del método depende de varios factores, como el hardware del equipo, el tipo de tráfico y las políticas de diseño de red. Algunos de los métodos comunes de balanceo de carga en Port Channel son:</p>
+                    <li><marcador class="resaltado6">Basado en la dirección MAC (MAC address-based): </marcador>En este método, el tráfico se distribuye entre los enlaces basándose en la dirección MAC de origen o destino de los paquetes. Cada dirección MAC se asigna a un enlace específico, lo que garantiza que todos los paquetes con la misma dirección MAC se envíen siempre a través del mismo enlace.</li>
+                    <li><marcador class="resaltado6">Basado en la dirección IP (IP address-based): </marcador>En este método, el tráfico se distribuye entre los enlaces basándose en la dirección IP de origen o destino de los paquetes. Similar al método basado en la dirección MAC, cada dirección IP se asigna a un enlace específico, lo que garantiza que los paquetes con la misma dirección IP se envíen siempre a través del mismo enlace.</li>
+                    <li><marcador class="resaltado6">Basado en el puerto (Port-based): </marcador>En este método, el tráfico se distribuye entre los enlaces basándose en el número de puerto del protocolo de transporte de capa superior (como TCP o UDP). Los paquetes se envían a través del enlace determinado por el puerto de origen o destino del protocolo de transporte.</li>
+                    <li><marcador class="resaltado6">Basado en la carga (Load-based): </marcador>En este método, el tráfico se distribuye entre los enlaces en función de la carga actual de cada enlace. Los paquetes se envían a través del enlace con la carga más baja en ese momento, lo que ayuda a equilibrar la carga entre todos los enlaces.</li>
                     <li><marcador class="resaltado5">Prioridad de enlace: </marcador>Se puede configurar la prioridad de cada enlace para determinar qué enlaces se utilizan primero en caso de fallo o congestión.</li>
                     <li><marcador class="resaltado5">Velocidad y dúplex: </marcador>Se pueden configurar las velocidades y modos dúplex de los enlaces individuales dentro del grupo de agregación.</li>
                     <ul type="none">
@@ -80,6 +93,8 @@
                 <p>Se establece la velocidad en modo automático y el dúplex en modo full para los puertos individuales que se agregarán al grupo de agregación. Se especifica el balanceo de carga como "src-dst-ip", que equilibra el tráfico basado en las direcciones IP de origen y destino. Además, se asigna una prioridad de puerto LACP de 32768 al canal de agregación. Los valores de prioridad más bajos tienen mayor prioridad.</p>
                 <p>En la configuración proporcionada, ambos switches están configurados con la misma prioridad de puerto LACP (32768) en todos los enlaces. Dado que todos los enlaces tienen la misma prioridad, el protocolo LACP seleccionará el puerto activo basándose en otros criterios como la ID del sistema y la ID del puerto.</p>
                 <p>El protocolo LACP utiliza un algoritmo para determinar qué puerto será el activo en un enlace troncal. Este algoritmo tiene en cuenta la prioridad del puerto, pero también considera otros factores como la ID del sistema y la ID del puerto. En caso de que todos los enlaces tengan la misma prioridad, el switch elegirá el puerto activo basándose en otros criterios, como la ID del sistema.</p>
+                <p>Cuando se configura un EtherChannel, es común que los puertos miembros estén configurados en modo de troncal (trunk mode) para permitir el paso de tráfico de múltiples VLAN a través del EtherChannel. La negociación de troncal (trunk negotiation) es el proceso mediante el cual dos dispositivos enlazados automáticamente acuerdan si el enlace debe ser un enlace de troncal o un enlace de acceso.</p>
+                <p>Sin embargo, en ciertos casos, como cuando se configura un EtherChannel entre dos dispositivos Cisco que están conectados directamente y se desea evitar la negociación de troncal, se puede utilizar el comando "switchport nonegotiate" en los puertos miembros del EtherChannel. Esto garantiza que el enlace se configure como un enlace de troncal sin pasar por el proceso de negociación de troncal.</p>
                 <div class="consola">
                     <div class="barra-superior-consola">
                         <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
@@ -92,12 +107,15 @@ Switch1# configure terminal
 Switch1(config)# interface range GigabitEthernet0/1 - 3
 Switch1(config-if-range)# speed auto
 Switch1(config-if-range)# duplex full
+Switch1(config-if-range)# channel-protocol lacp
 Switch1(config-if-range)# channel-group 1 mode active
 Switch1(config-if-range)# channel-group 1 load-balance src-dst-ip
 Switch1(config-if-range)# no shutdown
 Switch1(config-if-range)# exit
 Switch1(config)# interface Port-channel 1
+Switch1(config-if)# switchport trunk encapsulation dot1q
 Switch1(config-if)# switchport mode trunk
+Switch1(config-if)# switchport nonegotiate
 Switch1(config-if)# switchport trunk allowed vlan 10,20,30
 Switch1(config-if)# lacp port-priority 32768
 Switch1(config-if)# exit
@@ -110,11 +128,13 @@ Switch2# configure terminal
 Switch2(config)# interface range GigabitEthernet0/1 - 3
 Switch2(config-if-range)# speed auto
 Switch2(config-if-range)# duplex full
+Switch2(config-if-range)# channel-protocol lacp
 Switch2(config-if-range)# channel-group 1 mode active
 Switch2(config-if-range)# channel-group 1 load-balance src-dst-ip
 Switch2(config-if-range)# no shutdown
 Switch2(config-if-range)# exit
-Switch2(config)# interface Port-channel 1
+Switch2(config)# interface port-channel 1
+Switch2(config-if)# switchport trunk encapsulation dot1q
 Switch2(config-if)# switchport mode trunk
 Switch2(config-if)# switchport trunk allowed vlan 10,20,30
 Switch2(config-if)# lacp port-priority 32768
@@ -140,6 +160,27 @@ Switch2(config)# exit
 Switch2# exit</code></pre>
                     </div>
                 </div>
+                <p>Selecciona el puerto GigabitEthernet0/4 como enlace de standby. Esta configuración hará que este enlace entre en acción solo si uno de los enlaces dentro del grupo EtherChannel falla.</p>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code># En el Switch1 y Switch2
+Switch1(config)# interface GigabitEthernet0/4
+Switch1(config-if)# speed auto
+Switch1(config-if)# duplex full
+Switch1(config-if)# channel-protocol lacp
+Switch1(config-if)# channel-group 1 mode active
+Switch1(config-if)# channel-group 1 load-balance src-dst-ip
+Switch1(config-if)# lacp port-priority 32768
+Switch1(config-if)# standby
+Switch1(config-if)# no shutdown
+Switch1(config-if)# exit</code></pre>
+                    </div>
+                </div>
+                <p>El comando <marcador class="subrayado">show etherchannel summary</marcador> se utiliza en dispositivos Cisco para proporcionar un resumen de los grupos de enlaces EtherChannel configurados en el dispositivo y el estado de cada enlace dentro de esos grupos.</p>
                 <h3>Huawei</h3>
                 <p>Se configura la velocidad en modo automático y el dúplex en modo full para los puertos individuales. Se especifica el balanceo de carga como "dst-mac", que equilibra el tráfico basado en las direcciones MAC de destino. Además, se asigna una prioridad de 32768 al grupo de agregación, que es el valor por defecto para Huawei. Este valor puede ajustarse según las necesidades y prioridades específicas del usuario.</p>
                 <p>El modo static configura manualmente la agregación de enlaces, sin la utilización de protocolos de control dinámico como LACP o PAgP. Se configuran los puertos específicos para formar parte de un grupo de agregación, y la configuración se mantiene estática sin necesidad de negociación dinámica.</p>
@@ -179,8 +220,11 @@ Switch2# exit</code></pre>
 [Switch2-Eth-Trunk1] quit</code></pre>
                     </div>
             </div>
-            <br>
-            <br>
+            <h2>StackWise</h2>
+            <p>StackWise es una tecnología específica de los switches Cisco Catalyst que permite apilar varios switches en una configuración lógica de un solo switch. Con StackWise, los switches se conectan mediante enlaces especiales de apilamiento, formando una única entidad de gestión y control. Esto simplifica la administración de la red al tratar múltiples switches como uno solo en términos de configuración, monitoreo y administración. Además, StackWise proporciona alta disponibilidad al permitir que uno de los switches actúe como switch maestro y los demás como esclavos. Si el switch maestro falla, otro switch en el stack puede asumir su función automáticamente sin interrumpir la conectividad de la red.</p>
+            <div class="blog-image-grande">
+                <img src="media/enlace3.jpg" alt="">
+            </div>
             </div>
         </div>       
     </main>
