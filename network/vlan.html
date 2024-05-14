@@ -58,7 +58,7 @@
                     <li>La mayoría de los switches tienen todos los puertos configurados inicialmente en la VLAN 1 como puertos de acceso.</li>
                 </ol>
                 <h2>Configuración de VLAN</h2>
-                <p>Configura cada switch con sus puertos GigabitEthernet0/0/1, GigabitEthernet0/0/2 y GigabitEthernet0/0/3 en las VLANs 10, 20 y 30 respectivamente</p>
+                <p>Configura cada uno de los 3 switches con sus puertos GigabitEthernet0/0/1, GigabitEthernet0/0/2 y GigabitEthernet0/0/3 en las VLANs 10, 20 y 30 respectivamente, y el puerto GigabitEthernet0/0/0 como troncal al switch capa 3 (LSW1), tal como se muestra en la imagen.</p>
                 <div class="blog-image-grande">
                     <img src="media/vlan2.png" alt="">
                 </div>
@@ -69,102 +69,590 @@
                     </div>
                     <div class="codigo-consola">
                         <!-- Contenido del código -->
-<pre><code>Switch1(config)# interface GigabitEthernet0/1
+<pre><code>Switch1(config)# vlan 10
+Switch1(config-vlan)# name RH
+Switch1(config-vlan)# exit
+Switch1(config)# vlan 20
+Switch1(config-vlan)# name TI
+Switch1(config-vlan)# exit
+Switch1(config)# vlan 30
+Switch1(config-vlan)# name Finanzas
+Switch1(config-vlan)# exit
+Switch1(config)# interface range GigabitEthernet0/2-4
+Switch1(config-if)# switchport trunk encapsulation dot1q
 Switch1(config-if)# switchport mode trunk
 Switch1(config-if)# switchport trunk allowed vlan 10,20,30
 Switch1(config-if)# end
 Switch1# copy running-config startup-config
 
-Switch2(config)# interface range GigabitEthernet0/1
-Switch2(config-if-range)# switchport mode access
-Switch2(config-if-range)# switchport access vlan 10
-Switch2(config)# interface range GigabitEthernet0/2
-Switch2(config-if-range)# switchport mode access
-Switch2(config-if-range)# switchport access vlan 20
-Switch2(config)# interface range GigabitEthernet0/3
-Switch2(config-if-range)# switchport mode access
-Switch2(config-if-range)# switchport access vlan 30
-Switch2(config-if-range)# end
+Switch2(config)# vlan 10
+Switch2(config-vlan)# name RH
+Switch2(config-vlan)# exit
+Switch2(config)# vlan 20
+Switch2(config-vlan)# name TI
+Switch2(config-vlan)# exit
+Switch2(config)# vlan 30
+Switch2(config-vlan)# name Finanzas
+Switch2(config-vlan)# exit
+Switch2(config)# interface GigabitEthernet0/0/0
+Switch2(config-if)# switchport mode trunk
+Switch2(config-if)# switchport trunk allowed vlan 10,20,30
+Switch2(config-vlan)# exit
+Switch2(config)# interface GigabitEthernet0/1
+Switch2(config-if)# switchport mode access
+Switch2(config-if)# switchport access vlan 10
+Switch2(config-if)# exit
+Switch2(config)# interface GigabitEthernet0/2
+Switch2(config-if)# switchport mode access
+Switch2(config-if)# switchport access vlan 20
+Switch2(config-if)# exit
+Switch2(config)# interface GigabitEthernet0/3
+Switch2(config-if)# switchport mode access
+Switch2(config-if)# switchport access vlan 30
+Switch2(config-if)# end
 Switch2# copy running-config startup-config
 
-Switch3(config)# interface range GigabitEthernet0/1
-Switch3(config-if-range)# switchport mode access
-Switch3(config-if-range)# switchport access vlan 10
-Switch3(config)# interface range GigabitEthernet0/2
-Switch3(config-if-range)# switchport mode access
-Switch3(config-if-range)# switchport access vlan 20
-Switch3(config)# interface range GigabitEthernet0/3
-Switch3(config-if-range)# switchport mode access
-Switch3(config-if-range)# switchport access vlan 30
-Switch3(config-if-range)# end
+Switch3(config)# vlan 10
+Switch3(config-vlan)# name RH
+Switch3(config-vlan)# exit
+Switch3(config)# vlan 20
+Switch3(config-vlan)# name TI
+Switch3(config-vlan)# exit
+Switch3(config)# vlan 30
+Switch3(config-vlan)# name Finanzas
+Switch3(config-vlan)# exit
+Switch3(config)# interface GigabitEthernet0/0/0
+Switch3(config-if)# switchport mode trunk
+Switch3(config-if)# switchport trunk allowed vlan 10,20,30
+Switch3(config-vlan)# exit
+Switch3(config)# interface GigabitEthernet0/1
+Switch3(config-if)# switchport mode access
+Switch3(config-if)# switchport access vlan 10
+Switch3(config-if)# exit
+Switch3(config)# interface GigabitEthernet0/2
+Switch3(config-if)# switchport mode access
+Switch3(config-if)# switchport access vlan 20
+Switch3(config-if)# exit
+Switch3(config)# interface GigabitEthernet0/3
+Switch3(config-if)# switchport mode access
+Switch3(config-if)# switchport access vlan 30
+Switch3(config-if)# end
 Switch3# copy running-config startup-config
 
-Switch4(config)# interface range GigabitEthernet0/1
-Switch4(config-if-range)# switchport mode access
-Switch4(config-if-range)# switchport access vlan 10
-Switch4(config)# interface range GigabitEthernet0/2
-Switch4(config-if-range)# switchport mode access
-Switch4(config-if-range)# switchport access vlan 20
-Switch4(config)# interface range GigabitEthernet0/3
-Switch4(config-if-range)# switchport mode access
-Switch4(config-if-range)# switchport access vlan 30
-Switch4(config-if-range)# end
+Switch4(config)# vlan 10
+Switch4(config-vlan)# name RH
+Switch4(config-vlan)# exit
+Switch4(config)# vlan 20
+Switch4(config-vlan)# name TI
+Switch4(config-vlan)# exit
+Switch4(config)# vlan 30
+Switch4(config-vlan)# name Finanzas
+Switch4(config-vlan)# exit
+Switch4(config)# interface GigabitEthernet0/0/0
+Switch4(config-if)# switchport mode trunk
+Switch4(config-if)# switchport trunk allowed vlan 10,20,30
+Switch4(config-vlan)# exit
+Switch4(config)# interface GigabitEthernet0/1
+Switch4(config-if)# switchport mode access
+Switch4(config-if)# switchport access vlan 10
+Switch4(config-if)# exit
+Switch4(config)# interface GigabitEthernet0/2
+Switch4(config-if)# switchport mode access
+Switch4(config-if)# switchport access vlan 20
+Switch4(config-if)# exit
+Switch4(config)# interface GigabitEthernet0/3
+Switch4(config-if)# switchport mode access
+Switch4(config-if)# switchport access vlan 30
+Switch4(config-if)# end
 Switch4# copy running-config startup-config</code></pre>
                     </div>
                 </div>
-                <p>El comando <marcador class="subrayado">switchport trunk native vlan 10</marcador> establece la VLAN 10 como la VLAN nativa para el tráfico no etiquetado que ingresa al troncal. El tráfico que ingresa a la VLAN nativa no necesita etiquetarse con una VLAN específica.</p>
-                <h3>Huawei</h3>
+                <p>El comando <marcador class="subrayado">show vlan brief</marcador> se utiliza para mostrar un resumen de la configuración de VLAN en el dispositivo.</p>
+                <p>En la topología, el Switch1 actúa como un switch de capa 3, mientras que los Switches 2, 3 y 4 son switches de capa 2. Cuando se conectan estos switches, se está creando un enlace troncal entre ellos a través del Switch1.</p>
+                <p>El problema radica en que, por defecto, los switches de capa 2 no pueden enrutar el tráfico entre diferentes VLANs. Aunque tienes una conexión física entre las VLANs a través del Switch1, los switches de capa 2 no pueden entender las direcciones IP ni enrutar el tráfico entre ellas.</p>
+                <p>Para permitir que el tráfico de VLAN pase entre los switches 2, 3 y 4 a través del Switch1, necesitas configurar el Switch1 para que actúe como un enrutador inter-VLAN. Esto implica configurar interfaces de capa 3 en el Switch1 para cada VLAN y agregar rutas estáticas o configurar un protocolo de enrutamiento, como RIP o OSPF.</p>
+                <p>Una vez configurado como un enrutador inter-VLAN, el Switch1 podrá enrutar el tráfico entre las VLANs, permitiendo que la VLAN 10 se comunique con la VLAN 20 a través de él.</p>
+                <h6>Router Inter-VLAN</h6>
+                <p>En la siguiente configuración, los Switches 2, 3 y 4 tienen sus puertos configurados como puertos de acceso para sus respectivas VLANs. El router tiene una interfaz configurada para cada una de las VLANs, y actuará como un router inter-VLAN para enrutar el tráfico entre ellas.</p>
                 <div class="consola">
                     <div class="barra-superior-consola">
                         <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
                     </div>
                     <div class="codigo-consola">
                         <!-- Contenido del código -->
-<pre><code># Acceder al modo de configuración
-&lt;Switch1&gt;system-view
-[Switch1]interface GigabitEthernet0/0/1
-[Switch1-GigabitEthernet0/0/1]port link-type access
-[Switch1-GigabitEthernet0/0/1]port default vlan 10
-[Switch1-GigabitEthernet0/0/1]save
+<pre><code>Router(config)# interface GigabitEthernet0/2
+Router(config-if)# no shutdown
+Router(config-if)# exit
+Router(config)# interface GigabitEthernet0/3
+Router(config-if)# no shutdown
+Router(config-if)# exit
+Router(config)# interface GigabitEthernet0/4
+Router(config-if)# no shutdown
+Router(config-if)# exit
+Router(config)# interface GigabitEthernet0/2.10
+Router(config-subif)# encapsulation dot1Q 10
+Router(config-subif)# ip address 192.168.10.1 255.255.255.0
+Router(config-subif)# exit
+Router(config)# interface GigabitEthernet0/2.20
+Router(config-subif)# encapsulation dot1Q 20
+Router(config-subif)# ip address 192.168.20.1 255.255.255.0
+Router(config-subif)# exit
+Router(config)# interface GigabitEthernet0/2.30
+Router(config-subif)# encapsulation dot1Q 30
+Router(config-subif)# ip address 192.168.30.1 255.255.255.0
+Router(config-subif)# exit
+Router(config)# interface GigabitEthernet0/3.10
+Router(config-subif)# encapsulation dot1Q 10
+Router(config-subif)# ip address 192.168.10.1 255.255.255.0
+Router(config-subif)# exit
+Router(config)# interface GigabitEthernet0/3.20
+Router(config-subif)# encapsulation dot1Q 20
+Router(config-subif)# ip address 192.168.20.1 255.255.255.0
+Router(config-subif)# exit
+Router(config)# interface GigabitEthernet0/3.30
+Router(config-subif)# encapsulation dot1Q 30
+Router(config-subif)# ip address 192.168.30.1 255.255.255.0
+Router(config-subif)# exit
+Router(config)# interface GigabitEthernet0/4.10
+Router(config-subif)# encapsulation dot1Q 10
+Router(config-subif)# ip address 192.168.10.1 255.255.255.0
+Router(config-subif)# exit
+Router(config)# interface GigabitEthernet0/4.20
+Router(config-subif)# encapsulation dot1Q 20
+Router(config-subif)# ip address 192.168.20.1 255.255.255.0
+Router(config-subif)# exit
+Router(config)# interface GigabitEthernet0/4.30
+Router(config-subif)# encapsulation dot1Q 30
+Router(config-subif)# ip address 192.168.30.1 255.255.255.0
+Router(config-subif)# end
+Router# copy running-config startup-config
 
-&lt;Switch2&gt;system-view
-[Switch2]interface GigabitEthernet0/0/1
-[Switch2-GigabitEthernet0/0/1]port link-type access
-[Switch2-GigabitEthernet0/0/1]port default vlan 10
-[Switch2-GigabitEthernet0/0/1]interface GigabitEthernet0/0/2
-[Switch2-GigabitEthernet0/0/2]port link-type access
-[Switch2-GigabitEthernet0/0/2]port default vlan 20
-[Switch2-GigabitEthernet0/0/2]interface GigabitEthernet0/0/3
-[Switch2-GigabitEthernet0/0/3]port link-type access
-[Switch2-GigabitEthernet0/0/3]port default vlan 30
-[Switch2-GigabitEthernet0/0/3]save
+Switch2(config)# vlan 10
+Switch2(config-vlan)# name RH
+Switch2(config-vlan)# exit
+Switch2(config)# vlan 20
+Switch2(config-vlan)# name TI
+Switch2(config-vlan)# exit
+Switch2(config)# vlan 30
+Switch2(config-vlan)# name Finanzas
+Switch2(config-vlan)# exit
+Switch2(config)# interface GigabitEthernet0/0/0
+Switch2(config-if)# switchport trunk encapsulation dot1q
+Switch2(config-if)# switchport mode trunk
+Switch2(config-if)# switchport trunk native 1
+Switch2(config-if)# switchport trunk allowed vlan all
+Switch2(config-vlan)# exit
+Switch2(config)# interface GigabitEthernet0/1
+Switch2(config-if)# switchport mode access
+Switch2(config-if)# switchport access vlan 10
+Switch2(config-if)# exit
+Switch2(config)# interface GigabitEthernet0/2
+Switch2(config-if)# switchport mode access
+Switch2(config-if)# switchport access vlan 20
+Switch2(config-if)# exit
+Switch2(config)# interface GigabitEthernet0/3
+Switch2(config-if)# switchport mode access
+Switch2(config-if)# switchport access vlan 30
+Switch2(config-if)# end
+Switch2# copy running-config startup-config
 
-&lt;Switch3&gt;system-view
-[Switch3]interface GigabitEthernet0/0/1
-[Switch3-GigabitEthernet0/0/1]port link-type access
-[Switch3-GigabitEthernet0/0/1]port default vlan 10
-[Switch3-GigabitEthernet0/0/1]interface GigabitEthernet0/0/2
-[Switch3-GigabitEthernet0/0/2]port link-type access
-[Switch3-GigabitEthernet0/0/2]port default vlan 20
-[Switch3-GigabitEthernet0/0/2]interface GigabitEthernet0/0/3
-[Switch3-GigabitEthernet0/0/3]port link-type access
-[Switch3-GigabitEthernet0/0/3]port default vlan 30
-[Switch3-GigabitEthernet0/0/3]save
+Switch3(config)# vlan 10
+Switch3(config-vlan)# name RH
+Switch3(config-vlan)# exit
+Switch3(config)# vlan 20
+Switch3(config-vlan)# name TI
+Switch3(config-vlan)# exit
+Switch3(config)# vlan 30
+Switch3(config-vlan)# name Finanzas
+Switch3(config-vlan)# exit
+Switch3(config)# interface GigabitEthernet0/0/0
+Switch3(config-if)# switchport trunk encapsulation dot1q
+Switch3(config-if)# switchport mode trunk
+Switch3(config-if)# switchport trunk native 1
+Switch3(config-if)# switchport trunk allowed vlan all
+Switch3(config-vlan)# exit
+Switch3(config)# interface GigabitEthernet0/1
+Switch3(config-if)# switchport mode access
+Switch3(config-if)# switchport access vlan 10
+Switch3(config-if)# exit
+Switch3(config)# interface GigabitEthernet0/2
+Switch3(config-if)# switchport mode access
+Switch3(config-if)# switchport access vlan 20
+Switch3(config-if)# exit
+Switch3(config)# interface GigabitEthernet0/3
+Switch3(config-if)# switchport mode access
+Switch3(config-if)# switchport access vlan 30
+Switch3(config-if)# end
+Switch3# copy running-config startup-config
 
-&lt;Switch4&gt;system-view
-[Switch4]interface GigabitEthernet0/0/1
-[Switch4-GigabitEthernet0/0/1]port link-type access
-[Switch4-GigabitEthernet0/0/1]port default vlan 10
-[Switch4-GigabitEthernet0/0/1]interface GigabitEthernet0/0/2
-[Switch4-GigabitEthernet0/0/2]port link-type access
-[Switch4-GigabitEthernet0/0/2]port default vlan 20
-[Switch4-GigabitEthernet0/0/2]interface GigabitEthernet0/0/3
-[Switch4-GigabitEthernet0/0/3]port link-type access
-[Switch4-GigabitEthernet0/0/3]port default vlan 30
-[Switch4-GigabitEthernet0/0/3]save</code></pre>
+Switch4(config)# vlan 10
+Switch4(config-vlan)# name RH
+Switch4(config-vlan)# exit
+Switch4(config)# vlan 20
+Switch4(config-vlan)# name TI
+Switch4(config-vlan)# exit
+Switch4(config)# vlan 30
+Switch4(config-vlan)# name Finanzas
+Switch4(config-vlan)# exit
+Switch4(config)# interface GigabitEthernet0/0/0
+Switch4(config-if)# switchport trunk encapsulation dot1q
+Switch4(config-if)# switchport mode trunk
+Switch4(config-if)# switchport trunk native 1
+Switch4(config-if)# switchport trunk allowed vlan all
+Switch4(config-vlan)# exit
+Switch4(config)# interface GigabitEthernet0/1
+Switch4(config-if)# switchport mode access
+Switch4(config-if)# switchport access vlan 10
+Switch4(config-if)# exit
+Switch4(config)# interface GigabitEthernet0/2
+Switch4(config-if)# switchport mode access
+Switch4(config-if)# switchport access vlan 20
+Switch4(config-if)# exit
+Switch4(config)# interface GigabitEthernet0/3
+Switch4(config-if)# switchport mode access
+Switch4(config-if)# switchport access vlan 30
+Switch4(config-if)# end
+Switch4# copy running-config startup-config</code></pre>
                     </div>
                 </div>
-                <h2></h2>
+                <p>El comando <marcador class="subrayado">switchport trunk native vlan 10</marcador> establece la VLAN 10 como la VLAN nativa para el tráfico no etiquetado que ingresa al troncal. El tráfico que ingresa a la VLAN nativa no necesita etiquetarse con una VLAN específica.</p>
+                <h6>VTP</h6>
+                <p>El Protocolo de Trama VLAN (VTP, por sus siglas en inglés: VLAN Trunking Protocol) es un protocolo de Cisco que permite la propagación automática de información de configuración de VLAN a través de una red de switches. Su objetivo principal es simplificar la administración de VLAN en una red, automatizando la distribución de la información de configuración de VLAN a través de la red.</p>
+                <p>Cuando se configura un switch como servidor VTP, cualquier cambio realizado en la configuración de VLAN en ese switch se propaga automáticamente a través de la red a otros switches que estén configurados para participar en el mismo dominio de VTP.</p>
+                <p>Los switches VTP intercambian información de configuración de VLAN, como nombres de VLAN, números de VLAN y estados de VLAN, lo que asegura que todos los switches en la red tengan una visión coherente de la configuración de VLAN.</p>
+                <p>Al hacer un cambio en la configuración de VLAN en un switch VTP servidor, esos cambios se propagan automáticamente a otros switches VTP, eliminando la necesidad de configurar cada switch de forma individual.</p>
+                <p>VTP utiliza un número de revisión para realizar un seguimiento de la versión de la información de configuración de VLAN. Si un switch con una revisión más antigua se une a la red, no se le permitirá sobrescribir la configuración existente a menos que tenga una revisión más alta.</p>
+                <p>Normalmente, en los switches que están conectados en modo trunk, solo es necesario activarlo en un lado del enlace, en este caso, el Switch1 que trabaja en la capa 3 y distribuye el tráfico de los switches que están en modo acceso.</p>
+                <p>A continuación, se muestra cómo realizar una configuración mediante VTP:</p>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>Switch1(config)# vlan 10
+Switch1(config-vlan)# name RH
+Switch1(config-vlan)# exit
+Switch1(config)# vlan 20
+Switch1(config-vlan)# name TI
+Switch1(config-vlan)# exit
+Switch1(config)# vlan 30
+Switch1(config-vlan)# name Finanzas
+Switch1(config-vlan)# exit
+Switch1(config)# vtp mode server
+Switch1(config)# vtp domain test.com
+Switch1(config)# interface range GigabitEthernet0/2-4
+Switch1(config-if)# switchport trunk encapsulation dot1q
+Switch1(config-if)# switchport mode trunk
+Switch1(config-if)# switchport trunk allowed vlan 10,20,30
+Switch1(config-if)# switchport trunk native vlan 1
+Switch1(config-if)# exit
+Switch1(config)# interface vlan 10
+Switch1(config-if)# ip address 192.168.10.1 255.255.255.0
+Switch1(config-if)# description vlan10
+Switch1(config-if)# exit
+Switch1(config)# interface vlan 20
+Switch1(config-if)# ip address 192.168.20.1 255.255.255.0
+Switch1(config-if)# description vlan20
+Switch1(config-if)# exit
+Switch1(config)# interface vlan 30
+Switch1(config-if)# ip address 192.168.30.1 255.255.255.0
+Switch1(config-if)# description vlan30
+Switch1(config-if)# exit
+Switch1(config)# ip routing
+Switch1(config-if)# end
+Switch1# copy running-config startup-config
+
+Switch2(config)# vtp mode client
+Switch2(config)# vtp domain test.com
+Switch2(config)# interface GigabitEthernet0/1
+Switch2(config-if)# switchport mode access
+Switch2(config-if)# switchport access vlan 10
+Switch2(config-if)# exit
+Switch2(config)# interface GigabitEthernet0/2
+Switch2(config-if)# switchport mode access
+Switch2(config-if)# switchport access vlan 20
+Switch2(config-if)# exit
+Switch2(config)# interface GigabitEthernet0/3
+Switch2(config-if)# switchport mode access
+Switch2(config-if)# switchport access vlan 30
+Switch2(config-if)# end
+Switch2# copy running-config startup-config
+
+Switch3(config)# vtp mode client
+Switch3(config)# vtp domain test.com
+Switch3(config)# interface GigabitEthernet0/1
+Switch3(config-if)# switchport mode access
+Switch3(config-if)# switchport access vlan 10
+Switch3(config-if)# exit
+Switch3(config)# interface GigabitEthernet0/2
+Switch3(config-if)# switchport mode access
+Switch3(config-if)# switchport access vlan 20
+Switch3(config-if)# exit
+Switch3(config)# interface range GigabitEthernet0/3
+Switch3(config-if)# switchport mode access
+Switch3(config-if)# switchport access vlan 30
+Switch3(config-if)# end
+Switch3# copy running-config startup-config
+
+Switch4(config)# vtp mode client
+Switch4(config)# vtp domain test.com
+Switch4(config)# interface GigabitEthernet0/1
+Switch4(config-if)# switchport mode access
+Switch4(config-if)# switchport access vlan 10
+Switch4(config-if)# exit
+Switch4(config)# interface GigabitEthernet0/2
+Switch4(config-if)# switchport mode access
+Switch4(config-if)# switchport access vlan 20
+Switch4(config-if)# exit
+Switch4(config)# interface GigabitEthernet0/3
+Switch4(config-if)# switchport mode access
+Switch4(config-if)# switchport access vlan 30
+Switch4(config-if)# end
+Switch4# copy running-config startup-config</code></pre>
+                    </div>
+                </div>
+                <h3>Huawei</h3>
+                <h6>Inter-VLAN Routing</h6>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>&lt;Huawei-Router&gt;system-view
+[Huawei-Router]interface GigabitEthernet0/2
+[Huawei-Router-GigabitEthernet0/2]undo shutdown
+[Huawei-Router-GigabitEthernet0/2]quit
+[Huawei-Router]interface GigabitEthernet0/3
+[Huawei-Router-GigabitEthernet0/3]undo shutdown
+[Huawei-Router-GigabitEthernet0/3]quit
+[Huawei-Router]interface GigabitEthernet0/4
+[Huawei-Router-GigabitEthernet0/4]undo shutdown
+[Huawei-Router-GigabitEthernet0/4]quit
+[Huawei-Router]interface GigabitEthernet0/2.10
+[Huawei-Router-GigabitEthernet0/2.10]encapsulation dot1Q 10
+[Huawei-Router-GigabitEthernet0/2.10]ip address 192.168.10.1 255.255.255.0
+[Huawei-Router-GigabitEthernet0/2.10]quit
+[Huawei-Router]interface GigabitEthernet0/2.20
+[Huawei-Router-GigabitEthernet0/2.20]encapsulation dot1Q 20
+[Huawei-Router-GigabitEthernet0/2.20]ip address 192.168.20.1 255.255.255.0
+[Huawei-Router-GigabitEthernet0/2.20]quit
+[Huawei-Router]interface GigabitEthernet0/2.30
+[Huawei-Router-GigabitEthernet0/2.30]encapsulation dot1Q 30
+[Huawei-Router-GigabitEthernet0/2.30]ip address 192.168.30.1 255.255.255.0
+[Huawei-Router-GigabitEthernet0/2.30]quit
+[Huawei-Router]interface GigabitEthernet0/3.10
+[Huawei-Router-GigabitEthernet0/3.10]encapsulation dot1Q 10
+[Huawei-Router-GigabitEthernet0/3.10]ip address 192.168.10.1 255.255.255.0
+[Huawei-Router-GigabitEthernet0/3.10]quit
+[Huawei-Router]interface GigabitEthernet0/3.20
+[Huawei-Router-GigabitEthernet0/3.20]encapsulation dot1Q 20
+[Huawei-Router-GigabitEthernet0/3.20]ip address 192.168.20.1 255.255.255.0
+[Huawei-Router-GigabitEthernet0/3.20]quit
+[Huawei-Router]interface GigabitEthernet0/3.30
+[Huawei-Router-GigabitEthernet0/3.30]encapsulation dot1Q 30
+[Huawei-Router-GigabitEthernet0/3.30]ip address 192.168.30.1 255.255.255.0
+[Huawei-Router-GigabitEthernet0/3.30]quit
+[Huawei-Router]interface GigabitEthernet0/4.10
+[Huawei-Router-GigabitEthernet0/4.10]encapsulation dot1Q 10
+[Huawei-Router-GigabitEthernet0/4.10]ip address 192.168.10.1 255.255.255.0
+[Huawei-Router-GigabitEthernet0/4.10]quit
+[Huawei-Router]interface GigabitEthernet0/4.20
+[Huawei-Router-GigabitEthernet0/4.20]encapsulation dot1Q 20
+[Huawei-Router-GigabitEthernet0/4.20]ip address 192.168.20.1 255.255.255.0
+[Huawei-Router-GigabitEthernet0/4.20]quit
+[Huawei-Router]interface GigabitEthernet0/4.30
+[Huawei-Router-GigabitEthernet0/4.30]encapsulation dot1Q 30
+[Huawei-Router-GigabitEthernet0/4.30]ip address 192.168.30.1 255.255.255.0
+[Huawei-Router-GigabitEthernet0/4.30]quit
+[Huawei-Router]save
+
+&lt;Huawei-Switch2&gt;system-view
+[Huawei-Switch2]vlan 10
+[Huawei-Switch2-vlan10]name RH
+[Huawei-Switch2-vlan10]quit
+[Huawei-Switch2]vlan 20
+[Huawei-Switch2-vlan20]name TI
+[Huawei-Switch2-vlan20]quit
+[Huawei-Switch2]vlan 30
+[Huawei-Switch2-vlan30]name Finanzas
+[Huawei-Switch2-vlan30]quit
+[Huawei-Switch2]interface GigabitEthernet0/0/0
+[Huawei-Switch2-GigabitEthernet0/0/0]port link-type trunk
+[Huawei-Switch2-GigabitEthernet0/0/0]port trunk allow-pass vlan all
+[Huawei-Switch2-GigabitEthernet0/0/0]port trunk pvid vlan 1
+[Huawei-Switch2-GigabitEthernet0/0/0]quit
+[Huawei-Switch2]interface GigabitEthernet0/0/1
+[Huawei-Switch2-GigabitEthernet0/0/1]port link-type access
+[Huawei-Switch2-GigabitEthernet0/0/1]port default vlan 10
+[Huawei-Switch2-GigabitEthernet0/0/1]quit
+[Huawei-Switch2]interface GigabitEthernet0/0/2
+[Huawei-Switch2-GigabitEthernet0/0/2]port link-type access
+[Huawei-Switch2-GigabitEthernet0/0/2]port default vlan 20
+[Huawei-Switch2-GigabitEthernet0/0/2]quit
+[Huawei-Switch2]interface GigabitEthernet0/0/3
+[Huawei-Switch2-GigabitEthernet0/0/3]port link-type access
+[Huawei-Switch2-GigabitEthernet0/0/3]port default vlan 30
+[Huawei-Switch2-GigabitEthernet0/0/3]quit
+[Huawei-Switch2]save
+
+&lt;Huawei-Switch3&gt;system-view
+[Huawei-Switch3]vlan 10
+[Huawei-Switch3-vlan10]name RH
+[Huawei-Switch3-vlan10]quit
+[Huawei-Switch3]vlan 20
+[Huawei-Switch3-vlan20]name TI
+[Huawei-Switch3-vlan20]quit
+[Huawei-Switch3]vlan 30
+[Huawei-Switch3-vlan30]name Finanzas
+[Huawei-Switch3-vlan30]quit
+[Huawei-Switch3]interface GigabitEthernet0/0/0
+[Huawei-Switch3-GigabitEthernet0/0/0]port link-type trunk
+[Huawei-Switch3-GigabitEthernet0/0/0]port trunk allow-pass vlan all
+[Huawei-Switch3-GigabitEthernet0/0/0]port trunk pvid vlan 1
+[Huawei-Switch3-GigabitEthernet0/0/0]quit
+[Huawei-Switch3]interface GigabitEthernet0/0/1
+[Huawei-Switch3-GigabitEthernet0/0/1]port link-type access
+[Huawei-Switch3-GigabitEthernet0/0/1]port default vlan 10
+[Huawei-Switch3-GigabitEthernet0/0/1]quit
+[Huawei-Switch3]interface GigabitEthernet0/0/2
+[Huawei-Switch3-GigabitEthernet0/0/2]port link-type access
+[Huawei-Switch3-GigabitEthernet0/0/2]port default vlan 20
+[Huawei-Switch3-GigabitEthernet0/0/2]quit
+[Huawei-Switch3]interface GigabitEthernet0/0/3
+[Huawei-Switch3-GigabitEthernet0/0/3]port link-type access
+[Huawei-Switch3-GigabitEthernet0/0/3]port default vlan 30
+[Huawei-Switch3-GigabitEthernet0/0/3]quit
+[Huawei-Switch3]save
+
+&lt;Huawei-Switch4&gt;system-view
+[Huawei-Switch4]vlan 10
+[Huawei-Switch4-vlan10]name RH
+[Huawei-Switch4-vlan10]quit
+[Huawei-Switch4]vlan 20
+[Huawei-Switch4-vlan20]name TI
+[Huawei-Switch4-vlan20]quit
+[Huawei-Switch4]vlan 30
+[Huawei-Switch4-vlan30]name Finanzas
+[Huawei-Switch4-vlan30]quit
+[Huawei-Switch4]interface GigabitEthernet0/0/0
+[Huawei-Switch4-GigabitEthernet0/0/0]port link-type trunk
+[Huawei-Switch4-GigabitEthernet0/0/0]port trunk allow-pass vlan all
+[Huawei-Switch4-GigabitEthernet0/0/0]port trunk pvid vlan 1
+[Huawei-Switch4-GigabitEthernet0/0/0]quit
+[Huawei-Switch4]interface GigabitEthernet0/0/1
+[Huawei-Switch4-GigabitEthernet0/0/1]port link-type access
+[Huawei-Switch4-GigabitEthernet0/0/1]port default vlan 10
+[Huawei-Switch4-GigabitEthernet0/0/1]quit
+[Huawei-Switch4]interface GigabitEthernet0/0/2
+[Huawei-Switch4-GigabitEthernet0/0/2]port link-type access
+[Huawei-Switch4-GigabitEthernet0/0/2]port default vlan 20
+[Huawei-Switch4-GigabitEthernet0/0/2]quit
+[Huawei-Switch4]interface GigabitEthernet0/0/3
+[Huawei-Switch4-GigabitEthernet0/0/3]port link-type access
+[Huawei-Switch4-GigabitEthernet0/0/3]port default vlan 30
+[Huawei-Switch4-GigabitEthernet0/0/3]quit
+[Huawei-Switch4]save
+</code></pre>
+                    </div>
+                </div>
+                <h6>VTP</h6>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code># Configuración del Switch1 (Switch de capa 3)
+&lt;Huawei-Switch1&gt;system-view
+[Huawei-Switch1]interface vlan 10
+[Huawei-Switch1-Vlan10]vlan 10
+[Huawei-Switch1-Vlan10]name RH
+[Huawei-Switch1-Vlan10]quit
+[Huawei-Switch1]interface vlan 20
+[Huawei-Switch1-Vlan20]vlan 20
+[Huawei-Switch1-Vlan20]name TI
+[Huawei-Switch1-Vlan20]quit
+[Huawei-Switch1]interface vlan 30
+[Huawei-Switch1-Vlan30]vlan 30
+[Huawei-Switch1-Vlan30]name Finanzas
+[Huawei-Switch1-Vlan30]quit
+[Huawei-Switch1]vtp mode server
+[Huawei-Switch1]vtp domain test.com
+[Huawei-Switch1]interface GigabitEthernet0/0/2
+[Huawei-Switch1-GigabitEthernet0/0/2]port link-type trunk
+[Huawei-Switch1-GigabitEthernet0/0/2]port trunk allow-pass vlan 10 20 30
+[Huawei-Switch1-GigabitEthernet0/0/2]port trunk pvid vlan 1
+[Huawei-Switch1-GigabitEthernet0/0/2]quit
+[Huawei-Switch1]interface vlanif 10
+[Huawei-Switch1-Vlanif10]ip address 192.168.10.1 24
+[Huawei-Switch1-Vlanif10]description vlan10
+[Huawei-Switch1-Vlanif10]quit
+[Huawei-Switch1]interface vlanif 20
+[Huawei-Switch1-Vlanif20]ip address 192.168.20.1 24
+[Huawei-Switch1-Vlanif20]description vlan20
+[Huawei-Switch1-Vlanif20]quit
+[Huawei-Switch1]interface vlanif 30
+[Huawei-Switch1-Vlanif30]ip address 192.168.30.1 24
+[Huawei-Switch1-Vlanif30]description vlan30
+[Huawei-Switch1-Vlanif30]quit
+[Huawei-Switch1]ip routing
+[Huawei-Switch1]save
+
+&lt;Huawei-Switch2&gt;system-view
+[Huawei-Switch2]vtp mode client
+[Huawei-Switch2]vtp domain test.com
+[Huawei-Switch2]interface GigabitEthernet0/0/1
+[Huawei-Switch2-GigabitEthernet0/0/1]port link-type access
+[Huawei-Switch2-GigabitEthernet0/0/1]port default vlan 10
+[Huawei-Switch2-GigabitEthernet0/0/1]quit
+[Huawei-Switch2]interface GigabitEthernet0/0/2
+[Huawei-Switch2-GigabitEthernet0/0/2]port link-type access
+[Huawei-Switch2-GigabitEthernet0/0/2]port default vlan 20
+[Huawei-Switch2-GigabitEthernet0/0/2]quit
+[Huawei-Switch2]interface GigabitEthernet0/0/3
+[Huawei-Switch2-GigabitEthernet0/0/3]port link-type access
+[Huawei-Switch2-GigabitEthernet0/0/3]port default vlan 30
+[Huawei-Switch2-GigabitEthernet0/0/3]quit
+&lt;Huawei-Switch2&gt;save
+
+&lt;Huawei-Switch3&gt;system-view
+[Huawei-Switch3]vtp mode client
+[Huawei-Switch3]vtp domain test.com
+[Huawei-Switch3]interface GigabitEthernet0/0/1
+[Huawei-Switch3-GigabitEthernet0/0/1]port link-type access
+[Huawei-Switch3-GigabitEthernet0/0/1]port default vlan 10
+[Huawei-Switch3-GigabitEthernet0/0/1]quit
+[Huawei-Switch3]interface GigabitEthernet0/0/2
+[Huawei-Switch3-GigabitEthernet0/0/2]port link-type access
+[Huawei-Switch3-GigabitEthernet0/0/2]port default vlan 20
+[Huawei-Switch3-GigabitEthernet0/0/2]quit
+[Huawei-Switch3]interface GigabitEthernet0/0/3
+[Huawei-Switch3-GigabitEthernet0/0/3]port link-type access
+[Huawei-Switch3-GigabitEthernet0/0/3]port default vlan 30
+[Huawei-Switch3-GigabitEthernet0/0/3]quit
+&lt;Huawei-Switch3&gt;save
+
+&lt;Huawei-Switch4&gt;system-view
+[Huawei-Switch4]vtp mode client
+[Huawei-Switch4]vtp domain test.com
+[Huawei-Switch4]interface GigabitEthernet0/0/1
+[Huawei-Switch4-GigabitEthernet0/0/1]port link-type access
+[Huawei-Switch4-GigabitEthernet0/0/1]port default vlan 10
+[Huawei-Switch4-GigabitEthernet0/0/1]quit
+[Huawei-Switch4]interface GigabitEthernet0/0/2
+[Huawei-Switch4-GigabitEthernet0/0/2]port link-type access
+[Huawei-Switch4-GigabitEthernet0/0/2]port default vlan 20
+[Huawei-Switch4-GigabitEthernet0/0/2]quit
+[Huawei-Switch4]interface GigabitEthernet0/0/3
+[Huawei-Switch4-GigabitEthernet0/0/3]port link-type access
+[Huawei-Switch4-GigabitEthernet0/0/3]port default vlan 30
+[Huawei-Switch4-GigabitEthernet0/0/3]quit
+&lt;Huawei-Switch3&gt;save</code></pre>
+                    </div>
+                </div>
+                <h2>Puerto Híbirdo</h2>
                 <p>Un puerto VLAN híbrido es una característica en switches Huawei que permite que un puerto participe en múltiples VLANs simultáneamente, y maneje tanto tráfico etiquetado con VLAN como tráfico que no está etiquetado. Esta configuración es particularmente útil en situaciones donde necesitas conectar dispositivos que operan en VLANs específicas con aquellos que no están configurados para usar VLANs.</p>
                 <p>Imagina una red donde tienes varios dispositivos, algunos configurados para operar en diferentes VLANs y otros que no están configurados para VLANs en absoluto. Aquí es donde entra en juego el puerto VLAN híbrido. Puedes configurar este tipo de puerto para permitir que un dispositivo conectado maneje tanto tráfico etiquetado con VLAN como tráfico nativo no etiquetado.</p>
                 <p>Por ejemplo, podrías tener un punto de acceso inalámbrico que necesita comunicarse con dispositivos en diferentes VLANs, así como con dispositivos que no están configurados para VLANs, como teléfonos o impresoras. Al conectar este punto de acceso a un puerto VLAN híbrido, puedes permitir que maneje el tráfico de todas las VLANs necesarias, así como el tráfico no etiquetado.</p>
