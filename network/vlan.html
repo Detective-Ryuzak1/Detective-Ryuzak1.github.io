@@ -564,8 +564,11 @@ Switch4# copy running-config startup-config</code></pre>
 </code></pre>
                     </div>
                 </div>
-                <h6>VTP</h6>
+                <h6>Switch Capa 3</h6>
+                <p>Estos switches de capa 3 tienen capacidades de enrutamiento incorporadas, lo que les permite manejar múltiples VLANs y dirigir el tráfico entre ellas eficientemente dentro de la red local.</p>
+                <p>Los routers son dispositivos diseñados específicamente para el enrutamiento de datos entre redes y ofrecen funcionalidades avanzadas de enrutamiento y seguridad. El tráfico entre VLANs que se envía al router para su procesamiento y enrutamiento, puede introducir cierta latencia adicional en comparación con los switches de capa 3.</p>
                 <p>De igual manera se va a usar la topología de red que se muestra en la imagen anterior para configurar los dispositivos de red, solo que se usa un switch capa 3 (switch1), con el cual podrán comunicarse todas las VLANs entre sí.<p>
+                <p>A continuación, se muestra como establecer la conectividad entre todas las VLANs a través de todos los switches configurados en modo de acceso:</p>
                 <div class="consola">
                     <div class="barra-superior-consola">
                         <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
@@ -609,8 +612,15 @@ Switch4# copy running-config startup-config</code></pre>
 [Huawei-Switch1]save
 
 &lt;Huawei-Switch2&gt;system-view
-[Huawei-Switch2]vtp mode client
-[Huawei-Switch2]vtp domain test.com
+[Huawei-Switch2]vlan 10
+[Huawei-Switch2-vlan10]name RH
+[Huawei-Switch2-vlan10]quit
+[Huawei-Switch2]vlan 20
+[Huawei-Switch2-vlan20]name TI
+[Huawei-Switch2-vlan20]quit
+[Huawei-Switch2]vlan 30
+[Huawei-Switch2-vlan30]name Finanzas
+[Huawei-Switch2-vlan30]quit
 [Huawei-Switch2]interface GigabitEthernet0/0/1
 [Huawei-Switch2-GigabitEthernet0/0/1]port link-type access
 [Huawei-Switch2-GigabitEthernet0/0/1]port default vlan 10
@@ -626,8 +636,15 @@ Switch4# copy running-config startup-config</code></pre>
 &lt;Huawei-Switch2&gt;save
 
 &lt;Huawei-Switch3&gt;system-view
-[Huawei-Switch3]vtp mode client
-[Huawei-Switch3]vtp domain test.com
+[Huawei-Switch3]vlan 10
+[Huawei-Switch3-vlan10]name RH
+[Huawei-Switch3-vlan10]quit
+[Huawei-Switch3]vlan 20
+[Huawei-Switch3-vlan20]name TI
+[Huawei-Switch3-vlan20]quit
+[Huawei-Switch3]vlan 30
+[Huawei-Switch3-vlan30]name Finanzas
+[Huawei-Switch3-vlan30]quit
 [Huawei-Switch3]interface GigabitEthernet0/0/1
 [Huawei-Switch3-GigabitEthernet0/0/1]port link-type access
 [Huawei-Switch3-GigabitEthernet0/0/1]port default vlan 10
@@ -643,8 +660,15 @@ Switch4# copy running-config startup-config</code></pre>
 &lt;Huawei-Switch3&gt;save
 
 &lt;Huawei-Switch4&gt;system-view
-[Huawei-Switch4]vtp mode client
-[Huawei-Switch4]vtp domain test.com
+[Huawei-Switch4]vlan 10
+[Huawei-Switch4-vlan10]name RH
+[Huawei-Switch4-vlan10]quit
+[Huawei-Switch4]vlan 20
+[Huawei-Switch4-vlan20]name TI
+[Huawei-Switch4-vlan20]quit
+[Huawei-Switch4]vlan 30
+[Huawei-Switch4-vlan30]name Finanzas
+[Huawei-Switch4-vlan30]quit
 [Huawei-Switch4]interface GigabitEthernet0/0/1
 [Huawei-Switch4-GigabitEthernet0/0/1]port link-type access
 [Huawei-Switch4-GigabitEthernet0/0/1]port default vlan 10
