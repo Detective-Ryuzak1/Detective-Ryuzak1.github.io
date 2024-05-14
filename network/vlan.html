@@ -171,7 +171,7 @@ Switch4# copy running-config startup-config</code></pre>
                 <p>El comando <marcador class="subrayado">show vlan brief</marcador> se utiliza para mostrar un resumen de la configuración de VLAN en el dispositivo.</p>
                 <p>En la topología, el Switch1 actúa como un switch de capa 3, mientras que los Switches 2, 3 y 4 son switches de capa 2. Cuando se conectan estos switches, se está creando un enlace troncal entre ellos a través del Switch1.</p>
                 <p>El problema radica en que, por defecto, los switches de capa 2 no pueden enrutar el tráfico entre diferentes VLANs. Aunque tienes una conexión física entre las VLANs a través del Switch1, los switches de capa 2 no pueden entender las direcciones IP ni enrutar el tráfico entre ellas.</p>
-                <p>Para permitir que el tráfico de VLAN pase entre los switches 2, 3 y 4 a través del Switch1, necesitas configurar el Switch1 para que actúe como un enrutador inter-VLAN. Esto implica configurar interfaces de capa 3 en el Switch1 para cada VLAN y agregar rutas estáticas o configurar un protocolo de enrutamiento, como RIP o OSPF.</p>
+                <p>Para permitir que el tráfico de VLAN pase entre los switches 2, 3 y 4 a través del Switch1, necesitas configurar el Switch1 para que actúe como un enrutador inter-VLAN. Esto implica configurar interfaces vlan en el Switch1 para cada VLAN.</p>
                 <p>Una vez configurado como un enrutador inter-VLAN, el Switch1 podrá enrutar el tráfico entre las VLANs, permitiendo que la VLAN 10 se comunique con la VLAN 20 a través de él.</p>
                 <h6>Inter-VLAN Routing</h6>
                 <p>En la siguiente configuración, los Switches 2, 3 y 4 tienen sus puertos configurados como puertos de acceso para sus respectivas VLANs. El router tiene una interfaz configurada para cada una de las VLANs, y actuará como un router inter-VLAN para enrutar el tráfico entre ellas.</p>
@@ -326,8 +326,7 @@ Switch4# copy running-config startup-config</code></pre>
                 <p>VTP utiliza un número de revisión para realizar un seguimiento de la versión de la información de configuración de VLAN. Si un switch con una revisión más antigua se une a la red, no se le permitirá sobrescribir la configuración existente a menos que tenga una revisión más alta.</p>
                 <p>Normalmente, los puertos de los switches que están conectados en modo trunk, solo es necesario activarlo en un lado del enlace, en este caso, el Switch1 que trabaja en la capa 3 y distribuye el tráfico de los switches que están en modo acceso.</p>
                 <p>De igual manera se va a usar la topología que se muestra en la imagen anterior para configurar los dispositivos de red, solo que se usa un switch capa 3 (switch1), con el cual podrán comunicarse todas las VLANs entre sí.<p>
-                <p>Habilita la conectividad entre redes o VLANs separadas, permitiendo que el switch maneje el tráfico entre redes.</p>
-                <p>A continuación, se muestra cómo realizar una configuración mediante VTP:</p>
+                <p>A continuación, se muestra cómo realizar una configuración mediante VTP y habilitar la conectividad entre todas las VLANs, a través de todos los swiches configurados como acceso:</p>
                 <div class="consola">
                     <div class="barra-superior-consola">
                         <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
