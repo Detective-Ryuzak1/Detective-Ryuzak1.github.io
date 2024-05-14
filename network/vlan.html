@@ -172,7 +172,7 @@ Switch4# copy running-config startup-config</code></pre>
                 <p>El problema radica en que, por defecto, los switches de capa 2 no pueden enrutar el tráfico entre diferentes VLANs. Aunque tienes una conexión física entre las VLANs a través del Switch1, los switches de capa 2 no pueden entender las direcciones IP ni enrutar el tráfico entre ellas.</p>
                 <p>Para permitir que el tráfico de VLAN pase entre los switches 2, 3 y 4 a través del Switch1, necesitas configurar el Switch1 para que actúe como un enrutador inter-VLAN. Esto implica configurar interfaces de capa 3 en el Switch1 para cada VLAN y agregar rutas estáticas o configurar un protocolo de enrutamiento, como RIP o OSPF.</p>
                 <p>Una vez configurado como un enrutador inter-VLAN, el Switch1 podrá enrutar el tráfico entre las VLANs, permitiendo que la VLAN 10 se comunique con la VLAN 20 a través de él.</p>
-                <h6>Router Inter-VLAN</h6>
+                <h6>Inter-VLAN Routing</h6>
                 <p>En la siguiente configuración, los Switches 2, 3 y 4 tienen sus puertos configurados como puertos de acceso para sus respectivas VLANs. El router tiene una interfaz configurada para cada una de las VLANs, y actuará como un router inter-VLAN para enrutar el tráfico entre ellas.</p>
                 <div class="consola">
                     <div class="barra-superior-consola">
@@ -414,6 +414,8 @@ Switch4# copy running-config startup-config</code></pre>
                 </div>
                 <h3>Huawei</h3>
                 <h6>Inter-VLAN Routing</h6>
+                <p>No es necesario configurar protocolos de enrutamiento si las VLANs están en diferentes dominios de broadcas.</p>
+                <p>Las VLANs en los switches se comunicarán entre sí a través del router sin problemas. Esto se debe a que el router está configurado con subinterfaces para cada VLAN y actúa como una puerta de enlace entre ellas.</p>
                 <div class="consola">
                     <div class="barra-superior-consola">
                         <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
