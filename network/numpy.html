@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <link rel="icon" href="../media/imagen9.png" type="image/png">
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Bonus">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <h1>Numpy</h1>
+                <p>NumPy, que significa "Numerical Python", es una biblioteca de código abierto para Python que proporciona una poderosa colección de herramientas y funciones para trabajar con matrices y arreglos multidimensionales. NumPy es extremadamente eficiente en el manejo de grandes conjuntos de datos numéricos y es ampliamente utilizado en una variedad de campos, incluyendo la ciencia de datos, la ingeniería, la física, las matemáticas y más.</p>
+                <h2>Ventajas de NumPy sobre Listas en Python</h2>
+                <p>Aunque Python ofrece listas como estructuras de datos nativas para almacenar datos, NumPy proporciona varias ventajas sobre el uso de listas en el contexto de manipulación de datos numéricos:</p>
+                <ul>
+                    <li><marcador class="resaltado4">Eficiencia: </marcador>NumPy está escrito en C, lo que significa que las operaciones realizadas en NumPy son mucho más rápidas que las operaciones equivalentes en listas de Python, especialmente para conjuntos de datos grandes.</li>
+                    <li><marcador class="resaltado4">Capacidad de Cálculo Vectorizado: </marcador>NumPy permite realizar cálculos vectorizados, lo que significa que las operaciones se aplican a todas las entradas de una matriz simultáneamente, lo que resulta en un código más conciso y rápido.</li>
+                    <li><marcador class="resaltado4">Optimización de Memoria: </marcador>NumPy utiliza tipos de datos numéricos nativos de bajo nivel, lo que permite un uso eficiente de la memoria y un menor consumo de memoria en comparación con las listas de Python.</li>
+                    <li><marcador class="resaltado4">Funciones Matemáticas Avanzadas: </marcador>NumPy ofrece una amplia gama de funciones matemáticas y estadísticas avanzadas que no están disponibles en las listas de Python, lo que facilita el análisis de datos complejos y la implementación de algoritmos sofisticados.</li>
+                </ul>    
+                <div class="blog-image-grande">
+                    <img src="media/numpy1.png" alt="">
+                </div>
+                <h2>Principales Usos de NumPy</h2>
+                <ul>
+                    <li><marcador class="resaltado4">Manipulación de Datos Numéricos: </marcador>NumPy facilita la manipulación de datos numéricos al proporcionar una amplia gama de funciones y operaciones optimizadas para trabajar con matrices y arreglos. Esto incluye operaciones aritméticas básicas, funciones matemáticas, generación de números aleatorios, y más.</li>
+                    <li><marcador class="resaltado4">Álgebra Lineal: </marcador>NumPy ofrece un conjunto completo de funciones para realizar operaciones de álgebra lineal, como cálculo de determinantes, inversas de matrices, descomposición de valores singulares (SVD), eigenvalores y eigenvectores, entre otros.</li>
+                    <li><marcador class="resaltado4">Procesamiento de Imágenes y Señales: </marcador>NumPy es ampliamente utilizado en el procesamiento de imágenes y señales debido a su capacidad para manejar matrices multidimensionales de manera eficiente. La biblioteca ofrece funciones para cargar, manipular y analizar imágenes y señales de manera rápida y sencilla.</li>
+                </ul>
+                <h2>Instalación</h2>
+                <p>Numpy es una librería de Python que puede instalarse fácilmente utilizando pip, el gestor de paquetes de Python.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Abre tu terminal o línea de comandos y ejecuta el siguiente comando:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="pip install numpy" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <h2>Conclusión</h2>
+                <p>NumPy es una biblioteca fundamental en el ecosistema de Python para el procesamiento y análisis de datos numéricos. Su eficiencia, capacidad de cálculo vectorizado y amplio conjunto de funciones lo convierten en una herramienta indispensable para científicos de datos, ingenieros y cualquier persona que trabaje con datos numéricos en Python. Aunque Python ofrece listas como una estructura de datos versátil, NumPy ofrece ventajas significativas en términos de velocidad, eficiencia y funcionalidad para tareas relacionadas con el procesamiento de datos numéricos.</p>
+                <h2>Ejemplos</h2>
+                <p>Haz click <a href="https://github.com/Detective-Ryuzak1/Machine-Learnig-examples/blob/main/Numpy/Numpy.ipynb" target="blank">aquí</a> para ver algunos ejemplos de uso con Numpy.</p>
+                <div class="blog-image-grande">
+                    <img src="media/numpy2.jpg" alt="">
+                </div>
+            </div>  
+        </div>     
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
