@@ -38,7 +38,7 @@
         <div class="cover">
             <div class="text__articulo-cover">
                 <h1>Fuzzing Web</h1>
-                <p>El fuzzing web es una técnica esencial en la seguridad informática y la auditoría de aplicaciones web que se utiliza para descubrir recursos y archivos ocultos que no están fácilmente accesibles o visibles a través de métodos de navegación convencionales. Esta técnica busca identificar directorios, archivos y endpoints que podrían estar mal configurados o expuestos y que podrían ser vulnerables a ataques. A continuación, exploramos algunas de las herramientas más populares para realizar fuzzing en aplicaciones web: ffuf, wfuzz, gobuster y dirsearch.</p>
+                <p>El fuzzing web es una técnica esencial en la seguridad informática y la auditoría de aplicaciones web que se utiliza para descubrir recursos y archivos ocultos que no están fácilmente accesibles o visibles a través de métodos de navegación convencionales. Esta técnica busca identificar directorios, archivos y endpoints que podrían estar mal configurados o expuestos y que podrían ser vulnerables a ataques. A continuación, exploramos algunas de las herramientas más populares para realizar fuzzing en aplicaciones web.</p>
                 <div class="blog-image">
                     <img src="media/fuzz.jpg" alt="">
                 </div>
@@ -49,7 +49,7 @@
                     <li><marcador class="resaltado1">rockyou.txt</marcador>: Una lista de contraseñas muy popular que se usa para ataques de fuerza bruta debido a su tamaño extenso y la variedad de contraseñas comunes.</li>
                     <li><marcador class="resaltado1">common.txt</marcador>: Contiene una lista de palabras y directorios comunes, útil para pruebas generales de seguridad.</li>
                 </ul>
-                <p>Es crucial añadir el dominio al archivo /etc/hosts cuando se trabaja con pruebas de seguridad y auditorías, especialmente si el dominio no se resuelve automáticamente. Esto asegura que las peticiones realizadas por las herramientas de escaneo y fuzzing se dirijan correctamente al servidor objetivo. Por ejemplo, si tienes un dominio como sea.htb que se resuelve a una IP específica, agregar la siguiente línea al archivo /etc/hosts garantizará que el dominio se resuelva correctamente durante tus pruebas:</p>
+                <p>Es crucial añadir el dominio al archivo /etc/hosts cuando se trabaja con pruebas de seguridad y auditorías, cuando el dominio no se resuelve automáticamente por el servidor DNS. Esto asegura que las peticiones realizadas por las herramientas de escaneo y fuzzing se dirijan correctamente al servidor objetivo. Por ejemplo, si tienes un dominio como sea.htb que se resuelve a una IP específica, agregar la siguiente línea al archivo /etc/hosts garantizará que el dominio se resuelva correctamente durante tus pruebas:</p>
                 <div class="archivo">
 127.0.0.1       localhost
 127.0.1.1       MasterSensei
@@ -62,14 +62,14 @@ ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters                    
                 </div>
                 <h2>WFuzz</h2>
-                <p>WFuzz es otra herramienta popular para la fuzzing de aplicaciones web, especialmente en la detección de directorios y archivos ocultos. Es conocida por su flexibilidad y capacidad de personalización.</p>
+                <p>WFuzz es una herramienta popular para la fuzzing de aplicaciones web, especialmente en la detección de directorios y archivos ocultos. Es conocida por su flexibilidad y capacidad de personalización.</p>
                 <ul>
                     <li>Permite a los usuarios elegir entre una variedad de métodos de fuzzing y opciones para adaptar el escaneo a sus necesidades específicas.</li>
                     <li>WFuzz puede manejar diferentes tipos de payloads y técnicas de inyección.</li>
                 </ul>
                 <div class="contenedor">
                     <div class="etiqueta">
-                        Aquí, <marcardor class="subrayado">-c</marcardor> activa el modo de color para una mejor visualización, <marcardor class="subrayado">-w</marcardor> especifica la lista de palabras, y <marcardor class="subrayado">-u</marcardor> indica la URL objetivo con un marcador FUZZ.
+                        Aquí, <marcardor class="subrayado">-c</marcardor> activa el modo de color para una mejor visualización, <marcardor class="subrayado">-w</marcardor> especifica un diccionario de palabras, y <marcardor class="subrayado">-u</marcardor> indica la URL objetivo con un marcador FUZZ.
                     </div>
                     <div class="comandos">
                       <input type="text" class="text" value="wfuzz -c -w /path/to/wordlist.txt -u http://example.com/FUZZ" oninput="ajustarAncho(this)">
@@ -150,7 +150,7 @@ ID           Response   Lines    Word       Chars       Payload
                     </section>
                     <section id="terminal__body">
                         <div id="terminal__prompt">
-                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">wfuzz</marcador> <marcador class="param">-c</marcador> <marcador class="param">--hc=404,401</marcador> <marcador class="param">-t</marcador> 200 <marcador class="param">-w</marcador> /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt http://sea.htb/FUZZ</span>
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">wfuzz</marcador> <marcador class="param">-c</marcador> <marcador class="param">--hc=404,401</marcador> <marcador class="param">-t</marcador> 200 <marcador class="param">-w</marcador> /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt <marcador class="param">-z</marcador> list,php-html-txt http://sea.htb/FUZZ</span>
                         
     
                         </div>
@@ -295,7 +295,7 @@ ID           Response   Lines    Word       Chars       Payload
                     </div>
                   </div>
                 <br>
-                <p>realiza un escaneo de virtual hosts (vhosts) en el dominio sea.htb, eliminando de la salida los códigos de estado 301, 302 y 404.</p>
+                <p>Este comando realiza un escaneo de virtual hosts (vhosts) en el dominio sea.htb, eliminando de la salida los códigos de estado 301, 302 y 404.</p>
                 <div id="terminal">
                     <section id="terminal__bar">
                         <div id="bar__buttons">
@@ -381,7 +381,7 @@ Found: lms Status: 200 [Size: 1834]
                         <div class="command-response-container">
                             <span id="terminal__prompt--response" class="multiline-text">
 
-    /'___\  /'___\           /'___\       
+     /'___\  /'___\           /'___\       
     /\ \__/ /\ \__/  __  __  /\ \__/       
     \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
      \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
