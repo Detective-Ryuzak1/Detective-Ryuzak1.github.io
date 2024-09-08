@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <link rel="icon" href="../media/imagen9.png" type="image/png">
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Bonus">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <h1>Nmap</h1>
+                <p>Nmap, abreviatura de Network Mapper, es una herramienta de código abierto utilizada para el escaneo de redes y la auditoría de seguridad. Desarrollado por Gordon Lyon, también conocido como Fyodor, se ha convertido en una herramienta esencial para administradores de redes, ingenieros de seguridad y hackers éticos. Nmap ayuda a descubrir hosts y servicios en una red, así como a identificar posibles vulnerabilidades.</p>
+                <h2>Principales funcionalidades de Nmap</h2>
+                <ol>
+                    <li><marcador class="resaltado2">Descubrimiento de redes: </marcador>Identifica dispositivos conectados en una red y muestra información sobre sus direcciones IP, sistemas operativos y puertos abiertos.</li>
+                    <li><marcador class="resaltado2">Auditoría de seguridad: </marcador>Permite descubrir vulnerabilidades en redes, como servicios expuestos o puertos no seguros, lo que lo convierte en una herramienta clave para realizar pruebas de penetración.</li>
+                    <li><marcador class="resaltado2">Detección de servicios: </marcador>Identifica qué servicios están ejecutándose en un puerto abierto, como servidores web, FTP o bases de datos, ayudando a mapear la infraestructura de red.</li>
+                    <li><marcador class="resaltado2">Detección de sistemas operativos: </marcador>Nmap puede identificar el sistema operativo (OS fingerprinting) y la versión exacta del software que se está ejecutando en un dispositivo.</li>
+                    <li><marcador class="resaltado2">Escaneo de puertos: </marcador>Identifica qué puertos están abiertos, filtrados o cerrados, permitiendo un análisis detallado de la configuración de seguridad de una red.</li>
+                    <li><marcador class="resaltado2">Generación de informes detallados: </marcador>Nmap proporciona resultados completos en diferentes formatos, como XML o HTML, útiles para auditorías y reportes.</li>
+                </ol>
+                <div class="blog-image">
+                    <img src="media/nmap1.jpg" alt="">
+                </div> 
+                <h2>Comandos de Nmap</h2>
+                <p>Nmap puede utilizarse desde una terminal, ejecutando comandos para obtener diversa información sobre una red. A continuación, se muestran algunos comandos esenciales:</p>
+                <p>Primero, necesitas identificar tu rango de red (subred). Puedes usar el comando <marcardor class="subrayado">ipconfig</marcardor> en Windows o <marcardor class="subrayado">ifconfig</marcardor> o <marcardor class="subrayado">ip a</marcardor> en Linux y macOS para obtener esta información.</p>
+                <p>El siguiente comando sirve para escanear todas las IP activas en la red.</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9723;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">nmap</marcador> <marcador class="param">-sn</marcador> 192.168.1.0/24</span>    
+                        <span id="terminal__prompt--cursor"></span>
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-09-07 15:03 CST
+Nmap scan report for 192.168.100.1
+Host is up (0.0065s latency).
+Nmap scan report for 192.168.100.12
+Host is up (0.00013s latency).
+Nmap scan report for 192.168.100.16
+Host is up (0.0018s latency).
+Nmap done: 256 IP addresses (3 hosts up) scanned in 2.44 seconds                                                           
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <br>
+                <p>Este comando escanea los 1,000 puertos más comunes de la dirección IP especificada. Útil para un análisis rápido de los puertos abiertos en un host.</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9723;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="sudo">sudo </marcador><marcador class="tool">nmap</marcador> 192.168.1.11</span>
+                        
+    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-09-07 15:13 CST
+Nmap scan report for 192.168.1.11
+Host is up (0.012s latency).
+Not shown: 997 closed tcp ports (conn-refused)
+PORT     STATE SERVICE
+3000/tcp open  ppp
+3001/tcp open  nessus
+9998/tcp open  distinct32
+
+Nmap done: 1 IP address (1 host up) scanned in 0.35 seconds
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <br>
+                <p>Este comando escanea un puerto específico (en este caso el 80, usado por HTTP) para ver si está abierto o cerrado.</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9723;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="sudo">sudo </marcador><marcador class="tool">nmap</marcador> <marcador class="param">-p</marcador> 80 192.168.1.12</span>
+                        
+    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-09-07 15:21 CST
+Nmap scan report for 192.168.1.12
+Host is up (0.00019s latency).
+
+PORT   STATE SERVICE
+80/tcp open  http
+
+Nmap done: 1 IP address (1 host up) scanned in 0.14 seconds                              
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <br>
+                <p>Este comando es particularmente adecuado para escaneos rápidos y detallados, donde el objetivo es obtener información precisa sobre los puertos abiertos en un host sin preocuparse por los puertos cerrados o filtrados.</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9723;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="sudo">sudo </marcador><marcador class="tool">nmap</marcador> <marcador class="param">-sS</marcador> <marcador class="param">-p-</marcador> <marcador class="param">--open</marcador> <marcador class="param">--min-rate</marcador> 5000 <marcador class="param">-vvv</marcador> <marcador class="param">-n</marcador> <marcador class="param">-Pn</marcador> 10.10.11.23 <marcador class="param">-oG</marcador> Puertos</span>
+                        
+    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">
+Host discovery disabled (-Pn). All addresses will be marked 'up' and scan times may be slower.
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-09-07 18:08 CST
+Initiating SYN Stealth Scan at 18:08
+Scanning 10.10.11.23 [65535 ports]
+Discovered open port 22/tcp on 10.10.11.23
+Discovered open port 80/tcp on 10.10.11.23
+Completed SYN Stealth Scan at 18:08, 20.30s elapsed (65535 total ports)
+Nmap scan report for 10.10.11.23
+Host is up, received user-set (0.18s latency).
+Scanned at 2024-09-07 18:08:19 CST for 20s
+Not shown: 64870 closed tcp ports (reset), 663 filtered tcp ports (no-response)
+Some closed ports may be reported as filtered due to --defeat-rst-ratelimit
+PORT   STATE SERVICE REASON
+22/tcp open  ssh     syn-ack ttl 63
+80/tcp open  http    syn-ack ttl 63
+
+Read data files from: /usr/bin/../share/nmap
+Nmap done: 1 IP address (1 host up) scanned in 20.41 seconds
+            Raw packets sent: 87589 (3.854MB) | Rcvd: 80950 (3.238MB)                           
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <ul>
+                    <li><marcador class="resaltado3">-sS: </marcador>(TCP SYN scan): Este tipo de escaneo es conocido como un "escaneo sigiloso" o SYN scan. En lugar de completar una conexión TCP, envía paquetes SYN para determinar si un puerto está abierto. Si el puerto responde con un paquete SYN/ACK, se considera abierto, y Nmap no completa la conexión (TCP handshake), lo que hace que sea más difícil de detectar por algunos sistemas de seguridad.</li>
+                    <li><marcador class="resaltado3">-p-: </marcador>Este parámetro le indica a Nmap que debe escanear todos los puertos del sistema, desde el puerto 1 hasta el puerto 65535. Si no se especifica este parámetro, Nmap solo escanea los puertos más comunes.</li>
+                    <li><marcador class="resaltado3">--open: </marcador>Filtra los resultados del escaneo para que solo se muestren los puertos abiertos. Esto es útil para reducir el ruido en los resultados y centrarse en los puertos que están disponibles y podrían ser explotables.</li>
+                    <li><marcador class="resaltado3">--min-rate 5000: </marcador>Este parámetro define una tasa mínima de paquetes por segundo que Nmap intentará mantener durante el escaneo, en este caso 5000 paquetes por segundo. Al especificar una tasa tan alta, el escaneo se acelera, lo que puede resultar útil cuando se desea obtener resultados rápidamente, aunque podría aumentar el riesgo de detección en redes protegidas.</li>
+                    <li><marcador class="resaltado3">-vvv: </marcador>Activa el nivel de verbosidad más alto en Nmap. Esto significa que Nmap proporcionará información detallada y actualizada sobre el progreso del escaneo, lo que es útil para monitorear lo que está haciendo Nmap en tiempo real.</li>
+                    <li><marcador class="resaltado3">-n: </marcador>Le indica a Nmap que no realice resolución de DNS. Esto acelera el escaneo, ya que no se intenta resolver los nombres de dominio de las direcciones IP encontradas. Es útil cuando solo te interesa trabajar directamente con las direcciones IP.</li>
+                    <li><marcador class="resaltado3">-Pn </marcador>Desactiva el "ping scan" (es decir, la verificación inicial para ver si un host está activo antes de escanearlo). Este parámetro asume que el host está activo, evitando que se descarte si no responde a los pings. Es útil en redes donde los pings ICMP están bloqueados, lo que podría hacer que Nmap crea erróneamente que el host está inactivo.</li>
+                    <li><marcador class="resaltado3">10.10.11.23: </marcador>Es la dirección IP del host objetivo que se está escaneando. Este es el sistema en el que Nmap buscará puertos abiertos y otros servicios.</li>
+                    <li><marcador class="resaltado3">-oG Puertos: </marcador>Este parámetro indica que los resultados del escaneo se guarden en un archivo con formato "grepable" (fácil de buscar con herramientas de línea de comandos como grep). En este caso, el archivo se llamará Puertos. Es útil cuando deseas analizar los resultados más tarde o procesarlos automáticamente con scripts.</li>
+                </ul>
+                <br>
+                <p>Este comando realiza un escaneo enfocado en los puertos 22 (SSH) y 80 (HTTP) de un host, utilizando scripts NSE y detección de versiones de servicios.</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9723;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="sudo">sudo </marcador><marcador class="tool">nmap</marcador> <marcador class="param">-sCV</marcador> <marcador class="param">-p22,80</marcador> 10.10.11.23 <marcador class="param">-oN</marcador> EscaneoDelObjetivo</span>
+                        
+    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-09-07 18:14 CST
+Nmap scan report for 10.10.11.23
+Host is up (0.087s latency).
+
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 8.9p1 Ubuntu 3ubuntu0.10 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   256 e2:5c:5d:8c:47:3e:d8:72:f7:b4:80:03:49:86:6d:ef (ECDSA)
+|_  256 1f:41:02:8e:6b:17:18:9c:a0:ac:54:23:e9:71:30:17 (ED25519)
+80/tcp open  http    Apache httpd 2.4.52
+|_http-title: Did not follow redirect to http://permx.htb
+|_http-server-header: Apache/2.4.52 (Ubuntu)
+Service Info: Host: 127.0.1.1; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 19.11 seconds                           
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>La opción <marcardor class="subrayado">-sCV</marcardor> combina dos funcionalidades importantes.</p>
+                <ul>
+                    <li><marcador class="resaltado3">-sC: </marcador>Ejecuta scripts NSE predeterminados. Los scripts de Nmap Scripting Engine (NSE) permiten realizar un análisis más detallado de los servicios detectados. Al usar -sC, Nmap ejecuta un conjunto de scripts básicos para descubrir vulnerabilidades comunes, versiones de servicios, y detalles adicionales sobre los servicios que están en ejecución en los puertos abiertos.</li>
+                    <li><marcador class="resaltado3">-sV: </marcador>Realiza la detección de versiones. Intenta identificar qué software y versión exacta está corriendo en los puertos abiertos. Por ejemplo, si el puerto 80 está abierto, Nmap intentará descubrir si es un servidor web Apache, Nginx, y su versión específica.</li>
+                    <li><marcador class="resaltado3">-p22,80: </marcador>Especifica los puertos que quieres escanear, en este caso los puertos 22 (generalmente usado para SSH) y 80 (usualmente utilizado para servidores web HTTP). Esto limita el escaneo solo a esos puertos, en lugar de realizar un análisis sobre todos los puertos disponibles.</li>
+                    <li><marcador class="resaltado3">-oN EscaneoDelObjetivo: </marcador>Guarda los resultados del escaneo en un archivo de salida llamado targeted en formato legible por humanos (output "Normal"). Este formato es más fácil de leer para las personas, ya que muestra los resultados en texto plano con detalles claros de los servicios y puertos detectados.</li>
+                </ul>
+                <p>Se puede hacer uso del comando <marcardor class="subrayado">TARGET=10.10.11.23 && nmap -p$(nmap -sS -p- --min-rate=5000 -T4 $TARGET -Pn | grep ^[0-9] | cut -d '/' -f 1 | tr '\n' ',' | sed s/,$//) -sC -sV -Pn -vvv $TARGET -oN EscaneoDelObjetivo</marcardor> para combinar el descubrimiento de puertos abiertos y el análisis de servicios en una sola ejecución. Primero, realiza un escaneo rápido de todos los puertos usando un SYN scan (-sS), que es eficiente y no establece conexiones completas, para identificar qué puertos están abiertos. Luego, utiliza esos puertos detectados para hacer un análisis más profundo, con la ejecución de scripts NSE (-sC) y la detección de versiones (-sV), proporcionando detalles precisos sobre los servicios que se ejecutan en esos puertos. Finalmente, guarda el resultado en un archivo para facilitar su análisis.</p>
+                <br>
+                <p>Este comando realiza un escaneo rápido y enfocado en los puertos UDP más comunes, con la máxima velocidad (-T5), omitiendo los puertos cerrados, y guardando los resultados en un archivo para análisis posterior.</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9723;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="sudo">sudo </marcador><marcador class="tool">nmap</marcador> <marcador class="param">--top-ports</marcador> 500 <marcador class="param">-sU</marcador> <marcador class="param">--open</marcador> <marcador class="param">-T5</marcador> <marcador class="param">-v</marcador> <marcador class="param">-n</marcador> 10.10.11.23 <marcador class="param">-oG</marcador> PuertosUDP</span>
+                        
+    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">
+. . . [ snip ] . . . 
+
+Discovered open port 69/udp on 10.10.11.23
+
+. . . [ snip ] . . . 
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <ul>
+                    <li><marcador class="resaltado3">--top-ports 500: </marcador>Escanea solo los 500 puertos más comunes. Nmap tiene una lista de los puertos más frecuentemente utilizados, y este parámetro te permite limitar el escaneo solo a estos puertos, en lugar de hacer un escaneo completo de los 65,535 puertos UDP.</li>
+                    <li><marcador class="resaltado3">-sU: </marcador>Especifica que el escaneo será sobre el protocolo UDP (User Datagram Protocol), en lugar de TCP. Los escaneos UDP son más lentos y menos fiables que los escaneos TCP, pero esenciales para identificar servicios que operan en este protocolo, como DNS, SNMP, y DHCP.</li>
+                    <li><marcador class="resaltado3">-T5: </marcador>Especifica un nivel de agresividad alto en términos de velocidad y tiempo de espera para el escaneo (en este caso, "Insane"). -T5 maximiza la velocidad del escaneo, pero podría generar falsos negativos o activar medidas de seguridad como sistemas de detección de intrusiones (IDS).</li>
+                </ul>
+                <br>
+                <p>Este comando escanea el puerto UDP 69 del host 10.10.11.23 para identificar qué servicio está corriendo (probablemente TFTP), su versión, y obtener información adicional mediante scripts NSE.</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9723;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="sudo">sudo </marcador><marcador class="tool">nmap</marcador> <marcador class="param">-sV</marcador> <marcador class="param">-sC</marcador> <marcador class="param">-sU</marcador> <marcador class="param">-p 69</marcador> 10.10.11.23</span>
+                        
+    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-09-07 20:24 CST
+Nmap scan report for 10.10.11.23
+Host is up (0.079s latency).
+
+PORT   STATE SERVICE VERSION
+69/udp open  tftp    SolarWinds Free tftpd
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <br>
+                <h2>Tipos de scripts en Nmap NSE</h2>
+                <p>Los scripts NSE (Nmap Scripting Engine) de Nmap son pequeños programas que amplían la funcionalidad básica del escáner de puertos, permitiendo realizar análisis más avanzados y detallados en los sistemas y redes objetivo. Estos scripts son escritos en Lua, un lenguaje de programación ligero, y permiten a Nmap ejecutar tareas adicionales que van más allá de la simple detección de puertos abiertos.</p>
+                <ol>
+                    <li><marcador class="resaltado2">Auth: </marcador>Scripts relacionados con la autenticación, como pruebas de credenciales y métodos de autenticación.</li>
+                    <li><marcador class="resaltado2">Default: </marcador>Scripts que se ejecutan por defecto cuando se utiliza la opción -sC. Son de bajo riesgo y generalmente útiles para la detección de servicios básicos.</li>
+                    <li><marcador class="resaltado2">Discovery: </marcador>Scripts diseñados para descubrir información general sobre un objetivo, como servicios o nombres de host.</li>
+                    <li><marcador class="resaltado2">External: </marcador>Scripts que requieren acceso a Internet, como consultas a bases de datos externas.</li>
+                    <li><marcador class="resaltado2">Intrusive: </marcador>Scripts que pueden alterar o interferir con los sistemas objetivo, ya que realizan pruebas de seguridad más profundas.</li>
+                    <li><marcador class="resaltado2">Malware: </marcador>Dedicados a detectar la presencia de malware o software malicioso en el sistema objetivo.</li>
+                    <li><marcador class="resaltado2">Vuln: </marcador>Scripts enfocados en buscar vulnerabilidades conocidas en los servicios del sistema.</li>
+                    <li><marcador class="resaltado2">Safe: </marcador>Scripts que no generan ningún impacto negativo sobre el sistema objetivo; son seguros de ejecutar.</li>
+                </ol>
+                <br>
+                <p>Haciendo uso del comando <marcardor class="subrayado">locate .nse | xargs grep "categories" | grep -oP '".*?"' | sort -u</marcardor> se obtiene una lista única de todas las categorías de scripts NSE presentes en el sistema.</p>
+                <p>Este comando busca en el sistema archivos con extensión .nse (scripts de Nmap), luego extrae las líneas que contienen la palabra "categories" dentro de esos scripts, filtra y extrae las categorías específicas entre comillas, y finalmente ordena esas categorías de forma única.</p>
+                <br>
+                <p>El siguiente comando combina los scripts categorizados como "vuln" y "safe", es decir, ejecuta scripts que detectan vulnerabilidades y aquellos marcados como seguros de ejecutar. No significa que haya un balance entre ellos, sino que simplemente aplica ambos tipos de scripts en un solo escaneo.</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9723;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                            <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="sudo">sudo </marcador><marcador class="tool">nmap</marcador> <marcador class="param">--script</marcador> "vuln and safe" 10.10.11.23</span>
+                        
+    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-09-07 19:27 CST
+Nmap scan report for 10.10.11.23
+Host is up (0.30s latency).
+Not shown: 998 closed tcp ports (conn-refused)
+PORT   STATE SERVICE
+22/tcp open  ssh
+80/tcp open  http
+
+Nmap done: 1 IP address (1 host up) scanned in 66.27 seconds                      
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>En este caso los scripts que se ejecutaron, tanto los de la categoría "vuln" (vulnerabilidades) como los de "safe" (seguros), no detectaron nada significativo en los puertos abiertos (22 y 80).</p>
+                <br>
+                <p>El comando realiza un escaneo enfocado en enumerar los directorios y recursos accesibles a través del puerto 80 (HTTP) en el host 10.10.11.23.</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9723;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                            <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="sudo">sudo </marcador><marcador class="tool">nmap</marcador> <marcador class="param">--script</marcador> http-enum <marcador class="param">-p80</marcador> 10.10.11.23 <marcador class="param">-oN</marcador> FuzzingWeb</span>
+                        
+    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-09-07 21:00 CST
+Nmap scan report for 10.10.11.23
+Host is up (0.25s latency).
+
+PORT   STATE SERVICE
+80/tcp open  http
+| http-enum:
+|   /admin
+|   /login
+|   /upload
+|   /downloads
+|   /backup
+|   /config
+|   /docs
+|   /images
+|   /js
+|   /css
+|_  /scripts
+Nmap done: 1 IP address (1 host up) scanned in 12.34 seconds
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <ul>
+                    <li><marcador class="resaltado3">--script http-enum: </marcador>Ejecuta el script http-enum para enumerar archivos y directorios en el servidor web.</li>
+                    <li><marcador class="resaltado3">sea.htb: </marcador>Utiliza el nombre de dominio en lugar de la IP para el escaneo</li>
+                </ul>
+                <p>Asegúrate de que el dominio sea.htb esté resolviendo correctamente en tu máquina. Puedes agregarlo al archivo <marcardor class="resaltado1">/etc/hosts</marcardor> (en sistemas Unix) o al archivo <marcardor class="resaltado1">C:\Windows\System32\drivers\etc\hosts</marcardor> (en Windows) para asegurar que el nombre de dominio apunte a la IP correcta si es necesario.</p>
+                <div class="archivo">
+127.0.0.1       localhost
+127.0.1.1       MasterSensei
+
+10.10.11.28     sea.htb
+
+# The following lines are desirable for IPv6 capable hosts
+::1     localhost ip6-localhost ip6-loopback
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters                    
+                </div>
+                <br>
+                <br>
+            </div>
+        </div>       
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
