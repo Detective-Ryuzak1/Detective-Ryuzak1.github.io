@@ -53,7 +53,7 @@
                 </div> 
                 <h2>Comandos de Nmap</h2>
                 <p>Nmap puede utilizarse desde una terminal, ejecutando comandos para obtener diversa información sobre una red. A continuación, se muestran algunos comandos esenciales:</p>
-                <p>Primero, necesitas identificar tu rango de red (subred). Puedes usar el comando <marcardor class="subrayado">ipconfig</marcardor> en Windows o <marcardor class="subrayado">ifconfig</marcardor> o <marcardor class="subrayado">ip a</marcardor> en Linux y macOS para obtener esta información.</p>
+                <p>Primero, necesitas identificar tu rango de red (subred). Puedes usar el comando <marcardor class="subrayado">ipconfig</marcardor> en Windows o <marcardor class="subrayado">ifconfig</marcardor> e <marcardor class="subrayado">ip a</marcardor> en Linux y macOS para obtener esta información.</p>
                 <p>El siguiente comando sirve para escanear todas las IP activas en la red.</p>
                 <div id="terminal">
                     <section id="terminal__bar">
@@ -246,9 +246,9 @@ Nmap done: 1 IP address (1 host up) scanned in 19.11 seconds
                     <li><marcador class="resaltado3">-p22,80: </marcador>Especifica los puertos que quieres escanear, en este caso los puertos 22 (generalmente usado para SSH) y 80 (usualmente utilizado para servidores web HTTP). Esto limita el escaneo solo a esos puertos, en lugar de realizar un análisis sobre todos los puertos disponibles.</li>
                     <li><marcador class="resaltado3">-oN EscaneoDelObjetivo: </marcador>Guarda los resultados del escaneo en un archivo de salida llamado targeted en formato legible por humanos (output "Normal"). Este formato es más fácil de leer para las personas, ya que muestra los resultados en texto plano con detalles claros de los servicios y puertos detectados.</li>
                 </ul>
-                <p>Se puede hacer uso del comando <marcardor class="subrayado">TARGET=10.10.11.23 && nmap -p$(nmap -sS -p- --min-rate=5000 -T4 $TARGET -Pn | grep ^[0-9] | cut -d '/' -f 1 | tr '\n' ',' | sed s/,$//) -sC -sV -Pn -vvv $TARGET -oN EscaneoDelObjetivo</marcardor> para combinar el descubrimiento de puertos abiertos y el análisis de servicios en una sola ejecución. Primero, realiza un escaneo rápido de todos los puertos usando un SYN scan (-sS), que es eficiente y no establece conexiones completas, para identificar qué puertos están abiertos. Luego, utiliza esos puertos detectados para hacer un análisis más profundo, con la ejecución de scripts NSE (-sC) y la detección de versiones (-sV), proporcionando detalles precisos sobre los servicios que se ejecutan en esos puertos. Finalmente, guarda el resultado en un archivo para facilitar su análisis.</p>
+                <p>Se puede hacer uso del comando <marcardor class="subrayado">TARGET=10.10.11.23 && nmap -p$(nmap -sS -p- --min-rate=5000 -T4 $TARGET -Pn | grep ^[0-9] | cut -d '/' -f 1 | tr '\n' ',' | sed s/,$//) -sC -sV -Pn -vvv $TARGET -oN EscaneoDelObjetivo</marcardor> para combinar el descubrimiento de puertos abiertos y el análisis de servicios en una sola ejecución. Este comando realiza un escaneo rápido de todos los puertos usando un SYN scan (-sS), que es eficiente y no establece conexiones completas, para identificar qué puertos están abiertos. Luego, utiliza esos puertos detectados para hacer un análisis más profundo, con la ejecución de scripts NSE (-sC) y la detección de versiones (-sV), proporcionando detalles precisos sobre los servicios que se ejecutan en esos puertos. Finalmente, guarda el resultado en un archivo para facilitar su análisis.</p>
                 <br>
-                <p>Este comando realiza un escaneo rápido y enfocado en los puertos UDP más comunes, con la máxima velocidad (-T5), omitiendo los puertos cerrados, y guardando los resultados en un archivo para análisis posterior.</p>
+                <p>Aquí el comando realiza un escaneo rápido y enfocado en los puertos UDP más comunes, con la máxima velocidad (-T5), omitiendo los puertos cerrados, y guardando los resultados en un archivo para análisis posterior.</p>
                 <div id="terminal">
                     <section id="terminal__bar">
                         <div id="bar__buttons">
@@ -324,7 +324,7 @@ PORT   STATE SERVICE VERSION
                 </ol>
                 <br>
                 <p>Haciendo uso del comando <marcardor class="subrayado">locate .nse | xargs grep "categories" | grep -oP '".*?"' | sort -u</marcardor> se obtiene una lista única de todas las categorías de scripts NSE presentes en el sistema.</p>
-                <p>Este comando busca en el sistema archivos con extensión .nse (scripts de Nmap), luego extrae las líneas que contienen la palabra "categories" dentro de esos scripts, filtra y extrae las categorías específicas entre comillas, y finalmente ordena esas categorías de forma única.</p>
+                <p>El comando busca en el sistema archivos con extensión .nse (scripts de Nmap), luego extrae las líneas que contienen la palabra "categories" dentro de esos scripts, filtra y extrae las categorías específicas entre comillas, y finalmente ordena esas categorías de forma única.</p>
                 <br>
                 <p>El siguiente comando combina los scripts categorizados como "vuln" y "safe", es decir, ejecuta scripts que detectan vulnerabilidades y aquellos marcados como seguros de ejecutar. No significa que haya un balance entre ellos, sino que simplemente aplica ambos tipos de scripts en un solo escaneo.</p>
                 <div id="terminal">
