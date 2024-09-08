@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <link rel="icon" href="../media/imagen9.png" type="image/png">
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Bonus">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <h1>Fuzzing Web</h1>
+                <p>El fuzzing web es una técnica esencial en la seguridad informática y la auditoría de aplicaciones web que se utiliza para descubrir recursos y archivos ocultos que no están fácilmente accesibles o visibles a través de métodos de navegación convencionales. Esta técnica busca identificar directorios, archivos y endpoints que podrían estar mal configurados o expuestos y que podrían ser vulnerables a ataques. A continuación, exploramos algunas de las herramientas más populares para realizar fuzzing en aplicaciones web: ffuf, wfuzz, gobuster y dirsearch.</p>
+                <div class="blog-image">
+                    <img src="media/fuzz.jpg" alt="">
+                </div>
+                <h2>Wordlists</h2>
+                <p>En Kali Linux, wordlists son archivos que contienen listas de palabras o términos que se utilizan para diversas pruebas de seguridad, como el fuzzing de directorios y archivos, o ataques de fuerza bruta, usualmete ubicados en <marcador class="resaltado1">/usr/share/wordlists/</marcador>. Algunas de las listas de palabras más comunes en Kali incluyen:</p>
+                <ul>
+                    <li><marcador class="resaltado1">directory-list-2.3-medium.txt</marcador>: Una lista de directorios y archivos comunes de tamaño medio, utilizada frecuentemente en escaneos de fuzzing para encontrar rutas en aplicaciones web.</li>
+                    <li><marcador class="resaltado1">rockyou.txt</marcador>: Una lista de contraseñas muy popular que se usa para ataques de fuerza bruta debido a su tamaño extenso y la variedad de contraseñas comunes.</li>
+                    <li><marcador class="resaltado1">common.txt</marcador>: Contiene una lista de palabras y directorios comunes, útil para pruebas generales de seguridad.</li>
+                </ul>
+                <p>Es crucial añadir el dominio al archivo /etc/hosts cuando se trabaja con pruebas de seguridad y auditorías, especialmente si el dominio no se resuelve automáticamente. Esto asegura que las peticiones realizadas por las herramientas de escaneo y fuzzing se dirijan correctamente al servidor objetivo. Por ejemplo, si tienes un dominio como sea.htb que se resuelve a una IP específica, agregar la siguiente línea al archivo /etc/hosts garantizará que el dominio se resuelva correctamente durante tus pruebas:</p>
+                <div class="archivo">
+127.0.0.1       localhost
+127.0.1.1       MasterSensei
+
+10.10.11.28     sea.htb
+
+# The following lines are desirable for IPv6 capable hosts
+::1     localhost ip6-localhost ip6-loopback
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters                    
+                </div>
+                <h2>WFuzz</h2>
+                <p>WFuzz es otra herramienta popular para la fuzzing de aplicaciones web, especialmente en la detección de directorios y archivos ocultos. Es conocida por su flexibilidad y capacidad de personalización.</p>
+                <ul>
+                    <li>Permite a los usuarios elegir entre una variedad de métodos de fuzzing y opciones para adaptar el escaneo a sus necesidades específicas.</li>
+                    <li>WFuzz puede manejar diferentes tipos de payloads y técnicas de inyección.</li>
+                </ul>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Aquí, <marcardor class="subrayado">-c</marcardor> activa el modo de color para una mejor visualización, <marcardor class="subrayado">-w</marcardor> especifica la lista de palabras, y <marcardor class="subrayado">-u</marcardor> indica la URL objetivo con un marcador FUZZ.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="wfuzz -c -w /path/to/wordlist.txt -u http://example.com/FUZZ" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+                  <br>
+                  <p>Este comando utiliza WFuzz para realizar un escaneo de fuzzing de directorios en el servidor web ubicado en http://sea.htb. Utiliza una lista de palabras para probar posibles rutas de directorios y archivos en el servidor, ocultando respuestas con códigos 404 y 401, y utiliza 200 hilos simultáneos para acelerar el proceso. La salida del comando estará coloreada para facilitar su lectura y análisis.</p>
+                  <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9723;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">wfuzz</marcador> <marcador class="param">-c</marcador> <marcador class="param">--hc=404,401</marcador> <marcador class="param">-t</marcador> 200 <marcador class="param">-w</marcador> /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt http://sea.htb/FUZZ</span>
+                        
+    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">
+********************************************************
+* Wfuzz 3.1.0 - The Web Fuzzer                         *
+********************************************************
+
+Target: http://sea.htb/FUZZ
+Total requests: 220560
+
+=====================================================================
+ID           Response   Lines    Word       Chars       Payload                                                             
+=====================================================================
+
+000000012:   200        86 L     262 W      3649 Ch     "# on atleast 2 different hosts"                                    
+000000006:   200        86 L     262 W      3649 Ch     "# Attribution-Share Alike 3.0 License. To view a copy of this"     
+000000001:   200        86 L     262 W      3649 Ch     "# directory-list-2.3-medium.txt"                                   
+000000008:   200        86 L     262 W      3649 Ch     "# or send a letter to Creative Commons, 171 Second Street,"        
+000000004:   200        86 L     262 W      3649 Ch     "#"                                                                 
+000000003:   200        86 L     262 W      3649 Ch     "# Copyright 2007 James Fisher"                                     
+000000005:   200        86 L     262 W      3649 Ch     "# This work is licensed under the Creative Commons"                
+000000011:   200        86 L     262 W      3649 Ch     "# Priority ordered case sensative list, where entries were found"  
+000000002:   200        86 L     262 W      3649 Ch     "#"                                                                 
+000000007:   200        86 L     262 W      3649 Ch     "# license, visit http://creativecommons.org/licenses/by-sa/3.0/"   
+000000010:   200        86 L     262 W      3649 Ch     "#"                                                                 
+000000013:   200        86 L     262 W      3649 Ch     "#"                                                                 
+000000038:   200        86 L     262 W      3649 Ch     "home"                                                              
+000000009:   200        86 L     262 W      3649 Ch     "# Suite 300, San Francisco, California, 94105, USA."               
+000000014:   200        86 L     262 W      3649 Ch     "http://sea.htb/"                                                   
+000000124:   200        86 L     262 W      3649 Ch     "0"                                                                 
+000000127:   301        7 L      20 W       230 Ch      "themes"                                                            
+000000519:   301        7 L      20 W       231 Ch      "plugins"                                                           
+000000955:   301        7 L      20 W       232 Ch      "messages"                                                          
+000001559:   200        84 L     209 W      3340 Ch     "404"  
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <ul>
+                    <li><marcador class="resaltado3">-c: </marcador>Activa el modo de color en la salida, facilitando la visualización de los resultados.</li>
+                    <li><marcador class="resaltado3">--hc=404,401: </marcador>Oculta las respuestas con los códigos de estado HTTP 404 (No encontrado) y 401 (No autorizado) en los resultados, para que solo se muestren las respuestas que no correspondan a estos códigos.</li>
+                    <li><marcador class="resaltado3">-t 200: </marcador>Define el número de hilos simultáneos (threads) a 200, lo que permite realizar el escaneo de manera más rápida al procesar múltiples solicitudes en paralelo.</li>
+                    <li><marcador class="resaltado3">-w: </marcador>Especifica la lista de palabras utilizada para el fuzzing. En este caso, se usa una lista de directorios y archivos comunes proporcionada por DirBuster.</li>
+                    <li><marcador class="resaltado3">http://sea.htb/FUZZ: </marcador>La URL objetivo donde se realizará el fuzzing, con FUZZ como marcador de posición que será reemplazado por cada entrada de la lista de palabras.</li>
+                </ul>
+                <br>
+                <p>Este comando realiza un escaneo de fuzzing en el servidor web en http://sea.htb, probando directorios y archivos con combinaciones de nombres y extensiones (php, html, txt). Utiliza una lista de palabras para generar los nombres de archivo y oculta las respuestas 404 para centrarse en recursos existentes. La salida es coloreada para facilitar su análisis y el uso de 200 hilos acelera el proceso.</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9723;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">wfuzz</marcador> <marcador class="param">-c</marcador> <marcador class="param">--hc=404,401</marcador> <marcador class="param">-t</marcador> 200 <marcador class="param">-w</marcador> /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt http://sea.htb/FUZZ</span>
+                        
+    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">
+********************************************************
+* Wfuzz 3.1.0 - The Web Fuzzer                         *
+********************************************************
+
+Target: http://sea.htb/FUZZ.FUZ2Z
+Total requests: 661680
+
+=====================================================================
+ID           Response   Lines    Word       Chars       Payload                                                             
+=====================================================================
+
+000000001:   200        86 L     262 W      3649 Ch     "# directory-list-2.3-medium.txt - php"                             
+000000013:   200        86 L     262 W      3649 Ch     "# This work is licensed under the Creative Commons - php"          
+000000020:   200        86 L     262 W      3649 Ch     "# license, visit http://creativecommons.org/licenses/by-sa/3.0/ - h
+                                                        tml"                                                                
+000000016:   200        86 L     262 W      3649 Ch     "# Attribution-Share Alike 3.0 License. To view a copy of this - php
+                                                        "                                                                   
+000000009:   200        86 L     262 W      3649 Ch     "# Copyright 2007 James Fisher - txt"                               
+000000018:   200        86 L     262 W      3649 Ch     "# Attribution-Share Alike 3.0 License. To view a copy of this - txt
+
+. . . [ snip ] . . . 
+                                                        
+000000038:   200        86 L     262 W      3649 Ch     "# - html"                                                          
+000000028:   200        86 L     262 W      3649 Ch     "# - php"                                                           
+000000025:   200        86 L     262 W      3649 Ch     "# Suite 300, San Francisco, California, 94105, USA. - php"         
+000000024:   200        86 L     262 W      3649 Ch     "# or send a letter to Creative Commons, 171 Second Street, - txt"  
+000000022:   200        86 L     262 W      3649 Ch     "# or send a letter to Creative Commons, 171 Second Street, - php"  
+000000073:   200        118 L    226 W      2731 Ch     "contact - php"
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <ul>
+                    <li><marcador class="resaltado3">-z list,php-html-txt: </marcador>Usa el modo de fuzzing basado en combinaciones (-z) para añadir extensiones a los nombres de archivo probados. En este caso, php, html y txt se agregarán a cada entrada de la lista de palabras, generando combinaciones como index.php, admin.html, backup.txt, etc.</li>
+                    <li><marcador class="resaltado3">http://sea.htb/FUZZ.FUZ2Z: </marcador>La URL objetivo donde se realizará el fuzzing. El marcador de posición FUZZ será reemplazado por cada entrada de la lista de palabras, y el marcador FUZ2Z será reemplazado por las extensiones especificadas.</li>
+                </ul>
+                <br>
+                <p>Con este comando las respuestas te ayudarán a entender cómo el servidor maneja distintos caracteres especiales en las solicitudes.</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9723;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">wfuzz</marcador> <marcador class="param">-c</marcador> <marcador class="param">-X</marcador> POST <marcador class="param">-H</marcador> "Content-type:application/json" <marcador class="param">-s</marcador> 1 <marcador class="param">-w</marcador> /usr/share/wordlists/seclists/Fuzzing/special-chars.txt <marcador class="param">-d</marcador> '{"name":"FUZZ"}' http://sea.htb</span>
+                        
+    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">
+********************************************************
+* Wfuzz 3.1.0 - The Web Fuzzer                         *
+********************************************************
+
+
+===============================================================
+ID    Response   Lines    Word         Chars       Payload                                                                     
+===============================================================
+000000001:    200        10      32         120        {"name":"~"}                                                                     
+000000002:    200        12      35         138        {"name":"!"}                                                                     
+000000003:    200        11      34         125        {"name":"@"}                                                                     
+000000004:    500        8       20         85         {"name":"#"}                                                                     
+000000005:    404        6       18         67         {"name":"$"}                                                                     
+000000006:    200        14      38         145        {"name":"%"} 
+. . . [ snip ] . . . 
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <ul>
+                    <li><marcador class="resaltado3">-X POST: </marcador>Utiliza el método POST para las solicitudes HTTP, en lugar del método GET.</li>
+                    <li><marcador class="resaltado3">-H "Content-type:application/json": </marcador>Establece el encabezado HTTP Content-type a application/json, indicando que el cuerpo de la solicitud está en formato JSON.</li>
+                    <li><marcador class="resaltado3">-s 1: </marcador>Establece un retraso de 1 segundo entre cada solicitud para evitar sobrecargar el servidor.</li>
+                    <li><marcador class="resaltado3">-d '{"name":"FUZZ"}': </marcador>Define el cuerpo de la solicitud POST en formato JSON, con el marcador FUZZ reemplazado por cada entrada de la lista de caracteres especiales.</li>
+                </ul>
+                <br>
+                <p>Este comando prueba diferentes subdominios bajo el dominio permx.htb, haciendo peticiones al servidor en la IP 10.10.11.23. El encabezado Host es modificado dinámicamente para cada subdominio. Al excluir los códigos de redirección (301 y 302), se enfocará solo en respuestas de interés, como códigos 200 (OK) o 403 (Forbidden).</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9723;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">wfuzz</marcador> <marcador class="param">-c</marcador> <marcador class="param">--hc=301,302</marcador> <marcador class="param">-t</marcador> 200 <marcador class="param">-w</marcador> /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt <marcador class="param">-u</marcador> http://10.10.11.23/ <marcador class="param">-H</marcador> "Host:FUZZ.permx.htb"</span>
+                        
+    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">
+********************************************************
+* Wfuzz 3.1.0 - The Web Fuzzer                         *
+********************************************************
+
+Target: http://10.10.11.23/
+Total requests: 114441
+
+=====================================================================
+ID           Response   Lines    Word       Chars       Payload                                                             
+=====================================================================
+
+000000001:   200        586 L    2466 W     36182 Ch    "www"                                                               
+000000477:   200        352 L    940 W      19347 Ch    "lms"                                                               
+000001417:   302        9 L      26 W       278 Ch      "dr" 
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <ul>
+                    <li><marcador class="resaltado3">-H "Host:FUZZ.permx.htb": </marcador>Usa el encabezado HTTP Host para simular solicitudes a diferentes subdominios, reemplazando FUZZ con cada subdominio de la lista de palabras. Por ejemplo, admin.permx.htb, test.permx.htb, etc.</li>
+                </ul>
+                <div class="blog-image">
+                    <img src="media/fuzz3.jpg" alt="">
+                </div> 
+                <h2>Gobuster</h2>
+                <p>Gobuster es una herramienta de fuzzing rápida para la enumeración de directorios y archivos en servidores web. Utiliza una lista de palabras para realizar el escaneo de recursos en el servidor.</p>
+                <ul>
+                    <li>Gobuster está diseñado para ser muy rápido en la enumeración de directorios.</li>
+                    <li>Soporta el uso de proxies para realizar escaneos a través de ellos.</li>
+                </ul>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        En este comando, dir indica que se está realizando un escaneo de directorios, <marcardor class="subrayado">-u</marcardor> especifica la URL, y <marcardor class="subrayado">-w</marcardor> define la lista de palabras a utilizar.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="gobuster dir -u http://example.com -w /path/to/wordlist.txt" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+                <br>
+                <p>realiza un escaneo de virtual hosts (vhosts) en el dominio sea.htb, eliminando de la salida los códigos de estado 301, 302 y 404.</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9723;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">gobuster</marcador> vhost <marcador class="param">-t</marcador> 100 <marcador class="param">-w</marcador> /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt <marcador class="param">-u</marcador> http://sea.htb <marcador class="param">-k</marcador> | <marcador class="tool">grep</marcador> <marcador class="param">-v</marcador> "302" | <marcador class="tool">grep</marcador> <marcador class="param">-v</marcador> "301" | <marcador class="tool">grep</marcador> <marcador class="param">-v</marcador> "404"</span>
+                        
+    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">
+===============================================================
+Gobuster v3.6
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:              http://sea.htb
+[+] Method:           GET
+[+] Threads:          100
+[+] Wordlist:         /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+[+] User Agent:       gobuster/3.6
+[+] Timeout:          10s
+[+] Append Domain:    false
+[+] Exclude Length:   3630,3635,3640,3645,3650,3655
+===============================================================
+Starting gobuster in VHOST enumeration mode
+===============================================================
+                                
+Found: www Status: 200 [Size: 3630]
+Found: lms Status: 200 [Size: 1834]
+
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <ul>
+                    <li><marcador class="resaltado3">vhost: </marcador>Ejecuta el modo vhost de Gobuster para enumerar subdominios virtuales (virtual hosts).</li>
+                    <li><marcador class="resaltado3">-k: </marcador>Ignora problemas con certificados SSL si la URL utiliza HTTPS. En este caso, como es HTTP, no es esencial, pero lo puedes dejar si el servidor redirige a HTTPS.</li>
+                    <li><marcador class="resaltado3">-t 100: </marcador>Establece 100 hilos para hacer el escaneo más rápido.</li>
+                    <li><marcador class="resaltado3">grep -v "302", grep -v "301", grep -v "404": </marcador>Filtra la salida para eliminar los resultados que contengan los códigos de estado 301 (Redirección Permanente), 302 (Redirección Temporal), y 404 (No Encontrado).</li>
+                </ul>
+                <div class="blog-image">
+                    <img src="media/fuzz4.png" alt="">
+                </div>
+                <h2>FFUF (Fuzz Faster U Fool)</h2>
+                <p>FFUF es una herramienta rápida y eficiente para la fuzzing de directorios y archivos en aplicaciones web. Su diseño enfocado en la velocidad y la eficiencia permite a los usuarios realizar escaneos con gran rapidez.</p>
+                <ul>
+                    <li>Aunque es más comúnmente utilizada para HTTP/HTTPS, también puede utilizarse con otros protocolos.</li>
+                    <li>Permite la personalización de los encabezados HTTP, métodos de solicitud y otros parámetros para adaptarse a diferentes escenarios.</li>
+                    <li>Se puede usar en conjunto con otros comandos y herramientas para mejorar la cobertura del escaneo.</li>
+                </ul>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        En este comando, <marcardor class="subrayado">-u</marcardor> especifica la URL con un marcador de posición FUZZ, <marcardor class="subrayado">-w</marcardor> define la lista de palabras para la búsqueda, y <marcardor class="subrayado">-o</marcardor> guarda los resultados en un archivo JSON.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="ffuf -u http://example.com/FUZZ -w /path/to/wordlist.txt -o result.json" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+                  <br>
+                  <p>El comando realiza un fuzzing de subdominios utilizando FFUF.</p>
+                  <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9723;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">ffuf</marcador> <marcador class="param">-w</marcador> /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt <marcador class="param">-u</marcador> http://10.10.11.23 <marcador class="param">-H</marcador> "Host: FUZZ.permx.htb" <marcador class="param">-mc</marcador> 200</span>
+                        
+    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">
+
+    /'___\  /'___\           /'___\       
+    /\ \__/ /\ \__/  __  __  /\ \__/       
+    \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+     \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+      \ \_\   \ \_\  \ \____/  \ \_\       
+       \/_/    \/_/   \/___/    \/_/       
+
+    v2.1.0-dev
+________________________________________________
+
+:: Method           : GET
+:: URL              : http://10.10.11.23
+:: Wordlist         : FUZZ: /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt
+:: Header           : Host: FUZZ.permx.htb
+:: Follow redirects : false
+:: Calibration      : false
+:: Timeout          : 10
+:: Threads          : 40
+:: Matcher          : Response status: 200
+________________________________________________
+
+www                     [Status: 200, Size: 36182, Words: 12829, Lines: 587, Duration: 240ms]
+lms                     [Status: 200, Size: 19347, Words: 4910, Lines: 353, Duration: 115ms]
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <ul>
+                    <li><marcador class="resaltado3">-H "Host: FUZZ.permx.htb": </marcador>Usa el encabezado HTTP Host donde FUZZ será reemplazado por cada subdominio de la lista. Ejemplo de subdominios probados: admin.permx.htb, mail.permx.htb, etc.</li>
+                    <li><marcador class="resaltado3">-mc 200: </marcador>Filtra las respuestas del servidor para mostrar solo aquellas que devuelven el código de estado 200 (OK), lo que indica que el subdominio existe y está accesible.</li>
+                </ul>
+                <div class="blog-image">
+                    <img src="media/fuzz2.jpg" alt="">
+                </div> 
+                <h2>Dirsearch</h2>
+                <p>Dirsearch es una herramienta de fuzzing de directorios escrita en Python que se centra en la simplicidad y la facilidad de uso. Está diseñada para encontrar archivos y directorios en aplicaciones web.</p>
+                <ul>
+                    <li>Su diseño y comandos simples la hacen accesible para usuarios de todos los niveles.</li>
+                    <li>Permite el uso de proxies y proporciona opciones para manejar autenticación básica.</li>
+                </ul>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        En este comando, <marcardor class="subrayado">-u</marcardor> especifica la URL objetivo y <marcardor class="subrayado">-w</marcardor> define la lista de palabras.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="dirsearch.py -u http://example.com -w /path/to/wordlist.txt" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+                  <br>
+                  <p>Utiliza Dirsearch, una herramienta de línea de comandos para realizar fuzzing de directorios y archivos en aplicaciones web. En este caso, está apuntando al dominio sea.htb para descubrir posibles directorios y archivos ocultos en el servidor.</p>
+                  <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9723;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">dirsearch</marcador> <marcador class="param">-u</marcador> http://sea.htb/</span>
+                        
+    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">
+/usr/lib/python3/dist-packages/dirsearch/dirsearch.py:23: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+from pkg_resources import DistributionNotFound, VersionConflict
+
+ _|. _ _  _  _  _ _|_    v0.4.3                                                                                                     
+(_||| _) (/_(_|| (_| )                                                                                                              
+                                                                                                                                    
+Extensions: php, aspx, jsp, html, js | HTTP method: GET | Threads: 25 | Wordlist size: 11460
+
+Output File: /home/orfeo/Documentos/HTB/Permx/reports/http_sea.htb/__24-09-08_01-26-10.txt
+
+Target: http://sea.htb/
+
+[01:26:10] Starting:                                                                                                                 
+[01:26:28] 403 -  199B  - /%3f/                                             
+[01:26:41] 403 -  199B  - /.ht_wsr.txt                                      
+[01:26:41] 403 -  199B  - /.htaccess.bak1                                   
+[01:26:41] 403 -  199B  - /.htaccess.orig                                   
+[01:26:41] 403 -  199B  - /.htaccess.save                                   
+[01:26:41] 403 -  199B  - /.htaccess_sc                                     
+[01:26:41] 403 -  199B  - /.htpasswds                                       
+[01:26:41] 403 -  199B  - /.htm
+[01:26:41] 403 -  199B  - /.htaccess_extra                                  
+[01:26:41] 403 -  199B  - /.htpasswd_test                                   
+[01:26:41] 403 -  199B  - /.htaccess_orig                                   
+[01:26:41] 403 -  199B  - /.httr-oauth                                      
+[01:26:41] 403 -  199B  - /.htaccessBAK
+[01:26:41] 403 -  199B  - /.htaccessOLD2
+[01:26:41] 403 -  199B  - /.html
+[01:26:41] 403 -  199B  - /.htaccessOLD
+[01:26:41] 403 -  199B  - /.htaccess.sample
+[01:26:48] 403 -  199B  - /.php                                             
+[01:26:58] 200 -    1KB - /404                                              
+[01:27:10] 403 -  199B  - /admin%20/                                        
+[01:28:18] 200 -  939B  - /contact.php                                      
+[01:28:24] 301 -  228B  - /data  ->  http://sea.htb/data/                   
+[01:28:24] 403 -  199B  - /data/                                            
+[01:28:24] 403 -  199B  - /data/files/                                      
+[01:29:18] 403 -  199B  - /login.wdm%20                                     
+[01:29:28] 301 -  232B  - /messages  ->  http://sea.htb/messages/           
+[01:29:39] 403 -  199B  - /New%20folder%20(2)                               
+[01:29:39] 403 -  199B  - /New%20Folder                                     
+[01:29:55] 403 -  199B  - /phpliteadmin%202.php                             
+[01:30:04] 403 -  199B  - /plugins/                                         
+[01:30:04] 301 -  231B  - /plugins  ->  http://sea.htb/plugins/
+[01:30:14] 403 -  199B  - /Read%20Me.txt                                    
+[01:30:25] 403 -  199B  - /server-status/                                   
+[01:30:25] 403 -  199B  - /server-status                                    
+[01:30:50] 403 -  199B  - /themes/                                          
+[01:30:50] 301 -  230B  - /themes  ->  http://sea.htb/themes/
+                                                                            
+Task Completed 
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <div class="blog-image">
+                    <img src="media/fuzz5.jpg" alt="">
+                </div> 
+            </div>
+        </div>       
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
