@@ -476,7 +476,7 @@ a:hover {
 /* Estilos para la barra superior */
 .barra-superior-consola {
     text-align: right;
-    background-color: rgb(153, 229, 231);
+    background-color: rgb(117, 236, 240);
     color: #fff;
     height: 35px;
     line-height: 30px;
@@ -486,7 +486,7 @@ a:hover {
 }
 /* Estilos para el botón */
 .boton-copiar-consola {
-    background-color: rgb(153, 229, 231);
+    background-color: rgb(117, 236, 240);
     font-family: monospace;
     color: #000;
     border: none;
@@ -515,7 +515,7 @@ a:hover {
     background-color: #252323; /* Fondo */
     padding: 10px; /* Espaciado interno */
     border-radius: 0 0 5px 5px; /* Bordes redondeados */
-    border: 2px solid rgb(153, 229, 231); /* Borde */
+    border: 2px solid rgb(117, 236, 240); /* Borde */
     overflow-x: auto; /* Barra de desplazamiento horizontal si es necesario */
     text-align: left; /* Alinea el texto a la izquierda */
     margin: 0; /* Elimina los márgenes predeterminados */
