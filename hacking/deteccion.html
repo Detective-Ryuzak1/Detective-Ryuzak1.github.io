@@ -166,6 +166,11 @@ drop tcp any any -> 192.168.1.0/24 22 (msg:"Intento SSH bloqueado"; sid:1000002;
                 <h3>Configuración de la IP de pfSense</h3>
                 <p>Después de la instalación, es importante configurar la dirección IP de la interfaz LAN de pfSense para poder acceder a ella desde la máquina anfitriona. Primero, abre la línea de comandos (CMD) en tu sistema anfitrión (Windows) y ejecuta el comando ipconfig para obtener la dirección IP de la interfaz VMnet1. Esta IP te servirá como referencia para configurar la red local. Por ejemplo, si la IP es 192.168.99.1, sabrás que debes asignar una IP dentro de ese rango para la LAN de pfSense.</p>
                 <p>Cuando pfSense arranque, te pedirá que configures las interfaces de red. Asigna "le0" como WAN y "le1" como LAN. Luego, en el menú de opciones que aparece, selecciona la opción 2 para cambiar la dirección IP de la LAN. Ingresa una nueva IP que esté dentro del rango de la VMnet1, como 192.168.99.100, y define la máscara de subred como 24. Desactiva IPv6 y habilita el servidor DHCP en la LAN, estableciendo un rango de direcciones IP, por ejemplo, desde 192.168.99.150 hasta 192.168.99.200. Al terminar, podrás probar la conexión haciendo ping a la nueva IP desde la máquina anfitriona y acceder a la interfaz gráfica de pfSense a través de un navegador web ingresando la dirección configurada (por ejemplo, https://192.168.99.100).</p>
+                <p>Las credenciales por defecto de pfSense son:</p>
+                <ul>
+                    <li>Nombre de usuario: admin</li>
+                    <li>Contraseña: pfsense</li>
+                </ul>
                 <div class="blog-image-grande">
                     <img src="media/detect2.jpg" alt="">
                 </div>
