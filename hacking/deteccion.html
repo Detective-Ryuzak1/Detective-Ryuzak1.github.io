@@ -81,8 +81,8 @@
                     </div>
                 </div>
                 <h3>Configuración de Snort en Windows</h3>
-                <p>Descargar Snort: Descarga el instalador de Snort.org.</p> 
-                <p>Configurar Snort: Al igual que en Linux, el archivo de configuración se llama snort.conf, que en Windows se suele ubicar en <marcador class="resaltado1">C:\Snort\etc\snort.conf</marcador></p>
+                <p>Descargar Snort: Descarga el instalador de <a href="https://www.snort.org/" target="blank">https://www.snort.org</a>.</p> 
+                <p>Configurar Snort: Al igual que en Linux, el archivo de configuración se llama <marcador class="resaltado1">snort.conf</marcador>, que en Windows se suele ubicar en <marcador class="resaltado1">C:\Snort\etc\snort.conf</marcador></p>
                 <p>Asegúrate de especificar las rutas correctas de las reglas y ajusta la configuración de red.</p>
                 <p>Ubicación de las reglas en Windows: Las reglas de Snort en Windows generalmente se almacenan en <marcador class="resaltado1">C:\Snort\rules\</marcador></p>
                 <div class="contenedor">
@@ -101,7 +101,7 @@ drop tcp any any -> 192.168.1.0/24 22 (msg:"Intento SSH bloqueado"; sid:1000002;
                 <p>Para descargar las reglas de Snort, el primer paso es crear una cuenta en el sitio web oficial de Snort. Esto es fundamental, ya que algunas reglas requieren autenticación. Para ello, debes visitar Snort.org y hacer clic en la opción "Register" (Registrar).</p>
                 <p>Una vez que hayas creado y activado tu cuenta, podrás acceder a las reglas. Inicia sesión en el sitio y dirígete a la sección de Rules en el menú principal. Aquí encontrarás diferentes categorías de reglas, incluidas las Community Rules (Reglas de la Comunidad) y las Snort VRT Rules (Reglas de Snort VRT). Las reglas de la comunidad son gratuitas y son una excelente opción para quienes buscan empezar, mientras que las reglas VRT pueden requerir una suscripción comercial, especialmente para características más avanzadas.</p>
                 <p>Además de descargar reglas desde el sitio web oficial, también puedes encontrar reglas de Snort en varios repositorios de GitHub que contienen reglas personalizadas o actualizadas por la comunidad. Estos repositorios pueden ofrecer reglas adicionales que no están disponibles en el sitio oficial, lo que puede ser útil para mejorar la capacidad de detección de tu instalación de Snort. Puedes buscar repositorios de GitHub utilizando términos como "Snort rules" o "Snort rule sets". Por ejemplo, algunos usuarios han creado repositorios que contienen conjuntos de reglas adaptadas a situaciones específicas, lo que puede ser una excelente manera de enriquecer tu colección de reglas.</p>
-                <p>El siguiente paso es instalar las reglas en tu sistema. Para ello, copia los archivos descomprimidos a la carpeta de configuración de Snort, que comúnmente se encuentra en /etc/snort/rules/ o en una ubicación similar. Asegúrate de que tu archivo de configuración de Snort, conocido como snort.conf, apunte correctamente a las nuevas reglas que has descargado. Esto puede requerir que añadas líneas específicas en el archivo de configuración que referencien las reglas.</p>
+                <p>El siguiente paso es instalar las reglas en tu sistema. Para ello, copia los archivos descomprimidos a la carpeta de configuración de Snort, que comúnmente se encuentra en <marcador class="resaltado1">/etc/snort/rules/</marcador> o en una ubicación similar. Asegúrate de que tu archivo de configuración de Snort, conocido como <marcador class="resaltado1">snort.conf</marcador>, apunte correctamente a las nuevas reglas que has descargado. Esto puede requerir que añadas líneas específicas en el archivo de configuración que referencien las reglas.</p>
                 <div class="blog-image-grande">
                     <img src="media/detect1.jpg" alt="">
                 </div>
