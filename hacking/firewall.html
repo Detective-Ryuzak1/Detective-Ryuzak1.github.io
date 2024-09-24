@@ -75,6 +75,63 @@
                 <div class="blog-image-grande">
                     <img src="media/forti2.png" alt="">
                 </div>
+                <h2>Objetos</h2>
+                <p>En Fortinet, los objetos son componentes clave que se utilizan para crear políticas, reglas y configuraciones dentro del sistema. Los objetos representan elementos específicos de la red, tales como direcciones IP, servicios (como puertos o protocolos), usuarios, interfaces de red o direcciones virtuales, y ayudan a simplificar la administración de la seguridad y el tráfico de red. Al definir objetos, puedes reutilizarlos en diferentes políticas y configuraciones, lo que facilita la gestión y el mantenimiento de las políticas de seguridad en tu red.</p>
+                <ol>
+                    <li><marcador class="resaltado2">Objetos de Dirección (Address Objects): </marcador>Representan direcciones IP individuales, rangos de IP o subredes. Estos objetos se utilizan para especificar las fuentes y destinos en las reglas de firewall o en las políticas de NAT. Por ejemplo, podrías crear un objeto para una dirección IP de un servidor interno y luego usarlo en diferentes políticas.</li>
+                    <h6>Ejemplo de dirección IP estática:</h6>
+                    <div class="consola">
+                        <div class="barra-superior-consola">
+                            <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                        </div>
+                        <div class="codigo-consola">
+                            <!-- Contenido del código -->
+    <pre><code>config firewall address
+edit "servidor_interno"
+set subnet 192.168.1.10 255.255.255.255
+next
+end</code></pre>
+                        </div>
+                    </div>
+                    <li><marcador class="resaltado2">Objetos de Servicio (Service Objects): </marcador>Representan servicios de red como HTTP, HTTPS, FTP, SSH, entre otros. Un objeto de servicio define el puerto y el protocolo (TCP/UDP/ICMP) para una política específica. Puedes crear servicios personalizados si necesitas algo que no esté predefinido.</li>
+                    <h6>Ejemplo de creación de servicio personalizado:</h6>
+                    <div class="consola">
+                        <div class="barra-superior-consola">
+                            <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                        </div>
+                        <div class="codigo-consola">
+                            <!-- Contenido del código -->
+    <pre><code>config firewall service custom
+edit "servicio_personalizado"
+set protocol TCP/UDP
+set tcp-portrange 8080
+next
+end</code></pre>
+                        </div>
+                    </div>
+                    <li><marcador class="resaltado2">Grupos de Objetos (Object Groups): </marcador>Estos son conjuntos de objetos, ya sean direcciones, servicios o interfaces. Los grupos permiten simplificar políticas y configuraciones al agrupar varios elementos similares. Esto resulta útil cuando necesitas aplicar una política a múltiples direcciones o servicios.</li>
+                    <li><marcador class="resaltado2">Objetos de Usuario (User Objects): </marcador>Representan usuarios o grupos de usuarios que pueden ser autenticados mediante diferentes métodos (LDAP, RADIUS, local). Se utilizan para crear políticas basadas en usuarios, lo que permite aplicar reglas específicas según la identidad del usuario en lugar de solo basarse en direcciones IP o subredes.</li>
+                    <li><marcador class="resaltado2">Objetos de Programación (Schedule Objects): </marcador>Estos objetos permiten definir horarios y fechas específicos en los que se activarán o desactivarán ciertas políticas o reglas. Es útil para gestionar el acceso a servicios o recursos en horarios laborales, por ejemplo.</li>
+                    <li><marcador class="resaltado2">Objetos de Interfaces Virtuales (Virtual IPs o VIPs): </marcador>Se utilizan para la creación de NAT y la publicación de servicios internos al exterior. Los objetos VIP permiten definir una dirección IP externa que se traduce a una IP interna en la red, facilitando el acceso desde redes externas a recursos protegidos.</li>
+                    <h6>Ejemplo de configuración de un VIP:</h6>
+                    <div class="consola">
+                        <div class="barra-superior-consola">
+                            <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                        </div>
+                        <div class="codigo-consola">
+                            <!-- Contenido del código -->
+    <pre><code>config firewall vip
+edit "VIP_WebServer"
+set extip 203.0.113.10
+set mappedip 192.168.1.10
+next
+end</code></pre>
+                        </div>
+                    </div>
+                </ol>
+                <p>Los objetos te permiten reutilizar configuraciones, lo que reduce la complejidad de gestionar múltiples políticas. Una vez que defines un objeto, puedes usarlo en diferentes reglas, reduciendo la posibilidad de errores.</p>
+                <p>Los objetos permiten que las políticas sean más fáciles de gestionar en redes grandes. Si cambias la definición de un objeto (por ejemplo, la dirección IP de un servidor), todas las políticas asociadas a ese objeto se actualizan automáticamente.</p>
+                <p>Puedes crear objetos específicos para distintos escenarios y casos de uso, permitiendo un control granular sobre las políticas de seguridad y el tráfico de red.</p> 
                 <h2>Comandos y Subcomandos Comunes en el CLI de Fortinet</h2>
                 <p>La CLI de Fortinet es muy robusta y permite configuraciones detalladas. A continuación, se presentan algunos comandos y subcomandos clave:</p>
                 <h6>Configuración de la interfaz de red</h6>
