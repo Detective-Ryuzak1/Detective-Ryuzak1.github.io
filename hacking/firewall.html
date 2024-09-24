@@ -134,10 +134,7 @@ end</code></pre>
                     </div>
                     <div class="codigo-consola">
                         <!-- Contenido del código -->
-<pre><code>config system interface
-edit &lt;nombre_vlan&gt;                    # Nombre de la VLAN (p. ej., vlan10).
-
-config router static
+<pre><code>config router static
 edit &lt;id_ruta&gt;                        # ID de la ruta estática (p. ej., 1).
 set dst &lt;red_destino&gt; &lt;máscara_red&gt;   # Red de destino y máscara de red (p. ej., 10.0.0.0 255.255.255.0).
 set gateway &lt;ip_gateway&gt;              # Dirección IP de la puerta de enlace (p. ej., 192.168.1.1).

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <link rel="icon" href="../media/imagen9.png" type="image/png">
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Bonus">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <h1>Detección y Bloqueo de Tráfico de Red</h1>
+                <p>La seguridad de red es una prioridad clave para proteger los sistemas de ataques y actividades no autorizadas. Entre las herramientas más utilizadas para detectar y bloquear el tráfico de red, destacan Snort, pfSense e iptables en sistemas basados en Linux y Unix, y como alternativas en Windows esta Windows Firewall.</p>
+                <h2>Snort</h2>
+                <p>Snort es uno de los sistemas de detección de intrusiones (IDS) más reconocidos y utilizados en el mundo de la ciberseguridad. Desarrollado originalmente por Martin Roesch en 1998, Snort se ha convertido en una herramienta esencial para administradores de red y profesionales de la seguridad. Su capacidad para monitorizar el tráfico de red en tiempo real, junto con su flexibilidad y facilidad de uso, lo han posicionado como una solución líder para la detección y prevención de intrusiones. </p>
+                <p>Snort es un software de código abierto diseñado para detectar actividades maliciosas en redes de computadoras. A través del análisis de paquetes en tiempo real, Snort puede identificar patrones de tráfico que indican ataques, escaneos de puertos y otras amenazas a la seguridad. Su arquitectura modular permite que los usuarios lo adapten a sus necesidades específicas, lo que lo convierte en una herramienta versátil para entornos de red de todos los tamaños.</p>
+                <p>Una de las características más destacadas de Snort es su capacidad para operar en diferentes modos. Puede funcionar como un IDS, donde simplemente monitorea el tráfico y genera alertas, o como un sistema de prevención de intrusiones (IPS), donde toma acciones activas para bloquear el tráfico malicioso en tiempo real. Esto le permite a las organizaciones no solo detectar amenazas, sino también responder a ellas de manera efectiva.</p>
+                <h6>Cómo Funciona Snort</h6>
+                <p>Snort opera mediante el análisis de paquetes en tiempo real. Cuando se implementa en una red, se configura para interceptar el tráfico que pasa a través de un puerto específico o toda la red. Utiliza un conjunto de reglas predefinidas para identificar patrones de tráfico que son indicativos de comportamiento sospechoso. Estas reglas se basan en firmas de ataques conocidos, heurísticas y otros criterios, lo que permite a Snort diferenciar entre tráfico legítimo y potencialmente malicioso.</p>
+                <p>El sistema también es capaz de generar alertas en caso de detectar un tráfico que coincida con una regla. Estas alertas pueden ser enviadas a un servidor de registro o a una consola de administración para que los administradores de red puedan investigar y tomar las medidas adecuadas. Además, Snort permite la personalización de reglas, lo que brinda a los usuarios la flexibilidad de adaptarse a las amenazas emergentes y a las particularidades de su entorno de red.</p>
+                <h6>Funciones de Snort</h6>
+                <p>Snort ofrece una amplia gama de funciones que lo convierten en una herramienta valiosa para la ciberseguridad. Entre sus características más destacadas se incluyen:</p>
+                <ul>
+                    <li><marcador class="resaltado2">Detección de Ataques: </marcador>Snort puede identificar varios tipos de ataques, como escaneos de puertos, inyecciones SQL, ataques de denegación de servicio (DoS) y mucho más.</li>
+                    <li><marcador class="resaltado2">Registro de Eventos: </marcador>El sistema genera registros detallados de eventos de seguridad, lo que permite a los administradores llevar un seguimiento de actividades sospechosas y realizar auditorías de seguridad.</li>
+                    <li><marcador class="resaltado2">Prevención de Intrusiones: </marcador>Cuando se utiliza en modo IPS, Snort puede bloquear el tráfico malicioso en tiempo real, proporcionando una capa adicional de defensa para la red.</li>
+                    <li><marcador class="resaltado2">Análisis de Tráfico: </marcador>Snort proporciona capacidades de análisis de tráfico que permiten a los administradores identificar patrones de uso y comportamientos anómalos en la red.</li>
+                    <li><marcador class="resaltado2">Actualizaciones de Reglas: </marcador>La comunidad de Snort y otras fuentes ofrecen actualizaciones frecuentes para las reglas, lo que garantiza que el sistema esté siempre preparado para detectar las amenazas más recientes.</li>
+                </ul>
+                <h3>Configuración de Snort en Linux</h3>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Instalar Snort
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="sudo apt update && apt install snort" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Durante la instalación, selecciona la interfaz de red que deseas monitorizar.</p>
+                <p>Configurar Snort: La configuración principal de Snort está en el archivo <marcador class="resaltado1">/etc/snort/snort.conf</marcador>. Asegúrate de editar este archivo según tu red, ajustando parámetros como la red local (var HOME_NET).</p>
+                <p>Ubicación de las reglas en Linux: Las reglas de Snort se encuentran en <marcador class="resaltado1">/etc/snort/rules/</marcador>. Aquí es donde puedes añadir reglas personalizadas o descargar conjuntos de reglas predefinidas.</p>
+                <p>Ejemplo de una Regla de Snort:</p>
+                <div class="archivo">alert tcp any any -> 192.168.1.0/24 80 (msg:"Tráfico HTTP detectado"; sid:1000001; rev:1;)</div>
+                <p>Esta regla alerta cuando se detecta tráfico HTTP hacia cualquier host en la subred 192.168.1.0/24.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Ejecutar Snort en modo IDS
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="sudo snort -A console -q -c /etc/snort/snort.conf -i eth0" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <h3>Configuración de Snort en Windows</h3>
+                <p>Descargar Snort: Descarga el instalador de Snort.org.</p> 
+                <p>Configurar Snort: Al igual que en Linux, el archivo de configuración se llama snort.conf, que en Windows se suele ubicar en <marcador class="resaltado1">C:\Snort\etc\snort.conf</marcador></p>
+                <p>Asegúrate de especificar las rutas correctas de las reglas y ajusta la configuración de red.</p>
+                <p>Ubicación de las reglas en Windows: Las reglas de Snort en Windows generalmente se almacenan en <marcador class="resaltado1">C:\Snort\rules\</marcador></p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Ejecutar Snort en Windows desde el símbolo del sistema
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="snort -A console -q -c C:\Snort\etc\snort.conf -i 1" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Ejemplos de Reglas de Snort:</p>
+                <div class="archivo">alert tcp any any -> 192.168.1.0/24 22 (msg:"Tráfico SSH detectado"; sid:1000001; rev:1;)
+drop tcp any any -> 192.168.1.0/24 22 (msg:"Intento SSH bloqueado"; sid:1000002; rev:1;)</div>
+                <h6>Reglas</h6>
+                <p>Para descargar las reglas de Snort, el primer paso es crear una cuenta en el sitio web oficial de Snort. Esto es fundamental, ya que algunas reglas requieren autenticación. Para ello, debes visitar Snort.org y hacer clic en la opción "Register" (Registrar).</p>
+                <p>Una vez que hayas creado y activado tu cuenta, podrás acceder a las reglas. Inicia sesión en el sitio y dirígete a la sección de Rules en el menú principal. Aquí encontrarás diferentes categorías de reglas, incluidas las Community Rules (Reglas de la Comunidad) y las Snort VRT Rules (Reglas de Snort VRT). Las reglas de la comunidad son gratuitas y son una excelente opción para quienes buscan empezar, mientras que las reglas VRT pueden requerir una suscripción comercial, especialmente para características más avanzadas.</p>
+                <p>Además de descargar reglas desde el sitio web oficial, también puedes encontrar reglas de Snort en varios repositorios de GitHub que contienen reglas personalizadas o actualizadas por la comunidad. Estos repositorios pueden ofrecer reglas adicionales que no están disponibles en el sitio oficial, lo que puede ser útil para mejorar la capacidad de detección de tu instalación de Snort. Puedes buscar repositorios de GitHub utilizando términos como "Snort rules" o "Snort rule sets". Por ejemplo, algunos usuarios han creado repositorios que contienen conjuntos de reglas adaptadas a situaciones específicas, lo que puede ser una excelente manera de enriquecer tu colección de reglas.</p>
+                <p>El siguiente paso es instalar las reglas en tu sistema. Para ello, copia los archivos descomprimidos a la carpeta de configuración de Snort, que comúnmente se encuentra en /etc/snort/rules/ o en una ubicación similar. Asegúrate de que tu archivo de configuración de Snort, conocido como snort.conf, apunte correctamente a las nuevas reglas que has descargado. Esto puede requerir que añadas líneas específicas en el archivo de configuración que referencien las reglas.</p>
+                <div class="blog-image-grande">
+                    <img src="media/detect1.jpg" alt="">
+                </div>
+                <h2>pfSense</h2>
+                <p>pfSense es una solución de firewall y enrutamiento de código abierto basada en FreeBSD, que se ha convertido en una herramienta indispensable para administradores de red y profesionales de la ciberseguridad. Su flexibilidad, escalabilidad y amplia gama de características lo hacen ideal para entornos desde pequeñas oficinas hasta grandes corporaciones.</p>
+                <p>pfSense es una distribución de software que proporciona servicios de firewall y enrutamiento. Originalmente desarrollado como un proyecto para reemplazar el popular software de firewall m0n0wall, pfSense ha evolucionado significativamente, incorporando muchas características avanzadas. Su interfaz web fácil de usar permite a los usuarios gestionar configuraciones de red, políticas de seguridad y supervisar el tráfico sin la necesidad de conocimientos profundos de programación o administración de sistemas.</p>
+                <h6>Funciones principales de pfSense</h6>
+                <ul>
+                    <li><marcador class="resaltado2">Firewall: </marcador>pfSense utiliza un firewall de estado, lo que significa que puede rastrear el estado de las conexiones de red y aplicar reglas de seguridad de manera más eficiente.</li>
+                    <li><marcador class="resaltado2">NAT: </marcador>Facilita la conexión de múltiples dispositivos a Internet mediante una única dirección IP pública, lo que mejora la privacidad y seguridad.</li>
+                    <li><marcador class="resaltado2">VPN: </marcador>Permite crear conexiones seguras entre redes y usuarios remotos. pfSense soporta varios protocolos VPN, incluyendo OpenVPN, IPsec y L2TP.</li>
+                    <li><marcador class="resaltado2">QoS: </marcador>Permite priorizar el tráfico de red, asegurando que aplicaciones críticas reciban el ancho de banda necesario para funcionar sin problemas.</li>
+                    <li><marcador class="resaltado2">DHCP y DNS: </marcador>pfSense puede actuar como servidor DHCP y DNS, asignando direcciones IP a dispositivos en la red y resolviendo nombres de dominio.</li>
+                    <li><marcador class="resaltado2">Logs y monitoreo: </marcador>Proporciona herramientas integradas para supervisar el tráfico de la red y registrar eventos de seguridad, lo que es esencial para la detección de intrusiones y la auditoría.</li>
+                </ul>
+                <h6>Configuraciones de pfSense</h6>
+                <p>Configurar pfSense puede parecer intimidante al principio, pero su interfaz intuitiva simplifica el proceso. La configuración inicial generalmente implica:</p>
+                <ul>
+                    <li><marcador class="resaltado3">Asignación de Interfaces: </marcador>Durante la instalación, se asignan las interfaces de red WAN (conexión a Internet) y LAN (red interna). Es crucial elegir las interfaces correctas para asegurar un funcionamiento óptimo.</li>
+                    <li><marcador class="resaltado3">Configuración de IP: </marcador>Una vez que las interfaces están asignadas, se deben establecer las direcciones IP, incluidas las configuraciones de DHCP para facilitar la gestión de la red.</li>
+                    <li><marcador class="resaltado3">Reglas de Firewall: </marcador>Las reglas se configuran para permitir o denegar el tráfico en función de direcciones IP, puertos y protocolos. Esto es fundamental para proteger la red de accesos no autorizados.</li>
+                    <li><marcador class="resaltado3">Configuraciones Avanzadas: </marcador>Los usuarios pueden personalizar aún más pfSense con funciones avanzadas como VPN, balanceo de carga, y servidores proxy, entre otros.</li>
+                </ul>
+                <h6>Integración con Otras Tecnologías</h6>
+                <p>pfSense se puede utilizar en conjunto con una variedad de otras tecnologías y herramientas para mejorar la seguridad y el rendimiento de la red:</p>
+                <ul>
+                    <li><marcador class="resaltado3">Sistemas de Detección de Intrusiones (IDS/IPS): </marcador>Integrar pfSense con sistemas como Snort o Suricata permite monitorear el tráfico en busca de comportamientos sospechosos y potenciales amenazas.</li>
+                    <li><marcador class="resaltado3">Sistemas de Autenticación: </marcador>Puede ser integrado con sistemas de autenticación como RADIUS para controlar el acceso a la red, especialmente en entornos empresariales.</li>
+                    <li><marcador class="resaltado3">Tecnologías de Virtualización: </marcador>pfSense puede ejecutarse en plataformas de virtualización como VMware y Proxmox, lo que permite a los administradores consolidar recursos y gestionar la infraestructura de red de manera más eficiente.</li>
+                    <li><marcador class="resaltado3">Servicios en la Nube: </marcador>Con la creciente adopción de servicios en la nube, pfSense se puede utilizar para crear conexiones seguras entre oficinas locales y servicios en la nube, garantizando la seguridad de los datos en tránsito.</li>
+                </ul>
+                <h6>Instalación</h6>
+                <h3>Requisitos previos</h3>
+                <p>VMware Workstation Pro: Es un software que ofrece una versión gratuita que puedes utilizar.</p>
+                <p>Descargar pfSense ISO: Necesitarás crear una cuenta en la página oficial de pfSense para descargar la imagen ISO más reciente.</p>
+                <h3>Configuración de la Máquina Virtual</h3>
+                <ol>
+                    <li>Crear una nueva máquina virtual:</li>
+                    <ul>
+                        <li>Abre VMware Pro y selecciona "Crear una nueva máquina virtual".</li>
+                        <li>Selecciona "Custom (advanced)" y sigue las instrucciones.</li>
+                        <li>Carga la ISO de pfSense que descargaste en la sección de instalación.</li>
+                    </ul>
+                    <li>Especificaciones recomendadas:</li>
+                    <ul>
+                        <li>RAM: 8 GB</li>
+                        <li>Procesadores: 2 núcleos</li>
+                        <li>Disco: 20 GB de espacio.</li>
+                    </ul>
+                    <li>Configuración de adaptadores de red:</li>
+                    <ul>
+                        <li>Primer adaptador de red: Configúralo en modo NAT.</li>
+                        <li>Agregar un segundo adaptador de red:</li>
+                        <p>Haz clic en "Add" y selecciona "Network Adapter".</p>
+                        <p>Elige Custom y selecciona la opción VMnet1 (Host-only).</p>
+                    </ul>
+                </ol>
+                <h3>Instalación de pfSense</h3>
+                <p>Una vez que hayas configurado la máquina virtual en VMware, estarás listo para iniciar la instalación de pfSense. Antes de comenzar, es fundamental revisar las direcciones MAC de las interfaces de red en la configuración avanzada de cada Network Adapter. Esto te permitirá identificar qué interfaz está configurada como NAT y cuál como VMnet1 (Host-only), ya que más adelante necesitarás asignar la interfaz correcta para cada función de red. Al arrancar la instalación de pfSense, el sistema te pedirá que selecciones las interfaces de red. Asegúrate de asignar la interfaz NAT como WAN y la VMnet1 como LAN.</p>
+                <p>A continuación, sigue las instrucciones de instalación, manteniendo las configuraciones por defecto en cada paso. pfSense detectará automáticamente las interfaces y las asignará según tu selección. Una vez que completes la instalación y se te pida reiniciar, recuerda ingresar a las configuraciones de la máquina virtual en VMware y desactivar las opciones de Device Status en el CD/DVD SATA. Esto evitará que la máquina intente arrancar nuevamente desde el instalador ISO al reiniciarse, permitiéndote acceder directamente al sistema pfSense ya instalado.</p>
+                <h3>Configuración de la IP de pfSense</h3>
+                <p>Después de la instalación, es importante configurar la dirección IP de la interfaz LAN de pfSense para poder acceder a ella desde la máquina anfitriona. Primero, abre la línea de comandos (CMD) en tu sistema anfitrión (Windows) y ejecuta el comando ipconfig para obtener la dirección IP de la interfaz VMnet1. Esta IP te servirá como referencia para configurar la red local. Por ejemplo, si la IP es 192.168.99.1, sabrás que debes asignar una IP dentro de ese rango para la LAN de pfSense.</p>
+                <p>Cuando pfSense arranque, te pedirá que configures las interfaces de red. Asigna "le0" como WAN y "le1" como LAN. Luego, en el menú de opciones que aparece, selecciona la opción 2 para cambiar la dirección IP de la LAN. Ingresa una nueva IP que esté dentro del rango de la VMnet1, como 192.168.99.100, y define la máscara de subred como 24. Desactiva IPv6 y habilita el servidor DHCP en la LAN, estableciendo un rango de direcciones IP, por ejemplo, desde 192.168.99.150 hasta 192.168.99.200. Al terminar, podrás probar la conexión haciendo ping a la nueva IP desde la máquina anfitriona y acceder a la interfaz gráfica de pfSense a través de un navegador web ingresando la dirección configurada (por ejemplo, https://192.168.99.100).</p>
+                <div class="blog-image-grande">
+                    <img src="media/detect2.jpg" alt="">
+                </div>
+                <h2>iptables y Windows Defender</h2>
+                <p>En el ámbito de la seguridad informática, dos herramientas fundamentales que ayudan a proteger sistemas y redes son iptables y Windows Defender. Mientras que iptables es un software de firewall utilizado principalmente en sistemas Linux, Windows Defender es el antivirus y firewall integrado en los sistemas operativos Windows. Ambas herramientas desempeñan un papel crucial en la defensa contra amenazas cibernéticas, aunque sus enfoques y configuraciones son diferentes.</p>
+                <p>iptables es un firewall basado en tablas que permite a los administradores de sistemas controlar el tráfico de red en sistemas Linux. Utiliza reglas definidas por el usuario para permitir, denegar o modificar paquetes de datos que pasan a través del sistema. Algunas de las funciones clave de iptables incluyen:</p>
+                <ul>
+                    <li><marcador class="resaltado3">Filtrado de paquetes: </marcador>Decide si un paquete de datos debe ser aceptado o rechazado.</li>
+                    <li><marcador class="resaltado3">Registro: </marcador>Permite registrar paquetes específicos para auditorías y análisis.</li>
+                    <li><marcador class="resaltado3">NAT (Network Address Translation): </marcador>Permite modificar las direcciones IP de los paquetes de datos para permitir la comunicación entre redes.</li>
+                </ul>
+                <p>Por otro lado, Windows Defender no solo actúa como un firewall, sino que también proporciona protección antivirus y antimalware. Sus funciones incluyen:</p>
+                <ul>
+                    <li><marcador class="resaltado3">Protección en tiempo real: </marcador>Monitorea continuamente el sistema para detectar y bloquear amenazas.</li>
+                    <li><marcador class="resaltado3">Análisis de archivos y programas: </marcador>Escanea archivos y aplicaciones en busca de comportamientos maliciosos.</li>
+                    <li><marcador class="resaltado3">Configuración del firewall: </marcador>Permite controlar las conexiones entrantes y salientes para proteger el sistema de accesos no autorizados.</li>
+                </ul>
+                <h6>Configuración de iptables</h6>
+                <p>Para comenzar a utilizar iptables, debes tener privilegios de administrador en un sistema Linux. La configuración básica de iptables implica definir reglas en diferentes cadenas (INPUT, OUTPUT, FORWARD) que controlan el tráfico de red.</p>
+                <p>A continuación se muestran algunos comandos básicos de iptables.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Listar reglas actuales:
+                    </div>
+                    <div class="comandos">
+                    <input type="text" class="text" value="sudo iptables -L" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Agregar una regla para permitir tráfico HTTP:
+                    </div>
+                    <div class="comandos">
+                    <input type="text" class="text" value="sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Agregar una regla para bloquear tráfico SSH desde una IP específica:
+                    </div>
+                    <div class="comandos">
+                    <input type="text" class="text" value="sudo iptables -A INPUT -p tcp --dport 22 -s 192.168.1.100 -j DROP" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Permitir tráfico ICMP (ping):
+                    </div>
+                    <div class="comandos">
+                    <input type="text" class="text" value="sudo iptables -A INPUT -p icmp --icmp-type echo-request -j ACCEPT" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Denegar todo el tráfico de entrada:
+                    </div>
+                    <div class="comandos">
+                    <input type="text" class="text" value="sudo iptables -A INPUT -j DROP" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Permitir tráfico saliente a un puerto específico:
+                    </div>
+                    <div class="comandos">
+                    <input type="text" class="text" value="sudo iptables -A OUTPUT -p tcp --dport 443 -j ACCEPT" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Guardar las reglas:
+                    </div>
+                    <div class="comandos">
+                    <input type="text" class="text" value="sudo iptables-save > /etc/iptables/rules.v4" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                </div>
+                <div class="blog-image-grande">
+                    <img src="media/detect3.png" alt="">
+                </div>
+                <h6>Configuración de Windows Defender</h6>
+                <p>La configuración de Windows Defender se puede realizar a través de la interfaz gráfica o mediante la línea de comandos. Para acceder a la configuración de Windows Defender, ve a Configuración > Actualización y seguridad > Windows Defender. Desde aquí, puedes activar o desactivar la protección en tiempo real y realizar análisis manuales.</p>
+                <p>A continuación se muestran algunos comandos básicos de Windows Defender.</p>
+                <p>Para configurar Windows Defender desde la línea de comandos, puedes utilizar PowerShell o el símbolo del sistema.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Verificar el estado de Windows Defender:
+                    </div>
+                    <div class="comandos">
+                    <input type="text" class="text" value="Get-MpPreference" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Activar la protección en tiempo real:
+                    </div>
+                    <div class="comandos">
+                    <input type="text" class="text" value="Set-MpPreference -DisableRealtimeMonitoring $false" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Realizar un análisis rápido:
+                    </div>
+                    <div class="comandos">
+                    <input type="text" class="text" value="Start-MpScan -ScanType QuickScan" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Agregar una exclusión de carpeta:
+                    </div>
+                    <div class="comandos">
+                    <input type="text" class="text" value="Add-MpPreference -ExclusionPath 'C:\ruta\de\la\carpeta'" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Permitir una aplicación específica a través del firewall:
+                    </div>
+                    <div class="comandos">
+                    <input type="text" class="text" value="netsh advfirewall firewall add rule name='Permitir Google Chrome' dir=in action=allow program='C:\Program Files\Google\Chrome\Application\chrome.exe' enable=yes" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Bloquear una aplicación específica a través del firewall:
+                    </div>
+                    <div class="comandos">
+                    <input type="text" class="text" value="netsh advfirewall firewall add rule name='Bloquear Google Chrome' dir=in action=block program='C:\Program Files\Google\Chrome\Application\chrome.exe' enable=yes" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Agregar una exclusión de carpeta:
+                    </div>
+                    <div class="comandos">
+                    <input type="text" class="text" value="Add-MpPreference -ExclusionPath 'C:\ruta\de\la\carpeta'" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Permitir un puerto específico (por ejemplo, HTTP puerto 80): Este comando permite el tráfico en el puerto 80 (HTTP) de entrada.
+                    </div>
+                    <div class="comandos">
+                    <input type="text" class="text" value="netsh advfirewall firewall add rule name='Permitir HTTP' protocol=TCP dir=in localport=80 action=allow" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Permitir un puerto específico (por ejemplo, HTTP puerto 80): Este comando permite el tráfico en el puerto 80 (HTTP) de salida.
+                    </div>
+                    <div class="comandos">
+                    <input type="text" class="text" value="netsh advfirewall firewall add rule name='Permitir HTTP' protocol=TCP dir=out localport=80 action=allow" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Bloquear un puerto específico (por ejemplo, puerto 21 FTP):
+                    </div>
+                    <div class="comandos">
+                    <input type="text" class="text" value="netsh advfirewall firewall add rule name='Bloquear FTP' protocol=TCP dir=in localport=21 action=block" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Eliminar una regla específica:
+                    </div>
+                    <div class="comandos">
+                    <input type="text" class="text" value="netsh advfirewall firewall delete rule name='Bloquear Google Chrome'" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Mostrar todas las reglas de firewall activas:
+                    </div>
+                    <div class="comandos">
+                    <input type="text" class="text" value="netsh advfirewall firewall show rule name=all" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                </div>
+                <div class="blog-image-grande">
+                    <img src="media/detect4.png" alt="">
+                </div>
+                <h2>Malwarebytes</h2>
+                <p>Malwarebytes es una herramienta de seguridad ampliamente utilizada que ofrece protección contra una variedad de amenazas, como malware, ransomware, adware y spyware. Su popularidad radica en su capacidad para detectar y eliminar amenazas que otros antivirus pueden pasar por alto. Diseñado tanto para usuarios domésticos como para empresas, Malwarebytes ofrece una capa adicional de seguridad en entornos vulnerables.</p>
+                <p>Malwarebytes utiliza una combinación de análisis heurístico, basado en firmas, y comportamiento en tiempo real para identificar y detener amenazas. El análisis heurístico le permite detectar amenazas nuevas y desconocidas basándose en patrones sospechosos de comportamiento en archivos y programas. Además, su protección en tiempo real bloquea automáticamente sitios web maliciosos, exploits y ataques antes de que afecten al sistema.</p>
+                <p>Uno de los principales beneficios de Malwarebytes es su capacidad para eliminar malware que ha infectado profundamente un sistema, algo que otras soluciones antivirus pueden tener dificultades para hacer. Además, su interfaz es intuitiva y fácil de usar, permitiendo a usuarios novatos proteger sus dispositivos sin complicaciones. También es altamente compatible con otros antivirus, lo que permite usarlo como una solución de seguridad complementaria.</p>
+                <div class="blog-image-grande">
+                    <img src="media/detect5.png" alt="">
+                </div>
+            </div>
+        </div>       
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
