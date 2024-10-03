@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <link rel="icon" href="../media/imagen9.png" type="image/png">
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Aportar" onclick="window.open('https://buymeacoffee.com/ryuzak1', '_blank');">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <h1>Rutas estáticas</h1>
+                <p>En el mundo de las redes, las rutas son esenciales para determinar cómo los paquetes de datos viajan desde su origen hasta su destino. Las rutas estáticas son configuraciones manuales que permiten a los administradores de red definir explícitamente el camino que seguirán los datos a través de la red. Aunque su uso está limitado en redes más pequeñas o con un diseño simple, son fundamentales para comprender cómo funcionan las rutas más complejas en entornos empresariales.</p>
+                <p>Una ruta es el camino que sigue un paquete de datos desde su punto de origen hasta su destino final. Los routers utilizan rutas para decidir por cuál interfaz enviar los datos. Las rutas se pueden configurar de manera automática mediante protocolos de enrutamiento dinámico (como OSPF, RIP, o BGP) o de forma manual como rutas estáticas.</p>
+                <p>Las rutas estáticas son entradas fijas que se introducen en la tabla de ruteo de un router. A diferencia de las rutas dinámicas, las rutas estáticas no cambian automáticamente en función de cambios en la topología de la red. Por esta razón, son ideales en escenarios donde la simplicidad y el control manual son necesarios.</p>
+                <div class="blog-image-grande">
+                    <img src="media/static1.png" alt="">
+                </div>
+                <h2>Tablas de ruteo</h2>
+                <p>Una tabla de ruteo es una base de datos que mantiene cada router y que contiene la información sobre las rutas de red conocidas. Cada entrada en la tabla de ruteo contiene la red de destino, la máscara de subred, la puerta de enlace (gateway) y la interfaz de salida.</p>
+                <p>Por ejemplo, una tabla de ruteo puede tener la siguiente entrada:</p>
+                <div class="archivo">Destino: 192.168.1.0/24
+Máscara de subred: 255.255.255.0
+Gateway: 192.168.1.1
+Interfaz de salida: FastEthernet0/0</div>
+                <div class="blog-image-grande">
+                    <img src="media/static2.png" alt="">
+                </div>
+                <h2>Ejemplo de configuración de rutas estáticas</h2>
+                <p>Imaginemos una red conformada por cuatro routers: 1, 2, 3 y 4, conectados de forma que forman un cuadrado. La topología de red sería la siguiente:</p>
+                <div class="blog-image-grande">
+                    <img src="media/static3.jpeg" alt="">
+                </div>
+                <h6>Direccionamiento y conexiones:</h6>
+                <ul>
+                    <li>R1 f0/0: 10.10.10.1/30 (Conecta con R3 f0/0)</li>
+                    <li>R1 f1/0: 10.10.11.1/30 (Conecta con R2 f1/0)</li>
+                    <li>R2 f0/0: 10.10.13.1/30 (Conecta con R4 f0/0)</li>
+                    <li>R2 f1/0: 10.10.11.2/30 (Conecta con R1 f1/0)</li>
+                    <li>R3 f0/0: 10.10.10.2/30 (Conecta con R1 f0/0)</li>
+                    <li>R3 f1/0: 10.10.12.1/30 (Conecta con R4 f1/0)</li>
+                    <li>R4 f0/0: 10.10.13.2/30 (Conecta con R2 f0/0)</li>
+                    <li>R4 f1/0: 10.10.12.2/30 (Conecta con R3 f1/0)</li>
+                </ul>   
+                <h6>Configuración de rutas en cada router:</h6>
+                <h3>Cisco</h3>
+                <ul>
+                    <li>Router 1</li>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>hostname R1
+interface f0/0
+    ip address 10.10.10.1 255.255.255.252
+    no shutdown
+
+interface f1/0
+    ip address 10.10.11.1 255.255.255.252
+    no shutdown
+
+ip route 10.10.12.0 255.255.255.252 10.10.10.2  # Ruta hacia R4 a través de R3
+ip route 10.10.13.0 255.255.255.252 10.10.11.2  # Ruta hacia R4 a través de R2</code></pre>
+                    </div>
+                </div>
+                    <li>Router 2</li>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>hostname R2
+interface f0/0
+    ip address 10.10.13.1 255.255.255.252
+    no shutdown
+
+interface f1/0
+    ip address 10.10.11.2 255.255.255.252
+    no shutdown
+
+ip route 10.10.10.0 255.255.255.252 10.10.11.1  # Ruta hacia R3 a través de R1
+ip route 10.10.12.0 255.255.255.252 10.10.13.2  # Ruta hacia R3 a través de R4</code></pre>
+                    </div>
+                </div>
+                    <li>Router 3</li>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>hostname R3
+interface f0/0
+    ip address 10.10.10.2 255.255.255.252
+    no shutdown
+
+interface f1/0
+    ip address 10.10.12.1 255.255.255.252
+    no shutdown
+
+ip route 10.10.11.0 255.255.255.252 10.10.10.1  # Ruta hacia R2 a través de R1
+ip route 10.10.13.0 255.255.255.252 10.10.12.2  # Ruta hacia R2 a través de R4</code></pre>
+                    </div>
+                </div>
+                    <li>Router 4</li>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>hostname R4
+interface f0/0
+    ip address 10.10.13.2 255.255.255.252
+    no shutdown
+
+interface f1/0
+    ip address 10.10.12.2 255.255.255.252
+    no shutdown
+
+ip route 10.10.10.0 255.255.255.252 10.10.12.1  # Ruta hacia R1 a través de R3
+ip route 10.10.11.0 255.255.255.252 10.10.13.1  # Ruta hacia R1 a través de R2</code></pre>
+                    </div>
+                </div>
+                </ul>
+                <h6>Explicación:</h6>
+                <p>En Cisco, se utiliza el comando <marcardor class="subrayado">configure terminal</marcardor> para entrar al modo de configuración global.</p>
+                <p>El comando <marcardor class="subrayado">ip address</marcardor> configura la dirección IP en cada interfaz.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Para definir rutas estáticas, se utiliza <marcardor class="subrayado">ip route</marcardor>, que sigue la sintaxis:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="ip route <red_destino> <máscara> <gateway>" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+                <h3>Huawei</h3>
+                <ul>
+                    <li>Router 1</li>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>system-view
+sysname R1
+
+interface GigabitEthernet 0/0/0
+    ip address 10.10.10.1 255.255.255.252
+    undo shutdown
+
+interface GigabitEthernet 0/0/1
+    ip address 10.10.11.1 255.255.255.252
+    undo shutdown
+
+ip route-static 10.10.12.0 255.255.255.252 10.10.10.2  # Ruta hacia R4 a través de R3
+ip route-static 10.10.13.0 255.255.255.252 10.10.11.2  # Ruta hacia R4 a través de R2</code></pre>
+                    </div>
+                </div>
+                    <li>Router 2</li>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>system-view
+sysname R2
+
+interface GigabitEthernet 0/0/0
+    ip address 10.10.13.1 255.255.255.252
+    undo shutdown
+
+interface GigabitEthernet 0/0/1
+    ip address 10.10.11.2 255.255.255.252
+    undo shutdown
+
+ip route-static 10.10.10.0 255.255.255.252 10.10.11.1  # Ruta hacia R3 a través de R1
+ip route-static 10.10.12.0 255.255.255.252 10.10.13.2  # Ruta hacia R3 a través de R4</code></pre>
+                    </div>
+                </div>
+                    <li>Router 3</li>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>system-view
+sysname R3
+
+interface GigabitEthernet 0/0/0
+    ip address 10.10.10.2 255.255.255.252
+    undo shutdown
+
+interface GigabitEthernet 0/0/1
+    ip address 10.10.12.1 255.255.255.252
+    undo shutdown
+
+ip route-static 10.10.11.0 255.255.255.252 10.10.10.1  # Ruta hacia R2 a través de R1
+ip route-static 10.10.13.0 255.255.255.252 10.10.12.2  # Ruta hacia R2 a través de R4</code></pre>
+                    </div>
+                </div>
+                    <li>Router 4</li>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>system-view
+sysname R4
+
+interface GigabitEthernet 0/0/0
+    ip address 10.10.13.2 255.255.255.252
+    undo shutdown
+
+interface GigabitEthernet 0/0/1
+    ip address 10.10.12.2 255.255.255.252
+    undo shutdown
+
+ip route-static 10.10.10.0 255.255.255.252 10.10.12.1  # Ruta hacia R1 a través de R3
+ip route-static 10.10.11.0 255.255.255.252 10.10.13.1  # Ruta hacia R1 a través de R2</code></pre>
+                    </div>
+                </div>
+                </ul>
+                <h6>Explicación:</h6>
+                <p>En Huawei, se utiliza el comando <marcardor class="subrayado">system-view</marcardor> para entrar al modo de configuración global.</p>
+                <p>El comando <marcardor class="subrayado">ip address</marcardor> configura la dirección IP en cada interfaz.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Para definir rutas estáticas, se utiliza <marcardor class="subrayado">ip route-static</marcardor>, que sigue la sintaxis:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="ip route-static <red_destino> <máscara> <gateway>" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+                  <div class="blog-image-grande">
+                    <img src="media/static4.jpeg" alt="">
+                </div>
+                <h2>Priorización de rutas</h2>
+                <p>En las redes, es importante priorizar ciertas rutas para asegurar que el tráfico crítico siga el camino más eficiente. La priorización de rutas estáticas puede lograrse configurando el métrico administrativo (AD) o utilizando técnicas más avanzadas como el balanceo de carga.</p>
+                <p>El métrico administrativo es un valor que se utiliza para determinar la preferencia de una ruta estática en comparación con otras rutas. Cuanto menor sea el valor del AD, mayor será la prioridad.</p>
+                <p>Ejemplo de configuración para priorizar una ruta:</p>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>ip route 10.0.2.0 255.255.255.252 10.0.1.2 100  # AD más alto, menos prioridad
+ip route 10.0.2.0 255.255.255.252 10.0.4.2 10   # AD más bajo, más prioridad</code></pre>
+                    </div>
+                </div>
+                <p>En este ejemplo, la segunda ruta tendrá mayor prioridad ya que su AD es más bajo.</p>
+                <h2>Factores que influyen en la selección de rutas</h2>
+                <ul>
+                    <li><marcador class="resaltado5">Número de saltos: </marcador>Este es el número de routers por los que un paquete debe pasar para llegar a su destino. En protocolos como RIP, el número de saltos es el principal criterio para la selección de rutas.</li>
+                    <li><marcador class="resaltado5">Ancho de banda: </marcador>En algunos protocolos, como OSPF, el ancho de banda de los enlaces entre routers se utiliza para calcular la mejor ruta. Una ruta con mayor ancho de banda puede ser seleccionada para garantizar un mejor rendimiento.</li>
+                    <li><marcador class="resaltado5">Delay (retardo): </marcador>El tiempo que tarda un paquete en viajar por un enlace puede ser un factor importante en la selección de la ruta. Protocolo como EIGRP considera este factor.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/static5.jpg" alt="">
+                </div>
+                <h2>Parámetros importantes</h2>
+                <ol>
+                    <li>Balanceo de carga</li>
+                    <p>El balanceo de carga es una técnica que permite distribuir el tráfico de red de manera equitativa entre diferentes rutas. Esto puede mejorar la eficiencia y redundancia en la red.</p>
+                    <ul>
+                        <li>Balanceo por igual costo: Si hay dos rutas con el mismo costo (número de saltos o métrico), el tráfico se puede dividir equitativamente entre ellas.</li>
+                    </ul>
+                    <li>Calidad de Servicio (QoS)</li>
+                    <p>La QoS permite priorizar ciertos tipos de tráfico, como voz sobre IP (VoIP) o video, garantizando que estos tengan un ancho de banda adecuado y baja latencia. Al configurar rutas, es esencial tener en cuenta la QoS para asegurar que las aplicaciones críticas no sufran interrupciones.</p>
+
+                    <li>Tipos de tráfico</li>
+                    <p>El tráfico en una red puede incluir datos de aplicaciones, llamadas telefónicas (VoIP), transmisión de medios (streaming de video/audio), y datos empresariales críticos. Cada tipo de tráfico puede tener diferentes requisitos de ancho de banda, latencia y fiabilidad.</p>
+                </ol>
+                <div class="blog-image-grande">
+                    <img src="media/static6.jpeg" alt="">
+                </div>
+            </div>
+        </div>       
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
