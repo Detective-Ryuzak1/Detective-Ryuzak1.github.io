@@ -54,6 +54,61 @@ Interfaz de salida: FastEthernet0/0</div>
                 <div class="blog-image-grande">
                     <img src="media/static2.png" alt="">
                 </div>
+                <h2>Tipos de rutas</h2>
+                <p>La identificación de dominios de red es fundamental para entender cómo se determina el inicio y el fin de una red. La dirección IP es una etiqueta única asignada a cada dispositivo en la red, mientras que la máscara de red define los límites de esa red. Por ejemplo, en una dirección IP de clase C como 192.168.1.0 con una máscara de red de 255.255.255.0, la red empieza en 192.168.1.0 y termina en 192.168.1.255. Esto significa que todas las direcciones IP desde 192.168.1.1 hasta 192.168.1.254 están dentro del mismo dominio de red. Si un paquete tiene una dirección de destino que no está dentro de este rango, el router sabe que el paquete pertenece a otra red, lo que significa que debe usar un gateway para enviarlo al destino correcto.</p>
+                <p>El gateway actúa como un intermediario entre la red local del router y otras redes. Una vez que el paquete llega al gateway, este utiliza su propia tabla de enrutamiento para decidir cómo proceder. El gateway puede tener varias rutas hacia diferentes redes y, en función de la dirección IP de destino del paquete, determinará el mejor camino para llevarlo a su destino.</p>
+                <p>En un router, cada interfaz puede tener su propia dirección IP y puede actuar como un gateway para la red que conecta. Por ejemplo, si un router tiene una interfaz conectada a la red local (LAN) con la dirección IP 192.168.1.1 y otra interfaz conectada a Internet (WAN) con la dirección IP 203.0.113.1, cada una de estas interfaces puede considerarse un gateway para las redes que conecta.</p>
+                <ul>
+                    <li><marcador class="resaltado5">Interfaz LAN: </marcador>La interfaz LAN del router (192.168.1.1) actúa como el gateway para todos los dispositivos en la red local. Cualquier dispositivo que quiera comunicarse con el exterior debe enviar sus paquetes a esta dirección, que es la dirección del gateway local.</li>
+                    <li><marcador class="resaltado5">Interfaz WAN: </marcador>La interfaz WAN (203.0.113.1) actúa como el gateway hacia Internet. Cuando el router necesita enviar paquetes hacia Internet, utiliza esta interfaz.</li>
+                </ul>
+                <p>Existen varios tipos de rutas estáticas que se pueden configurar en un enrutador para dirigir el tráfico a una red o dispositivo específico. A continuación te explico los tipos más comunes:</p>
+                <ol>
+                    <li>Ruta estática directa (Next-Hop)</li>
+                    <p>Una ruta estática directa, o next-hop, se utiliza cuando el router tiene una ruta específica para llegar a un destino conocido. Cuando un paquete llega al router, este examina la dirección IP de destino. Si sabe que el destino está en otra red y tiene una ruta configurada hacia el next-hop, enviará el paquete directamente a ese siguiente salto. Por ejemplo, si la dirección IP de destino es 192.168.2.0 y el router tiene configurada una ruta que apunta a un next-hop en 192.168.1.2, el router enviará el paquete a esa dirección.</p>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            Comando:
+                        </div>
+                        <div class="comandos">
+                          <input type="text" class="text" value="ip route 192.168.2.0 255.255.255.0 192.168.1.2" oninput="ajustarAncho(this)">
+                          <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                      </div>
+                      <li>Ruta Estática Local (Directamente Conectada)</li>
+                      <p>Una ruta estática local se refiere a aquellas direcciones que están directamente conectadas al router. Cuando un dispositivo envía un paquete a una dirección IP dentro de la misma red que el router, este puede entregar el paquete directamente al destino sin necesidad de pasar por un gateway. Por ejemplo, si el router tiene la dirección IP 192.168.1.1 y un dispositivo en la misma red tiene la IP 192.168.1.10, el router simplemente recibe el paquete y lo envía directamente a la dirección destino. El router sabe que estas direcciones pertenecen a la misma red porque la máscara de red, como 255.255.255.0, indica que cualquier dirección que comience con 192.168.1 forma parte del mismo dominio de red. Esta relación entre la dirección IP y la máscara de red es clave para entender la topología de la red y cómo se interconectan los dispositivos.</p>
+                    <li>Ruta estática flotante</li>
+                    <p>Una ruta estática flotante se utiliza como respaldo para rutas principales. El router mantiene esta ruta configurada, pero solo la usará si la ruta principal falla. Por ejemplo, si el router tiene una ruta principal hacia 192.168.2.0 a través de 192.168.1.2 y una ruta estática flotante hacia 192.168.2.0 a través de 192.168.1.3, cuando el router intenta enviar un paquete a 192.168.2.0, primero lo enviará a 192.168.1.2. Si esta ruta no está disponible, el router cambiará automáticamente y usará la ruta flotante a través de 192.168.1.3.</p>
+                    <p>La métrica por defecto para las rutas estáticas en la mayoría de los sistemas operativos de red, como Cisco IOS, es 1. Esto significa que si no especificas una métrica al configurar una ruta estática, el sistema asignará automáticamente un valor de métrica de 1 a esa ruta.</p>
+                    <p>Si la ruta principal es a 192.168.1.0/24 con el gateway 192.168.1.1, pero configuras una ruta secundaria a través de 192.168.1.2 como respaldo, esta se activaría si la principal falla.</p>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            Comando:
+                        </div>
+                        <div class="comandos">
+                          <input type="text" class="text" value="ip route 192.168.1.0 255.255.255.0 192.168.1.2 10" oninput="ajustarAncho(this)">
+                          <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                      </div>
+                      <p>(El número 10 es la distancia administrativa, lo que hace que esta ruta sea menos preferida)</p>
+                      <p>En los sistemas de enrutamiento, las métricas más bajas son preferidas, por lo que una ruta con una métrica de 1 tendrá prioridad sobre una ruta con una métrica de 10. Esto significa que si el router tiene ambas rutas configuradas, enviará los paquetes a través de la ruta con la métrica más baja (1) en lugar de la ruta con la métrica más alta (10).</p>
+                      <li>Ruta predeterminada (default route)</li>
+                      <p>Cuando un paquete llega al router, el dispositivo evalúa la dirección IP de destino. Si esta dirección no coincide con ninguna de las rutas específicas en la tabla de enrutamiento, el router se encuentra en una encrucijada. En este momento, consulta su tabla de enrutamiento para ver si tiene una ruta predeterminada configurada. Si la tiene, el router enviará el paquete a esa ruta predeterminada, que normalmente apunta a un gateway que se encarga de dirigir el tráfico hacia redes externas.</p>
+                      <p>Por ejemplo, imagina que un paquete llega al router con la dirección de destino 8.8.8.8. Si el router no tiene una ruta específica para esa dirección, revisa la tabla de rutas y encuentra que tiene una ruta predeterminada configurada que apunta a 192.168.1.1, que es la dirección del gateway. El router enviará el paquete a 192.168.1.1, y luego el gateway se encargará de buscar una ruta adecuada para llevar el paquete a su destino final, que en este caso es un servidor DNS de Google.</p>
+                      <p>Generalmente, la ruta predeterminada se configura para que apunte a la interfaz que tiene acceso a Internet. Por ejemplo, si la interfaz WAN del router tiene la dirección IP 203.0.113.1 y está conectada a un proveedor de servicios de Internet (ISP), la ruta predeterminada puede estar configurada para enviar tráfico desconocido a esa interfaz.</p>
+                      <p>Al configurar la ruta predeterminada, el administrador del router establece un "gateway" predeterminado que el router utilizará cuando no se conozca el destino. Este gateway puede ser el router del ISP al que el router local está conectado</p>
+                      <p><p>Si no tienes una ruta específica configurada para internet, podrías definir que todo el tráfico no especificado se envíe a un gateway, por ejemplo, el router del proveedor de internet en 192.168.0.1.</p></p>
+                      <div class="contenedor">
+                          <div class="etiqueta">
+                              Comando:
+                          </div>
+                          <div class="comandos">
+                            <input type="text" class="text" value="ip route 0.0.0.0 0.0.0.0 192.168.0.1" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                          </div>
+                        </div>
+                    <p>El comando anterior establece una ruta predeterminada que envía todo el tráfico desconocido al siguiente salto en la dirección IP 192.168.0.1, permitiendo que el router gestione paquetes para destinos que no están explícitamente configurados en su tabla de enrutamiento.</p>
+                </ol>
                 <h2>Ejemplo de configuración de rutas estáticas</h2>
                 <p>Imaginemos una red conformada por cuatro routers: 1, 2, 3 y 4, conectados de forma que forman un cuadrado. La topología de red sería la siguiente:</p>
                 <div class="blog-image-grande">
