@@ -8,6 +8,7 @@
     <link rel="icon" href="../media/imagen29.png" type="image/png">
     <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/estilos-articulo.css">
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </head>
 <body>
 
@@ -61,6 +62,160 @@
                 </ul>
                 <div class="blog-image">
                     <img src="media/transistor3.jpg" alt="">
+                </div>
+                <h2>Transistores BJT (Bipolar Junction Transistor)</h2>
+                <p>Los transistores, tanto BJT (Transistor Bipolar de Unión) como FET (Transistor de Efecto de Campo), son componentes esenciales en la electrónica debido a su capacidad para amplificar y conmutar señales. Ambos tipos de transistores tienen características y aplicaciones específicas, por lo que es importante entender las diferencias clave entre ellos y cuándo es preferible usar uno sobre el otro.</p>
+                <p>El BJT se caracteriza por ser un dispositivo controlado por corriente. Esto significa que una pequeña corriente en la base controla una corriente mayor que fluye entre el colector y el emisor. Los BJTs tienen dos variantes principales: npn y pnp.</p>
+                <ul>
+                    <li>En un transistor npn, los electrones son los portadores de carga predominantes, y el transistor se activa cuando la base tiene un voltaje positivo en relación con el emisor. Esto permite que la corriente fluya del colector al emisor. Este tipo es el más común, ya que los electrones tienen mayor movilidad que los huecos, lo que permite conmutaciones más rápidas y una operación más eficiente.</li>
+                    <li>En un transistor pnp, los huecos son los portadores de carga predominantes, y el transistor se activa cuando la base tiene un voltaje negativo en relación con el emisor. En este caso, la corriente fluye desde el emisor al colector. Los pnp se utilizan en aplicaciones donde se requiere un flujo de corriente inverso o donde el voltaje positivo está en el emisor.</li>
+                </ul>
+                <p>Las terminales en un BJT:</p>
+                <ol>
+                    <li><marcador class="resaltado8">Base: </marcador>Es la terminal de control. En los npn, requiere una pequeña corriente positiva, mientras que en los pnp, necesita una corriente negativa para activar el transistor.</li>
+                    <li><marcador class="resaltado8">Colector: </marcador>Aquí se concentra la corriente principal que será controlada. Es la terminal por donde fluye la mayor parte de la corriente hacia el emisor (en npn) o desde el emisor (en pnp).</li>
+                    <li><marcador class="resaltado8">Emisor: </marcador>Es la terminal por donde entra o sale la corriente en función de si el transistor es npn o pnp.</li>
+                </ol>
+                <p>Los BJTs son preferibles en aplicaciones que requieren amplificación de señales, como en amplificadores de audio o de radiofrecuencia. También son comunes en situaciones donde se necesita controlar corriente o cuando se requiere una alta ganancia de corriente. Son utilizados en aplicaciones de baja a media potencia y en conmutación rápida, aunque generan más calor que otros tipos de transistores.</p>
+                <h2>Transistores FET (Field Effect Transistor)</h2>
+                <p>A diferencia de los BJTs, los transistores FET son controlados por voltaje. Esto significa que una pequeña tensión en la compuerta (gate) controla el flujo de corriente entre el drenador (drain) y la fuente (source). Los FETs tienen una alta impedancia de entrada, lo que significa que apenas consumen corriente, lo que los hace ideales para aplicaciones de baja potencia y alta eficiencia energética.</p>
+                <p>Hay dos tipos principales de FETs:</p>
+                <ul>
+                    <li><marcador class="resaltado8">JFET (Transistor de Efecto de Campo de Unión): </marcador>Tiene una compuerta de tipo unión, y su control de voltaje se realiza aplicando una diferencia de potencial entre la compuerta y la fuente.</li>
+                    <li><marcador class="resaltado8">MOSFET (Transistor de Efecto de Campo de Óxido Metálico): </marcador>Utiliza un óxido aislante entre la compuerta y el canal, lo que proporciona una mayor eficiencia de control. Es el tipo más común en aplicaciones modernas, ya que puede manejar corrientes más altas y operar a frecuencias mayores.</li>
+                </ul>
+                <p>Las terminales en un FET:</p>
+                <ol>
+                    <li><marcador class="resaltado8">Compuerta (Gate): </marcador>Controla el flujo de corriente a través del transistor mediante la aplicación de una tensión. En los MOSFETs, una pequeña tensión en la compuerta puede controlar grandes corrientes.</li>
+                    <li><marcador class="resaltado8">Drenador (Drain): </marcador>Es el equivalente al colector en los BJTs. La corriente fluye a través del drenador hacia la fuente.</li>
+                    <li><marcador class="resaltado8">Fuente (Source): </marcador>Equivalente al emisor en los BJTs, la corriente fluye desde o hacia la fuente, dependiendo del tipo de FET.</li>
+                </ol>
+                <p>Los FETs son ideales para aplicaciones de baja potencia, ya que consumen muy poca corriente en la compuerta. Son especialmente útiles en circuitos donde se requiere alta eficiencia energética, como en conmutadores de potencia y reguladores de tensión. Los MOSFETs se utilizan ampliamente en aplicaciones de alta frecuencia, como en fuentes de alimentación conmutadas y controladores de motores.</p>
+                <div class="blog-image">
+                    <img src="media/transistor5.jpg" alt="">
+                </div>
+                <h2>¿Cuándo Elegir un BJT o un FET?</h2>
+                <p>La elección entre un BJT y un FET depende del tipo de aplicación y los requisitos específicos del circuito.</p>
+                <p>Los BJTs se utilizan en aplicaciones donde es importante la amplificación de corriente o el control de señales de audio y radiofrecuencia, mientras que los FETs son más adecuados en sistemas que requieren alta eficiencia energética, bajo consumo de corriente y alta velocidad de conmutación.</p>
+                <h2>Configuraciones</h2>
+                <p>En los BJT, existen tres configuraciones principales que ofrecen diferentes características eléctricas:</p>
+                <ul>
+                    <li><marcador class="resaltado8">Emisor común: </marcador>Es la configuración más usada en amplificación. Ofrece alta ganancia de corriente y moderada ganancia de voltaje.</li>
+                    <li><marcador class="resaltado8">Base común: </marcador>Tiene una impedancia de entrada baja y una ganancia de corriente cercana a la unidad, pero con alta ganancia de voltaje.</li>
+                    <li><marcador class="resaltado8">Colector común: </marcador>También conocido como seguidor de emisor, proporciona una impedancia de salida baja, ideal para aplicaciones de adaptación de impedancia.</li>
+                </ul>
+                <p>Para los JFET, una de las configuraciones más comunes es la de drenador común, que actúa como un seguidor de fuente, similar al seguidor de emisor en BJT. Es muy utilizado en circuitos de buffer.</p>
+                <div class="blog-image-grande">
+                    <img src="media/transistor4.jpg" alt="">
+                </div>
+                <h2>Hoja de Datos</h2>
+                <p>Cuando se revisa la hoja de datos de un transistor, hay varios parámetros clave a considerar para asegurarse de que sea adecuado para la aplicación:</p>
+                <ol>
+                    <li><marcador class="resaltado6">HFE o β (Ganancia de Corriente en un BJT): </marcador>Este parámetro mide la amplificación de corriente que un transistor es capaz de proporcionar. En un BJT (Transistor Bipolar de Unión), la corriente que pasa entre el colector y el emisor es proporcional a la corriente que se inyecta en la base. El valor de HFE te dice cuántas veces la corriente de base será amplificada en la salida del colector.</li>
+                    <ul>
+                        <li>Ejemplo: Si tienes un HFE de 100 y aplicas 1 mA en la base, obtendrás 100 mA en el colector.</li>
+                        <li>Importancia práctica: Un transistor con una ganancia alta se utiliza en aplicaciones donde se necesita amplificar señales débiles.</li>
+                    </ul>
+                    <li><marcador class="resaltado6">Vce(sat) (Voltaje de Saturación del Colector-Emisor): </marcador>Es el voltaje mínimo necesario entre el colector y el emisor para que el transistor funcione como un interruptor cerrado (saturado). En este modo, el transistor está completamente encendido y permite que la corriente fluya desde el colector al emisor.</li>
+                    <ul>
+                        <li>Ejemplo: Si Vce(sat) es 0.2 V, significa que cuando el transistor esté saturado, habrá una pequeña caída de tensión de 0.2 V entre el colector y el emisor.</li>
+                        <li>Importancia práctica: Cuanto más bajo sea este voltaje, más eficiente será el transistor cuando actúa como un interruptor. Un Vce(sat) alto implica pérdidas de energía.</li>
+                    </ul>
+                    <li><marcador class="resaltado6">IC (Corriente del Colector Máxima): </marcador>Este es el valor máximo de corriente que el colector puede soportar sin dañarse. Exceder este valor puede sobrecalentar o incluso destruir el transistor.</li>
+                    <ul>
+                        <li>Ejemplo: Si IC es 500 mA, esto significa que el transistor puede manejar hasta 500 mA antes de que se dañe.</li>
+                        <li>Importancia práctica: Este parámetro te ayuda a seleccionar un transistor adecuado para la cantidad de corriente que esperas que maneje el circuito.</li>
+                    </ul>
+                    <li><marcador class="resaltado6">VCE (Voltaje Colector-Emisor Máximo): </marcador>Indica el máximo voltaje que puede haber entre el colector y el emisor cuando el transistor está apagado (en corte), antes de que se produzca un fallo por ruptura.</li>
+                    <ul>
+                        <li>Ejemplo: Un valor de VCE de 50 V indica que si aplicas más de 50 V entre el colector y el emisor, el transistor puede dañarse.</li>
+                        <li>Importancia práctica: Es importante elegir un transistor cuyo VCE sea superior al voltaje de alimentación del circuito para evitar que se dañe.</li>
+                    </ul>
+                    <li><marcador class="resaltado6">IB (Corriente de Base Máxima): </marcador>Este es el valor máximo de corriente que puede pasar por la base sin dañar el transistor. Si se aplica más corriente de la permitida, se puede fundir el transistor.</li>
+                    <ul>
+                        <li>Ejemplo: Si IB es 50 mA, no puedes exceder esta corriente en la base, de lo contrario, podrías dañar el transistor.</li>
+                        <li>Importancia práctica: Al diseñar el circuito, debes asegurarte de que la corriente que fluye a la base esté dentro del límite especificado.</li>
+                    </ul>
+                    <li><marcador class="resaltado6">Pd (Disipación de Potencia Máxima): </marcador>Es la cantidad máxima de potencia que el transistor puede disipar en forma de calor. Se expresa en vatios (W). Si se excede este valor, el transistor puede sobrecalentarse y dañarse.</li>
+                    <ul>
+                        <li>Ejemplo: Si Pd es 500 mW, el transistor puede disipar hasta 500 milivatios de potencia antes de sobrecalentarse.</li>
+                        <li>Importancia práctica: Un diseño eficiente de circuitos debe asegurarse de que el transistor pueda disipar el calor generado durante su operación. Es importante considerar la disipación de calor, especialmente si el transistor está trabajando a altas corrientes.</li>
+                    </ul>
+                    <li><marcador class="resaltado6">Vbe(on) (Voltaje Base-Emisor de Encendido): </marcador>Este es el voltaje necesario entre la base y el emisor para que el transistor comience a conducir. En un BJT npn, este voltaje suele ser alrededor de 0.7 V para transistores de silicio.</li>
+                    <ul>
+                        <li>Importancia práctica: Conocer este valor es crucial cuando diseñas un circuito, ya que define cuánta tensión necesitas aplicar a la base para que el transistor se encienda.</li>
+                    </ul>
+                    <li><marcador class="resaltado6">Temperatura de operación (Tj - Junction Temperature): </marcador>Define el rango de temperatura dentro del cual el transistor puede operar de manera segura. Exceder este rango puede resultar en fallos del dispositivo.</li>
+                    <ul>
+                        <li>Importancia práctica: Es importante asegurarse de que el transistor esté operando en un ambiente donde la temperatura no supere el límite máximo especificado.</li>
+                    </ul>
+                    <li><marcador class="resaltado6">IDSS (Corriente de Drenador para un JFET): </marcador>En el caso de un JFET (Transistor de Efecto de Campo de Unión), este parámetro indica la corriente máxima que puede fluir entre el drenador y la fuente cuando la tensión de la compuerta es cero (compuerta completamente cerrada).</li>
+                    <ul>
+                        <li>Ejemplo: Si el IDSS es 10 mA, entonces esa es la corriente máxima que puede fluir sin ningún control de la compuerta.</li>
+                        <li>Importancia práctica: Este valor es importante para conocer las características del canal de conducción de un JFET y para calcular el comportamiento del dispositivo en el circuito.</li>
+                    </ul>
+                    <li><marcador class="resaltado6">Capacitancia de Entrada (Ciss, para FETs): </marcador>Este valor mide la capacitancia entre la compuerta y el drenador o la fuente en un transistor FET. La capacitancia de entrada es especialmente importante en aplicaciones de alta frecuencia.</li>
+                    <ul>
+                        <li>Importancia práctica: Cuanto menor sea la capacitancia de entrada, más rápido podrá operar el transistor, lo que es fundamental en aplicaciones de conmutación de alta velocidad.</li>
+                    </ul>
+                </ol>
+                <p>El transistor 2N2222 es uno de los más ampliamente utilizados en aplicaciones como amplificadores de baja potencia, conmutación de pequeñas cargas (LEDs, relés, motores), osciladores, generadores de señal, circuitos de control y lógica discreta, así como en modulación y demodulación en comunicaciones. También es popular en proyectos DIY y prototipos debido a su bajo costo, alta disponibilidad y confiabilidad. Su capacidad para manejar hasta 800 mA y operar a frecuencias moderadas lo hace versátil en una amplia variedad de circuitos.</p>
+                <p>Puedes consultar el datasheet del 2N2222 en <a href="https://www.alldatasheet.com/datasheet-pdf/pdf/15067/PHILIPS/2N2222.html" target="blank">alldatasheet</a>.</p>
+                <div class="blog-image-grande">
+                    <img src="media/transistor6.png" alt="">
+                </div>
+                <h2>Parámetros</h2>
+                <p>Antes de entrar en las diferentes configuraciones de polarización de transistores, es importante familiarizarse con los parámetros clave utilizados en los cálculos. Estos parámetros nos permiten analizar el comportamiento del transistor en diferentes puntos de operación.</p>
+                <ul>
+                <li><marcador class="resaltado8">Vcc</marcador>: Voltaje de alimentación.</li>
+                <li><marcador class="resaltado8">Ib</marcador>: Corriente de base, la corriente que fluye hacia la base del transistor.</li>
+                <li><marcador class="resaltado8">Ic</marcador>: Corriente de colector, la corriente principal que fluye del colector al emisor.</li>
+                <li><marcador class="resaltado8">Ie</marcador>: Corriente de emisor, que es la suma de la corriente de base y la de colector. Se expresa como \( Ie = Ic + Ib \).</li>
+                <li><marcador class="resaltado8">Vbe</marcador>: Voltaje entre la base y el emisor, generalmente de 0.7V para transistores de silicio en polarización directa.</li>
+                <li><marcador class="resaltado8">Vce</marcador>: Voltaje entre el colector y el emisor, que determina el régimen de operación del transistor (activa, saturación, corte).</li>
+                <li><marcador class="resaltado8">β (Beta)</marcador>: Ganancia de corriente en el transistor, es la relación entre la corriente del colector y la corriente de la base \( β = \frac{Ic}{Ib} \).</li>
+                <li><marcador class="resaltado8">Re, Rc, Rb</marcador>: Resistencias conectadas al emisor, colector y base respectivamente, utilizadas en varias configuraciones para estabilizar el punto de operación.</li>
+                </ul>
+                <h2>Polarización de Base Fija</h2>
+                <p>La polarización de base fija es la configuración más simple. En esta, una resistencia \( Rb \) se conecta entre la fuente de alimentación \( Vcc \) y la base del transistor. La corriente de base \( Ib \) se determina por \( Vcc \) y \( Rb \), según la ley de Ohm. La corriente de colector \( Ic \) es proporcional a la corriente de base \( Ib \) multiplicada por \( β \) del transistor.</p>
+                <p><marcador class="resaltado8">Ventajas:</marcador> Simplicidad de diseño.</p>
+                <p><marcador class="resaltado8">Desventajas:</marcador> No ofrece estabilidad ante variaciones de temperatura o cambios en \( β \), lo que afecta al punto de operación.</p>
+                <p>En esta polarización, cualquier cambio en \( β \) alterará significativamente la corriente \( Ic \), lo que hace que esta configuración no sea muy estable.</p>
+                <div class="blog-image">
+                    <img src="media/transistor7.png" alt="">
+                </div>
+                <h2>Polarización de Retroalimentación del Colector</h2>
+                <p>En la polarización de retroalimentación del colector, una resistencia \( Rb \) se conecta entre el colector y la base del transistor. En este caso, la corriente de base \( Ib \) se retroalimenta desde el colector a través de \( Rb \). Como el voltaje en el colector varía, también lo hace la corriente de base, lo que ofrece una forma de autoajuste para mejorar la estabilidad.</p>
+                <p><marcador class="resaltado8">Ventajas:</marcador> Mayor estabilidad en comparación con la polarización de base fija, ya que la corriente de base se ajusta con los cambios en el colector.</p>
+                <p><marcador class="resaltado8">Desventajas:</marcador> La retroalimentación puede reducir la ganancia del transistor.</p>
+                <p>Esta configuración es más estable frente a cambios en el valor de \( β \), ya que la retroalimentación negativa regula la corriente de base.</p>
+                <div class="blog-image">
+                    <img src="media/transistor8.png" alt="">
+                </div>
+                <h2>Polarización del Transistor de Retroalimentación Dual</h2>
+                <p>En esta configuración, se utilizan dos resistencias, \( Rb1 \) y \( Rb2 \), para establecer el voltaje en la base. Una resistencia conecta la base al voltaje de alimentación \( Vcc \), mientras que la otra conecta la base a tierra. Esta disposición ayuda a mejorar la estabilidad del transistor, ya que permite fijar el voltaje base en un nivel más constante.</p>
+                <p><marcador class="resaltado8">Ventajas:</marcador> Estabilidad mejorada frente a la polarización de base fija y la retroalimentación del colector.</p>
+                <p><marcador class="resaltado8">Desventajas:</marcador> Requiere más componentes (dos resistencias en lugar de una), lo que complica ligeramente el circuito.</p>
+                <p>Al mantener una relación estable entre \( Rb1 \) y \( Rb2 \), es posible estabilizar la corriente de base \( Ib \), lo que reduce la influencia de las variaciones de \( β \) en el transistor.</p>
+                <div class="blog-image">
+                    <img src="media/transistor9.png" alt="">
+                </div>
+                <h2>Polarización del Transistor con Retroalimentación del Emisor</h2>
+                <p>La polarización con retroalimentación del emisor incluye una resistencia \( Re \) conectada al emisor del transistor, lo que introduce retroalimentación negativa. Este diseño estabiliza aún más el punto de operación del transistor, ya que cualquier cambio en \( Ie \) provoca un aumento del voltaje en \( Re \), lo que reduce la corriente de base \( Ib \).</p>
+                <p><marcador class="resaltado8">Ventajas:</marcador> Alta estabilidad en la corriente \( Ic \), ya que la retroalimentación negativa a través de \( Re \) compensa cambios en \( β \).</p>
+                <p><marcador class="resaltado8">Desventajas:</marcador> Puede reducir la ganancia del transistor.</p>
+                <p>Esta configuración se utiliza comúnmente en aplicaciones donde es crucial que el transistor mantenga un punto de operación constante, independientemente de las variaciones en \( β \) o la temperatura.</p>
+                <div class="blog-image">
+                    <img src="media/transistor10.png" alt="">
+                </div>
+                <h2>Polarización del Transistor Divisor de Voltaje</h2>
+                <p>La polarización con divisor de voltaje es la configuración más estable y la más utilizada en la práctica. Se emplea un par de resistencias \( Rb1 \) y \( Rb2 \) para dividir el voltaje \( Vcc \) y establecer un voltaje base \( Vb \) constante. Además, una resistencia de emisor \( Re \) introduce retroalimentación negativa para mejorar aún más la estabilidad.</p>
+                <p><marcador class="resaltado8">Ventajas:</marcador> Estabilidad máxima frente a variaciones en \( β \) y temperatura. Control preciso del punto de operación.</p>
+                <p><marcador class="resaltado8">Desventajas:</marcador> Requiere más componentes (varias resistencias), lo que puede aumentar el costo y la complejidad del circuito.</p>
+                <p>Esta configuración es ideal para amplificadores, ya que permite mantener un punto de operación estable incluso cuando hay cambios en las condiciones del transistor.</p>
+                <p>Cada tipo de polarización de transistores ofrece diferentes niveles de estabilidad y complejidad. En general, la polarización de base fija es la más simple pero menos estable, mientras que la polarización con divisor de voltaje ofrece la mejor estabilidad a expensas de una mayor complejidad de diseño. La elección de la configuración adecuada dependerá de las necesidades específicas del circuito y de la estabilidad deseada para el punto de operación del transistor.</p>
+                <div class="blog-image">
+                    <img src="media/transistor11.png" alt="">
                 </div>
             </div>  
         </div>     
