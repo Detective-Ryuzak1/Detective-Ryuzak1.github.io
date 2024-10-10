@@ -159,13 +159,45 @@
                         <li>Importancia práctica: Cuanto menor sea la capacitancia de entrada, más rápido podrá operar el transistor, lo que es fundamental en aplicaciones de conmutación de alta velocidad.</li>
                     </ul>
                 </ol>
-                <div class="blog-image">
-                    <img src="media/transistor0.png" alt="">
-                </div>
+                <br>
                 <p>El transistor 2N2222 es uno de los más ampliamente utilizados en aplicaciones como amplificadores de baja potencia, conmutación de pequeñas cargas (LEDs, relés, motores), osciladores, generadores de señal, circuitos de control y lógica discreta, así como en modulación y demodulación en comunicaciones. También es popular en proyectos DIY y prototipos debido a su bajo costo, alta disponibilidad y confiabilidad. Su capacidad para manejar hasta 800 mA y operar a frecuencias moderadas lo hace versátil en una amplia variedad de circuitos.</p>
                 <p>Puedes consultar el datasheet del 2N2222 en <a href="https://www.alldatasheet.com/datasheet-pdf/pdf/15067/PHILIPS/2N2222.html" target="blank">alldatasheet</a>.</p>
                 <div class="blog-image">
                     <img src="media/transistor6.png" alt="">
+                </div>
+                <h2>Curvas de corte y saturación</h2>
+                <ol>
+                    <li><marcador class="resaltado6">Modo de Corte</marcador></li>
+                    <p>El modo de corte ocurre cuando el transistor está completamente apagado. En este estado, la corriente que fluye a través del colector \( I_C \) es prácticamente cero, ya que la corriente de base \( I_B \) no es suficiente para activar el transistor.</p>
+                    <p><marcador class="resaltado8">Condición en el modo de corte:</marcador></p>
+                    <p>- No hay corriente en el colector: \( I_C \approx 0 \)</p>
+                    <p>- No hay corriente en la base: \( I_B \approx 0 \)</p>
+                    <p>- \( V_{CE} \) (voltaje colector-emisor) es máximo: el transistor actúa como un interruptor abierto.</p>
+                    <p>En este modo, la región base-emisor no está polarizada de manera directa. Dado que \( V_{BE} \) (voltaje base-emisor) es menor que 0.7V para un transistor de silicio, no se genera corriente de base que permita al transistor conducir.</p>
+                    <p><marcador class="resaltado8">Curva de Corte:</marcador> En la curva característica de \( I_C \) vs. \( V_{CE} \), el modo de corte se ve como una región plana cercana al eje horizontal en la que, sin importar el valor de \( V_{CE} \), la corriente de colector es aproximadamente cero.</p>
+                    <li><marcador class="resaltado6">Modo de Saturación</marcador></li>
+                    <p>El modo de saturación ocurre cuando el transistor está completamente encendido, conduciendo la máxima corriente en el colector. En este estado, el transistor actúa como un interruptor cerrado.</p>
+                    <p><marcador class="resaltado8">Condición en el modo de saturación:</marcador></p>
+                    <p>- \( V_{BE} \) es mayor que 0.7V (transistor de silicio) y está polarizada de manera directa.</p>
+                    <p>- La corriente de base \( I_B \) es lo suficientemente alta como para saturar el transistor.</p>
+                    <p>- La corriente de colector \( I_C \) alcanza su valor máximo y no puede aumentar más, aunque se incremente \( I_B \).</p>
+                    <p>- \( V_{CE} \) es muy bajo, cercano a cero: el transistor ofrece una muy baja resistencia en este estado.</p>
+                    <p>En saturación, \( I_C \) ya no obedece la relación lineal con la corriente de base (\( I_C = \beta I_B \)) como en el modo activo. En cambio, \( I_C \) está limitado por otros factores, como la resistencia del circuito.</p>
+                    <p><marcador class="resaltado8">Curva de Saturación:</marcador> En la curva característica de \( I_C \) vs. \( V_{CE} \), el modo de saturación se observa cuando, para valores bajos de \( V_{CE} \) (cercanos a 0V), la corriente de colector \( I_C \) permanece alta y no disminuye significativamente. Aquí, el transistor actúa como un interruptor que permite el paso de corriente.</p>
+                    <li><marcador class="resaltado6">Modo Activo</marcador></li>
+                    <p>- La unión base-emisor está polarizada directamente: \( V_{BE} > 0.7V \) (para transistores de silicio).</p>
+                    <p>- La unión base-colector está polarizada inversamente: \( V_{CE} > V_{BE} \).</p>
+                    <p>- La corriente de colector \( I_C \) está relacionada con la corriente de base \( I_B \) por el factor de ganancia \( \beta \):</p>
+                    <p>\( I_C = \beta I_B \)</p>
+                    <p>En este modo, el transistor puede amplificar señales de pequeña corriente en la base y producir una mayor corriente en el colector. El voltaje colector-emisor \( V_{CE} \) es mayor que la diferencia mínima, pero no tan alto como para que el transistor se apague.</p>
+                </ol>
+                <br>
+                <p>En un transistor BJT, el modo de corte y el modo de saturación son usados comúnmente cuando se utiliza el transistor como un interruptor:</p>
+                <p>- Corte: Cuando el transistor está en corte, actúa como un interruptor abierto, bloqueando el paso de la corriente.</p>
+                <p>- Saturación: Cuando el transistor está en saturación, actúa como un interruptor cerrado, permitiendo el paso de la corriente con muy poca resistencia interna.</p>
+                <p>La transición entre el modo de corte y saturación es crucial en aplicaciones de conmutación como en los circuitos digitales o amplificadores de potencia. También se encuentran los modos de operación activa directa y activa inversa, pero para aplicaciones de conmutación, los modos de corte y saturación son los más importantes.</p>
+                <div class="blog-image">
+                    <img src="media/transistor0.png" alt="">
                 </div>
                 <h2>Parámetros</h2>
                 <p>Antes de entrar en las diferentes configuraciones de polarización de transistores, es importante familiarizarse con los parámetros clave utilizados en los cálculos. Estos parámetros nos permiten analizar el comportamiento del transistor en diferentes puntos de operación.</p>
@@ -220,8 +252,184 @@
                     <img src="media/transistor11.png" alt="">
                 </div>
                 <p>Cada tipo de polarización de transistores ofrece diferentes niveles de estabilidad y complejidad. En general, la polarización de base fija es la más simple pero menos estable, mientras que la polarización con divisor de voltaje ofrece la mejor estabilidad a expensas de una mayor complejidad de diseño. La elección de la configuración adecuada dependerá de las necesidades específicas del circuito y de la estabilidad deseada para el punto de operación del transistor.</p>
-                <br>
-                <br>
+                <h2>Cálculo</h2>
+                <h6>Polarización fija</h6><br>
+                <div class="blog-image">
+                    <img src="media/transistor12.png" alt="">
+                </div>
+                <p>En el circuito mostrado, tenemos un transistor NPN polarizado con una fuente de voltaje de \(V_{CC} = 12V\). Sabemos que la corriente de base \(I_B = 40 \, \mu A\) y el factor de ganancia de corriente del transistor es \( \beta = 80 \). Además, el transistor es de silicio, por lo que asumimos que la caída de voltaje en la unión base-emisor es \(V_{BE} = 0.7V\). El objetivo es encontrar los valores de \(I_C\), \(R_B\), \(R_C\) y \(V_{CE}\).</p>
+                <p>
+                <marcador class="resaltado8">Datos:</marcador><br>
+                - \(V_{CC} = 12V\)<br>
+                - \(I_B = 40 \, \mu A = 40 \times 10^{-6} A\)<br>
+                - \( \beta = 80 \)<br>
+                - \( V_{CE} = 6V\) (dado en el circuito)<br>
+                - \( V_{BE} = 0.7V\) (transistor de silicio)
+                </p>
+                <p><marcador class="resaltado8">Solución:</marcador></p>
+                
+                <p>1. <marcador class="resaltado8">Cálculo de \(I_C\) (corriente de colector):</marcador></p>
+                <p>Sabemos que la corriente de colector \(I_C\) está relacionada con la corriente de base \(I_B\) mediante la fórmula:</p>
+                <p>\[ I_C = \beta \cdot I_B \]</p>
+                <p>Sustituyendo los valores conocidos:</p>
+                <p>\[ I_C = 80 \times 40 \times 10^{-6} = 3.2 \, mA \]</p>
+                <p style="text-align: center;"><marcador class="resaltado7">\( I_C = 3.2 \, mA \)</marcador></p>
+                <p> 2. <marcador class="resaltado8">Cálculo de \(R_C\) (resistencia del colector):</marcador></p>
+                <p>La caída de voltaje en la resistencia del colector \(R_C\) es:</p>
+                <p>\[ V_{RC} = V_{CC} - V_{CE} = 12V - 6V = 6V \]</p>
+                <p>Aplicando la ley de Ohm para \(R_C\):</p>
+                <p>\[ R_C = \frac{V_{RC}}{I_C} = \frac{6V}{3.2 \times 10^{-3} A} = 1875 \, \Omega \]</p>
+                <p style="text-align: center;"><marcador class="resaltado7">\( R_C = 1875 \, \Omega \)</marcador></p>
+                <p>3. <marcador class="resaltado8">Cálculo de \(R_B\) (resistencia de la base):</marcador></p>
+                <p>La tensión en la resistencia \(R_B\) es:</p>
+                <p>\[ V_{RB} = V_{CC} - V_{BE} = 12V - 0.7V = 11.3V \]</p>
+                <p>Aplicando la ley de Ohm para \(R_B\):</p>
+                <p>\[ R_B = \frac{V_{RB}}{I_B} = \frac{11.3V}{40 \times 10^{-6} A} = 282.5 \, k\Omega \]</p>
+                <p style="text-align: center;"><marcador class="resaltado7">\( R_B = 282.5 \, k\Omega \)</marcador></p>
+                <p><marcador class="resaltado8">Conclusiones:</marcador></p>
+                <p>\(I_C = 3.2 \, mA\)</p>
+                <p>\(R_C = 1875 \, \Omega\)</p>
+                <p>\(R_B = 282.5 \, k\Omega\)</p>
+                <p>\(V_{CE} = 6V\) (dado)</p> 
+                
+                <h6>Polarización por divisor de voltaje</h6>
+                <div class="blog-image">
+                    <img src="media/transistor13.png" alt="">
+                </div>
+                <p>En el circuito mostrado, tenemos un transistor NPN polarizado con una fuente de voltaje de \(V_{CC} = 10.6V\). Sabemos que la corriente de base \(I_B = 20 \, \mu A\) y el factor de ganancia de corriente del transistor es \( \beta = 100 \). Además, el transistor es de silicio, por lo que asumimos que la caída de voltaje en la unión base-emisor es \(V_{BE} = 0.7V\). El objetivo es encontrar los valores de \(I_C\), \(V_E\), \(V_{CC}\), \(V_{CE}\), \(V_B\) y \(R_1\).</p>
+                <p>
+                <marcador class="resaltado8">Datos:</marcador><br>
+                - \(V_{CC} = 10.6V\)<br>
+                - \(I_B = 20 \, \mu A = 20 \times 10^{-6} A\)<br>
+                - \( \beta = 100 \)<br>
+                - \( V_{BE} = 0.7V\) (transistor de silicio)<br>
+                - Resistencia \(R_2 = 8.2k\Omega\) y \(R_1 = 2.7k\Omega\) (dadas en el circuito)
+                </p>
+                <p><marcador class="resaltado8">Solución:</marcador></p>
+                <p>1. <marcador class="resaltado8">Cálculo de \(I_C\) (corriente de colector):</marcador></p>
+                <p>Sabemos que la corriente de colector \(I_C\) está relacionada con la corriente de base \(I_B\) mediante la fórmula:</p>
+                <p>\[ I_C = \beta \cdot I_B \]</p>
+                <p>Sustituyendo los valores conocidos:</p>
+                <p>\[ I_C = 100 \times 20 \times 10^{-6} = 2 \, mA \]</p>
+                <p style="text-align: center;"><marcador class="resaltado7">\( I_C = 2 \, mA \)</marcador></p>
+                <p>2. <marcador class="resaltado8">Cálculo de \(V_E\) (voltaje en el emisor):</marcador></p>
+                <p>Para calcular \(V_E\), necesitamos conocer \(I_E\), que está dado por:</p>
+                <p>\[ I_E = I_C + I_B \]</p>
+                <p>\[ I_E \approx I_C \] (considerando que \(I_E \approx I_C\) para un transistor en activo)</p>
+                <p>La resistencia en el emisor \(R_E = 1.2k\Omega\) (dada en el circuito). Entonces:</p>
+                <p>\[ V_E = I_E \cdot R_E = 2 \times 10^{-3} A \cdot 1.2 \times 10^{3} \Omega = 2.4 V \]</p>
+                <p style="text-align: center;"><marcador class="resaltado7">\( V_E = 2.4 V \)</marcador></p>
+                <p>3. <marcador class="resaltado8">Cálculo de \(V_{CC}\):</marcador></p>
+                <p>La caída de voltaje en la resistencia del colector \(R_C\) se calcula usando la ley de Ohm:</p>
+                <p>\[ V_{RC} = I_C \cdot R_C = 2 \times 10^{-3} A \cdot 2.7 \times 10^{3} \Omega = 5.4 V \]</p>
+                <p>Entonces, el voltaje total \(V_{CC}\) se calcula como:</p>
+                <p>\[ V_{CC} = V_C + V_{RC} = 10.6V + 5.4V = 16.0V \]</p>
+                <p style="text-align: center;"><marcador class="resaltado7">\( V_{CC} = 16.0V \)</marcador></p>
+                <p>4. <marcador class="resaltado8">Cálculo de \(V_{CE}\) (voltaje colector-emisor):</marcador></p>
+                <p>La caída de voltaje en el colector se puede calcular como:</p>
+                <p>\[ V_{CE} = V_C - V_E \]</p>
+                <p>Donde \(V_C\) se puede estimar como \(V_{CC} - I_C \cdot R_C\). Asumiendo que el colector está conectado a \(V_{CC}\), podemos simplificarlo como \(V_C \approx 10.6V\) (suponiendo que no hay caída de voltaje significativa):</p>
+                <p>\[ V_{CE} = 10.6 V - 2.4 V = 8.2 V \]</p>
+                <p style="text-align: center;"><marcador class="resaltado7">\( V_{CE} = 8.2 V \)</marcador></p>
+                <p>5. <marcador class="resaltado8">Cálculo de \(V_B\) (voltaje en la base):</marcador></p>
+                <p>El voltaje en la base \(V_B\) es:</p>
+                <p>\[ V_B = V_E + V_{BE} = 2.4 V + 0.7 V = 3.1 V \]</p>
+                <p style="text-align: center;"><marcador class="resaltado7">\( V_B = 3.1 V \)</marcador></p>
+                <p>6. <marcador class="resaltado8">Cálculo de \(R_1\) (resistencia superior del divisor de voltaje usando la Ley de Ohm y LCK):</marcador></p>
+                <p>Vamos a calcular \(R_1\) usando la Ley de Ohm y la Ley de Corriente de Kirchhoff (LCK), basándonos en la fórmula: 
+                \(R_1 = \frac{V_{R1}}{I_{R1}}\), donde \(V_{R1} = V_{CC} - V_B\).</p>
+                <p><marcador class="resaltado8">Paso 1:</marcador> Determinamos la caída de voltaje en \(R_1\) (\(V_{R1}\)): </p>
+                <p>\[ V_{R1} = V_{CC} - V_B = 16V - 3.1V = 12.9V \]</p>
+                <p><marcador class="resaltado8">Paso 2:</marcador> Aplicamos la Ley de Corriente de Kirchhoff (LCK) para determinar la corriente a través de \(R_1\) (\(I_{R1}\)):</p>
+                <p>La corriente \(I_{R1}\) se divide entre la resistencia \(R_2\) y la corriente de base \(I_B\):</p>
+                <p>\[ I_{R1} = \frac{V_B}{R_2} + I_B \]</p>
+                <p>Sustituyendo los valores:</p>
+                <p>\[ I_{R1} = \frac{3.1V}{8200 \Omega} + 20 \times 10^{-6} A = 3.78 \times 10^{-4} A + 20 \times 10^{-6} A = 3.98 \times 10^{-4} A \]</p>
+                <p>Por lo tanto:</p>
+                <p>\[ I_{R1} = 398 \, \mu A \]</p>
+                <p><marcador class="resaltado8">Paso 3:</marcador> Ahora, calculamos \(R_1\) usando la Ley de Ohm:</p>
+                <p>\[ R_1 = \frac{V_{R1}}{I_{R1}} = \frac{12.9V}{398 \times 10^{-6} A} = 32.41 k\Omega \]</p>
+                <p><marcador class="resaltado8">Conclusión:</marcador> El valor calculado de \(R_1\) es:</p>
+                <p style="text-align: center;"><marcador class="resaltado7">\( R_1 = 32.41 k\Omega \)</marcador></p>
+                <p><marcador class="resaltado8">Conclusiones:</marcador></p>
+                <p>\(I_C = 2 \, mA\)</p>
+                <p>\(V_E = 2.4 V\)</p>
+                <p>\(V_B = 3.1 V\)</p>
+                <p>\(V_{CC} = 16 V\)</p>
+                <p>\(V_{CE} = 8.2 V\)</p>
+                <p>\(R_1 = 32.41 k\Omega\)</p>
+                <h6>Configuración base común</h6>
+                <div class="blog-image">
+                    <img src="media/transistor14.png" alt="">
+                </div>
+                <p><marcador class="resaltado8">Datos:</marcador></p>
+                <p>- Resistencia de carga \( R_L = 5 \, k\Omega \)<br>
+                - Resistencia de entrada \( R_i = 20 \, \Omega \)<br>
+                - Voltaje de entrada \( V_i = 200 \, mV \)</p>
+                <p><marcador class="resaltado8">1. Cálculo de la corriente de entrada \( I_i \)</marcador></p>
+                <p>La corriente de entrada \( I_i \) se puede calcular usando la ley de Ohm para la resistencia de entrada \( R_i \):</p>
+                <p>\( I_i = \frac{V_i}{R_i} \)</p>
+                <p>Sustituyendo los valores proporcionados:</p>
+                <p>\( I_i = \frac{200 \, mV}{20 \, \Omega} = \frac{0.2 \, V}{20 \, \Omega} = 0.01 \, A = 10 \, mA \)</p>
+                <p><marcador class="resaltado7">\( I_i = 10 \, mA \)</marcador></p>
+                <p><marcador class="resaltado8">2. Cálculo de la corriente de carga \( I_L \)</marcador></p>
+                <p>En un transistor con configuración de base común, la corriente de colector \( I_C \) es aproximadamente igual a la corriente de entrada \( I_i \), ya que:</p>
+                <p>\( I_L \approx I_i \)</p>
+                <p>Por lo tanto, la corriente de carga \( I_L \) es:</p>
+                <p><marcador class="resaltado7">\( I_L \approx 10 \, mA \)</marcador></p>
+                <p><marcador class="resaltado8">3. Cálculo del voltaje en la carga \( V_L \)</marcador></p>
+                <p>El voltaje en la carga \( V_L \) se puede calcular utilizando la ley de Ohm para la resistencia de carga \( R_L \):</p>
+                <p>\( V_L = I_L \times R_L \)</p>
+                <p>Sustituyendo los valores:</p>
+                <p>\( V_L = 10 \, mA \times 5 \, k\Omega = 0.01 \, A \times 5000 \, \Omega = 50 \, V \)</p>
+                <p><marcador class="resaltado7">\( V_L = 50 \, V \)</marcador></p>
+                <p><marcador class="resaltado8">4. Cálculo del factor de amplificación</marcador></p>
+                <p>El factor de amplificación de voltaje \( A_V \) para la configuración de base común se puede calcular con la siguiente fórmula:</p>
+                <p>\( A_V = \frac{V_L}{V_i} \)</p>
+                <p>Sustituyendo los valores:</p>
+                <p>\( A_V = \frac{50 \, V}{0.2 \, V} = 250 \)</p>
+                <p>Por lo tanto, el factor de amplificación de voltaje es:</p>
+                <p><marcador class="resaltado7">\( A_V = 250 \)</marcador></p>
+                <p><marcador class="resaltado8">Conclusiones:</marcador></p>
+                <p>Corriente de entrada \( I_i = 10 \, mA \)<br>
+                Corriente de carga \( I_L \approx 10 \, mA \)<br>
+                Voltaje en la carga \( V_L = 50 \, V \)<br>
+                Factor de amplificación \( A_V = 250 \)</p>
+                <h2>Sistemas y Conexiones de Transistores</h2>
+                <p>A lo largo del tiempo, se han desarrollado diferentes configuraciones y sistemas de conexión para optimizar el rendimiento de los transistores en situaciones específicas.</p>
+                <ol>
+                    <li><marcador class="resaltado6">Configuración en Cascada:</marcador></li>
+                    <p>En la configuración en cascada, los transistores están dispuestos en serie. La salida de un transistor se conecta a la entrada del siguiente. Esto permite que la señal de salida de un transistor se amplifique en la siguiente etapa.</p>
+                    <p>Cada transistor amplifica la señal de entrada de forma secuencial. Por ejemplo, si un transistor tiene una ganancia de 10 y el siguiente tiene una ganancia de 10 también, la ganancia total es de 100 (10 x 10). Esta configuración se utiliza principalmente para obtener alta ganancia de voltaje.</p>
+                    <p>La configuración en cascada, también conocida como configuración en tándem, utiliza múltiples etapas de transistores para mejorar la amplificación de señales. En este arreglo, la salida de un transistor se alimenta a la entrada de otro, permitiendo una amplificación incremental a través de varias etapas. Esta técnica es especialmente útil en aplicaciones donde se requiere una alta ganancia de voltaje o corriente, pero con una buena estabilidad y respuesta en frecuencia.</p>
+                    <p>Las configuraciones en cascada se utilizan con frecuencia en amplificadores de radiofrecuencia, debido a que permiten la amplificación de señales débiles sin añadir demasiado ruido al sistema. Además, la cascada es útil en circuitos donde se necesitan múltiples etapas para lograr la ganancia deseada sin comprometer la linealidad del amplificador.</p>
+                    <div class="blog-image">
+                        <img src="media/transistor15.jpg" alt="">
+                    </div>
+                    <li><marcador class="resaltado6">Configuración Push-Pull:</marcador></li>
+                    <p>La configuración push-pull es una técnica de conexión de transistores que utiliza dos transistores (pueden ser NPN y PNP) para controlar la salida de un circuito de forma eficiente. En esta configuración, uno de los transistores está encargado de "empujar" la corriente hacia la carga, mientras que el otro "tira" de la corriente hacia tierra. Esta disposición permite que ambos transistores trabajen de manera complementaria, maximizando la eficiencia y el rendimiento del circuito.</p>
+                    <p>En un circuito push-pull, cuando el transistor NPN se activa (o "empuja"), proporciona la corriente necesaria a la carga desde la fuente de alimentación (Vcc). Al mismo tiempo, el transistor PNP se apaga, evitando que la corriente fluya hacia tierra. Cuando la señal de entrada cambia, el transistor PNP se activa y "tira" de la corriente hacia la carga, mientras que el transistor NPN se apaga. Esta alternancia de activación y desactivación entre los dos transistores permite una conmutación rápida y eficiente.</p>
+                    <p>La configuración push-pull es comúnmente utilizada en amplificadores de potencia, circuitos de audio y fuentes de alimentación conmutadas. Una de las principales ventajas de esta configuración es su capacidad para proporcionar una alta corriente a la carga, lo que la hace ideal para aplicaciones que requieren un mayor rendimiento. Además, la configuración push-pull minimiza la distorsión de la señal y mejora la linealidad, lo que resulta en una mejor calidad de sonido en aplicaciones de audio.</p>
+                    <div class="blog-image">
+                        <img src="media/transistor18.png" alt="">
+                    </div>
+                    <li><marcador class="resaltado6">Conexión Darlington:</marcador></li>
+                    <p>En una conexión Darlington, se utilizan dos transistores NPN o PNP en serie. El emisor del primer transistor está conectado a la base del segundo transistor. Esto significa que la corriente que fluye a través del primer transistor se amplifica aún más por el segundo.</p>
+                    <p>La corriente de base del primer transistor activa el segundo transistor, permitiendo que una pequeña corriente de entrada en la base del primer transistor produzca una corriente de salida mucho mayor en el colector del segundo transistor. La ganancia total de corriente de la configuración es aproximadamente el producto de las ganancias individuales de ambos transistores (β1 × β2).</p>
+                    <p>La conexión Darlington es una configuración de dos transistores dispuestos de tal manera que el colector del primer transistor está conectado a la base del segundo. Esta configuración se usa principalmente para aumentar la ganancia de corriente. En esencia, la corriente base del primer transistor se amplifica por el segundo transistor, resultando en una ganancia total que es el producto de las ganancias de ambos transistores. La ventaja principal de esta configuración es la alta ganancia de corriente, lo que permite manejar corrientes más grandes con una corriente base pequeña. Sin embargo, una desventaja es el incremento en el voltaje de encendido, ya que la unión base-emisor requiere aproximadamente el doble del voltaje para encenderse, debido a que dos transistores están en serie.</p>
+                    <p>Aplicaciones típicas del transistor Darlington incluyen controladores de motores, fuentes de alimentación y amplificadores de alta ganancia. Su uso en estas áreas se debe a su capacidad para manejar corrientes elevadas y amplificar señales muy débiles.</p>
+                    <div class="blog-image">
+                        <img src="media/transistor16.jpg" alt="">
+                    </div>
+                    <li><marcador class="resaltado6">Conexión Totem-Pole:</marcador></li>
+                    <p>En la configuración totem-pole, dos transistores están dispuestos uno encima del otro. Un transistor está encargado de llevar la salida a un nivel alto (supply o Vcc) y el otro a un nivel bajo (GND).</p>
+                    <p>En esta configuración, solo un transistor está activo a la vez, lo que significa que uno se enciende mientras el otro se apaga. Esto permite una conmutación rápida entre los estados alto y bajo, lo que es útil para aplicaciones digitales.</p>
+                    <p>La conexión totem-pole es una configuración que se emplea principalmente en circuitos de salida de alta velocidad, como los circuitos lógicos y de conmutación. En esta configuración, dos transistores están dispuestos uno encima del otro (de ahí el nombre "totem-pole"). Un transistor se utiliza para conducir la corriente en un ciclo positivo, mientras que el otro transistor maneja la corriente en el ciclo negativo. Esto permite que la salida sea alternadamente llevada a un estado alto o bajo, con transiciones rápidas entre estos estados.</p>
+                    <p>La configuración totem-pole es comúnmente utilizada en los circuitos de salida de compuertas lógicas TTL (Transistor-Transistor Logic) y otros circuitos de conmutación. Una de las principales ventajas de esta configuración es que permite una conmutación rápida, lo que la hace ideal para aplicaciones de alta frecuencia. Sin embargo, también puede generar más ruido debido a las rápidas transiciones de estado.</p>
+                    <div class="blog-image">
+                        <img src="media/transistor17.jpg" alt="">
+                    </div>
+                </ol>
             </div>  
         </div>     
     </main>
