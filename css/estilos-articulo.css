@@ -19,6 +19,8 @@ body{
 header{
     height: 100px;
 }
+
+
 .container__header{
     max-width: 1200px;
     height: 100%;
@@ -35,6 +37,7 @@ header{
     filter: invert(100%) sepia(0%) saturate(7447%) hue-rotate(35deg) brightness(106%) contrast(100%);
     opacity: 0.7;
 }
+
 
 .menu nav ul{
     display: flex;
@@ -256,7 +259,7 @@ a:hover {
 }
 .resaltado10 {
     font-style: italic;
-    color: #ff99ee; /* Cambia el color a tu preferencia */
+    color: #ff5c9a; /* Cambia el color a tu preferencia */
     font-family: 'Roboto';
 }
 .resaltado11 {
@@ -273,7 +276,7 @@ a:hover {
 }
 .resaltado14 {
     opacity: 1;
-    color: #f776e2; /* Cambia el color a tu preferencia */
+    color: #ee9bc4; /* Cambia el color a tu preferencia */
     font-style: italic;
     font-family: 'Roboto';
 }
