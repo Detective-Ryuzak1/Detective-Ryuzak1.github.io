@@ -3,8 +3,28 @@ function mostrar_menu(){
     document.querySelector(".menu").classList.toggle("mostrar_menu");   
 }
 
+//Barra de navegación sticky
+let prevScrollPos = window.pageYOffset;
+let timeout;
 
-
+window.addEventListener("scroll", function() {
+  var currentScrollPos = window.pageYOffset;
+  var header = document.querySelector("header");
+  // Si el scroll es hacia arriba, muestra el header
+  if (prevScrollPos > currentScrollPos) {
+    header.classList.add("mover");
+  } else {
+    header.classList.remove("mover");
+  }
+  prevScrollPos = currentScrollPos;
+  // Si el usuario deja de hacer scroll, oculta el header después de 2 segundos
+  clearTimeout(timeout);
+  timeout = setTimeout(function() {
+    if (window.pageYOffset !== 0) {
+      header.classList.remove("mover");
+    }
+  }, 5000);
+});
 
 window.onscroll = function () {
     var posicion = window.pageYOffset || document.documentElement.scrollTop;
