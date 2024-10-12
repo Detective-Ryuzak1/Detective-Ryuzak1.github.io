@@ -329,7 +329,7 @@ body::-webkit-scrollbar-thumb:hover {
 
     /* Clase Manipulada por JS */
     .mostrar_menu{
-        height: 235px;
+        height: auto;
 
     }
 

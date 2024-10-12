@@ -33,7 +33,7 @@ header{
 }
 
 header.mover{
-    background: rgba(0, 0, 0, 1);
+    background: #202020;
     width: 100%;
     position: fixed;
     z-index: 10;
@@ -1009,7 +1009,7 @@ body::-webkit-scrollbar-thumb:hover {
 
     /* Clase Manipulada por JS */
     .mostrar_menu{
-        height: 235px;
+        height: auto;
 
     }
 
@@ -1065,109 +1065,6 @@ body::-webkit-scrollbar-thumb:hover {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Consola de ejemplo */
-/* Code formatting*/
-/*
-pre,
-code {
- font-size: 15px;
- border: 1px solid #565656;
- border-radius: 3px;
- background-color: #eef;
-}
-
-code {
-    padding: 1px 5px;
-}
-
-pre {
-    padding: 8px 12px;
-    overflow-x: auto;
-}
-pre > code {
-    border: 0;
-    padding-right: 0;
-    padding-left: 0;
-}
-
-.highlighter-rogue > .highlight {
-    background-color: #22272e;
-}  
-.highlighter-rouge pre {
-    background: #22272e !important;
-}  
-.highlighter-rouge code {
-    background-color: #22272e;
-    color: #e6e6e6;
-}  
-div .highlight {
-    border: 1px solid white;
-    border-radius: 5px;
-}
-
-.highlighter-rouge .ne,
-.highlighter-rouge .nf {
-    color: #ff6666bb;
-}  
-.highlighter-rouge .s,
-.highlighter-rouge .se,
-.highlighter-rouge .s1,
-.highlighter-rouge .s2,
-.highlighter-rouge .si {
-    color: #e46;
-}  
-.highlighter-rouge .mi,
-.highlighter-rouge .nb {
-    color: #3cc;
-}  
-.highlighter-rouge .nt,
-  .highlighter-rouge .nn {
-    color: #77f;
-}  
-.highlighter-rouge .err {
-    background-color: unset;
-}
-*/  
-  /* console last to override default codeblocks */
-/*.language-console:before {
-    content: "";
-    width: 10px;
-    height: 10px;
-    margin: -20px 0 0 5px;
-    border-radius: 5px;
-    background:  #f25d2b;
-    box-shadow: 0 0 0 1px #595953, 15px 0 #7d7871, 15px 0 0 1px #595953, 30px 0 #7d7871, 30px 0 0 1px #595953;
-    position: absolute;
-  }
-*/
 .language-console {
     padding: 26px 0px 0px;
     border-radius: 5px;
@@ -1202,27 +1099,3 @@ div .highlight {
     color: #2ad;
 }
 
-/*
-
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">user@ubutu$</span><span class="w"> </span>feroxbuster <span class="nt">-u</span> http://object.htb
-<span class="go">
- ___  ___  __   __     __      __         __   ___
-|__  |__  |__) |__) | /  `    /  \ \_/ | |  \ |__
-|    |___ |  \ |  \ | \__,    \__/ / \ | |__/ |___
-by Ben "epi" Risher 🤓                 ver: 2.5.0
-───────────────────────────┬──────────────────────
- 🎯  Target Url            │ http://object.htb
- 🚀  Threads               │ 50
- 📖  Wordlist              │ /usr/share/seclists/Discovery/Web-Content/raft-medium-directories.txt
- 👌  Status Codes          │ [200, 204, 301, 302, 307, 308, 401, 403, 405, 500]
- 💥  Timeout (secs)        │ 7
- 🦡  User-Agent            │ feroxbuster/2.5.0
- 🏁  HTTP methods          │ [GET]
- 🔃  Recursion Depth       │ 4
-───────────────────────────┴──────────────────────
- 🏁  Press [ENTER] to use the Scan Management Menu™
-──────────────────────────────────────────────────
-[####################] - 59s    29999/29999   0s      found:0       errors:0      
-[####################] - 58s    29999/29999   508/s   http://object.htb 
-</span></code></pre></div></div>
-*/
