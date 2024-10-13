@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <link rel="icon" href="../media/imagen41.png" type="image/png">
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                        <li><a href="../devops.html">DevOps</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Aportar" onclick="window.open('https://buymeacoffee.com/ryuzak1', '_blank');">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <br>
+                <br>
+                <h1>Google Dorking</h1>
+                <p>Google Dorking, también conocido como "Google hacking", es una técnica que implica el uso de operadores avanzados de búsqueda en Google para encontrar información específica que no es fácilmente accesible mediante búsquedas convencionales. Esta práctica se utiliza comúnmente por investigadores de seguridad y hackers éticos para descubrir datos sensibles, archivos vulnerables o información mal protegida en sitios web. Aunque el término puede sonar negativo, su uso legítimo tiene aplicaciones en la ciberseguridad y la recopilación de información.</p>
+                <div class="blog-image">
+                    <img src="media/dorking1.jpg" alt="">
+                </div>
+                <h2>¿Cómo funciona el motor de búsqueda de Google?</h2>
+                <p>El motor de búsqueda de Google utiliza un sofisticado algoritmo para rastrear y clasificar la información disponible en la web. Cuando se realiza una búsqueda, Google analiza su índice, que es una base de datos masiva que contiene copias de millones de páginas web. El algoritmo evalúa una variedad de factores, como la relevancia del contenido, la calidad de los enlaces y las palabras clave, para determinar qué páginas mostrar en los resultados. Google también permite a los usuarios utilizar operadores de búsqueda, que son comandos especiales que ayudan a refinar los resultados, lo que es esencial para el Google Dorking.</p>
+                <h2>Operadores de búsqueda</h2>
+                <p>Los operadores de búsqueda son herramientas que permiten a los usuarios especificar criterios precisos para sus búsquedas. Algunos de los más útiles en Google Dorking incluyen:</p>
+                <ul>
+                    <li><marcador class="resaltado2">site: </marcador>Limita los resultados a un dominio específico.</li>
+                    <li><marcador class="resaltado2">filetype: </marcador>Busca archivos de un tipo específico, como PDF o DOCX.</li>
+                    <li><marcador class="resaltado2">intitle: </marcador>Encuentra páginas que contienen una palabra específica en el título.</li>
+                    <li><marcador class="resaltado2">inurl: </marcador>Busca en la URL para encontrar palabras específicas.</li>
+                    <li><marcador class="resaltado2">intext: </marcador>Encuentra páginas que contienen palabras específicas en el cuerpo del texto.</li>
+                </ul>
+                <div class="blog-image">
+                    <img src="media/dorking2.jpg" alt="">
+                </div>
+                <h2>Ejemplos de Google Dorking</h2>
+                <p>A continuación, se presentan ejemplos de cómo utilizar Google Dorking para realizar búsquedas avanzadas:</p>
+                <ol>
+                    <li><marcador class="resaltado3">Buscar archivos PDF en un dominio específico: </marcador></li>
+                    <p><marcador class="subrayado">site:example.com filetype:pdf</marcador></p>
+                    <p>Este comando busca todos los archivos PDF en el dominio "example.com".</p>
+                    <li><marcador class="resaltado3">Encontrar documentos de Microsoft Word:</marcador></li>
+                    <p><marcador class="subrayado">filetype:doc site:example.com</marcador></p>
+                    <p>Esto busca documentos de Word en un sitio específico.</p>
+                    <li><marcador class="resaltado3">Buscar páginas con una palabra específica en el título:</marcador></li>
+                    <p><marcador class="subrayado">intitle:"ciberseguridad"</marcador></p>
+                    <p>Encuentra todas las páginas que tienen "ciberseguridad" en su título.</p>
+                    <li><marcador class="resaltado3">Buscar documentos que contengan una dirección de correo electrónico:</marcador></li>
+                    <p><marcador class="subrayado">intext:"@gmail.com"</marcador></p>
+                    <p>Encuentra páginas que mencionan direcciones de correo de Gmail.</p>
+                    <li><marcador class="resaltado3">Buscar vulnerabilidades específicas:</marcador></li>
+                    <p><marcador class="subrayado">inurl:admin</marcador></p>
+                    <p>Busca URLs que contengan "admin", lo que podría indicar un panel de administración.</p>
+                    <li><marcador class="resaltado3">Encontrar páginas que contengan ciertos términos en su texto:</marcador></li>
+                    <p><marcador class="subrayado">intext:"contraseña"</marcador></p>
+                    <p>Esto busca páginas que tienen la palabra "contraseña".</p>
+                    <li><marcador class="resaltado3">Buscar archivos de configuración:</marcador></li>
+                    <p><marcador class="subrayado">filetype:cfg</marcador></p>
+                    <p>Encuentra archivos de configuración que pueden contener información sensible.</p>
+                    <li><marcador class="resaltado3">Buscar logs de error:</marcador></li>
+                    <p><marcador class="subrayado">intext:"Error" filetype:log</marcador></p>
+                    <p>Esto encuentra archivos de log que contienen el término "Error".</p>
+                    <li><marcador class="resaltado3">Buscar información sobre dispositivos en red:</marcador></li>
+                    <p><marcador class="subrayado">intitle:"index of" "router"</marcador></p>
+                    <p>Encuentra páginas que podrían estar indexando información sobre routers.</p>
+                    <li><marcador class="resaltado3">Buscar bases de datos expuestas:</marcador></li>
+                    <p><marcador class="subrayado">filetype:sql</marcador></p>
+                    <p>Esto busca archivos de bases de datos SQL que podrían estar expuestos.</p>
+                    <li><marcador class="resaltado3">Buscar backups:</marcador></li>
+                    <p><marcador class="subrayado">filetype:bak</marcador></p>
+                    <p>Encuentra archivos de backup que pueden contener información crítica.</p>
+                    <li><marcador class="resaltado3">Buscar hojas de cálculo de Excel:</marcador></li>
+                    <p><marcador class="subrayado">filetype:xlsx</marcador></p>
+                    <p>Encuentra documentos de Excel que pueden contener datos interesantes.</p>
+                    <li><marcador class="resaltado3">Buscar sistemas de gestión de contenido (CMS):</marcador></li>
+                    <p><marcador class="subrayado">inurl:wp-admin</marcador></p>
+                    <p>Encuentra paneles de administración de WordPress.</p>
+                    <li><marcador class="resaltado3">Buscar información sobre APIs expuestas:</marcador></li>
+                    <p><marcador class="subrayado">inurl:api</marcador></p>
+                    <p>Esto busca páginas que contienen "api" en la URL.</p>
+                    <li><marcador class="resaltado3">Buscar información sobre cuentas de redes sociales:</marcador></li>
+                    <p><marcador class="subrayado">inurl:facebook.com</marcador></p>
+                    <p>Encuentra páginas de Facebook relacionadas con un término específico.</p>
+                    <li><marcador class="resaltado3">Buscar tutoriales y guías:</marcador></li>
+                    <p><marcador class="subrayado">intext:"guía" intitle:"tutorial"</marcador></p>
+                    <p>Encuentra páginas que tienen tutoriales sobre un tema específico.</p>
+                    <li><marcador class="resaltado3">Buscar información sobre seguridad en bases de datos:</marcador></li>
+                    <p><marcador class="subrayado">inurl:php?id=</marcador></p>
+                    <p>Encuentra páginas que pueden estar vulnerables a Insecure Direct Object References (IDOR).</p>
+                    <p>Este tipo de vulnerabilidad ocurre cuando un usuario puede manipular parámetros en la URL, como un ID, para acceder a recursos que no deberían estar permitidos, revelando información de otros usuarios.</p>
+                    <li><marcador class="resaltado3">Buscar sitios que utilizan ciertos CMS:</marcador></li>
+                    <p><marcador class="subrayado">inurl:wp-content</marcador></p>
+                    <p>Encuentra sitios que utilizan WordPress como su CMS.</p>
+                    <li><marcador class="resaltado3">Buscar información personal:</marcador></li>
+                    <p><marcador class="subrayado">intext:"número de teléfono"</marcador></p>
+                    <p>Encuentra páginas que contienen números de teléfono.</p>
+                </ol>
+                <h2>Conclusión</h2>
+                <p>Google Dorking es una herramienta poderosa para explorar información en la web, pero también conlleva responsabilidades éticas. Utilizar estas técnicas de manera legítima puede ayudar en investigaciones de seguridad, auditorías y recopilación de información. Sin embargo, es importante recordar que acceder a información privada o sensible sin permiso puede ser ilegal. Al aprovechar Google Dorking, es fundamental mantener la ética y la legalidad en todas las acciones realizadas en línea.</p>
+                <div class="blog-image-grande">
+                    <img src="media/dorking3.jpg" alt="">
+                </div>
+            </div>
+        </div>       
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
