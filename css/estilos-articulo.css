@@ -97,7 +97,7 @@ header.mover{
 main{
     max-width: 1200px;
     height: calc(100vh + 800px);
-    padding: 40px;
+    padding-top: 40px;
     margin: auto;
 }
 .cover{
