@@ -55,6 +55,20 @@
                     <li><marcador class="resaltado2">intitle: </marcador>Encuentra páginas que contienen una palabra específica en el título.</li>
                     <li><marcador class="resaltado2">inurl: </marcador>Busca en la URL para encontrar palabras específicas.</li>
                     <li><marcador class="resaltado2">intext: </marcador>Encuentra páginas que contienen palabras específicas en el cuerpo del texto.</li>
+                    <li><marcador class="resaltado2">allintitle: </marcador>Busca varias palabras en el título de las páginas. Ejemplo: <marcador class="subrayado">allintitle:secure login</marcador> buscará títulos que contengan tanto "secure" como "login".</li>
+                    <li><marcador class="resaltado2">allinurl: </marcador>Similar a <marcador class="subrayado">inurl:</marcador>, pero busca múltiples palabras en la URL.</li>
+                    <li><marcador class="resaltado2">link: </marcador>Muestra páginas que enlazan a una URL específica.</li>
+                    <li><marcador class="resaltado2">related: </marcador>Encuentra sitios web relacionados a uno específico. </li>
+                    <li><marcador class="resaltado2">define: </marcador>Muestra definiciones de palabras. Ejemplo: <marcador class="subrayado">define:cybersecurity</marcador> mostrará la definición de "cybersecurity".</li>
+                    <li><marcador class="resaltado2">around(X): </marcador>Encuentra términos que estén cerca entre sí dentro de un número "X" de palabras. Ejemplo: <marcador class="subrayado">cybersecurity around(3) attack</marcador> buscará "cybersecurity" y "attack" a una distancia máxima de 3 palabras.</li>
+                    <li><marcador class="resaltado2">before: </marcador> y <marcador class="resaltado2">after:</marcador>Limita los resultados antes o después de una fecha específica. Ejemplo: <marcador class="subrayado">before:2022</marcador> buscará páginas publicadas antes del 2022.</li>
+                    <li><marcador class="resaltado2">info: </marcador>Proporciona información sobre un sitio específico.</li>
+                    <li><marcador class="resaltado2">" " (comillas): </marcador></li>
+                    <li><marcador class="resaltado2">OR: </marcador>Muestra resultados que contienen al menos uno de los términos. Ejemplo: <marcador class="subrayado">login OR register</marcador> buscará páginas que contengan "login" o "register".</li>
+                    <li><marcador class="resaltado2">-: </marcador>Excluye ciertos términos de la búsqueda. Ejemplo: <marcador class="subrayado">login -register</marcador> buscará "login" pero excluirá páginas que contengan "register".</li>
+                    <li><marcador class="resaltado2">+: </marcador>Obliga a incluir un término específico en los resultados. Ejemplo: <marcador class="subrayado">login + secure</marcador> asegurará que los resultados contengan la palabra "secure".</li>
+                    <li><marcador class="resaltado2">*: </marcador>Actúa como un comodín, sustituyendo cualquier palabra. Ejemplo: <marcador class="subrayado">"login * page"</marcador> buscará cualquier frase que comience con "login" y termine con "page", sin importar la palabra en el medio.</li>
+                    <li><marcador class="resaltado2">numrange: </marcador>Busca dentro de un rango numérico. Ejemplo: <marcador class="subrayado">camera $200..$500</marcador> mostrará cámaras dentro del rango de precios de 200 a 500 dólares.</li>
                 </ul>
                 <div class="blog-image">
                     <img src="media/dorking2.jpg" alt="">
