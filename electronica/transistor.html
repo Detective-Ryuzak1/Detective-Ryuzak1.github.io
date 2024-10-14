@@ -459,16 +459,20 @@
                     <img src="media/transistor21.png" alt="">
                 </div>
                 <h6>Cálculo</h6>
-                <p>En el circuito presentado, se observa la configuración de un transistor conectado a varios componentes pasivos, incluyendo resistencias y fuentes de voltaje. El objetivo es analizar el comportamiento del circuito mediante la creación de un modelo equivalente que simplifique su funcionamiento. Este modelo nos permitirá identificar las relaciones entre las corrientes y voltajes presentes, facilitando el estudio de su rendimiento en diferentes condiciones de operación.</p>
+                <p>En la siguiente imagen se presenta un circuito en el cual se están analizando las impedancias de entrada y salida del transistor. Se definen varios valores como \(h_{ie}\), \(h_{fe}\), y \(h_{oe}\) que representan los parámetros híbridos del transistor, junto con resistencias asociadas a las redes de entrada y salida. Se calculan las impedancias de entrada (\(R_i\)) y las combinaciones en paralelo de resistencias como \(R_{iA}\) y \(R_{is}\), que representan las impedancias vistas desde distintos puntos del circuito. El proceso continúa con el cálculo de \(R_o\) como el inverso de \(h_{oe}\), y luego se calculan \(R_{oA}\) y \(R_{os}\), que representan la resistencia de salida ajustada por las resistencias del colector y la carga. Finalmente, se muestran los valores calculados para estas resistencias.</p>
                 <div class="blog-image-grande">
                     <img src="media/transistor22.png" alt="">
                 </div>
+                <p>A continuación se está derivando la expresión de la ganancia de tensión en la primera etapa del amplificador, \(A_{v1}\). Se comienza aplicando un divisor de tensión para calcular \(v_B\), la tensión en la base del transistor. Utilizando las impedancias de entrada previamente calculadas, se obtiene la relación entre \(v_B\) y \(v_s\), lo que finalmente lleva a una expresión para \(A_{v1}\), que depende de la relación entre las resistencias \(R_{iA}\) y \(R_{is}\). Este análisis es importante para entender cómo las resistencias afectan la ganancia de tensión en la primera etapa del amplificador.</p>
+
                 <div class="blog-image-grande">
                     <img src="media/transistor23.png" alt="">
                 </div>
+                <p>Después se continúa con el análisis para la segunda etapa del amplificador, calculando la ganancia de tensión \(A_{v2}\). Aquí se analiza el circuito del colector del transistor, utilizando la corriente \(i_c\) que se relaciona con la corriente base \(i_B\) a través del parámetro de ganancia de corriente \(h_{fe}\). Se aplica la ley de Ohm para relacionar la corriente del colector con la caída de tensión en \(R_{os}\), y finalmente se obtiene la ganancia de tensión en la segunda etapa, que depende del producto de \(h_{fe}\) y \(R_{os}\), dividido por \(h_{ie}\), la resistencia de entrada del transistor. Este análisis permite obtener la ganancia total del amplificador.</p>
                 <div class="blog-image-grande">
                     <img src="media/transistor24.png" alt="">
                 </div>
+                <p>Por último se presenta el proceso para calcular la ganancia total del amplificador, \(A_{vs}\), que es el producto de las ganancias de tensión de las dos etapas anteriores, \(A_{v1}\) y \(A_{v2}\). Este enfoque se basa en la premisa de que el amplificador está compuesto por dos etapas en cascada, donde la salida de la primera etapa se convierte en la entrada de la segunda. La expresión para \(A_{vs}\) se puede expresar como \(A_{vs} = A_{v1} \cdot A_{v2}\). Al multiplicar las expresiones obtenidas previamente para \(A_{v1}\) y \(A_{v2}\), se obtiene una nueva fórmula que representa la ganancia total del sistema. Este método permite simplificar el análisis de amplificadores en cascada y resalta cómo las características de cada etapa influyen en el comportamiento global del amplificador. Este cálculo es crucial para el diseño de circuitos amplificadores en diversas aplicaciones electrónicas.</p>
                 <div class="blog-image-grande">
                     <img src="media/transistor25.png" alt="">
                 </div>
