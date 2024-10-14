@@ -67,7 +67,7 @@ Interfaz de salida: FastEthernet0/0</div>
                 </ul>
                 <p>Existen varios tipos de rutas estáticas que se pueden configurar en un enrutador para dirigir el tráfico a una red o dispositivo específico. A continuación te explico los tipos más comunes:</p>
                 <ol>
-                    <li>Ruta estática directa (Next-Hop)</li>
+                    <li><marcador class="resaltado9">Ruta estática directa (Next-Hop)</marcador></li>
                     <p>Una ruta estática directa, o next-hop, se utiliza cuando el router tiene una ruta específica para llegar a un destino conocido. Cuando un paquete llega al router, este examina la dirección IP de destino. Si sabe que el destino está en otra red y tiene una ruta configurada hacia el next-hop, enviará el paquete directamente a ese siguiente salto. Por ejemplo, si la dirección IP de destino es 192.168.2.0 y el router tiene configurada una ruta que apunta a un next-hop en 192.168.1.2, el router enviará el paquete a esa dirección.</p>
                     <div class="contenedor">
                         <div class="etiqueta">
@@ -78,9 +78,9 @@ Interfaz de salida: FastEthernet0/0</div>
                           <button><i class="fa fa-clone"></i><span> Copy</span></button>
                         </div>
                       </div>
-                      <li>Ruta Estática Local (Directamente Conectada)</li>
-                      <p>Una ruta estática local se refiere a aquellas direcciones que están directamente conectadas al router. Cuando un dispositivo envía un paquete a una dirección IP dentro de la misma red que el router, este puede entregar el paquete directamente al destino sin necesidad de pasar por un gateway. Por ejemplo, si el router tiene la dirección IP 192.168.1.1 y un dispositivo en la misma red tiene la IP 192.168.1.10, el router simplemente recibe el paquete y lo envía directamente a la dirección destino. El router sabe que estas direcciones pertenecen a la misma red porque la máscara de red, como 255.255.255.0, indica que cualquier dirección que comience con 192.168.1 forma parte del mismo dominio de red. Esta relación entre la dirección IP y la máscara de red es clave para entender la topología de la red y cómo se interconectan los dispositivos.</p>
-                    <li>Ruta estática flotante</li>
+                    <li><marcador class="resaltado9">Ruta Estática Local (Directamente Conectada)</marcador></li>
+                    <p>Una ruta estática local se refiere a aquellas direcciones que están directamente conectadas al router. Cuando un dispositivo envía un paquete a una dirección IP dentro de la misma red que el router, este puede entregar el paquete directamente al destino sin necesidad de pasar por un gateway. Por ejemplo, si el router tiene la dirección IP 192.168.1.1 y un dispositivo en la misma red tiene la IP 192.168.1.10, el router simplemente recibe el paquete y lo envía directamente a la dirección destino. El router sabe que estas direcciones pertenecen a la misma red porque la máscara de red, como 255.255.255.0, indica que cualquier dirección que comience con 192.168.1 forma parte del mismo dominio de red. Esta relación entre la dirección IP y la máscara de red es clave para entender la topología de la red y cómo se interconectan los dispositivos.</p>
+                    <li><marcador class="resaltado9">Ruta estática flotante</marcador></li>
                     <p>Una ruta estática flotante se utiliza como respaldo para rutas principales. El router mantiene esta ruta configurada, pero solo la usará si la ruta principal falla. Por ejemplo, si el router tiene una ruta principal hacia 192.168.2.0 a través de 192.168.1.2 y una ruta estática flotante hacia 192.168.2.0 a través de 192.168.1.3, cuando el router intenta enviar un paquete a 192.168.2.0, primero lo enviará a 192.168.1.2. Si esta ruta no está disponible, el router cambiará automáticamente y usará la ruta flotante a través de 192.168.1.3.</p>
                     <p>Si la ruta principal es a 192.168.1.0/24 con el gateway 192.168.1.1, pero configuras una ruta secundaria a través de 192.168.1.2 como respaldo, esta se activaría si la principal falla.</p>
                     <div class="contenedor">
@@ -95,12 +95,12 @@ Interfaz de salida: FastEthernet0/0</div>
                       <p>La métrica por defecto para las rutas estáticas en la mayoría de los sistemas operativos de red, como Cisco IOS, es 1. Esto significa que si no especificas una métrica al configurar una ruta estática, el sistema asignará automáticamente un valor de métrica de 1 a esa ruta.</p>
                       <p>(El número 10 es la distancia administrativa, lo que hace que esta ruta sea menos preferida)</p>
                       <p>En los sistemas de enrutamiento, las métricas más bajas son preferidas, por lo que una ruta con una métrica de 1 tendrá prioridad sobre una ruta con una métrica de 10. Esto significa que si el router tiene ambas rutas configuradas, enviará los paquetes a través de la ruta con la métrica más baja (1) en lugar de la ruta con la métrica más alta (10).</p>
-                      <li>Ruta predeterminada (default route)</li>
+                      <li><marcador class="resaltado9">Ruta predeterminada (default route)</marcador></li>
                       <p>Cuando un paquete llega al router, el dispositivo evalúa la dirección IP de destino. Si esta dirección no coincide con ninguna de las rutas específicas en la tabla de enrutamiento, el router se encuentra en una encrucijada. En este momento, consulta su tabla de enrutamiento para ver si tiene una ruta predeterminada configurada. Si la tiene, el router enviará el paquete a esa ruta predeterminada, que normalmente apunta a un gateway que se encarga de dirigir el tráfico hacia redes externas.</p>
                       <p>Por ejemplo, imagina que un paquete llega al router con la dirección de destino 8.8.8.8. Si el router no tiene una ruta específica para esa dirección, revisa la tabla de rutas y encuentra que tiene una ruta predeterminada configurada que apunta a 192.168.1.1, que es la dirección del gateway. El router enviará el paquete a 192.168.1.1, y luego el gateway se encargará de buscar una ruta adecuada para llevar el paquete a su destino final, que en este caso es un servidor DNS de Google.</p>
                       <p>Generalmente, la ruta predeterminada se configura para que apunte a la interfaz que tiene acceso a Internet. Por ejemplo, si la interfaz WAN del router tiene la dirección IP 203.0.113.1 y está conectada a un proveedor de servicios de Internet (ISP), la ruta predeterminada puede estar configurada para enviar tráfico desconocido a esa interfaz.</p>
                       <p>Al configurar la ruta predeterminada, el administrador del router establece un "gateway" predeterminado que el router utilizará cuando no se conozca el destino. Este gateway puede ser el router del ISP al que el router local está conectado</p>
-                      <p><p>Si no tienes una ruta específica configurada para internet, podrías definir que todo el tráfico no especificado se envíe a un gateway, por ejemplo, el router del proveedor de internet en 192.168.0.1.</p></p>
+                      <p>Si no tienes una ruta específica configurada para internet, podrías definir que todo el tráfico no especificado se envíe a un gateway, por ejemplo, el router del proveedor de internet en 192.168.0.1.</p>
                       <div class="contenedor">
                           <div class="etiqueta">
                               Comando:
@@ -112,6 +112,21 @@ Interfaz de salida: FastEthernet0/0</div>
                         </div>
                     <p>El comando anterior establece una ruta predeterminada que envía todo el tráfico desconocido al siguiente salto en la dirección IP 192.168.0.1, permitiendo que el router gestione paquetes para destinos que no están explícitamente configurados en su tabla de enrutamiento.</p>
                 </ol>
+                <div class="blog-image-grande">
+                    <img src="media/static8.png" alt="">
+                </div>
+                <h2>Loopback</h2>
+                <p>Es una dirección IP especial que siempre apunta a la propia máquina en la que está configurada, sin necesidad de salir físicamente a la red. En IPv4, la dirección más comúnmente usada para loopback es 127.0.0.1, y en IPv6, es ::1.</p>
+                <ul>
+                    <li><marcador class="resaltado5">Pruebas locales: </marcador>Permite a los desarrolladores y administradores de sistemas realizar pruebas de conectividad sin necesidad de acceso a la red externa. Al hacer ping a 127.0.0.1, puedes verificar si la pila de red del sistema está funcionando correctamente.</li>
+                    <li><marcador class="resaltado5">Simulación de red: </marcador>Sirve para probar servicios de red (servidores web, aplicaciones, bases de datos, etc.) localmente sin exponer la máquina a la red externa. Esto permite ejecutar software de red en tu computadora como si estuviera interactuando con otras máquinas.</li>
+                    <li>También se pueden configurar direcciones IP en la interfaz loopback de cada router, representando diferentes redes internas. Estas redes no necesitan conectarse físicamente a una interfaz real, pero aún pueden ser enrutadas o utilizadas para hacer pruebas de conectividad entre diferentes routers, como si cada router estuviera conectado a su propia LAN.</li>
+                    <li><marcador class="resaltado5">Aislamiento de servicios: </marcador>Muchos servicios (como servidores web o bases de datos) pueden estar configurados para escuchar conexiones en la dirección loopback, asegurando que solo se pueda acceder a ellos localmente, lo que es útil para proteger servicios internos o realizar desarrollos en entornos locales.</li>
+                    <li><marcador class="resaltado5">Diagnósticos de red: </marcador>Es utilizada para verificar si la pila TCP/IP del sistema está funcionando correctamente, permitiendo a los administradores detectar problemas de red en la configuración interna de un equipo.</li>
+                </ul>
+                <div class="blog-image">
+                    <img src="media/static7.jpg" alt="">
+                </div>
                 <h2>Ejemplo de configuración de rutas estáticas</h2>
                 <p>Imaginemos una red conformada por cuatro routers: 1, 2, 3 y 4, conectados de forma que forman un cuadrado. La topología de red sería la siguiente:</p>
                 <div class="blog-image-grande">
@@ -326,8 +341,64 @@ ip route-static 10.10.11.0 255.255.255.252 10.10.13.1  # Ruta hacia R1 a través
                       <input type="text" class="text" value="ip route-static <red_destino> <máscara> <gateway>" oninput="ajustarAncho(this)">
                       <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
-                  </div>
-                  <div class="blog-image-grande">
+                </div>
+
+                <h2>Ejemplo 2 de configuración de rutas estáticas</h2>
+                <p>Se van a configurar las rutas para que Router A pueda alcanzar la red de Router D, que es una red remota, pasando por los routers intermedios. Las redes locales son aquellas a las que los routers están directamente conectados, y las redes remotas son aquellas que necesitan ser alcanzadas mediante el enrutamiento a través de otros routers.</p>
+                <div class="blog-image-grande">
+                    <img src="media/static9.png" alt="">
+                </div>
+                <h6>Direccionamiento y conexiones:</h6>
+                <ul>
+                    <li>Entre A y B: Red 70.0.0.0/24 (A: 70.0.0.1, B: 70.0.0.2).</li>
+                    <li>Entre B y C: Red 20.0.0.0/24 (B: 20.0.0.1, C: 20.0.0.2).</li>
+                    <li>Entre C y D: Red 40.0.0.0/24 (C: 40.0.0.1, D: 40.0.0.2).</li>
+                </ul>
+                <p><marcador class="resaltado8">En Router A: </marcador>Router A tiene una conexión directa con Router B en la red 70.0.0.0/24. Como la red de Router D es remota (40.0.0.0/24), necesito decirle a Router A que para llegar a la red 40.0.0.0/24, debe enviar el tráfico a Router B, que tiene la IP 70.0.0.2.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Comando en Router A:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="ip route 40.0.0.0 255.255.255.0 70.0.0.2" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+
+                <p><marcador class="resaltado8">En Router B: </marcador>Router B está directamente conectado a Router A en la red 70.0.0.0/24 y a Router C en la red 20.0.0.0/24. Pero no conoce la red 40.0.0.0/24 de Router D, que es remota. Debo configurarle una ruta estática que diga: "Para alcanzar la red 40.0.0.0/24, envía el tráfico a Router C, que tiene la IP 20.0.0.2".</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Comando en Router B:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="ip route 40.0.0.0 255.255.255.0 20.0.0.2" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+
+                <p><marcador class="resaltado8">En Router C: </marcador>Router C está directamente conectado a Router B en la red 20.0.0.0/24 y a Router D en la red 40.0.0.0/24. Como la red 40.0.0.0/24 está directamente conectada a Router C, no necesito configurarle una ruta estática para esta red. Sin embargo, para que Router D alcance Router A (y viceversa), necesito decirle a Router C que para llegar a la red 70.0.0.0/24 de Router A, debe enviar el tráfico a Router B, con la IP 20.0.0.1.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Comando en Router C:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="ip route 70.0.0.0 255.255.255.0 20.0.0.1" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+
+                <p><marcador class="resaltado8">En Router D: </marcador>Finalmente, Router D está directamente conectado a Router C en la red 40.0.0.0/24. Debo decirle a Router D que para llegar a la red 70.0.0.0/24 de Router A, debe enviar el tráfico a Router C, con la IP 40.0.0.1.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Comando en Router D:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="ip route 70.0.0.0 255.255.255.0 40.0.0.1" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Con estos comandos, Router A puede enviar tráfico a Router D, pasando por Router B y Router C. Las rutas estáticas en cada router se configuran para reenviar el tráfico de las redes remotas a través de los routers intermedios, asegurando que el tráfico fluya correctamente por toda la cadena de routers.</p>
+                <div class="blog-image-grande">
                     <img src="media/static4.jpeg" alt="">
                 </div>
                 <h2>Priorización de rutas</h2>
