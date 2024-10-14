@@ -355,7 +355,7 @@ ip route-static 10.10.11.0 255.255.255.252 10.10.13.1  # Ruta hacia R1 a través
                     <li>Entre C y D: Red 40.0.0.0/24 (C: 40.0.0.1, D: 40.0.0.2).</li>
                 </ul>
                 <h6>Configuración de rutas en cada router:</h6>
-                <p><marcador class="resaltado8">En Router A: </marcador>Router A tiene una conexión directa con Router B en la red 70.0.0.0/24. Como la red de Router D es remota (40.0.0.0/24), necesito decirle a Router A que para llegar a la red 40.0.0.0/24, debe enviar el tráfico a Router B, que tiene la IP 70.0.0.2.</p>
+                <p><marcador class="resaltado8">En Router A: </marcador>Router A tiene una conexión directa con Router B en la red 70.0.0.0/24. Como la red de Router D es remota (40.0.0.0/24), es necesario decirle a Router A que para llegar a la red 40.0.0.0/24, debe enviar el tráfico a Router B, que tiene la IP 70.0.0.2.</p>
                 <div class="contenedor">
                     <div class="etiqueta">
                         Comando en Router A:
@@ -365,7 +365,7 @@ ip route-static 10.10.11.0 255.255.255.252 10.10.13.1  # Ruta hacia R1 a través
                       <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                 </div>
-                <p><marcador class="resaltado8">En Router B: </marcador>Router B está directamente conectado a Router A en la red 70.0.0.0/24 y a Router C en la red 20.0.0.0/24. Pero no conoce la red 40.0.0.0/24 de Router D, que es remota. Debo configurarle una ruta estática que diga: "Para alcanzar la red 40.0.0.0/24, envía el tráfico a Router C, que tiene la IP 20.0.0.2".</p>
+                <p><marcador class="resaltado8">En Router B: </marcador>Router B está directamente conectado a Router A en la red 70.0.0.0/24 y a Router C en la red 20.0.0.0/24. Pero no conoce la red 40.0.0.0/24 de Router D, que es remota. Se debe configurar una ruta estática que diga: "Para alcanzar la red 40.0.0.0/24, envía el tráfico a Router C, que tiene la IP 20.0.0.2".</p>
                 <div class="contenedor">
                     <div class="etiqueta">
                         Comando en Router B:
@@ -375,7 +375,7 @@ ip route-static 10.10.11.0 255.255.255.252 10.10.13.1  # Ruta hacia R1 a través
                       <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                 </div>
-                <p><marcador class="resaltado8">En Router C: </marcador>Router C está directamente conectado a Router B en la red 20.0.0.0/24 y a Router D en la red 40.0.0.0/24. Como la red 40.0.0.0/24 está directamente conectada a Router C, no necesito configurarle una ruta estática para esta red. Sin embargo, para que Router D alcance Router A (y viceversa), necesito decirle a Router C que para llegar a la red 70.0.0.0/24 de Router A, debe enviar el tráfico a Router B, con la IP 20.0.0.1.</p>
+                <p><marcador class="resaltado8">En Router C: </marcador>Router C está directamente conectado a Router B en la red 20.0.0.0/24 y a Router D en la red 40.0.0.0/24. Como la red 40.0.0.0/24 está directamente conectada a Router C, no es necesario configurar una ruta estática para esta red. Sin embargo, para que Router D alcance Router A (y viceversa), necesito decirle a Router C que para llegar a la red 70.0.0.0/24 de Router A, debe enviar el tráfico a Router B, con la IP 20.0.0.1.</p>
                 <div class="contenedor">
                     <div class="etiqueta">
                         Comando en Router C:
@@ -385,7 +385,7 @@ ip route-static 10.10.11.0 255.255.255.252 10.10.13.1  # Ruta hacia R1 a través
                       <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                 </div>
-                <p><marcador class="resaltado8">En Router D: </marcador>Finalmente, Router D está directamente conectado a Router C en la red 40.0.0.0/24. Debo decirle a Router D que para llegar a la red 70.0.0.0/24 de Router A, debe enviar el tráfico a Router C, con la IP 40.0.0.1.</p>
+                <p><marcador class="resaltado8">En Router D: </marcador>Finalmente, Router D está directamente conectado a Router C en la red 40.0.0.0/24. Es necesario decirle a Router D que para llegar a la red 70.0.0.0/24 de Router A, debe enviar el tráfico a Router C, con la IP 40.0.0.1.</p>
                 <div class="contenedor">
                     <div class="etiqueta">
                         Comando en Router D:
