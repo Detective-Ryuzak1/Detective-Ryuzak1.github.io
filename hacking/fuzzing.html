@@ -417,7 +417,76 @@ lms                     [Status: 200, Size: 19347, Words: 4910, Lines: 353, Dura
                 </ul>
                 <div class="blog-image">
                     <img src="media/fuzz2.jpg" alt="">
-                </div> 
+                </div>
+                <h2>Feroxbuster</h2>
+                <p>Feroxbuster es una herramienta de fuzzing de contenido escrita en Rust que se utiliza para descubrir directorios y archivos ocultos en aplicaciones web. Se destaca por su velocidad y eficiencia, aprovechando el poder de la concurrencia y las ventajas de Rust en el manejo de múltiples hilos.</p>
+                <ul>
+                    <li>Es extremadamente rápida gracias a la implementación en Rust y al uso de solicitudes concurrentes.</li>
+                    <li>Soporta búsquedas recursivas, permitiendo profundizar en subdirectorios automáticamente.</li>
+                    <li>Ofrece una interfaz intuitiva, compatible con varias opciones de personalización como proxies, encabezados personalizados y manejo de autenticación.</li>
+                </ul>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        En este comando, <marcardor class="subrayado">-u</marcardor> especifica la URL objetivo y <marcardor class="subrayado">-w</marcardor> especifica la lista de palabras que se utilizará para realizar las pruebas.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="feroxbuster -u http://example.com -w /path/to/wordlist.txt" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <br>
+                <p>Feroxbuster te permite realizar un análisis rápido y eficiente en aplicaciones web para descubrir contenido oculto. En este caso, se utiliza para escanear el dominio freelancer.htb, buscando directorios y archivos que podrían estar expuestos pero no listados públicamente.</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9723;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">feroxbuster</marcador> <marcador class="param">-n</marcador> <marcador class="param">-u</marcador> http://freelancer.htb <marcador class="param">-C</marcador> 503</span>
+                        
+    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">
+ ___  ___  __   __     __      __         __   ___
+|__  |__  |__) |__) | /  `    /  \ \_/ | |  \ |__
+|    |___ |  \ |  \ | \__,    \__/ / \ | |__/ |___
+by Ben "epi" Risher 🤓                 ver: 2.10.3
+───────────────────────────┬──────────────────────
+    🎯  Target Url            │ http://freelancer.htb
+    🚀  Threads               │ 50
+    📖  Wordlist              │ /usr/share/seclists/Discovery/Web-Content/raft-medium-directories.txt
+    💢  Status Code Filters   │ [503]
+    💥  Timeout (secs)        │ 7
+    🦡  User-Agent            │ feroxbuster/2.10.3
+    💉  Config File           │ /etc/feroxbuster/ferox-config.toml
+    🏁  HTTP methods          │ [GET]
+    🚫  Do Not Recurse        │ true
+───────────────────────────┴──────────────────────
+    🏁  Press [ENTER] to use the Scan Management Menu™
+──────────────────────────────────────────────────
+404      GET      334l      690w    12238c Auto-filtering found 404-like response and created new filter; toggle off with --dont-filter
+301      GET        0l        0w        0c http://freelancer.htb/admin => http://freelancer.htb/admin/
+200      GET     1247l     2523w    57293c http://freelancer.htb/
+301      GET        0l        0w        0c http://freelancer.htb/blog => http://freelancer.htb/blog/
+[####################] - 2m     30000/30000   0s      found:3       errors:0      
+[####################] - 2m     30000/30000   205/s   http://freelancer.htb/
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <ul>
+                    <li><marcador class="resaltado3">-n: </marcador>Desactiva la búsqueda recursiva, enfocándose solo en el nivel del directorio especificado sin escanear subdirectorios.</li>
+                    <li><marcador class="resaltado3">-C 200: </marcador>Muestra solo las respuestas con el código de estado HTTP 200 (OK), lo que indica que el recurso existe y es accesible.</li>
+                </ul>
+                <div class="blog-image">
+                    <img src="media/fuzz6.png" alt="">
+                </div>
                 <h2>Dirsearch</h2>
                 <p>Dirsearch es una herramienta de fuzzing de directorios escrita en Python que se centra en la simplicidad y la facilidad de uso. Está diseñada para encontrar archivos y directorios en aplicaciones web.</p>
                 <ul>
@@ -429,7 +498,7 @@ lms                     [Status: 200, Size: 19347, Words: 4910, Lines: 353, Dura
                         En este comando, <marcardor class="subrayado">-u</marcardor> especifica la URL objetivo y <marcardor class="subrayado">-w</marcardor> define la lista de palabras.
                     </div>
                     <div class="comandos">
-                      <input type="text" class="text" value="dirsearch.py -u http://example.com -w /path/to/wordlist.txt" oninput="ajustarAncho(this)">
+                      <input type="text" class="text" value="dirsearch -u http://example.com -w /path/to/wordlist.txt" oninput="ajustarAncho(this)">
                       <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                   </div>
@@ -509,7 +578,7 @@ Task Completed
                 </div>
                 <div class="blog-image">
                     <img src="media/fuzz5.jpg" alt="">
-                </div> 
+                </div>  
             </div>
         </div>       
     </main>
