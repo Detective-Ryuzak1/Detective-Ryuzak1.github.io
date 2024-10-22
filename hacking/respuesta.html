@@ -180,6 +180,126 @@
                         </div>
                     </div>
                     <p><marcador class="resaltado8">Explicación: </marcador>En este caso, el equipo blue está buscando patrones de conexión entre diferentes IPs, excluyendo la IP de un servidor conocido. Si un solo dispositivo intenta conectarse a más de 50 dispositivos en poco tiempo, esto podría indicar un ataque en progreso.</p>
+                    <li><marcador class="resaltado3">Búsqueda de eventos relacionados con tráfico sospechoso</marcador></li>
+                    <p>El equipo blue puede usar Splunk para identificar tráfico de red inusual, como un aumento significativo en el volumen de datos transferidos.</p>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            Una búsqueda en SPL podría ser:
+                        </div>
+                        <div class="comandos">
+                          <input type="text" class="text" value="index=network sourcetype=&quot;netflow&quot; bytes_transferred > 10000000 | stats sum(bytes_transferred) by src_ip dest_ip | where sum(bytes_transferred) > 50000000" oninput="ajustarAncho(this)">
+                          <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p><marcador class="resaltado8">Explicación: </marcador>Esta búsqueda examina el tráfico de red donde se transfirieron más de 10 MB por conexión y suma los bytes por IP origen y destino. Si el total supera los 50 MB, puede ser un indicio de transferencia de datos anómala.</p>
+                    <li><marcador class="resaltado3">Detección de actividad fuera del horario laboral</marcador></li>
+                    <p>Para detectar actividades fuera de las horas de trabajo normales, como inicios de sesión en horarios no habituales.</p>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            Una búsqueda en SPL podría ser:
+                        </div>
+                        <div class="comandos">
+                          <input type="text" class="text" value="index=auth sourcetype=&quot;access_combined&quot; earliest=-1d@d latest=now | eval hour=strftime(_time, &quot;%H&quot;) | where hour < 9 OR hour > 18" oninput="ajustarAncho(this)">
+                          <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p><marcador class="resaltado8">Explicación: </marcador>Esta búsqueda filtra los eventos de autenticación en las últimas 24 horas, evaluando la hora del evento y filtrando aquellos que ocurren antes de las 9 AM o después de las 6 PM, lo que podría indicar actividad sospechosa fuera del horario laboral.</p>
+                    <li><marcador class="resaltado3">Monitoreo de cambios en archivos críticos</marcador></li>
+                    <p>El equipo puede monitorear la integridad de archivos importantes, buscando cambios inesperados en archivos sensibles.</p>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            Una búsqueda en SPL podría ser:
+                        </div>
+                        <div class="comandos">
+                          <input type="text" class="text" value="index=filesystem sourcetype=&quot;fschange&quot; file_path=&quot;/etc/*&quot; OR file_path=&quot;/var/www/*&quot; | stats count by file_path | where count > 0" oninput="ajustarAncho(this)">
+                          <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p><marcador class="resaltado8">Explicación: </marcador>Esta búsqueda detecta cualquier cambio en archivos dentro de los directorios <marcador class="resaltado1">/etc/</marcador> y <marcador class="resaltado1">/var/www/</marcador>, contando cuántas veces fueron modificados. Si se encuentran cambios, estos son reportados.</p>
+                    <li><marcador class="resaltado3">Detección de escaneo de puertos</marcador></li>
+                    <p>Para identificar intentos de escaneo de puertos en la red, los cuales podrían ser el preludio de un ataque.</p>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            Una búsqueda en SPL podría ser:
+                        </div>
+                        <div class="comandos">
+                          <input type="text" class="text" value="index=network sourcetype=&quot;firewall&quot; action=&quot;allowed&quot; | stats count by src_ip dest_port | where count > 100" oninput="ajustarAncho(this)">
+                          <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p><marcador class="resaltado8">Explicación: </marcador>Aquí se están contando las conexiones permitidas por IP origen y puerto destino. Si se detectan más de 100 conexiones a diferentes puertos desde una sola IP, esto podría ser un indicio de un escaneo de puertos.</p>
+                    <li><marcador class="resaltado3">Búsqueda de errores en servicios críticos</marcador></li>
+                    <p>El equipo blue puede buscar errores en servicios importantes de la infraestructura para identificar posibles fallos.</p>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            Una búsqueda en SPL podría ser:
+                        </div>
+                        <div class="comandos">
+                          <input type="text" class="text" value="index=app_logs sourcetype=&quot;syslog&quot; service=&quot;database&quot; OR service=&quot;webserver&quot; severity=&quot;error&quot; | stats count by service | where count > 5" oninput="ajustarAncho(this)">
+                          <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p><marcador class="resaltado8">Explicación: </marcador>Esta búsqueda filtra los registros de errores de los servicios de base de datos y servidor web. Si hay más de 5 errores en cualquiera de ellos, es posible que se requiera una investigación.</p>
+                    <li><marcador class="resaltado3">Identificación de cuentas de usuario comprometidas</marcador></li>
+                    <p>Si hay cuentas que tienen múltiples inicios de sesión desde ubicaciones geográficas muy diferentes, podría tratarse de cuentas comprometidas.</p>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            Una búsqueda en SPL podría ser:
+                        </div>
+                        <div class="comandos">
+                          <input type="text" class="text" value="index=auth sourcetype=&quot;access_combined&quot; status=&quot;success&quot; | iplocation client_ip | stats dc(Country) by user | where dc(Country) > 1" oninput="ajustarAncho(this)">
+                          <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p><marcador class="resaltado8">Explicación: </marcador>Se utiliza iplocation para identificar el país desde el cual se realizó el inicio de sesión. Si un usuario ha iniciado sesión desde más de un país en un corto período, esto podría ser una señal de compromiso de la cuenta.</p>
+                    <li><marcador class="resaltado3">Monitoreo de actividad inusual en servidores web</marcador></li>
+                    <p>Para detectar posibles ataques a servidores web, como intentos de explotación de vulnerabilidades a través de URLs sospechosas.</p>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            Una búsqueda en SPL podría ser:
+                        </div>
+                        <div class="comandos">
+                          <input type="text" class="text" value="index=web sourcetype=&quot;access_combined&quot; uri_path=&quot;*/admin*&quot; OR uri_path=&quot;*/login*&quot; | stats count by uri_path | where count > 50" oninput="ajustarAncho(this)">
+                          <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p><marcador class="resaltado8">Explicación: </marcador>Esta búsqueda examina las solicitudes de URL que incluyen /admin o /login, que a menudo son puntos de ataque en servidores web. Si hay más de 50 solicitudes de este tipo, podría ser un intento de explotación.</p>
+                    <li><marcador class="resaltado3">Identificación de ataques DoS (Denial of Service)</marcador></li>
+                    <p>El equipo blue puede identificar patrones de ataques de denegación de servicio si se observan múltiples solicitudes desde una misma IP en un corto período.</p>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            Una búsqueda en SPL podría ser:
+                        </div>
+                        <div class="comandos">
+                          <input type="text" class="text" value="index=network sourcetype=&quot;firewall&quot; action=&quot;blocked&quot; | stats count by src_ip | where count > 1000" oninput="ajustarAncho(this)">
+                          <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p><marcador class="resaltado8">Explicación: </marcador>Esta búsqueda examina las conexiones bloqueadas por el firewall. Si una IP tiene más de 1000 solicitudes bloqueadas en un corto tiempo, podría tratarse de un intento de ataque DoS.</p>
+                    <li><marcador class="resaltado3">Búsqueda de intentos de escalamiento de privilegios</marcador></li>
+                    <p>Para detectar intentos de escalamiento de privilegios, como el uso del comando <marcador class="subrayado">sudo</marcador> por parte de usuarios no autorizados.</p>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            Una búsqueda en SPL podría ser:
+                        </div>
+                        <div class="comandos">
+                          <input type="text" class="text" value="index=auth sourcetype=&quot;linux_secure&quot; &quot;sudo&quot; &quot;failure&quot; | stats count by user | where count > 5" oninput="ajustarAncho(this)">
+                          <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p><marcador class="resaltado8">Explicación: </marcador>Esta búsqueda busca registros de uso fallido del comando <marcador class="subrayado">sudo</marcador> en sistemas Linux, y alerta si un usuario ha intentado más de 5 veces ejecutar comandos con privilegios elevados.</p>
+                    <li><marcador class="resaltado3">Monitoreo de accesos no autorizados a datos confidenciales</marcador></li>
+                    <p>Si el equipo necesita monitorear quién accede a datos sensibles o confidenciales.</p>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            Una búsqueda en SPL podría ser:
+                        </div>
+                        <div class="comandos">
+                          <input type="text" class="text" value="index=databases sourcetype=&quot;db_logs&quot; &quot;SELECT * FROM confidential_data&quot; | stats count by user | where count > 0" oninput="ajustarAncho(this)">
+                          <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p><marcador class="resaltado8">Explicación: </marcador>Esta búsqueda busca eventos en los que un usuario ha accedido a datos confidenciales mediante consultas SQL. Si se detecta cualquier acceso, se mostrará el usuario que realizó la acción.</p>
                 </ol>
                 <h6>Demo</h6>
                 <p>En esta demostración oficial de Splunk, tendrás la oportunidad de conocer cómo la plataforma transforma grandes volúmenes de datos en información procesable para la ciberseguridad y la inteligencia empresarial. La demo mostrará cómo Splunk facilita la recopilación, el análisis y la visualización de datos en tiempo real, permitiendo a los equipos de seguridad identificar amenazas y responder a incidentes de manera rápida y eficiente. A través de una interfaz intuitiva, se presentarán casos de uso específicos que destacan la versatilidad de Splunk en la detección de anomalías, la gestión de incidentes y la optimización de operaciones. Esta demostración es una excelente manera de comprender cómo Splunk puede potenciar la seguridad de tu organización y mejorar la toma de decisiones basadas en datos.</p>
@@ -386,7 +506,6 @@ rule buran_ransomware {
                     <div class="blog-image-grande">
                         <img src="media/response10.gif" alt="">
                     </div> 
-                    <h2>Wazhu</h2>
                 </ol>
             </div>
         </div>       
