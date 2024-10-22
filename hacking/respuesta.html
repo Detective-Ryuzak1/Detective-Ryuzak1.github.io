@@ -99,13 +99,13 @@
                     <img src="media/response3.png" alt="">
                 </div> 
                 <h6>Herramientas</h6>
-                <p>Splunk permite la integración de múltiples plug-ins (también llamados "apps" o "add-ons") que extienden su funcionalidad. Estos plug-ins permiten al blue team mejorar la visibilidad de la infraestructura y optimizar su respuesta a incidentes de seguridad.</p>
+                <p>Splunk permite la integración de múltiples plug-ins (también llamados "apps" o "add-ons") que extienden su funcionalidad. Estos plug-ins permiten mejorar la visibilidad de la infraestructura y optimizar su respuesta a incidentes de seguridad.</p>
                 <ol>
                     <li><marcador class="resaltado3">Splunk Add-on for Windows</marcador></li>
                     <ul>
                         <li><marcador class="resaltado8">Funcionalidad: </marcador>Permite la recopilación de eventos y logs generados por sistemas Windows, como eventos de inicio de sesión, fallos en el sistema, y actividad de red.</li>
                         <li><marcador class="resaltado8">Usado para: </marcador>Monitorear la actividad de usuarios, detectar accesos no autorizados o intentos de intrusión, y rastrear comportamientos sospechosos en servidores o estaciones de trabajo.</li>
-                        <li><marcador class="resaltado8">Caso de uso: </marcador>Un equipo de blue team puede crear alertas para detectar múltiples intentos fallidos de inicio de sesión en un corto período, lo que podría ser un indicador de un ataque de fuerza bruta.</li>
+                        <li><marcador class="resaltado8">Caso de uso: </marcador>Un equipo de seguridad puede crear alertas para detectar múltiples intentos fallidos de inicio de sesión en un corto período, lo que podría ser un indicador de un ataque de fuerza bruta.</li>
                     </ul>
                     <li><marcador class="resaltado3">Splunk Add-on for Unix and Linux</marcador></li>
                     <ul>
@@ -117,7 +117,7 @@
                     <ul>
                         <li><marcador class="resaltado8">Funcionalidad: </marcador>Proporciona ejemplos de uso preconfigurados, con más de 160 escenarios para detectar amenazas y realizar análisis de seguridad.</li>
                         <li><marcador class="resaltado8">Usado para: </marcador>Guiar a los equipos de seguridad en la creación de búsquedas y dashboards específicos para amenazas comunes.</li>
-                        <li><marcador class="resaltado8">Caso de uso: </marcador>El blue team puede utilizar las búsquedas preconfiguradas de SSE para detectar comportamientos como movimientos laterales dentro de la red o explotación de vulnerabilidades conocidas.</li>
+                        <li><marcador class="resaltado8">Caso de uso: </marcador>Se pueden utilizar las búsquedas preconfiguradas de SSE para detectar comportamientos como movimientos laterales dentro de la red o explotación de vulnerabilidades conocidas.</li>
                     </ul>
                     <li><marcador class="resaltado3">Splunk Enterprise Security (ES)</marcador></li>
                     <ul>
@@ -145,7 +145,7 @@
                 <h6>Ejemplos</h6>
                 <ol>
                     <li><marcador class="resaltado3">Búsqueda de logs de autenticación fallida</marcador></li>
-                    <p>El equipo blue puede crear una búsqueda básica en Splunk para monitorear los intentos de autenticación fallidos, una señal común de intentos de brute force.</p>
+                    <p>El equipo de seguridad puede crear una búsqueda básica en Splunk para monitorear los intentos de autenticación fallidos, una señal común de intentos de brute force.</p>
                     <div class="contenedor">
                         <div class="etiqueta">
                             Una búsqueda en SPL podría ser:
@@ -229,7 +229,7 @@
                     </div>
                     <p><marcador class="resaltado8">Explicación: </marcador>Aquí se están contando las conexiones permitidas por IP origen y puerto destino. Si se detectan más de 100 conexiones a diferentes puertos desde una sola IP, esto podría ser un indicio de un escaneo de puertos.</p>
                     <li><marcador class="resaltado3">Búsqueda de errores en servicios críticos</marcador></li>
-                    <p>El equipo blue puede buscar errores en servicios importantes de la infraestructura para identificar posibles fallos.</p>
+                    <p>El equipo de seguridad puede buscar errores en servicios importantes de la infraestructura para identificar posibles fallos.</p>
                     <div class="contenedor">
                         <div class="etiqueta">
                             Una búsqueda en SPL podría ser:
@@ -265,7 +265,7 @@
                     </div>
                     <p><marcador class="resaltado8">Explicación: </marcador>Esta búsqueda examina las solicitudes de URL que incluyen /admin o /login, que a menudo son puntos de ataque en servidores web. Si hay más de 50 solicitudes de este tipo, podría ser un intento de explotación.</p>
                     <li><marcador class="resaltado3">Identificación de ataques DoS (Denial of Service)</marcador></li>
-                    <p>El equipo blue puede identificar patrones de ataques de denegación de servicio si se observan múltiples solicitudes desde una misma IP en un corto período.</p>
+                    <p>El equipo de seguridad puede identificar patrones de ataques de denegación de servicio si se observan múltiples solicitudes desde una misma IP en un corto período.</p>
                     <div class="contenedor">
                         <div class="etiqueta">
                             Una búsqueda en SPL podría ser:
@@ -323,12 +323,12 @@
                     <img src="media/response5-1.png" alt="">
                 </div> 
                 <h6>Funcionalidades más usadas</h6>
-                <p>El equipo blue, encargado de la defensa de la infraestructura, utiliza CrowdStrike para monitorear endpoints y responder a amenazas de manera eficiente. Algunas de las funcionalidades clave que estos equipos aprovechan incluyen:</p>
+                <p>Los encargados de la defensa de la infraestructura, utilizan CrowdStrike para monitorear endpoints y responder a amenazas de manera eficiente. Algunas de las funcionalidades clave que estos equipos aprovechan incluyen:</p>
                 <ul>
                     <li><marcador class="resaltado2">Falcon Prevent: </marcador>Esta herramienta proporciona protección en tiempo real contra malware mediante el uso de inteligencia artificial y machine learning, sin depender de firmas tradicionales. Esto permite detener malware y amenazas conocidas y desconocidas antes de que afecten a los endpoints.</li>
                     <li><marcador class="resaltado2">Falcon Insight (EDR): </marcador>Permite visibilidad continua de los endpoints para identificar y responder rápidamente a comportamientos sospechosos. Se centra en la detección y respuesta de amenazas avanzadas, lo que es crucial para contener ataques que intentan evadir las protecciones tradicionales.</li>
                     <li><marcador class="resaltado2">Falcon OverWatch (Threat Hunting): </marcador>El equipo de caza de amenazas de CrowdStrike, OverWatch, realiza análisis proactivos en búsqueda de patrones anómalos o señales de ataques avanzados en la red, alertando al equipo de seguridad cuando se encuentran amenazas potenciales.</li>
-                    <li><marcador class="resaltado2">Gestión de vulnerabilidades (Falcon Spotlight): </marcador>Permite al equipo blue identificar y priorizar las vulnerabilidades en los sistemas, enfocándose en aquellas más críticas que pueden ser explotadas por atacantes.</li>
+                    <li><marcador class="resaltado2">Gestión de vulnerabilidades (Falcon Spotlight): </marcador>Permite identificar y priorizar las vulnerabilidades en los sistemas, enfocándose en aquellas más críticas que pueden ser explotadas por atacantes.</li>
                 </ul>
                 <div class="blog-image-grande">
                     <img src="media/response6.png" alt="">
@@ -358,7 +358,7 @@
                     <ul>
                         <li><marcador class="resaltado8">Funcionalidad: </marcador>Falcon X combina inteligencia de amenazas con análisis de malware en tiempo real. Proporciona información sobre amenazas emergentes y perfiles de atacantes, ayudando a los equipos blue a anticiparse a futuros ataques.</li>
                         <li><marcador class="resaltado8">Usado para: </marcador>Proporciona reportes de inteligencia, información sobre actores de amenazas, análisis de comportamientos maliciosos.</li>
-                        <li><marcador class="resaltado8">Caso de uso: </marcador>Un equipo blue puede utilizar Falcon X para identificar quién está detrás de un ataque específico, obteniendo un perfil detallado del atacante, los métodos usados y las vulnerabilidades explotadas.</li>
+                        <li><marcador class="resaltado8">Caso de uso: </marcador>Se puede utilizar Falcon X para identificar quién está detrás de un ataque específico, obteniendo un perfil detallado del atacante, los métodos usados y las vulnerabilidades explotadas.</li>
                     </ul>
                     <div class="blog-image-grande">
                         <img src="media/response8.png" alt="">
@@ -372,11 +372,11 @@
                         <li><marcador class="resaltado3">Caza de amenazas con Falcon OverWatch</marcador></li>
                         <p>El equipo de caza de amenazas de CrowdStrike, OverWatch, detecta patrones de comportamiento inusual en los endpoints. Supongamos que un atacante ha comprometido un sistema y está intentando moverse lateralmente dentro de la red.</p>
                         <p><marcador class="resaltado8">Proceso: </marcador>OverWatch detecta una actividad inusual de un dispositivo que está intentando establecer conexiones con múltiples sistemas internos. Esta actividad es reportada como un comportamiento potencialmente malicioso.</p>
-                        <p><marcador class="resaltado8">Resultado: </marcador>El equipo blue recibe una alerta con información detallada del dispositivo comprometido, el tipo de comportamiento anómalo detectado y recomendaciones para mitigar la amenaza.</p>
+                        <p><marcador class="resaltado8">Resultado: </marcador>El equipo de sguridad recibe una alerta con información detallada del dispositivo comprometido, el tipo de comportamiento anómalo detectado y recomendaciones para mitigar la amenaza.</p>
                         <li><marcador class="resaltado3">Detección de movimiento lateral y exfiltración de datos</marcador></li>
                         <p>CrowdStrike puede detectar técnicas avanzadas de ataque, como movimiento lateral y exfiltración de datos, mediante la correlación de eventos en múltiples endpoints y el análisis de tráfico de red.</p>
                         <p><marcador class="resaltado8">Proceso: </marcador>Un atacante logra acceder a un endpoint a través de credenciales comprometidas y empieza a moverse lateralmente utilizando Remote Desktop Protocol (RDP). Falcon Insight detecta múltiples conexiones RDP inusuales desde el dispositivo comprometido hacia otros dispositivos en la red, alertando sobre la actividad sospechosa.</p>
-                        <p><marcador class="resaltado8">Resultado: </marcador>El equipo blue recibe información detallada de las conexiones realizadas, los dispositivos afectados y puede tomar medidas inmediatas como la contención del endpoint comprometido y el bloqueo de las conexiones sospechosas.</p>
+                        <p><marcador class="resaltado8">Resultado: </marcador>El equipo de seguridad recibe información detallada de las conexiones realizadas, los dispositivos afectados y puede tomar medidas inmediatas como la contención del endpoint comprometido y el bloqueo de las conexiones sospechosas.</p>
                         <li><marcador class="resaltado3">Automatización de respuesta a incidentes con Falcon X</marcador></li>
                         <p>Utilizando Falcon X, los equipos de seguridad pueden automatizar la respuesta a incidentes complejos</p>
                         <p><marcador class="resaltado8">Proceso: </marcador>Falcon X detecta un archivo sospechoso que ha sido descargado por múltiples usuarios. El archivo es automáticamente enviado para su análisis a un sandbox de CrowdStrike donde se confirma que contiene un ransomware. Automáticamente, se bloquea la ejecución del archivo en todos los endpoints y se despliega una alerta para notificar a los administradores.</p>
@@ -405,9 +405,6 @@
                     <p>El propósito principal de Chronicle es ofrecer una plataforma en la que los datos de seguridad se almacenan a gran escala, se correlacionan y se analizan para detectar amenazas en tiempo real. Esta herramienta es una parte clave del portafolio de Google Cloud Security, y está pensada para que los analistas de seguridad puedan investigar incidentes rápidamente, identificando patrones sospechosos y minimizando el tiempo de respuesta ante ataques.</p>
                     <h6>Secciones de Chronicle</h6>
                     <p>Chronicle está dividida en varias secciones o componentes principales que permiten la gestión y análisis de incidentes de seguridad de manera integral. A continuación, se describen cada una de estas secciones:</p>
-                    <div class="blog-image-grande">
-                        <img src="media/response9.png" alt="">
-                    </div> 
                     <ol>
                         <li><marcador class="resaltado2">Ingestión de datos</marcador></li>
                         <p>Chronicle permite integrar múltiples fuentes de datos de seguridad, como logs de red, de aplicaciones, endpoints y otros sistemas. La plataforma está diseñada para procesar datos de una variedad de herramientas de seguridad, incluidos SIEMs (como Splunk), firewalls, EDRs (como CrowdStrike), entre otros.</p>
@@ -428,6 +425,21 @@
                         <p>Gracias a su capacidad de almacenamiento y procesamiento masivo, Chronicle permite realizar investigaciones retrospectivas sobre incidentes de seguridad antiguos. Esto significa que si un nuevo patrón de ataque es descubierto hoy, la organización puede revisar los datos históricos para detectar si ese mismo patrón afectó su infraestructura en el pasado.</p>
                         <p><marcador class="resaltado8">Funcionalidad clave: </marcador>Los analistas pueden detectar amenazas que previamente no fueron identificadas, porque se correlacionan con nuevos IOCs o reglas de detección actualizadas.</p>
                     </ol>
+                    <div class="blog-image-grande">
+                        <img src="media/response9.png" alt="">
+                    </div> 
+                    <h6>Mandiant</h6>
+                    <p>Mandiant es una empresa de ciberseguridad que se especializa en la respuesta a incidentes y la inteligencia de amenazas. Fue fundada en 2004 y es conocida por su trabajo en la detección y respuesta a ataques cibernéticos, así como por sus informes sobre amenazas y vulnerabilidades en el espacio digital.</p>
+                    <p>En el contexto de Chronicle, que es una plataforma de análisis de seguridad desarrollada por Google, Mandiant proporciona inteligencia sobre amenazas y análisis que ayuda a las organizaciones a identificar y mitigar riesgos de ciberseguridad. Juntas, estas herramientas permiten a las empresas mejorar su postura de seguridad y responder más eficazmente a incidentes de seguridad.</p>
+                    <p>Mandiant ofrece varios tipos de inteligencia y análisis en ciberseguridad, entre ellos:</p>
+                    <ul>
+                        <li><marcador class="resaltado2">Inteligencia de Amenazas: </marcador>Proporciona información sobre las tácticas, técnicas y procedimientos (TTP) utilizados por los atacantes, así como el contexto detrás de las amenazas emergentes.</li>
+                        <li><marcador class="resaltado2">Análisis de Incidentes: </marcador>Mandiant ayuda a las organizaciones a responder a incidentes de seguridad, investigando brechas y ataques para determinar el alcance y la causa raíz.</li>
+                        <li><marcador class="resaltado2">Evaluaciones de Vulnerabilidad: </marcador>Realizan análisis de las infraestructuras de TI para identificar vulnerabilidades que podrían ser explotadas por atacantes.</li>
+                        <li><marcador class="resaltado2">Informes de Tendencias: </marcador>Publican informes periódicos sobre tendencias en ciberseguridad, que analizan patrones de ataques y cambios en el panorama de amenazas.</li>
+                        <li><marcador class="resaltado2">Entrenamiento y Consultoría: </marcador>Ofrecen servicios de formación y consultoría para ayudar a las organizaciones a fortalecer su capacidad de respuesta a incidentes.</li>
+                    </ul>
+                    <p>Este enfoque integral permite a las empresas no solo reaccionar a ataques, sino también anticiparse y prepararse para futuros riesgos.</p>
                     <div class="blog-image-grande">
                         <img src="media/response11.png" alt="">
                     </div> 
