@@ -7,7 +7,7 @@
     <title>Blog de Tecnología</title>
     <link rel="icon" href="../media/imagen41.png" type="image/png">
     <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../css/estilos-articulo.css">
+    <link rel="stylesheet" href="../css/estilos-articulo.css?v=1.2">
 </head>
 <body>
 
@@ -98,45 +98,45 @@
                 <div class="blog-image-grande">
                     <img src="media/response3.png" alt="">
                 </div> 
-                <h6>Plug-ins</h6>
+                <h6>Herramientas</h6>
                 <p>Splunk permite la integración de múltiples plug-ins (también llamados "apps" o "add-ons") que extienden su funcionalidad. Estos plug-ins permiten al blue team mejorar la visibilidad de la infraestructura y optimizar su respuesta a incidentes de seguridad.</p>
                 <ol>
                     <li><marcador class="resaltado3">Splunk Add-on for Windows</marcador></li>
                     <ul>
                         <li><marcador class="resaltado8">Funcionalidad: </marcador>Permite la recopilación de eventos y logs generados por sistemas Windows, como eventos de inicio de sesión, fallos en el sistema, y actividad de red.</li>
                         <li><marcador class="resaltado8">Usado para: </marcador>Monitorear la actividad de usuarios, detectar accesos no autorizados o intentos de intrusión, y rastrear comportamientos sospechosos en servidores o estaciones de trabajo.</li>
-                        <li><marcador class="resaltado8">Uso: </marcador>Un equipo de blue team puede crear alertas para detectar múltiples intentos fallidos de inicio de sesión en un corto período, lo que podría ser un indicador de un ataque de fuerza bruta.</li>
+                        <li><marcador class="resaltado8">Caso de uso: </marcador>Un equipo de blue team puede crear alertas para detectar múltiples intentos fallidos de inicio de sesión en un corto período, lo que podría ser un indicador de un ataque de fuerza bruta.</li>
                     </ul>
                     <li><marcador class="resaltado3">Splunk Add-on for Unix and Linux</marcador></li>
                     <ul>
                         <li><marcador class="resaltado8">Funcionalidad: </marcador>Recoge logs de sistemas Unix/Linux, incluyendo procesos, usuarios y tráfico de red.</li>
                         <li><marcador class="resaltado8">Usado para: </marcador>Detección de escalamiento de privilegios, actividades sospechosas de usuarios, y análisis de tráfico desde sistemas comprometidos.</li>
-                        <li><marcador class="resaltado8">Uso: </marcador>Configurar dashboards que visualicen intentos de escalamiento de privilegios, como el uso sospechoso del comando sudo.</li>
+                        <li><marcador class="resaltado8">Caso de uso: </marcador>Configurar dashboards que visualicen intentos de escalamiento de privilegios, como el uso sospechoso del comando sudo.</li>
                     </ul>
-                    <li><marcador class="resaltado3"></marcador>Splunk Security Essentials (SSE)</li>
+                    <li><marcador class="resaltado3">Splunk Security Essentials (SSE)</marcador></li>
                     <ul>
                         <li><marcador class="resaltado8">Funcionalidad: </marcador>Proporciona ejemplos de uso preconfigurados, con más de 160 escenarios para detectar amenazas y realizar análisis de seguridad.</li>
                         <li><marcador class="resaltado8">Usado para: </marcador>Guiar a los equipos de seguridad en la creación de búsquedas y dashboards específicos para amenazas comunes.</li>
-                        <li><marcador class="resaltado8">Uso: </marcador>El blue team puede utilizar las búsquedas preconfiguradas de SSE para detectar comportamientos como movimientos laterales dentro de la red o explotación de vulnerabilidades conocidas.</li>
+                        <li><marcador class="resaltado8">Caso de uso: </marcador>El blue team puede utilizar las búsquedas preconfiguradas de SSE para detectar comportamientos como movimientos laterales dentro de la red o explotación de vulnerabilidades conocidas.</li>
                     </ul>
                     <li><marcador class="resaltado3">Splunk Enterprise Security (ES)</marcador></li>
                     <ul>
                         <li><marcador class="resaltado8">Funcionalidad: </marcador>Plataforma SIEM (Security Information and Event Management) avanzada que permite el monitoreo y análisis de eventos de seguridad, proporcionando herramientas de inteligencia de amenazas y respuesta a incidentes.</li>
                         <li><marcador class="resaltado8">Usado para: </marcador>Detección avanzada de amenazas, gestión de incidentes, y análisis forense. Ofrece características como puntuación de riesgo y flujos de trabajo de respuesta.</li>
-                        <li><marcador class="resaltado8">Uso: </marcador>Un blue team puede utilizar Splunk ES para correlacionar eventos de múltiples fuentes, como logs de firewall, sistemas de detección de intrusos (IDS) y correos electrónicos sospechosos, identificando patrones que indican un ataque de spear phishing.</li>
+                        <li><marcador class="resaltado8">Caso de uso: </marcador>Un blue team puede utilizar Splunk ES para correlacionar eventos de múltiples fuentes, como logs de firewall, sistemas de detección de intrusos (IDS) y correos electrónicos sospechosos, identificando patrones que indican un ataque de spear phishing.</li>
                     </ul>
                     <li><marcador class="resaltado3">Splunk Add-on for AWS</marcador></li>
                     <ul>
                         <li><marcador class="resaltado8">Funcionalidad: </marcador>Recoge datos de servicios en la nube de AWS, como CloudTrail, CloudWatch y VPC Flow Logs.</li>
                         <li><marcador class="resaltado8">Usado para: </marcador>Monitoreo de la infraestructura en la nube, detección de cambios no autorizados y análisis de comportamiento de las cargas de trabajo.</li>
-                        <li><marcador class="resaltado8">Uso: </marcador>Los equipos de seguridad pueden crear alertas para detectar modificaciones no autorizadas en los permisos de IAM o tráfico no esperado en los logs de VPC.</li>
+                        <li><marcador class="resaltado8">Caso de uso: </marcador>Los equipos de seguridad pueden crear alertas para detectar modificaciones no autorizadas en los permisos de IAM o tráfico no esperado en los logs de VPC.</li>
                     </ul>
 
                     <li><marcador class="resaltado3">Splunk Phantom</marcador></li>
                     <ul>
                         <li><marcador class="resaltado8">Funcionalidad: </marcador>Esta plataforma de SOAR (Security Orchestration, Automation, and Response) se integra con Splunk para automatizar las respuestas a incidentes de seguridad.</li>
                         <li><marcador class="resaltado8">Usado para: </marcador>Automatización de tareas repetitivas, integración con sistemas de respuesta, análisis y visualización de incidentes.</li>
-                        <li><marcador class="resaltado8">Uso: </marcador>Un equipo puede configurar un playbook que, al detectar un intento de acceso no autorizado, active automáticamente la contención de un dispositivo afectado, envíe alertas al equipo, y comience la recolección de evidencia.</li>
+                        <li><marcador class="resaltado8">Caso de uso: </marcador>Un equipo puede configurar un playbook que, al detectar un intento de acceso no autorizado, active automáticamente la contención de un dispositivo afectado, envíe alertas al equipo, y comience la recolección de evidencia.</li>
                     </ul>
                 </ol>
                 <div class="blog-image-grande">
@@ -333,35 +333,35 @@
                 <div class="blog-image-grande">
                     <img src="media/response6.png" alt="">
                 </div> 
-                <h6>Plug-ins</h6>
+                <h6>Herramientas</h6>
                 <p>CrowdStrike permite la integración con diversas soluciones y herramientas para mejorar la visibilidad, la capacidad de respuesta y la automatización. A continuación, algunos de los plug-ins más comunes utilizados por los equipos de seguridad:</p>
                 <ol>
                     <li><marcador class="resaltado3">Falcon Integrations with SIEM (Splunk, QRadar, etc.)</marcador></li>
                     <ul>
                         <li><marcador class="resaltado8">Funcionalidad: </marcador>CrowdStrike se integra con plataformas SIEM como Splunk o QRadar para centralizar los datos y ofrecer una visibilidad unificada de los eventos de seguridad en la red.</li>
                         <li><marcador class="resaltado8">Usado para: </marcador>Ingesta de eventos de seguridad, correlación de datos, generación de alertas, y elaboración de informes de seguridad.</li>
-                        <li><marcador class="resaltado8">Uso: </marcador>Al integrar CrowdStrike con Splunk, un equipo blue puede visualizar en tiempo real todos los eventos de detección de malware en endpoints, combinándolos con logs de red para obtener una imagen más clara del ataque.</li>
+                        <li><marcador class="resaltado8">Caso de uso: </marcador>Al integrar CrowdStrike con Splunk, un equipo blue puede visualizar en tiempo real todos los eventos de detección de malware en endpoints, combinándolos con logs de red para obtener una imagen más clara del ataque.</li>
                     </ul>
                     <li><marcador class="resaltado3">CrowdStrike Store</marcador></li>
                     <ul>
                         <li><marcador class="resaltado8">Funcionalidad: </marcador>CrowdStrike cuenta con una tienda de aplicaciones donde se pueden agregar funcionalidades adicionales, como herramientas de análisis forense, caza de amenazas y automatización.</li>
                         <li><marcador class="resaltado8">Usado para: </marcador>Agregar capacidades como análisis de datos de amenazas o la automatización de respuestas a incidentes.</li>
-                        <li><marcador class="resaltado8">Uso: </marcador>Instalar una app en la CrowdStrike Store que permite analizar automáticamente archivos sospechosos detectados en la red, acelerando el proceso de respuesta.</li>
+                        <li><marcador class="resaltado8">Caso de uso: </marcador>Instalar una app en la CrowdStrike Store que permite analizar automáticamente archivos sospechosos detectados en la red, acelerando el proceso de respuesta.</li>
                     </ul>
                     <li><marcador class="resaltado3">CrowdStrike Integration with ServiceNow</marcador></li>
                     <ul>
                         <li><marcador class="resaltado8">Funcionalidad: </marcador>Esta integración permite que los incidentes detectados por CrowdStrike se sincronicen con ServiceNow para mejorar la gestión de tickets y la respuesta a incidentes.</li>
                         <li><marcador class="resaltado8">Usado para: </marcador>Creación automática de tickets, seguimiento de incidentes, automatización de flujos de trabajo.</li>
-                        <li><marcador class="resaltado8">Uso: </marcador>Un equipo blue puede integrar CrowdStrike con ServiceNow para que cada vez que se detecte un malware en un endpoint, se cree automáticamente un ticket para su análisis, asignando las tareas necesarias para mitigarlo.</li>
+                        <li><marcador class="resaltado8">Caso de uso: </marcador>Un equipo blue puede integrar CrowdStrike con ServiceNow para que cada vez que se detecte un malware en un endpoint, se cree automáticamente un ticket para su análisis, asignando las tareas necesarias para mitigarlo.</li>
                     </ul>
                     <li><marcador class="resaltado3">CrowdStrike Falcon X (Inteligencia de amenazas)</marcador></li>
                     <ul>
                         <li><marcador class="resaltado8">Funcionalidad: </marcador>Falcon X combina inteligencia de amenazas con análisis de malware en tiempo real. Proporciona información sobre amenazas emergentes y perfiles de atacantes, ayudando a los equipos blue a anticiparse a futuros ataques.</li>
                         <li><marcador class="resaltado8">Usado para: </marcador>Proporciona reportes de inteligencia, información sobre actores de amenazas, análisis de comportamientos maliciosos.</li>
-                        <li><marcador class="resaltado8">Uso: </marcador>Un equipo blue puede utilizar Falcon X para identificar quién está detrás de un ataque específico, obteniendo un perfil detallado del atacante, los métodos usados y las vulnerabilidades explotadas.</li>
+                        <li><marcador class="resaltado8">Caso de uso: </marcador>Un equipo blue puede utilizar Falcon X para identificar quién está detrás de un ataque específico, obteniendo un perfil detallado del atacante, los métodos usados y las vulnerabilidades explotadas.</li>
                     </ul>
                     <div class="blog-image-grande">
-                        <img src="media/response7.jpg" alt="">
+                        <img src="media/response8.png" alt="">
                     </div> 
                     <h6>Ejemplos</h6>
                     <ol>
@@ -383,17 +383,17 @@
                         <p><marcador class="resaltado8">Resultado: </marcador>La amenaza es contenida antes de que pueda ejecutarse, y se genera un reporte que se envía automáticamente al equipo de TI para una revisión más profunda.</p>
                     </ol>
                     <div class="blog-image-grande">
-                        <img src="media/response8.png" alt="">
+                        <img src="media/response7.jpg" alt="">
                     </div> 
                     <h6>Demo</h6>
-                    <p>En esta demostración de CrowdStrike, exploraremos las avanzadas capacidades de su plataforma de ciberseguridad, diseñada para proteger a las organizaciones frente a amenazas sofisticadas. La demo ilustrará cómo la integración de inteligencia artificial y machine learning permite una detección y respuesta en tiempo real ante incidentes de seguridad, optimizando así la protección de los activos digitales. A través de una interfaz intuitiva, se presentarán casos de uso que destacan la eficacia de las soluciones de CrowdStrike, desde la identificación de malware hasta la gestión de incidentes. Esta demostración ofrece una visión clara de cómo CrowdStrike está a la vanguardia en la defensa contra el cibercrimen y la importancia de contar con una estrategia de ciberseguridad integral y proactiva.</p>
+                    <p>En esta demostración de CrowdStrike, exploraremos las avanzadas capacidades de su plataforma de ciberseguridad, diseñada para proteger a las organizaciones frente a amenazas sofisticadas. A través de una interfaz intuitiva, se presentará un caso de uso que destaca la eficacia de las soluciones de CrowdStrike, desde la identificación de malware hasta la gestión de incidentes. Esta demostración ofrece una visión clara de cómo CrowdStrike está a la vanguardia en la defensa contra el cibercrimen y la importancia de contar con una estrategia de ciberseguridad integral y proactiva.</p>
                     <iframe src="https://www.youtube.com/embed/79mt-zK1u2M" 
                     title="Falcon Endpoint Protection Demo" 
                     frameborder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                     allowfullscreen>
                     </iframe>        
-                    <p>En este otro video, exploraremos el proceso de evaluar y priorizar alertas de seguridad en un entorno cibernético. Aprenderás las mejores prácticas para identificar detecciones relevantes y analizar su gravedad, lo que te permitirá tomar decisiones informadas sobre la respuesta a incidentes. A través de ejemplos prácticos, se explicará cómo categorizar amenazas y asignar recursos de manera efectiva, optimizando así tu enfoque de ciberseguridad y mejorando la gestión de incidentes.</p>
+                    <p>En este otro video, exploraremos el proceso de evaluar y priorizar alertas de seguridad en un entorno cibernético. Aprenderás las mejores prácticas para identificar detecciones relevantes y analizar su gravedad, lo que te permitirá tomar decisiones informadas sobre la respuesta a incidentes.</p>
                     <iframe src="https://www.youtube.com/embed/yviFcaNe0v4" 
                     title="Falcon Endpoint Protection Demo" 
                     frameborder="0" 
