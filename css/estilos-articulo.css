@@ -1019,6 +1019,10 @@ body::-webkit-scrollbar-thumb:hover {
 
     }
 
+    iframe {
+        width: 300px; /* Ancho del video */
+        height: 200px; /* Alto del video */
+    }
 }
 
 @media (max-width: 5200px){
