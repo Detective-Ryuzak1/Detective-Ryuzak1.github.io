@@ -463,6 +463,32 @@
                     <p>Las Reglas YARA son un componente crucial en la detección avanzada de malware y amenazas en Chronicle. YARA es un lenguaje de reglas que permite a los analistas de seguridad definir patrones para identificar archivos maliciosos, comportamientos sospechosos y otros tipos de amenazas.</p>
                     <p>YARA es una herramienta utilizada para definir patrones de búsqueda dentro de archivos y procesos que pueden indicar la presencia de malware u otras actividades maliciosas. Es particularmente útil en el análisis de malware, ya que permite a los analistas crear firmas que identifican muestras maliciosas con base en comportamientos o características específicas.</p>
                     <p>Chronicle permite a los equipos de seguridad crear y aplicar reglas YARA personalizadas a los eventos que son procesados por la plataforma. Estas reglas pueden utilizarse para identificar archivos maliciosos o comportamientos sospechosos basados en características específicas de malware previamente identificado.</p>
+                    <p>Las reglas Yara se componen de varias secciones principales. Aquí te dejo un desglose de las partes que componen una regla Yara:</p>
+                    <ol>
+                        <li><marcador class="resaltado3">Cabecera: </marcador>Define el nombre de la regla y puede incluir etiquetas o comentarios.</li>
+                        <div class="archivo">
+rule NombreDeLaRegla {
+                        </div>
+                        <li><marcador class="resaltado3">Meta: </marcador>Contiene información adicional sobre la regla, como el autor y la descripción.</li>
+                        <div class="archivo">
+meta:
+    author = "Tu Nombre"
+    description = "Descripción de la regla"
+                        </div>
+                        <li><marcador class="resaltado3">Strings: </marcador>Define las cadenas a buscar, que pueden ser texto, hexadecimales o expresiones regulares.</li>
+                        <div class="archivo">
+strings:
+    $string1 = "texto a buscar"
+    $string2 = { E2 34 A1 }
+                        </div>
+                        <li><marcador class="resaltado3">Condition: </marcador>Especifica las condiciones bajo las cuales se activará la regla, utilizando las cadenas definidas.</li>
+                        <div class="archivo">
+condition:
+    any of ($string*)
+                        </div>
+                        <li><marcador class="resaltado3">Match: </marcador>Esta sección se utiliza para definir qué ocurre cuando la regla coincide con un archivo. No es una parte estándar de Yara, pero puede referirse a cómo se manejan las coincidencias, dependiendo del contexto en que se utilice la regla.</li>
+                        <li><marcador class="resaltado3">Outcome: </marcador>Esta sección puede describir el resultado o la acción que se debe tomar cuando hay una coincidencia. Similar a "match", no es una parte estándar, pero puede hacer referencia a la lógica aplicada en herramientas o entornos específicos.</li>
+                    </ol>
                     <p>Ejemplo de regla YARA</p>
                     <div class="archivo">
 rule buran_ransomware {
