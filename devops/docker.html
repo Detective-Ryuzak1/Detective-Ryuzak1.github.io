@@ -55,7 +55,7 @@
                 <h2>Componentes</h2>
                 <p>Docker se compone de varios elementos clave que trabajan en conjunto para proporcionar un ecosistema eficiente para el desarrollo y la ejecución de aplicaciones en contenedores:</p>
                 <ol>
-                    <li><marcador class="resaltado3">Es el corazón de Docker. Se trata de un motor cliente-servidor que gestiona los contenedores. Consta de tres componentes:</marcador></li>
+                    <li><marcador class="resaltado3">Docker Engine: </marcador>Es el corazón de Docker. Se trata de un motor cliente-servidor que gestiona los contenedores. Consta de tres componentes:</li>
                     <ol>
                         <li><marcador class="resaltado8">Docker Daemon (dockerd): </marcador>Es el servidor que se ejecuta en segundo plano y gestiona los contenedores.</li>
                         <li><marcador class="resaltado8">API REST: </marcador>Permite a las aplicaciones comunicarse con el Docker Daemon para realizar tareas como crear, eliminar y gestionar contenedores.</li>
@@ -315,10 +315,15 @@
                     </div>
                 </div>
                 <p>Docker Hub es un servicio basado en la nube que funciona como un repositorio central para imágenes Docker. Es una plataforma donde los desarrolladores pueden compartir, almacenar, y distribuir imágenes de contenedores que se pueden usar fácilmente en cualquier entorno que soporte Docker. Piensa en Docker Hub como un "centro de distribución" para aplicaciones y herramientas empaquetadas en contenedores Docker.</p>
-                <p>Instalar Jenkins directamente desde <a href="https://hub.docker.com/r/jenkins/jenkins" target="blank">Docker Hub</a> usando un contenedor Docker. Jenkins tiene una imagen oficial en Docker Hub que puedes utilizar para configurar tu entorno de Jenkins de forma rápida y sencilla.</p>
+                <p>Puedes instalar Jenkins directamente desde <a href="https://hub.docker.com/r/jenkins/jenkins" target="blank">Docker Hub</a> usando un contenedor Docker. Jenkins tiene una imagen oficial en Docker Hub que puedes utilizar para configurar tu entorno de Jenkins de forma rápida y sencilla.</p>
                 <p>Para que Podman pueda buscar imágenes en Docker Hub, debes asegurarte de que Docker Hub esté configurado como un registro en tu sistema.</p>
                 <p>Abre el archivo de configuración /etc/containers/registries.conf con tu editor de texto favorito, por ejemplo: <marcador class="subrayado">sudo nano /etc/containers/registries.conf</marcador></p>
                 <p>Edita el archivo, y asegúrate de tener algo como esto bajo la sección [registries.search]:</p>
+                <div class="archivo">
+[registries.search]
+registries = ['docker.io']
+                </div>
+                <p>Después de haber actualizado el archivo de configuración, puedes intentar nuevamente tirar la imagen de Jenkins:</p>
                 <div id="terminal">
                     <section id="terminal__bar">
                         <div id="bar__buttons">
