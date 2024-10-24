@@ -49,7 +49,7 @@
                 </div> 
                 <h2>Virus Total</h2>
                 <p>VirusTotal es una herramienta esencial para la ciberseguridad que permite analizar archivos y URLs en busca de malware y otras amenazas. Desde su lanzamiento en 2004, se ha convertido en un recurso popular tanto para profesionales de la seguridad como para usuarios comunes. En este blog, exploraremos cómo acceder a VirusTotal, los tipos de detecciones que ofrece, y cada sección de la plataforma.</p>
-                <p>Acceder a VirusTotal es sencillo. Solo necesitas abrir tu navegador y visitar <a href="https://www.virustotal.com/gui/home/upload" target="blank">virustotal</a>. La plataforma es gratuita y no requiere registro para utilizar las funciones básicas. Sin embargo, si deseas acceder a funciones avanzadas, como la API o análisis en lote, puedes crear una cuenta gratuita.</p>
+                <p>Acceder a VirusTotal es sencillo. Solo necesitas abrir tu navegador y visitar <a href="https://www.virustotal.com/gui/home/upload" target="blank">VirusTotal</a>. La plataforma es gratuita y no requiere registro para utilizar las funciones básicas. Sin embargo, si deseas acceder a funciones avanzadas, como la API o análisis en lote, puedes crear una cuenta gratuita.</p>
                 <h6>Tipos de detecciones</h6>
                 <p>VirusTotal utiliza una combinación de motores antivirus y herramientas de análisis para detectar amenazas. Al cargar un archivo o ingresar una URL, la plataforma lo analiza con más de 70 motores antivirus, lo que proporciona un informe detallado sobre la presencia de malware. Además, VirusTotal no solo se centra en la detección de virus, sino también en el análisis de comportamientos sospechosos, phishing y spam.</p>
                 <p>En la plataforma de VirusTotal, la página de inicio ofrece un área intuitiva para cargar archivos o ingresar URLs, permitiendo a los usuarios realizar análisis de forma rápida y sencilla. Desde esta página principal, también se pueden acceder a informes recientes y estadísticas sobre amenazas, lo que proporciona un panorama general del estado de la ciberseguridad.</p>
@@ -360,192 +360,192 @@
                         <li><marcador class="resaltado8">Usado para: </marcador>Proporciona reportes de inteligencia, información sobre actores de amenazas, análisis de comportamientos maliciosos.</li>
                         <li><marcador class="resaltado8">Caso de uso: </marcador>Se puede utilizar Falcon X para identificar quién está detrás de un ataque específico, obteniendo un perfil detallado del atacante, los métodos usados y las vulnerabilidades explotadas.</li>
                     </ul>
-                    <div class="blog-image-grande">
-                        <img src="media/response8.png" alt="">
-                    </div> 
-                    <h6>Ejemplos</h6>
-                    <ol>
-                        <li><marcador class="resaltado3">Bloqueo de malware con Falcon Prevent</marcador></li>
-                        <p>CrowdStrike utiliza machine learning para bloquear automáticamente el malware conocido y desconocido antes de que infecte un sistema. Un ejemplo básico es la detección y bloqueo de un archivo ejecutable sospechoso descargado por un usuario desde un correo electrónico.</p>
-                        <p><marcador class="resaltado8">Proceso: </marcador>Cuando un usuario descarga un archivo malicioso, Falcon Prevent lo analiza en tiempo real utilizando su motor de inteligencia artificial. Si el archivo coincide con un patrón de malware conocido o sospechoso, Falcon lo bloquea automáticamente.</p>
-                        <p><marcador class="resaltado8">Resultado: </marcador>El archivo es puesto en cuarentena y se genera una alerta para que el equipo blue revise la amenaza.</p>
-                        <li><marcador class="resaltado3">Caza de amenazas con Falcon OverWatch</marcador></li>
-                        <p>El equipo de caza de amenazas de CrowdStrike, OverWatch, detecta patrones de comportamiento inusual en los endpoints. Supongamos que un atacante ha comprometido un sistema y está intentando moverse lateralmente dentro de la red.</p>
-                        <p><marcador class="resaltado8">Proceso: </marcador>OverWatch detecta una actividad inusual de un dispositivo que está intentando establecer conexiones con múltiples sistemas internos. Esta actividad es reportada como un comportamiento potencialmente malicioso.</p>
-                        <p><marcador class="resaltado8">Resultado: </marcador>El equipo de sguridad recibe una alerta con información detallada del dispositivo comprometido, el tipo de comportamiento anómalo detectado y recomendaciones para mitigar la amenaza.</p>
-                        <li><marcador class="resaltado3">Detección de movimiento lateral y exfiltración de datos</marcador></li>
-                        <p>CrowdStrike puede detectar técnicas avanzadas de ataque, como movimiento lateral y exfiltración de datos, mediante la correlación de eventos en múltiples endpoints y el análisis de tráfico de red.</p>
-                        <p><marcador class="resaltado8">Proceso: </marcador>Un atacante logra acceder a un endpoint a través de credenciales comprometidas y empieza a moverse lateralmente utilizando Remote Desktop Protocol (RDP). Falcon Insight detecta múltiples conexiones RDP inusuales desde el dispositivo comprometido hacia otros dispositivos en la red, alertando sobre la actividad sospechosa.</p>
-                        <p><marcador class="resaltado8">Resultado: </marcador>El equipo de seguridad recibe información detallada de las conexiones realizadas, los dispositivos afectados y puede tomar medidas inmediatas como la contención del endpoint comprometido y el bloqueo de las conexiones sospechosas.</p>
-                        <li><marcador class="resaltado3">Automatización de respuesta a incidentes con Falcon X</marcador></li>
-                        <p>Utilizando Falcon X, los equipos de seguridad pueden automatizar la respuesta a incidentes complejos</p>
-                        <p><marcador class="resaltado8">Proceso: </marcador>Falcon X detecta un archivo sospechoso que ha sido descargado por múltiples usuarios. El archivo es automáticamente enviado para su análisis a un sandbox de CrowdStrike donde se confirma que contiene un ransomware. Automáticamente, se bloquea la ejecución del archivo en todos los endpoints y se despliega una alerta para notificar a los administradores.</p>
-                        <p><marcador class="resaltado8">Resultado: </marcador>La amenaza es contenida antes de que pueda ejecutarse, y se genera un reporte que se envía automáticamente al equipo de TI para una revisión más profunda.</p>
-                    </ol>
-                    <div class="blog-image-grande">
-                        <img src="media/response7.jpg" alt="">
-                    </div> 
-                    <h6>Demo</h6>
-                    <p>En esta demostración de CrowdStrike, exploraremos las avanzadas capacidades de su plataforma de ciberseguridad, diseñada para proteger a las organizaciones frente a amenazas sofisticadas. A través de una interfaz intuitiva, se presentará un caso de uso que destaca la eficacia de las soluciones de CrowdStrike, desde la identificación de malware hasta la gestión de incidentes. Esta demostración ofrece una visión clara de cómo CrowdStrike está a la vanguardia en la defensa contra el cibercrimen y la importancia de contar con una estrategia de ciberseguridad integral y proactiva.</p>
-                    <iframe src="https://www.youtube.com/embed/79mt-zK1u2M" 
-                    title="Falcon Endpoint Protection Demo" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
-                    </iframe>   
-                    <br>     
-                    <p>En este otro video, exploraremos el proceso de evaluar y priorizar alertas de seguridad en un entorno cibernético. Aprenderás las mejores prácticas para identificar detecciones relevantes y analizar su gravedad, lo que te permitirá tomar decisiones informadas sobre la respuesta a incidentes.</p>
-                    <iframe src="https://www.youtube.com/embed/yviFcaNe0v4" 
-                    title="Falcon Endpoint Protection Demo" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
-                    </iframe>  
-                    <h2>Chronicle</h2>
-                    <p>Chronicle es una solución de seguridad basada en la nube desarrollada por Google, diseñada para ayudar a las empresas a detectar, investigar y responder a incidentes de seguridad cibernética. Aprovecha la escalabilidad de la infraestructura de Google para procesar grandes cantidades de datos de manera eficiente, integrándose con múltiples fuentes de datos para ofrecer una visión unificada de las amenazas.</p>
-                    <p>El propósito principal de Chronicle es ofrecer una plataforma en la que los datos de seguridad se almacenan a gran escala, se correlacionan y se analizan para detectar amenazas en tiempo real. Esta herramienta es una parte clave del portafolio de Google Cloud Security, y está pensada para que los analistas de seguridad puedan investigar incidentes rápidamente, identificando patrones sospechosos y minimizando el tiempo de respuesta ante ataques.</p>
-                    <h6>Secciones de Chronicle</h6>
-                    <p>Chronicle está dividida en varias secciones o componentes principales que permiten la gestión y análisis de incidentes de seguridad de manera integral. A continuación, se describen cada una de estas secciones:</p>
-                    <ol>
-                        <li><marcador class="resaltado2">Ingestión de datos</marcador></li>
-                        <p>Chronicle permite integrar múltiples fuentes de datos de seguridad, como logs de red, de aplicaciones, endpoints y otros sistemas. La plataforma está diseñada para procesar datos de una variedad de herramientas de seguridad, incluidos SIEMs (como Splunk), firewalls, EDRs (como CrowdStrike), entre otros.</p>
-                        <p><marcador class="resaltado8">Funcionalidad clave: </marcador>Chronicle unifica los datos, transformándolos en un formato estandarizado, lo que facilita la correlación entre eventos de diferentes fuentes. Además, permite el almacenamiento de datos históricos a gran escala sin preocuparse por limitaciones de capacidad.</p>
-                        <li><marcador class="resaltado2">Detección de amenazas (Rules)</marcador></li>
-                        <p>La detección de amenazas en Chronicle se realiza mediante la aplicación de reglas de detección, que permiten identificar comportamientos anómalos o conocidos asociados con ciberataques. Estas reglas pueden ser configuradas por el usuario o aprovechadas desde un catálogo de reglas predefinidas.</p>
-                        <p><marcador class="resaltado8">Funcionalidad clave: </marcador>Chronicle correlaciona eventos en tiempo real, buscando patrones de amenazas conocidos, y generando alertas que el equipo de seguridad puede investigar.</p>
-                        <li><marcador class="resaltado2">Investigación y búsqueda</marcador></li>
-                        <p>Chronicle permite a los equipos de seguridad realizar búsquedas avanzadas y consultas para investigar incidentes en profundidad. La plataforma permite analizar grandes volúmenes de datos, utilizando tanto la búsqueda estructurada como la no estructurada, permitiendo identificar rápidamente las relaciones entre eventos.</p>
-                        <p><marcador class="resaltado8">Funcionalidad clave: </marcador>Los usuarios pueden buscar eventos específicos, IPs, direcciones de correo, hashes de archivos, entre otros, y visualizar cómo estos se correlacionan a través del tiempo para reconstruir la cadena de eventos que llevó a un incidente.</p>
-                        <li><marcador class="resaltado2">Análisis de inteligencia de amenazas</marcador></li>
-                        <p>Chronicle integra inteligencia de amenazas proveniente de fuentes externas y también permite que las organizaciones usen sus propias fuentes internas de inteligencia. Esto permite a los equipos correlacionar eventos detectados con indicadores de amenazas conocidos (IOCs), como IPs maliciosas, dominios sospechosos, hashes de malware, etc.</p>
-                        <p><marcador class="resaltado8">Funcionalidad clave: </marcador>Al combinar la inteligencia de amenazas con los datos de eventos de la organización, Chronicle puede detectar ataques avanzados y dar información crítica sobre el origen de las amenazas.</p>
-                        <li><marcador class="resaltado2">Visualización y contexto</marcador></li>
-                        <p>Chronicle ofrece potentes herramientas de visualización para mostrar las relaciones entre eventos, proporcionando un contexto claro para los analistas. A través de gráficos de tiempo y diagramas, los usuarios pueden ver cómo evoluciona un incidente, qué sistemas se vieron afectados y cómo se propagó la amenaza.</p>
-                        <p><marcador class="resaltado8">Funcionalidad clave: </marcador>La interfaz gráfica permite hacer zoom en detalles específicos, seguir rutas de ataque y obtener información visual sobre los pasos críticos en un incidente.</p>
-                        <li><marcador class="resaltado2">Investigación retrospectiva</marcador></li>
-                        <p>Gracias a su capacidad de almacenamiento y procesamiento masivo, Chronicle permite realizar investigaciones retrospectivas sobre incidentes de seguridad antiguos. Esto significa que si un nuevo patrón de ataque es descubierto hoy, la organización puede revisar los datos históricos para detectar si ese mismo patrón afectó su infraestructura en el pasado.</p>
-                        <p><marcador class="resaltado8">Funcionalidad clave: </marcador>Los analistas pueden detectar amenazas que previamente no fueron identificadas, porque se correlacionan con nuevos IOCs o reglas de detección actualizadas.</p>
-                    </ol>
-                    <div class="blog-image-grande">
-                        <img src="media/response9.png" alt="">
-                    </div> 
-                    <h6>Mandiant</h6>
-                    <p>Mandiant es una empresa de ciberseguridad que se especializa en la respuesta a incidentes y la inteligencia de amenazas. Fue fundada en 2004 y es conocida por su trabajo en la detección y respuesta a ataques cibernéticos, así como por sus informes sobre amenazas y vulnerabilidades en el espacio digital.</p>
-                    <p>En el contexto de Chronicle, que es una plataforma de análisis de seguridad desarrollada por Google, Mandiant proporciona inteligencia sobre amenazas y análisis que ayuda a las organizaciones a identificar y mitigar riesgos de ciberseguridad. Juntas, estas herramientas permiten a las empresas mejorar su postura de seguridad y responder más eficazmente a incidentes de seguridad.</p>
-                    <p>Mandiant ofrece varios tipos de inteligencia y análisis en ciberseguridad, entre ellos:</p>
-                    <ul>
-                        <li><marcador class="resaltado2">Inteligencia de Amenazas: </marcador>Proporciona información sobre las tácticas, técnicas y procedimientos (TTP) utilizados por los atacantes, así como el contexto detrás de las amenazas emergentes.</li>
-                        <li><marcador class="resaltado2">Análisis de Incidentes: </marcador>Mandiant ayuda a las organizaciones a responder a incidentes de seguridad, investigando brechas y ataques para determinar el alcance y la causa raíz.</li>
-                        <li><marcador class="resaltado2">Evaluaciones de Vulnerabilidad: </marcador>Realizan análisis de las infraestructuras de TI para identificar vulnerabilidades que podrían ser explotadas por atacantes.</li>
-                        <li><marcador class="resaltado2">Informes de Tendencias: </marcador>Publican informes periódicos sobre tendencias en ciberseguridad, que analizan patrones de ataques y cambios en el panorama de amenazas.</li>
-                        <li><marcador class="resaltado2">Entrenamiento y Consultoría: </marcador>Ofrecen servicios de formación y consultoría para ayudar a las organizaciones a fortalecer su capacidad de respuesta a incidentes.</li>
-                    </ul>
-                    <p>Este enfoque integral permite a las empresas no solo reaccionar a ataques, sino también anticiparse y prepararse para futuros riesgos.</p>
-                    <div class="blog-image-grande">
-                        <img src="media/response11.png" alt="">
-                    </div> 
-                    <h6>Campos UDM (Unified Data Model)</h6>
-                    <p>Uno de los aspectos más importantes de Chronicle es su Modelo de Datos Unificado (UDM), que estandariza los datos de seguridad de diferentes fuentes en un formato común. Esto es clave para permitir la correlación entre eventos de seguridad que, de otro modo, estarían en diferentes formatos.</p>
-                    <p>UDM es el esquema de datos utilizado por Chronicle para representar eventos de seguridad de manera coherente, independientemente de la fuente original. Este modelo permite a los analistas de seguridad realizar búsquedas y correlacionar eventos de diferentes sistemas, como logs de firewall, EDR, o soluciones de detección de amenazas en la nube.</p>
-                    <ul>
-                        <li><marcador class="resaltado2">Metadata: </marcador>Contiene información clave sobre el evento, como la hora en que ocurrió, la fuente del dato, y el tipo de evento.</li>
-                        <li><marcador class="resaltado2">Actor: </marcador>Identifica el origen del evento, como un usuario, una IP o un dispositivo.</li>
-                        <li><marcador class="resaltado2">Target: </marcador>Especifica el objetivo del evento, como el sistema que fue atacado o comprometido.</li>
-                        <li><marcador class="resaltado2">Event: </marcador>Describe el tipo de actividad o acción registrada, como acceso a un archivo, intento de autenticación o ejecución de un comando.</li>
-                        <li><marcador class="resaltado2">Network: </marcador>Contiene información relacionada con las comunicaciones de red, como direcciones IP, puertos, y protocolos utilizados en la interacción.</li>
-                    </ul>
-                    <p>Para obtener información sobre los campos UDM (Unified Data Model) en Chronicle, puedes visitar la documentación oficial de <a href="https://cloud.google.com/chronicle/docs/reference/important-udm-fields" target="blank">Google Cloud Chronicle</a>.  Allí encontrarás detalles sobre la estructura de los datos y los campos disponibles.</p>
-                    <div class="blog-image-grande">
-                        <img src="media/response14.png" alt="">
-                    </div> 
-                    <p>Imagina que un equipo de seguridad recibe una alerta de un comportamiento inusual en la red. Usando UDM, pueden buscar todos los eventos que involucren esa IP específica a lo largo del tiempo y correlacionarlos con actividades en otros sistemas, permitiendo a los analistas ver si la IP fue utilizada para realizar escaneos de puertos, accesos no autorizados o transferencias de datos sospechosas.</p>
-                    <h6>Reglas YARA</h6>
-                    <p>Las Reglas YARA son un componente crucial en la detección avanzada de malware y amenazas en Chronicle. YARA es un lenguaje de reglas que permite a los analistas de seguridad definir patrones para identificar archivos maliciosos, comportamientos sospechosos y otros tipos de amenazas.</p>
-                    <p>YARA es una herramienta utilizada para definir patrones de búsqueda dentro de archivos y procesos que pueden indicar la presencia de malware u otras actividades maliciosas. Es particularmente útil en el análisis de malware, ya que permite a los analistas crear firmas que identifican muestras maliciosas con base en comportamientos o características específicas.</p>
-                    <p>Chronicle permite a los equipos de seguridad crear y aplicar reglas YARA personalizadas a los eventos que son procesados por la plataforma. Estas reglas pueden utilizarse para identificar archivos maliciosos o comportamientos sospechosos basados en características específicas de malware previamente identificado.</p>
-                    <p>Las reglas Yara se componen de varias secciones principales. Aquí te dejo un desglose de las partes que componen una regla Yara:</p>
-                    <ol>
-                        <li><marcador class="resaltado3">Cabecera: </marcador>Define el nombre de la regla y puede incluir etiquetas o comentarios.</li>
-                        <div class="archivo">
-rule NombreDeLaRegla {
-                        </div>
-                        <li><marcador class="resaltado3">Meta: </marcador>Contiene información adicional sobre la regla, como el autor y la descripción.</li>
-                        <div class="archivo">
-meta:
-    author = "Tu Nombre"
-    description = "Descripción de la regla"
-                        </div>
-                        <li><marcador class="resaltado3">Strings: </marcador>Define las cadenas a buscar, que pueden ser texto, hexadecimales o expresiones regulares.</li>
-                        <div class="archivo">
-strings:
-    $string1 = "texto a buscar"
-    $string2 = { E2 34 A1 }
-                        </div>
-                        <li><marcador class="resaltado3">Condition: </marcador>Especifica las condiciones bajo las cuales se activará la regla, utilizando las cadenas definidas.</li>
-                        <div class="archivo">
-condition:
-    any of ($string*)
-                        </div>
-                        <li><marcador class="resaltado3">Match: </marcador>Esta sección se utiliza para definir qué ocurre cuando la regla coincide con un archivo. No es una parte estándar de Yara, pero puede referirse a cómo se manejan las coincidencias, dependiendo del contexto en que se utilice la regla.</li>
-                        <li><marcador class="resaltado3">Outcome: </marcador>Esta sección puede describir el resultado o la acción que se debe tomar cuando hay una coincidencia. Similar a "match", no es una parte estándar, pero puede hacer referencia a la lógica aplicada en herramientas o entornos específicos.</li>
-                    </ol>
-                    <p>Ejemplo de regla YARA:</p>
+                </ol>
+                <div class="blog-image-grande">
+                    <img src="media/response8.png" alt="">
+                </div> 
+                <h6>Ejemplos</h6>
+                <ol>
+                    <li><marcador class="resaltado3">Bloqueo de malware con Falcon Prevent</marcador></li>
+                    <p>CrowdStrike utiliza machine learning para bloquear automáticamente el malware conocido y desconocido antes de que infecte un sistema. Un ejemplo básico es la detección y bloqueo de un archivo ejecutable sospechoso descargado por un usuario desde un correo electrónico.</p>
+                    <p><marcador class="resaltado8">Proceso: </marcador>Cuando un usuario descarga un archivo malicioso, Falcon Prevent lo analiza en tiempo real utilizando su motor de inteligencia artificial. Si el archivo coincide con un patrón de malware conocido o sospechoso, Falcon lo bloquea automáticamente.</p>
+                    <p><marcador class="resaltado8">Resultado: </marcador>El archivo es puesto en cuarentena y se genera una alerta para que el equipo blue revise la amenaza.</p>
+                    <li><marcador class="resaltado3">Caza de amenazas con Falcon OverWatch</marcador></li>
+                    <p>El equipo de caza de amenazas de CrowdStrike, OverWatch, detecta patrones de comportamiento inusual en los endpoints. Supongamos que un atacante ha comprometido un sistema y está intentando moverse lateralmente dentro de la red.</p>
+                    <p><marcador class="resaltado8">Proceso: </marcador>OverWatch detecta una actividad inusual de un dispositivo que está intentando establecer conexiones con múltiples sistemas internos. Esta actividad es reportada como un comportamiento potencialmente malicioso.</p>
+                    <p><marcador class="resaltado8">Resultado: </marcador>El equipo de sguridad recibe una alerta con información detallada del dispositivo comprometido, el tipo de comportamiento anómalo detectado y recomendaciones para mitigar la amenaza.</p>
+                    <li><marcador class="resaltado3">Detección de movimiento lateral y exfiltración de datos</marcador></li>
+                    <p>CrowdStrike puede detectar técnicas avanzadas de ataque, como movimiento lateral y exfiltración de datos, mediante la correlación de eventos en múltiples endpoints y el análisis de tráfico de red.</p>
+                    <p><marcador class="resaltado8">Proceso: </marcador>Un atacante logra acceder a un endpoint a través de credenciales comprometidas y empieza a moverse lateralmente utilizando Remote Desktop Protocol (RDP). Falcon Insight detecta múltiples conexiones RDP inusuales desde el dispositivo comprometido hacia otros dispositivos en la red, alertando sobre la actividad sospechosa.</p>
+                    <p><marcador class="resaltado8">Resultado: </marcador>El equipo de seguridad recibe información detallada de las conexiones realizadas, los dispositivos afectados y puede tomar medidas inmediatas como la contención del endpoint comprometido y el bloqueo de las conexiones sospechosas.</p>
+                    <li><marcador class="resaltado3">Automatización de respuesta a incidentes con Falcon X</marcador></li>
+                    <p>Utilizando Falcon X, los equipos de seguridad pueden automatizar la respuesta a incidentes complejos</p>
+                    <p><marcador class="resaltado8">Proceso: </marcador>Falcon X detecta un archivo sospechoso que ha sido descargado por múltiples usuarios. El archivo es automáticamente enviado para su análisis a un sandbox de CrowdStrike donde se confirma que contiene un ransomware. Automáticamente, se bloquea la ejecución del archivo en todos los endpoints y se despliega una alerta para notificar a los administradores.</p>
+                    <p><marcador class="resaltado8">Resultado: </marcador>La amenaza es contenida antes de que pueda ejecutarse, y se genera un reporte que se envía automáticamente al equipo de TI para una revisión más profunda.</p>
+                </ol>
+                <div class="blog-image-grande">
+                    <img src="media/response7.jpg" alt="">
+                </div> 
+                <h6>Demo</h6>
+                <p>En esta demostración de CrowdStrike, exploraremos las avanzadas capacidades de su plataforma de ciberseguridad, diseñada para proteger a las organizaciones frente a amenazas sofisticadas. A través de una interfaz intuitiva, se presentará un caso de uso que destaca la eficacia de las soluciones de CrowdStrike, desde la identificación de malware hasta la gestión de incidentes. Esta demostración ofrece una visión clara de cómo CrowdStrike está a la vanguardia en la defensa contra el cibercrimen y la importancia de contar con una estrategia de ciberseguridad integral y proactiva.</p>
+                <iframe src="https://www.youtube.com/embed/79mt-zK1u2M" 
+                title="Falcon Endpoint Protection Demo" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+                </iframe>   
+                <br>     
+                <p>En este otro video, exploraremos el proceso de evaluar y priorizar alertas de seguridad en un entorno cibernético. Aprenderás las mejores prácticas para identificar detecciones relevantes y analizar su gravedad, lo que te permitirá tomar decisiones informadas sobre la respuesta a incidentes.</p>
+                <iframe src="https://www.youtube.com/embed/yviFcaNe0v4" 
+                title="Falcon Endpoint Protection Demo" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+                </iframe>  
+                <h2>Chronicle</h2>
+                <p>Chronicle es una solución de seguridad basada en la nube desarrollada por Google, diseñada para ayudar a las empresas a detectar, investigar y responder a incidentes de seguridad cibernética. Aprovecha la escalabilidad de la infraestructura de Google para procesar grandes cantidades de datos de manera eficiente, integrándose con múltiples fuentes de datos para ofrecer una visión unificada de las amenazas.</p>
+                <p>El propósito principal de Chronicle es ofrecer una plataforma en la que los datos de seguridad se almacenan a gran escala, se correlacionan y se analizan para detectar amenazas en tiempo real. Esta herramienta es una parte clave del portafolio de Google Cloud Security, y está pensada para que los analistas de seguridad puedan investigar incidentes rápidamente, identificando patrones sospechosos y minimizando el tiempo de respuesta ante ataques.</p>
+                <h6>Secciones de Chronicle</h6>
+                <p>Chronicle está dividida en varias secciones o componentes principales que permiten la gestión y análisis de incidentes de seguridad de manera integral. A continuación, se describen cada una de estas secciones:</p>
+                <ol>
+                    <li><marcador class="resaltado2">Ingestión de datos</marcador></li>
+                    <p>Chronicle permite integrar múltiples fuentes de datos de seguridad, como logs de red, de aplicaciones, endpoints y otros sistemas. La plataforma está diseñada para procesar datos de una variedad de herramientas de seguridad, incluidos SIEMs (como Splunk), firewalls, EDRs (como CrowdStrike), entre otros.</p>
+                    <p><marcador class="resaltado8">Funcionalidad clave: </marcador>Chronicle unifica los datos, transformándolos en un formato estandarizado, lo que facilita la correlación entre eventos de diferentes fuentes. Además, permite el almacenamiento de datos históricos a gran escala sin preocuparse por limitaciones de capacidad.</p>
+                    <li><marcador class="resaltado2">Detección de amenazas (Rules)</marcador></li>
+                    <p>La detección de amenazas en Chronicle se realiza mediante la aplicación de reglas de detección, que permiten identificar comportamientos anómalos o conocidos asociados con ciberataques. Estas reglas pueden ser configuradas por el usuario o aprovechadas desde un catálogo de reglas predefinidas.</p>
+                    <p><marcador class="resaltado8">Funcionalidad clave: </marcador>Chronicle correlaciona eventos en tiempo real, buscando patrones de amenazas conocidos, y generando alertas que el equipo de seguridad puede investigar.</p>
+                    <li><marcador class="resaltado2">Investigación y búsqueda</marcador></li>
+                    <p>Chronicle permite a los equipos de seguridad realizar búsquedas avanzadas y consultas para investigar incidentes en profundidad. La plataforma permite analizar grandes volúmenes de datos, utilizando tanto la búsqueda estructurada como la no estructurada, permitiendo identificar rápidamente las relaciones entre eventos.</p>
+                    <p><marcador class="resaltado8">Funcionalidad clave: </marcador>Los usuarios pueden buscar eventos específicos, IPs, direcciones de correo, hashes de archivos, entre otros, y visualizar cómo estos se correlacionan a través del tiempo para reconstruir la cadena de eventos que llevó a un incidente.</p>
+                    <li><marcador class="resaltado2">Análisis de inteligencia de amenazas</marcador></li>
+                    <p>Chronicle integra inteligencia de amenazas proveniente de fuentes externas y también permite que las organizaciones usen sus propias fuentes internas de inteligencia. Esto permite a los equipos correlacionar eventos detectados con indicadores de amenazas conocidos (IOCs), como IPs maliciosas, dominios sospechosos, hashes de malware, etc.</p>
+                    <p><marcador class="resaltado8">Funcionalidad clave: </marcador>Al combinar la inteligencia de amenazas con los datos de eventos de la organización, Chronicle puede detectar ataques avanzados y dar información crítica sobre el origen de las amenazas.</p>
+                    <li><marcador class="resaltado2">Visualización y contexto</marcador></li>
+                    <p>Chronicle ofrece potentes herramientas de visualización para mostrar las relaciones entre eventos, proporcionando un contexto claro para los analistas. A través de gráficos de tiempo y diagramas, los usuarios pueden ver cómo evoluciona un incidente, qué sistemas se vieron afectados y cómo se propagó la amenaza.</p>
+                    <p><marcador class="resaltado8">Funcionalidad clave: </marcador>La interfaz gráfica permite hacer zoom en detalles específicos, seguir rutas de ataque y obtener información visual sobre los pasos críticos en un incidente.</p>
+                    <li><marcador class="resaltado2">Investigación retrospectiva</marcador></li>
+                    <p>Gracias a su capacidad de almacenamiento y procesamiento masivo, Chronicle permite realizar investigaciones retrospectivas sobre incidentes de seguridad antiguos. Esto significa que si un nuevo patrón de ataque es descubierto hoy, la organización puede revisar los datos históricos para detectar si ese mismo patrón afectó su infraestructura en el pasado.</p>
+                    <p><marcador class="resaltado8">Funcionalidad clave: </marcador>Los analistas pueden detectar amenazas que previamente no fueron identificadas, porque se correlacionan con nuevos IOCs o reglas de detección actualizadas.</p>
+                </ol>
+                <div class="blog-image-grande">
+                    <img src="media/response9.png" alt="">
+                </div> 
+                <h6>Mandiant</h6>
+                <p>Mandiant es una empresa de ciberseguridad que se especializa en la respuesta a incidentes y la inteligencia de amenazas. Fue fundada en 2004 y es conocida por su trabajo en la detección y respuesta a ataques cibernéticos, así como por sus informes sobre amenazas y vulnerabilidades en el espacio digital.</p>
+                <p>En el contexto de Chronicle, que es una plataforma de análisis de seguridad desarrollada por Google, Mandiant proporciona inteligencia sobre amenazas y análisis que ayuda a las organizaciones a identificar y mitigar riesgos de ciberseguridad. Juntas, estas herramientas permiten a las empresas mejorar su postura de seguridad y responder más eficazmente a incidentes de seguridad.</p>
+                <p>Mandiant ofrece varios tipos de inteligencia y análisis en ciberseguridad, entre ellos:</p>
+                <ul>
+                    <li><marcador class="resaltado2">Inteligencia de Amenazas: </marcador>Proporciona información sobre las tácticas, técnicas y procedimientos (TTP) utilizados por los atacantes, así como el contexto detrás de las amenazas emergentes.</li>
+                    <li><marcador class="resaltado2">Análisis de Incidentes: </marcador>Mandiant ayuda a las organizaciones a responder a incidentes de seguridad, investigando brechas y ataques para determinar el alcance y la causa raíz.</li>
+                    <li><marcador class="resaltado2">Evaluaciones de Vulnerabilidad: </marcador>Realizan análisis de las infraestructuras de TI para identificar vulnerabilidades que podrían ser explotadas por atacantes.</li>
+                    <li><marcador class="resaltado2">Informes de Tendencias: </marcador>Publican informes periódicos sobre tendencias en ciberseguridad, que analizan patrones de ataques y cambios en el panorama de amenazas.</li>
+                    <li><marcador class="resaltado2">Entrenamiento y Consultoría: </marcador>Ofrecen servicios de formación y consultoría para ayudar a las organizaciones a fortalecer su capacidad de respuesta a incidentes.</li>
+                </ul>
+                <p>Este enfoque integral permite a las empresas no solo reaccionar a ataques, sino también anticiparse y prepararse para futuros riesgos.</p>
+                <div class="blog-image-grande">
+                    <img src="media/response11.png" alt="">
+                </div> 
+                <h6>Campos UDM (Unified Data Model)</h6>
+                <p>Uno de los aspectos más importantes de Chronicle es su Modelo de Datos Unificado (UDM), que estandariza los datos de seguridad de diferentes fuentes en un formato común. Esto es clave para permitir la correlación entre eventos de seguridad que, de otro modo, estarían en diferentes formatos.</p>
+                <p>UDM es el esquema de datos utilizado por Chronicle para representar eventos de seguridad de manera coherente, independientemente de la fuente original. Este modelo permite a los analistas de seguridad realizar búsquedas y correlacionar eventos de diferentes sistemas, como logs de firewall, EDR, o soluciones de detección de amenazas en la nube.</p>
+                <ul>
+                    <li><marcador class="resaltado2">Metadata: </marcador>Contiene información clave sobre el evento, como la hora en que ocurrió, la fuente del dato, y el tipo de evento.</li>
+                    <li><marcador class="resaltado2">Actor: </marcador>Identifica el origen del evento, como un usuario, una IP o un dispositivo.</li>
+                    <li><marcador class="resaltado2">Target: </marcador>Especifica el objetivo del evento, como el sistema que fue atacado o comprometido.</li>
+                    <li><marcador class="resaltado2">Event: </marcador>Describe el tipo de actividad o acción registrada, como acceso a un archivo, intento de autenticación o ejecución de un comando.</li>
+                    <li><marcador class="resaltado2">Network: </marcador>Contiene información relacionada con las comunicaciones de red, como direcciones IP, puertos, y protocolos utilizados en la interacción.</li>
+                </ul>
+                <p>Para obtener información sobre los campos UDM (Unified Data Model) en Chronicle, puedes visitar la documentación oficial de <a href="https://cloud.google.com/chronicle/docs/reference/important-udm-fields" target="blank">Google Cloud Chronicle</a>.  Allí encontrarás detalles sobre la estructura de los datos y los campos disponibles.</p>
+                <div class="blog-image-grande">
+                    <img src="media/response14.png" alt="">
+                </div> 
+                <p>Imagina que un equipo de seguridad recibe una alerta de un comportamiento inusual en la red. Usando UDM, pueden buscar todos los eventos que involucren esa IP específica a lo largo del tiempo y correlacionarlos con actividades en otros sistemas, permitiendo a los analistas ver si la IP fue utilizada para realizar escaneos de puertos, accesos no autorizados o transferencias de datos sospechosas.</p>
+                <h6>Reglas YARA</h6>
+                <p>Las Reglas YARA son un componente crucial en la detección avanzada de malware y amenazas en Chronicle. YARA es un lenguaje de reglas que permite a los analistas de seguridad definir patrones para identificar archivos maliciosos, comportamientos sospechosos y otros tipos de amenazas.</p>
+                <p>YARA es una herramienta utilizada para definir patrones de búsqueda dentro de archivos y procesos que pueden indicar la presencia de malware u otras actividades maliciosas. Es particularmente útil en el análisis de malware, ya que permite a los analistas crear firmas que identifican muestras maliciosas con base en comportamientos o características específicas.</p>
+                <p>Chronicle permite a los equipos de seguridad crear y aplicar reglas YARA personalizadas a los eventos que son procesados por la plataforma. Estas reglas pueden utilizarse para identificar archivos maliciosos o comportamientos sospechosos basados en características específicas de malware previamente identificado.</p>
+                <p>Las reglas Yara se componen de varias secciones principales. Aquí te dejo un desglose de las partes que componen una regla Yara:</p>
+                <ol>
+                    <li><marcador class="resaltado3">Cabecera: </marcador>Define el nombre de la regla y puede incluir etiquetas o comentarios.</li>
                     <div class="archivo">
+rule NombreDeLaRegla {
+                    </div>
+                    <li><marcador class="resaltado3">Meta: </marcador>Contiene información adicional sobre la regla, como el autor y la descripción.</li>
+                    <div class="archivo">
+meta:
+author = "Tu Nombre"
+description = "Descripción de la regla"
+                    </div>
+                    <li><marcador class="resaltado3">Strings: </marcador>Define las cadenas a buscar, que pueden ser texto, hexadecimales o expresiones regulares.</li>
+                    <div class="archivo">
+strings:
+$string1 = "texto a buscar"
+$string2 = { E2 34 A1 }
+                    </div>
+                    <li><marcador class="resaltado3">Condition: </marcador>Especifica las condiciones bajo las cuales se activará la regla, utilizando las cadenas definidas.</li>
+                    <div class="archivo">
+condition:
+any of ($string*)
+                    </div>
+                    <li><marcador class="resaltado3">Match: </marcador>Esta sección se utiliza para definir qué ocurre cuando la regla coincide con un archivo. No es una parte estándar de Yara, pero puede referirse a cómo se manejan las coincidencias, dependiendo del contexto en que se utilice la regla.</li>
+                    <li><marcador class="resaltado3">Outcome: </marcador>Esta sección puede describir el resultado o la acción que se debe tomar cuando hay una coincidencia. Similar a "match", no es una parte estándar, pero puede hacer referencia a la lógica aplicada en herramientas o entornos específicos.</li>
+                </ol>
+                <p>Ejemplo de regla YARA:</p>
+                <div class="archivo">
 rule buran_ransomware {
 
-    meta:
+meta:
 
-            description = "Rule to detect Buran ransomware"
-            author = "Marc Rivero | McAfee ATR Team"
-            date = "2019-11-05"
-            rule_version = "v1"
-            malware_type = "ransomware"
-            malware_family = "Ransom:W32/Buran"
-            actor_type = "Cybercrime"
-            actor_group = "Unknown"
-            reference = "https://www.mcafee.com/blogs/other-blogs/mcafee-labs/buran-ransomware-the-evolution-of-vegalocker/"
-            
-    strings:
+        description = "Rule to detect Buran ransomware"
+        author = "Marc Rivero | McAfee ATR Team"
+        date = "2019-11-05"
+        rule_version = "v1"
+        malware_type = "ransomware"
+        malware_family = "Ransom:W32/Buran"
+        actor_type = "Cybercrime"
+        actor_group = "Unknown"
+        reference = "https://www.mcafee.com/blogs/other-blogs/mcafee-labs/buran-ransomware-the-evolution-of-vegalocker/"
+        
+strings:
 
-            $s1 = { 5? 8B ?? 81 C? ?? ?? ?? ?? 5? 5? 5? 33 ?? 89 ?? ?? ?? ?? ?? 89 ?? ?? ?? ?? ?? 89 ?? ?? ?? ?? ?? 89 ?? ?? ?? ?? ?? 89 ?? ?? 89 ?? ?? 89 ?? ?? 89 ?? ?? 89 ?? ?? 89 ?? ?? 89 ?? ?? 8D ?? ?? E8 ?? ?? ?? ?? 8D ?? ?? ?? ?? ?? 8B ?? ?? ?? ?? ?? E8 ?? ?? ?? ?? 33 ?? 5? 68 ?? ?? ?? ?? 64 ?? ?? 64 ?? ?? C6 ?? ?? ?? ?? ?? ?? 33 ?? 5? 68 ?? ?? ?? ?? 64 ?? ?? 64 ?? ?? 8D ?? ?? ?? ?? ?? BA ?? ?? ?? ?? 8B ?? ?? E8 ?? ?? ?? ?? 8B ?? ?? ?? ?? ?? 8B ?? ?? ?? ?? ?? 89 ?? ?? ?? ?? ?? 8B ?? ?? ?? ?? ?? 89 ?? ?? ?? ?? ?? 8B ?? ?? ?? ?? ?? 89 ?? ?? ?? ?? ?? 8B ?? ?? ?? ?? ?? 89 ?? ?? ?? ?? ?? 8B ?? ?? ?? ?? ?? 89 ?? ?? ?? ?? ?? 8B ?? ?? ?? ?? ?? 89 ?? ?? ?? ?? ?? 8D ?? ?? ?? ?? ?? E8 ?? ?? ?? ?? 6A ?? 8B ?? ?? E8 ?? ?? ?? ?? 5? E8 ?? ?? ?? ?? 8B ?? ?? E8 ?? ?? ?? ?? 84 ?? 0F 85 }
-            $s2 = { 4? 33 ?? 8D ?? ?? 0F B6 ?? ?? ?? ?? ?? E8 ?? ?? ?? ?? FF 7? ?? 8D ?? ?? 8B ?? ?? 8B ?? ?? 8B ?? 8B ?? FF 5? ?? FF 7? ?? 8D ?? ?? 0F B6 ?? ?? ?? ?? ?? E8 ?? ?? ?? ?? FF 7? ?? 8D ?? ?? BA ?? ?? ?? ?? E8 ?? ?? ?? ?? 8B ?? ?? 5? 8D ?? ?? 0F B6 ?? ?? ?? ?? ?? E8 ?? ?? ?? ?? FF 7? ?? 8D ?? ?? B8 ?? ?? ?? ?? E8 ?? ?? ?? ?? 8B ?? ?? 8D ?? ?? E8 ?? ?? ?? ?? 8D ?? ?? 8B ?? ?? E8 ?? ?? ?? ?? 8B ?? ?? 8D ?? ?? E8 ?? ?? ?? ?? 8B ?? ?? 8D ?? ?? E8 ?? ?? ?? ?? 8B ?? ?? 8D ?? ?? E8 ?? ?? ?? ?? FF 7? ?? 8D ?? ?? 0F B6 ?? ?? ?? ?? ?? E8 ?? ?? ?? ?? FF 7? ?? 8D ?? ?? BA ?? ?? ?? ?? E8 ?? ?? ?? ?? 8B ?? ?? 5? E8 ?? ?? ?? ?? 85 ?? 74 }
-            $s3 = { A1 ?? ?? ?? ?? 99 5? 5? A1 ?? ?? ?? ?? 99 5? 5? 8B ?? ?? 8B ?? ?? ?? 8B ?? ?? E8 ?? ?? ?? ?? 5? 5? 8B ?? ?? 8B ?? ?? ?? 8B ?? ?? ?? 03 ?? ?? 13 ?? ?? ?? 83 ?? ?? E8 ?? ?? ?? ?? 5? 5? 8B ?? ?? 8B ?? ?? ?? 8B ?? ?? ?? 03 ?? ?? 13 ?? ?? ?? 83 ?? ?? 89 ?? ?? 89 ?? ?? A1 ?? ?? ?? ?? 99 5? 5? 8B ?? ?? 8B ?? ?? 8B ?? ?? ?? 8B ?? ?? ?? E8 ?? ?? ?? ?? 8B ?? ?? 8B ?? ?? 03 ?? ?? ?? 13 ?? ?? ?? 89 ?? ?? 89 ?? ?? A1 ?? ?? ?? ?? 4? 99 89 ?? ?? 89 ?? ?? FF 7? ?? FF 7? ?? 8B ?? ?? 8B ?? ?? E8 ?? ?? ?? ?? 3B ?? ?? 75 }
-            $s4 = { 5? 5? 5? 5? 8B ?? 33 ?? 5? 68 ?? ?? ?? ?? 64 ?? ?? 64 ?? ?? 68 ?? ?? ?? ?? 8D ?? ?? E8 ?? ?? ?? ?? 8B ?? ?? B2 ?? A1 ?? ?? ?? ?? E8 ?? ?? ?? ?? 8B ?? 89 ?? ?? 8D ?? ?? A1 ?? ?? ?? ?? E8 ?? ?? ?? ?? 8B ?? ?? 8B ?? ?? E8 ?? ?? ?? ?? 8D ?? ?? A1 ?? ?? ?? ?? E8 ?? ?? ?? ?? 8B ?? ?? 8B ?? ?? 8B ?? ?? E8 ?? ?? ?? ?? 8D ?? ?? B8 ?? ?? ?? ?? E8 ?? ?? ?? ?? 8B ?? ?? 8D ?? ?? B8 ?? ?? ?? ?? E8 ?? ?? ?? ?? 8D ?? ?? B8 ?? ?? ?? ?? E8 ?? ?? ?? ?? 8B ?? ?? 8D ?? ?? B8 ?? ?? ?? ?? E8 ?? ?? ?? ?? 83 ?? ?? ?? 0F 84 }
-            $s5 = { 5? 8B ?? 83 ?? ?? 5? 5? 5? 89 ?? ?? 8B ?? 89 ?? ?? 8B ?? ?? 8B ?? ?? 8B ?? ?? 8B ?? ?? ?? 8B ?? ?? ?? 83 ?? ?? 83 ?? ?? 5? 5? A1 ?? ?? ?? ?? 99 E8 ?? ?? ?? ?? 89 ?? ?? E8 ?? ?? ?? ?? 89 ?? ?? E8 ?? ?? ?? ?? 89 ?? ?? 8B ?? 8B ?? ?? 8B ?? ?? E8 ?? ?? ?? ?? 8D ?? ?? 8B ?? ?? 8B ?? E8 ?? ?? ?? ?? 8B ?? ?? 8B ?? E8 ?? ?? ?? ?? 8B ?? ?? 2B ?? 8B ?? 4? 5? 8B ?? ?? 8B ?? 83 ?? ?? B9 ?? ?? ?? ?? 8B ?? ?? ?? ?? ?? E8 ?? ?? ?? ?? 83 ?? ?? 83 ?? ?? 0F 8C }
-            
-    condition:
+        $s1 = { 5? 8B ?? 81 C? ?? ?? ?? ?? 5? 5? 5? 33 ?? 89 ?? ?? ?? ?? ?? 89 ?? ?? ?? ?? ?? 89 ?? ?? ?? ?? ?? 89 ?? ?? ?? ?? ?? 89 ?? ?? 89 ?? ?? 89 ?? ?? 89 ?? ?? 89 ?? ?? 89 ?? ?? 89 ?? ?? 8D ?? ?? E8 ?? ?? ?? ?? 8D ?? ?? ?? ?? ?? 8B ?? ?? ?? ?? ?? E8 ?? ?? ?? ?? 33 ?? 5? 68 ?? ?? ?? ?? 64 ?? ?? 64 ?? ?? C6 ?? ?? ?? ?? ?? ?? 33 ?? 5? 68 ?? ?? ?? ?? 64 ?? ?? 64 ?? ?? 8D ?? ?? ?? ?? ?? BA ?? ?? ?? ?? 8B ?? ?? E8 ?? ?? ?? ?? 8B ?? ?? ?? ?? ?? 8B ?? ?? ?? ?? ?? 89 ?? ?? ?? ?? ?? 8B ?? ?? ?? ?? ?? 89 ?? ?? ?? ?? ?? 8B ?? ?? ?? ?? ?? 89 ?? ?? ?? ?? ?? 8B ?? ?? ?? ?? ?? 89 ?? ?? ?? ?? ?? 8B ?? ?? ?? ?? ?? 89 ?? ?? ?? ?? ?? 8B ?? ?? ?? ?? ?? 89 ?? ?? ?? ?? ?? 8D ?? ?? ?? ?? ?? E8 ?? ?? ?? ?? 6A ?? 8B ?? ?? E8 ?? ?? ?? ?? 5? E8 ?? ?? ?? ?? 8B ?? ?? E8 ?? ?? ?? ?? 84 ?? 0F 85 }
+        $s2 = { 4? 33 ?? 8D ?? ?? 0F B6 ?? ?? ?? ?? ?? E8 ?? ?? ?? ?? FF 7? ?? 8D ?? ?? 8B ?? ?? 8B ?? ?? 8B ?? 8B ?? FF 5? ?? FF 7? ?? 8D ?? ?? 0F B6 ?? ?? ?? ?? ?? E8 ?? ?? ?? ?? FF 7? ?? 8D ?? ?? BA ?? ?? ?? ?? E8 ?? ?? ?? ?? 8B ?? ?? 5? 8D ?? ?? 0F B6 ?? ?? ?? ?? ?? E8 ?? ?? ?? ?? FF 7? ?? 8D ?? ?? B8 ?? ?? ?? ?? E8 ?? ?? ?? ?? 8B ?? ?? 8D ?? ?? E8 ?? ?? ?? ?? 8D ?? ?? 8B ?? ?? E8 ?? ?? ?? ?? 8B ?? ?? 8D ?? ?? E8 ?? ?? ?? ?? 8B ?? ?? 8D ?? ?? E8 ?? ?? ?? ?? 8B ?? ?? 8D ?? ?? E8 ?? ?? ?? ?? FF 7? ?? 8D ?? ?? 0F B6 ?? ?? ?? ?? ?? E8 ?? ?? ?? ?? FF 7? ?? 8D ?? ?? BA ?? ?? ?? ?? E8 ?? ?? ?? ?? 8B ?? ?? 5? E8 ?? ?? ?? ?? 85 ?? 74 }
+        $s3 = { A1 ?? ?? ?? ?? 99 5? 5? A1 ?? ?? ?? ?? 99 5? 5? 8B ?? ?? 8B ?? ?? ?? 8B ?? ?? E8 ?? ?? ?? ?? 5? 5? 8B ?? ?? 8B ?? ?? ?? 8B ?? ?? ?? 03 ?? ?? 13 ?? ?? ?? 83 ?? ?? E8 ?? ?? ?? ?? 5? 5? 8B ?? ?? 8B ?? ?? ?? 8B ?? ?? ?? 03 ?? ?? 13 ?? ?? ?? 83 ?? ?? 89 ?? ?? 89 ?? ?? A1 ?? ?? ?? ?? 99 5? 5? 8B ?? ?? 8B ?? ?? 8B ?? ?? ?? 8B ?? ?? ?? E8 ?? ?? ?? ?? 8B ?? ?? 8B ?? ?? 03 ?? ?? ?? 13 ?? ?? ?? 89 ?? ?? 89 ?? ?? A1 ?? ?? ?? ?? 4? 99 89 ?? ?? 89 ?? ?? FF 7? ?? FF 7? ?? 8B ?? ?? 8B ?? ?? E8 ?? ?? ?? ?? 3B ?? ?? 75 }
+        $s4 = { 5? 5? 5? 5? 8B ?? 33 ?? 5? 68 ?? ?? ?? ?? 64 ?? ?? 64 ?? ?? 68 ?? ?? ?? ?? 8D ?? ?? E8 ?? ?? ?? ?? 8B ?? ?? B2 ?? A1 ?? ?? ?? ?? E8 ?? ?? ?? ?? 8B ?? 89 ?? ?? 8D ?? ?? A1 ?? ?? ?? ?? E8 ?? ?? ?? ?? 8B ?? ?? 8B ?? ?? E8 ?? ?? ?? ?? 8D ?? ?? A1 ?? ?? ?? ?? E8 ?? ?? ?? ?? 8B ?? ?? 8B ?? ?? 8B ?? ?? E8 ?? ?? ?? ?? 8D ?? ?? B8 ?? ?? ?? ?? E8 ?? ?? ?? ?? 8B ?? ?? 8D ?? ?? B8 ?? ?? ?? ?? E8 ?? ?? ?? ?? 8D ?? ?? B8 ?? ?? ?? ?? E8 ?? ?? ?? ?? 8B ?? ?? 8D ?? ?? B8 ?? ?? ?? ?? E8 ?? ?? ?? ?? 83 ?? ?? ?? 0F 84 }
+        $s5 = { 5? 8B ?? 83 ?? ?? 5? 5? 5? 89 ?? ?? 8B ?? 89 ?? ?? 8B ?? ?? 8B ?? ?? 8B ?? ?? 8B ?? ?? ?? 8B ?? ?? ?? 83 ?? ?? 83 ?? ?? 5? 5? A1 ?? ?? ?? ?? 99 E8 ?? ?? ?? ?? 89 ?? ?? E8 ?? ?? ?? ?? 89 ?? ?? E8 ?? ?? ?? ?? 89 ?? ?? 8B ?? 8B ?? ?? 8B ?? ?? E8 ?? ?? ?? ?? 8D ?? ?? 8B ?? ?? 8B ?? E8 ?? ?? ?? ?? 8B ?? ?? 8B ?? E8 ?? ?? ?? ?? 8B ?? ?? 2B ?? 8B ?? 4? 5? 8B ?? ?? 8B ?? 83 ?? ?? B9 ?? ?? ?? ?? 8B ?? ?? ?? ?? ?? E8 ?? ?? ?? ?? 83 ?? ?? 83 ?? ?? 0F 8C }
+        
+condition:
 
-            uint16(0) == 0x5a4d and
-            all of them
+        uint16(0) == 0x5a4d and
+        all of them
 }
-                        </div>
-                    <p>Esta regla busca cadenas de texto asociadas con ransomware, y proporciona información sobre su autor y su familia de malware. En la sección de "strings", se definen varias secuencias de bytes que son características del malware; estas secuencias son patrones específicos que ayudan a identificar el código malicioso. La condición de la regla establece que el archivo debe comenzar con la firma de un archivo ejecutable de Windows (identificada por el valor 0x5a4d, que corresponde a "MZ"), y que todas las secuencias de bytes definidas deben coincidir. Esto significa que, para que un archivo sea considerado como Buran, debe cumplir con ambas condiciones: ser un archivo ejecutable y contener todas las características específicas del ransomware.</p>
-                    <p>Una excelente fuente para encontrar reglas YARA es el repositorio <a href="https://github.com/InQuest/awesome-yara?tab=readme-ov-file" target="blank">awesome-yara</a> en GitHub.</p>
-                    <p>Además, también puedes explorar el repositorio <a href="https://github.com/Yara-Rules/rules" target="blank">Yara-Rules</a>, que ofrece una amplia gama de reglas para diversas amenazas</p> 
-                    <p>Algunas de las ventajas de YARA en Chronicle son:</p>
-                    <ul>
-                        <li><marcador class="resaltado2">Personalización avanzada: </marcador>Los equipos pueden crear reglas YARA personalizadas para detectar amenazas específicas que son únicas para su organización.</li>
-                        <li><marcador class="resaltado2">Eficiencia en la detección: </marcador>Chronicle puede aplicar estas reglas a grandes volúmenes de datos rápidamente, permitiendo la detección temprana de amenazas.</li>
-                        <li><marcador class="resaltado2">Automatización: </marcador>Las reglas YARA pueden automatizar la detección de malware, mejorando los tiempos de respuesta.</li>
-                    </ul>
-                    <h6>Ejemplos</h6>
-                    <ol>
-                        <li><marcador class="resaltado3">Detección de amenazas con reglas predefinidas</marcador></li>
-                        <p>Un analista de seguridad configura Chronicle para recibir datos de logs de red y aplicar reglas predefinidas que detectan intentos de acceso a IPs maliciosas. Cuando un usuario intenta acceder a un dominio relacionado con malware, Chronicle genera una alerta.</p>
-                        <li><marcador class="resaltado3">Investigación de un ataque</marcador></li>
-                        <p>Tras recibir una alerta de comportamiento sospechoso en un endpoint, un analista utiliza Chronicle para buscar todos los eventos relacionados con la IP y el usuario afectado. El análisis revela que el atacante intentó moverse lateralmente en la red utilizando credenciales comprometidas.</p>
-                        <li><marcador class="resaltado3">Detección personalizada con YARA y UDM</marcador></li>
-                        <p>Un equipo de seguridad crea una regla YARA para identificar archivos con comportamientos de ransomware. Usando Chronicle, aplican esta regla a eventos históricos y descubren que varios sistemas fueron comprometidos semanas atrás, activando una investigación retrospectiva.</p>
-                    </ol>
-                    <div class="blog-image-grande">
-                        <img src="media/response12.jpg" alt="">
                     </div>
-                    <h6>Chroniclelab</h6>
-                    <p>Para experimentar de primera mano las potentes capacidades de Chronicle, la revolucionaria plataforma de seguridad de Google, puedes acceder a una demostración preconfigurada que incluye reglas específicas, endpoints y herramientas diseñadas para optimizar la detección y respuesta ante amenazas. Esta demo permite a los usuarios explorar cómo Chronicle analiza grandes volúmenes de datos y utiliza inteligencia artificial para identificar patrones sospechosos, todo en un entorno intuitivo y fácil de usar. Si deseas descubrir cómo esta innovadora solución puede transformar tu estrategia de ciberseguridad, no dudes en visitar la página de demostración en <a href="https://goo.gle/chroniclelab" target="blank">Chronicle Demo</a> y sumérgete en el futuro de la seguridad digital.</p>
-                    <div class="blog-image-grande">
-                        <img src="media/response10.gif" alt="">
-                    </div> 
+                <p>Esta regla busca cadenas de texto asociadas con ransomware, y proporciona información sobre su autor y su familia de malware. En la sección de "strings", se definen varias secuencias de bytes que son características del malware; estas secuencias son patrones específicos que ayudan a identificar el código malicioso. La condición de la regla establece que el archivo debe comenzar con la firma de un archivo ejecutable de Windows (identificada por el valor 0x5a4d, que corresponde a "MZ"), y que todas las secuencias de bytes definidas deben coincidir. Esto significa que, para que un archivo sea considerado como Buran, debe cumplir con ambas condiciones: ser un archivo ejecutable y contener todas las características específicas del ransomware.</p>
+                <p>Una excelente fuente para encontrar reglas YARA es el repositorio <a href="https://github.com/InQuest/awesome-yara?tab=readme-ov-file" target="blank">awesome-yara</a> en GitHub.</p>
+                <p>Además, también puedes explorar el repositorio <a href="https://github.com/Yara-Rules/rules" target="blank">Yara-Rules</a>, que ofrece una amplia gama de reglas para diversas amenazas</p> 
+                <p>Algunas de las ventajas de YARA en Chronicle son:</p>
+                <ul>
+                    <li><marcador class="resaltado2">Personalización avanzada: </marcador>Los equipos pueden crear reglas YARA personalizadas para detectar amenazas específicas que son únicas para su organización.</li>
+                    <li><marcador class="resaltado2">Eficiencia en la detección: </marcador>Chronicle puede aplicar estas reglas a grandes volúmenes de datos rápidamente, permitiendo la detección temprana de amenazas.</li>
+                    <li><marcador class="resaltado2">Automatización: </marcador>Las reglas YARA pueden automatizar la detección de malware, mejorando los tiempos de respuesta.</li>
+                </ul>
+                <h6>Ejemplos</h6>
+                <ol>
+                    <li><marcador class="resaltado3">Detección de amenazas con reglas predefinidas</marcador></li>
+                    <p>Un analista de seguridad configura Chronicle para recibir datos de logs de red y aplicar reglas predefinidas que detectan intentos de acceso a IPs maliciosas. Cuando un usuario intenta acceder a un dominio relacionado con malware, Chronicle genera una alerta.</p>
+                    <li><marcador class="resaltado3">Investigación de un ataque</marcador></li>
+                    <p>Tras recibir una alerta de comportamiento sospechoso en un endpoint, un analista utiliza Chronicle para buscar todos los eventos relacionados con la IP y el usuario afectado. El análisis revela que el atacante intentó moverse lateralmente en la red utilizando credenciales comprometidas.</p>
+                    <li><marcador class="resaltado3">Detección personalizada con YARA y UDM</marcador></li>
+                    <p>Un equipo de seguridad crea una regla YARA para identificar archivos con comportamientos de ransomware. Usando Chronicle, aplican esta regla a eventos históricos y descubren que varios sistemas fueron comprometidos semanas atrás, activando una investigación retrospectiva.</p>
                 </ol>
+                <div class="blog-image-grande">
+                    <img src="media/response12.jpg" alt="">
+                </div>
+                <h6>Chroniclelab</h6>
+                <p>Para experimentar de primera mano las potentes capacidades de Chronicle, la revolucionaria plataforma de seguridad de Google, puedes acceder a una demostración preconfigurada que incluye reglas específicas, endpoints y herramientas diseñadas para optimizar la detección y respuesta ante amenazas. Esta demo permite a los usuarios explorar cómo Chronicle analiza grandes volúmenes de datos y utiliza inteligencia artificial para identificar patrones sospechosos, todo en un entorno intuitivo y fácil de usar. Si deseas descubrir cómo esta innovadora solución puede transformar tu estrategia de ciberseguridad, no dudes en visitar la página de demostración en <a href="https://goo.gle/chroniclelab" target="blank">Chronicle Demo</a> y sumérgete en el futuro de la seguridad digital.</p>
+                <div class="blog-image-grande">
+                    <img src="media/response10.gif" alt="">
+                </div> 
             </div>
         </div>       
     </main>
