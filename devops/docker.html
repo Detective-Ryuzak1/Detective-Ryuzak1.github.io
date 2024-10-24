@@ -565,6 +565,67 @@ This may also be found at: /var/jenkins_home/secrets/initialAdminPassword
                         </div>
                     </section>
                 </div>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9723;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">podman</marcador> <marcador class="param">stop</marcador> jenkins</span>
+                        
+    
+                        </div>
+                        <div class="command-response-container">
+jenkins
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9723;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">podman</marcador> <marcador class="param">start</marcador> jenkins</span>
+                        
+    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">
+jenkins
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Para eliminar el contenedor:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="podman rm jenkins" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Instala Docker Desktop.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="podman run -dp 80:80 docker/getting-started" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
                 <div class="blog-image-grande">
                     <img src="media/docker5.png" alt="">
                 </div>
