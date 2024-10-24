@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <link rel="icon" href="../media/imagen41.png" type="image/png">
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                        <li><a href="../devops.html">DevOps</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Aportar" onclick="window.open('https://buymeacoffee.com/ryuzak1', '_blank');">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <br>
+                <br>
+                <h1>Docker</h1>
+                <p>Docker es una plataforma de código abierto que permite la creación, despliegue y administración de aplicaciones dentro de contenedores. Los contenedores son entornos ligeros y aislados que agrupan una aplicación junto con todas sus dependencias, lo que facilita la portabilidad y la eficiencia del software. Docker se ha convertido en una de las tecnologías más populares debido a su capacidad para simplificar los procesos de desarrollo y despliegue de software en diferentes entornos.</p>
+                <p>Docker es altamente versátil y eficiente gracias a su enfoque en la contenedorización en lugar de la virtualización tradicional. En lugar de virtualizar un sistema operativo completo, Docker permite ejecutar múltiples contenedores sobre un solo núcleo del sistema operativo, compartiendo recursos como el kernel.</p>
+                <ul>
+                    <li><marcador class="resaltado2">Aislamiento: </marcador>Los contenedores funcionan en entornos aislados, lo que asegura que las aplicaciones no interfieran entre sí, incluso si se ejecutan en el mismo servidor.</li>
+                    <li><marcador class="resaltado2">Portabilidad: </marcador>Los contenedores Docker pueden ejecutarse en cualquier lugar, ya sea en el equipo local de un desarrollador, en servidores en la nube o en centros de datos on-premise, garantizando que funcionarán de manera consistente en diferentes entornos.</li>
+                    <li><marcador class="resaltado2">Ligereza: </marcador>A diferencia de las máquinas virtuales, los contenedores no necesitan un sistema operativo completo, lo que reduce el uso de recursos como CPU y memoria. Los contenedores son ligeros y se inician rápidamente.</li>
+                    <li><marcador class="resaltado2">Escalabilidad: </marcador>Docker facilita la creación de microservicios, lo que permite a las organizaciones escalar sus aplicaciones de manera modular. Cada microservicio se ejecuta en su propio contenedor y puede ser gestionado de forma independiente.</li>
+                </ul>
+                <div class="blog-image">
+                    <img src="media/docker1.png" alt="">
+                </div>
+                <h2>Componentes</h2>
+                <p>Docker se compone de varios elementos clave que trabajan en conjunto para proporcionar un ecosistema eficiente para el desarrollo y la ejecución de aplicaciones en contenedores:</p>
+                <ol>
+                    <li><marcador class="resaltado3">Es el corazón de Docker. Se trata de un motor cliente-servidor que gestiona los contenedores. Consta de tres componentes:</marcador></li>
+                    <ol>
+                        <li><marcador class="resaltado8">Docker Daemon (dockerd): </marcador>Es el servidor que se ejecuta en segundo plano y gestiona los contenedores.</li>
+                        <li><marcador class="resaltado8">API REST: </marcador>Permite a las aplicaciones comunicarse con el Docker Daemon para realizar tareas como crear, eliminar y gestionar contenedores.</li>
+                        <li><marcador class="resaltado8">CLI (Interfaz de Línea de Comandos): </marcador>La herramienta con la que los usuarios interactúan con Docker desde la terminal para ejecutar comandos.</li>
+                    </ol>
+                    <li><marcador class="resaltado3">Imágenes Docker: </marcador>Son plantillas inmutables que contienen el código de una aplicación y todas las dependencias necesarias para ejecutarla. Las imágenes se almacenan en registros, como Docker Hub o registros privados.</li>
+                    <li><marcador class="resaltado3">Contenedores Docker: </marcador>Son instancias ejecutables de imágenes de Docker. Cada contenedor se ejecuta de manera aislada en su propio entorno y utiliza recursos del sistema operativo anfitrión, lo que lo hace mucho más ligero que las máquinas virtuales.</li>
+                    <li><marcador class="resaltado3">Dockerfile: </marcador>Es un archivo de texto que contiene un conjunto de instrucciones para construir una imagen Docker. Define cómo debe ser creada la imagen, desde qué base parte, qué dependencias necesita y qué comandos se deben ejecutar.</li>
+                    <li><marcador class="resaltado3">Docker Compose: </marcador>Es una herramienta que permite definir y ejecutar aplicaciones multicontenedor. Mediante un archivo YAML, Docker Compose define cómo interactúan varios servicios dentro de una aplicación.</li>
+                    <li><marcador class="resaltado3">Registros Docker (Docker Registry): </marcador>Son repositorios donde se almacenan las imágenes. Docker Hub es el registro más utilizado, pero también se pueden configurar registros privados.</li>
+                </ol>
+                <div class="blog-image-grande">
+                    <img src="media/docker2.png" alt="">
+                </div>
+                <h2>Comandos de Administración</h2>
+                <p>Docker ofrece una amplia gama de comandos para gestionar contenedores y redes. A continuación, se describen algunos de los más útiles para tareas comunes de administración:</p>
+                <h6>Listar contenedores</h6>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Para listar todos los contenedores en ejecución, usamos el siguiente comando:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="docker ps" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Si queremos ver también los contenedores detenidos:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="docker ps -a" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <h6>Crear e iniciar contenedores</h6>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Para crear un nuevo contenedor e iniciarlo, utilizamos el comando docker run. Este comando descarga la imagen si no está presente localmente y luego crea el contenedor.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="docker run -d --name mi_contenedor nginx" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>    
+                <p>En este ejemplo, <marcador class="subrayado">-d</marcador> indica que el contenedor debe ejecutarse en segundo plano y nginx es la imagen que se utiliza.</p>            
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        También es posible ejecutar un contenedor interactivo con una terminal:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="docker run -it ubuntu bash" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Inicia un contenedor de MySQL con una contraseña para el usuario root:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=password -d mysql" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        PostgreSQL:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="docker run --name postgres-container -e POSTGRES_PASSWORD=password -d postgres" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Montar todo el sistema de archivos en un contenedor:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="docker run -v /:/mnt --rm -it IDImagen chroot /mnt sh" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Este comando monta todo el sistema de archivos en el contenedor, permitiendo acceso completo a todo el sistema de archivos del host.</p>
+                <h6>Detener y eliminar contenedores</h6>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Para detener un contenedor en ejecución:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="docker stop nombre_contenedor" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Si queremos eliminar un contenedor (incluso si está detenido):
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="docker rm nombre_contenedor" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Eliminar todos los contenedores detenidos:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="docker rm $(docker ps -a -q) --force" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Eliminar todas las imágenes no usadas:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="docker rmi $(docker images -q)" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <h6>Cambiar la IP de un contenedor</h6>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Si es necesario asignar una IP personalizada a un contenedor, primero debemos crear una red personalizada:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="docker network create --subnet=192.168.1.0/24 mi_red" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Luego, iniciamos un contenedor en esta red con una IP específica:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="docker run --net mi_red --ip 192.168.1.10 nginx" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <h6>Conectar contenedores entre sí</h6>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Para que dos contenedores puedan comunicarse entre ellos, es necesario conectarlos a la misma red:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="docker network connect mi_red nombre_contenedor1" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        En el segundo contenedor:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="docker network connect mi_red nombre_contenedor2" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Después de esto, ambos contenedores podrán interactuar a través de la red interna.</p>
+                <h6>Listar, crear y eliminar redes</h6>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Para listar las redes disponibles en Docker:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="docker network ls" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Para eliminar una red:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="docker network rm nombre_red" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <h6>Administración de volúmenes</h6>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Crear un volumen:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="docker volume create nombre_del_volumen" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Este comando crea un nuevo volumen que puede ser montado en los contenedores para persistir datos.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Listar volúmenes:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="docker volume ls" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Inspeccionar un volumen:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="docker volume inspect nombre_del_volumen" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Eliminar un volumen:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="docker volume rm nombre_del_volumen" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Montar un volumen al ejecutar un contenedor:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="docker run -v nombre_del_volumen:/path/en/contenedor imagen" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="blog-image-grande">
+                    <img src="media/docker3.gif" alt="">
+                </div>
+                <h2>Ejemplo</h2>
+                <p>Para descargar la GUI de Docker en Windows o Mac, se debe ingresar a la <a href="https://docs.docker.com/desktop/" target="blank">web oficial de Docker</a> y seguir las instrucciones específicas para cada plataforma.</p>
+                <p>Para instalar Docker CLI en Linux, sigue estos pasos básicos:</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Actualizar el sistema para evitar conflictos con las dependencias de Docker.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="sudo apt-get update" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Instala Docker CLI.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="sudo apt-get install docker-cli podman-docker" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Verifica la instalación para asegurarte de que Docker está instalado correctamente, puedes verificar la versión instalada con el siguiente comando:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="sudo docker --version" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Docker Hub es un servicio basado en la nube que funciona como un repositorio central para imágenes Docker. Es una plataforma donde los desarrolladores pueden compartir, almacenar, y distribuir imágenes de contenedores que se pueden usar fácilmente en cualquier entorno que soporte Docker. Piensa en Docker Hub como un "centro de distribución" para aplicaciones y herramientas empaquetadas en contenedores Docker.</p>
+                <p>Instalar Jenkins directamente desde <a href="https://hub.docker.com/r/jenkins/jenkins" target="blank">Docker Hub</a> usando un contenedor Docker. Jenkins tiene una imagen oficial en Docker Hub que puedes utilizar para configurar tu entorno de Jenkins de forma rápida y sencilla.</p>
+                <p>Para que Podman pueda buscar imágenes en Docker Hub, debes asegurarte de que Docker Hub esté configurado como un registro en tu sistema.</p>
+                <p>Abre el archivo de configuración /etc/containers/registries.conf con tu editor de texto favorito, por ejemplo: <marcador class="subrayado">sudo nano /etc/containers/registries.conf</marcador></p>
+                <p>Edita el archivo, y asegúrate de tener algo como esto bajo la sección [registries.search]:</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9723;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</Dentro del archivo, asegúrate de tener algo como esto bajo la sección [registries.search]:marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">podman</marcador> <marcador class="param">pull</marcador> jenkins/jenkins</span>    
+                        <span id="terminal__prompt--cursor"></span>
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">
+Trying to pull docker.io/jenkins/jenkins:latest...
+Getting image source signatures
+Copying blob efcf9cb62df3 done   | 
+Copying blob d60eb3dc3297 done   | 
+Copying blob d64d58c3115c done   | 
+Copying blob 7d98d813d54f done   | 
+Copying blob 08b5bb3da083 done   | 
+Copying blob bfb71029c05d done   | 
+Copying blob 88ba2818e1c6 done   | 
+Copying blob db0580cf8138 done   | 
+Copying blob ac81c696d7e6 done   | 
+Copying blob 7396957ffcde done   | 
+Copying blob 7574cb8d8610 done   | 
+Copying blob 41a6c7718ec2 done   | 
+Copying config eae08093ff done   | 
+Writing manifest to image destination
+32808093ffc9282c19f3955d10b94e78c806a0c670d7dfcfa00093f0dc4f3109
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>Para listar las imágenes disponibles en tu sistema después de descargar una imagen puedes usar el siguiente comando:</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9723;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">podman</marcador> <marcador class="param">images</marcador></span>
+                        
+    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">
+REPOSITORY                 TAG         IMAGE ID      CREATED       SIZE
+docker.io/jenkins/jenkins  latest      32808093ffc9  31 hours ago  482 MB                                
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>Si quieres más información sobre una imagen en particular (como los detalles de sus capas y configuraciones), puedes usar este comando para ver detalles de una imagen específica:</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9723;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">podman</marcador> <marcador class="param">inspect</marcador> docker.io/jenkins/jenkins</span>
+                        
+    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">
+[
+    {
+            "Id": "32808093ffc9282c19f3955d10b94e78c806a0c670d7dfcfa00093f0dc4f3109",
+            "Digest": "sha256:61ab9ddcd44e526858efecf7ccdf3e26352b08c4d19a3fce0318f0bd5edda2dd",
+            "RepoTags": [
+                "docker.io/jenkins/jenkins:latest"
+            ],
+            "RepoDigests": [
+                "docker.io/jenkins/jenkins@sha256:61ab9ddcd44e526858efecf7ccdf3e26352b08c4d19a3fce0318f0bd5edda2dd",
+                "docker.io/jenkins/jenkins@sha256:6e28580fa377c1526389a6cc5a41cca7e177f580b4d8541057f7ed28eaefa385"
+            ],
+            "Parent": "",
+            "Comment": "",
+            "Created": "2024-10-22T15:35:02.034543932Z",
+            "Config": {
+                "User": "jenkins",
+                "ExposedPorts": {
+                    "50000/tcp": {},
+                    "8080/tcp": {}
+                },
+                "Env": [
+                    "PATH=/opt/java/openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                    "LANG=C.UTF-8",
+                    "JENKINS_HOME=/var/jenkins_home",
+                    "JENKINS_SLAVE_AGENT_PORT=50000",
+                    "REF=/usr/share/jenkins/ref",
+                    "JENKINS_VERSION=2.482",
+                    "JENKINS_UC=https://updates.jenkins.io",
+                    "JENKINS_UC_EXPERIMENTAL=https://updates.jenkins.io/experimental",
+                    "JENKINS_INCREMENTALS_REPO_MIRROR=https://repo.jenkins-ci.org/incrementals",
+                    "COPY_REFERENCE_FILE_LOG=/var/jenkins_home/copy_reference_file.log",
+                    "JAVA_HOME=/opt/java/openjdk"
+                ],
+                "Entrypoint": [
+                    "/usr/bin/tini",
+                    "--",
+                    "/usr/local/bin/jenkins.sh"
+                ],
+                "Volumes": {
+                    "/var/jenkins_home": {}
+                },
+                "Labels": {
+                    "org.opencontainers.image.description": "The Jenkins Continuous Integration and Delivery server",
+. . . [ snip ] . . . 
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>Antes de intentar ejecutar la imagen, puedes hacer una prueba para ver si está lista:</p>
+                <p>Este comando ejecutará un contenedor temporal basado en la imagen de Jenkins y te dará acceso a una terminal en el contenedor. Si esto funciona correctamente, significa que la imagen se ha descargado y está lista para ser utilizada.</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9723;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">podman</marcador> <marcador class="param">run</marcador> <marcador class="param">-it</marcador> docker.io/jenkins/jenkins /bin/bash</span>
+                        
+    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">
+jenkins@2f23f8238fb9:/$ whoami
+jenkins
+jenkins@2f23f8238fb9:/$                                 
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>Para ejecutar Jenkins en un contenedor:</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9723;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">podman</marcador> <marcador class="param">run</marcador> <marcador class="param">-d</marcador> <marcador class="param">-p</marcador> 8080:8080 <marcador class="param">-p</marcador> 50000:50000 <marcador class="param">--name</marcador> jenkins docker.io/jenkins/jenkins</span>
+                        
+    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">
+d92e4cf14ec1b8ce059381e0be0ee6fe6558a39f488d9aaa7fc864bbbb2df389
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>Antes de intentar acceder a Jenkins, asegúrate de que el contenedor esté en ejecución:</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9723;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">podman</marcador> <marcador class="param">ps</marcador></span>
+                        
+    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">
+CONTAINER ID  IMAGE                             COMMAND     CREATED             STATUS             PORTS                                                                  NAMES
+d92e4cf14ec1  docker.io/jenkins/jenkins:latest              About a minute ago  Up About a minute  0.0.0.0:8080->8080/tcp, 0.0.0.0:50000->50000/tcp, 8080/tcp, 50000/tcp  jenkins
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>Ahora que el contenedor está corriendo, Jenkins está disponible en el puerto 8080 de tu máquina host. Abre un navegador web y ve a la siguiente URL: http://localhost:8080</p>
+                <p>Cuando accedas a Jenkins por primera vez, verás una pantalla de "Unlock Jenkins". Para desbloquearlo, necesitarás el password de administrador generado durante la instalación. Para obtener esta contraseña, ejecuta el siguiente comando para ver los logs del contenedor de Jenkins:</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9723;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">podman</marcador> <marcador class="param">logs</marcador> jenkins</span>
+                        
+    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">
+. . . [ snip ] . . .  
+2024-10-24 03:31:41.979+0000 [id=35]    INFO    jenkins.InitReactorRunner$1#onAttained: Configuration for all jobs updated
+2024-10-24 03:31:42.041+0000 [id=51]    INFO    hudson.util.Retrier#start: Attempt #1 to do the action check updates server
+2024-10-24 03:31:42.603+0000 [id=35]    INFO    jenkins.install.SetupWizard#init: 
+
+*************************************************************
+*************************************************************
+*************************************************************
+
+Jenkins initial setup is required. An admin user has been created and a password generated.
+Please use the following password to proceed to installation:
+
+a3c09a2cba93412eb7815224e45409aa
+
+This may also be found at: /var/jenkins_home/secrets/initialAdminPassword
+
+*************************************************************
+*************************************************************
+*************************************************************
+
+2024-10-24 03:31:48.341+0000 [id=32]    INFO    jenkins.InitReactorRunner$1#onAttained: Completed initialization
+2024-10-24 03:31:48.438+0000 [id=24]    INFO    hudson.lifecycle.Lifecycle#onReady: Jenkins is fully up and running 
+. . . [ snip ] . . .                                 
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <div class="blog-image-grande">
+                    <img src="media/docker5.png" alt="">
+                </div>
+                <h2>Play with Docker</h2>
+                <p><a href="https://www.docker.com/play-with-docker/" target="blank">"Play with Docker"</a> es una plataforma en línea que permite a los usuarios experimentar con Docker de forma interactiva. Ofrece un entorno de prueba donde puedes ejecutar comandos de Docker sin necesidad de instalarlo en tu máquina local. Esto facilita el aprendizaje, las pruebas rápidas y la posibilidad de compartir ejemplos de código sin complicaciones.</p>
+                <p>La plataforma es especialmente útil para aquellos que desean explorar las funcionalidades de Docker sin configurar un entorno complejo. Además, permite la colaboración entre usuarios, lo que resulta ideal para tutoriales o sesiones de enseñanza. Sin embargo, como es un entorno en línea, puede tener limitaciones en cuanto a recursos y la persistencia de datos, ya que los contenedores se eliminan al finalizar la sesión. En resumen, "Play with Docker" es una herramienta accesible para aprender y experimentar con Docker de manera sencilla.</p>
+                <div class="blog-image-grande">
+                    <img src="media/docker4.png" alt="">
+                </div>
+                <p>Docker simplifica la gestión de entornos aislados para aplicaciones, permitiendo tanto a desarrolladores como a administradores de sistemas tener un control detallado sobre cómo se despliegan y ejecutan las aplicaciones. Gracias a sus características de portabilidad, ligereza y modularidad, Docker se ha convertido en una herramienta esencial para la industria del software.</p>
+                <br>
+                <br>
+            </div>
+        </div>       
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
