@@ -7,7 +7,7 @@
     <title>Blog de Tecnología</title>
     <link rel="icon" href="../media/imagen41.png" type="image/png">
     <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../css/estilos-articulo.css">
+    <link rel="stylesheet" href="../css/estilos-articulo.css?v=1.1">
 </head>
 <body>
 
@@ -565,6 +565,7 @@ This may also be found at: /var/jenkins_home/secrets/initialAdminPassword
                         </div>
                     </section>
                 </div>
+                <p>Detener el contenedor:</p>
                 <div id="terminal">
                     <section id="terminal__bar">
                         <div id="bar__buttons">
@@ -586,6 +587,7 @@ jenkins
                         </div>
                     </section>
                 </div>
+                <p>Sí, una vez que el contenedor ha sido detenido pero no eliminado, puedes volver a iniciarlo usando el comando start. Si solo lo detuviste con podman stop, puedes reiniciarlo de la siguiente manera:</p>
                 <div id="terminal">
                     <section id="terminal__bar">
                         <div id="bar__buttons">
@@ -608,6 +610,9 @@ jenkins
                         </div>
                     </section>
                 </div>
+                <div class="blog-image-grande">
+                    <img src="media/docker5.png" alt="">
+                </div>
                 <div class="contenedor">
                     <div class="etiqueta">
                         Para eliminar el contenedor:
@@ -625,9 +630,6 @@ jenkins
                       <input type="text" class="text" value="podman run -dp 80:80 docker/getting-started" oninput="ajustarAncho(this)">
                       <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
-                </div>
-                <div class="blog-image-grande">
-                    <img src="media/docker5.png" alt="">
                 </div>
                 <h2>Play with Docker</h2>
                 <p><a href="https://www.docker.com/play-with-docker/" target="blank">"Play with Docker"</a> es una plataforma en línea que permite a los usuarios experimentar con Docker de forma interactiva. Ofrece un entorno de prueba donde puedes ejecutar comandos de Docker sin necesidad de instalarlo en tu máquina local. Esto facilita el aprendizaje, las pruebas rápidas y la posibilidad de compartir ejemplos de código sin complicaciones.</p>

@@ -174,7 +174,7 @@ main{
     font-family: 'Roboto';
 }
 .text__articulo-cover a{
-    color: rgb(199, 131, 248);
+    color: rgb(255, 96, 207);
     text-decoration: none;
     transition: color 0.3s;
 }
