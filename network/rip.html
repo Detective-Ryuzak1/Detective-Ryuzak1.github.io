@@ -126,14 +126,21 @@
                         <!-- Contenido del código -->
 <pre><code>hostname R1
 router rip
-version 2
-network 192.168.0.0
-network 172.16.0.0
-passive-interface default
-no passive-interface gig0/0   # Activamos RIP en la interfaz que conecta con R3
-exit</code></pre>
+    version 2
+    no auto-summary
+    network 192.168.0.0
+    network 172.16.0.0
+    passive-interface default
+    no passive-interface gig0/0   # Activamos RIP en la interfaz que conecta con R3
+    exit</code></pre>
                     </div>
                 </div>
+                <p>Aquí, la línea <marcador class="subrayado">no auto-summary</marcador> desactiva la función de auto resumen. Esto significa que EIGRP anunciará las redes exactas tal como están configuradas, sin resumirlas a su clase de red superior.</p>
+                <ul>
+                    <li><marcador class="resaltado8"></marcador>Primera línea: <marcador class="subrayado">network 192.168.0.0</marcador> incluye todas las subredes de la clase C 192.168.0.0.</li>
+                    <li><marcador class="resaltado8"></marcador>Segunda línea: <marcador class="subrayado">network 172.16.0.0</marcador> incluye un rango muy específico de direcciones de clase B (en este caso, la subred 172.16.0.0/30).</li>
+                </ul>
+                <p>Al desactivar el auto resumen, EIGRP puede manejar las subredes de manera más precisa, lo que es especialmente útil en configuraciones donde se utilizan VLSM (Variable Length Subnet Mask) o redes no contiguas. Esto ayuda a evitar la confusión y los problemas que podrían surgir al resumir incorrectamente las rutas.</p>
                 <p>En el contexto de la configuración de RIP (Routing Information Protocol), la directiva <marcador class="subrayado">passive-interface</marcador> se utiliza para controlar en qué interfaces el protocolo RIP enviará y recibirá actualizaciones de enrutamiento. Cuando se establece <marcador class="subrayado">passive-interface default</marcador>, todas las interfaces se configuran en modo pasivo de manera predeterminada. Esto significa que el router no enviará actualizaciones de RIP por esas interfaces, aunque aún podrá recibirlas.</p>
                 <p>La línea <marcador class="subrayado">no passive-interface gig0/0</marcador> tiene el efecto contrario: se utiliza para activar el envío y recepción de actualizaciones de RIP en la interfaz especificada (en este caso, la interfaz Gigabit Ethernet 0/0). Esto es útil en situaciones donde deseas que RIP comunique información de enrutamiento a través de una interfaz específica que está conectada a otro router (como R3 en tu ejemplo), mientras que en otras interfaces, probablemente aquellas que no están conectadas a otros routers, deseas evitar el envío de actualizaciones.</p>
                     <li>Router 2</li>
@@ -145,12 +152,13 @@ exit</code></pre>
                         <!-- Contenido del código -->
 <pre><code>hostname R2
 router rip
-version 2
-network 192.168.0.0
-network 172.16.0.0
-passive-interface default
-no passive-interface gig0/1   # Activamos RIP en la interfaz que conecta con R3
-exit</code></pre>
+    version 2
+    no auto-summary
+    network 192.168.0.0
+    network 172.16.0.4
+    passive-interface default
+    no passive-interface gig0/1   # Activamos RIP en la interfaz que conecta con R3
+    exit</code></pre>
                     </div>
                 </div>
                     <li>Router 3</li>
@@ -162,16 +170,18 @@ exit</code></pre>
                         <!-- Contenido del código -->
 <pre><code>hostname R3
 router rip
-version 2
-network 172.16.0.0
-network 1.1.1.0   # Loopback: 1.1.1.1/32
-passive-interface default
-no passive-interface gig0/0   # Activamos RIP en las interfaces que conectan a R1 y R2
-no passive-interface gig0/1
-exit
+    version 2
+    no auto-summary
+    network 172.16.0.0
+    network 172.16.0.4
+    network 1.1.1.1   # Loopback: 1.1.1.1/32
+    passive-interface default
+    no passive-interface gig0/0   # Activamos RIP en las interfaces que conectan a R1 y R2
+    no passive-interface gig0/1
+    exit
 
-# Configuramos balanceo de carga
-maximum-paths 2   # Activamos el balanceo entre las rutas de R1 y R2</code></pre>
+    # Configuramos balanceo de carga
+    maximum-paths 2   # Activamos el balanceo entre las rutas de R1 y R2</code></pre>
                     </div>
                 </div>
                 </ul>
@@ -188,9 +198,9 @@ maximum-paths 2   # Activamos el balanceo entre las rutas de R1 y R2</code></pre
 <pre><code>sysname R1
 rip 1
 version 2
+undo auto-summary
 network 192.168.0.0
 network 172.16.0.0
-undo summary
 silent-interface all
 undo silent-interface GigabitEthernet0/0/0   # Activamos RIP en la interfaz hacia R3</code></pre>
                     </div>
@@ -205,9 +215,9 @@ undo silent-interface GigabitEthernet0/0/0   # Activamos RIP en la interfaz haci
 <pre><code>sysname R2
 rip 1
 version 2
+undo auto-summary
 network 192.168.0.0
-network 172.16.0.0
-undo summary
+network 172.16.0.4
 silent-interface all
 undo silent-interface GigabitEthernet0/0/1   # Activamos RIP en la interfaz hacia R3</code></pre>
                     </div>
@@ -222,8 +232,10 @@ undo silent-interface GigabitEthernet0/0/1   # Activamos RIP en la interfaz haci
 <pre><code>sysname R3
 rip 1
 version 2
+undo auto-summary
 network 172.16.0.0
-network 1.1.1.0
+network 172.16.0.4
+network 1.1.1.1
 undo summary
 silent-interface all
 undo silent-interface GigabitEthernet0/0/0   # Activamos RIP en ambas interfaces hacia R1 y R2
@@ -234,8 +246,71 @@ rip load-balance 2</code></pre>
                     </div>
                 </div>
                 </ul>
-                <p></p>
-                <p></p>
+                <h6>Redistribución de Rutas Cisco</h6>
+                <p>La redistribución de rutas permite que un protocolo de enrutamiento (como RIP) aprenda y propague información de enrutamiento que no es originalmente parte de su dominio.</p>
+                <p>Imagina que tienes un router R1 con la siguiente configuración:</p>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>hostname R1
+interface Gig0/0
+    ip address 192.168.1.1 255.255.255.0
+    no shutdown
+exit
+
+# Configuración de la ruta estática predeterminada
+ip route 0.0.0.0 0.0.0.0 192.168.1.254  # Enviar a 192.168.1.254 (next-hop)
+
+# Configuración de RIP
+router rip
+    version 2
+    network 192.168.1.0
+    default-information originate
+exit</code></pre>
+                    </div>
+                </div>
+                <p>Proceso de Redistribución:</p>
+                <ol>
+                    <li><marcador class="resaltado8">Configuración de la Ruta Estática:</marcador></li>
+                    <p>R1 tiene una ruta estática que indica que cualquier tráfico destinado a direcciones que no están en su tabla de enrutamiento debe ser enviado a <marcador class="subrayado">192.168.1.254</marcador>.</p>
+                    <li><marcador class="resaltado8">Propagación de la Ruta Predeterminada:</marcador></li>
+                    <p>Cuando R1 ejecuta el comando <marcador class="subrayado">default-information originate</marcador>, verifica si tiene la ruta estática predeterminada.</p>
+                    <p>Si la ruta está presente, R1 enviará esta ruta en sus actualizaciones RIP a los otros routers en la red.</p>
+                    <li><marcador class="resaltado8">Aprendizaje por Otros Routers:</marcador></li>
+                    <p>Los routers vecinos que reciben las actualizaciones de RIP ahora conocen la ruta predeterminada de R1 y pueden usarla para enrutar tráfico hacia destinos desconocidos.</p>
+                    <p>Esto es especialmente útil en redes donde algunos routers no tienen acceso a rutas específicas, permitiéndoles utilizar la ruta predeterminada como una "salida" para el tráfico.</p>
+                </ol>
+                <h6></h6>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>system-view
+hostname R1
+
+# Configuración de la interfaz
+interface GigabitEthernet0/0
+    ip address 192.168.1.1 255.255.255.0
+    undo shutdown  # Para activar la interfaz
+exit
+
+# Configuración de la ruta estática predeterminada
+ip route-static 0.0.0.0 0.0.0.0 192.168.1.254  # Enviar a 192.168.1.254 (next-hop)
+
+# Configuración de RIP
+rip  # Entrar en el modo de configuración de RIP
+    version 2
+    network 192.168.1.0
+    default-route-advertise  # Propagar la ruta estática predeterminada
+exit</code></pre>
+                    </div>
+                </div>
+                <p>Esta configuración permite que R1 tenga una ruta estática predeterminada que se envía a otros routers en la red mediante RIP. De este modo, los routers vecinos pueden aprender a enviar tráfico a destinos desconocidos utilizando esta ruta.</p>
                 <div class="blog-image-grande">
                     <img src="media/rip5.jpg" alt="">
                 </div> 
