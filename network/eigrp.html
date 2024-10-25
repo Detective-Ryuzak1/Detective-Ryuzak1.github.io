@@ -148,10 +148,10 @@
                         <!-- Contenido del código -->
 <pre><code>hostname R1
 router eigrp 1
-network 192.168.0.0 0.0.0.255
-network 172.16.0.0 0.0.0.3
-no auto-summary
-exit</code></pre>
+    no auto-summary
+    network 192.168.0.0 0.0.0.255
+    network 172.16.0.0 0.0.0.3
+    exit</code></pre>
                     </div>
                 </div>
                 <p>Aquí, la línea <marcador class="subrayado">no auto-summary</marcador> desactiva la función de auto resumen. Esto significa que EIGRP anunciará las redes exactas tal como están configuradas, sin resumirlas a su clase de red superior.</p>
@@ -169,10 +169,10 @@ exit</code></pre>
                         <!-- Contenido del código -->
 <pre><code>hostname R2
 router eigrp 1
-network 192.168.0.0 0.0.0.255
-network 172.16.0.4 0.0.0.3
-no auto-summary
-exit</code></pre>
+    no auto-summary
+    network 192.168.0.0 0.0.0.255
+    network 172.16.0.4 0.0.0.3
+    exit</code></pre>
                     </div>
                 </div>
                     <li>Router 3</li>
@@ -184,15 +184,15 @@ exit</code></pre>
                         <!-- Contenido del código -->
 <pre><code>hostname R3
 router eigrp 1
-network 172.16.0.0 0.0.0.3
-network 172.16.0.4 0.0.0.3
-network 1.1.1.1 0.0.0.0   # Loopback: 1.1.1.1/32
-no auto-summary
-exit
+    no auto-summary
+    network 172.16.0.0 0.0.0.3
+    network 172.16.0.4 0.0.0.3
+    network 1.1.1.1 0.0.0.0   # Loopback: 1.1.1.1/32
+    exit
 
-# Configuración de balanceo de carga desigual con varianza
-variance 2   # Permite rutas con hasta el doble de la métrica de la mejor ruta
-maximum-paths 2   # Permite hasta dos rutas simultáneas</code></pre>
+    # Configuración de balanceo de carga desigual con varianza
+    variance 2   # Permite rutas con hasta el doble de la métrica de la mejor ruta
+    maximum-paths 2   # Permite hasta dos rutas simultáneas</code></pre>
                     </div>
                 </div>
                 </ul>
@@ -252,9 +252,9 @@ interface fa0/0
 
 # Configuración EIGRP para el AS 20
 router eigrp 20
+    no auto-summary
     network 20.20.20.4 0.0.0.3
     network 1.1.1.1 0.0.0.0
-    no auto-summary
     exit</code></pre>
                         </div>
                     </div>
@@ -281,11 +281,11 @@ interface fa0/1
 
 # Configuración EIGRP para el AS 20
 router eigrp 20
+    no auto-summary
     network 20.20.20.0 0.0.0.3
     network 20.20.20.4 0.0.0.3
     network 2.2.2.2 0.0.0.0
     eigrp router-id 2.2.2.2
-    no auto-summary
     exit</code></pre>
                         </div>
                     </div>
@@ -316,18 +316,18 @@ interface fa0/0
 
 # Configuración EIGRP para el AS 20
 router eigrp 20
+    no auto-summary
     network 20.20.20.0 0.0.0.3
     network 3.3.3.3 0.0.0.0
     eigrp router-id 3.3.3.3
-    no auto-summary
     exit
 
 # Configuración EIGRP para el AS 10
 router eigrp 10
+    no auto-summary
     network 10.10.10.0 0.0.0.3
     network 10.10.10.4 0.0.0.3
     eigrp router-id 3.3.3.3
-    no auto-summary
     exit</code></pre>
                         </div>
                     </div>
@@ -350,10 +350,10 @@ interface fa0/0
 
 # Configuración EIGRP para el AS 10
 router eigrp 10
+    no auto-summary
     network 10.10.10.4 0.0.0.3
     network 4.4.4.4 0.0.0.0
     eigrp router-id 4.4.4.4
-    no auto-summary
     exit</code></pre>
                         </div>
                     </div>
@@ -376,10 +376,10 @@ interface fa0/0
 
 # Configuración EIGRP para el AS 10
 router eigrp 10
+    no auto-summary
     network 10.10.10.0 0.0.0.3
     network 5.5.5.5 0.0.0.0
     eigrp router-id 5.5.5.5
-    no auto-summary
     exit</code></pre>
                         </div>
                     </div>
