@@ -197,12 +197,12 @@ router rip
                         <!-- Contenido del código -->
 <pre><code>sysname R1
 rip 1
-version 2
-undo auto-summary
-network 192.168.0.0
-network 172.16.0.0
-silent-interface all
-undo silent-interface GigabitEthernet0/0/0   # Activamos RIP en la interfaz hacia R3</code></pre>
+    version 2
+    undo auto-summary
+    network 192.168.0.0
+    network 172.16.0.0
+    silent-interface all
+    undo silent-interface GigabitEthernet0/0/0   # Activamos RIP en la interfaz hacia R3</code></pre>
                     </div>
                 </div>
                     <li>Router 2</li>
@@ -214,12 +214,12 @@ undo silent-interface GigabitEthernet0/0/0   # Activamos RIP en la interfaz haci
                         <!-- Contenido del código -->
 <pre><code>sysname R2
 rip 1
-version 2
-undo auto-summary
-network 192.168.0.0
-network 172.16.0.4
-silent-interface all
-undo silent-interface GigabitEthernet0/0/1   # Activamos RIP en la interfaz hacia R3</code></pre>
+    version 2
+    undo auto-summary
+    network 192.168.0.0
+    network 172.16.0.4
+    silent-interface all
+    undo silent-interface GigabitEthernet0/0/1   # Activamos RIP en la interfaz hacia R3</code></pre>
                     </div>
                 </div>
                     <li>Router 3</li>
@@ -232,17 +232,17 @@ undo silent-interface GigabitEthernet0/0/1   # Activamos RIP en la interfaz haci
 <pre><code>sysname R3
 rip 1
 version 2
-undo auto-summary
-network 172.16.0.0
-network 172.16.0.4
-network 1.1.1.1
-undo summary
-silent-interface all
-undo silent-interface GigabitEthernet0/0/0   # Activamos RIP en ambas interfaces hacia R1 y R2
-undo silent-interface GigabitEthernet0/0/1
+    undo auto-summary
+    network 172.16.0.0
+    network 172.16.0.4
+    network 1.1.1.1
+    undo summary
+    silent-interface all
+    undo silent-interface GigabitEthernet0/0/0   # Activamos RIP en ambas interfaces hacia R1 y R2
+    undo silent-interface GigabitEthernet0/0/1
 
 # Configuramos balanceo de carga
-rip load-balance 2</code></pre>
+    rip load-balance 2</code></pre>
                     </div>
                 </div>
                 </ul>
@@ -259,7 +259,7 @@ rip load-balance 2</code></pre>
 interface Gig0/0
     ip address 192.168.1.1 255.255.255.0
     no shutdown
-exit
+    exit
 
 # Configuración de la ruta estática predeterminada
 ip route 0.0.0.0 0.0.0.0 192.168.1.254  # Enviar a 192.168.1.254 (next-hop)
@@ -269,7 +269,7 @@ router rip
     version 2
     network 192.168.1.0
     default-information originate
-exit</code></pre>
+    exit</code></pre>
                     </div>
                 </div>
                 <p>Proceso de Redistribución:</p>
@@ -297,7 +297,7 @@ hostname R1
 interface GigabitEthernet0/0
     ip address 192.168.1.1 255.255.255.0
     undo shutdown  # Para activar la interfaz
-exit
+    quit
 
 # Configuración de la ruta estática predeterminada
 ip route-static 0.0.0.0 0.0.0.0 192.168.1.254  # Enviar a 192.168.1.254 (next-hop)
@@ -307,7 +307,7 @@ rip  # Entrar en el modo de configuración de RIP
     version 2
     network 192.168.1.0
     default-route-advertise  # Propagar la ruta estática predeterminada
-exit</code></pre>
+    quit</code></pre>
                     </div>
                 </div>
                 <p>Esta configuración permite que R1 tenga una ruta estática predeterminada que se envía a otros routers en la red mediante RIP. De este modo, los routers vecinos pueden aprender a enviar tráfico a destinos desconocidos utilizando esta ruta.</p>
