@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <link rel="icon" href="../media/imagen41.png" type="image/png">
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                        <li><a href="../devops.html">DevOps</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Aportar" onclick="window.open('https://buymeacoffee.com/ryuzak1', '_blank');">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <br>
+                <br>
+                <h1>EIGRP (Enhanced Interior Gateway Routing Protocol)</h1>
+                <p>El Enhanced Interior Gateway Routing Protocol (EIGRP) es un protocolo de enrutamiento avanzado desarrollado por Cisco. Se diseñó para mejorar las deficiencias de RIP y OSPF, y combina lo mejor de los protocolos de enrutamiento de estado de enlace y de distancia vectorial. EIGRP es altamente eficiente, escalable y converge rápidamente, lo que lo convierte en una excelente opción para redes grandes y complejas.</p>
+                <div class="blog-image-grande">
+                    <img src="media/eigrp1.png" alt="">
+                </div>
+                <h2>Características</h2>
+                <ul>
+                    <li><marcador class="resaltado9">Híbrido: </marcador>EIGRP se considera un protocolo híbrido, ya que utiliza características tanto de los protocolos de enrutamiento de estado de enlace (como OSPF) como de distancia-vector (como RIP).</li>
+                    <li><marcador class="resaltado9">Convergencia rápida: </marcador>Una de las principales ventajas de EIGRP es su capacidad de converger rápidamente gracias a su uso del algoritmo DUAL (Diffusing Update Algorithm), que calcula las mejores rutas sin necesidad de actualizar toda la tabla de enrutamiento.</li>
+                    <li><marcador class="resaltado9">Balanceo de carga desigual: </marcador>EIGRP soporta balanceo de carga tanto igual como desigual, permitiendo a los administradores utilizar rutas con diferentes métricas para balancear el tráfico.</li>
+                    <li><marcador class="resaltado9">Métrica compuesta: </marcador>EIGRP usa una métrica compuesta basada en cinco parámetros: ancho de banda, retardo, confiabilidad, carga y MTU (tamaño máximo de la unidad de transmisión).</li>
+                    <li><marcador class="resaltado9">VLSM y CIDR: </marcador>EIGRP soporta el uso de VLSM (Variable Length Subnet Masking) y CIDR (Classless Inter-Domain Routing).</li>
+                    <li><marcador class="resaltado9">Autenticación: </marcador>EIGRP soporta autenticación MD5 para garantizar que solo routers autorizados participen en el intercambio de rutas.</li>
+                    <li><marcador class="resaltado9">Actualización parcial: </marcador>A diferencia de RIP, EIGRP envía solo actualizaciones parciales, lo que mejora la eficiencia del ancho de banda.</li>
+                    <li><marcador class="resaltado9">Sin clase: </marcador>A diferencia de RIP v1, EIGRP es un protocolo sin clase, lo que le permite soportar múltiples subredes y sumarización de rutas.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/eigrp8.jpg" alt="">
+                </div>
+                <h2>Versiones</h2>
+                <ul>
+                    <li><marcador class="resaltado5">EIGRP Clásico</marcador></li>
+                    <p>EIGRP (Enhanced Interior Gateway Routing Protocol) es un protocolo de enrutamiento propietario desarrollado por Cisco. Hasta 2013, fue exclusivo para dispositivos Cisco, lo que significaba que solo podía implementarse en su hardware. Sin embargo, ese año, EIGRP fue abierto como un estándar bajo la RFC 7868, lo que permitió su adopción más amplia en otras plataformas. A pesar de esto, su uso principal sigue siendo en equipos de Cisco o en dispositivos compatibles que puedan soportarlo mediante una licencia especial.</p>
+                    <li><marcador class="resaltado5">EIGRP para IPv6</marcador></li>
+                    <p>EIGRP para IPv6 es una versión del protocolo diseñada específicamente para operar en redes basadas en IPv6. Aunque comparte muchas características con EIGRP para IPv4, como el algoritmo DUAL (Diffusing Update Algorithm) y las métricas utilizadas para calcular las rutas, está adaptado para trabajar con direcciones IPv6. Esta adaptación permite que las organizaciones utilicen EIGRP de manera eficiente en entornos IPv6, manteniendo la funcionalidad y las ventajas que ofrece este protocolo en su versión original.</p>
+                </ul>
+                <h2>Métrica de EIGRP</h2>
+                <p>La métrica utilizada por EIGRP es más avanzada que la simple métrica basada en saltos de RIP. La métrica de EIGRP se basa en los siguientes cinco factores:</p>
+                <ol>
+                    <li><marcador class="resaltado9">Ancho de banda: </marcador>Este factor se refiere al ancho de banda del enlace más lento en la ruta. EIGRP utiliza el ancho de banda nominal del enlace, lo que significa que considera la velocidad máxima teórica del enlace. Cuanto mayor sea el ancho de banda, mejor será la métrica, lo que favorece rutas más rápidas.</li>
+                    <li><marcador class="resaltado9">Retardo: </marcador>El retardo es la suma de los retardos de todos los enlaces a lo largo de la ruta. EIGRP permite a los administradores asignar un valor de retardo a cada enlace, y estos valores se suman para calcular el retardo total de la ruta. Una ruta con menor retardo será preferida, mejorando así el rendimiento general de la red.</li>
+                    <li><marcador class="resaltado9">Confiabilidad: </marcador>Este factor mide la calidad del enlace y se expresa como un valor que varía de 0 a 255, donde 255 indica un enlace altamente confiable. EIGRP puede evaluar la confiabilidad de un enlace en función de errores y problemas en la transmisión de datos. Las rutas a través de enlaces más confiables serán favorecidas en la selección de rutas.</li>
+                    <li><marcador class="resaltado9">Carga: </marcador>La carga se refiere al tráfico actual que transita por un enlace. EIGRP monitoriza el uso del enlace y utiliza este valor para calcular la métrica. Si un enlace está muy ocupado, su carga será alta, lo que puede hacer que EIGRP prefiera rutas menos congestionadas.</li>
+                    <li><marcador class="resaltado9">MTU: </marcador>Aunque la MTU se utiliza en el cálculo de la métrica, su influencia es menos directa en la selección de la ruta. La MTU se refiere al tamaño máximo de un paquete que puede ser transmitido a través de un enlace. Si un paquete es demasiado grande para el enlace, se fragmentará, lo que puede afectar el rendimiento. EIGRP considera la MTU para evitar seleccionar rutas que no puedan manejar el tamaño de los paquetes transmitidos.</li>
+                </ol>
+                <div class="blog-image-grande">
+                    <img src="media/eigrp9.png" alt="">
+                </div>
+                <p>Por defecto, EIGRP usa solo el ancho de banda y el retardo para calcular la métrica.</p>
+                <h2>Algoritmo</h2>
+                <p>EIGRP (Enhanced Interior Gateway Routing Protocol) utiliza el algoritmo DUAL (Diffusing Update Algorithm) para calcular las rutas y garantizar una convergencia rápida y eficiente en la red. Este algoritmo fue desarrollado por Cisco y es una de las características que distingue a EIGRP de otros protocolos de enrutamiento.</p>
+                <p>Características Clave:</p>
+                <ul>
+                    <li><marcador class="resaltado5">Convergencia Rápida: </marcador>DUAL permite que los routers recalculen las rutas de manera rápida en caso de cambios en la topología de la red, minimizando el tiempo de inactividad y la pérdida de paquetes.</li>
+                    <li><marcador class="resaltado5">Rutas Suplementarias: </marcador>DUAL mantiene no solo la mejor ruta a un destino, sino también rutas alternativas (rutas secundarias) que pueden ser utilizadas si la ruta principal falla. Esto mejora la resiliencia de la red.</li>
+                    <li><marcador class="resaltado5">Métrica Compleja: </marcador>El algoritmo utiliza una métrica compuesta que toma en cuenta múltiples factores, como ancho de banda, retardo, carga y confiabilidad. Esto permite que EIGRP elija las rutas más eficientes en función de las condiciones actuales de la red.</li>
+                    <li><marcador class="resaltado5">Tablas de Enrutamiento: </marcador>DUAL utiliza dos tablas principales:</li>
+                    <ol>
+                        <li><marcador class="resaltado8">Topología: </marcador>Almacena toda la información de las rutas conocidas, incluyendo rutas válidas y posibles.</li>
+                        <li><marcador class="resaltado8">Ruta de Enrutamiento: </marcador>Contiene solo la mejor ruta hacia cada destino.</li>
+                    </ol>
+                    <li><marcador class="resaltado5">Estados de las Rutas: </marcador>DUAL clasifica las rutas en diferentes estados:</li>
+                    <ol>
+                        <li><marcador class="resaltado8">Rutas Suplementarias: </marcador>Rutas que pueden ser utilizadas si la ruta principal falla.</li>
+                        <li><marcador class="resaltado8">Rutas Viables: </marcador>Rutas que cumplen con los criterios de DUAL para ser utilizadas.</li>
+                        <li><marcador class="resaltado8">Rutas No Viables: </marcador>Rutas que no son elegibles para ser utilizadas.</li>
+                    </ol>
+                    <li><marcador class="resaltado5">Aseguramiento de Consistencia: </marcador>DUAL utiliza un mecanismo de "diffusing" para garantizar que los cambios en las rutas se propaguen de manera controlada a todos los routers en la red, evitando así bucles de enrutamiento y garantizando la estabilidad.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/eigrp3.png" alt="">
+                </div>
+                <h2>Balanceo de Carga</h2>
+                <p>Una característica clave de EIGRP es su capacidad para balancear la carga de manera desigual, lo que significa que puede usar múltiples rutas con diferentes métricas para distribuir el tráfico. Para habilitar el balanceo de carga desigual, se utiliza el comando <marcador class="subrayado">variance</marcador>.</p>
+                <p>El comando variance establece un valor de multiplicador que permite utilizar rutas con una métrica mayor siempre que sea dentro del rango multiplicado.</p>
+                <h2>Autonomous System (AS)</h2>
+                <p>Un Autonomous System (AS) en el contexto de EIGRP (Enhanced Interior Gateway Routing Protocol) se refiere a un conjunto de routers bajo el control administrativo de una sola entidad o una organización. En términos de EIGRP, un AS se utiliza para identificar y agrupar routers que comparten las mismas políticas de enrutamiento y protocolos.</p>
+                <p>Funciones y Características del AS:</p>
+                <ul>
+                    <li><marcador class="resaltado5">Identificación de Rutas: </marcador>Cada router en un AS utiliza un número de sistema autónomo único para identificarse. Este número es esencial para que los routers dentro de un AS intercambien información de enrutamiento correctamente. Si dos routers no comparten el mismo número de AS, no podrán establecer una vecindad EIGRP y, por lo tanto, no podrán intercambiar rutas.</li>
+                    <li><marcador class="resaltado5">Convergencia Rápida: </marcador>Dentro de un AS, EIGRP utiliza el algoritmo DUAL (Diffusing Update Algorithm) para calcular las rutas más óptimas y garantizar una rápida convergencia. Esto significa que, una vez que se produce un cambio en la red, los routers pueden rápidamente recalcular y actualizar sus tablas de enrutamiento.</li>
+                    <li><marcador class="resaltado5">Control de Políticas: </marcador>Al agrupar routers en un AS, las organizaciones pueden aplicar políticas de enrutamiento específicas que se alineen con sus necesidades de red. Esto permite un mejor control sobre cómo se enrutan los paquetes y qué rutas se prefieren.</li>
+                    <li><marcador class="resaltado5">Escalabilidad: </marcador> EIGRP está diseñado para ser escalable, lo que significa que puede manejar grandes redes distribuidas en varios AS. Esto es especialmente útil en entornos empresariales donde diferentes departamentos pueden tener sus propios subredes y políticas.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/eigrp7.jpg" alt="">
+                </div>
+                <h2>Configuración</h2>
+                <h6>Ejemplo 1</h6>
+                <div class="blog-image-grande">
+                    <img src="media/rip1.jpeg" alt="">
+                </div>
+                <ul>
+                    <li>Router 1</li>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>hostname R1
+router eigrp 1
+network 192.168.0.0 0.0.0.255
+network 172.16.0.0 0.0.0.3
+no auto-summary
+exit</code></pre>
+                    </div>
+                </div>
+                <p>Aquí, la línea <marcador class="subrayado">no auto-summary</marcador> desactiva la función de auto resumen. Esto significa que EIGRP anunciará las redes exactas tal como están configuradas, sin resumirlas a su clase de red superior.</p>
+                <ul>
+                    <li><marcador class="resaltado8"></marcador>Primera línea: <marcador class="subrayado">network 192.168.0.0 0.0.0.255</marcador> incluye todas las subredes de la clase C 192.168.0.0.</li>
+                    <li><marcador class="resaltado8"></marcador>Segunda línea: <marcador class="subrayado">network 172.16.0.0 0.0.0.3</marcador> incluye un rango muy específico de direcciones de clase B (en este caso, la subred 172.16.0.0/30).</li>
+                </ul>
+                <p>Al desactivar el auto resumen, EIGRP puede manejar las subredes de manera más precisa, lo que es especialmente útil en configuraciones donde se utilizan VLSM (Variable Length Subnet Mask) o redes no contiguas. Esto ayuda a evitar la confusión y los problemas que podrían surgir al resumir incorrectamente las rutas.</p>
+                    <li>Router 2</li>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>hostname R2
+router eigrp 1
+network 192.168.0.0 0.0.0.255
+network 172.16.0.4 0.0.0.3
+no auto-summary
+exit</code></pre>
+                    </div>
+                </div>
+                    <li>Router 3</li>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>hostname R3
+router eigrp 1
+network 172.16.0.0 0.0.0.3
+network 172.16.0.4 0.0.0.3
+network 1.1.1.0 0.0.0.255   # Loopback: 1.1.1.1/32
+no auto-summary
+exit
+
+# Configuración de balanceo de carga desigual con varianza
+variance 2   # Permite rutas con hasta el doble de la métrica de la mejor ruta
+maximum-paths 2   # Permite hasta dos rutas simultáneas</code></pre>
+                    </div>
+                </div>
+                </ul>
+                <h6>Ejemplo 2</h6>
+                <div class="blog-image-grande">
+                    <img src="media/eigrp6.png" alt="">
+                </div>
+                <p>Para esta topología EIGRP, que muestra dos sistemas autónomos (AS 10 y AS 20), te proporcionaré la configuración de EIGRP para dispositivos Cisco.</p>
+                <p>Descripción de la topología:</p>
+                <ol>
+                    <li>El AS 10 incluye los routers R3, R4, y R5.</li>
+                    <li>El AS 20 incluye los routers R1, R2, y también el router R3.</li>
+                    <li>El router R3 es el único que se encuentra en ambos sistemas autónomos, funcionando como un ASBR (Autonomous System Boundary Router) entre los dos AS.</li>
+                </ol>
+                <p>La red conecta los siguientes enlaces:</p>
+                <ul>
+                    <li>R1: 1.1.1.1/32</li>
+                    <li>R2: 2.2.2.2/32</li>
+                    <li>R3: 3.3.3.3/32</li>
+                    <li>R4: 4.4.4.4/32</li>
+                    <li>R5: 5.5.5.5/32</li>
+                </ul>
+                <p>Explicación de la configuración:</p>
+                <ol>
+                    <li>AS 10:</li>
+                    <ul>
+                        <li>R3, R4, y R5 pertenecen al AS 10.</li>
+                        <li>El AS 10 tiene sus propias redes, incluida la red 10.10.10.0/31 que conecta R3, R4, y R5.</li>
+                        <li>R4 y R5 también tienen redes de loopback configuradas para 4.4.4.4/32 y 5.5.5.5/32, respectivamente.</li>
+                    </ul>  
+                    <li>AS 20:</li>
+                    <ul>
+                        <li>Los routers R1 y R2 tienen interfaces conectadas en la red 20.20.20.0/30.</li>
+                        <li>Cada uno de estos routers tiene también una red de loopback configurada (1.1.1.1/32 para R1 y 2.2.2.2/32 para R2).</li>
+                        <li>EIGRP en AS 20 está configurado en R1, R2, y la interfaz de R3 que conecta con la red 20.20.20.0/30.</li>
+                    </ul>  
+                    <li>R3 actúa como un ASBR (Autonomous System Boundary Router), ya que se conecta tanto al AS 10 como al AS 20, facilitando la comunicación entre los dos sistemas autónomos.</li>
+                </ol>
+                <p></p>
+                <ul>
+                    <li>Configuración de R1 (AS 20)</li>
+                    <div class="consola">
+                        <div class="barra-superior-consola">
+                            <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                        </div>
+                        <div class="codigo-consola">
+                            <!-- Contenido del código -->
+    <pre><code>hostname R1
+# Configuración de la interfaz
+interface fa0/0
+    ip address 20.20.20.2 255.255.255.252
+    no shutdown
+
+# Configuración EIGRP para el AS 20
+router eigrp 20
+    network 20.20.20.0 0.0.0.3
+    network 1.1.1.1 0.0.0.0
+    no auto-summary
+    exit</code></pre>
+                        </div>
+                    </div>
+                    <li>Configuración de R2 (AS 20)</li>
+                    <div class="consola">
+                        <div class="barra-superior-consola">
+                            <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                        </div>
+                        <div class="codigo-consola">
+                            <!-- Contenido del código -->
+    <pre><code>hostname R2
+# Configuración de las interfaces
+interface fa0/0
+    ip address 20.20.20.1 255.255.255.252
+    no shutdown
+
+# Configuración EIGRP para el AS 20
+router eigrp 20
+    network 20.20.20.0 0.0.0.3
+    network 2.2.2.2 0.0.0.0
+    no auto-summary
+    exit</code></pre>
+                        </div>
+                    </div>
+                    <li>Configuración de R3 (AS 10 y AS 20)</li>
+                    <div class="consola">
+                        <div class="barra-superior-consola">
+                            <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                        </div>
+                        <div class="codigo-consola">
+                            <!-- Contenido del código -->
+    <pre><code>hostname R3
+# Configuración de las interfaces
+interface fa0/0
+    ip address 3.3.3.3 255.255.255.252
+    no shutdown
+
+interface fa1/0
+    ip address 20.20.20.2 255.255.255.252
+    no shutdown
+
+interface fa1/1
+    ip address 10.10.10.1 255.255.255.254
+    no shutdown
+
+# Configuración EIGRP para el AS 20
+router eigrp 20
+    network 20.20.20.0 0.0.0.3
+    network 3.3.3.3 0.0.0.0
+    no auto-summary
+    exit
+
+# Configuración EIGRP para el AS 10
+router eigrp 10
+    network 3.3.3.0 0.0.0.3
+    network 10.10.10.0 0.0.0.3
+    no auto-summary
+    exit</code></pre>
+                        </div>
+                    </div>
+                    <li>Configuración de R4 (AS 10)</li>
+                    <div class="consola">
+                        <div class="barra-superior-consola">
+                            <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                        </div>
+                        <div class="codigo-consola">
+                            <!-- Contenido del código -->
+    <pre><code>hostname R4
+# Configuración de la interfaz
+interface fa0/0
+    ip address 10.10.10.2 255.255.255.254
+    no shutdown
+
+# Configuración EIGRP para el AS 10
+router eigrp 10
+    network 10.10.10.0 0.0.0.3
+    network 4.4.4.4 0.0.0.0
+    no auto-summary
+    exit</code></pre>
+                        </div>
+                    </div>
+                    <li>Configuración de R5 (AS 10)</li>
+                    <div class="consola">
+                        <div class="barra-superior-consola">
+                            <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                        </div>
+                        <div class="codigo-consola">
+                            <!-- Contenido del código -->
+    <pre><code>hostname R3
+# Configuración de la interfaz
+interface fa0/0
+    ip address 10.10.10.0 255.255.255.254
+    no shutdown
+
+# Configuración EIGRP para el AS 10
+router eigrp 10
+    network 10.10.10.0 0.0.0.3
+    network 5.5.5.5 0.0.0.0
+    no auto-summary
+    exit</code></pre>
+                        </div>
+                    </div>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/eigrp5.jpg" alt="">
+                </div>
+            </div>
+        </div>       
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
