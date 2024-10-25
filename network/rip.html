@@ -226,7 +226,8 @@ rip 1
                 <div class="consola">
                     <div class="barra-superior-consola">
                         <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
-                    </div>
+                    </div>redistribute static:
+                    Este comando redistribuye todas las rutas estáticas configuradas en el router, no solo la ruta predeterminada. Cualquier ruta que hayas configurado manualmente con el comando ip route será anunciada a través de RIP a los routers vecinos.
                     <div class="codigo-consola">
                         <!-- Contenido del código -->
 <pre><code>sysname R3
@@ -283,7 +284,29 @@ router rip
                     <p>Los routers vecinos que reciben las actualizaciones de RIP ahora conocen la ruta predeterminada de R1 y pueden usarla para enrutar tráfico hacia destinos desconocidos.</p>
                     <p>Esto es especialmente útil en redes donde algunos routers no tienen acceso a rutas específicas, permitiéndoles utilizar la ruta predeterminada como una "salida" para el tráfico.</p>
                 </ol>
-                <h6></h6>
+                <h6>Redistribución de Rutas Cisco 2</h6>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>hostname R1
+# Configuración de la ruta estática predeterminada
+ip route 0.0.0.0 0.0.0.0 serial0  # Enviar por la interfaz 0 del router (next-hop)
+
+# Configuración de RIP
+router rip
+    version 2
+    network 192.168.1.0
+    netork 200.200.10.0
+    redistribute static
+    passive-interface serial0
+    exit</code></pre>
+                    </div>
+                </div>
+                <p>Aquí <marcador class="subrayado">redistribute static</marcador> redistribuye todas las rutas estáticas configuradas en el router, no solo la ruta predeterminada. Cualquier ruta que hayas configurado manualmente con el comando <marcador class="subrayado">ip route</marcador> será anunciada a través de RIP a los routers vecinos.</p>
+                <h6>Redistribución de Rutas Huawei</h6>
                 <div class="consola">
                     <div class="barra-superior-consola">
                         <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
@@ -311,6 +334,30 @@ rip  # Entrar en el modo de configuración de RIP
                     </div>
                 </div>
                 <p>Esta configuración permite que R1 tenga una ruta estática predeterminada que se envía a otros routers en la red mediante RIP. De este modo, los routers vecinos pueden aprender a enviar tráfico a destinos desconocidos utilizando esta ruta.</p>
+                <h6>Redistribución de Rutas Huawei 2</h6>
+                <p>En este caso, RIP que redistribuye las rutas estáticas en sus actualizaciones de enrutamiento.</p>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>system-view
+sysname R1
+
+# Configuración de la ruta estática predeterminada
+ip route-static 0.0.0.0 0.0.0.0 Serial0
+
+# Configuración de RIP
+rip 1
+    version 2
+    network 192.168.1.0
+    network 200.200.10.0
+    import-route static
+    silent-interface Serial0
+    quit</code></pre>
+                    </div>
+                </div>
                 <div class="blog-image-grande">
                     <img src="media/rip5.jpg" alt="">
                 </div> 
