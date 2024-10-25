@@ -117,6 +117,22 @@
                 <div class="blog-image-grande">
                     <img src="media/eigrp7.jpg" alt="">
                 </div>
+                <h2>Wildcards</h2>
+                <p>Las wildcards (o máscaras comodín) son un tipo de expresión utilizada en redes para especificar un rango de direcciones IP. A diferencia de las máscaras de subred tradicionales, que determinan qué parte de una dirección IP corresponde a la red y qué parte corresponde a los hosts, las wildcards permiten definir qué bits de la dirección se deben considerar y cuáles pueden ser ignorados.</p>
+                <p>Las wildcards son comúnmente utilizadas en varios contextos de configuración de redes, como en:</p>
+                <ul>
+                    <li><marcador class="resaltado5">Protocolos de Enrutamiento: </marcador>En protocolos como OSPF y EIGRP, las wildcards se utilizan para definir qué direcciones IP deben incluirse en el proceso de enrutamiento. Por ejemplo, en EIGRP, puedes especificar un rango de direcciones a incluir en la configuración de la red.</li>
+                    <li><marcador class="resaltado5">Listas de Control de Acceso (ACL): </marcador>En las ACL, las wildcards son utilizadas para especificar qué direcciones IP están permitidas o denegadas. Esto permite un control granular sobre el tráfico que puede entrar o salir de una red.</li>
+                </ul>
+                <p>Una wildcard se expresa en el mismo formato que una dirección IP, donde cada bit puede ser "0" (que indica que el bit debe coincidir exactamente) o "1" (que indica que el bit puede ser ignorado). Por ejemplo:</p>
+                <ul>
+                    <li><marcador class="resaltado8">Dirección IP: </marcador>192.168.1.0</li>
+                    <li><marcador class="resaltado8">Wildcard: </marcador>0.0.0.255</li>
+                </ul>
+                <p>En este caso, la wildcard 0.0.0.255 significa que los primeros tres octetos (192.168.1) deben coincidir exactamente, mientras que el último octeto (0-255) puede ser cualquier valor. Esto permitiría que cualquier dirección en el rango 192.168.1.0 a 192.168.1.255 fuera considerada.</p>
+                <div class="blog-image-grande">
+                    <img src="media/eigrp2.png" alt="">
+                </div>
                 <h2>Configuración</h2>
                 <h6>Ejemplo 1</h6>
                 <div class="blog-image-grande">
@@ -170,7 +186,7 @@ exit</code></pre>
 router eigrp 1
 network 172.16.0.0 0.0.0.3
 network 172.16.0.4 0.0.0.3
-network 1.1.1.0 0.0.0.255   # Loopback: 1.1.1.1/32
+network 1.1.1.1 0.0.0.0   # Loopback: 1.1.1.1/32
 no auto-summary
 exit
 
@@ -227,7 +243,7 @@ maximum-paths 2   # Permite hasta dos rutas simultáneas</code></pre>
     <pre><code>hostname R1
 # Configuración de la interfaz
 interface fa0/0
-    ip address 20.20.20.2 255.255.255.252
+    ip address 20.20.20.1 255.255.255.252
     no shutdown
 
 # Configuración EIGRP para el AS 20
@@ -248,13 +264,19 @@ router eigrp 20
     <pre><code>hostname R2
 # Configuración de las interfaces
 interface fa0/0
-    ip address 20.20.20.1 255.255.255.252
+    ip address 20.20.20.2 255.255.255.252
+    no shutdown
+
+interface fa0/1
+    ip address 20.20.20.4 255.255.255.252
     no shutdown
 
 # Configuración EIGRP para el AS 20
 router eigrp 20
     network 20.20.20.0 0.0.0.3
+    network 20.20.20.4 0.0.0.3
     network 2.2.2.2 0.0.0.0
+    eigrp router-id 2.2.2.2
     no auto-summary
     exit</code></pre>
                         </div>
@@ -269,28 +291,34 @@ router eigrp 20
     <pre><code>hostname R3
 # Configuración de las interfaces
 interface fa0/0
-    ip address 3.3.3.3 255.255.255.252
+    ip address 20.20.20.5 255.255.255.252
     no shutdown
 
 interface fa1/0
-    ip address 20.20.20.2 255.255.255.252
+    ip address 3.3.3.3 255.255.255.255
     no shutdown
 
-interface fa1/1
-    ip address 10.10.10.1 255.255.255.254
+interface fa0/1
+    ip address 10.10.10.1 255.255.255.252
+    no shutdown
+
+interface fa0/2
+    ip address 10.10.10.3 255.255.255.252
     no shutdown
 
 # Configuración EIGRP para el AS 20
 router eigrp 20
-    network 20.20.20.0 0.0.0.3
+    network 20.20.20.4 0.0.0.3
     network 3.3.3.3 0.0.0.0
+    eigrp router-id 3.3.3.3
     no auto-summary
     exit
 
 # Configuración EIGRP para el AS 10
 router eigrp 10
-    network 3.3.3.0 0.0.0.3
     network 10.10.10.0 0.0.0.3
+    network 10.10.10.2 0.0.0.3
+    eigrp router-id 3.3.3.3
     no auto-summary
     exit</code></pre>
                         </div>
@@ -305,13 +333,14 @@ router eigrp 10
     <pre><code>hostname R4
 # Configuración de la interfaz
 interface fa0/0
-    ip address 10.10.10.2 255.255.255.254
+    ip address 10.10.10.2 255.255.255.252
     no shutdown
 
 # Configuración EIGRP para el AS 10
 router eigrp 10
-    network 10.10.10.0 0.0.0.3
+    network 10.10.10.2 0.0.0.3
     network 4.4.4.4 0.0.0.0
+    eigrp router-id 4.4.4.4
     no auto-summary
     exit</code></pre>
                         </div>
@@ -323,23 +352,24 @@ router eigrp 10
                         </div>
                         <div class="codigo-consola">
                             <!-- Contenido del código -->
-    <pre><code>hostname R3
+    <pre><code>hostname R5
 # Configuración de la interfaz
 interface fa0/0
-    ip address 10.10.10.0 255.255.255.254
+    ip address 10.10.10.5 255.255.255.252
     no shutdown
 
 # Configuración EIGRP para el AS 10
 router eigrp 10
-    network 10.10.10.0 0.0.0.3
+    network 10.10.10.4 0.0.0.3
     network 5.5.5.5 0.0.0.0
+    eigrp router-id 5.5.5.5
     no auto-summary
     exit</code></pre>
                         </div>
                     </div>
                 </ul>
-                <div class="blog-image-grande">
-                    <img src="media/eigrp5.jpg" alt="">
+                <div class="blog-image">
+                    <img src="media/eigrp10.png" alt="">
                 </div>
             </div>
         </div>       
