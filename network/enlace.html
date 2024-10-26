@@ -203,6 +203,36 @@ Switch2# exit</code></pre>
 [Switch2-Eth-Trunk1] quit</code></pre>
                     </div>
             </div>
+            <p>A continuación, se configuran dos switches con una interfaz VLAN y un enlace de agregación para combinar los puertos Ethernet.</p>
+            <p>Esta configuración permite que Switch1 y Switch2 se conviertan en un solo enlace lógico, con balanceo de carga entre los enlaces agregados, mejorando la eficiencia y la tolerancia a fallos en la conexión entre los switches.</p>
+            <div class="consola">
+                <div class="barra-superior-consola">
+                    <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                </div>
+                <div class="codigo-consola">
+                <!-- Contenido del código -->
+                    <pre><code># En el Switch1
+&lt;Switch1&gt; system-view
+[Switch1] interface vlan-interface 1
+[Switch1-Vlan-interface1] ip add 10.1.1.1 255.255.255.252
+[Switch1-Ethernet0/1] speed 100
+[Switch1-Ethernet0/1] duplex full
+[Switch1-Ethernet0/2] speed 100
+[Switch1-Ethernet0/2] duplex full
+[Switch1] link-aggregation Ethernet 0/1 to Ethernet 0/2 both
+                        
+
+# En el Switch2
+&lt;Switch2&gt; system-view
+[Switch2] interface vlan-interface 1
+[Switch2-Vlan-interface1] ip add 10.1.1.2 255.255.255.252
+[Switch2-Ethernet0/1] speed 100
+[Switch2-Ethernet0/1] duplex full
+[Switch2-Ethernet0/2] speed 100
+[Switch2-Ethernet0/2] duplex full
+[Switch2] link-aggregation Ethernet 0/1 to Ethernet 0/2 both</code></pre>
+                </div>
+        </div>
             <h2>StackWise</h2>
             <p>StackWise es una tecnología específica de los switches Cisco Catalyst que permite apilar varios switches en una configuración lógica de un solo switch. Con StackWise, los switches se conectan mediante enlaces especiales de apilamiento, formando una única entidad de gestión y control. Esto simplifica la administración de la red al tratar múltiples switches como uno solo en términos de configuración, monitoreo y administración. Además, StackWise proporciona alta disponibilidad al permitir que uno de los switches actúe como switch maestro y los demás como esclavos. Si el switch maestro falla, otro switch en el stack puede asumir su función automáticamente sin interrumpir la conectividad de la red.</p>
             <div class="blog-image-grande">
