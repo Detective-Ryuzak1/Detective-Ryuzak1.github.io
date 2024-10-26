@@ -206,7 +206,10 @@
                 </div>
                 <h2>Configuración</h2>
                 <h3>Cisco</h3>
-                <p>En este caso, asumimos que estamos trabajando con el modo STP clásico (PVST+ o RSTP dependiendo de la preferencia). Vamos a utilizar PVST+ para asegurar compatibilidad con el estándar Cisco y permitir una instancia STP por VLAN.</p>
+                <p>En este caso, asumimos que estamos trabajando con el modo STP clásico (PVST+ o RSTP dependiendo de la preferencia).</p>
+                <p>En los switches Cisco, el STP (Spanning Tree Protocol) que viene por defecto es el PVST+ (Per VLAN Spanning Tree Plus). Este protocolo permite que se utilicen múltiples instancias de STP, una para cada VLAN, lo que mejora la eficiencia en redes con múltiples VLANs.</p>
+                <p>Puedes usar <marcador class="subrayado">spanning-tree mode rapid-pvst</marcador> para cambiar a Rapid PVST, MST o algún otro modo dependiendo de tus necesidades.</p>
+                <p>Con el comando <marcador class="subrayado">show spanning-tree</marcador> verificas el modo actual de STP.</p>
                 <p>Valores Configurables:</p>
                 <ul>
                     <li><marcador class="resaltado8">max-age: </marcador>Determina cuánto tiempo un switch conserva la información de BPDU antes de descartar la información de la topología. Generalmente, el valor predeterminado es 20 segundos.</li>
