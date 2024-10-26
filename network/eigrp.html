@@ -47,23 +47,23 @@
                 </div>
                 <h2>Características</h2>
                 <ul>
-                    <li><marcador class="resaltado9">Híbrido: </marcador>EIGRP se considera un protocolo híbrido, ya que utiliza características tanto de los protocolos de enrutamiento de estado de enlace (como OSPF) como de distancia-vector (como RIP).</li>
-                    <li><marcador class="resaltado9">Convergencia rápida: </marcador>Una de las principales ventajas de EIGRP es su capacidad de converger rápidamente gracias a su uso del algoritmo DUAL (Diffusing Update Algorithm), que calcula las mejores rutas sin necesidad de actualizar toda la tabla de enrutamiento.</li>
-                    <li><marcador class="resaltado9">Balanceo de carga desigual: </marcador>EIGRP soporta balanceo de carga tanto igual como desigual, permitiendo a los administradores utilizar rutas con diferentes métricas para balancear el tráfico.</li>
-                    <li><marcador class="resaltado9">Métrica compuesta: </marcador>EIGRP usa una métrica compuesta basada en cinco parámetros: ancho de banda, retardo, confiabilidad, carga y MTU (tamaño máximo de la unidad de transmisión).</li>
-                    <li><marcador class="resaltado9">VLSM y CIDR: </marcador>EIGRP soporta el uso de VLSM (Variable Length Subnet Masking) y CIDR (Classless Inter-Domain Routing).</li>
-                    <li><marcador class="resaltado9">Autenticación: </marcador>EIGRP soporta autenticación MD5 para garantizar que solo routers autorizados participen en el intercambio de rutas.</li>
-                    <li><marcador class="resaltado9">Actualización parcial: </marcador>A diferencia de RIP, EIGRP envía solo actualizaciones parciales, lo que mejora la eficiencia del ancho de banda.</li>
-                    <li><marcador class="resaltado9">Sin clase: </marcador>A diferencia de RIP v1, EIGRP es un protocolo sin clase, lo que le permite soportar múltiples subredes y sumarización de rutas.</li>
+                    <li><marcador class="resaltado5">Híbrido: </marcador>EIGRP se considera un protocolo híbrido, ya que utiliza características tanto de los protocolos de enrutamiento de estado de enlace (como OSPF) como de distancia-vector (como RIP).</li>
+                    <li><marcador class="resaltado5">Convergencia rápida: </marcador>Una de las principales ventajas de EIGRP es su capacidad de converger rápidamente gracias a su uso del algoritmo DUAL (Diffusing Update Algorithm), que calcula las mejores rutas sin necesidad de actualizar toda la tabla de enrutamiento.</li>
+                    <li><marcador class="resaltado5">Balanceo de carga desigual: </marcador>EIGRP soporta balanceo de carga tanto igual como desigual, permitiendo a los administradores utilizar rutas con diferentes métricas para balancear el tráfico.</li>
+                    <li><marcador class="resaltado5">Métrica compuesta: </marcador>EIGRP usa una métrica compuesta basada en cinco parámetros: ancho de banda, retardo, confiabilidad, carga y MTU (tamaño máximo de la unidad de transmisión).</li>
+                    <li><marcador class="resaltado5">VLSM y CIDR: </marcador>EIGRP soporta el uso de VLSM (Variable Length Subnet Masking) y CIDR (Classless Inter-Domain Routing).</li>
+                    <li><marcador class="resaltado5">Autenticación: </marcador>EIGRP soporta autenticación MD5 para garantizar que solo routers autorizados participen en el intercambio de rutas.</li>
+                    <li><marcador class="resaltado5">Actualización parcial: </marcador>A diferencia de RIP, EIGRP envía solo actualizaciones parciales, lo que mejora la eficiencia del ancho de banda.</li>
+                    <li><marcador class="resaltado5">Sin clase: </marcador>A diferencia de RIP v1, EIGRP es un protocolo sin clase, lo que le permite soportar múltiples subredes y sumarización de rutas.</li>
                 </ul>
                 <div class="blog-image-grande">
                     <img src="media/eigrp8.jpg" alt="">
                 </div>
                 <h2>Versiones</h2>
                 <ul>
-                    <li><marcador class="resaltado5">EIGRP Clásico</marcador></li>
+                    <li><marcador class="resaltado6">EIGRP Clásico</marcador></li>
                     <p>EIGRP (Enhanced Interior Gateway Routing Protocol) es un protocolo de enrutamiento propietario desarrollado por Cisco. Hasta 2013, fue exclusivo para dispositivos Cisco, lo que significaba que solo podía implementarse en su hardware. Sin embargo, ese año, EIGRP fue abierto como un estándar bajo la RFC 7868, lo que permitió su adopción más amplia en otras plataformas. A pesar de esto, su uso principal sigue siendo en equipos de Cisco o en dispositivos compatibles que puedan soportarlo mediante una licencia especial.</p>
-                    <li><marcador class="resaltado5">EIGRP para IPv6</marcador></li>
+                    <li><marcador class="resaltado6">EIGRP para IPv6</marcador></li>
                     <p>EIGRP para IPv6 es una versión del protocolo diseñada específicamente para operar en redes basadas en IPv6. Aunque comparte muchas características con EIGRP para IPv4, como el algoritmo DUAL (Diffusing Update Algorithm) y las métricas utilizadas para calcular las rutas, está adaptado para trabajar con direcciones IPv6. Esta adaptación permite que las organizaciones utilicen EIGRP de manera eficiente en entornos IPv6, manteniendo la funcionalidad y las ventajas que ofrece este protocolo en su versión original.</p>
                 </ul>
                 <h2>Métrica de EIGRP</h2>
@@ -121,8 +121,8 @@
                 <p>Las wildcards (o máscaras comodín) son un tipo de expresión utilizada en redes para especificar un rango de direcciones IP. A diferencia de las máscaras de subred tradicionales, que determinan qué parte de una dirección IP corresponde a la red y qué parte corresponde a los hosts, las wildcards permiten definir qué bits de la dirección se deben considerar y cuáles pueden ser ignorados.</p>
                 <p>Las wildcards son comúnmente utilizadas en varios contextos de configuración de redes, como en:</p>
                 <ul>
-                    <li><marcador class="resaltado5">Protocolos de Enrutamiento: </marcador>En protocolos como OSPF y EIGRP, las wildcards se utilizan para definir qué direcciones IP deben incluirse en el proceso de enrutamiento. Por ejemplo, en EIGRP, puedes especificar un rango de direcciones a incluir en la configuración de la red.</li>
-                    <li><marcador class="resaltado5">Listas de Control de Acceso (ACL): </marcador>En las ACL, las wildcards son utilizadas para especificar qué direcciones IP están permitidas o denegadas. Esto permite un control granular sobre el tráfico que puede entrar o salir de una red.</li>
+                    <li><marcador class="resaltado6">Protocolos de Enrutamiento: </marcador>En protocolos como OSPF y EIGRP, las wildcards se utilizan para definir qué direcciones IP deben incluirse en el proceso de enrutamiento. Por ejemplo, en EIGRP, puedes especificar un rango de direcciones a incluir en la configuración de la red.</li>
+                    <li><marcador class="resaltado6">Listas de Control de Acceso (ACL): </marcador>En las ACL, las wildcards son utilizadas para especificar qué direcciones IP están permitidas o denegadas. Esto permite un control granular sobre el tráfico que puede entrar o salir de una red.</li>
                 </ul>
                 <p>Una wildcard se expresa en el mismo formato que una dirección IP, donde cada bit puede ser "0" (que indica que el bit debe coincidir exactamente) o "1" (que indica que el bit puede ser ignorado). Por ejemplo:</p>
                 <ul>

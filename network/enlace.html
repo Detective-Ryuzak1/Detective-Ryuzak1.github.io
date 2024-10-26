@@ -163,26 +163,6 @@ Switch2(config)# exit
 Switch2# exit</code></pre>
                     </div>
                 </div>
-                <p>Selecciona el puerto GigabitEthernet0/4 como enlace de standby. Esta configuración hará que este enlace entre en acción solo si uno de los enlaces dentro del grupo EtherChannel falla.</p>
-                <div class="consola">
-                    <div class="barra-superior-consola">
-                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
-                    </div>
-                    <div class="codigo-consola">
-                        <!-- Contenido del código -->
-<pre><code># En el Switch1 y Switch2
-Switch1(config)# interface GigabitEthernet0/4
-Switch1(config-if)# speed auto
-Switch1(config-if)# duplex full
-Switch1(config-if)# channel-protocol lacp
-Switch1(config-if)# channel-group 1 mode active
-Switch1(config-if)# channel-group 1 load-balance src-dst-ip
-Switch1(config-if)# lacp port-priority 32768
-Switch1(config-if)# standby
-Switch1(config-if)# no shutdown
-Switch1(config-if)# exit</code></pre>
-                    </div>
-                </div>
                 <p>El comando <marcador class="subrayado">show etherchannel summary</marcador> se utiliza en dispositivos Cisco para proporcionar un resumen de los grupos de enlaces EtherChannel configurados en el dispositivo y el estado de cada enlace dentro de esos grupos.</p>
                 <h3>Huawei</h3>
                 <p>Se configura la velocidad en modo automático y el dúplex en modo full para los puertos individuales. Se especifica el balanceo de carga como "dst-mac", que equilibra el tráfico basado en las direcciones MAC de destino. Además, se asigna una prioridad de 32768 al grupo de agregación, que es el valor por defecto para Huawei. Este valor puede ajustarse según las necesidades y prioridades específicas del usuario.</p>

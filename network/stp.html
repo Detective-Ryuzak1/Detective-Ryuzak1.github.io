@@ -75,10 +75,10 @@
                 </ul>
                 <p>Los bucles de red pueden arrojar algunos fallos, como podrían ser:</p>
                 <ul>
-                    <li><marcador class="resaltado5">Broadcast Storms: </marcador>Los paquetes de broadcast pueden circular indefinidamente entre switches, multiplicándose y saturando la red.</li>
-                    <li><marcador class="resaltado5">Desbordamiento de la Tabla de Direcciones MAC: </marcador>Los switches pueden inundarse con información de direcciones MAC, lo que provoca que las tablas se desborden y se conviertan en dispositivos de broadcast, enviando tramas a todos los puertos.</li>
-                    <li><marcador class="resaltado5">Rendimiento Degradado: </marcador>El tráfico de red se vuelve incontrolable, lo que lleva a una degradación significativa del rendimiento de la red.</li>
-                    <li><marcador class="resaltado5">Caídas de Dispositivos: </marcador>En situaciones extremas, los dispositivos pueden dejar de responder debido a la sobrecarga de tráfico.</li>
+                    <li><marcador class="resaltado6">Broadcast Storms: </marcador>Los paquetes de broadcast pueden circular indefinidamente entre switches, multiplicándose y saturando la red.</li>
+                    <li><marcador class="resaltado6">Desbordamiento de la Tabla de Direcciones MAC: </marcador>Los switches pueden inundarse con información de direcciones MAC, lo que provoca que las tablas se desborden y se conviertan en dispositivos de broadcast, enviando tramas a todos los puertos.</li>
+                    <li><marcador class="resaltado6">Rendimiento Degradado: </marcador>El tráfico de red se vuelve incontrolable, lo que lleva a una degradación significativa del rendimiento de la red.</li>
+                    <li><marcador class="resaltado6">Caídas de Dispositivos: </marcador>En situaciones extremas, los dispositivos pueden dejar de responder debido a la sobrecarga de tráfico.</li>
                 </ul>
                 <h2>Roles de los Puertos y del Switch en STP</h2>
                 <p>Cada switch puede asumir diferentes roles en una red STP para evitar bucles:</p>
@@ -109,27 +109,27 @@
                 <h2>Modos</h2>
                 <p>El Spanning Tree Protocol (STP) utiliza varios modos de estado de puerto para gestionar la topología de la red y prevenir bucles. Los estados de los puertos en STP son:</p>
                 <ol>
-                    <li><marcador class="resaltado9">Blocking (Bloqueado)</marcador></li>
+                    <li><marcador class="resaltado6">Blocking (Bloqueado)</marcador></li>
                     <ul>
                         <li><marcador class="resaltado8">Descripción: </marcador>En este estado, el puerto no envía ni recibe tráfico de datos. Sin embargo, puede recibir mensajes de Bridge Protocol Data Units (BPDUs) para seguir participando en la topología de la red.</li>
                         <li><marcador class="resaltado8">Función: </marcador>El puerto permanece en este estado si no es el camino más corto hacia la raíz o si está en riesgo de formar un bucle.</li>
                     </ul>
-                    <li><marcador class="resaltado9">Listening (Escuchando)</marcador></li>
+                    <li><marcador class="resaltado6">Listening (Escuchando)</marcador></li>
                     <ul>
                         <li><marcador class="resaltado8">Descripción: </marcador>En este estado, el puerto deja de aprender direcciones MAC, pero continúa procesando BPDUs. Esto permite que el switch detecte cambios en la topología de la red.</li>
                         <li><marcador class="resaltado8">Función: </marcador>El objetivo es prepararse para pasar a un estado de Forwarding si se determina que el puerto puede ser parte de la topología activa.</li>
                     </ul>
-                    <li><marcador class="resaltado9">Learning (Aprendiendo)</marcador></li>
+                    <li><marcador class="resaltado6">Learning (Aprendiendo)</marcador></li>
                     <ul>
                         <li><marcador class="resaltado8">Descripción: </marcador>En este estado, el puerto comienza a aprender direcciones MAC de los paquetes que recibe, pero aún no envía tráfico de datos.</li>
                         <li><marcador class="resaltado8">Función: </marcador>Esto permite al switch construir su tabla de direcciones MAC, lo que ayuda a optimizar el tráfico en el futuro.</li>
                     </ul>
-                    <li><marcador class="resaltado9">Forwarding (Reenviando)</marcador></li>
+                    <li><marcador class="resaltado6">Forwarding (Reenviando)</marcador></li>
                     <ul>
                         <li><marcador class="resaltado8">Descripción: </marcador>Este es el estado activo en el que el puerto envía y recibe tráfico de datos. También continúa aprendiendo direcciones MAC.</li>
                         <li><marcador class="resaltado8">Función: </marcador>Los puertos en este estado están habilitados para enviar y recibir tráfico, permitiendo la comunicación normal en la red.</li>
                     </ul>
-                    <li><marcador class="resaltado9">Disabled (Deshabilitado)</marcador></li>
+                    <li><marcador class="resaltado6">Disabled (Deshabilitado)</marcador></li>
                     <ul>
                         <li><marcador class="resaltado8">Descripción: </marcador>Este estado indica que el puerto está administrativamente deshabilitado. No puede enviar ni recibir tráfico ni participar en la elección de la raíz.</li>
                         <li><marcador class="resaltado8">Función: </marcador>Se utiliza para desactivar puertos que no se desean en la red.</li>
@@ -154,8 +154,8 @@
                 <h2>Prioridades en STP y Selección del Switch Root</h2>
                 <p>Cada switch en STP tiene un valor de prioridad, el cual determina qué switch se convierte en el root bridge (raíz de la red). El root bridge actúa como el centro de la red y envía BPDU (Bridge Protocol Data Units) a otros switches para mantener la estructura de la red.</p>
                 <ul>
-                    <li><marcador class="resaltado9">Rango de Prioridades: </marcador>La prioridad se establece en incrementos de 4096, dentro de un rango de 0 a 61440.</li>
-                    <li><marcador class="resaltado9">Elección del Root: </marcador>El switch con la prioridad más baja se convierte en el root. En caso de empate en prioridades, se elige el switch con la dirección MAC más baja.</li>
+                    <li><marcador class="resaltado5">Rango de Prioridades: </marcador>La prioridad se establece en incrementos de 4096, dentro de un rango de 0 a 61440.</li>
+                    <li><marcador class="resaltado5">Elección del Root: </marcador>El switch con la prioridad más baja se convierte en el root. En caso de empate en prioridades, se elige el switch con la dirección MAC más baja.</li>
                 </ul>
                 <p>Por ejemplo, si un switch tiene una prioridad de 0 y otro tiene una prioridad de 4096, el switch con 0 se convierte en el root, ya que su prioridad es menor.</p>
                 <div class="blog-image-grande">
@@ -185,8 +185,8 @@
                 <p>STP comienza evaluando estos dos valores para todos los switches en la red. Se inicia una serie de BPDUs que contienen la prioridad y dirección MAC de cada switch, permitiendo que todos los dispositivos comparen estos valores. Al final del proceso, el switch con la prioridad más baja y, en caso de empate, la MAC más baja, se convierte en el Root Bridge.</p>
                 <p>Cuando STP necesita decidir entre varios puertos que ofrecen el mismo costo hacia el Root Bridge, utiliza la prioridad de puerto para determinar cuál de ellos debe estar en estado de Designated Port (DP) o Root Port (RP). Cada puerto en un switch tiene un valor de prioridad de puerto predeterminado (generalmente 128) que puede ajustarse en un rango de 0 a 255.</p>
                 <ul>
-                    <li><marcador class="resaltado5">Root Port (RP): </marcador>En cada switch, se elige un solo puerto como Root Port. Este puerto es el que tiene el costo más bajo hacia el Root Bridge. Si varios puertos tienen el mismo costo hacia el Root Bridge, STP elige el puerto con la menor prioridad de puerto para ser el Root Port.</li>
-                    <li><marcador class="resaltado5">Designated Port (DP): </marcador>Cada segmento de red también debe tener un Designated Port, que es el puerto responsable de reenviar tráfico hacia ese segmento. Si hay varios puertos en diferentes switches compitiendo para ser el Designated Port en un mismo segmento y tienen el mismo costo, la prioridad de puerto ayuda a resolver el conflicto.</li>
+                    <li><marcador class="resaltado9">Root Port (RP): </marcador>En cada switch, se elige un solo puerto como Root Port. Este puerto es el que tiene el costo más bajo hacia el Root Bridge. Si varios puertos tienen el mismo costo hacia el Root Bridge, STP elige el puerto con la menor prioridad de puerto para ser el Root Port.</li>
+                    <li><marcador class="resaltado9">Designated Port (DP): </marcador>Cada segmento de red también debe tener un Designated Port, que es el puerto responsable de reenviar tráfico hacia ese segmento. Si hay varios puertos en diferentes switches compitiendo para ser el Designated Port en un mismo segmento y tienen el mismo costo, la prioridad de puerto ayuda a resolver el conflicto.</li>
                 </ul>
                 <p>La prioridad de puerto se usa en los siguientes casos:</p>
                 <ul>
@@ -204,7 +204,7 @@
                     <img src="media/stp12.jpeg" alt="">
                 </div>
                 <h2>Configuración</h2>
-                <h6>Cisco</h6>
+                <h3>Cisco</h3>
                 <p>En este caso, asumimos que estamos trabajando con el modo STP clásico (PVST+ o RSTP dependiendo de la preferencia). Vamos a utilizar PVST+ para asegurar compatibilidad con el estándar Cisco y permitir una instancia STP por VLAN.</p>
                 <p>Valores Configurables:</p>
                 <ul>
@@ -286,7 +286,7 @@ Switch(config)# copy running-config startup-config</code></pre>
                 <ol>
                     <li>ROOT:</li>
                     <ul>
-                        <li>El switch ROOT tiene una prioridad de 4096 para garantizar que sea seleccionado como el Root Bridge.</li>
+                        <li>El switch RootBridge tiene una prioridad de 4096 para garantizar que sea seleccionado como el Root Bridge.</li>
                         <li>Los puertos FA0/1 y FA0/2 tienen la prioridad de puerto configurada en 32, por lo que actúan como Designated Ports.</li>
                     </ul>
                     <li>Switch A:</li>
@@ -301,7 +301,7 @@ Switch(config)# copy running-config startup-config</code></pre>
                     </ul>
                 </ol>
                 <p>Los valores de max-age, hello-time, y forward-time son estándar y están configurados según los tiempos predeterminados para cumplir con el ciclo de 50 segundos que STP necesita para converger en caso de cambios de topología.</p>
-                <h6>Huawei</h6>
+                <h3>Huawei</h3>
                 <ul>
                     <li>Switch Root</li>
                 <div class="consola">

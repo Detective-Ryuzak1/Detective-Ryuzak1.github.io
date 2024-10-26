@@ -48,20 +48,20 @@
                 <h2>Versiones de RIP</h2>
                 <p>RIP tiene varias versiones, cada una con sus características específicas:</p>
                 <ol>
-                    <li><marcador class="resaltado5">RIP v1:</marcador></li>
+                    <li><marcador class="resaltado6">RIP v1:</marcador></li>
                     <ul>
                         <li>Publicado en 1988 en la RFC 1058.</li>
                         <li>Soporta enrutamiento de clase A, B y C, pero no admite CIDR (Classless Inter-Domain Routing), es decir, no soporta máscaras de subred de longitud variable (VLSM).</li>
                         <li>No incluye soporte para autenticación.</li>
                     </ul>
-                    <li><marcador class="resaltado5">RIP v2:</marcador></li>
+                    <li><marcador class="resaltado6">RIP v2:</marcador></li>
                     <ul>
                         <li>Publicado en 1994 en la RFC 2453.</li>
                         <li>Añade soporte para CIDR y VLSM.</li>
                         <li>Soporta autenticación (texto claro y MD5).</li>
                         <li>Incluye multicasting en lugar de broadcasting (dirige mensajes solo a routers RIP en lugar de a toda la red).</li>
                     </ul>
-                    <li><marcador class="resaltado5">RIPng:</marcador></li>
+                    <li><marcador class="resaltado6">RIPng:</marcador></li>
                     <ul>
                         <li>Publicado en la RFC 2080 en 1997.</li>
                         <li>Versión de RIP adaptada para IPv6.</li>
@@ -95,15 +95,15 @@
                 </div> 
                 <h2>Estándares y características técnicas</h2>
                 <ul>
-                    <li><marcador class="resaltado9">Protocolo basado en UDP: </marcador>Utiliza el puerto 520 (en RIPng, el puerto 521).</li>
-                    <li><marcador class="resaltado9">Métrica: </marcador>La métrica utilizada es la cantidad de saltos (hops), con un límite máximo de 15. Si una ruta tiene más de 15 saltos, se considera inalcanzable.</li>
-                    <li><marcador class="resaltado9">Actualizaciones periódicas: </marcador>Los routers envían actualizaciones cada 30 segundos.</li>
-                    <li><marcador class="resaltado9">Convergencia lenta: </marcador>Uno de los principales inconvenientes de RIP es su tiempo de convergencia lento comparado con otros protocolos de enrutamiento como OSPF o EIGRP.</li>
-                    <li><marcador class="resaltado9">Split horizon: </marcador>Una técnica que evita que la información de enrutamiento se envíe de vuelta por la interfaz de donde provino.</li>
-                    <li><marcador class="resaltado9">Triggered updates: </marcador>RIP envía actualizaciones inmediatas si detecta un cambio en la red, en lugar de esperar el intervalo de 30 segundos.</li>
-                    <li><marcador class="resaltado9">Hold-down timer: </marcador>Cuando se detecta una ruta caída, el router espera un tiempo antes de aceptar cualquier actualización de esa ruta, previniendo la propagación de información incorrecta.</li>
-                    <li><marcador class="resaltado9">Balanceo de carga: </marcador>RIP soporta el balanceo de carga de manera automática cuando existen múltiples rutas con el mismo costo (igual número de saltos). Puede balancear hasta 6 rutas de manera predeterminada, aunque este número se puede ajustar.</li>
-                    <li><marcador class="resaltado9">Prioridad: </marcador>RIP no tiene una prioridad de ruta como tal, pero es posible influir en las decisiones de enrutamiento ajustando el número de saltos (métrica) o, en casos específicos, se puede usar la manipulación de rutas estáticas para priorizar ciertos caminos.</li>
+                    <li><marcador class="resaltado6">Protocolo basado en UDP: </marcador>Utiliza el puerto 520 (en RIPng, el puerto 521).</li>
+                    <li><marcador class="resaltado6">Métrica: </marcador>La métrica utilizada es la cantidad de saltos (hops), con un límite máximo de 15. Si una ruta tiene más de 15 saltos, se considera inalcanzable.</li>
+                    <li><marcador class="resaltado6">Actualizaciones periódicas: </marcador>Los routers envían actualizaciones cada 30 segundos.</li>
+                    <li><marcador class="resaltado6">Convergencia lenta: </marcador>Uno de los principales inconvenientes de RIP es su tiempo de convergencia lento comparado con otros protocolos de enrutamiento como OSPF o EIGRP.</li>
+                    <li><marcador class="resaltado6">Split horizon: </marcador>Una técnica que evita que la información de enrutamiento se envíe de vuelta por la interfaz de donde provino.</li>
+                    <li><marcador class="resaltado6">Triggered updates: </marcador>RIP envía actualizaciones inmediatas si detecta un cambio en la red, en lugar de esperar el intervalo de 30 segundos.</li>
+                    <li><marcador class="resaltado6">Hold-down timer: </marcador>Cuando se detecta una ruta caída, el router espera un tiempo antes de aceptar cualquier actualización de esa ruta, previniendo la propagación de información incorrecta.</li>
+                    <li><marcador class="resaltado6">Balanceo de carga: </marcador>RIP soporta el balanceo de carga de manera automática cuando existen múltiples rutas con el mismo costo (igual número de saltos). Puede balancear hasta 6 rutas de manera predeterminada, aunque este número se puede ajustar.</li>
+                    <li><marcador class="resaltado6">Prioridad: </marcador>RIP no tiene una prioridad de ruta como tal, pero es posible influir en las decisiones de enrutamiento ajustando el número de saltos (métrica) o, en casos específicos, se puede usar la manipulación de rutas estáticas para priorizar ciertos caminos.</li>
                 </ul>
                 <h2>Autenticación en RIP v2</h2>
                 <p>RIP v2 permite habilitar autenticación para evitar que routers no autorizados envíen rutas incorrectas. Las dos opciones son:</p>
@@ -112,7 +112,7 @@
                     <li><marcador class="resaltado5">Autenticación MD5: </marcador>Proporciona una mejor seguridad al cifrar las contraseñas, lo que evita su exposición.</li>
                 </ul>
                 <h2>Configuración</h2>
-                <h6>Cisco</h6>
+                <h3>Cisco</h3>
                 <div class="blog-image-grande">
                     <img src="media/rip1.jpeg" alt="">
                 </div>
@@ -185,7 +185,7 @@ router rip
                     </div>
                 </div>
                 </ul>
-                <h6>Huawei</h6>
+                <h3>Huawei</h3>
                 <p>A continuación se muestra la configuración correspondiente para los routers R1, R2 y R3 de Huawei.</p>
                 <ul>
                     <li>Router 1</li>
@@ -246,7 +246,7 @@ version 2
                     </div>
                 </div>
                 </ul>
-                <h6>Redistribución de Rutas Cisco</h6>
+                <h3>Redistribución de Rutas Cisco</h3>
                 <p>La redistribución de rutas permite que un protocolo de enrutamiento (como RIP) aprenda y propague información de enrutamiento que no es originalmente parte de su dominio.</p>
                 <p>Imagina que tienes un router R1 con la siguiente configuración:</p>
                 <div class="consola">
@@ -283,7 +283,7 @@ router rip
                     <p>Los routers vecinos que reciben las actualizaciones de RIP ahora conocen la ruta predeterminada de R1 y pueden usarla para enrutar tráfico hacia destinos desconocidos.</p>
                     <p>Esto es especialmente útil en redes donde algunos routers no tienen acceso a rutas específicas, permitiéndoles utilizar la ruta predeterminada como una "salida" para el tráfico.</p>
                 </ol>
-                <h6>Redistribución de Rutas Cisco 2</h6>
+                <h3>Redistribución de Rutas Cisco 2</h3>
                 <div class="consola">
                     <div class="barra-superior-consola">
                         <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
@@ -305,7 +305,7 @@ router rip
                     </div>
                 </div>
                 <p>Aquí <marcador class="subrayado">redistribute static</marcador> redistribuye todas las rutas estáticas configuradas en el router, no solo la ruta predeterminada. Cualquier ruta que hayas configurado manualmente con el comando <marcador class="subrayado">ip route</marcador> será anunciada a través de RIP a los routers vecinos.</p>
-                <h6>Redistribución de Rutas Huawei</h6>
+                <h3>Redistribución de Rutas Huawei</h3>
                 <div class="consola">
                     <div class="barra-superior-consola">
                         <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
@@ -333,7 +333,7 @@ rip  # Entrar en el modo de configuración de RIP
                     </div>
                 </div>
                 <p>Esta configuración permite que R1 tenga una ruta estática predeterminada que se envía a otros routers en la red mediante RIP. De este modo, los routers vecinos pueden aprender a enviar tráfico a destinos desconocidos utilizando esta ruta.</p>
-                <h6>Redistribución de Rutas Huawei 2</h6>
+                <h3>Redistribución de Rutas Huawei 2</h3>
                 <p>En este caso, RIP que redistribuye las rutas estáticas en sus actualizaciones de enrutamiento.</p>
                 <div class="consola">
                     <div class="barra-superior-consola">
