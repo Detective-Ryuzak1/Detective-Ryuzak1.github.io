@@ -140,7 +140,7 @@ router rip
                     <li><marcador class="resaltado8"></marcador>Primera línea: <marcador class="subrayado">network 192.168.0.0</marcador> incluye todas las subredes de la clase C 192.168.0.0.</li>
                     <li><marcador class="resaltado8"></marcador>Segunda línea: <marcador class="subrayado">network 172.16.0.0</marcador> incluye un rango muy específico de direcciones de clase B (en este caso, la subred 172.16.0.0/30).</li>
                 </ul>
-                <p>Al desactivar el auto resumen, EIGRP puede manejar las subredes de manera más precisa, lo que es especialmente útil en configuraciones donde se utilizan VLSM (Variable Length Subnet Mask) o redes no contiguas. Esto ayuda a evitar la confusión y los problemas que podrían surgir al resumir incorrectamente las rutas.</p>
+                <p>Al desactivar el auto resumen, RIP puede manejar las subredes de manera más precisa, lo que es especialmente útil en configuraciones donde se utilizan VLSM (Variable Length Subnet Mask) o redes no contiguas. Esto ayuda a evitar la confusión y los problemas que podrían surgir al resumir incorrectamente las rutas.</p>
                 <p>En el contexto de la configuración de RIP (Routing Information Protocol), la directiva <marcador class="subrayado">passive-interface</marcador> se utiliza para controlar en qué interfaces el protocolo RIP enviará y recibirá actualizaciones de enrutamiento. Cuando se establece <marcador class="subrayado">passive-interface default</marcador>, todas las interfaces se configuran en modo pasivo de manera predeterminada. Esto significa que el router no enviará actualizaciones de RIP por esas interfaces, aunque aún podrá recibirlas.</p>
                 <p>La línea <marcador class="subrayado">no passive-interface gig0/0</marcador> tiene el efecto contrario: se utiliza para activar el envío y recepción de actualizaciones de RIP en la interfaz especificada (en este caso, la interfaz Gigabit Ethernet 0/0). Esto es útil en situaciones donde deseas que RIP comunique información de enrutamiento a través de una interfaz específica que está conectada a otro router (como R3 en tu ejemplo), mientras que en otras interfaces, probablemente aquellas que no están conectadas a otros routers, deseas evitar el envío de actualizaciones.</p>
                     <li>Router 2</li>
@@ -185,7 +185,7 @@ router rip
                     </div>
                 </div>
                 </ul>
-                <p>Para ver la configuración de RIP (Routing Information Protocol) en un router Cisco, puedes usar <marcador class="subrayado">show running-config | section router rip</marcador> para visualizar la configuración de RIP.</p>
+                <p>Para ver la configuración de RIP en un router Cisco, puedes usar <marcador class="subrayado">show running-config | section router rip</marcador> para visualizar la configuración de RIP.</p>
                 <p>También puedes verificar la tabla de rutas de RIP con <marcador class="subrayado">show ip route rip</marcador>, o usar <marcador class="subrayado">show ip rip database</marcador> para ver estadísticas y detalles sobre el proceso RIP.</p>
                 <h3>Huawei</h3>
                 <p>A continuación se muestra la configuración correspondiente para los routers R1, R2 y R3 de Huawei.</p>

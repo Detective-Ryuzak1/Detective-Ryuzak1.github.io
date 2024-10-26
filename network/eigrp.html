@@ -41,7 +41,7 @@
                 <br>
                 <br>
                 <h1>EIGRP (Enhanced Interior Gateway Routing Protocol)</h1>
-                <p>El Enhanced Interior Gateway Routing Protocol (EIGRP) es un protocolo de enrutamiento avanzado desarrollado por Cisco. Se diseñó para mejorar las deficiencias de RIP y OSPF, y combina lo mejor de los protocolos de enrutamiento de estado de enlace y de distancia vectorial. EIGRP es altamente eficiente, escalable y converge rápidamente, lo que lo convierte en una excelente opción para redes grandes y complejas.</p>
+                <p>El Enhanced Interior Gateway Routing Protocol es un protocolo de enrutamiento avanzado desarrollado por Cisco. Se diseñó para mejorar las deficiencias de RIP y OSPF, y combina lo mejor de los protocolos de enrutamiento de estado de enlace y de distancia vectorial. EIGRP es altamente eficiente, escalable y converge rápidamente, lo que lo convierte en una excelente opción para redes grandes y complejas.</p>
                 <div class="blog-image-grande">
                     <img src="media/eigrp1.png" alt="">
                 </div>
@@ -80,7 +80,7 @@
                 </div>
                 <p>Por defecto, EIGRP usa solo el ancho de banda y el retardo para calcular la métrica.</p>
                 <h2>Algoritmo</h2>
-                <p>EIGRP (Enhanced Interior Gateway Routing Protocol) utiliza el algoritmo DUAL (Diffusing Update Algorithm) para calcular las rutas y garantizar una convergencia rápida y eficiente en la red. Este algoritmo fue desarrollado por Cisco y es una de las características que distingue a EIGRP de otros protocolos de enrutamiento.</p>
+                <p>EIGRP utiliza el algoritmo DUAL (Diffusing Update Algorithm) para calcular las rutas y garantizar una convergencia rápida y eficiente en la red. Este algoritmo fue desarrollado por Cisco y es una de las características que distingue a EIGRP de otros protocolos de enrutamiento.</p>
                 <p>Características Clave:</p>
                 <ul>
                     <li><marcador class="resaltado6">Convergencia Rápida: </marcador>DUAL permite que los routers recalculen las rutas de manera rápida en caso de cambios en la topología de la red, minimizando el tiempo de inactividad y la pérdida de paquetes.</li>
@@ -106,7 +106,7 @@
                 <p>Una característica clave de EIGRP es su capacidad para balancear la carga de manera desigual, lo que significa que puede usar múltiples rutas con diferentes métricas para distribuir el tráfico. Para habilitar el balanceo de carga desigual, se utiliza el comando <marcador class="subrayado">variance</marcador>.</p>
                 <p>El comando variance establece un valor de multiplicador que permite utilizar rutas con una métrica mayor siempre que sea dentro del rango multiplicado.</p>
                 <h2>Autonomous System (AS)</h2>
-                <p>Un Autonomous System (AS) en el contexto de EIGRP (Enhanced Interior Gateway Routing Protocol) se refiere a un conjunto de routers bajo el control administrativo de una sola entidad o una organización. En términos de EIGRP, un AS se utiliza para identificar y agrupar routers que comparten las mismas políticas de enrutamiento y protocolos.</p>
+                <p>Un Autonomous System en el contexto de EIGRP se refiere a un conjunto de routers bajo el control administrativo de una sola entidad o una organización. En términos de EIGRP, un AS se utiliza para identificar y agrupar routers que comparten las mismas políticas de enrutamiento y protocolos.</p>
                 <p>Funciones y Características del AS:</p>
                 <ul>
                     <li><marcador class="resaltado6">Identificación de Rutas: </marcador>Cada router en un AS utiliza un número de sistema autónomo único para identificarse. Este número es esencial para que los routers dentro de un AS intercambien información de enrutamiento correctamente. Si dos routers no comparten el mismo número de AS, no podrán establecer una vecindad EIGRP y, por lo tanto, no podrán intercambiar rutas.</li>
