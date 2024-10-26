@@ -183,8 +183,200 @@
                     <li><marcador class="resaltado5">Dirección MAC del Switch (MAC Address): </marcador>Si dos switches tienen la misma prioridad (lo cual es común si se usa el valor por defecto), STP desempata utilizando la dirección MAC del switch. El switch con la dirección MAC más baja será elegido como el Root Bridge. Esto se debe a que las direcciones MAC son únicas para cada dispositivo, lo que permite a STP identificar y elegir un único switch en caso de empate en la prioridad.</li>
                 </ul>
                 <p>STP comienza evaluando estos dos valores para todos los switches en la red. Se inicia una serie de BPDUs que contienen la prioridad y dirección MAC de cada switch, permitiendo que todos los dispositivos comparen estos valores. Al final del proceso, el switch con la prioridad más baja y, en caso de empate, la MAC más baja, se convierte en el Root Bridge.</p>
+                <p>Cuando STP necesita decidir entre varios puertos que ofrecen el mismo costo hacia el Root Bridge, utiliza la prioridad de puerto para determinar cuál de ellos debe estar en estado de Designated Port (DP) o Root Port (RP). Cada puerto en un switch tiene un valor de prioridad de puerto predeterminado (generalmente 128) que puede ajustarse en un rango de 0 a 255.</p>
+                <ul>
+                    <li><marcador class="resaltado5">Root Port (RP): </marcador>En cada switch, se elige un solo puerto como Root Port. Este puerto es el que tiene el costo más bajo hacia el Root Bridge. Si varios puertos tienen el mismo costo hacia el Root Bridge, STP elige el puerto con la menor prioridad de puerto para ser el Root Port.</li>
+                    <li><marcador class="resaltado5">Designated Port (DP): </marcador>Cada segmento de red también debe tener un Designated Port, que es el puerto responsable de reenviar tráfico hacia ese segmento. Si hay varios puertos en diferentes switches compitiendo para ser el Designated Port en un mismo segmento y tienen el mismo costo, la prioridad de puerto ayuda a resolver el conflicto.</li>
+                </ul>
+                <p>La prioridad de puerto se usa en los siguientes casos:</p>
+                <ul>
+                    <li>Si un switch tiene varios puertos con el mismo costo hacia el Root Bridge, la prioridad de puerto ayuda a seleccionar el Root Port.</li>
+                    <li>Si dos puertos de diferentes switches tienen el mismo costo y prioridad hacia un segmento común, la prioridad de puerto define cuál será el Designated Port.</li>
+                </ul>
+                <p>STP utiliza la siguiente secuencia para elegir puertos cuando hay empates:</p>
+                <ol>
+                    <li>Costo del camino hacia el Root Bridge (menor costo gana).</li>
+                    <li>Prioridad de Bridge (prioridad más baja gana).</li>
+                    <li>Prioridad de puerto (prioridad más baja gana).</li>
+                    <li>Número de puerto (número de puerto más bajo gana, si las prioridades son iguales).</li>
+                </ol>
+                <div class="blog-image">
+                    <img src="media/stp12.jpeg" alt="">
+                </div>
                 <h2>Configuración</h2>
-                <p></p>
+                <h6>Cisco</h6>
+                <p>En este caso, asumimos que estamos trabajando con el modo STP clásico (PVST+ o RSTP dependiendo de la preferencia). Vamos a utilizar PVST+ para asegurar compatibilidad con el estándar Cisco y permitir una instancia STP por VLAN.</p>
+                <p>Valores Configurables:</p>
+                <ul>
+                    <li><marcador class="resaltado8">max-age: </marcador>Determina cuánto tiempo un switch conserva la información de BPDU antes de descartar la información de la topología. Generalmente, el valor predeterminado es 20 segundos.</li>
+                    <li><marcador class="resaltado8">hello-time: </marcador>Es el intervalo entre la transmisión de BPDUs. Se suele mantener en 2 segundos, que es el valor predeterminado.</li>
+                    <li><marcador class="resaltado8">forward-time: </marcador>Es el tiempo que un puerto pasa en los estados de Listening y Learning antes de pasar al estado de reenvío. El valor predeterminado es 15 segundos.</li>
+                    <li><marcador class="resaltado8">priority: </marcador>Define qué switch será el Root Bridge. Cuanto menor es este valor, mayor será la prioridad. El valor predeterminado es 32768, pero en la mayoría de los casos, el Root Bridge tendrá una prioridad más baja, como 4096.</li>
+                    <li><marcador class="resaltado8">port priority: </marcador>Determina cuál puerto se convertirá en Designated Port o Root Port si hay empate en costos. Se puede configurar con un valor entre 0 y 240, en incrementos de 16.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/stp8.png" alt="">
+                </div>
+                <ul>
+                    <li>Switch Root</li>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>Switch# configure terminal
+Switch(config)# hostname RootBridge
+Switch(config)# spanning-tree vlan 1 priority 4096
+Switch(config)# spanning-tree vlan 1 hello-time 2
+Switch(config)# spanning-tree vlan 1 forward-time 15
+Switch(config)# spanning-tree vlan 1 max-age 20
+Switch(config)# interface fastEthernet 0/1
+Switch(config-if)# spanning-tree port-priority 32
+Switch(config-if)# exit
+Switch(config)# interface fastEthernet 0/2
+Switch(config-if)# spanning-tree port-priority 32
+Switch(config-if)# exit
+Switch(config)# copy running-config startup-config</code></pre>
+                    </div>
+                </div>
+                <li>Switch A</li>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>Switch# configure terminal
+Switch(config)# hostname SwitchA
+Switch(config)# spanning-tree vlan 1 hello-time 2
+Switch(config)# spanning-tree vlan 1 forward-time 15
+Switch(config)# spanning-tree vlan 1 max-age 20
+Switch(config)# interface fastEthernet 0/3
+Switch(config-if)# spanning-tree port-priority 64  # Root Port
+Switch(config-if)# exit
+Switch(config)# interface fastEthernet 0/4
+Switch(config-if)# spanning-tree port-priority 32  # Designated Port
+Switch(config-if)# exit
+Switch(config)# copy running-config startup-config</code></pre>
+                    </div>
+                </div>
+                <li>Switch B</li>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>Switch# configure terminal
+Switch(config)# hostname SwitchB
+Switch(config)# spanning-tree vlan 1 hello-time 2
+Switch(config)# spanning-tree vlan 1 forward-time 15
+Switch(config)# spanning-tree vlan 1 max-age 20
+Switch(config)# interface fastEthernet 0/5
+Switch(config-if)# spanning-tree port-priority 96  # Blocking Port
+Switch(config-if)# exit
+Switch(config)# interface fastEthernet 0/6
+Switch(config-if)# spanning-tree port-priority 64  # Root Port
+Switch(config-if)# exit
+Switch(config)# copy running-config startup-config</code></pre>
+                    </div>
+                </div>
+                </ul>
+                <ol>
+                    <li>ROOT:</li>
+                    <ul>
+                        <li>El switch ROOT tiene una prioridad de 4096 para garantizar que sea seleccionado como el Root Bridge.</li>
+                        <li>Los puertos FA0/1 y FA0/2 tienen la prioridad de puerto configurada en 32, por lo que actúan como Designated Ports.</li>
+                    </ul>
+                    <li>Switch A:</li>
+                    <ul>
+                        <li>FA0/3 se configura como Root Port con prioridad de puerto 64, ya que este puerto tiene la conexión más directa hacia el Root Bridge.</li>
+                        <li>FA0/4 es un Designated Port y se le asigna una prioridad de 32.</li>
+                    </ul>
+                    <li>Switch B:</li>
+                    <ul>
+                        <li>FA0/6 es el Root Port con prioridad de puerto 64, al igual que Switch A.</li>
+                        <li>FA0/5 se encuentra en estado de Blocking con prioridad 96, ya que está conectado a Switch A, creando una ruta redundante que STP bloquea para evitar bucles.</li>
+                    </ul>
+                </ol>
+                <p>Los valores de max-age, hello-time, y forward-time son estándar y están configurados según los tiempos predeterminados para cumplir con el ciclo de 50 segundos que STP necesita para converger en caso de cambios de topología.</p>
+                <h6>Huawei</h6>
+                <ul>
+                    <li>Switch Root</li>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>[Switch] sysname RootBridge
+[RootBridge] stp mode stp  # Activa STP en modo clásico
+[RootBridge] stp instance 1 priority 4096  # Configura la prioridad del Root Bridge
+[RootBridge] stp timer hello 2  # Configura el Hello Time a 2 segundos
+[RootBridge] stp timer forward-delay 15  # Configura el Forward Delay a 15 segundos
+[RootBridge] stp timer max-age 20  # Configura el Max Age a 20 segundos
+
+[RootBridge] interface GigabitEthernet0/0/1
+[RootBridge-GigabitEthernet0/0/1] stp port priority 32  # Designated Port
+[RootBridge-GigabitEthernet0/0/1] quit
+
+[RootBridge] interface GigabitEthernet0/0/2
+[RootBridge-GigabitEthernet0/0/2] stp port priority 32  # Designated Port
+[RootBridge-GigabitEthernet0/0/2] quit
+
+[RootBridge] save  # Guarda la configuración en la memoria</code></pre>
+                    </div>
+                </div>
+                <li>Switch A</li>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>[Switch] sysname SwitchA
+[SwitchA] stp mode stp  # Activa STP en modo clásico
+[SwitchA] stp timer hello 2
+[SwitchA] stp timer forward-delay 15
+[SwitchA] stp timer max-age 20
+
+[SwitchA] interface GigabitEthernet0/0/3
+[SwitchA-GigabitEthernet0/0/3] stp port priority 64  # Root Port hacia el Root Bridge
+[SwitchA-GigabitEthernet0/0/3] quit
+
+[SwitchA] interface GigabitEthernet0/0/4
+[SwitchA-GigabitEthernet0/0/4] stp port priority 32  # Designated Port
+[SwitchA-GigabitEthernet0/0/4] quit
+
+[SwitchA] save  # Guarda la configuración en la memoria</code></pre>
+                    </div>
+                </div>
+                <li>Switch B</li>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>[Switch] sysname SwitchB
+[SwitchB] stp mode stp  # Activa STP en modo clásico
+[SwitchB] stp timer hello 2
+[SwitchB] stp timer forward-delay 15
+[SwitchB] stp timer max-age 20
+
+[SwitchB] interface GigabitEthernet0/0/6
+[SwitchB-GigabitEthernet0/0/6] stp port priority 64  # Root Port hacia el Root Bridge
+[SwitchB-GigabitEthernet0/0/6] quit
+
+[SwitchB] interface GigabitEthernet0/0/5
+[SwitchB-GigabitEthernet0/0/5] stp port priority 96  # Blocking Port para evitar bucles
+[SwitchB-GigabitEthernet0/0/5] quit
+
+[SwitchB] save  # Guarda la configuración en la memoria</code></pre>
+                    </div>
+                </div>
+                </ul>
             </div>
         </div>       
     </main>
