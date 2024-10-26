@@ -43,8 +43,95 @@
                 <h1>HDLC (High-Level Data Link Control)</h1>
                 <p>HDLC es un protocolo de capa de enlace de datos, diseñado por la International Organization for Standardization (ISO), cuyo propósito principal es la comunicación eficiente y confiable sobre enlaces punto a punto o multipunto en redes de área amplia (WAN). HDLC se utiliza comúnmente en conexiones serias debido a su capacidad de control de flujo y corrección de errores.</p>
                 <h2>¿Qué es una WAN?</h2>
-                <p></p>
-                <p></p>
+                <p>Una WAN (Wide Area Network) es una red de telecomunicaciones que abarca grandes distancias, conectando múltiples redes locales (LANs). A diferencia de las LANs, que se limitan a áreas más pequeñas, como edificios o campus, las WANs pueden extenderse a lo largo de ciudades, países e incluso continentes. Esto permite la interconexión de dispositivos y sistemas que están geográficamente dispersos.</p>
+                <p>Para establecer conexiones en una WAN, se utilizan diversas tecnologías, como MPLS, Frame Relay, DSL, satélites y conexiones de fibra óptica. Estas tecnologías permiten la transmisión de datos a través de infraestructuras complejas y variadas, muchas de las cuales son administradas por proveedores de servicios de telecomunicaciones (ISP). Debido a esta dependencia de terceros, la implementación y el mantenimiento de una WAN tienden a ser más costosos en comparación con las redes locales.</p>
+                <p>Una de las principales funciones de una WAN es facilitar la transferencia de datos entre diferentes ubicaciones, lo cual es crucial para las empresas que operan en múltiples lugares. Esto incluye la conexión de oficinas, sucursales y centros de datos, permitiendo una comunicación fluida y eficiente. Las WANs utilizan protocolos como TCP/IP, Frame Relay y ATM para garantizar la transmisión efectiva de datos.</p>
+                <p>Dada la naturaleza amplia de las WANs, la seguridad es un aspecto crítico. Es fundamental implementar medidas como VPNs, cifrado y otros mecanismos de seguridad para proteger la información transmitida a través de la red. </p>
+                <div class="blog-image-grande">
+                    <img src="media/hdlc2.jpeg" alt="">
+                </div>
+                <h2>Tipos de Conexiones</h2>
+                <ul>
+                    <li><marcador class="resaltado6">Punto a Punto: </marcador>Conexión directa entre dos dispositivos. Ejemplo: un enlace entre dos routers.</li>
+                    <li><marcador class="resaltado6">Multipunto: </marcador>Varios dispositivos conectados en el mismo enlace físico. Se comparten los recursos del medio de transmisión, ideal para redes que no necesitan conexiones dedicadas constantes.</li>
+                    <li><marcador class="resaltado6">Conexiones de Circuito Conmutado y Conmutación de Paquetes: </marcador>Basadas en la tecnología de conmutación, donde los paquetes de datos son conmutados en la red para seguir una ruta óptima hasta su destino.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/hdlc3.png" alt="">
+                </div> 
+                <h2>Estandares</h2>
+                <p>HDLC se rige por el estándar ISO/IEC 13239. Algunas características técnicas clave de HDLC son:</p>
+                <ul>
+                    <li><marcador class="resaltado5">Control de enlace: </marcador>HDLC maneja el control de enlace punto a punto y multipunto.</li>
+                    <li><marcador class="resaltado5">Modo de Operación: </marcador></li>
+                    <ol>
+                        <li><marcador class="resaltado6">Normal Response Mode (NRM): </marcador>Un nodo actúa como principal y otro como secundario, usado en conexiones maestro-esclavo.</li>
+                        <li><marcador class="resaltado6">Asynchronous Balanced Mode (ABM): </marcador>Ambos nodos pueden iniciar la transmisión de datos, ideal para redes simétricas.</li>
+                    </ol>
+                    <li><marcador class="resaltado5">Encapsulación: </marcador>Utiliza un formato de encapsulación simple, que hace que el protocolo sea rápido y eficiente.</li>
+                </ul> 
+                <div class="blog-image-grande">
+                    <img src="media/hdlc1.png" alt="">
+                </div>
+                <h2>Estructura del Header</h2>
+                <p>En HDLC, los datos se encapsulan dentro de tramas con una estructura clara:</p>
+                <ul>
+                    <li><marcador class="resaltado9">Flag: </marcador>Campo de sincronización de 1 byte que contiene el valor 01111110 (0x7E).</li>
+                    <li><marcador class="resaltado9">Address: </marcador>Indica el destino de la trama.</li>
+                    <li><marcador class="resaltado9">Control: </marcador>Define el tipo de trama y controla el flujo de datos y las solicitudes de confirmación.</li>
+                    <li><marcador class="resaltado9">Information: </marcador>Contiene los datos de usuario, solo en tramas de información.</li>
+                    <li><marcador class="resaltado9">Frame Check Sequence (FCS): </marcador>Proporciona detección de errores utilizando CRC.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/hdlc4.png" alt="">
+                </div>
+                <p>En HDLC , existen tres tipos de tramas, cada una diseñada para cumplir funciones específicas en la comunicación de datos. Estos tipos son:</p>
+                <ul>
+                    <li><marcador class="resaltado9">Trama de Información (I-Frame): </marcador>Esta es la trama principal utilizada para la transmisión de datos de usuario. Contiene información útil y permite la transferencia de datos entre dispositivos. Las I-Frames también pueden incluir números de secuencia para la gestión de flujo y control de errores.</li>
+                    <li><marcador class="resaltado9">Trama de Supervisión (S-Frame): </marcador>Estas tramas se utilizan para el control y la supervisión de la conexión. Permiten al dispositivo receptor enviar mensajes de confirmación sobre las I-Frames recibidas, así como gestionar el flujo de datos (por ejemplo, mediante solicitudes de suspensión o reanudación de la transmisión).</li>
+                    <li><marcador class="resaltado9">Trama No Numerada (U-Frame): </marcador>Este tipo de trama se utiliza para diversas funciones de control que no requieren el uso de números de secuencia, como la configuración y la gestión de la conexión. Las U-Frames pueden llevar comandos y respuestas, y son esenciales para la gestión del enlace de comunicación.</li>
+                </ul>
+                <p>En una conexión, las tramas HDLC están diseñadas para crear una comunicación confiable. Cada dispositivo confirma la recepción correcta y permite una retransmisión en caso de error.</p>
+                <h2>Configuración</h2>
+                <p>En Cisco, HDLC es el protocolo de enlace predeterminado en las interfaces seriales, mientras que en Huawei generalmente se configura PPP de forma predeterminada. Para establecer una comunicación HDLC entre routers de diferentes marcas, como Cisco y Huawei, sería necesario configurar PPP en ambos lados, ya que el HDLC de Cisco no es compatible con el de Huawei debido a variaciones en la implementación.</p>
+                <div class="blog-image-grande">
+                    <img src="media/hdlc5.png" alt="">
+                </div>
+                <h3>Cisco</h3>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>Router> enable
+Router# configure terminal
+Router(config)# interface serial 0/0/0
+Router(config-if)# encapsulation hdlc
+Router(config-if)# no shutdown
+Router(config-if)# exit
+Router(config)# exit</code></pre>
+                    </div>
+                </div>
+                <p>El comando <marcador class="subrayado">show interfaces serial 0/0/0</marcador> mostrará el estado de la interfaz, confirmando que HDLC está configurado.</p>
+                <h3>Huawei</h3>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code><Huawei>system-view
+[Huawei] interface serial 1/0/0
+[Huawei-Serial1/0/0] link-protocol hdlc
+[Huawei-Serial1/0/0] undo shutdown
+[Huawei-Serial1/0/0] quit</code></pre>
+                    </div>
+                </div>
+                <p>El comando <marcador class="subrayado">display interface serial 1/0/0</marcador> permitirá visualizar la configuración y confirmar que HDLC está activo en la interfaz.</p>
+                <div class="blog-image-grande">
+                    <img src="media/hdlc6.jpeg" alt="">
+                </div>
             </div>
         </div>       
     </main>
