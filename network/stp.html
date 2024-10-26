@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <link rel="icon" href="../media/imagen41.png" type="image/png">
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                        <li><a href="../devops.html">DevOps</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Aportar" onclick="window.open('https://buymeacoffee.com/ryuzak1', '_blank');">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <br>
+                <br>
+                <h1>STP (Spanning Tree Protocol)</h1>
+                <p>El Spanning Tree Protocol (STP) es un protocolo de red que evita bucles en redes de capa 2, comunes en configuraciones con múltiples switches y enlaces redundantes. Estos bucles pueden provocar tráfico duplicado, sobrecarga en la red e interrupciones. STP permite a los switches identificar una topología libre de bucles, estableciendo un "árbol de expansión" y desactivando algunos enlaces redundantes.</p>
+                <h2>Versiones</h2>
+                <p>STP fue inicialmente definido en el estándar IEEE 802.1D. Existen varias versiones que mejoran su velocidad y funcionalidad:</p>
+                <ul>
+                    <li><marcador class="resaltado5">STP (IEEE 802.1D): </marcador>Versión original.</li>
+                    <li><marcador class="resaltado5">RSTP (Rapid Spanning Tree Protocol - IEEE 802.1w): </marcador>Mejora la velocidad de convergencia.</li>
+                    <li><marcador class="resaltado5">MSTP (Multiple Spanning Tree Protocol - IEEE 802.1s): </marcador>Permite múltiples instancias de STP, una para cada VLAN, optimizando el uso de enlaces redundantes en redes grandes.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/stp11.png" alt="">
+                </div>
+                <h2>Funcionamiento de STP</h2>
+                <p>STP evita los bucles de capa 2 mediante el bloqueo de ciertos puertos para que los datos solo tengan un camino posible hacia el root. Sin STP, los bucles pueden causar problemas en las tablas MAC:</p>
+                <ul>
+                    <li><marcador class="resaltado5">Generación de Tablas MAC: </marcador>Cada switch construye una tabla MAC, que asocia direcciones MAC con puertos específicos. Los switches aprenden esta información al recibir tramas.</li>
+                    <li><marcador class="resaltado5">Problemas en Bucles: </marcador>En un bucle, los paquetes se duplican y circulan indefinidamente:</li>
+                    <ol>
+                        <li>Las tablas MAC se llenan de entradas duplicadas o incorrectas, ya que los switches reciben el mismo paquete en múltiples puertos.</li>
+                        <li>Esto puede llevar a una sobrecarga en los switches, que consumen más CPU y memoria, y provocan pérdida de conectividad.</li>
+                    </ol>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/stp6.jpg" alt="">
+                </div>
+                <h2>Bucles de Capa 2</h2>
+                <p>Los bucles de red son situaciones en las que hay múltiples caminos entre switches o dispositivos de red, lo que puede causar que los paquetes de datos se envíen en un ciclo infinito. Esto ocurre principalmente en redes Ethernet y puede provocar problemas graves, incluyendo broadcast storms y la caída total de la red.</p>
+                <p>Las principales causas por las que surgen los bucles de red son:</p>
+                <ul>
+                    <li><marcador class="resaltado5">Conexiones Redundantes: </marcador>A menudo, las redes se diseñan con conexiones redundantes para mejorar la disponibilidad. Sin embargo, si estas conexiones no se gestionan adecuadamente, pueden formar bucles.</li>
+                    <li><marcador class="resaltado5">Configuración Incorrecta: </marcador>Cambios erróneos en la configuración de switches, como la conexión de puertos sin la implementación de protocolos de prevención, pueden causar bucles.</li>
+                    <li><marcador class="resaltado5">Fallo de Protocolos de Prevención: </marcador>Si un protocolo como Spanning Tree Protocol (STP) no está habilitado o falla, los bucles pueden formarse sin control.</li>
+                </ul>
+                <p>Los bucles de red pueden arrojar algunos fallos, como podrían ser:</p>
+                <ul>
+                    <li><marcador class="resaltado5">Broadcast Storms: </marcador>Los paquetes de broadcast pueden circular indefinidamente entre switches, multiplicándose y saturando la red.</li>
+                    <li><marcador class="resaltado5">Desbordamiento de la Tabla de Direcciones MAC: </marcador>Los switches pueden inundarse con información de direcciones MAC, lo que provoca que las tablas se desborden y se conviertan en dispositivos de broadcast, enviando tramas a todos los puertos.</li>
+                    <li><marcador class="resaltado5">Rendimiento Degradado: </marcador>El tráfico de red se vuelve incontrolable, lo que lleva a una degradación significativa del rendimiento de la red.</li>
+                    <li><marcador class="resaltado5">Caídas de Dispositivos: </marcador>En situaciones extremas, los dispositivos pueden dejar de responder debido a la sobrecarga de tráfico.</li>
+                </ul>
+                <h2>Roles de los Puertos y del Switch en STP</h2>
+                <p>Cada switch puede asumir diferentes roles en una red STP para evitar bucles:</p>
+                <ol>
+                    <li><marcador class="resaltado9">Root Bridge: </marcador>Es el switch central de la red; todos los caminos de datos convergen en él. Solo uno puede existir en una red.</li>
+                    <li><marcador class="resaltado9">Root Port (RP): </marcador>El puerto de un switch que tiene el camino de menor costo hacia el root bridge.</li>
+                    <li><marcador class="resaltado9">Designated Port (DP): </marcador>Puerto que reenvía tráfico hacia una red específica y actúa como el "puerto designado" para esa red. Cada segmento de red tiene un DP.</li>
+                    <li><marcador class="resaltado9">Blocking Port: </marcador>Puerto que se bloquea para evitar bucles, impidiendo que los datos se reenvíen a través de él.</li>
+                </ol>
+                <p>Si el puerto que conecta a un switch al Root Bridge falla (por ejemplo, un Root Port), STP automáticamente recalcula la topología y activa uno de los Blocking Ports como el nuevo Root Port o Designated Port, según corresponda. De esta manera, el tráfico encuentra una nueva ruta sin crear bucles, lo que provee redundancia.</p>
+                <p>El proceso de reconfiguración en STP estándar es relativamente lento (puede tardar hasta 50 segundos), ya que el protocolo pasa por diferentes etapas (Blocking, Listening, Learning, Forwarding) antes de que el nuevo camino se active. Este comportamiento está diseñado para asegurar que no haya bucles durante el proceso de convergencia.</p>
+                <p>En versiones más avanzadas como RSTP (Rapid Spanning Tree Protocol), existe un rol de Alternate Port (puerto alternativo), que actúa como un "backup" para el Root Port en caso de fallo. Este puerto alternativo está listo para asumir la función de reenvío inmediatamente sin pasar por todas las etapas de recálculo, permitiendo una convergencia más rápida (en menos de 1 segundo en la mayoría de los casos). Similarmente, MSTP (Multiple Spanning Tree Protocol) también mejora la redundancia y velocidad en redes complejas.</p>
+                <div class="blog-image-grande">
+                    <img src="media/stp5.jpg" alt="">
+                </div>
+                <h2>BPDUs</h2>
+                <p>Las Bridge Protocol Data Units (BPDUs) son mensajes fundamentales utilizados en el Spanning Tree Protocol (STP) para la gestión de la topología de red y la prevención de bucles. Estas unidades de datos son enviadas por los switches para intercambiar información sobre el estado de la red y determinar la estructura jerárquica de la misma.</p>
+                <p>Las BPDUs permiten que los switches identifiquen la raíz del árbol de expansión y calculen el camino más corto hacia ella. Cada switch envía BPDUs de manera periódica para notificar a otros dispositivos sobre su existencia y el estado de sus puertos. Esto es esencial para la convergencia de la red, ya que permite a los switches tomar decisiones informadas sobre cómo configurar sus puertos (bloqueados, escuchando, aprendiendo o reenviando).</p>
+                <p>Existen dos tipos principales de BPDUs:</p>
+                <ol>
+                    <li><marcador class="resaltado9">BPDUs de Configuración: </marcador>Se utilizan para establecer y mantener la topología del árbol de expansión. Incluyen información sobre el identificador del puente, el costo del camino hacia la raíz, y el estado de los puertos.</li>
+                    <li><marcador class="resaltado9">BPDUs de Tercera Parte (Cambio de Topología): </marcador>Se utilizan para notificar a otros switches sobre cambios en la topología de la red, como la activación o desactivación de puertos. Esto ayuda a que la red se adapte rápidamente a cambios y minimiza el tiempo de inactividad.</li>
+                </ol>
+                <p>Las BPDUs son cruciales para el funcionamiento efectivo de STP. Sin ellas, los switches no podrían colaborar adecuadamente para mantener una topología libre de bucles. La capacidad de los switches para intercambiar información de manera continua les permite adaptarse a cambios en la red, como la adición de nuevos dispositivos o la eliminación de enlaces.</p>
+                <div class="blog-image-grande">
+                    <img src="media/stp9.jpg" alt="">
+                </div>
+                <h2>Modos</h2>
+                <p>El Spanning Tree Protocol (STP) utiliza varios modos de estado de puerto para gestionar la topología de la red y prevenir bucles. Los estados de los puertos en STP son:</p>
+                <ol>
+                    <li><marcador class="resaltado9">Blocking (Bloqueado)</marcador></li>
+                    <ul>
+                        <li><marcador class="resaltado8">Descripción: </marcador>En este estado, el puerto no envía ni recibe tráfico de datos. Sin embargo, puede recibir mensajes de Bridge Protocol Data Units (BPDUs) para seguir participando en la topología de la red.</li>
+                        <li><marcador class="resaltado8">Función: </marcador>El puerto permanece en este estado si no es el camino más corto hacia la raíz o si está en riesgo de formar un bucle.</li>
+                    </ul>
+                    <li><marcador class="resaltado9">Listening (Escuchando)</marcador></li>
+                    <ul>
+                        <li><marcador class="resaltado8">Descripción: </marcador>En este estado, el puerto deja de aprender direcciones MAC, pero continúa procesando BPDUs. Esto permite que el switch detecte cambios en la topología de la red.</li>
+                        <li><marcador class="resaltado8">Función: </marcador>El objetivo es prepararse para pasar a un estado de Forwarding si se determina que el puerto puede ser parte de la topología activa.</li>
+                    </ul>
+                    <li><marcador class="resaltado9">Learning (Aprendiendo)</marcador></li>
+                    <ul>
+                        <li><marcador class="resaltado8">Descripción: </marcador>En este estado, el puerto comienza a aprender direcciones MAC de los paquetes que recibe, pero aún no envía tráfico de datos.</li>
+                        <li><marcador class="resaltado8">Función: </marcador>Esto permite al switch construir su tabla de direcciones MAC, lo que ayuda a optimizar el tráfico en el futuro.</li>
+                    </ul>
+                    <li><marcador class="resaltado9">Forwarding (Reenviando)</marcador></li>
+                    <ul>
+                        <li><marcador class="resaltado8">Descripción: </marcador>Este es el estado activo en el que el puerto envía y recibe tráfico de datos. También continúa aprendiendo direcciones MAC.</li>
+                        <li><marcador class="resaltado8">Función: </marcador>Los puertos en este estado están habilitados para enviar y recibir tráfico, permitiendo la comunicación normal en la red.</li>
+                    </ul>
+                    <li><marcador class="resaltado9">Disabled (Deshabilitado)</marcador></li>
+                    <ul>
+                        <li><marcador class="resaltado8">Descripción: </marcador>Este estado indica que el puerto está administrativamente deshabilitado. No puede enviar ni recibir tráfico ni participar en la elección de la raíz.</li>
+                        <li><marcador class="resaltado8">Función: </marcador>Se utiliza para desactivar puertos que no se desean en la red.</li>
+                    </ul>
+                </ol>
+                <p>En el protocolo STP, el tiempo de convergencia de hasta 50 segundos se debe al proceso de transición de los puertos entre diferentes estados para evitar bucles en la red. Este proceso se controla mediante las Bridge Protocol Data Units (BPDUs), que los switches envían periódicamente para compartir información sobre la topología de la red.</p>
+                <p>Primero, un puerto comienza en el estado Blocking, donde no reenvía tráfico de usuario y solo recibe BPDUs. Este estado dura 20 segundos, un tiempo conocido como Max Age. Si no se detectan cambios en la red o fallas en ese período, el puerto pasa al siguiente estado.</p>
+                <p>Luego, el puerto transita al estado Listening, donde espera y evalúa BPDUs para determinar la mejor ruta hacia el Root Bridge sin comenzar a aprender direcciones MAC. Esta etapa toma 15 segundos, conocidos como Forward Delay.</p>
+                <p>Después, el puerto entra en el estado Learning, donde comienza a aprender direcciones MAC de los paquetes que recibe, pero aún no reenvía tráfico de usuario. Este estado también dura 15 segundos de Forward Delay.</p>
+                <p>Finalmente, tras completar estos estados, el puerto pasa al estado Forwarding, donde ya puede reenviar tráfico de usuario y participar activamente en la red. Al sumar estos tiempos (20 + 15 + 15), STP asegura que la red converge en un máximo de 50 segundos sin generar bucles.</p>
+                <div class="blog-image">
+                    <img src="media/stp10.jpg" alt="">
+                </div>
+                <p>Resumen del Proceso de Transición:</p>
+                <ul>
+                    <li>Inicialmente, todos los puertos comienzan en el estado Blocking.</li>
+                    <li>Cuando se selecciona un puerto como parte del camino más corto hacia la raíz, puede moverse a Listening.</li>
+                    <li>Luego, el puerto pasa a Learning, donde comienza a construir su tabla de direcciones.</li>
+                    <li>Finalmente, se mueve a Forwarding, donde puede enviar y recibir datos.</li>
+                    <li>Si se detecta un bucle o un cambio en la topología, los puertos pueden volver a Blocking o Listening según sea necesario.</li>
+                </ul>
+                <h2>Prioridades en STP y Selección del Switch Root</h2>
+                <p>Cada switch en STP tiene un valor de prioridad, el cual determina qué switch se convierte en el root bridge (raíz de la red). El root bridge actúa como el centro de la red y envía BPDU (Bridge Protocol Data Units) a otros switches para mantener la estructura de la red.</p>
+                <ul>
+                    <li><marcador class="resaltado9">Rango de Prioridades: </marcador>La prioridad se establece en incrementos de 4096, dentro de un rango de 0 a 61440.</li>
+                    <li><marcador class="resaltado9">Elección del Root: </marcador>El switch con la prioridad más baja se convierte en el root. En caso de empate en prioridades, se elige el switch con la dirección MAC más baja.</li>
+                </ul>
+                <p>Por ejemplo, si un switch tiene una prioridad de 0 y otro tiene una prioridad de 4096, el switch con 0 se convierte en el root, ya que su prioridad es menor.</p>
+                <div class="blog-image-grande">
+                    <img src="media/stp4.png" alt="">
+                </div>
+                <h2>Costo</h2>
+                <p>El costo en Spanning Tree Protocol (STP) es un valor que se utiliza para determinar la mejor ruta (o camino) hacia la raíz del árbol de expansión en una red de switches. Este costo se basa en el ancho de banda de los enlaces de red y se utiliza para evitar bucles de red, asegurando que solo una ruta activa se utilice para el tráfico entre dos dispositivos.</p>
+                <p>El costo se calcula a partir del ancho de banda de los enlaces. STP asigna costos predeterminados a diferentes velocidades de enlace, lo que significa que los enlaces de mayor ancho de banda tienen un costo más bajo. Por ejemplo:</p>
+                <ul>
+                    <li>10 Mbps: costo 100</li>
+                    <li>100 Mbps: costo 19</li>
+                    <li>1 Gbps: costo 4</li>
+                    <li>10 Gbps: costo 2</li>
+                </ul>
+                <p>Esto permite que los enlaces más rápidos sean preferidos en el cálculo del camino hacia la raíz.</p>
+                <p>STP elige el camino más corto hacia la raíz utilizando el costo total del camino. El camino con el menor costo se convierte en el camino activo, mientras que los demás enlaces son puestos en estado de "bloqueado" para prevenir bucles.</p>
+                <p>Si hay un cambio en la topología de la red (por ejemplo, si un enlace cae o un nuevo enlace se agrega), STP recalcula los costos y puede cambiar el estado de los enlaces para mantener una red sin bucles.</p>
+                <div class="blog-image">
+                    <img src="media/stp3.png" alt="">
+                </div>
+                <h2>Elección de root</h2>
+                <p>Para que STP determine cuál switch será el Root Bridge (o switch raíz), se utilizan dos valores principales:</p>
+                <ul>
+                    <li><marcador class="resaltado5">Prioridad del Bridge (Bridge Priority): </marcador>Es el valor clave que ayuda a STP a tomar la decisión. Este es un número configurable en cada switch, y el switch con el valor de prioridad más bajo será el candidato preferido para ser el Root Bridge. La prioridad por defecto es 32768 en la mayoría de los switches, pero puede ajustarse en incrementos de 4096 para influir en la elección. Los valores van de 0 a 61440; un valor menor indica una mayor probabilidad de ser seleccionado como Root Bridge.</li>
+                    <li><marcador class="resaltado5">Dirección MAC del Switch (MAC Address): </marcador>Si dos switches tienen la misma prioridad (lo cual es común si se usa el valor por defecto), STP desempata utilizando la dirección MAC del switch. El switch con la dirección MAC más baja será elegido como el Root Bridge. Esto se debe a que las direcciones MAC son únicas para cada dispositivo, lo que permite a STP identificar y elegir un único switch en caso de empate en la prioridad.</li>
+                </ul>
+                <p>STP comienza evaluando estos dos valores para todos los switches en la red. Se inicia una serie de BPDUs que contienen la prioridad y dirección MAC de cada switch, permitiendo que todos los dispositivos comparen estos valores. Al final del proceso, el switch con la prioridad más baja y, en caso de empate, la MAC más baja, se convierte en el Root Bridge.</p>
+                <h2>Configuración</h2>
+                <p></p>
+            </div>
+        </div>       
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
