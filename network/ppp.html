@@ -87,11 +87,11 @@
                 <p>Además de la autenticación, en PPP se emplean dos fases importantes durante el establecimiento y la configuración de la conexión: LCP (Link Control Protocol) y NCP (Network Control Protocol). El LCP es responsable de la configuración, prueba y administración de la conexión de datos en el nivel de enlace. En el inicio de la conexión, LCP negocia los parámetros básicos para la comunicación entre los routers, como el tamaño máximo del paquete y las opciones de autenticación. LCP también detecta errores y puede terminar la conexión si no se cumplen las condiciones de enlace necesarias para una comunicación segura y estable.</p>
                 <p>Por otro lado, NCP se encarga de la configuración y administración de los protocolos de red en el nivel superior de PPP, una vez que LCP ha establecido el enlace. NCP permite que diferentes protocolos de red (como IP, IPX o AppleTalk) se ejecuten sobre el enlace PPP. Por ejemplo, para una conexión basada en IP, NCP utiliza el IPCP (IP Control Protocol) para negociar direcciones IP y parámetros adicionales necesarios para la transmisión de paquetes IP a través de la conexión PPP. Una vez que NCP ha configurado estos parámetros, el enlace está listo para la transmisión de datos de usuario.</p>
                 <p>En conjunto, LCP y NCP forman la estructura que permite a PPP manejar tanto el establecimiento seguro del enlace físico como la transmisión de datos en diferentes protocolos de red, asegurando flexibilidad y seguridad en conexiones punto a punto.</p>
+                <div class="blog-image-grande">
+                    <img src="media/ppp6.png" alt="">
+                </div>
                 <h2>Configuración</h2>
                 <p>Tanto en dispositivos Cisco como en Huawei, PPP puede configurarse en interfaces seriales. En algunos dispositivos, PPP es el protocolo predeterminado para enlaces WAN, ya que proporciona autenticación y permite compatibilidad entre marcas.</p>
-                <div class="blog-image-grande">
-                    <img src="media/ppp5.png" alt="">
-                </div>
                 <h3>Cisco</h3>
                 <div class="consola">
                     <div class="barra-superior-consola">
@@ -166,7 +166,7 @@ Router(config)# write memory</code></pre>
                 </div>
                 <p>El comando <marcador class="subrayado">display interface serial 1/0/0</marcador> mostrará el estado de la interfaz y confirmará que PPP está configurado con la autenticación seleccionada.</p>
                 <div class="blog-image-grande">
-                    <img src="media/ppp4.jpg" alt="">
+                    <img src="media/ppp5.png" alt="">
                 </div>
             </div>
         </div>       
