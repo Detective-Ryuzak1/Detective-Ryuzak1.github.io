@@ -124,8 +124,8 @@ Router# configure terminal
 Router(config)# interface serial 0/0/0
 Router(config-if)# encapsulation ppp
 Router(config-if)# ppp authentication chap
-Router(config-if)# ppp pap sent-username usuario
-Router(config-if)# ppp pap password contrasena
+Router(config-if)# ppp chap hostname usuario
+Router(config-if)# ppp chap password contrasena
 Router(config-if)# no shutdown
 Router(config-if)# exit
 Router(config)# write memory</code></pre>
