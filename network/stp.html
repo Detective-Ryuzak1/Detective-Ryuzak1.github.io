@@ -290,18 +290,18 @@ Switch(config)# copy running-config startup-config</code></pre>
                 <ol>
                     <li>ROOT:</li>
                     <ul>
-                        <li>El switch RootBridge tiene una prioridad de 4096 para garantizar que sea seleccionado como el Root Bridge.</li>
-                        <li>Los puertos FA0/1 y FA0/2 tienen la prioridad de puerto configurada en 32, por lo que actúan como Designated Ports.</li>
+                        <li style="list-style-type: square;">El switch RootBridge tiene una prioridad de 4096 para garantizar que sea seleccionado como el Root Bridge.</li>
+                        <li style="list-style-type: square;">Los puertos FA0/1 y FA0/2 tienen la prioridad de puerto configurada en 32, por lo que actúan como Designated Ports.</li>
                     </ul>
                     <li>Switch A:</li>
                     <ul>
-                        <li>FA0/3 se configura como Root Port con prioridad de puerto 64, ya que este puerto tiene la conexión más directa hacia el Root Bridge.</li>
-                        <li>FA0/4 es un Designated Port y se le asigna una prioridad de 32.</li>
+                        <li style="list-style-type: square;">FA0/3 se configura como Root Port con prioridad de puerto 64, ya que este puerto tiene la conexión más directa hacia el Root Bridge.</li>
+                        <li style="list-style-type: square;">FA0/4 es un Designated Port y se le asigna una prioridad de 32.</li>
                     </ul>
                     <li>Switch B:</li>
                     <ul>
-                        <li>FA0/6 es el Root Port con prioridad de puerto 64, al igual que Switch A.</li>
-                        <li>FA0/5 se encuentra en estado de Blocking con prioridad 96, ya que está conectado a Switch A, creando una ruta redundante que STP bloquea para evitar bucles.</li>
+                        <li style="list-style-type: square;">FA0/6 es el Root Port con prioridad de puerto 64, al igual que Switch A.</li>
+                        <li style="list-style-type: square;">FA0/5 se encuentra en estado de Blocking con prioridad 96, ya que está conectado a Switch A, creando una ruta redundante que STP bloquea para evitar bucles.</li>
                     </ul>
                 </ol>
                 <p>Los valores de max-age, hello-time, y forward-time son estándar y están configurados según los tiempos predeterminados para cumplir con el ciclo de 50 segundos que STP necesita para converger en caso de cambios de topología.</p>
