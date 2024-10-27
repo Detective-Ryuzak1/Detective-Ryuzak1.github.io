@@ -531,6 +531,9 @@ WHEN NOT MATCHED THEN
                     </div>
                     <p>En esta consulta, la tabla principal es empleados, y estamos seleccionando la columna nombre de esta tabla. La cláusula WHERE EXISTS contiene una subconsulta que actúa como un filtro para los resultados que queremos obtener. La subconsulta busca en la tabla proyectos y verifica si hay al menos una fila donde el empleados.id coincide con proyectos.empleado_id. El uso de SELECT 1 en la subconsulta es solo una convención; no necesitamos seleccionar datos específicos, solo estamos interesados en saber si existen filas que cumplen la condición.</p>
                     <li><marcador class="resaltado9">JOIN</marcador></li>
+                    <div class="blog-image">
+                        <img src="media/sql8.jpg" alt="">
+                    </div>
                     <p>Los joins en SQL son fundamentales para combinar filas de dos o más tablas en función de una relación entre ellas. Este proceso es esencial en bases de datos relacionales, donde los datos están estructurados en múltiples tablas que se pueden relacionar entre sí.</p>
                     <div class="consola">
                         <div class="barra-superior-consola">
@@ -599,7 +602,7 @@ FULL JOIN departamentos ON empleados.depto_id = departamentos.id;</code></pre>
                     </div>
                 </ul>
                 <div class="blog-image">
-                    <img src="media/sql8.jpg" alt="">
+                    <img src="media/sql10.png" alt="">
                 </div>
                 <h2>Formateo</h2>
                 <p>El formateo de consultas SQL es esencial para mejorar la legibilidad, especialmente en queries muy largas o complejas. Utilizar sangrías y saltos de línea ayuda a estructurar mejor la consulta, facilitando la identificación de sus diferentes partes, como las cláusulas SELECT, FROM, WHERE, y los JOIN. Al hacerlo, los desarrolladores pueden comprender más fácilmente la lógica de la consulta y realizar modificaciones sin confusiones. Una práctica común es alinear las cláusulas principales y anidar condiciones en subconsultas o expresiones de forma ordenada. Por ejemplo, una consulta compleja se puede formatear así:</p>
