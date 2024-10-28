@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <link rel="icon" href="../media/imagen41.png" type="image/png">
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                        <li><a href="../devops.html">DevOps</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Aportar" onclick="window.open('https://buymeacoffee.com/ryuzak1', '_blank');">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <br>
+                <br>
+                <h1>NAT (Network Address Translation)</h1>
+                <p>El protocolo NAT, o Traducción de Direcciones de Red, es una técnica fundamental en la administración de redes modernas. Su principal función es permitir que varios dispositivos en una red privada utilicen una única dirección IP pública para acceder a Internet, resolviendo problemas de escasez de direcciones IP y mejorando la seguridad de la red.</p>
+                <p>NAT permite que los dispositivos de una red interna (por ejemplo, una red LAN) puedan comunicarse con el exterior (Internet) usando una sola dirección IP pública. La dirección IP pública es asignada por el proveedor de servicios de Internet (ISP), y NAT permite que varias direcciones IP privadas compartan este único recurso. Gracias a NAT, los equipos de una red privada pueden navegar en Internet sin necesidad de tener una dirección IP pública individual para cada dispositivo.</p>
+                <p>NAT también tiene una función de seguridad: los dispositivos de Internet no pueden ver directamente las direcciones IP privadas de una red interna, lo que reduce la exposición de estos dispositivos a posibles ataques externos.</p>
+                <div class="blog-image-grande">
+                    <img src="media/nat4.png" alt="">
+                </div>
+                <h2>Tipos</h2>
+                <p>Existen varios tipos de NAT, cada uno adecuado para diferentes escenarios y configuraciones de red. A continuación, se describen los más comunes:</p>
+                <ol>
+                    <li><marcador class="resaltado9">NAT Estático (Static NAT):</marcador></li>
+                    <ul>
+                        <li>Este tipo de NAT mapea una dirección IP privada única a una dirección IP pública única. Es útil cuando se necesita que un dispositivo interno sea accesible desde Internet, como en el caso de servidores web o de correo.</li>
+                        <li><marcador class="resaltado8">Ejemplo de uso: </marcador>Si tienes un servidor web en tu red interna y necesitas que sea accesible desde Internet, puedes asignarle una dirección IP pública específica usando NAT estático.</li>
+                    </ul>
+                    <li><marcador class="resaltado9">NAT Dinámico (Dynamic NAT):</marcador></li>
+                    <ul>
+                        <li>NAT dinámico asigna una dirección IP pública disponible a cualquier dispositivo de la red interna que necesite acceso a Internet. A diferencia del NAT estático, este tipo permite que varias direcciones IP privadas compartan un conjunto de direcciones IP públicas disponibles.</li>
+                        <li><marcador class="resaltado8">Ejemplo de uso: </marcador>Una empresa con varias computadoras y una cantidad limitada de direcciones IP públicas asignadas por su ISP podría usar NAT dinámico para gestionar el acceso a Internet.</li>
+                    </ul>
+                    <li><marcador class="resaltado9">PAT (Port Address Translation), también conocido como NAT Sobrecargado:</marcador></li>
+                    <ul>
+                        <li>PAT permite que múltiples dispositivos usen una sola dirección IP pública, diferenciándolos mediante el uso de números de puerto. Esto es especialmente útil en redes de gran tamaño, ya que permite que cientos de dispositivos compartan una misma IP pública sin problemas de escasez.</li>
+                        <li><marcador class="resaltado8">Ejemplo de uso: </marcador>Este es el tipo de NAT más común en redes domésticas, donde el router asigna puertos únicos a cada conexión que sale a Internet, permitiendo que todos los dispositivos de la casa usen la misma dirección IP pública.</li>
+                    </ul>
+                </ol>
+                <div class="blog-image-grande">
+                    <img src="media/nat1.jpg" alt="">
+                </div>
+                <h2>Funcionamiento</h2>
+                <p>El proceso de NAT ocurre en un router o un dispositivo de red que maneja la conexión entre la red interna y externa. El dispositivo examina cada paquete de datos y modifica las direcciones IP de origen o destino, según la dirección de tráfico. Veamos cómo funciona en los casos de NAT dinámico y PAT:</p>
+                <ol>
+                    <li><marcador class="resaltado9">NAT Dinámico:</marcador></li>
+                    <ul>
+                        <li>Cuando un dispositivo en la red interna quiere acceder a Internet, el router verifica si tiene una dirección IP pública disponible.</li>
+                        <li>Si hay una dirección pública libre, se asigna temporalmente a ese dispositivo, y el router modifica el paquete de datos para usar esta IP pública como dirección de origen.</li>
+                        <li>Cuando el tráfico de regreso llega a la IP pública, el router traduce la dirección de nuevo a la IP privada original y reenvía el paquete al dispositivo interno.</li>
+                        <li>Una vez finalizada la conexión, la IP pública vuelve a estar disponible para otros dispositivos.</li>
+                    </ul>
+                    <li><marcador class="resaltado9">PAT (NAT Sobrecargado):</marcador></li>
+                    <ul>
+                        <li>En lugar de asignar una dirección IP pública única a cada dispositivo, PAT asigna un número de puerto único a cada conexión.</li>
+                        <li>Cuando un dispositivo accede a Internet, el router modifica el número de puerto de origen en el paquete y lo registra en una tabla de traducción junto con la IP privada del dispositivo.</li>
+                        <li>Al regresar el paquete, el router usa el número de puerto para identificar el dispositivo de destino en la red interna, cambiando nuevamente la dirección y el puerto de origen antes de entregar el paquete.</li>
+                        <li>PAT permite que cientos de dispositivos compartan una misma dirección IP pública al utilizar puertos únicos para cada conexión.</li>
+                    </ul>
+                </ol>
+                <div class="blog-image-grande">
+                    <img src="media/nat3.jpg" alt="">
+                </div>
+                <h2>Datos Técnicos</h2>
+                <ul>
+                    <li><marcador class="resaltado5">Rango de Puertos: </marcador>En una configuración de PAT, se utilizan puertos de 1024 a 65535 para asignar conexiones únicas a dispositivos en la red interna. Esto permite manejar múltiples conexiones simultáneas.</li>
+                    <li><marcador class="resaltado5">Direcciones IP Privadas: </marcador>Las redes internas suelen utilizar direcciones IP privadas que no se pueden enrutar directamente en Internet, como los rangos 192.168.0.0/16, 10.0.0.0/8 y 172.16.0.0/12.</li>
+                    <li><marcador class="resaltado5">Tablas de Traducción: </marcador>NAT depende de tablas de traducción que almacenan información sobre cada conexión y mapeo de IP, especialmente en PAT, donde el número de puerto identifica la conexión de origen.</li>
+                </ul>
+                <h2>¿Cómo verificar tu dirección IP pública?</h2>
+                <p>En <a href="https://www.whatismyip.com/" target="blank">WhatIsMyIP.com</a>, puedes realizar varias acciones útiles relacionadas con tu conexión a Internet. En primer lugar, el sitio te permite ver claramente tu dirección IP pública, que es esencial para entender cómo te conectas a la red. Esta información se muestra de manera prominente en la parte superior de la página, lo que facilita su localización.</p>
+                <p>Además de la dirección IP, el sitio proporciona información adicional sobre tu conexión, como la ubicación geográfica aproximada y el proveedor de servicios de Internet (ISP) asociado. Esto puede ser útil si necesitas conocer detalles sobre tu conexión o si estás tratando de diagnosticar problemas de red.</p>
+                <p>WhatIsMyIP.com también ofrece herramientas adicionales que pueden ser valiosas para la gestión de redes. Por ejemplo, puedes verificar si tu IP está en listas negras.</p>
+                <p>Por último, el sitio soporta tanto direcciones IPv4 como IPv6, lo que significa que puedes obtener información sobre tu conexión independientemente del tipo de IP que estés utilizando.</p>
+                <div class="blog-image-grande">
+                    <img src="media/nat5.jpg" alt="">
+                </div>
+                <h2>Configuración</h2>
+                <h3>Cisco</h3>
+                <h6>Configuración de NAT Estático</h6>
+                <p>NAT estático mapea una dirección IP privada a una dirección IP pública específica. Esta configuración es útil cuando necesitas que un dispositivo interno, como un servidor web, sea accesible desde el exterior.</p>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>interface GigabitEthernet0/1
+ip address 192.168.1.1 255.255.255.0
+ip nat inside
+
+interface GigabitEthernet0/2
+ip address 203.0.113.1 255.255.255.0
+ip nat outside
+
+ip nat inside source static 192.168.1.10 203.0.113.10</code></pre>
+                    </div>
+                </div>
+                <p>Mapea la IP privada 192.168.1.10 a la IP pública 203.0.113.10.</p>
+                <h6>Configuración de NAT Dinámico</h6>
+                <p>NAT dinámico asigna una dirección IP pública desde un pool a cada dispositivo que necesita acceso a Internet. Este tipo es útil cuando tienes un conjunto limitado de direcciones IP públicas y quieres que se asignen dinámicamente a los dispositivos internos.</p>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>ip nat pool MI_POOL 203.0.113.10 203.0.113.20 netmask 255.255.255.240
+access-list 1 permit 192.168.1.0 0.0.0.255
+ip nat inside source list 1 pool MI_POOL
+
+interface GigabitEthernet0/1
+    ip address 192.168.1.1 255.255.255.0
+    ip nat inside
+
+interface GigabitEthernet0/2
+    ip address 203.0.113.1 255.255.255.0
+    ip nat outside</code></pre>
+                    </div>
+                </div>
+                <p>Escenario: Asigna direcciones IP desde el pool 203.0.113.10 a 203.0.113.20 a los dispositivos de la red interna 192.168.1.0/24.</p>
+                <h6>Configuración de PAT (NAT Sobrecargado)</h6>
+                <p>PAT permite que varios dispositivos compartan una única dirección IP pública al usar puertos diferentes. Es común en redes domésticas y pequeñas empresas.</p>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>interface GigabitEthernet0/1
+    ip address 192.168.1.1 255.255.255.0
+    ip nat inside
+
+interface GigabitEthernet0/2
+    ip address 203.0.113.10 255.255.255.0
+    ip nat outside
+
+access-list 1 permit 192.168.1.0 0.0.0.255
+ip nat inside source list 1 interface GigabitEthernet0/2 overload</code></pre>
+                    </div>
+                </div>
+                <p>Usa la dirección IP 203.0.113.10 para todos los dispositivos en la red interna 192.168.1.0/24 y permite que compartan esta IP mediante la sobrecarga de puertos.</p>
+                <h3>Huawei</h3>
+                <h6>Configuración de NAT Estático</h6>
+                <p>NAT estático en Huawei permite el mapeo de una dirección IP privada específica a una dirección IP pública. Esto es útil para servicios internos que deben ser accesibles desde el exterior.</p>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>interface GigabitEthernet 0/0/1
+    ip address 192.168.1.1 255.255.255.0
+    nat enable
+
+interface GigabitEthernet 0/0/2
+    ip address 203.0.113.1 255.255.255.0
+    nat enable
+
+nat static global 203.0.113.10 inside 192.168.1.10</code></pre>
+                    </div>
+                </div>
+                <p>Mapear la IP privada 192.168.1.10 a la IP pública 203.0.113.10.</p>
+                <h6>Configuración de NAT Dinámico</h6>
+                <p>NAT dinámico en Huawei utiliza un grupo de direcciones IP públicas para asignarlas a dispositivos internos cuando necesitan acceso a Internet. Es útil cuando se cuenta con múltiples IPs públicas.</p>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>interface GigabitEthernet 0/0/1
+    ip address 192.168.1.1 255.255.255.0
+    nat enable
+
+interface GigabitEthernet 0/0/2
+    ip address 203.0.113.1 255.255.255.0
+    nat enable
+
+nat address-group 1 203.0.113.10 203.0.113.20
+acl 2001
+    rule 5 permit source 192.168.1.0 0.0.0.255
+nat outbound 2001 address-group 1</code></pre>
+                    </div>
+                </div>
+                <p>Usar direcciones del pool 203.0.113.10 a 203.0.113.20 para dispositivos en la red 192.168.1.0/24.</p>
+                <h6>Configuración de PAT (NAT Sobrecargado)</h6>
+                <p>PAT permite que varios dispositivos internos compartan una sola dirección IP pública usando diferentes puertos. Es útil para redes que necesitan asignar una única IP pública a múltiples dispositivos.</p>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>interface GigabitEthernet 0/0/1
+    ip address 192.168.1.1 255.255.255.0
+    nat enable
+
+interface GigabitEthernet 0/0/2
+    ip address 203.0.113.10 255.255.255.0
+    nat enable
+
+acl 2001
+    rule 5 permit source 192.168.1.0 0.0.0.255
+nat outbound 2001 interface GigabitEthernet 0/0/2 overload</code></pre>
+                    </div>
+                </div>
+                <p>Usar la dirección pública 203.0.113.10 para todos los dispositivos en la red 192.168.1.0/24, usando sobrecarga de puertos.</p>
+                <div class="blog-image-grande">
+                    <img src="media/nat2.png" alt="">
+                </div>
+            </div>
+        </div>       
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
