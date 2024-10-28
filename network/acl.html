@@ -278,42 +278,67 @@ rule 10 deny ip</code></pre>
                 <div class="blog-image-grande">
                     <img src="media/acl1.png" alt="">
                 </div>
+                <p>Subred:</p>
+                <ul>
+                    <li><marcador class="resaltado8">Subred de la empresa: </marcador>192.168.1.0/24</li>
+                    <li><marcador class="resaltado8">Subred HR: </marcador>172.17.0.0/20</li>
+                </ul>
                 <ol>
                     <li>En R1:</li>
                     <ul>
-                        <li style="list-style-type: square;">Denegar el tráfico de video hacia S1.</li>
-                        <li style="list-style-type: square;">Denegar el acceso de S1 a S2.</li>
+                        <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia R2: </marcador>192.168.1.1</li>
+                        <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia S1: </marcador>192.168.2.1</li>
+                        <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia S2: </marcador>192.168.3.1</li>
                     </ul>
                     <li>En R2:</li>
                     <ul>
-                        <li style="list-style-type: square;">Permitir solo el tráfico de correo electrónico entrante desde Internet.</li>
-                        <li style="list-style-type: square;">Denegar el tráfico de Telnet entrante desde Internet.</li>
+                        <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia R1: </marcador>192.168.1.2</li>
+                        <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia Internet: </marcador>192.168.4.1</li>
                     </ul>
                     <li>En R3:</li>
                     <ul>
-                        <li style="list-style-type: square;">Denegar el acceso a la subred de recursos humanos (HR), que utiliza el rango 172.17.0.0/20.</li>
-                        <li style="list-style-type: square;">Denegar las actualizaciones, FTP y acceso web para la red conectada a S3.</li>
+                        <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia R2: </marcador>192.168.1.3</li>
+                        <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia subred HR:  </marcador>172.17.0.1</li>
+                        <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia S3: </marcador>192.168.5.1</li>
                     </ul>
                 </ol>
                 <p>Cada ACL deberá aplicarse en la interfaz correcta y en la dirección adecuada (entrante o saliente) para cumplir con los requisitos de seguridad.</p>
                 <h3>Cisco</h3>
                 <h6>Router 1</h6>
+                <ul>
+                    <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia R2: </marcador>192.168.1.1</li>
+                    <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia S1: </marcador>192.168.2.1</li>
+                    <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia S2: </marcador>192.168.3.1</li>
+                </ul>
+                <br>
                 <ol>
                     <li><marcador class="resaltado8">Denegar video al S1 (bloqueo de tráfico de video desde PC1):</marcador></li>
-                    <p></p>
                     <div class="consola">
                         <div class="barra-superior-consola">
                             <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
                         </div>
                         <div class="codigo-consola">
                             <!-- Contenido del código -->
-    <pre><code>access-list 101 deny udp host 192.168.1.1 any eq 554
+    <pre><code>interface GigabitEthernet0/0
+    ip address 192.168.1.1 255.255.255.0
+    no shutdown
+       
+interface GigabitEthernet0/1
+    ip address 192.168.2.1 255.255.255.0
+    no shutdown
+       
+interface GigabitEthernet0/2
+    ip address 192.168.3.1 255.255.255.0
+    no shutdown
+
+access-list 101 deny udp host 192.168.2.2 any eq 554
 access-list 101 permit ip any any
-interface GigabitEthernet0/0
-ip access-group 101 in</code></pre>
+
+interface GigabitEthernet0/1
+    ip access-group 101 in</code></pre>
                         </div>
                     </div>
-                    <p>Aquí se asume que PC1 tiene la IP 192.168.1.1 y que el video usa el puerto 554 (RTSP).</p>
+                    <p>Aquí se asume que PC1 tiene la IP 192.168.2.2 y que el video usa el puerto 554 (RTSP).</p>
                     <li><marcador class="resaltado8">Denegar acceso del S1 al S2:</marcador></li>
                     <p></p>
                     <div class="consola">
@@ -322,15 +347,21 @@ ip access-group 101 in</code></pre>
                         </div>
                         <div class="codigo-consola">
                             <!-- Contenido del código -->
-    <pre><code>access-list 102 deny ip host 192.168.1.1 host 192.168.1.2
+    <pre><code>access-list 102 deny ip host 192.168.2.2 host 192.168.3.2
 access-list 102 permit ip any any
+
 interface GigabitEthernet0/1
-ip access-group 102 in</code></pre>
+    ip access-group 102 in</code></pre>
                         </div>
                     </div>
-                    <p>Se asume que S1 tiene la IP 192.168.1.1 y S2 la IP 192.168.1.2.</p>
+                    <p>Se asume que S1 tiene la IP 192.168.2.2 y S2 la IP 192.168.3.2.</p>
                 </ol>
                     <h6>Router 2</h6>
+                    <ul>
+                        <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia R1: </marcador>192.168.1.2</li>
+                        <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia Internet: </marcador>192.168.4.1</li>
+                    </ul>
+                    <br>
                 <ol>
                     <li><marcador class="resaltado8">Permitir solo el correo electrónico entrante y denegar Telnet entrante:</marcador></li>
                     <p></p>
@@ -340,18 +371,33 @@ ip access-group 102 in</code></pre>
                         </div>
                         <div class="codigo-consola">
                             <!-- Contenido del código -->
-    <pre><code>access-list 103 permit tcp any any eq 25
+    <pre><code>interface GigabitEthernet0/0
+    ip address 192.168.1.2 255.255.255.0
+    no shutdown
+       
+interface GigabitEthernet0/1
+    ip address 192.168.4.1 255.255.255.0
+    no shutdown
+
+access-list 103 permit tcp any any eq 25
 access-list 103 permit tcp any any eq 110
 access-list 103 permit tcp any any eq 143
 access-list 103 deny tcp any any eq 23
 access-list 103 permit ip any any
-interface GigabitEthernet0/0
-ip access-group 103 in</code></pre>
+
+interface GigabitEthernet0/1
+    ip access-group 103 in</code></pre>
                         </div>
                     </div>
                     <p>Los puertos 25 (SMTP), 110 (POP3) y 143 (IMAP) permiten el tráfico de correo entrante, mientras que el puerto 23 (Telnet) es denegado.</p>
                 </ol>
                 <h6>Router 3</h6>
+                <ul>
+                    <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia R2: </marcador>192.168.1.3</li>
+                    <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia subred HR:  </marcador>172.17.0.1</li>
+                    <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia S3: </marcador>192.168.5.1</li>
+                </ul>
+                <br>
                 <ol>
                 <li><marcador class="resaltado8">Denegar acceso a la subred HR (172.17.0.0/20):</marcador></li>
                 <p></p>
@@ -361,10 +407,23 @@ ip access-group 103 in</code></pre>
                     </div>
                     <div class="codigo-consola">
                         <!-- Contenido del código -->
-    <pre><code>access-list 104 deny ip any 172.17.0.0 0.0.15.255
-access-list 104 permit ip any any
+    <pre><code>interface GigabitEthernet0/0
+    ip address 192.168.1.3 255.255.255.0
+    no shutdown
+       
 interface GigabitEthernet0/1
-ip access-group 104 in</code></pre>
+    ip address 172.17.0.1 255.255.240.0
+    no shutdown
+       
+interface GigabitEthernet0/2
+    ip address 192.168.5.1 255.255.255.0
+    no shutdown
+
+access-list 104 deny ip any 172.17.0.0 0.0.15.255
+access-list 104 permit ip any any
+
+interface GigabitEthernet0/1
+    ip access-group 104 in</code></pre>
                     </div>
                 </div>
                 <p></p>
@@ -380,15 +439,59 @@ ip access-group 104 in</code></pre>
 access-list 105 deny tcp any any eq 21
 access-list 105 deny tcp any any eq 443
 access-list 105 permit ip any any
+
 interface GigabitEthernet0/2
-ip access-group 105 in</code></pre>
+    ip access-group 105 in</code></pre>
                     </div>
                 </div>
                 <p>Esto deniega el tráfico web HTTP (puerto 80), HTTPS (puerto 443) y FTP (puerto 21) para S3.</p>
                 </ol>
+                <h6>Comandos adicionales de verificación</h6>
+                <p>Puedes verificar que las ACL se estén aplicando correctamente con estos comandos:</p>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+    <pre><code>show access-lists
+show ip interface GigabitEthernet0/0
+show ip interface GigabitEthernet0/1
+show ip interface GigabitEthernet0/2</code></pre>
+                    </div>
+                </div>
                 <h3>Huawei</h3>
-                <p></p>
+                <p>Subred:</p>
+                <ul>
+                    <li><marcador class="resaltado8">Subred de la empresa: </marcador>192.168.1.0/24</li>
+                    <li><marcador class="resaltado8">Subred HR: </marcador>172.17.0.0/20</li>
+                </ul>
+                <ol>
+                    <li>En R1:</li>
+                    <ul>
+                        <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia R2: </marcador>192.168.1.1</li>
+                        <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia S1: </marcador>192.168.2.1</li>
+                        <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia S2: </marcador>192.168.3.1</li>
+                    </ul>
+                    <li>En R2:</li>
+                    <ul>
+                        <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia R1: </marcador>192.168.1.2</li>
+                        <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia Internet: </marcador>192.168.4.1</li>
+                    </ul>
+                    <li>En R3:</li>
+                    <ul>
+                        <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia R2: </marcador>192.168.1.3</li>
+                        <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia subred HR:  </marcador>172.17.0.1</li>
+                        <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia S3: </marcador>192.168.5.1</li>
+                    </ul>
+                </ol>
                 <h6>Router 1</h6>
+                <ul>
+                    <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia R2: </marcador>192.168.1.1</li>
+                    <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia S1: </marcador>192.168.2.1</li>
+                    <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia S2: </marcador>192.168.3.1</li>
+                </ul>
+                <br>
                 <ol>
                     <li><marcador class="resaltado8">Denegar video al S1 (bloqueo de tráfico de video desde PC1):</marcador></li>
                     <p></p>
@@ -398,11 +501,24 @@ ip access-group 105 in</code></pre>
                         </div>
                         <div class="codigo-consola">
                             <!-- Contenido del código -->
-    <pre><code>acl number 3001
-rule 5 deny udp source 192.168.1.1 destination-port 554
-rule 10 permit ip
+    <pre><code>interface GigabitEthernet0/0/0
+    ip address 192.168.1.1 255.255.255.0
+    undo shutdown
+
+interface GigabitEthernet0/0/1
+    ip address 192.168.2.1 255.255.255.0
+    undo shutdown
+
+interface GigabitEthernet0/0/2
+    ip address 192.168.3.1 255.255.255.0
+    undo shutdown
+
+acl number 3001
+    rule 5 deny udp source 192.168.2.2 destination-port 554
+    rule 10 permit ip
+
 interface GigabitEthernet0/0/0
-packet-filter 3001 inbound</code></pre>
+    packet-filter 3001 inbound</code></pre>
                         </div>
                     </div>
                     <p>Se asume que PC1 tiene la IP 192.168.1.1 y que el video usa el puerto 554 (RTSP).</p>
@@ -415,15 +531,21 @@ packet-filter 3001 inbound</code></pre>
                         <div class="codigo-consola">
                             <!-- Contenido del código -->
     <pre><code>acl number 3002
-rule 5 deny ip source 192.168.1.1 destination 192.168.1.2
-rule 10 permit ip
+    rule 5 deny ip source 192.168.2.2 destination 192.168.3.2
+    rule 10 permit ip
+
 interface GigabitEthernet0/0/1
-packet-filter 3002 inbound</code></pre>
+    packet-filter 3002 inbound</code></pre>
                         </div>
                     </div>
                     <p>Se asume que S1 tiene la IP 192.168.1.1 y S2 la IP 192.168.1.2.</p>
                 </ol>
                 <h6>Router 2</h6>
+                <ul>
+                    <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia R1: </marcador>192.168.1.2</li>
+                    <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia Internet: </marcador>192.168.4.1</li>
+                </ul>
+                <br>
                 <ol>
                     <li><marcador class="resaltado8">Permitir solo el correo electrónico entrante y denegar Telnet entrante:</marcador></li>
                     <p></p>
@@ -433,19 +555,34 @@ packet-filter 3002 inbound</code></pre>
                         </div>
                         <div class="codigo-consola">
                             <!-- Contenido del código -->
-    <pre><code>acl number 3003
-rule 5 permit tcp destination-port 25
-rule 10 permit tcp destination-port 110
-rule 15 permit tcp destination-port 143
-rule 20 deny tcp destination-port 23
-rule 25 permit ip
-interface GigabitEthernet0/0/0
-packet-filter 3003 inbound</code></pre>
+    <pre><code>interface GigabitEthernet0/0/0
+    ip address 192.168.1.2 255.255.255.0
+    undo shutdown
+
+interface GigabitEthernet0/0/1
+    ip address 192.168.4.1 255.255.255.0
+    undo shutdown
+
+acl number 3003
+    rule 5 permit tcp destination-port 25
+    rule 10 permit tcp destination-port 110
+    rule 15 permit tcp destination-port 143
+    rule 20 deny tcp destination-port 23
+    rule 25 permit ip
+
+interface GigabitEthernet0/0/1
+    packet-filter 3003 inbound</code></pre>
                         </div>
                     </div>
                     <p>Los puertos 25 (SMTP), 110 (POP3) y 143 (IMAP) permiten el tráfico de correo entrante, mientras que el puerto 23 (Telnet) es denegado.</p>
                 </ol>
                 <h6>Router 3</h6>
+                <ul>
+                    <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia R2: </marcador>192.168.1.3</li>
+                    <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia subred HR:  </marcador>172.17.0.1</li>
+                    <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia S3: </marcador>192.168.5.1</li>
+                </ul>
+                <br>
                 <ol>
                 <li><marcador class="resaltado8">Denegar acceso a la subred HR (172.17.0.0/20):</marcador></li>
                 <p></p>
@@ -455,11 +592,24 @@ packet-filter 3003 inbound</code></pre>
                     </div>
                     <div class="codigo-consola">
                         <!-- Contenido del código -->
-    <pre><code>acl number 3004
-rule 5 deny ip destination 172.17.0.0 0.0.15.255
-rule 10 permit ip
+    <pre><code>interface GigabitEthernet0/0/0
+    ip address 192.168.1.3 255.255.255.0
+    undo shutdown
+    
 interface GigabitEthernet0/0/1
-packet-filter 3004 inbound</code></pre>
+    ip address 172.17.0.1 255.255.240.0
+    undo shutdown
+    
+interface GigabitEthernet0/0/2
+    ip address 192.168.5.1 255.255.255.0
+    undo shutdown
+      
+acl number 3004
+    rule 5 deny ip destination 172.17.0.0 0.0.15.255
+    rule 10 permit ip
+
+interface GigabitEthernet0/0/1
+    packet-filter 3004 inbound</code></pre>
                     </div>
                 </div>
                 <p></p>
@@ -472,12 +622,13 @@ packet-filter 3004 inbound</code></pre>
                     <div class="codigo-consola">
                         <!-- Contenido del código -->
     <pre><code>acl number 3005
-rule 5 deny tcp destination-port 80
-rule 10 deny tcp destination-port 21
-rule 15 deny tcp destination-port 443
-rule 20 permit ip
+    rule 5 deny tcp destination-port 80
+    rule 10 deny tcp destination-port 21
+    rule 15 deny tcp destination-port 443
+    rule 20 permit ip
+
 interface GigabitEthernet0/0/2
-packet-filter 3005 inbound</code></pre>
+    packet-filter 3005 inbound</code></pre>
                     </div>
                 </div>
                 <p>Esto deniega el tráfico web HTTP (puerto 80), HTTPS (puerto 443) y FTP (puerto 21) para S3.</p>
