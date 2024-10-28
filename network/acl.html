@@ -127,6 +127,24 @@
                         </div>
                     </ul>
                     <p>Esta regla permite el tráfico TCP desde cualquier host en la red 192.168.1.0/24 hacia cualquier destino en el puerto 80 (HTTP).</p>
+                    <li><marcador class="resaltado5">ACL de Capa 2</marcador></li>
+                    <ul>
+                        <li><marcador class="resaltado8">Rango de números: </marcador>No aplica un rango específico como en las ACL IP extendidas; las MAC ACLs en Cisco usan nombres para identificarse.</li>
+                        <li><marcador class="resaltado8">Función: </marcador>Las ACL de Capa 2 permiten filtrar tráfico basándose en las direcciones MAC de origen y destino, útil para controlar el acceso a nivel de capa 2 en switches.</li>
+                        <li><marcador class="resaltado8">Ejemplo:</marcador></li>
+                        <div class="consola">
+                            <div class="barra-superior-consola">
+                                <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                            </div>
+                            <div class="codigo-consola">
+                                <!-- Contenido del código -->
+        <pre><code>mac access-list extended MAC_ACCESS
+permit host 0050.56b3.4f1a any
+deny any any</code></pre>
+                            </div>
+                        </div>
+                    </ul>
+                    <p>Permite el tráfico proveniente de la dirección MAC 0050.56b3.4f1a hacia cualquier otro destino.</p>
                     <li><marcador class="resaltado5">ACL de Nombre (Nombradas)</marcador></li>
                     <ul>
                         <li>Cisco permite crear ACLs con nombres en lugar de números, lo cual facilita la organización y administración, especialmente en redes grandes.</li>
