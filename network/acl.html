@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <link rel="icon" href="../media/imagen41.png" type="image/png">
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                        <li><a href="../devops.html">DevOps</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Aportar" onclick="window.open('https://buymeacoffee.com/ryuzak1', '_blank');">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <br>
+                <br>
+                <h1>ACL (Access Control List)</h1>
+                <p>Las Listas de Control de Acceso (ACLs, por sus siglas en inglés) son una herramienta fundamental en el mundo de las redes para gestionar la seguridad y el flujo de tráfico entre dispositivos de red. Las ACLs son conjuntos de reglas que permiten o deniegan el paso de tráfico basado en diversos criterios, tales como la dirección IP, el protocolo y el puerto utilizado. A continuación, desglosamos los conceptos principales y las funciones de las ACLs, los puertos y protocolos más comunes en su configuración, y otros protocolos en los que es habitual aplicarlas.</p>
+                <p>Una ACL es un conjunto de instrucciones en los dispositivos de red (como routers y switches) que define qué tráfico es permitido o denegado al atravesar el dispositivo. Estas instrucciones son reglas que filtran el tráfico basándose en características específicas de los paquetes, tales como la dirección IP de origen o destino, el protocolo (como TCP o UDP) y los números de puerto. Las ACLs pueden aplicarse en diferentes puntos de la red para proteger y controlar el tráfico, asegurando que solo los paquetes autorizados ingresen o salgan de ciertas interfaces.</p>
+                <div class="blog-image-grande">
+                    <img src="media/acl10.jpg" alt="">
+                </div>
+                <h2>Estructura</h2>
+                <p>Los componentes de una ACL (Lista de Control de Acceso) en dispositivos de red incluyen:</p>
+                <ol>
+                    <li><marcador class="resaltado9">Entradas de ACL</marcador></li>
+                    <ul>
+                        <li><marcador class="resaltado8">Permisos: </marcador>Indican si se permite o se deniega el tráfico (permitir/denegar).</li>
+                        <li><marcador class="resaltado8">Protocolos: </marcador>Especifican el tipo de tráfico (por ejemplo, TCP, UDP, ICMP).</li>
+                        <li><marcador class="resaltado8">Dirección IP de origen: </marcador>La dirección IP del dispositivo que envía el tráfico.</li>
+                        <li><marcador class="resaltado8">Dirección IP de destino: </marcador>La dirección IP del dispositivo al que se envía el tráfico.</li>
+                        <li><marcador class="resaltado8">Puertos de origen y destino: </marcador>Los números de puerto relevantes para el tráfico (especialmente para TCP y UDP).</li>
+                    </ul>
+                    <li><marcador class="resaltado9">Número de Secuencia</marcador></li>
+                    <ul>
+                        <li>Las entradas en una ACL suelen tener un número de secuencia que determina el orden en que se evalúan. La primera coincidencia se aplica, por lo que el orden es crucial.</li>
+                        <p>Cuando se evalúan los paquetes contra las entradas de una ACL, el orden de las reglas es crucial. La primera regla que coincida con el paquete determina la acción que se tomará, ya sea permitir (allow) o denegar (deny). Esto significa que, si hay dos reglas que podrían aplicarse a un paquete, la acción de la primera regla que coincida se ejecutará, ignorando las reglas posteriores.</p>
+                    </ul>
+                    <li><marcador class="resaltado9">Tipo de ACL</marcador></li>
+                    <ul>
+                        <li><marcador class="resaltado8">ACL Estándar: </marcador>Controla el tráfico solo por la dirección IP de origen.</li>
+                        <li><marcador class="resaltado8">ACL Extendida: </marcador>Controla el tráfico por dirección IP de origen y destino, protocolo, y puertos.</li>
+                    </ul>
+                    <li><marcador class="resaltado9">Wildcards</marcador></li>
+                    <ul>
+                        <li>Se utilizan para especificar rangos de direcciones IP. Por ejemplo, un wildcard de 0.0.0.255 permitiría cualquier dirección IP dentro de un rango específico.</li>
+                    </ul>
+                    <li><marcador class="resaltado9">Comentarios</marcador></li>
+                    <ul>
+                        <li>Algunos dispositivos permiten agregar comentarios o descripciones a las entradas para facilitar la gestión y la comprensión.</li>
+                    </ul>
+                    <li><marcador class="resaltado9">Aplicación</marcador></li>
+                    <ul>
+                        <li>La ACL se puede aplicar a interfaces de red (entrante o saliente) para controlar el tráfico que pasa a través de ellas.</marcador></li>
+                    </ul>
+                </ol>
+                <div class="blog-image-grande">
+                    <img src="media/acl5.png" alt="">
+                </div>
+                <h2>Inbound y Outbound</h2>
+                <p>Cuando se aplica una ACL a una interfaz de red, puedes definir si se aplica al tráfico que entra (inbound) o al tráfico que sale (outbound):</p>
+                <ul>
+                    <li><marcador class="resaltado5">Inbound (Entrante): </marcador>La ACL se aplica a los paquetes que están llegando a la interfaz. Esto significa que el dispositivo evalúa los paquetes a medida que entran en la red. Por ejemplo, puedes usar una ACL inbound para bloquear ciertos tipos de tráfico antes de que lleguen a una máquina o servicio específico.</li>
+                    <li><marcador class="resaltado5">Outbound (Saliente): </marcador>La ACL se aplica a los paquetes que están saliendo de la interfaz. Esto significa que el dispositivo evalúa los paquetes a medida que se dirigen fuera de la red. Por ejemplo, puedes usar una ACL outbound para restringir el tráfico que los dispositivos de la red envían hacia Internet.</li>
+                </ul>
+                <div class="blog-image">
+                    <img src="media/acl3.png" alt="">
+                </div>
+                <h2>Rangos</h2>
+                <h3>Cisco</h3>
+                <p>En Cisco también existen rangos de números específicos para las listas de control de acceso (ACL), y estos números indican el tipo de ACL que se está configurando. En Cisco, las ACL pueden ser estándar o extendidas, y los números determinan qué tipo de ACL se va a aplicar.</p>
+                <p>Aquí están los rangos de números y su significado en dispositivos Cisco:</p>
+                <ol>
+                    <li><marcador class="resaltado5">ACL Estándar</marcador></li>
+                    <ul>
+                        <li><marcador class="resaltado8">Rango de números: </marcador>1 - 99 y 1300 - 1999</li>
+                        <li><marcador class="resaltado8">Función: </marcador>Las ACL estándar solo filtran tráfico basándose en la dirección IP de origen. No permiten filtrar por puerto o protocolo.</li>
+                        <div class="contenedor">
+                            <div class="etiqueta">
+                                <marcador class="resaltado8">Ejemplo:</marcador>
+                            </div>
+                            <div class="comandos">
+                                <input type="text" class="text" value="access-list 10 permit 192.168.1.0 0.0.0.255" oninput="ajustarAncho(this)">
+                                <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                            </div>
+                        </div>
+                    </ul>
+                    <p>Esta ACL permite todo el tráfico que proviene de la red 192.168.1.0/24.</p>
+                    <li><marcador class="resaltado5">ACL Extendida</marcador></li>
+                    <ul>
+                        <li><marcador class="resaltado8">Rango de números: </marcador>100 - 199 y 2000 - 2699</li>
+                        <li><marcador class="resaltado8">Función: </marcador>Las ACL extendidas permiten filtrar tráfico basándose en varios criterios, incluyendo la dirección IP de origen y destino, protocolo, y puertos. Esto proporciona un mayor control y es útil para configuraciones más complejas.</li>
+                        <div class="contenedor">
+                            <div class="etiqueta">
+                                <marcador class="resaltado8">Ejemplo:</marcador>
+                            </div>
+                            <div class="comandos">
+                                <input type="text" class="text" value="access-list 101 permit tcp 192.168.1.0 0.0.0.255 any eq 80" oninput="ajustarAncho(this)">
+                                <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                            </div>
+                        </div>
+                    </ul>
+                    <p>Esta regla permite el tráfico TCP desde cualquier host en la red 192.168.1.0/24 hacia cualquier destino en el puerto 80 (HTTP).</p>
+                    <li><marcador class="resaltado5">ACL de Nombre (Nombradas)</marcador></li>
+                    <ul>
+                        <li>Cisco permite crear ACLs con nombres en lugar de números, lo cual facilita la organización y administración, especialmente en redes grandes.</li>
+                        <li>Estas ACL pueden ser estándar o extendidas y permiten agregar, modificar o eliminar reglas individuales.</li>
+                        <li><marcador class="resaltado8">Ejemplo:</marcador></li>
+                        <div class="consola">
+                            <div class="barra-superior-consola">
+                                <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                            </div>
+                            <div class="codigo-consola">
+                                <!-- Contenido del código -->
+        <pre><code>ip access-list extended Bloqueo_Web
+permit tcp any any eq 80
+deny ip any any</code></pre>
+                            </div>
+                        </div>
+                    </ul>
+                </ol>
+                <p>Esta ACL permite el tráfico TCP en el puerto 80 (HTTP) desde cualquier origen hacia cualquier destino, y luego deniega cualquier otro tráfico.</p>
+                <h6>¿Cuál elegir?</h6>
+                <ul>
+                    <li>Usa ACL estándar cuando solo necesitas controlar el acceso basándote en la IP de origen.</li>
+                    <li>Usa ACL extendida cuando necesites un control más granular sobre el tráfico, filtrando por IP de origen y destino, protocolo, y puerto.</li>
+                    <li>Usa ACL nombrada si prefieres una administración más organizada y flexible, especialmente en configuraciones complejas.</li>
+                </ul>
+                <p>Estos rangos permiten a los administradores de red identificar rápidamente el tipo de ACL que están utilizando y ajustar las configuraciones según las necesidades específicas de la red.</p>
+                <h3>Huawei</h3>
+                <p>En Huawei, los rangos de números para las listas de control de acceso (ACL) también están diseñados para diferentes tipos de filtrado, lo que permite elegir el tipo de ACL según la granularidad y las necesidades de control en la red. Aquí está el desglose de los rangos de ACL en Huawei y cuándo elegir cada uno.</p>
+                <ol>
+                    <li><marcador class="resaltado5">ACL Básica</marcador></li>
+                    <ul>
+                        <li><marcador class="resaltado8">Rango de números: </marcador>2000 - 2999</li>
+                        <li><marcador class="resaltado8">Función: </marcador>Las ACL básicas permiten filtrar tráfico únicamente basándose en la dirección IP de origen. Son adecuadas para configuraciones simples donde solo se necesita controlar el acceso según la IP de origen.</li>
+                        <li><marcador class="resaltado8">Ejemplo:</marcador></li>
+                        <div class="consola">
+                            <div class="barra-superior-consola">
+                                <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                            </div>
+                            <div class="codigo-consola">
+                                <!-- Contenido del código -->
+        <pre><code>acl number 2001
+rule 5 permit source 192.168.1.0 0.0.0.255</code></pre>
+                            </div>
+                        </div>
+                    </ul>
+                    <p>Este ejemplo permite el tráfico proveniente de la red 192.168.1.0/24.</p>
+                    <li><marcador class="resaltado5">ACL Avanzada</marcador></li>
+                    <ul>
+                        <li><marcador class="resaltado8">Rango de números: </marcador>3000 - 3999</li>
+                        <li><marcador class="resaltado8">Función: </marcador>Las ACL avanzadas permiten un filtrado más detallado, incluyendo direcciones IP de origen y destino, protocolos, y puertos específicos. Son útiles para configuraciones que requieren mayor control sobre el tráfico, como permitir o denegar servicios específicos.</li>
+                        <li><marcador class="resaltado8">Ejemplo:</marcador></li>
+                        <div class="consola">
+                            <div class="barra-superior-consola">
+                                <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                            </div>
+                            <div class="codigo-consola">
+                                <!-- Contenido del código -->
+        <pre><code>acl number 3001
+rule 5 permit tcp source 192.168.1.0 0.0.0.255 destination 10.0.0.0 0.0.0.255 destination-port eq 80</code></pre>
+                            </div>
+                        </div>
+                    </ul>
+                    <p>Este ejemplo permite el tráfico HTTP (puerto 80) desde la red 192.168.1.0/24 hacia la red 10.0.0.0/24.</p>
+                    <li><marcador class="resaltado5">ACL de Capa 2</marcador></li>
+                    <ul>
+                        <li><marcador class="resaltado8">Rango de números: </marcador>4000 - 4999</li>
+                        <li><marcador class="resaltado8">Función: </marcador>Las ACL de Capa 2 permiten el filtrado de tráfico basándose en la dirección MAC y son útiles para configuraciones de seguridad a nivel de capa de enlace (capa 2 del modelo OSI).</li>
+                        <li><marcador class="resaltado8">Ejemplo:</marcador></li>
+                        <div class="consola">
+                            <div class="barra-superior-consola">
+                                <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                            </div>
+                            <div class="codigo-consola">
+                                <!-- Contenido del código -->
+        <pre><code>acl number 4001
+rule 5 deny source-mac 00e0.fc12.3456
+rule 10 permit</code></pre>
+                            </div>
+                        </div>
+                    </ul>
+                    <p>Este ejemplo deniega el tráfico proveniente de un dispositivo con la dirección MAC 00e0.fc12.3456.</p>
+                    <li><marcador class="resaltado5">ACL de Capa 3 y Capa 4</marcador></li>
+                    <ul>
+                        <li><marcador class="resaltado8">Rango de números: </marcador>5000 - 5999</li>
+                        <li><marcador class="resaltado8">Función: </marcador>Estas ACL se utilizan para un control más específico en términos de protocolos y puertos a nivel de Capa 3 (IP) y Capa 4 (Transporte), como permitir o denegar tráfico TCP, UDP, ICMP, etc. Proporcionan un filtrado detallado, similar a las ACL avanzadas, pero ofrecen más opciones y flexibilidad en dispositivos de Huawei de gama alta.</li>
+                        <li><marcador class="resaltado8">Ejemplo:</marcador></li>
+                        <div class="consola">
+                            <div class="barra-superior-consola">
+                                <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                            </div>
+                            <div class="codigo-consola">
+                                <!-- Contenido del código -->
+        <pre><code>acl number 5001
+rule 5 permit tcp source 192.168.20.0 0.0.0.255 destination 172.16.30.0 0.0.0.255 source-port eq 8080 destination-port eq 443
+rule 10 deny ip</code></pre>
+                            </div>
+                        </div>
+                    </ul>
+                    <p>La ACL número 5001 permite el tráfico TCP entre la red de origen 192.168.20.0/24 y la red de destino 172.16.30.0/24 específicamente desde el puerto 8080 de origen hacia el puerto 443 de destino.</p>
+                    <p>La segunda regla (rule 10 deny ip) deniega cualquier otro tráfico que no coincida con la primera regla.</p>
+                </ol>
+                <h6>¿Cuál Elegir?</h6>
+                <ul>
+                    <li>Usa la ACL Básica cuando necesites un control sencillo, filtrando solo por dirección IP de origen. Esto es útil en casos donde solo quieres restringir o permitir acceso desde ciertas IPs sin especificar protocolos ni puertos.</li>
+                    <li>Usa las ACL avanzadas cuando necesites un filtrado detallado que incluya IP de origen y destino, protocolos específicos (TCP, UDP, ICMP), y puertos. Es ideal para situaciones donde debes controlar qué servicios específicos (como HTTP, FTP, Telnet) pueden ser accesibles desde una red.</li>
+                    <li>ACL de Capa 2 (4000 - 4999): Usa las ACL de capa 2 si deseas filtrar tráfico en función de las direcciones MAC en lugar de direcciones IP. Esto puede ser útil en ambientes donde se quiere controlar el acceso de dispositivos a nivel de enlace de datos.</li>
+                    <li>Utiliza las ACL en el rango 5000 - 5999 cuando necesitas un control detallado sobre el tráfico a nivel de IP y puertos específicos. Esto es útil en redes donde es importante restringir el acceso no solo a nivel de red y puerto, sino también controlar tráfico específico entre aplicaciones que utilizan ciertos puertos.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/acl8.png" alt="">
+                </div>
+                <h2>Función de las ACLs en Equipos de Red</h2>
+                <p>Las ACLs cumplen múltiples funciones clave en la gestión y seguridad de una red:</p>
+                <ul>
+                    <li><marcador class="resaltado6">Control de acceso: </marcador>Permiten o deniegan el tráfico de acuerdo con las reglas configuradas, proporcionando una barrera de protección.</li>
+                    <li><marcador class="resaltado6">Segmentación de tráfico: </marcador>Separan distintos tipos de tráfico en la red, facilitando el diseño de redes segmentadas y seguras.</li>
+                    <li><marcador class="resaltado6">Prevención de amenazas: </marcador>Ayudan a evitar el acceso no autorizado y la propagación de amenazas al bloquear tráfico desde o hacia direcciones IP o puertos específicos.</li>
+                    <li><marcador class="resaltado6">Optimización del tráfico: </marcador>Restringen el acceso a ciertos recursos, disminuyendo la carga de trabajo en dispositivos y redes.</li>
+                </ul>
+                <div class="blog-image">
+                    <img src="media/acl11.png" alt="">
+                </div>
+                <h2>Puertos y Protocolos</h2>
+                <p>Al configurar ACLs, algunos de los puertos y protocolos más frecuentemente empleados son:</p>
+                <ul>
+                    <li><marcador class="resaltado9">HTTP y HTTPS: </marcador>Usan los puertos 80 y 443 respectivamente, siendo el primero para tráfico web no cifrado y el segundo para tráfico cifrado. Las ACLs pueden bloquear el tráfico HTTP para redirigir todo a HTTPS, garantizando un acceso seguro.</li>
+                    <li><marcador class="resaltado9">FTP: </marcador>Utiliza los puertos 20 y 21, y se suele aplicar una ACL para controlar el acceso a servidores FTP, bloqueando o permitiendo el tráfico en función de las necesidades de seguridad.</li>
+                    <li><marcador class="resaltado9">SMTP, POP3, e IMAP: </marcador>Utilizados en el tráfico de correo electrónico, con puertos como el 25 (SMTP), 110 (POP3) y 143 (IMAP). Las ACLs pueden ayudar a restringir el tráfico de correo a ciertos servidores o usuarios.</li>
+                    <li><marcador class="resaltado9">SSH y Telnet: </marcador>Utilizan los puertos 22 (SSH) y 23 (Telnet). Las ACLs suelen bloquear Telnet por su falta de cifrado y permitir únicamente SSH para conexiones seguras.</li>
+                    <li><marcador class="resaltado9">DNS: </marcador>Emplea el puerto 53 y es común configurarlo en ACLs para permitir únicamente consultas DNS hacia servidores autorizados.</li>
+                </ul>
+                <div class="blog-image">
+                    <img src="media/acl2.png" alt="">
+                </div>
+                <h2>Aplicaciones</h2>
+                <p>Las ACLs no solo se configuran en protocolos de aplicaciones o servicios, sino que también pueden aplicarse en otros protocolos de red para un control más profundo:</p>
+                <ul>
+                    <li><marcador class="resaltado6">Protocolos de enrutamiento (RIP, EIGRP, OSPF): </marcador>Las ACLs en estos protocolos pueden limitar qué redes o routers pueden participar en el enrutamiento dinámico, restringiendo las rutas aceptadas o compartidas.</li>
+                    <li><marcador class="resaltado6">NAT (Network Address Translation): </marcador>Las ACLs se utilizan para determinar qué tráfico puede ser traducido y hacia qué direcciones, ayudando a controlar la exposición de direcciones internas hacia el exterior.</li>
+                    <li><marcador class="resaltado6">VPN (Virtual Private Network): </marcador>Las ACLs controlan qué tráfico puede pasar a través de la VPN, limitando el acceso a ciertos recursos en la red remota.</li>
+                    <li><marcador class="resaltado6">QoS (Quality of Service): </marcador>En algunas configuraciones de QoS, se pueden aplicar ACLs para identificar y priorizar el tráfico de ciertas aplicaciones o servicios, asegurando un ancho de banda adecuado para aplicaciones críticas.</li>
+                    <li><marcador class="resaltado6">STP (Spanning Tree Protocol): </marcador>Aunque no es común aplicar ACLs directamente sobre STP, sí se configuran en entornos donde STP está activo para controlar el tráfico de puertos específicos, como el tráfico de BPDUs, y así prevenir posibles bucles.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/acl7.png" alt="">
+                </div>
+                <h2>Configuración</h2>
+                <p>Se tiene una red con tres routers (R1, R2 y R3) interconectados, y tres switches (S1, S2 y S3), cada uno conectado a un router específico. Además, existen varias subredes y se requiere implementar reglas de ACL para controlar el tráfico entrante y saliente entre diferentes partes de la red.</p>
+                <div class="blog-image-grande">
+                    <img src="media/acl1.png" alt="">
+                </div>
+                <ol>
+                    <li>En R1:</li>
+                    <ul>
+                        <li style="list-style-type: square;">Denegar el tráfico de video hacia S1.</li>
+                        <li style="list-style-type: square;">Denegar el acceso de S1 a S2.</li>
+                    </ul>
+                    <li>En R2:</li>
+                    <ul>
+                        <li style="list-style-type: square;">Permitir solo el tráfico de correo electrónico entrante desde Internet.</li>
+                        <li style="list-style-type: square;">Denegar el tráfico de Telnet entrante desde Internet.</li>
+                    </ul>
+                    <li>En R3:</li>
+                    <ul>
+                        <li style="list-style-type: square;">Denegar el acceso a la subred de recursos humanos (HR), que utiliza el rango 172.17.0.0/20.</li>
+                        <li style="list-style-type: square;">Denegar las actualizaciones, FTP y acceso web para la red conectada a S3.</li>
+                    </ul>
+                </ol>
+                <p>Cada ACL deberá aplicarse en la interfaz correcta y en la dirección adecuada (entrante o saliente) para cumplir con los requisitos de seguridad.</p>
+                <h3>Cisco</h3>
+                <h6>Router 1</h6>
+                <ol>
+                    <li><marcador class="resaltado8">Denegar video al S1 (bloqueo de tráfico de video desde PC1):</marcador></li>
+                    <p></p>
+                    <div class="consola">
+                        <div class="barra-superior-consola">
+                            <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                        </div>
+                        <div class="codigo-consola">
+                            <!-- Contenido del código -->
+    <pre><code>access-list 101 deny udp host 192.168.1.1 any eq 554
+access-list 101 permit ip any any
+interface GigabitEthernet0/0
+ip access-group 101 in</code></pre>
+                        </div>
+                    </div>
+                    <p>Aquí se asume que PC1 tiene la IP 192.168.1.1 y que el video usa el puerto 554 (RTSP).</p>
+                    <li><marcador class="resaltado8">Denegar acceso del S1 al S2:</marcador></li>
+                    <p></p>
+                    <div class="consola">
+                        <div class="barra-superior-consola">
+                            <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                        </div>
+                        <div class="codigo-consola">
+                            <!-- Contenido del código -->
+    <pre><code>access-list 102 deny ip host 192.168.1.1 host 192.168.1.2
+access-list 102 permit ip any any
+interface GigabitEthernet0/1
+ip access-group 102 in</code></pre>
+                        </div>
+                    </div>
+                    <p>Se asume que S1 tiene la IP 192.168.1.1 y S2 la IP 192.168.1.2.</p>
+                </ol>
+                    <h6>Router 2</h6>
+                <ol>
+                    <li><marcador class="resaltado8">Permitir solo el correo electrónico entrante y denegar Telnet entrante:</marcador></li>
+                    <p></p>
+                    <div class="consola">
+                        <div class="barra-superior-consola">
+                            <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                        </div>
+                        <div class="codigo-consola">
+                            <!-- Contenido del código -->
+    <pre><code>access-list 103 permit tcp any any eq 25
+access-list 103 permit tcp any any eq 110
+access-list 103 permit tcp any any eq 143
+access-list 103 deny tcp any any eq 23
+access-list 103 permit ip any any
+interface GigabitEthernet0/0
+ip access-group 103 in</code></pre>
+                        </div>
+                    </div>
+                    <p>Los puertos 25 (SMTP), 110 (POP3) y 143 (IMAP) permiten el tráfico de correo entrante, mientras que el puerto 23 (Telnet) es denegado.</p>
+                </ol>
+                <h6>Router 3</h6>
+                <ol>
+                <li><marcador class="resaltado8">Denegar acceso a la subred HR (172.17.0.0/20):</marcador></li>
+                <p></p>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+    <pre><code>access-list 104 deny ip any 172.17.0.0 0.0.15.255
+access-list 104 permit ip any any
+interface GigabitEthernet0/1
+ip access-group 104 in</code></pre>
+                    </div>
+                </div>
+                <p></p>
+                <li><marcador class="resaltado8">Denegar actualizaciones, FTP y acceso a la web en la interfaz conectada a S3:</marcador></li>
+                <p></p>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+    <pre><code>access-list 105 deny tcp any any eq 80
+access-list 105 deny tcp any any eq 21
+access-list 105 deny tcp any any eq 443
+access-list 105 permit ip any any
+interface GigabitEthernet0/2
+ip access-group 105 in</code></pre>
+                    </div>
+                </div>
+                <p>Esto deniega el tráfico web HTTP (puerto 80), HTTPS (puerto 443) y FTP (puerto 21) para S3.</p>
+                </ol>
+                <h3>Huawei</h3>
+                <p></p>
+                <h6>Router 1</h6>
+                <ol>
+                    <li><marcador class="resaltado8">Denegar video al S1 (bloqueo de tráfico de video desde PC1):</marcador></li>
+                    <p></p>
+                    <div class="consola">
+                        <div class="barra-superior-consola">
+                            <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                        </div>
+                        <div class="codigo-consola">
+                            <!-- Contenido del código -->
+    <pre><code>acl number 3001
+rule 5 deny udp source 192.168.1.1 destination-port 554
+rule 10 permit ip
+interface GigabitEthernet0/0/0
+packet-filter 3001 inbound</code></pre>
+                        </div>
+                    </div>
+                    <p>Se asume que PC1 tiene la IP 192.168.1.1 y que el video usa el puerto 554 (RTSP).</p>
+                    <li><marcador class="resaltado8">Denegar acceso del S1 al S2:</marcador></li>
+                    <p></p>
+                    <div class="consola">
+                        <div class="barra-superior-consola">
+                            <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                        </div>
+                        <div class="codigo-consola">
+                            <!-- Contenido del código -->
+    <pre><code>acl number 3002
+rule 5 deny ip source 192.168.1.1 destination 192.168.1.2
+rule 10 permit ip
+interface GigabitEthernet0/0/1
+packet-filter 3002 inbound</code></pre>
+                        </div>
+                    </div>
+                    <p>Se asume que S1 tiene la IP 192.168.1.1 y S2 la IP 192.168.1.2.</p>
+                </ol>
+                <h6>Router 2</h6>
+                <ol>
+                    <li><marcador class="resaltado8">Permitir solo el correo electrónico entrante y denegar Telnet entrante:</marcador></li>
+                    <p></p>
+                    <div class="consola">
+                        <div class="barra-superior-consola">
+                            <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                        </div>
+                        <div class="codigo-consola">
+                            <!-- Contenido del código -->
+    <pre><code>acl number 3003
+rule 5 permit tcp destination-port 25
+rule 10 permit tcp destination-port 110
+rule 15 permit tcp destination-port 143
+rule 20 deny tcp destination-port 23
+rule 25 permit ip
+interface GigabitEthernet0/0/0
+packet-filter 3003 inbound</code></pre>
+                        </div>
+                    </div>
+                    <p>Los puertos 25 (SMTP), 110 (POP3) y 143 (IMAP) permiten el tráfico de correo entrante, mientras que el puerto 23 (Telnet) es denegado.</p>
+                </ol>
+                <h6>Router 3</h6>
+                <ol>
+                <li><marcador class="resaltado8">Denegar acceso a la subred HR (172.17.0.0/20):</marcador></li>
+                <p></p>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+    <pre><code>acl number 3004
+rule 5 deny ip destination 172.17.0.0 0.0.15.255
+rule 10 permit ip
+interface GigabitEthernet0/0/1
+packet-filter 3004 inbound</code></pre>
+                    </div>
+                </div>
+                <p></p>
+                <li><marcador class="resaltado8">Denegar actualizaciones, FTP y acceso a la web en la interfaz conectada a S3:</marcador></li>
+                <p></p>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+    <pre><code>acl number 3005
+rule 5 deny tcp destination-port 80
+rule 10 deny tcp destination-port 21
+rule 15 deny tcp destination-port 443
+rule 20 permit ip
+interface GigabitEthernet0/0/2
+packet-filter 3005 inbound</code></pre>
+                    </div>
+                </div>
+                <p>Esto deniega el tráfico web HTTP (puerto 80), HTTPS (puerto 443) y FTP (puerto 21) para S3.</p>
+            </ol>
+            <div class="blog-image">
+                <img src="media/acl13.jpg" alt="">
+            </div>
+            </div>
+        </div>       
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
