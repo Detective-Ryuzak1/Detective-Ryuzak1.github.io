@@ -423,7 +423,7 @@ access-list 104 deny ip any 172.17.0.0 0.0.15.255
 access-list 104 permit ip any any
 
 interface GigabitEthernet0/1
-    ip access-group 104 in</code></pre>
+    ip access-group 104 out</code></pre>
                     </div>
                 </div>
                 <p></p>
@@ -609,7 +609,7 @@ acl number 3004
     rule 10 permit ip
 
 interface GigabitEthernet0/0/1
-    packet-filter 3004 inbound</code></pre>
+    packet-filter 3004 outbound</code></pre>
                     </div>
                 </div>
                 <p></p>
@@ -633,6 +633,22 @@ interface GigabitEthernet0/0/2
                 </div>
                 <p>Esto deniega el tráfico web HTTP (puerto 80), HTTPS (puerto 443) y FTP (puerto 21) para S3.</p>
             </ol>
+            <h6>Comandos adicionales de verificación</h6>
+            <p>Puedes verificar que las ACL se estén aplicando correctamente con estos comandos:</p>
+            <div class="consola">
+                <div class="barra-superior-consola">
+                    <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                </div>
+                <div class="codigo-consola">
+                    <!-- Contenido del código -->
+<pre><code>display acl 2001
+display acl 2002
+display acl 2003
+display interface GigabitEthernet0/0/0
+display interface GigabitEthernet0/0/1
+display interface GigabitEthernet0/0/2</code></pre>
+                </div>
+            </div>
             <div class="blog-image">
                 <img src="media/acl13.jpg" alt="">
             </div>
