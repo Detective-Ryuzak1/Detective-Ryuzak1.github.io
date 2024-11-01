@@ -347,11 +347,9 @@ Switch1(config-vlan)# name Finanzas
 Switch1(config-vlan)# exit
 Switch1(config)# vtp mode server
 Switch1(config)# vtp domain test.com
+Switch1(config)# vtp password cisco
 Switch1(config)# interface range GigabitEthernet0/2-4
-Switch1(config-if)# switchport trunk encapsulation dot1q
 Switch1(config-if)# switchport mode trunk
-Switch1(config-if)# switchport trunk allowed vlan 10,20,30
-Switch1(config-if)# switchport trunk native vlan 1
 Switch1(config-if)# exit
 Switch1(config)# interface vlan 10
 Switch1(config-if)# ip address 192.168.10.1 255.255.255.0
@@ -371,6 +369,10 @@ Switch1# copy running-config startup-config
 
 Switch2(config)# vtp mode client
 Switch2(config)# vtp domain test.com
+Switch2(config)# vtp password cisco
+Switch2(config)# interface GigabitEthernet0/0/0
+Switch2(config-if)# switchport mode trunk
+Switch2(config-if)# exit
 Switch2(config)# interface GigabitEthernet0/1
 Switch2(config-if)# switchport mode access
 Switch2(config-if)# switchport access vlan 10
@@ -387,6 +389,10 @@ Switch2# copy running-config startup-config
 
 Switch3(config)# vtp mode client
 Switch3(config)# vtp domain test.com
+Switch3(config)# vtp password cisco
+Switch3(config)# interface GigabitEthernet0/0/0
+Switch3(config-if)# switchport mode trunk
+Switch3(config-if)# exit
 Switch3(config)# interface GigabitEthernet0/1
 Switch3(config-if)# switchport mode access
 Switch3(config-if)# switchport access vlan 10
@@ -403,6 +409,10 @@ Switch3# copy running-config startup-config
 
 Switch4(config)# vtp mode client
 Switch4(config)# vtp domain test.com
+Switch4(config)# vtp password cisco
+Switch4(config)# interface GigabitEthernet0/0/0
+Switch4(config-if)# switchport mode trunk
+Switch4(config-if)# exit
 Switch4(config)# interface GigabitEthernet0/1
 Switch4(config-if)# switchport mode access
 Switch4(config-if)# switchport access vlan 10
