@@ -284,6 +284,268 @@
                 <div class="blog-image-grande">
                     <img src="media/ospf18.png" alt="">
                 </div>
+                <h2>Configuración</h2>
+                <p>La siguiente topología usa varias áreas de OSPF (Área 0, Área 1, Área 2, Área 3) y rutas específicas entre ellas.</p>
+                <p>Cada router debe estar configurado para usar OSPF con su área correspondiente, y se deben de especificar las interfaces y sus áreas correspondientes.</p>
+                <div class="blog-image-grande">
+                    <img src="media/ospf19.png" alt="">
+                </div>
+                <h3>Cisco</h3>
+                <ul>
+                    <li><marcador class="resaltado8">Router R1 (Área 0 y Área 1)</marcador></li>
+                    <div class="consola">
+                        <div class="barra-superior-consola">
+                            <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                        </div>
+                        <div class="codigo-consola">
+                            <!-- Contenido del código -->
+    <pre><code>router ospf 1
+    router-id 1.1.1.1
+    network 192.168.1.4 0.0.0.3 area 0
+    network 192.168.1.8 0.0.0.3 area 0
+    network 192.168.1.0 0.0.0.3 area 1
+    network 192.168.255.1 0.0.0.0 area 0
+
+interface GigabitEthernet0/1
+    ip ospf priority 100</code></pre>
+                        </div>
+                    </div>
+                    <li><marcador class="resaltado8">Router R2 (Área 1)</marcador></li>
+                    <div class="consola">
+                        <div class="barra-superior-consola">
+                            <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                        </div>
+                        <div class="codigo-consola">
+                            <!-- Contenido del código -->
+    <pre><code>router ospf 1
+    router-id 2.2.2.2
+    network 192.168.1.0 0.0.0.3 area 1
+    network 192.168.255.2 0.0.0.0 area 1
+    network 172.16.1.0 0.0.0.255 area 1
+
+interface GigabitEthernet0/0
+    ip ospf priority 90</code></pre>
+                        </div>
+                    </div>
+                    <li><marcador class="resaltado8">Router INET-1 (Área 0) - Router Central</marcador></li>
+                    <div class="consola">
+                        <div class="barra-superior-consola">
+                            <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                        </div>
+                        <div class="codigo-consola">
+                            <!-- Contenido del código -->
+    <pre><code>router ospf 1
+    router-id 4.4.4.4
+    network 192.168.1.8 0.0.0.3 area 0
+    network 192.168.1.12 0.0.0.3 area 0
+    network 192.168.1.20 0.0.0.3 area 3
+    network 192.168.255.4 0.0.0.0 area 0
+
+    ! Redistribuir rutas externas como E1  desde el ISP
+    redistribute connected subnets metric-type 1
+
+    ! Ajuste de Throttle SPF para optimizar el tiempo de recalculo de SPF
+    timers throttle spf 10 100 5000
+
+! Configuración de prioridad para el Designated Router (DR)
+interface GigabitEthernet0/1
+    ip ospf priority 200</code></pre>
+                        </div>
+                    </div>
+                    <p>Configuración adicional: redistribución de prefijos externos E1, y ajuste de Throttle SPF.</p>
+                    <li><marcador class="resaltado8">Router R3 (Área 0 y Área 2)</marcador></li>
+                    <div class="consola">
+                        <div class="barra-superior-consola">
+                            <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                        </div>
+                        <div class="codigo-consola">
+                            <!-- Contenido del código -->
+    <pre><code>router ospf 1
+    router-id 3.3.3.3
+    network 192.168.1.4 0.0.0.3 area 0
+    network 192.168.1.12 0.0.0.3 area 0
+    network 192.168.1.16 0.0.0.3 area 2
+    network 192.168.255.3 0.0.0.0 area 0
+
+interface GigabitEthernet0/0
+    ip ospf priority 80</code></pre>
+                        </div>
+                    </div>
+                    <li><marcador class="resaltado8">Remote-1 (Área 2)</marcador></li>
+                    <div class="consola">
+                        <div class="barra-superior-consola">
+                            <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                        </div>
+                        <div class="codigo-consola">
+                            <!-- Contenido del código -->
+    <pre><code>router ospf 1
+    router-id 5.5.5.5
+    network 192.168.1.16 0.0.0.3 area 2
+    network 172.16.10.0 0.0.0.255 area 2
+    network 172.16.11.0 0.0.0.255 area 2
+    network 172.16.12.0 0.0.0.255 area 2
+    network 192.168.255.5 0.0.0.0 area 2</code></pre>
+                        </div>
+                    </div>
+                    <li><marcador class="resaltado8">Router Remote-2 (Área 3)</marcador></li>
+                    <div class="consola">
+                        <div class="barra-superior-consola">
+                            <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                        </div>
+                        <div class="codigo-consola">
+                            <!-- Contenido del código -->
+    <pre><code>router ospf 1
+    router-id 6.6.6.6
+    network 192.168.1.20 0.0.0.3 area 3
+    network 172.16.2.0 0.0.0.255 area 3
+    network 192.168.255.6 0.0.0.0 area 3</code></pre>
+                        </div>
+                    </div>
+                    <li><marcador class="resaltado8">Router ISP (Área 2)</marcador></li>
+                    <p>Este router se conecta al prefijo externo (172.33.1.2/30) que se redistribuirá en INET-1.</p>
+                    <ol>
+                        <li><marcador class="resaltado8">Prioridad de DR en el Área 0: </marcador>Se configura <marcador class="subrayado">ip ospf priority</marcador> en el área 0, siendo INET-1 el router con la prioridad más alta (200) para actuar como Designated Router (DR), mientras que otros routers en el área tienen menor prioridad.</li>
+                        <li><marcador class="resaltado8">Redistribución de Rutas Externas (E1): </marcador>En INET-1, se configuran rutas E1 para redistribuir los prefijos externos provenientes del router ISP.</li>
+                        <li><marcador class="resaltado8">Throttle SPF: </marcador>Configurado en INET-1 para optimizar el tiempo de recalculo de SPF en caso de cambios en la topología, usando los valores de 10 ms (inicial), 100 ms (segunda iteración), y 5000 ms (máximo).</li>
+                    </ol>
+                </ul>
+                <h3>Huawei</h3>
+                <ul>
+                    <li><marcador class="resaltado8">Router R1 (Área 0 y Área 1)</marcador></li>
+                    <div class="consola">
+                        <div class="barra-superior-consola">
+                            <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                        </div>
+                        <div class="codigo-consola">
+                            <!-- Contenido del código -->
+    <pre><code>ospf 1
+    router-id 1.1.1.1
+    area 0
+        network 192.168.1.4 0.0.0.3
+        network 192.168.1.8 0.0.0.3
+        network 192.168.255.1 0.0.0.0
+    area 1
+        network 192.168.1.0 0.0.0.3
+
+interface GigabitEthernet0/1
+    ospf priority 100</code></pre>
+                        </div>
+                    </div>
+                    <li><marcador class="resaltado8">Router R2 (Área 1)</marcador></li>
+                    <div class="consola">
+                        <div class="barra-superior-consola">
+                            <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                        </div>
+                        <div class="codigo-consola">
+                            <!-- Contenido del código -->
+    <pre><code>ospf 1
+    router-id 2.2.2.2
+    area 1
+        network 192.168.1.0 0.0.0.3
+        network 192.168.255.2 0.0.0.0
+        network 172.16.1.0 0.0.0.255
+
+interface GigabitEthernet0/0
+    ospf priority 90</code></pre>
+                        </div>
+                    </div>
+                    <li><marcador class="resaltado8">Router INET-1 (Área 0) - Router Central</marcador></li>
+                    <div class="consola">
+                        <div class="barra-superior-consola">
+                            <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                        </div>
+                        <div class="codigo-consola">
+                            <!-- Contenido del código -->
+    <pre><code>ospf 1
+    router-id 4.4.4.4
+    area 0
+        network 192.168.1.8 0.0.0.3
+        network 192.168.1.12 0.0.0.3
+        network 192.168.255.4 0.0.0.0
+    area 3
+        network 192.168.1.20 0.0.0.3
+
+    import-route direct cost 1 type 1
+
+    ospf spf-schedule-interval 10 100 5000
+
+interface GigabitEthernet0/1
+    ospf priority 200</code></pre>
+                        </div>
+                    </div>
+                    <p>Configuración adicional: redistribución de prefijos externos E1, y ajuste de Throttle SPF.</p>
+                    <li><marcador class="resaltado8">Router R3 (Área 0 y Área 2)</marcador></li>
+                    <div class="consola">
+                        <div class="barra-superior-consola">
+                            <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                        </div>
+                        <div class="codigo-consola">
+                            <!-- Contenido del código -->
+    <pre><code>ospf 1
+    router-id 3.3.3.3
+    area 0
+        network 192.168.1.4 0.0.0.3
+        network 192.168.1.12 0.0.0.3
+        network 192.168.255.3 0.0.0.0
+    area 2
+        network 192.168.1.16 0.0.0.3
+
+interface GigabitEthernet0/0
+    ospf priority 80</code></pre>
+                        </div>
+                    </div>
+                    <li><marcador class="resaltado8">Remote-1 (Área 2)</marcador></li>
+                    <div class="consola">
+                        <div class="barra-superior-consola">
+                            <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                        </div>
+                        <div class="codigo-consola">
+                            <!-- Contenido del código -->
+    <pre><code>ospf 1
+    router-id 5.5.5.5
+    area 2
+        network 192.168.1.16 0.0.0.3
+        network 172.16.10.0 0.0.0.255
+        network 172.16.11.0 0.0.0.255
+        network 172.16.12.0 0.0.0.255
+        network 192.168.255.5 0.0.0.0</code></pre>
+                        </div>
+                    </div>
+                    <li><marcador class="resaltado8">Router Remote-2 (Área 3)</marcador></li>
+                    <div class="consola">
+                        <div class="barra-superior-consola">
+                            <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                        </div>
+                        <div class="codigo-consola">
+                            <!-- Contenido del código -->
+    <pre><code>ospf 1
+    router-id 6.6.6.6
+    area 3
+        network 192.168.1.20 0.0.0.3
+        network 172.16.2.0 0.0.0.255
+        network 192.168.255.6 0.0.0.0</code></pre>
+                        </div>
+                    </div>
+                    <li><marcador class="resaltado8">Router ISP (Área 2)</marcador></li>
+                    <p>Este router se conecta al prefijo externo (172.33.1.2/30) que se redistribuirá en INET-1.</p>
+                    <ol>
+                        <li><marcador class="resaltado8">Prioridad de DR en el Área 0: </marcador>Se configura <marcador class="subrayado">ospf priority</marcador> en el área 0, siendo INET-1 el router con la prioridad más alta (200) para actuar como Designated Router (DR), mientras que otros routers en el área tienen menor prioridad.</li>
+                        <li><marcador class="resaltado8">Redistribución de Rutas Externas (E1): </marcador>En INET-1, se configuran rutas E1 para redistribuir los prefijos externos provenientes del router ISP.</li>
+                        <li><marcador class="resaltado8">Throttle SPF: </marcador>Configurado en INET-1 para optimizar el tiempo de recalculo de SPF en caso de cambios en la topología, usando los valores de 10 ms (inicial), 100 ms (segunda iteración), y 5000 ms (máximo).</li>
+                    </ol>
+                </ul>
+                <p>Para conectar con el ISP en esta topología, lo más común sería utilizar el protocolo BGP (Border Gateway Protocol) para la interconexión entre el ISP y tu red interna que utiliza OSPF. Esto se debe a que:</p>
+                <ol>
+                    <li>BGP es el protocolo estándar para comunicar redes autónomas, como la red interna y la del ISP.</li>
+                    <li>Con BGP, puedes gestionar rutas externas y establecer políticas de enrutamiento específicas para tu conexión con el ISP.</li>
+                    <li>Redistribuir OSPF en BGP te permitiría que las rutas internas de OSPF sean accesibles desde el ISP, mientras mantienes un control sobre qué rutas se anuncian y cómo se gestionan.</li>
+                </ol>
+                <p>Primero, habilita BGP en el router de borde e ingresa al modo de configuración de BGP especificando el número de sistema autónomo (ASN) propio. Luego, establece una sesión BGP con el ASN del ISP para que ambos sistemas puedan intercambiar rutas. Esto implica configurar el peer BGP, que en este caso es el router del ISP, especificando su dirección IP y el ASN correspondiente.</p>
+                <p>La siguiente etapa es redistribuir las rutas de OSPF dentro de BGP en el router de borde. Esta redistribución permite que las rutas internas de OSPF puedan ser anunciadas al ISP, facilitando el acceso a tu red interna desde el exterior. Es importante seleccionar cuidadosamente las rutas a redistribuir, limitando el anuncio solo a las necesarias para reducir la exposición de la red interna.</p>
+                <p>Finalmente, configura una ruta predeterminada (default route) en BGP. Esta configuración implica recibir la ruta 0.0.0.0/0 desde el ISP, lo cual permitirá que todo el tráfico hacia redes externas sea encaminado a través del ISP. Al tener una ruta predeterminada, cualquier paquete que no coincida con una ruta específica en la tabla de enrutamiento interna se dirigirá al ISP, asegurando que tu red pueda acceder a Internet u otras redes externas.</p>
+                <div class="blog-image-grande">
+                    <img src="media/ospf20.jpeg" alt="">
+                </div>
             </div>
         </div>       
     </main>
