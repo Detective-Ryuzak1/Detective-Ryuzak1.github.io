@@ -169,6 +169,7 @@ ip nat inside source list 1 interface GigabitEthernet0/2 overload</code></pre>
                     </div>
                 </div>
                 <p>Usa la dirección IP 203.0.113.10 para todos los dispositivos en la red interna 192.168.1.0/24 y permite que compartan esta IP mediante la sobrecarga de puertos.</p>
+                <p>El comando <marcador class="subrayado">show ip nat statistics</marcador> proporciona un resumen del estado de la configuración NAT, incluyendo la cantidad de direcciones internas y externas, así como el número de traducciones activas y fallidas. Esto ayuda a los administradores a evaluar el rendimiento y la eficacia del NAT en la red. Por otro lado, <marcador class="subrayado">show ip nat translations</marcador> muestra la tabla de traducción actual, detallando las traducciones activas entre direcciones IP internas y externas, lo que permite identificar qué dispositivos están utilizando NAT y cómo se están traduciendo sus direcciones.</p>
                 <h3>Huawei</h3>
                 <h6>Configuración de NAT Estático</h6>
                 <p>NAT estático en Huawei permite el mapeo de una dirección IP privada específica a una dirección IP pública. Esto es útil para servicios internos que deben ser accesibles desde el exterior.</p>
@@ -235,6 +236,7 @@ nat outbound 2001 interface GigabitEthernet 0/0/2 overload</code></pre>
                     </div>
                 </div>
                 <p>Usar la dirección pública 203.0.113.10 para todos los dispositivos en la red 192.168.1.0/24, usando sobrecarga de puertos.</p>
+                <p>El comando <marcador class="subrayado">display nat statistics</marcador> proporciona un resumen del estado de la configuración NAT, incluyendo la cantidad de direcciones internas y externas, así como el número de traducciones activas y fallidas. Esto ayuda a los administradores a evaluar el rendimiento y la eficacia del NAT en la red. Por otro lado, <marcador class="subrayado">display nat translation</marcador> muestra la tabla de traducción actual, detallando las traducciones activas entre direcciones IP internas y externas, lo que permite identificar qué dispositivos están utilizando NAT y cómo se están traduciendo sus direcciones.</p>
                 <div class="blog-image-grande">
                     <img src="media/nat2.png" alt="">
                 </div>
