@@ -78,21 +78,6 @@
                 <div class="blog-image-grande">
                     <img src="media/ospf2.png" alt="">
                 </div>
-                <h2>Establecimiento de Vecindades</h2>
-                <p>OSPF permite que todos los routers en una misma área tengan una copia sincronizada de la LSDB, garantizando que cada router disponga de la misma visión topológica de la red. El intercambio de la base de datos comienza con el envío de paquetes DBD, seguido de LSRs y LSUs para completar el intercambio. La redundancia en el proceso de confirmación (LSAck) garantiza la precisión.</p>
-                <p>El establecimiento de vecindades en OSPF es crítico para la formación de rutas. El proceso sigue estos pasos:</p>
-                <ol>
-                    <li><marcador class="resaltado6">Init State: </marcador>El router envía paquetes Hello, esperando recibirlos de otros routers.</li>
-                    <li><marcador class="resaltado6">Two-Way State: </marcador>Cuando un router recibe un Hello de su vecino, entra en estado bidireccional (Two-Way). Aquí identifica si puede convertirse en DR o BDR.</li>
-                    <li><marcador class="resaltado6">ExStart State: </marcador>Los routers eligen quién comenzará a enviar DBDs mediante negociación.</li>
-                    <li><marcador class="resaltado6">Exchange State: </marcador>Intercambio de DBDs para sincronizar las LSDBs.</li>
-                    <li><marcador class="resaltado6">Loading State: </marcador>Los routers envían LSRs y LSUs para completar cualquier entrada faltante en su base de datos.</li>
-                    <li><marcador class="resaltado6">Full State: </marcador>La sincronización está completa; ambos routers tienen LSDB idénticas y están listos para participar en la red OSPF.</li>
-                </ol>
-                <div class="blog-image-doble-grande">
-                    <img src="media/ospf4.png" alt="">
-                    <img src="media/ospf5.png" alt="">
-                </div>
                 <h2>DR y BDR</h2>
                 <p>En OSPF (Open Shortest Path First), el Designated Router (DR) y el Backup Designated Router (BDR) son conceptos clave que facilitan la gestión de redes en topologías de tipo broadcast y non-broadcast. Su función principal es optimizar la comunicación entre múltiples routers en una misma red, reduciendo la cantidad de mensajes de estado de enlace (LSA, Link State Advertisement) que deben ser intercambiados.</p>
                 <ol>
@@ -112,6 +97,41 @@
                 <div class="blog-image-grande">
                     <img src="media/ospf6.jpg" alt="">
                 </div>
+                <h2>LSDB (Link-State Database)</h2>
+                <p>La Link-State Database (LSDB) es una de las componentes clave del protocolo OSPF (Open Shortest Path First). La LSDB contiene información sobre el estado de los enlaces de todos los routers dentro de un área OSPF y es fundamental para la toma de decisiones de enrutamiento. </p>
+                <p>Cada entrada en la LSDB representa un enlace o una relación entre dos routers. Cada enlace incluye información como el ID del router, la dirección IP, el costo del enlace y el estado.</p>
+                <p>La LSDB contiene diferentes tipos de LSA (Link State Advertisements), que son los mensajes que se intercambian entre routers para actualizar la LSDB. Existen varios tipos de LSA, cada uno con un propósito específico, como anunciar rutas externas o describir la topología de una red.</p>
+                <h6>Función de la LSDB</h6>
+                <ol>
+                    <li><marcador class="resaltado6">Almacenamiento de Información: </marcador>La LSDB almacena detalles sobre todos los enlaces (interfaces) de los routers en la red, incluyendo su estado (up o down), costo, y la información de las adyacencias entre los routers. Esto permite que OSPF tenga una visión completa de la topología de la red.</li>
+                    <li><marcador class="resaltado6">Convergencia Rápida: </marcador>Cuando ocurre un cambio en la topología de la red (como la caída de un enlace), los routers envían actualizaciones a la LSDB. Esto permite que todos los routers converjan rápidamente hacia una nueva ruta óptima.</li>
+                    <li><marcador class="resaltado6">Cálculo de Rutas: </marcador>Utilizando la información de la LSDB, OSPF emplea el algoritmo de Dijkstra (Shortest Path First, SPF) para calcular la mejor ruta hacia cada destino en la red. La LSDB es esencial para este proceso, ya que proporciona la base de datos que se utiliza para determinar las rutas más eficientes.</li>
+                </ol>
+                <h6>Orden de Sincronización</h6>
+                <p>El proceso sigue el siguiente flujo:</p>
+                <ul>
+                    <li>Los routers no DR envían sus LSAs al DR.</li>
+                    <li>El DR actualiza su LSDB y luego envía la información actualizada a los demás routers.</li>
+                </ul>
+                <p>Al final del proceso, todos los routers en la misma área OSPF tendrán una LSDB sincronizada que refleje la misma vista de la red.</p>
+                <div class="blog-image-grande">
+                    <img src="media/ospf9.png" alt="">
+                </div>
+                <h2>Establecimiento de Vecindades</h2>
+                <p>OSPF permite que todos los routers en una misma área tengan una copia sincronizada de la LSDB, garantizando que cada router disponga de la misma visión topológica de la red. El intercambio de la base de datos comienza con el envío de paquetes DBD, seguido de LSRs y LSUs para completar el intercambio. La redundancia en el proceso de confirmación (LSAck) garantiza la precisión.</p>
+                <p>El establecimiento de vecindades en OSPF es crítico para la formación de rutas. El proceso sigue estos pasos:</p>
+                <ol>
+                    <li><marcador class="resaltado6">Init State: </marcador>El router envía paquetes Hello, esperando recibirlos de otros routers.</li>
+                    <li><marcador class="resaltado6">Two-Way State: </marcador>Cuando un router recibe un Hello de su vecino, entra en estado bidireccional (Two-Way). Aquí identifica si puede convertirse en DR o BDR.</li>
+                    <li><marcador class="resaltado6">ExStart State: </marcador>Los routers eligen quién comenzará a enviar DBDs mediante negociación.</li>
+                    <li><marcador class="resaltado6">Exchange State: </marcador>Intercambio de DBDs para sincronizar las LSDBs.</li>
+                    <li><marcador class="resaltado6">Loading State: </marcador>Los routers envían LSRs y LSUs para completar cualquier entrada faltante en su base de datos.</li>
+                    <li><marcador class="resaltado6">Full State: </marcador>La sincronización está completa; ambos routers tienen LSDB idénticas y están listos para participar en la red OSPF.</li>
+                </ol>
+                <div class="blog-image-doble-grande">
+                    <img src="media/ospf4.png" alt="">
+                    <img src="media/ospf5.png" alt="">
+                </div>
                 <h2>Selección de Caminos</h2>
                 <p>La selección de caminos en OSPF se basa en el concepto de “costo”, una métrica que mide el ancho de banda de los enlaces. Cada enlace tiene un valor de costo inversamente proporcional a su ancho de banda (es decir, cuanto mayor sea el ancho de banda, menor será el costo del enlace). OSPF elige el camino hacia cada destino en función del costo total acumulado, calculado sumando los costos de todos los enlaces en una ruta dada.</p>
                 <p>Si existen múltiples rutas hacia el mismo destino con el mismo costo, OSPF utiliza un balanceo de carga entre estos caminos, distribuyendo el tráfico de manera equitativa. Esto ayuda a maximizar el uso de la infraestructura de red y puede mejorar la disponibilidad. Este balanceo de carga puede ser configurado tanto para balanceo de carga igual (donde los costos son idénticos) como para carga desigual en ciertas implementaciones, aunque esto último es menos común en OSPF.</p>
@@ -129,18 +149,11 @@
                 <div class="blog-image-grande">
                     <img src="media/ospf12.png" alt="">
                 </div>
-                <h2>LSDB (Link-State Database)</h2>
-                <p>La Link-State Database (LSDB) es una de las componentes clave del protocolo OSPF (Open Shortest Path First). La LSDB contiene información sobre el estado de los enlaces de todos los routers dentro de un área OSPF y es fundamental para la toma de decisiones de enrutamiento. </p>
-                <p>Cada entrada en la LSDB representa un enlace o una relación entre dos routers. Cada enlace incluye información como el ID del router, la dirección IP, el costo del enlace y el estado.</p>
-                <p>La LSDB contiene diferentes tipos de LSA (Link State Advertisements), que son los mensajes que se intercambian entre routers para actualizar la LSDB. Existen varios tipos de LSA, cada uno con un propósito específico, como anunciar rutas externas o describir la topología de una red.</p>
-                <h6>Función de la LSDB</h6>
-                <ol>
-                    <li><marcador class="resaltado6">Almacenamiento de Información: </marcador>La LSDB almacena detalles sobre todos los enlaces (interfaces) de los routers en la red, incluyendo su estado (up o down), costo, y la información de las adyacencias entre los routers. Esto permite que OSPF tenga una visión completa de la topología de la red.</li>
-                    <li><marcador class="resaltado6">Convergencia Rápida: </marcador>Cuando ocurre un cambio en la topología de la red (como la caída de un enlace), los routers envían actualizaciones a la LSDB. Esto permite que todos los routers converjan rápidamente hacia una nueva ruta óptima.</li>
-                    <li><marcador class="resaltado6">Cálculo de Rutas: </marcador>Utilizando la información de la LSDB, OSPF emplea el algoritmo de Dijkstra (Shortest Path First, SPF) para calcular la mejor ruta hacia cada destino en la red. La LSDB es esencial para este proceso, ya que proporciona la base de datos que se utiliza para determinar las rutas más eficientes.</li>
-                </ol>
+                <h2>Incremental SPF (ISPF)</h2>
+                <p>El Incremental Shortest Path First (ISPF) es una optimización en OSPF que permite actualizar solo las partes afectadas de la red cuando hay cambios, en lugar de recalcular toda la red desde cero. Esto se logra calculando solo los nodos o enlaces afectados, lo cual reduce significativamente el tiempo de convergencia en grandes redes.</p>
+                <p>La ventaja principal de ISPF es la eficiencia, ya que los cálculos completos de SPF pueden ser intensivos en términos de CPU en redes grandes. En cambio, ISPF mejora la velocidad de respuesta de OSPF a los cambios topológicos, como fallos de enlace o actualizaciones de rutas, lo cual se traduce en una red más estable y con menos interrupciones.</p>
                 <div class="blog-image-grande">
-                    <img src="media/ospf9.png" alt="">
+                    <img src="media/ospf1.png" alt="">
                 </div>
                 <h2>Tipos de Áreas en OSPF</h2>
                 <p>En OSPF (Open Shortest Path First), las áreas son divisiones lógicas dentro de una red que ayudan a optimizar el enrutamiento y a manejar la escalabilidad. Cada área tiene características específicas que determinan cómo se maneja la información de enrutamiento. A continuación, se describen los principales tipos de áreas en OSPF:</p>
@@ -178,6 +191,16 @@
                 </ol>
                 <div class="blog-image-grande">
                     <img src="media/ospf11.png" alt="">
+                </div>
+                <h2>Virtual Links</h2>
+                <p>Los enlaces virtuales permiten conectar áreas OSPF que no están directamente conectadas al backbone (Área 0). En OSPF, todas las áreas deben estar conectadas al Área 0, ya que esta actúa como el “núcleo” de la red OSPF. Sin embargo, en situaciones donde un área no puede conectarse físicamente al backbone, un enlace virtual permite a ese área comunicarse a través de otro área intermedia que ya está conectada al Área 0.</p>
+                <p>El proceso de configuración de enlaces virtuales implica especificar dos routers (ambos deben ser ABR) que actuarán como extremos del enlace virtual. A través de estos enlaces, los routers en el área desconectada podrán participar en el enrutamiento interárea. Es importante recordar que los enlaces virtuales:</p>
+                <ul>
+                    <li>Facilitan la continuidad de la jerarquía OSPF sin necesidad de cambiar la infraestructura física.</li>
+                    <li>Ayudan a mantener una estructura jerárquica y escalable, especialmente útil en redes grandes y complejas.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/ospf14.jpg" alt="">
                 </div>
                 <h2>Tipos de LSA (Link-State Advertisement)</h2>
                 <p>Los Link-State Advertisements (LSA) son mensajes fundamentales en OSPF (Open Shortest Path First) que se utilizan para comunicar información sobre el estado de los enlaces y la topología de la red. Existen varios tipos de LSA, cada uno con un propósito específico. Aquí te explico los principales tipos de LSA:</p>
@@ -221,19 +244,10 @@
                 <div class="blog-image-grande">
                     <img src="media/ospf10.jpg" alt="">
                 </div>
-                <h2>Virtual Links</h2>
-                <p>Los enlaces virtuales permiten conectar áreas OSPF que no están directamente conectadas al backbone (Área 0). En OSPF, todas las áreas deben estar conectadas al Área 0, ya que esta actúa como el “núcleo” de la red OSPF. Sin embargo, en situaciones donde un área no puede conectarse físicamente al backbone, un enlace virtual permite a ese área comunicarse a través de otro área intermedia que ya está conectada al Área 0.</p>
-                <p>El proceso de configuración de enlaces virtuales implica especificar dos routers (ambos deben ser ABR) que actuarán como extremos del enlace virtual. A través de estos enlaces, los routers en el área desconectada podrán participar en el enrutamiento interárea. Es importante recordar que los enlaces virtuales:</p>
-                <ul>
-                    <li>Facilitan la continuidad de la jerarquía OSPF sin necesidad de cambiar la infraestructura física.</li>
-                    <li>Ayudan a mantener una estructura jerárquica y escalable, especialmente útil en redes grandes y complejas.</li>
-                </ul>
-                <div class="blog-image-grande">
-                    <img src="media/ospf1.png" alt="">
-                </div>
                 <h2>Prefix Suppression</h2>
                 <p>La supresión de prefijos es una técnica que OSPF emplea para optimizar la propagación de rutas en redes grandes. Cuando se habilita, OSPF omite el anuncio de prefijos específicos en las LSAs, anunciando solo rutas resumidas cuando sea posible. Esto ayuda a reducir el tamaño de la LSDB y las tablas de enrutamiento, mejorando el rendimiento en redes con grandes volúmenes de rutas.</p>
                 <p>Por ejemplo, en una red donde un router tiene varios enlaces a diferentes subredes dentro de una misma área, la supresión de prefijos permite al router anunciar solo la red principal en lugar de todas las subredes. Al simplificar el proceso de cálculo de rutas, se disminuye la cantidad de LSAs y se reduce el tiempo de convergencia en la red. Esta técnica es especialmente útil en redes que incluyen numerosas subredes, ya que reduce el procesamiento y el consumo de memoria en cada router.</p>
+                
                 <h2>Multi-Area Adjacency</h2>
                 <p>Multi-Area Adjacency permite que un solo enlace OSPF soporte relaciones de adjacencia en múltiples áreas. Sin esta función, los routers necesitan tener interfaces físicas dedicadas para cada área en la que deben participar. Multi-Area Adjacency permite que un único enlace físico establezca relaciones de vecindad en varias áreas, lo que:</p>
                 <ul>
@@ -241,9 +255,6 @@
                     <li>Mejora la eficiencia al reducir el número de interfaces requeridas en los routers, ideal para redes donde la infraestructura física es limitada.</li>
                 </ul>
                 <p>Al usar Multi-Area Adjacency, los routers pueden soportar múltiples áreas a través de una sola interfaz de red, manteniendo adjacencias separadas y gestionando las LSDB para cada área de forma independiente.</p>
-                <div class="blog-image-grande">
-                    <img src="media/ospf14.jpg" alt="">
-                </div>
                 <h2>Inter-Area y Prefijos Externos (Tipos E1 y E2)</h2>
                 <p>OSPF puede manejar rutas entre áreas y rutas externas con dos tipos de métricas: E1 y E2. Estas métricas ayudan a definir cómo un router ASBR (Autonomous System Boundary Router) anuncia rutas externas hacia otras áreas dentro de la red OSPF.</p>
                 <ul>
@@ -254,9 +265,6 @@
                 <div class="blog-image-grande">
                     <img src="media/ospf15.png" alt="">
                 </div>
-                <h2>Incremental SPF (ISPF)</h2>
-                <p>El Incremental Shortest Path First (ISPF) es una optimización en OSPF que permite actualizar solo las partes afectadas de la red cuando hay cambios, en lugar de recalcular toda la red desde cero. Esto se logra calculando solo los nodos o enlaces afectados, lo cual reduce significativamente el tiempo de convergencia en grandes redes.</p>
-                <p>La ventaja principal de ISPF es la eficiencia, ya que los cálculos completos de SPF pueden ser intensivos en términos de CPU en redes grandes. En cambio, ISPF mejora la velocidad de respuesta de OSPF a los cambios topológicos, como fallos de enlace o actualizaciones de rutas, lo cual se traduce en una red más estable y con menos interrupciones.</p>
                 <h2>Router Stub en OSPF</h2>
                 <p>Un Router Stub es un tipo de configuración de router en OSPF que limita la propagación de rutas externas dentro de un área, minimizando la cantidad de LSAs. Los routers stub no aceptan LSAs de tipo 5 (rutas externas), y por lo tanto no se ven sobrecargados con rutas externas a la red OSPF, lo que reduce la carga de procesamiento y el tamaño de las tablas de enrutamiento.</p>
                 <p>En una red grande, los routers stub pueden colocarse en áreas que no requieren rutas externas y en las cuales se desea optimizar el uso de recursos. Los routers en estas áreas pueden operar de manera más eficiente, ya que manejan menos rutas. Además, existe una variación llamada Totally Stubby Area, que incluso bloquea las LSAs tipo 3 (resúmenes de otras áreas), reteniendo solo la ruta por defecto.</p>
@@ -401,7 +409,7 @@ interface GigabitEthernet0/0
     network 192.168.255.6 0.0.0.0 area 3</code></pre>
                         </div>
                     </div>
-                    <li><marcador class="resaltado8">Router ISP (Área 2)</marcador></li>
+                    <li><marcador class="resaltado8">Router ISP</marcador></li>
                     <p>Este router se conecta al prefijo externo (172.33.1.2/30) que se redistribuirá en INET-1.</p>
                     <ol>
                         <li><marcador class="resaltado8">Prioridad de DR en el Área 0: </marcador>Se configura <marcador class="subrayado">ip ospf priority</marcador> en el área 0, siendo INET-1 el router con la prioridad más alta (200) para actuar como Designated Router (DR), mientras que otros routers en el área tienen menor prioridad.</li>
@@ -526,7 +534,7 @@ interface GigabitEthernet0/0
         network 192.168.255.6 0.0.0.0</code></pre>
                         </div>
                     </div>
-                    <li><marcador class="resaltado8">Router ISP (Área 2)</marcador></li>
+                    <li><marcador class="resaltado8">Router ISP</marcador></li>
                     <p>Este router se conecta al prefijo externo (172.33.1.2/30) que se redistribuirá en INET-1.</p>
                     <ol>
                         <li><marcador class="resaltado8">Prioridad de DR en el Área 0: </marcador>Se configura <marcador class="subrayado">ospf priority</marcador> en el área 0, siendo INET-1 el router con la prioridad más alta (200) para actuar como Designated Router (DR), mientras que otros routers en el área tienen menor prioridad.</li>
