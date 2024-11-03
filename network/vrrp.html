@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <link rel="icon" href="../media/imagen41.png" type="image/png">
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                        <li><a href="../devops.html">DevOps</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Aportar" onclick="window.open('https://buymeacoffee.com/ryuzak1', '_blank');">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <br>
+                <br>
+                <h1>VRRP (Virtual Router Redundancy Protocol)</h1>
+                <p>El Protocolo de Redundancia de Enrutador Virtual (VRRP, por sus siglas en inglés) es una tecnología diseñada para garantizar la alta disponibilidad de gateways en una red local. VRRP permite que múltiples routers colaboren para proporcionar una puerta de enlace redundante, asegurando que, si el router principal falla, otro lo reemplace automáticamente y mantenga la continuidad del tráfico de red sin interrupciones.</p>
+                <p>VRRP es un protocolo que facilita la redundancia de gateways en una red IP. Su objetivo es ofrecer una solución de alta disponibilidad al permitir que un grupo de routers actúe como un único gateway virtual para los dispositivos de la red. Los equipos en la red local apuntan a una dirección IP virtual como su gateway predeterminado, y VRRP se encarga de gestionar qué router es el responsable de responder en cada momento. En caso de que el router principal falle, VRRP cambia automáticamente la responsabilidad a otro router del grupo, lo que proporciona una transición rápida y sin pérdida de conectividad.</p>
+                <h2>Componentes</h2>
+                <p>Para entender cómo funciona VRRP, es fundamental conocer algunos conceptos técnicos:</p>
+                <ul>
+                    <li><marcador class="resaltado5">Router maestro: </marcador>Es el router activo que maneja el tráfico para la IP virtual del gateway. Solo uno de los routers en el grupo puede ser el maestro en un momento dado, y es responsable de responder a las solicitudes de la red local.</li>
+                    <li><marcador class="resaltado5">Router de respaldo: </marcador>Los routers en el grupo que están listos para asumir el rol de maestro en caso de que el actual falle. Estos routers supervisan el estado del maestro y entran en acción si se detecta una interrupción.</li>
+                    <li><marcador class="resaltado5">Dirección IP virtual: </marcador>Es la dirección IP a la que todos los dispositivos de la red apuntan como su gateway. Esta dirección se asigna al router maestro, y VRRP asegura que siempre haya un router disponible para responder a las solicitudes enviadas a esta dirección.</li>
+                    <li><marcador class="resaltado5">Grupo VRRP: </marcador>Es una configuración que agrupa a los routers participantes y les asigna la IP virtual compartida. Cada grupo VRRP tiene un identificador único para diferenciarlo de otros grupos en la red.</li>
+                    <li><marcador class="resaltado5">Prioridad de router: </marcador>VRRP utiliza valores de prioridad para determinar qué router asumirá el rol de maestro. La prioridad se asigna numéricamente, y el router con el valor de prioridad más alto se convierte en el maestro. En caso de empate, el router con la IP más alta asume el rol.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/vrrp1.png" alt="">
+                </div>
+                <h2>Proceso de funcionamiento</h2>
+                <ol>
+                    <li><marcador class="resaltado6">Elección inicial del maestro: </marcador>Al activarse, los routers en el grupo VRRP envían mensajes para anunciar sus prioridades. El router con la mayor prioridad se convierte en el maestro y empieza a responder a las solicitudes para la IP virtual.</li>
+                    <li><marcador class="resaltado6">Supervisión del estado del maestro: </marcador>El router maestro envía regularmente mensajes de saludo (advertencias o “heartbeat”) a los routers de respaldo para indicar que está activo. Los routers de respaldo escuchan estos mensajes y permanecen en espera.</li>
+                    <li><marcador class="resaltado6">Cambio de maestro en caso de falla: </marcador>Si el router de respaldo deja de recibir mensajes del maestro por un período preestablecido, asume que el maestro ha fallado. El router de respaldo con la siguiente prioridad más alta se convierte en el nuevo maestro y comienza a responder en nombre de la IP virtual.</li>
+                    <li><marcador class="resaltado6">Reasignación de roles: </marcador>Si el router maestro original se recupera, puede volver a asumir el rol de maestro si tiene la prioridad más alta y la opción de “preempt” (preasignación) está activada, lo que permite que recupere su posición automáticamente.</li>
+                </ol>
+                <div class="blog-image-grande">
+                    <img src="media/vrrp2.png" alt="">
+                </div>
+                <h2>Parámetros</h2>
+                <p>Para implementar VRRP, es importante configurar correctamente varios parámetros clave:</p>
+                <ul>
+                    <li><marcador class="resaltado9">Prioridad: </marcador>Un valor numérico que varía de 1 a 254 y determina el rol de cada router en el grupo. El router con el valor más alto se convierte en el maestro.</li>
+                    <li><marcador class="resaltado9">Intervalo de anuncios (Advertisement Interval): </marcador>Es el tiempo en segundos entre cada mensaje de advertencia que envía el maestro. Normalmente, este valor es corto para asegurar una transición rápida en caso de falla (por ejemplo, 1 segundo).</li>
+                    <li><marcador class="resaltado9">Preempt: </marcador>Esta opción permite que un router con una prioridad más alta se convierta automáticamente en el maestro si entra en línea después de un fallo. Este ajuste es útil para garantizar que el router preferido se mantenga como maestro.</li>
+                    <li><marcador class="resaltado9">Tiempo de espera (Master Down Interval): </marcador>Es el tiempo que el router de respaldo espera antes de asumir que el maestro ha fallado. Generalmente se calcula como tres veces el intervalo de anuncios.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/vrrp3.jpg" alt="">
+                </div>
+                <h2>Métodos de autenticación</h2>
+                <p>VRRP ofrece opciones de autenticación para asegurar que solo los routers autorizados participen en el grupo, lo cual es crucial en redes grandes. Existen varios métodos de autenticación:</p>
+                <ul>
+                    <li><marcador class="resaltado6">Autenticación simple: </marcador>Usa una contraseña compartida para todos los routers en el grupo, que verifica que los dispositivos están autorizados a formar parte del grupo VRRP.</li>
+                    <li><marcador class="resaltado6">Autenticación segura con MD5: </marcador>Utiliza un hash basado en MD5 para verificar la identidad de los routers. Este método es más seguro que la autenticación simple y se recomienda para entornos de mayor seguridad.</li>
+                </ul>
+                <h2>Limitaciones </h2>
+                <ul>
+                    <li><marcador class="resaltado8">Escalabilidad: </marcador>VRRP está diseñado principalmente para pequeños grupos de routers, lo que puede limitar su aplicación en redes muy grandes.</li>
+                    <li><marcador class="resaltado8">Dependencia de la configuración: </marcador>Una mala configuración de las prioridades o los intervalos puede resultar en fallas en la transición o en conflictos de routers maestros.</li>
+                    <li><marcador class="resaltado8">Mayor carga de administración: </marcador>Configurar y gestionar múltiples routers en un grupo VRRP puede requerir un esfuerzo considerable.</li>
+                </ul>
+                <h2>Conclusión</h2>
+                <p>VRRP es una solución efectiva para proporcionar redundancia de gateways y alta disponibilidad en redes IP. Al utilizar direcciones IP virtuales y gestionar la elección de routers maestros y de respaldo, VRRP minimiza las interrupciones y asegura que siempre haya un gateway disponible. Aunque tiene algunas limitaciones, como la escalabilidad y la complejidad en su configuración, VRRP es una herramienta fundamental para entornos que requieren continuidad de servicio y redundancia de red. </p>
+                <h2>Configuración</h2>
+                <p>En esta configuración, el router INBSW1 actuará como el maestro en el grupo VRRP, y INBSW2 e INBSW3 serán los routers de respaldo (backup).</p>
+                <div class="blog-image-grande">
+                    <img src="media/vrrp5.png" alt="">
+                </div>
+                <h3>Cisco</h3>
+                <h6>INBSW1 (Maestro)</h6>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>interface FastEthernet0/0
+    ip address 192.168.1.2 255.255.255.0
+    vrrp 1 ip 192.168.1.1
+    vrrp 1 priority 150
+    vrrp 1 preempt</code></pre>
+                    </div>
+                </div>
+                <p><marcador class="subrayado">vrrp 1 preempt</marcador>: Permite que este router recupere su rol de maestro si vuelve a estar disponible después de una caída.</p>
+                <h6>INBSW2 (Backup)</h6>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>interface FastEthernet0/0
+    ip address 192.168.1.3 255.255.255.0
+    vrrp 1 ip 192.168.1.1
+    vrrp 1 priority 100
+    vrrp 1 preempt</code></pre>
+                    </div>
+                </div>
+                <p><marcador class="subrayado">vrrp 1 preempt</marcador>: Permite que INBSW2 se convierta en maestro si INBSW1 falla.</p>
+                <h6>INBSW3 (Backup)</h6>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>interface FastEthernet0/0
+    ip address 192.168.1.3 255.255.255.0
+    vrrp 1 ip 192.168.1.1
+    vrrp 1 priority 100
+    vrrp 1 preempt</code></pre>
+                    </div>
+                </div>
+                <p><marcador class="subrayado">vrrp 1 priority 90</marcador>: Configura una prioridad más baja que la de INBSW1 e INBSW2 para que actúe como respaldo.</p>
+                <h3>Huawei</h3>
+                <h6>INBSW1 (Maestro)</h6>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>interface GigabitEthernet0/0/0
+    ip address 192.168.1.2 255.255.255.0
+    vrrp vrid 1 virtual-ip 192.168.1.1
+    vrrp vrid 1 priority 150
+    vrrp vrid 1 preempt-mode</code></pre>
+                    </div>
+                </div>
+                <p><marcador class="subrayado">vrrp vrid 1 virtual-ip 192.168.1.1</marcador>: Establece la dirección IP virtual del grupo VRRP.</p>
+                <h6>INBSW2 (Backup)</h6>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>interface GigabitEthernet0/0/0
+    ip address 192.168.1.3 255.255.255.0
+    vrrp vrid 1 virtual-ip 192.168.1.1
+    vrrp vrid 1 priority 100
+    vrrp vrid 1 preempt-mode</code></pre>
+                    </div>
+                </div>
+                <h6>INBSW3 (Backup)</h6>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>interface GigabitEthernet0/0/0
+    ip address 192.168.1.4 255.255.255.0
+    vrrp vrid 1 virtual-ip 192.168.1.1
+    vrrp vrid 1 priority 90
+    vrrp vrid 1 preempt-mode</code></pre>
+                    </div>
+                </div>
+                <div class="blog-image-grande">
+                    <img src="media/vrrp4.png" alt="">
+                </div>
+            </div>
+        </div>       
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
