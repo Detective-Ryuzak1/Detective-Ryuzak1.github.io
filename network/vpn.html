@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <link rel="icon" href="../media/imagen41.png" type="image/png">
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                        <li><a href="../devops.html">DevOps</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Aportar" onclick="window.open('https://buymeacoffee.com/ryuzak1', '_blank');">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <br>
+                <br>
+                <h1>VPN (Virtual Private Network)</h1>
+                <p>Una VPN (Red Privada Virtual) permite la conexión segura entre dispositivos de red a través de internet o de una red pública, creando un “túnel” que protege el flujo de datos entre estos puntos. Este tipo de conexión se utiliza comúnmente para conectar oficinas, sucursales o trabajadores remotos de una empresa, garantizando que el tráfico esté protegido y que los usuarios puedan acceder a la red como si estuvieran físicamente conectados a ella.</p>
+                <p>La VPN crea una red privada virtual entre dos o más dispositivos, como routers o firewalls, que están en ubicaciones diferentes. Esta red asegura que los datos enviados a través de internet estén cifrados, lo que significa que solo el emisor y el receptor puedan interpretarlos. Es particularmente útil para organizaciones que buscan conectar múltiples ubicaciones o permitir que sus empleados se conecten desde fuera de la oficina sin comprometer la seguridad de los datos.</p>
+                <div class="blog-image-grande">
+                    <img src="media/vpn1.jpg" alt="">
+                </div>
+                <h2>Componentes principales</h2>
+                <p>La arquitectura de una VPN entre dispositivos de red se compone de varios elementos esenciales:</p>
+                <ol>
+                    <li><marcador class="resaltado9">Túnel VPN: </marcador>Es el canal seguro a través del cual se transmiten los datos. Este túnel oculta el tráfico y evita que los datos sean visibles para interceptores en la red pública.</li>
+                    <li><marcador class="resaltado9">Protocolos de VPN: </marcador>Determinan cómo se envían y protegen los datos en la red privada virtual. Algunos de los más comunes son:</li>
+                    <ul>
+                        <li><marcador class="resaltado8">IPsec (Internet Protocol Security): </marcador>Proporciona autenticación y cifrado en cada paquete IP.</li>
+                        <li><marcador class="resaltado8">SSL/TLS (Secure Sockets Layer/Transport Layer Security): </marcador>Usado para conexiones basadas en web.</li>
+                        <li><marcador class="resaltado8">L2TP (Layer 2 Tunneling Protocol) y PPTP (Point-to-Point Tunneling Protocol): </marcador>Protocolos más antiguos y menos seguros, pero aún en uso.</li>
+                    </ul>
+                    <li><marcador class="resaltado9">Métodos de autenticación: </marcador>Estos métodos aseguran que solo los dispositivos autorizados puedan conectarse al túnel VPN. Incluyen:</li>
+                    <ul>
+                        <li><marcador class="resaltado8">Autenticación de certificados: </marcador>Utiliza certificados digitales para verificar la identidad de los dispositivos.</li>
+                        <li><marcador class="resaltado8">Pre-shared key (PSK): </marcador>Una clave compartida entre los dispositivos que se usa para autenticarlos antes de permitir la conexión.</li>
+                    </ul>
+                    <li><marcador class="resaltado9">Cifrado: </marcador>Protege los datos mediante algoritmos que los convierten en información ilegible para quienes no tengan la clave de descifrado. Los algoritmos comunes incluyen:</li>
+                    <ul>
+                        <li><marcador class="resaltado8">AES (Advanced Encryption Standard): </marcador>Cifrado fuerte y rápido, usado en varias configuraciones como 128, 192 o 256 bits.</li>
+                        <li><marcador class="resaltado8">3DES (Triple Data Encryption Standard): </marcador>Cifrado en tres capas, pero con mayor carga computacional y más antiguo que AES.</li>
+                        <li><marcador class="resaltado8">ChaCha20: </marcador>Un cifrado moderno y eficiente, especialmente en dispositivos con menos capacidad de procesamiento.</li>
+                    </ul>
+                    <li><marcador class="resaltado9">Integridad de los datos: </marcador>Los mecanismos como el HMAC (Hashed Message Authentication Code) garantizan que los datos no sean alterados durante la transmisión. HMAC-MD5 y HMAC-SHA-256 son ejemplos comunes de algoritmos de integridad.</li>
+                    <p>El proceso de cálculo de HMAC implica ajustar la clave secreta al tamaño adecuado para la función hash, concatenarla con bloques de ceros (ipad y opad) junto con el mensaje en dos pasos, y luego aplicar la función hash para generar el HMAC final, que se transmite junto al mensaje. En la verificación, el receptor calcula el HMAC del mensaje recibido con la misma clave secreta y compara el resultado con el HMAC recibido; si coinciden, se confirma que el mensaje no ha sido alterado y proviene de una fuente autenticada.</p>
+                </ol>
+                <div class="blog-image-grande">
+                    <img src="media/vpn2.png" alt="">
+                </div>
+                <h2>Proceso de establecimiento</h2>
+                <p>Para que una VPN entre dispositivos de red funcione, es esencial un proceso de autenticación y negociación de claves. Este proceso incluye:</p>
+                <ol>
+                    <li><marcador class="resaltado5">Autenticación inicial: </marcador>Los dispositivos intercambian claves o certificados para autenticarse mutuamente. Esto garantiza que los dispositivos participantes son legítimos y autorizados.</li>
+                    <li><marcador class="resaltado5">Establecimiento de un canal seguro: </marcador>Una vez autenticados, los dispositivos generan una clave de sesión que se utilizará para cifrar los datos transmitidos. Aquí es donde entran en juego los métodos de cifrado, como AES o 3DES.</li>
+                    <li><marcador class="resaltado5">Túnel de datos: </marcador>Una vez establecida la conexión segura, los datos se envían a través del túnel cifrado, donde el protocolo de VPN asegura que los paquetes sean integrales y no se hayan modificado.</li>
+                </ol>
+                <div class="blog-image-grande">
+                    <img src="media/vpn3.png" alt="">
+                </div>
+                <h2>Parámetros importantes</h2>
+                <p>Para configurar una VPN segura entre dispositivos de red, es necesario comprender algunos parámetros técnicos:</p>
+                <ul>
+                    <li><marcador class="resaltado6">Rangos de IP y enrutamiento: </marcador>Los dispositivos deben definir qué rangos de IP se utilizarán para el tráfico VPN. Es común que cada red en ambos extremos de la VPN tenga su propio rango IP privado, como 10.0.0.0/24 o 192.168.1.0/24. Estos rangos no deben solaparse, ya que esto causaría problemas de enrutamiento.</li>
+                    <li><marcador class="resaltado6">MTU (Maximum Transmission Unit): </marcador>El tamaño máximo de paquete que puede transmitirse por el túnel. En redes VPN, este valor se ajusta para evitar fragmentación, que puede reducir el rendimiento y afectar la estabilidad.</li>
+                    <li><marcador class="resaltado6">Duración de las claves: </marcador>En la mayoría de las configuraciones de VPN, las claves de sesión tienen una duración limitada, tras la cual se deben renegociar. Esto aumenta la seguridad de la conexión, ya que reduce la posibilidad de que una clave comprometida sea utilizada por mucho tiempo.</li>
+                </ul>
+                <h2>Métodos de encriptación y autenticación</h2>
+                <p>Existen varias opciones para configurar la autenticación y el cifrado en una VPN, lo que permite adaptar la configuración a las necesidades de seguridad y rendimiento. A continuación, algunos ejemplos comunes:</p>
+                <ul>
+                    <li><marcador class="resaltado9">IKE (Internet Key Exchange): </marcador>Protocolo utilizado en IPsec VPNs para la negociación de claves y la autenticación de los dispositivos.</li>
+                    <li><marcador class="resaltado9">Certificados digitales: </marcador>Una forma muy segura de autenticación que depende de una infraestructura de clave pública (PKI) y proporciona una verificación más robusta que una PSK.</li>
+                    <li><marcador class="resaltado9">Cifrado simétrico y asimétrico: </marcador>AES, que es un cifrado simétrico, se usa a menudo para el cifrado de los datos en la VPN debido a su eficiencia. Sin embargo, los protocolos como IKE pueden usar cifrado asimétrico (RSA o ECC) para la autenticación inicial, asegurando que solo los dispositivos autorizados puedan establecer la VPN.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/vpn4.png" alt="">
+                </div>
+                <h2>Ventajas y desventajas de una VPN entre dispositivos de red</h2>
+                <h6>Ventajas</h6>
+                <ul>
+                    <li><marcador class="resaltado6">Seguridad de datos: </marcador>La VPN asegura que la información transmitida esté protegida contra interceptación.</li>
+                    <li><marcador class="resaltado6">Flexibilidad y accesibilidad: </marcador>Permite conectar dispositivos ubicados en diferentes sitios sin necesidad de infraestructura dedicada.</li>
+                    <li><marcador class="resaltado6">Escalabilidad: </marcador>Las conexiones VPN pueden escalarse a medida que las necesidades de la red cambian.</li>
+                </ul>
+                <h6>Desventajas</h6>
+                <ul>
+                    <li><marcador class="resaltado6">Rendimiento: </marcador>El cifrado y descifrado de datos consume recursos de procesamiento, lo que puede ralentizar la red.</li>
+                    <li><marcador class="resaltado6">Complejidad: </marcador>La configuración de una VPN entre dispositivos requiere conocimientos técnicos avanzados, especialmente en el caso de protocolos como IPsec.</li>
+                    <li><marcador class="resaltado6">Problemas de compatibilidad: </marcador>Dispositivos de diferentes fabricantes pueden tener configuraciones y compatibilidades diferentes, lo que puede complicar la configuración.</li>
+                </ul>
+                <h2>Conclusión</h2>
+                <p>Una VPN entre dispositivos de red es una solución poderosa para establecer conexiones seguras y confiables a través de internet, especialmente cuando se necesita conectar múltiples ubicaciones o permitir el acceso remoto. La seguridad depende en gran medida de los protocolos de cifrado y autenticación utilizados.</p>
+                <h2>Configuración</h2>
+                <p>Para configurar un túnel VPN IPsec entre dos routers, seguiremos los pasos clave en ambos dispositivos. Esta configuración se basa en un túnel de sitio a sitio y encriptará el tráfico entre las dos redes privadas que están conectadas por los routers.</p>
+                <div class="blog-image-grande">
+                    <img src="media/vpn5.jpg" alt="">
+                </div>
+                <h3>Cisco</h3>
+                <p>En este caso:</p>
+                <p>Router-A:</p>
+                <ul>
+                    <li>IP externa en la interfaz GigabitEthernet0/0/0: 100.0.0.1</li>
+                    <li>Red interna: 192.168.1.0/24</li>
+                </ul>
+                <p>Router-B:</p>
+                <ul>
+                    <li>IP externa en la interfaz GigabitEthernet0/0/0: 200.0.0.1</li>
+                    <li>Red interna: 192.168.2.0/24</li>
+                </ul>
+                <h6>Pasos de Configuración</h6>
+                <ol>
+                    <li><marcador class="resaltado8">Paso 1: </marcador>Configurar el Acceso a la ACL de Criptografía</li>
+                    <p>Cada router necesita una lista de acceso (ACL) para identificar el tráfico que será cifrado y enviado a través del túnel.</p>
+                    <li><marcador class="resaltado8">Paso 2: </marcador>Configurar la Política de IPsec ISAKMP (Phase 1)</li>
+                    <p>Definimos la política de IKE (Internet Key Exchange) que determina cómo se autenticará y encriptará la conexión.</p>
+                    <p>Luego, configuramos la clave precompartida (PSK) para la autenticación.</p>
+                    <li><marcador class="resaltado8">Paso 3: </marcador>Configurar la Fase 2 de IPsec</li>
+                    <p>Definimos una lista de transformaciones que especifica cómo se encriptará y autenticará el tráfico en la fase de túnel IPsec.</p>
+                    <li><marcador class="resaltado8">Paso 4: </marcador>Configurar el Mapa de Criptografía</li>
+                    <p>Creamos un mapa de criptografía que vincula la ACL, la política de IPsec y el conjunto de transformaciones.</p>
+                    <li><marcador class="resaltado8">Paso 5: </marcador>Aplicar el Mapa de Criptografía a la Interfaz</li>
+                    <p>Finalmente, aplicamos el mapa de criptografía a la interfaz externa en cada router.</p>
+                </ol>
+                
+                <h6>Router A</h6>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>! Definir la ACL de tráfico
+access-list 100 permit ip 192.168.1.0 0.0.0.255 192.168.2.0 0.0.0.255
+    
+! Configurar la política ISAKMP (Fase 1)
+crypto isakmp policy 10
+    encryption aes
+    hash sha256
+    authentication pre-share
+    group 2
+    lifetime 86400
+
+! Configurar la clave precompartida para autenticación
+crypto isakmp key ClaveSecreta address 200.0.0.1
+
+! Configurar el conjunto de transformaciones IPsec (Fase 2)
+crypto ipsec transform-set TS esp-aes esp-sha256-hmac
+
+! Configurar el mapa de criptografía y vincular la ACL y el conjunto de transformaciones
+crypto map CMAP 10 ipsec-isakmp
+    set peer 200.0.0.1
+    set transform-set TS
+    match address 100
+
+! Aplicar el mapa de criptografía a la interfaz externa
+interface FastEthernet0/0
+    ip address 100.0.0.1 255.255.255.0
+    crypto map CMAP
+
+interface FastEthernet0/1
+    ip address 192.168.1.1 255.255.255.0
+
+! Configurar la ruta estática para alcanzar la red LAN de Router-B a través de la IP pública de Router-B
+ip route 192.168.2.0 255.255.255.0 200.0.0.1</code></pre>
+                    </div>
+                </div>
+                <p>Nota: Cambia ClaveSecreta por una clave segura para ambos routers.</p>
+                <h6>Router B</h6>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>! Definir la ACL de tráfico
+access-list 100 permit ip 192.168.2.0 0.0.0.255 192.168.1.0 0.0.0.255
+    
+! Configurar la política ISAKMP (Fase 1)
+crypto isakmp policy 10
+    encryption aes
+    hash sha256
+    authentication pre-share
+    group 2
+    lifetime 86400
+
+! Configurar la clave precompartida para autenticación
+crypto isakmp key ClaveSecreta address 100.0.0.1
+
+! Configurar el conjunto de transformaciones IPsec (Fase 2)
+crypto ipsec transform-set TS esp-aes esp-sha256-hmac
+
+! Configurar el mapa de criptografía y vincular la ACL y el conjunto de transformaciones
+crypto map CMAP 10 ipsec-isakmp
+    set peer 100.0.0.1
+    set transform-set TS
+    match address 100
+
+! Aplicar el mapa de criptografía a la interfaz externa
+interface FastEthernet0/0
+    ip address 200.0.0.1 255.255.255.0
+    crypto map CMAP
+
+interface FastEthernet0/1
+    ip address 192.168.2.1 255.255.255.0
+
+! Configurar la ruta estática para alcanzar la red LAN de Router-A a través de la IP pública de Router-A
+ip route 192.168.1.0 255.255.255.0 100.0.0.1</code></pre>
+                    </div>
+                </div>
+                <p>Con esta configuración, los routers establecerán un túnel VPN IPsec seguro entre las redes 10.1.1.0/24 y 10.2.2.0/24, permitiendo el paso de tráfico cifrado entre ellas.</p>
+                <h6>Verificación</h6>
+                <p>Para verificar el estado del túnel, podemos usar los siguientes comandos en ambos routers:</p>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>show crypto isakmp sa    ! Verifica la Fase 1 (ISAKMP)
+show crypto ipsec sa     ! Verifica la Fase 2 (IPsec)</code></pre>
+                    </div>
+                </div>
+                <h3>Huawei</h3>
+                <p>En este caso:</p>
+                <p>Router-A:</p>
+                <ul>
+                    <li>IP externa en la interfaz GigabitEthernet0/0/0: 100.0.0.1</li>
+                    <li>Red interna: 192.168.1.0/24</li>
+                </ul>
+                <p>Router-B:</p>
+                <ul>
+                    <li>IP externa en la interfaz GigabitEthernet0/0/0: 200.0.0.1</li>
+                    <li>Red interna: 192.168.2.0/24</li>
+                </ul>
+                <h6>Router A</h6>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code># Configurar la ACL para el tráfico que se cifrará en el túnel
+acl number 3000
+    rule 5 permit ip source 192.168.1.0 0.0.0.255 destination 192.168.2.0 0.0.0.255
+
+# Configurar el perfil de IKE para la Fase 1
+ike peer RB
+    pre-shared-key cipher ClaveSecreta
+    remote-address 200.0.0.1
+    proposal 1
+
+# Definir la propuesta de IKE (parámetros de encriptación y autenticación para la Fase 1)
+ike proposal 1
+    encryption-algorithm aes-cbc-256
+    authentication-algorithm sha1
+    dh group2
+    sa lifetime seconds 86400
+
+# Configurar el perfil de IPsec para la Fase 2
+ipsec policy policy1 10 isakmp
+    proposal 1
+    ike-peer RB
+    security acl 3000
+
+# Definir la propuesta de IPsec (parámetros de encriptación y autenticación para la Fase 2)
+ipsec proposal 1
+    transform esp
+    esp authentication-algorithm sha1
+    esp encryption-algorithm aes-cbc-256
+
+# Aplicar la política de IPsec en la interfaz externa
+interface GigabitEthernet0/0/0
+    ip address 100.0.0.1 255.255.255.0
+    ipsec policy policy1
+
+interface GigabitEthernet0/0/1
+    ip address 192.168.1.1 255.255.255.0
+
+# Configurar la ruta estática para alcanzar la red LAN de Router-B a través de la IP pública de Router-B
+ip route-static 192.168.2.0 255.255.255.0 200.0.0.1</code></pre>
+                    </div>
+                </div>
+                <h6>Router B</h6>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code># Configurar la ACL para el tráfico que se cifrará en el túnel
+acl number 3000
+    rule 5 permit ip source 192.168.2.0 0.0.0.255 destination 192.168.1.0 0.0.0.255
+
+# Configurar el perfil de IKE para la Fase 1
+ike peer RA
+    pre-shared-key cipher ClaveSecreta
+    remote-address 100.0.0.1
+    proposal 1
+
+# Definir la propuesta de IKE (parámetros de encriptación y autenticación para la Fase 1)
+ike proposal 1
+    encryption-algorithm aes-cbc-256
+    authentication-algorithm sha1
+    dh group2
+    sa lifetime seconds 86400
+
+# Configurar el perfil de IPsec para la Fase 2
+ipsec policy policy1 10 isakmp
+    proposal 1
+    ike-peer RA
+    security acl 3000
+
+# Definir la propuesta de IPsec (parámetros de encriptación y autenticación para la Fase 2)
+ipsec proposal 1
+    transform esp
+    esp authentication-algorithm sha1
+    esp encryption-algorithm aes-cbc-256
+
+# Aplicar la política de IPsec en la interfaz externa
+interface GigabitEthernet0/0/0
+    ip address 200.0.0.1 255.255.255.0
+    ipsec policy policy1
+
+interface GigabitEthernet0/0/1
+    ip address 192.168.2.1 255.255.255.0
+
+# Configurar la ruta estática para alcanzar la red LAN de Router-A a través de la IP pública de Router-A
+ip route-static 192.168.1.0 255.255.255.0 100.0.0.1</code></pre>
+                    </div>
+                </div>
+                <p>Con esta configuración, se establecerá un túnel VPN IPsec entre los routers Huawei, permitiendo el tráfico cifrado entre las redes 10.1.1.0/24 y 10.2.2.0/24.</p>
+                <div class="blog-image-grande">
+                    <img src="media/vpn6.jpg" alt="">
+                </div>
+            </div>
+        </div>       
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
