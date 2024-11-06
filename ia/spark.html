@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <link rel="icon" href="../media/imagen41.png" type="image/png">
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                        <li><a href="../devops.html">DevOps</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Aportar" onclick="window.open('https://buymeacoffee.com/ryuzak1', '_blank');">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <br>
+                <br>
+                <h1>Apache Spark</h1>
+                <p>Apache Spark es un motor de procesamiento de datos en paralelo, diseñado específicamente para grandes volúmenes de datos. Permite realizar cálculos distribuidos en un clúster de computadoras, ejecutando tareas de análisis de datos, procesamiento en tiempo real y aprendizaje automático de manera rápida y escalable. Spark facilita la distribución y paralelización de tareas para que puedan ejecutarse en múltiples nodos al mismo tiempo. Además, Spark es compatible con varios lenguajes de programación, como Python (a través de PySpark), Scala, Java y R.</p>
+                <div class="blog-image">
+                    <img src="media/spark2.png" alt="">
+                </div>
+                <h2>Ubuntu</h2>
+                <p>Ubuntu es un sistema operativo basado en Linux. Su función principal es gestionar los recursos físicos de una máquina (como la CPU, la memoria y el almacenamiento), proporcionando una plataforma sobre la cual se ejecutan aplicaciones y servicios. Aunque Ubuntu en sí no tiene ninguna funcionalidad específica para el procesamiento de big data, es un sistema operativo muy utilizado en servidores y en clústeres de computadoras que manejan grandes volúmenes de datos debido a su estabilidad, seguridad y flexibilidad.</p>
+                <p>Es común instalar Apache Spark en servidores con Ubuntu. Esto permite que Spark aproveche las capacidades de Ubuntu para gestionar los recursos de hardware, mientras Spark maneja el procesamiento distribuido de los datos.</p>
+                <p><marcador class="resaltado9">Escalabilidad: </marcador>Mientras que Ubuntu se limita a una sola máquina (o nodo), Spark permite utilizar múltiples máquinas al mismo tiempo (un clúster) para distribuir el procesamiento de datos. Esto es esencial en big data, donde el tamaño de los datos es tan grande que una sola máquina no es suficiente.
+                <p>En un entorno de big data, Ubuntu proporciona la base sobre la cual Spark se instala y ejecuta para distribuir y procesar datos masivos de forma rápida y eficiente.</p>
+                <div class="blog-image-grande">
+                    <img src="media/spark1.jpg" alt="">
+                </div>
+                <h2>Arquitectura</h2>
+                <p>En Apache Spark (y en muchos otros sistemas distribuidos), el clúster se organiza en una arquitectura **Master-Slave (Maestro-Esclavo)**, donde hay un **nodo maestro** y varios **nodos trabajadores** (workers). Esta estructura permite una distribución y administración eficiente del trabajo en el clúster.</p>
+                <p>Apache Spark se divide en:</p>
+                <ol style="list-style-type: none;">
+                    <li>&#9658; <marcador class="resaltado3">Nodo Maestro (Master):</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>🔸El nodo maestro coordina y administra el clúster.</li>
+                        <li>🔸Asigna tareas a los nodos trabajadores y realiza un seguimiento de su progreso.</li>
+                        <li>🔸Maneja la división y distribución de los trabajos (o "jobs") que Spark recibe para procesar.</li>
+                        <li>🔸Gestiona la división de tareas en subtareas más pequeñas y la asignación de estas a los nodos trabajadores.</li>
+                    </ul>
+                    <li>&#9658; <marcador class="resaltado3">Nodos Trabajadores (Workers):</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>🔸Los nodos trabajadores realizan el procesamiento real de los datos.</li>
+                        <li>🔸Cada worker tiene múltiples ejecutores (executors) que ejecutan las tareas específicas asignadas por el nodo maestro.</li>
+                        <li>🔸Los workers reciben sus tareas del nodo maestro y ejecutan operaciones en los datos, como filtros, mapeos, agregaciones, etc.</li>
+                        <li>🔸Cada worker se encarga de una parte del conjunto de datos, procesándolos en paralelo con otros workers, lo que permite manejar grandes volúmenes de datos de manera rápida.</li>
+                    </ul>
+                    <li>&#9658; <marcador class="resaltado3">Driver:</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>🔸El Driver es la aplicación que envía el trabajo al clúster. Inicia el proceso de cálculo en Spark, definiendo la lógica del procesamiento y los datos que se van a analizar.</li>
+                        <li>🔸Interactúa directamente con el nodo maestro para crear un DAG (gráfico acíclico dirigido) de tareas, que luego es gestionado por el maestro.</li>
+                    </ul>
+                    <li>&#9658; <marcador class="resaltado3">Cluster Manager:</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>🔸Apache Spark puede ejecutarse en varios sistemas de gestión de clústeres, como YARN (en Hadoop), Mesos o Kubernetes.</li>
+                        <li>🔸El gestor del clúster asigna recursos a los nodos del clúster (como memoria y CPU), de modo que Spark pueda ejecutar tareas de manera eficiente.</li>
+                    </ul>
+                </ol>
+                <h2>Flujo de trabajo</h2>
+                <ol>
+                    <li>El Driver inicia una aplicación Spark, enviando el trabajo al nodo maestro.</li>
+                    <li>El nodo maestro recibe el trabajo, lo descompone en tareas y las distribuye entre los nodos trabajadores.</li>
+                    <li>Los workers ejecutan las tareas en paralelo, utilizando sus propios recursos de CPU y memoria.</li>
+                    <li>Los resultados parciales de cada worker se envían de regreso al maestro, que luego los combina para producir el resultado final.</li>
+                </ol>
+                <div class="blog-image-grande">
+                    <img src="media/spark4.png" alt="">
+                </div>
+                <h2>Ventajas de la arquitectura Maestro-Trabajador:</h2>
+                <ul>
+                    <li><marcador class="resaltado9">Escalabilidad: </marcador>Permite procesar grandes cantidades de datos distribuyendo el trabajo entre varios nodos.</li>
+                    <li><marcador class="resaltado9">Tolerancia a fallos: </marcador>Si un nodo trabajador falla, el maestro puede reasignar la tarea a otro nodo disponible.</li>
+                    <li><marcador class="resaltado9">Flexibilidad: </marcador>Se puede usar con distintos sistemas de gestión de clústeres y en la nube o en instalaciones locales.</li>
+                </ul>
+                <p>Entonces, sí, hay un nodo maestro en la orquestación de clústeres en Spark. Este nodo maestro coordina y organiza el procesamiento, mientras que los nodos trabajadores ejecutan las tareas distribuidas, permitiendo manejar datos a gran escala con eficiencia y rapidez.</p>
+                <h2>Pandas vs PySpark</h2>
+                <p>PySpark y pandas son similares en cuanto a su propósito, ya que ambas herramientas se utilizan para manipular y analizar datos. Sin embargo, tienen diferencias clave, especialmente en el tipo de datos que manejan y el tamaño de los conjuntos de datos para los que están diseñados.</p>
+                <p>Las diferencias principales entre PySpark y pandas son:</p>
+                <ol>
+                    <li><marcador class="resaltado9">Escalabilidad y manejo de grandes volúmenes de datos: </marcador></li>
+                    <ul>
+                        <li><marcador class="resaltado8">Pandas: </marcador>Su principal estructura de datos es el `DataFrame`, que es una tabla en memoria con filas y columnas. Pandas proporciona una gran cantidad de métodos y funciones para trabajar con datos en formato tabular de manera muy eficiente.</li>
+                        <li><marcador class="resaltado8">PySpark: </marcador>También utiliza `DataFrames`, pero estos son estructuras distribuidas que se procesan en paralelo en un clúster de Spark. Esto hace que algunos métodos y operaciones en PySpark sean diferentes o no tan directos como en pandas, ya que deben realizarse de forma distribuida.</li>
+                    </ul>
+                    <li><marcador class="resaltado9">Estructura de datos: </marcador></li>
+                    <ul>
+                        <li><marcador class="resaltado8">Pandas: </marcador>Es muy rápido en operaciones en una sola máquina, especialmente para conjuntos de datos pequeños y medianos.</li>
+                        <li><marcador class="resaltado8">PySpark: </marcador>Aunque tiene una latencia más alta en la inicialización y ciertas operaciones, debido a la coordinación entre máquinas en el clúster, su ventaja es que puede procesar terabytes de datos en paralelo, lo que lo hace mucho más rápido que pandas para grandes volúmenes.</li>
+                    </ul>
+                    <li><marcador class="resaltado9">Velocidad de procesamiento: </marcador></li>
+                    <ul>
+                        <li><marcador class="resaltado8">Pandas: </marcador>Tiene una gran cantidad de funciones para manipular datos en memoria, y su sintaxis es bastante sencilla y directa.</li>
+                        <li><marcador class="resaltado8">PySpark: </marcador>Tiene una sintaxis algo similar a pandas, pero algunas operaciones pueden ser menos intuitivas debido a la necesidad de realizar procesamiento distribuido. Además, muchas funciones deben expresarse usando el API de Spark, que tiene sus propias particularidades.</li>
+                    </ul>
+                    <li><marcador class="resaltado9">Uso de funciones y operaciones: </marcador></li>
+                    <ul>
+                        <li><marcador class="resaltado8">Pandas: </marcador>Para proyectos que pueden manejarse en una sola máquina y cuando el tamaño de los datos es lo suficientemente pequeño como para caber en la memoria RAM.</li>
+                        <li><marcador class="resaltado8">PySpark: </marcador>Cuando trabajas con big data, necesitas procesamiento en paralelo o estás trabajando en un entorno de clúster.</li>
+                    </ul>
+                </ol>
+                <h6>Ejemplo de código de comparación</h6>
+                <p>Una comparación simple entre pandas y PySpark para una operación común (filtrar datos):</p>
+                <div class="archivo">
+# Pandas
+import pandas as pd
+data = pd.DataFrame({'col1': [1, 2, 3, 4, 5], 'col2': [10, 20, 30, 40, 50]})
+filtered_data = data[data['col1'] > 2]
+
+# PySpark
+from pyspark.sql import SparkSession
+spark = SparkSession.builder.appName("Example").getOrCreate()
+data = spark.createDataFrame([(1, 10), (2, 20), (3, 30), (4, 40), (5, 50)], ["col1", "col2"])
+filtered_data = data.filter(data.col1 > 2)
+                </div>
+                <div class="blog-image-grande">
+                    <img src="media/spark6.jpg" alt="">
+                </div>
+                <h2>PySpark</h2>
+                <p>PySpark es una interfaz de Python para Apache Spark, un motor de procesamiento de datos de código abierto diseñado para analizar grandes volúmenes de datos de manera rápida y eficiente. Spark permite distribuir y procesar datos en paralelo en varios nodos de un clúster, lo cual lo hace ideal para manejar grandes conjuntos de datos. PySpark facilita el uso de Spark desde Python, permitiendo a los desarrolladores manipular grandes cantidades de datos y realizar tareas de machine learning, análisis de datos y ETL (extracción, transformación y carga) con un enfoque similar a pandas.</p>
+                <p>PySpark es especialmente útil cuando:</p>
+                <ul>
+                    <li>Tienes grandes volúmenes de datos que no caben en la memoria de una sola máquina.</li>
+                    <li>Quieres realizar cálculos distribuidos de manera rápida y en paralelo.</li>
+                    <li>Buscas integrar machine learning y análisis de datos escalables en un clúster.</li>
+                </ul>
+                <p>Para usar PySpark en tu entorno local o en un clúster, necesitas instalar PySpark.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Instalación con pip:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="pip install pyspark" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Una vez instalado, puedes iniciar PySpark en un entorno interactivo de Python (por ejemplo, Jupyter Notebook) o ejecutar scripts de Python que usen PySpark.</p>
+                <p>Aquí hay un ejemplo simple de cómo iniciar un <marcador class="subrayado">SparkSession</marcador>, que es la entrada principal para trabajar con PySpark:</p>
+                <div class="archivo">
+from pyspark.sql import SparkSession
+
+# Crear una SparkSession
+spark = SparkSession.builder \
+    .appName("MiAplicacionPySpark") \
+    .getOrCreate()
+
+# Crear un DataFrame de ejemplo
+datos = [("Alice", 34), ("Bob", 45), ("Catherine", 29)]
+columnas = ["Nombre", "Edad"]
+
+df = spark.createDataFrame(datos, columnas)
+
+# Mostrar el DataFrame
+df.show()
+                </div>
+                <p>PySpark permite cargar datos desde archivos CSV, JSON, Parquet y otras fuentes. Por ejemplo, para leer un archivo CSV:</p>
+                <div class="archivo">
+df = spark.read.csv("ruta/del/archivo.csv", header=True, inferSchema=True)
+df.show()
+                </div>
+                <p>Luego puedes usar métodos similares a los de pandas para manipular los datos:</p>
+                <div class="archivo">
+# Seleccionar columnas
+df.select("Nombre").show()
+
+# Filtrar datos
+df.filter(df["Edad"] > 30).show()
+
+# Agrupar y contar
+df.groupBy("Edad").count().show()
+                </div>
+                <p>PySpark también tiene una biblioteca de machine learning llamada <marcador class="subrayado">MLlib</marcador>, que permite construir y entrenar modelos en grandes conjuntos de datos:</p>
+                <div class="archivo">
+from pyspark.ml.classification import LogisticRegression
+
+# Preparar los datos para machine learning
+# Definir el modelo
+lr = LogisticRegression(featuresCol="características", labelCol="etiqueta")
+
+# Entrenar el modelo
+modelo = lr.fit(df)
+                </div>
+                <p>Para aprovechar al máximo PySpark, generalmente se usa en un clúster de Spark. Esto se puede configurar en servicios en la nube (como AWS o Google Cloud) o en sistemas distribuidos como Hadoop.</p>
+                <h2>Ejemplos</h2>
+                <p>Haz click <a href="https://github.com/Detective-Ryuzak1/Machine-Learnig-examples/blob/main/Keras/keras.ipynb" target="blank">aquí</a> para ver algunos ejemplos de uso con PySpark.</p>
+                <div class="blog-image-grande">
+                    <img src="media/spark3.png" alt="">
+                </div>
+                <h2>Instalación</h2>
+                <p>Para configurar un clúster de Spark con un maestro y dos workers, hay algunos pasos adicionales además de simplemente instalar pyspark. La instalación de `pyspark` te permitirá ejecutar Spark en tu computadora, pero no configura un clúster completo. Aquí te explico los pasos detallados para lograrlo en tu distribución de Linux:</p>
+                <ul>
+                    <li>Paso 1: Instalar Java</li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            Instalación con apt:
+                        </div>
+                        <div class="comandos">
+                          <input type="text" class="text" value="sudo apt install default-jdk" oninput="ajustarAncho(this)">
+                          <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            Asegúrate de tener Java instalado:
+                        </div>
+                        <div class="comandos">
+                          <input type="text" class="text" value="java -version" oninput="ajustarAncho(this)">
+                          <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <li>Paso 2: Descargar e instalar Apache Spark</li>
+                    <p>Ve a la página oficial de <a href="https://spark.apache.org/downloads.html" target="blank">Apache Spark</a> y descarga la versión más reciente (o una versión compatible con PySpark y Jupyter).</p>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            Extrae el archivo:
+                        </div>
+                        <div class="comandos">
+                          <input type="text" class="text" value="tar -xvf spark-version-bin-hadoop-version.tgz" oninput="ajustarAncho(this)">
+                          <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            Mueve la ubicación del archivo:
+                        </div>
+                        <div class="comandos">
+                          <input type="text" class="text" value="mv spark-1.3.1-bin-hadoop2.6 /usr/local/spark" oninput="ajustarAncho(this)">
+                          <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Configura las variables de entorno para que puedas acceder a Spark desde cualquier terminal:</p>
+                    <div class="archivo">
+export PATH=$PATH:/usr/local/spark/bin
+export PATH=$PATH:/usr/local/spark/sbin
+source ~/.bashrc                     
+                    </div>
+                    <li>Paso 3: Instalar PySpark y Jupyter</li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            Ejecuta el siguiente comando para instalar PySpark y Jupyter en tu entorno de Python:
+                        </div>
+                        <div class="comandos">
+                          <input type="text" class="text" value="pip install pyspark jupyter" oninput="ajustarAncho(this)">
+                          <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <li>Paso 4: Configurar el clúster de Spark</li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            Entra en los archivos de configuración:
+                        </div>
+                        <div class="comandos">
+                          <input type="text" class="text" value="cd spark-version-bin-hadoop-version/conf" oninput="ajustarAncho(this)">
+                          <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            Crea una copia del script de bash:
+                        </div>
+                        <div class="comandos">
+                          <input type="text" class="text" value="cp spark-env.sh.template spark-env.sh" oninput="ajustarAncho(this)">
+                          <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Abre <marcador class="resaltado1">conf/spark-env.sh</marcador> con tu editor preferido (ej. `nano`) y agrega las siguientes líneas para definir el nodo maestro y los workers:</p>
+                    <div class="archivo">
+# Establece el modo de ejecución
+export SPARK_MASTER_HOST='localhost' # Cambia esto si tu master no está en localhost
+export SPARK_MASTER_PORT=7077        # Puerto donde el master escuchará las conexiones (predeterminado 7077)
+export SPARK_WORKER_INSTANCES=2      # Número de workers en esta máquina
+export SPARK_WORKER_CORES=2          # Número de núcleos por trabajador
+export SPARK_WORKER_MEMORY=4g        # Memoria para cada trabajador
+export SPARK_DRIVER_MEMORY=4g        # Memoria para el driver                  
+                    </div>
+                    <p>En el archivo <marcador class="resaltado1">spark-env.sh</marcador> de la máquina que actuará como maestro, establece `SPARK_MASTER_HOST` con la IP del nodo maestro. Esto asegura que el maestro se identifique correctamente en la red.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Renombra el archivo <marcador class="resaltado1">conf/workers.template</marcador>:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="mv workers.template workers" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Abre <marcador class="resaltado1">workers</marcador> con tu editor y agrega las siguientes líneas:</p>
+                <div class="archivo">
+# Nodo master (puedes incluir localhost si estás usando una sola máquina)
+localhost
+
+# Workers
+worker1
+worker2                
+                </div>
+                <p>Este archivo debe contener la lista de los nodos worker que participarán en el clúster. </p>
+                <li>Paso 5: Iniciar el clúster</li>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Ejecuta el siguiente comando para iniciar el master:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="sbin/start-master.sh" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Esto iniciará el master de Spark. El master estará escuchando por defecto en http://localhost:8080, aunque puedes cambiar la dirección o el puerto si lo necesitas.</p>
+                <p>Ahora, en cada uno de los nodos worker, necesitas iniciar los workers. Asegúrate de que cada worker tenga acceso a la máquina master y que puedan comunicarse a través de la red.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        En cada worker, ejecuta el siguiente comando:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="sbin/start-worker.sh spark://localhost:7077" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Aquí, el argumento spark://localhost:7077 especifica la dirección del master. Si tu master no está en localhost, debes poner la IP o nombre de host del master. Por ejemplo, si el master tiene la IP 192.168.1.100, el comando sería:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="sbin/start-worker.sh spark://localhost:7077" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Ahora puedes verificar el estado de tu clúster. Ve a la interfaz web del master en tu navegador:</p>
+                <ul>
+                    <li><marcador class="resaltado8">Interfaz web del master: </marcador>http://localhost:8080 (cambia localhost por la IP o nombre de host del master si está en una máquina remota).</li>
+                </ul>
+                <p>Si los workers están bien conectados, deberías ver el estado de los workers en la interfaz web.</p>
+                <li>Paso 6: Ejecutar trabajos</li>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Una vez que el clúster esté corriendo, puedes enviar trabajos a través de <marcador class="subrayado">spark-submit</marcador>. Si quieres enviar un trabajo al clúster de Spark, usa el siguiente comando, especificando la dirección del master:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="bin/spark-submit --class com.example.MyApp --master spark://localhost:7077 /path/to/your/spark-app.jar " oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <h6>Configurar el entorno de Jupyter para usar Spark</h6>
+                <p>Para conectarte al clúster de Spark desde Jupyter, debes configurar las variables de entorno que Spark necesita para conectarse a tu master y workers. Hay varias maneras de hacerlo, pero una de las formas más simples es exportando estas variables de entorno antes de iniciar Jupyter.</p>
+                <p>Puedes establecer las variables de entorno necesarias para Spark directamente en la terminal o dentro de tu script de Jupyter. Estas variables indican a Spark que debe conectarse a tu clúster en lugar de ejecutarse en un modo local.</p>
+                <p>En tu terminal (donde vayas a iniciar Jupyter), exporta las siguientes variables antes de iniciar Jupyter:</p>
+                <div class="archivo">
+export SPARK_HOME=/ruta/a/tu/spark-3.5.3-bin-hadoop3   # Ruta donde tienes instalado Spark
+export PATH=$PATH:$SPARK_HOME/bin:$SPARK_HOME/sbin
+export PYSPARK_PYTHON=/usr/bin/python3        # Asegúrate de que se use la versión correcta de Python
+export PYTHONPATH=$SPARK_HOME/python:$PYTHONPATH
+export PYSPARK_DRIVER_PYTHON="jupyter"
+export PYSPARK_DRIVER_PYTHON_OPTS="notebook --no-browser --port=8888"
+export SPARK_MASTER=spark://localhost:7077  # Dirección de tu master (puede ser otro nodo si no está en localhost)  
+                </div>
+                <p>Una vez que hayas exportado las variables de entorno, puedes iniciar Jupyter y conectarte al nodo master.</p>
+                <div class="archivo">
+import pyspark
+sc = pyspark.SparkContext(master='spark://localhost:7077', appName='test')
+                </div>
+                <li>Paso 7: Detener el clúster</li>
+                <p>Cuando hayas terminado, puedes detener el master y los workers con los siguientes comandos:</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Para detener el master:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="sbin/stop-master.sh" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Para detener los workers (en cada worker):
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="sbin/stop-worker.sh" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/spark5.png" alt="">
+                </div>
+            </div>  
+        </div>     
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
