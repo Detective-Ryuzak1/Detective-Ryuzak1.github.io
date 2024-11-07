@@ -54,19 +54,19 @@
                 </div>
                 <h2>Componentes</h2>
                 <p>Docker se compone de varios elementos clave que trabajan en conjunto para proporcionar un ecosistema eficiente para el desarrollo y la ejecución de aplicaciones en contenedores:</p>
-                <ol>
+                <ul>
                     <li><marcador class="resaltado3">Docker Engine: </marcador>Es el corazón de Docker. Se trata de un motor cliente-servidor que gestiona los contenedores. Consta de tres componentes:</li>
-                    <ol>
-                        <li><marcador class="resaltado8">Docker Daemon (dockerd): </marcador>Es el servidor que se ejecuta en segundo plano y gestiona los contenedores.</li>
-                        <li><marcador class="resaltado8">API REST: </marcador>Permite a las aplicaciones comunicarse con el Docker Daemon para realizar tareas como crear, eliminar y gestionar contenedores.</li>
-                        <li><marcador class="resaltado8">CLI (Interfaz de Línea de Comandos): </marcador>La herramienta con la que los usuarios interactúan con Docker desde la terminal para ejecutar comandos.</li>
+                    <ol style="list-style-type: none;">
+                        <li>▱ <marcador class="resaltado8">Docker Daemon (dockerd): </marcador>Es el servidor que se ejecuta en segundo plano y gestiona los contenedores.</li>
+                        <li>▱ <marcador class="resaltado8">API REST: </marcador>Permite a las aplicaciones comunicarse con el Docker Daemon para realizar tareas como crear, eliminar y gestionar contenedores.</li>
+                        <li>▱ <marcador class="resaltado8">CLI (Interfaz de Línea de Comandos): </marcador>La herramienta con la que los usuarios interactúan con Docker desde la terminal para ejecutar comandos.</li>
                     </ol>
                     <li><marcador class="resaltado3">Imágenes Docker: </marcador>Son plantillas inmutables que contienen el código de una aplicación y todas las dependencias necesarias para ejecutarla. Las imágenes se almacenan en registros, como Docker Hub o registros privados.</li>
                     <li><marcador class="resaltado3">Contenedores Docker: </marcador>Son instancias ejecutables de imágenes de Docker. Cada contenedor se ejecuta de manera aislada en su propio entorno y utiliza recursos del sistema operativo anfitrión, lo que lo hace mucho más ligero que las máquinas virtuales.</li>
                     <li><marcador class="resaltado3">Dockerfile: </marcador>Es un archivo de texto que contiene un conjunto de instrucciones para construir una imagen Docker. Define cómo debe ser creada la imagen, desde qué base parte, qué dependencias necesita y qué comandos se deben ejecutar.</li>
                     <li><marcador class="resaltado3">Docker Compose: </marcador>Es una herramienta que permite definir y ejecutar aplicaciones multicontenedor. Mediante un archivo YAML, Docker Compose define cómo interactúan varios servicios dentro de una aplicación.</li>
                     <li><marcador class="resaltado3">Registros Docker (Docker Registry): </marcador>Son repositorios donde se almacenan las imágenes. Docker Hub es el registro más utilizado, pero también se pueden configurar registros privados.</li>
-                </ol>
+                </ul>
                 <div class="blog-image-grande">
                     <img src="media/docker2.png" alt="">
                 </div>
@@ -317,13 +317,13 @@
                 <p>Docker Hub es un servicio basado en la nube que funciona como un repositorio central para imágenes Docker. Es una plataforma donde los desarrolladores pueden compartir, almacenar, y distribuir imágenes de contenedores que se pueden usar fácilmente en cualquier entorno que soporte Docker. Piensa en Docker Hub como un "centro de distribución" para aplicaciones y herramientas empaquetadas en contenedores Docker.</p>
                 <p>Puedes instalar Jenkins directamente desde <a href="https://hub.docker.com/r/jenkins/jenkins" target="blank">Docker Hub</a> usando un contenedor Docker. Jenkins tiene una imagen oficial en Docker Hub que puedes utilizar para configurar tu entorno de Jenkins de forma rápida y sencilla.</p>
                 <p>Para que Podman pueda buscar imágenes en Docker Hub, debes asegurarte de que Docker Hub esté configurado como un registro en tu sistema.</p>
-                <p>Abre el archivo de configuración /etc/containers/registries.conf con tu editor de texto favorito, por ejemplo: <marcador class="subrayado">sudo nano /etc/containers/registries.conf</marcador></p>
-                <p>Edita el archivo, y asegúrate de tener algo como esto bajo la sección [registries.search]:</p>
+                <p>❏ Abre el archivo de configuración /etc/containers/registries.conf con tu editor de texto favorito, por ejemplo: <marcador class="subrayado">sudo nano /etc/containers/registries.conf</marcador></p>
+                <p>❏ Edita el archivo, y asegúrate de tener algo como esto bajo la sección [registries.search]:</p>
                 <div class="archivo">
 [registries.search]
 registries = ['docker.io']
                 </div>
-                <p>Después de haber actualizado el archivo de configuración, puedes intentar nuevamente tirar la imagen de Jenkins:</p>
+                <p>❏ Después de haber actualizado el archivo de configuración, puedes intentar nuevamente tirar la imagen de Jenkins:</p>
                 <div id="terminal">
                     <section id="terminal__bar">
                         <div id="bar__buttons">
@@ -361,7 +361,7 @@ Writing manifest to image destination
                         </div>
                     </section>
                 </div>
-                <p>Para listar las imágenes disponibles en tu sistema después de descargar una imagen puedes usar el siguiente comando:</p>
+                <p>❏ Para listar las imágenes disponibles en tu sistema después de descargar una imagen puedes usar el siguiente comando:</p>
                 <div id="terminal">
                     <section id="terminal__bar">
                         <div id="bar__buttons">
@@ -385,7 +385,7 @@ docker.io/jenkins/jenkins  latest      32808093ffc9  31 hours ago  482 MB
                         </div>
                     </section>
                 </div>
-                <p>Si quieres más información sobre una imagen en particular (como los detalles de sus capas y configuraciones), puedes usar este comando para ver detalles de una imagen específica:</p>
+                <p>❏ Si quieres más información sobre una imagen en particular (como los detalles de sus capas y configuraciones), puedes usar este comando para ver detalles de una imagen específica:</p>
                 <div id="terminal">
                     <section id="terminal__bar">
                         <div id="bar__buttons">
@@ -452,7 +452,7 @@ docker.io/jenkins/jenkins  latest      32808093ffc9  31 hours ago  482 MB
                     </section>
                 </div>
                 <p>Antes de intentar ejecutar la imagen, puedes hacer una prueba para ver si está lista:</p>
-                <p>Este comando ejecutará un contenedor temporal basado en la imagen de Jenkins y te dará acceso a una terminal en el contenedor. Si esto funciona correctamente, significa que la imagen se ha descargado y está lista para ser utilizada.</p>
+                <p>❏ Este comando ejecutará un contenedor temporal basado en la imagen de Jenkins y te dará acceso a una terminal en el contenedor. Si esto funciona correctamente, significa que la imagen se ha descargado y está lista para ser utilizada.</p>
                 <div id="terminal">
                     <section id="terminal__bar">
                         <div id="bar__buttons">
@@ -477,7 +477,7 @@ jenkins@2f23f8238fb9:/$
                         </div>
                     </section>
                 </div>
-                <p>Para ejecutar Jenkins en un contenedor:</p>
+                <p>❏ Para ejecutar Jenkins en un contenedor:</p>
                 <div id="terminal">
                     <section id="terminal__bar">
                         <div id="bar__buttons">
@@ -500,7 +500,7 @@ d92e4cf14ec1b8ce059381e0be0ee6fe6558a39f488d9aaa7fc864bbbb2df389
                         </div>
                     </section>
                 </div>
-                <p>Antes de intentar acceder a Jenkins, asegúrate de que el contenedor esté en ejecución:</p>
+                <p>❏ Antes de intentar acceder a Jenkins, asegúrate de que el contenedor esté en ejecución:</p>
                 <div id="terminal">
                     <section id="terminal__bar">
                         <div id="bar__buttons">
@@ -525,7 +525,7 @@ d92e4cf14ec1  docker.io/jenkins/jenkins:latest              About a minute ago  
                     </section>
                 </div>
                 <p>Ahora que el contenedor está corriendo, Jenkins está disponible en el puerto 8080 de tu máquina host. Abre un navegador web y ve a la siguiente URL: http://localhost:8080</p>
-                <p>Cuando accedas a Jenkins por primera vez, verás una pantalla de "Unlock Jenkins". Para desbloquearlo, necesitarás el password de administrador generado durante la instalación. Para obtener esta contraseña, ejecuta el siguiente comando para ver los logs del contenedor de Jenkins:</p>
+                <p>❏ Cuando accedas a Jenkins por primera vez, verás una pantalla de "Unlock Jenkins". Para desbloquearlo, necesitarás el password de administrador generado durante la instalación. Para obtener esta contraseña, ejecuta el siguiente comando para ver los logs del contenedor de Jenkins:</p>
                 <div id="terminal">
                     <section id="terminal__bar">
                         <div id="bar__buttons">
@@ -570,7 +570,7 @@ This may also be found at: /var/jenkins_home/secrets/initialAdminPassword
                         </div>
                     </section>
                 </div>
-                <p>Detener el contenedor:</p>
+                <p>❏ Detener el contenedor:</p>
                 <div id="terminal">
                     <section id="terminal__bar">
                         <div id="bar__buttons">
@@ -592,7 +592,7 @@ jenkins
                         </div>
                     </section>
                 </div>
-                <p>Sí, una vez que el contenedor ha sido detenido pero no eliminado, puedes volver a iniciarlo usando el comando start. Si solo lo detuviste con podman stop, puedes reiniciarlo de la siguiente manera:</p>
+                <p>❏ Sí, una vez que el contenedor ha sido detenido pero no eliminado, puedes volver a iniciarlo usando el comando start. Si solo lo detuviste con podman stop, puedes reiniciarlo de la siguiente manera:</p>
                 <div id="terminal">
                     <section id="terminal__bar">
                         <div id="bar__buttons">
@@ -637,7 +637,7 @@ jenkins
                     </div>
                 </div>
                 <h2>Play with Docker</h2>
-                <p><a href="https://www.docker.com/play-with-docker/" target="blank">"Play with Docker"</a> es una plataforma en línea que permite a los usuarios experimentar con Docker de forma interactiva. Ofrece un entorno de prueba donde puedes ejecutar comandos de Docker tener que instalarlo en tu máquina local. Esto facilita el aprendizaje, las pruebas rápidas y la posibilidad de compartir ejemplos de código sin complicaciones.</p>
+                <p><a href="https://www.docker.com/play-with-docker/" target="blank">"Play with Docker"</a> es una plataforma en línea que permite a los usuarios experimentar con Docker de forma interactiva. Ofrece un entorno de prueba donde puedes ejecutar comandos de Docker sin tener que instalarlo en tu máquina local. Esto facilita el aprendizaje, las pruebas rápidas y la posibilidad de compartir ejemplos de código sin complicaciones.</p>
                 <p>La plataforma es especialmente útil para aquellos que desean explorar las funcionalidades de Docker sin configurar un entorno complejo. Además, permite la colaboración entre usuarios, lo que resulta ideal para tutoriales o sesiones de enseñanza. Sin embargo, como es un entorno en línea, puede tener limitaciones en cuanto a recursos y la persistencia de datos, ya que los contenedores se eliminan al finalizar la sesión.</p>
                 <br>
                 <br>
