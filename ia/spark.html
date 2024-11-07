@@ -54,7 +54,7 @@
                     <img src="media/spark1.jpg" alt="">
                 </div>
                 <h2>Arquitectura</h2>
-                <p>En Apache Spark (y en muchos otros sistemas distribuidos), el clúster se organiza en una arquitectura **Master-Slave (Maestro-Esclavo)**, donde hay un **nodo maestro** y varios **nodos trabajadores** (workers). Esta estructura permite una distribución y administración eficiente del trabajo en el clúster.</p>
+                <p>En Apache Spark (y en muchos otros sistemas distribuidos), el clúster se organiza en una arquitectura Master-Slave (Maestro-Esclavo), donde hay un nodo maestro y varios nodos trabajadores (workers). Esta estructura permite una distribución y administración eficiente del trabajo en el clúster.</p>
                 <p>Apache Spark se divide en:</p>
                 <ol style="list-style-type: none;">
                     <li>&#9658; <marcador class="resaltado3">Nodo Maestro (Master):</marcador></li>
@@ -104,24 +104,24 @@
                 <p>Las diferencias principales entre PySpark y pandas son:</p>
                 <ol>
                     <li><marcador class="resaltado9">Escalabilidad y manejo de grandes volúmenes de datos: </marcador></li>
-                    <ul>
-                        <li><marcador class="resaltado8">Pandas: </marcador>Su principal estructura de datos es el `DataFrame`, que es una tabla en memoria con filas y columnas. Pandas proporciona una gran cantidad de métodos y funciones para trabajar con datos en formato tabular de manera muy eficiente.</li>
-                        <li><marcador class="resaltado8">PySpark: </marcador>También utiliza `DataFrames`, pero estos son estructuras distribuidas que se procesan en paralelo en un clúster de Spark. Esto hace que algunos métodos y operaciones en PySpark sean diferentes o no tan directos como en pandas, ya que deben realizarse de forma distribuida.</li>
+                    <ul style="list-style-type: none;">
+                        <li>▱ <marcador class="resaltado8">Pandas: </marcador>Su principal estructura de datos es el DataFrame, que es una tabla en memoria con filas y columnas. Pandas proporciona una gran cantidad de métodos y funciones para trabajar con datos en formato tabular de manera muy eficiente.</li>
+                        <li>▱ <marcador class="resaltado8">PySpark: </marcador>También utiliza DataFrames, pero estos son estructuras distribuidas que se procesan en paralelo en un clúster de Spark. Esto hace que algunos métodos y operaciones en PySpark sean diferentes o no tan directos como en pandas, ya que deben realizarse de forma distribuida.</li>
                     </ul>
                     <li><marcador class="resaltado9">Estructura de datos: </marcador></li>
-                    <ul>
-                        <li><marcador class="resaltado8">Pandas: </marcador>Es muy rápido en operaciones en una sola máquina, especialmente para conjuntos de datos pequeños y medianos.</li>
-                        <li><marcador class="resaltado8">PySpark: </marcador>Aunque tiene una latencia más alta en la inicialización y ciertas operaciones, debido a la coordinación entre máquinas en el clúster, su ventaja es que puede procesar terabytes de datos en paralelo, lo que lo hace mucho más rápido que pandas para grandes volúmenes.</li>
+                    <ul style="list-style-type: none;">
+                        <li>▱ <marcador class="resaltado8">Pandas: </marcador>Es muy rápido en operaciones en una sola máquina, especialmente para conjuntos de datos pequeños y medianos.</li>
+                        <li>▱ <marcador class="resaltado8">PySpark: </marcador>Aunque tiene una latencia más alta en la inicialización y ciertas operaciones, debido a la coordinación entre máquinas en el clúster, su ventaja es que puede procesar terabytes de datos en paralelo, lo que lo hace mucho más rápido que pandas para grandes volúmenes.</li>
                     </ul>
                     <li><marcador class="resaltado9">Velocidad de procesamiento: </marcador></li>
-                    <ul>
-                        <li><marcador class="resaltado8">Pandas: </marcador>Tiene una gran cantidad de funciones para manipular datos en memoria, y su sintaxis es bastante sencilla y directa.</li>
-                        <li><marcador class="resaltado8">PySpark: </marcador>Tiene una sintaxis algo similar a pandas, pero algunas operaciones pueden ser menos intuitivas debido a la necesidad de realizar procesamiento distribuido. Además, muchas funciones deben expresarse usando el API de Spark, que tiene sus propias particularidades.</li>
+                    <ul style="list-style-type: none;">
+                        <li>▱ <marcador class="resaltado8">Pandas: </marcador>Tiene una gran cantidad de funciones para manipular datos en memoria, y su sintaxis es bastante sencilla y directa.</li>
+                        <li>▱ <marcador class="resaltado8">PySpark: </marcador>Tiene una sintaxis algo similar a pandas, pero algunas operaciones pueden ser menos intuitivas debido a la necesidad de realizar procesamiento distribuido. Además, muchas funciones deben expresarse usando el API de Spark, que tiene sus propias particularidades.</li>
                     </ul>
                     <li><marcador class="resaltado9">Uso de funciones y operaciones: </marcador></li>
-                    <ul>
-                        <li><marcador class="resaltado8">Pandas: </marcador>Para proyectos que pueden manejarse en una sola máquina y cuando el tamaño de los datos es lo suficientemente pequeño como para caber en la memoria RAM.</li>
-                        <li><marcador class="resaltado8">PySpark: </marcador>Cuando trabajas con big data, necesitas procesamiento en paralelo o estás trabajando en un entorno de clúster.</li>
+                    <ul style="list-style-type: none;">
+                        <li>▱ <marcador class="resaltado8">Pandas: </marcador>Para proyectos que pueden manejarse en una sola máquina y cuando el tamaño de los datos es lo suficientemente pequeño como para caber en la memoria RAM.</li>
+                        <li>▱ <marcador class="resaltado8">PySpark: </marcador>Cuando trabajas con big data, necesitas procesamiento en paralelo o estás trabajando en un entorno de clúster.</li>
                     </ul>
                 </ol>
                 <h6>Ejemplo de código de comparación</h6>
@@ -160,7 +160,7 @@ filtered_data = data.filter(data.col1 > 2)
                     </div>
                 </div>
                 <p>Una vez instalado, puedes iniciar PySpark en un entorno interactivo de Python (por ejemplo, Jupyter Notebook) o ejecutar scripts de Python que usen PySpark.</p>
-                <p>Aquí hay un ejemplo simple de cómo iniciar un <marcador class="subrayado">SparkSession</marcador>, que es la entrada principal para trabajar con PySpark:</p>
+                <p>❏ Aquí hay un ejemplo simple de cómo iniciar un <marcador class="subrayado">SparkSession</marcador>, que es la entrada principal para trabajar con PySpark:</p>
                 <div class="archivo">
 from pyspark.sql import SparkSession
 
@@ -178,12 +178,12 @@ df = spark.createDataFrame(datos, columnas)
 # Mostrar el DataFrame
 df.show()
                 </div>
-                <p>PySpark permite cargar datos desde archivos CSV, JSON, Parquet y otras fuentes. Por ejemplo, para leer un archivo CSV:</p>
+                <p>❏ PySpark permite cargar datos desde archivos CSV, JSON, Parquet y otras fuentes. Por ejemplo, para leer un archivo CSV:</p>
                 <div class="archivo">
 df = spark.read.csv("ruta/del/archivo.csv", header=True, inferSchema=True)
 df.show()
                 </div>
-                <p>Luego puedes usar métodos similares a los de pandas para manipular los datos:</p>
+                <p>❏ Luego puedes usar métodos similares a los de pandas para manipular los datos:</p>
                 <div class="archivo">
 # Seleccionar columnas
 df.select("Nombre").show()
@@ -194,7 +194,7 @@ df.filter(df["Edad"] > 30).show()
 # Agrupar y contar
 df.groupBy("Edad").count().show()
                 </div>
-                <p>PySpark también tiene una biblioteca de machine learning llamada <marcador class="subrayado">MLlib</marcador>, que permite construir y entrenar modelos en grandes conjuntos de datos:</p>
+                <p>❏ PySpark también tiene una biblioteca de machine learning llamada <marcador class="subrayado">MLlib</marcador>, que permite construir y entrenar modelos en grandes conjuntos de datos:</p>
                 <div class="archivo">
 from pyspark.ml.classification import LogisticRegression
 
@@ -213,7 +213,7 @@ modelo = lr.fit(df)
                     <img src="media/spark3.png" alt="">
                 </div>
                 <h2>Instalación</h2>
-                <p>Para configurar un clúster de Spark con un maestro y dos workers, hay algunos pasos adicionales además de simplemente instalar pyspark. La instalación de `pyspark` te permitirá ejecutar Spark en tu computadora, pero no configura un clúster completo. Aquí te explico los pasos detallados para lograrlo en tu distribución de Linux:</p>
+                <p>Para configurar un clúster de Spark con un maestro y dos workers, hay algunos pasos adicionales además de simplemente instalar pyspark. La instalación de pyspark te permitirá ejecutar Spark en tu computadora, pero no configura un clúster completo. Aquí te explico los pasos detallados para lograrlo en tu distribución de Linux:</p>
                 <ul>
                     <li>Paso 1: Instalar Java</li>
                     <div class="contenedor">
@@ -289,7 +289,7 @@ source ~/.bashrc
                           <button><i class="fa fa-clone"></i><span> Copy</span></button>
                         </div>
                     </div>
-                    <p>Abre <marcador class="resaltado1">conf/spark-env.sh</marcador> con tu editor preferido (ej. `nano`) y agrega las siguientes líneas para definir el nodo maestro y los workers:</p>
+                    <p>Abre <marcador class="resaltado1">conf/spark-env.sh</marcador> con tu editor preferido (ej. nano) y agrega las siguientes líneas para definir el nodo maestro y los workers:</p>
                     <div class="archivo">
 # Establece el modo de ejecución
 export SPARK_MASTER_HOST='localhost' # Cambia esto si tu master no está en localhost
@@ -299,7 +299,7 @@ export SPARK_WORKER_CORES=2          # Número de núcleos por trabajador
 export SPARK_WORKER_MEMORY=4g        # Memoria para cada trabajador
 export SPARK_DRIVER_MEMORY=4g        # Memoria para el driver                  
                     </div>
-                    <p>En el archivo <marcador class="resaltado1">spark-env.sh</marcador> de la máquina que actuará como maestro, establece `SPARK_MASTER_HOST` con la IP del nodo maestro. Esto asegura que el maestro se identifique correctamente en la red.</p>
+                    <p>En el archivo <marcador class="resaltado1">spark-env.sh</marcador> de la máquina que actuará como maestro, establece SPARK_MASTER_HOST con la IP del nodo maestro. Esto asegura que el maestro se identifique correctamente en la red.</p>
                 <div class="contenedor">
                     <div class="etiqueta">
                         Renombra el archivo <marcador class="resaltado1">conf/workers.template</marcador>:
@@ -350,9 +350,7 @@ worker2
                     </div>
                 </div>
                 <p>Ahora puedes verificar el estado de tu clúster. Ve a la interfaz web del master en tu navegador:</p>
-                <ul>
-                    <li><marcador class="resaltado8">Interfaz web del master: </marcador>http://localhost:8080 (cambia localhost por la IP o nombre de host del master si está en una máquina remota).</li>
-                </ul>
+                <p>▱ <marcador class="resaltado8">Interfaz web del master: </marcador>http://localhost:8080 (cambia localhost por la IP o nombre de host del master si está en una máquina remota).</p>
                 <p>Si los workers están bien conectados, deberías ver el estado de los workers en la interfaz web.</p>
                 <li>Paso 6: Ejecutar trabajos</li>
                 <div class="contenedor">
