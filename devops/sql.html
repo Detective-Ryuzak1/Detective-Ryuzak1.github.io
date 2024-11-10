@@ -84,30 +84,30 @@
                 <p>SQL permite almacenar diferentes tipos de datos en sus tablas. Al definir las columnas de una tabla, cada una debe ser asignada a un tipo de dato específico, que determina qué tipo de información puede contener y cómo se puede manejar. Los principales tipos de datos que SQL admite incluyen:</p>
                 <ol>
                     <li><marcador class="resaltado9">Númericos</marcador></li>
-                    <ul style="list-style-type: square;">
+                    <ul class="custom-list2">
                         <li><marcador class="resaltado8">INT: </marcador>Almacena números enteros, como 1, 100 o -500.</li>
                         <li><marcador class="resaltado8">DECIMAL (o NUMERIC): </marcador>Almacena números decimales con una precisión fija. Es útil para manejar cantidades de dinero, ya que evita errores de redondeo.</li>
                         <li><marcador class="resaltado8">FLOAT: </marcador>Almacena números de punto flotante, lo que permite trabajar con números más grandes o más pequeños, pero con menor precisión.</li>
                     </ul>
                     <li><marcador class="resaltado9">Cadenas de texto</marcador></li>
-                    <ul style="list-style-type: square;">
+                    <ul class="custom-list2">
                         <li><marcador class="resaltado8">VARCHAR: </marcador>Almacena cadenas de texto de longitud variable. Es adecuado para nombres, descripciones o cualquier campo donde la longitud pueda variar.</li>
                         <li><marcador class="resaltado8">CHAR: </marcador>Similar a VARCHAR, pero con longitud fija. Si se definen 10 caracteres, cualquier cadena menor se rellenará con espacios.</li>
                         <li><marcador class="resaltado8">TEXT: </marcador>Permite almacenar grandes cantidades de texto, como comentarios o descripciones extensas.</li>
                     </ul>
                     <li><marcador class="resaltado9">Fechas y tiempos</marcador></li>
-                    <ul style="list-style-type: square;">
+                    <ul class="custom-list2">
                         <li><marcador class="resaltado8">DATE: </marcador>Almacena solo la fecha en formato AAAA-MM-DD.</li>
                         <li><marcador class="resaltado8">TIME: </marcador>Almacena solo la hora en formato HH:MM:SS.</li>
                         <li><marcador class="resaltado8">DATETIME: </marcador>Almacena tanto la fecha como la hora.</li>
                         <li><marcador class="resaltado8">TIMESTAMP: </marcador>Similar a DATETIME, pero también registra la zona horaria y cambios automáticos cuando se actualizan los datos.</li>
                     </ul>
                     <li><marcador class="resaltado9">Booleanos</marcador></li>
-                    <ul style="list-style-type: square;">
+                    <ul class="custom-list2">
                         <li><marcador class="resaltado8">BOOLEAN: </marcador>Almacena valores TRUE o FALSE. Algunos motores de bases de datos lo implementan como enteros, donde 0 representa FALSE y 1 representa TRUE.</li>
                     </ul>
                     <li><marcador class="resaltado9">Otros</marcador></li>
-                    <ul style="list-style-type: square;">
+                    <ul class="custom-list2">
                         <li><marcador class="resaltado8">BLOB: </marcador>Almacena grandes cantidades de datos binarios, como imágenes, videos o archivos ejecutables.</li>
                         <li><marcador class="resaltado8">ENUM: </marcador>Permite definir una lista de valores posibles. Por ejemplo, una columna "estado" podría aceptar solo "activo", "inactivo" o "pendiente".</li>
                     </ul>
@@ -133,7 +133,7 @@
                 <h2>Operaciones comunes en SQL</h2>
                 <h6>Operaciones DML (Data Manipulation Language)</h6>
                 <p>Estas operaciones están relacionadas con la manipulación de los datos dentro de las tablas. Los comandos DML permiten recuperar, insertar, actualizar y eliminar datos.</p>
-                <ul>
+                <ul class="custom-list">
                     <li><marcador class="resaltado9">SELECT</marcador></li>
                     <div class="contenedor">
                         <div class="etiqueta">
@@ -199,7 +199,7 @@ WHEN NOT MATCHED THEN
                 </ul>
                 <h6>Operaciones DDL (Data Definition Language)</h6>
                 <p>Estas operaciones se usan para definir la estructura de las tablas, índices y otros objetos dentro de la base de datos. Los comandos DDL permiten crear, modificar y eliminar la estructura de la base de datos.</p>
-                <ul>
+                <ul class="custom-list">
                     <li><marcador class="resaltado9">CREATE</marcador></li>
                     <p>Crea una nueva tabla, vista, índice, o cualquier otro objeto de base de datos.</p>
                     <div class="consola">
@@ -264,7 +264,7 @@ WHEN NOT MATCHED THEN
                 </ul>
                 <h6>Operaciones DCL (Data Control Language)</h6>
                 <p>Estas operaciones están relacionadas con el control de permisos de acceso a los datos. Los comandos DCL permiten otorgar o revocar privilegios a los usuarios.</p>
-                <ul>
+                <ul class="custom-list">
                     <li><marcador class="resaltado9">GRANT</marcador></li>
                     <div class="contenedor">
                         <div class="etiqueta">
@@ -290,7 +290,7 @@ WHEN NOT MATCHED THEN
                 </ul>
                 <h6>Operaciones TCL (Transaction Control Language)</h6>
                 <p>Estas operaciones están relacionadas con el manejo de transacciones dentro de una base de datos. Las transacciones agrupan una o más operaciones DML en una única unidad de trabajo.</p>
-                <ul>
+                <ul class="custom-list">
                     <li><marcador class="resaltado9">COMMIT</marcador></li>
                     <div class="contenedor">
                         <div class="etiqueta">
@@ -348,7 +348,7 @@ WHEN NOT MATCHED THEN
                     <p>Establece el nivel de aislamiento para la transacción actual, asegurando que no haya interferencias de otras transacciones concurrentes en la base de datos. Esto es útil cuando se trabaja con tablas críticas, como la tabla empleados, donde los datos deben estar bien protegidos frente a modificaciones simultáneas.</p>
                 </ul>
                 <h6>Otras Operaciones Útiles en SQL</h6>
-                <ul>
+                <ul class="custom-list">
                     <li><marcador class="resaltado9">EXPLAIN</marcador></li>
                     <div class="contenedor">
                         <div class="etiqueta">
@@ -379,7 +379,7 @@ WHEN NOT MATCHED THEN
                 <p>Las funciones en SQL son herramientas que permiten realizar cálculos o manipular datos de manera más eficiente dentro de una consulta. Estas funciones se agrupan en dos categorías principales: funciones de agregación y funciones escalares. Las funciones son extremadamente útiles para hacer análisis, transformaciones de datos y obtener resultados específicos a partir de los datos almacenados en las tablas de la base de datos.</p>
                 <h6>Funciones de Agregación</h6>
                 <p>Las funciones de agregación toman múltiples valores de una columna y los procesan para devolver un solo valor de resumen. Son ideales cuando necesitas analizar un conjunto de datos o agrupar información.</p>
-                <ul>
+                <ul class="custom-list2">
                     <li><marcador class="resaltado8">SUM: </marcador>Suma los valores de una columna numérica.</li>
                     <li><marcador class="resaltado8">AVG: </marcador>Calcula el promedio de los valores de una columna.</li>
                     <li><marcador class="resaltado8">COUNT: </marcador>Cuenta el número de filas o registros que coinciden con una condición específica.</li>
@@ -388,7 +388,7 @@ WHEN NOT MATCHED THEN
                 <p>Estas funciones se usan frecuentemente junto con la cláusula GROUP BY, que permite agrupar los datos por una o más columnas antes de aplicar la función de agregación. Son útiles para responder preguntas como: "¿Cuál es el salario promedio en el departamento de ventas?" o "¿Cuántos empleados hay en cada departamento?".</p>
                 <h6>Funciones Escalares</h6>
                 <p>A diferencia de las funciones de agregación, las funciones escalares trabajan sobre una sola fila y devuelven un valor único basado en los datos de esa fila. Estas son muy útiles cuando necesitas manipular o transformar datos dentro de una consulta.</p>
-                <ul>
+                <ul class="custom-list2">
                     <li><marcador class="resaltado8">LCASE y UCASE: </marcador>Convierte cadenas de texto a minúsculas o mayúsculas.</li>
                     <li><marcador class="resaltado8">CONCAT: </marcador>Une dos o más cadenas en una sola.</li>
                     <li><marcador class="resaltado8">SUBSTRING: </marcador>Extrae una parte de una cadena de texto.</li>
@@ -398,7 +398,7 @@ WHEN NOT MATCHED THEN
                 <p>Estas funciones son útiles para tareas como limpiar o formatear datos, realizar cálculos numéricos, o trabajar con fechas y horas.</p>
                 <h6>Operadores</h6>
                 <p>SQL tiene varios operadores para realizar cálculos y comparaciones. Algunos comunes son:</p>
-                <ul>
+                <ul class="custom-list2">
                     <li>=: Igual a</li>
                     <li>!=: Distinto a</li>
                     <li>>: Mayor que</li>
@@ -408,7 +408,7 @@ WHEN NOT MATCHED THEN
                     <li>+, -, *, /: Operadores aritméticos para sumar, restar, multiplicar y dividir.</li>
                 </ul>
                 <h2>Queries Avanzadas</h2>
-                <ul>
+                <ul class="custom-list">
                     <li><marcador class="resaltado9">DISTINCT</marcador></li>
                     <div class="contenedor">
                         <div class="etiqueta">
