@@ -96,17 +96,17 @@ print(tensor)
                 <p>El broadcasting es una poderosa característica que permite realizar operaciones de manera eficiente sin necesidad de crear copias adicionales de los datos. Esto no solo ahorra memoria, sino que también mejora el rendimiento al realizar cálculos en tensores de diferentes dimensiones.</p>
                 <ol>
                     <li><marcador class="resaltado2">Compatibilidad de Dimensiones:</marcador></li>
-                    <ul>
-                        <li>Si los tensores tienen el mismo número de dimensiones, las dimensiones son compatibles si son iguales o si uno de los dos es igual a 1.</li>
-                        <li>Si los tensores tienen un número diferente de dimensiones, las dimensiones del tensor más pequeño se expanden a la izquierda hasta que ambos tensores tengan el mismo número de dimensiones.</li>
+                    <ul style="list-style-type: none;">
+                        <li>∅ Si los tensores tienen el mismo número de dimensiones, las dimensiones son compatibles si son iguales o si uno de los dos es igual a 1.</li>
+                        <li>∅ Si los tensores tienen un número diferente de dimensiones, las dimensiones del tensor más pequeño se expanden a la izquierda hasta que ambos tensores tengan el mismo número de dimensiones.</li>
                     </ul>
                     <li><marcador class="resaltado2">Expansión de Dimensiones:</marcador></li>
-                    <ul>
-                        <li>Cuando una dimensión tiene un tamaño de 1 en uno de los tensores, se "expande" para igualar el tamaño de la otra dimensión en el tensor de mayor tamaño. Esto se realiza conceptual y computacionalmente sin la necesidad de crear copias adicionales de los datos en memoria.</li>
+                    <ul style="list-style-type: none;">
+                        <li>∅ Cuando una dimensión tiene un tamaño de 1 en uno de los tensores, se "expande" para igualar el tamaño de la otra dimensión en el tensor de mayor tamaño. Esto se realiza conceptual y computacionalmente sin la necesidad de crear copias adicionales de los datos en memoria.</li>
                     </ul>
                     <li><marcador class="resaltado2">Operaciones:</marcador></li>
-                    <ul>
-                        <li>Las operaciones element-wise (como suma, resta, multiplicación, etc.) pueden realizarse entre tensores que se han expandido, como si tuvieran el mismo tamaño.</li>
+                    <ul style="list-style-type: none;">
+                        <li>∅ Las operaciones element-wise (como suma, resta, multiplicación, etc.) pueden realizarse entre tensores que se han expandido, como si tuvieran el mismo tamaño.</li>
                     </ul>
                 </ol>
                 <div class="blog-image">
@@ -116,19 +116,19 @@ print(tensor)
                 <p>PyTorch y TensorFlow son dos de los frameworks más populares en el campo del aprendizaje profundo. Aunque ambos tienen características similares, sus enfoques y funcionalidades presentan algunas diferencias clave:</p>
                 <ol>
                     <li><marcador class="resaltado9">Gráficos computacionales:</marcador></li>
-                    <ul>
-                        <li><marcador class="resaltado8">PyTorch: </marcador>Gráfico computacional dinámico. Los gráficos se construyen y ejecutan sobre la marcha, lo que facilita la depuración y permite mayor flexibilidad al modificar modelos sobre la marcha.</li>
-                        <li><marcador class="resaltado8">TensorFlow: </marcador>Originalmente, utilizaba gráficos computacionales estáticos, pero desde la versión 2.0, TensorFlow ha adoptado un enfoque más dinámico a través de <marcador class="subrayado">tf.function</marcador>.</li>
+                    <ul style="list-style-type: none;">
+                        <li>◉ <marcador class="resaltado8">PyTorch: </marcador>Gráfico computacional dinámico. Los gráficos se construyen y ejecutan sobre la marcha, lo que facilita la depuración y permite mayor flexibilidad al modificar modelos sobre la marcha.</li>
+                        <li>◉ <marcador class="resaltado8">TensorFlow: </marcador>Originalmente, utilizaba gráficos computacionales estáticos, pero desde la versión 2.0, TensorFlow ha adoptado un enfoque más dinámico a través de <marcador class="subrayado">tf.function</marcador>.</li>
                     </ul>
                     <li><marcador class="resaltado9">Facilidad de uso:</marcador></li>
-                    <ul>
-                        <li><marcador class="resaltado8">PyTorch: </marcador>Tiene una curva de aprendizaje suave para programadores acostumbrados a Python, ya que su sintaxis es muy cercana a este lenguaje. Los modelos y el flujo de datos son intuitivos.</li>
-                        <li><marcador class="resaltado8">TensorFlow: </marcador>Ofrece una API de alto nivel (Keras) que facilita el uso, pero puede ser más complicado cuando se trata de personalizar o depurar modelos más avanzados.</li>
+                    <ul style="list-style-type: none;">
+                        <li>◉ <marcador class="resaltado8">PyTorch: </marcador>Tiene una curva de aprendizaje suave para programadores acostumbrados a Python, ya que su sintaxis es muy cercana a este lenguaje. Los modelos y el flujo de datos son intuitivos.</li>
+                        <li>◉ <marcador class="resaltado8">TensorFlow: </marcador>Ofrece una API de alto nivel (Keras) que facilita el uso, pero puede ser más complicado cuando se trata de personalizar o depurar modelos más avanzados.</li>
                     </ul>
                     <li><marcador class="resaltado9">Popularidad en la investigación:</marcador></li>
-                    <ul>
-                        <li><marcador class="resaltado8">PyTorch: </marcador>Ha ganado mucho terreno en la comunidad de investigación debido a su flexibilidad y facilidad para probar nuevas ideas.</li>
-                        <li><marcador class="resaltado8">TensorFlow: </marcador>Tiene un amplio soporte industrial y es más utilizado en entornos de producción debido a su ecosistema maduro y herramientas avanzadas como TensorFlow Lite y TensorFlow Extended (TFX).</li>
+                    <ul style="list-style-type: none;">
+                        <li>◉ <marcador class="resaltado8">PyTorch: </marcador>Ha ganado mucho terreno en la comunidad de investigación debido a su flexibilidad y facilidad para probar nuevas ideas.</li>
+                        <li>◉ <marcador class="resaltado8">TensorFlow: </marcador>Tiene un amplio soporte industrial y es más utilizado en entornos de producción debido a su ecosistema maduro y herramientas avanzadas como TensorFlow Lite y TensorFlow Extended (TFX).</li>
                     </ul>
                 </ol>
                 <h2>Funcionalidades</h2>
