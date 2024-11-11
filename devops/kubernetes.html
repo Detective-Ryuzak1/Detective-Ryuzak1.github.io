@@ -609,7 +609,7 @@ E1110 13:59:06.019986	6223 cache.go:189] Error downloading kic artifacts:  not y
 🔎  Verifying Kubernetes components...
     ▪ Using image gcr.io/k8s-minikube/storage-provisioner:v5
 🌟  Complementos habilitados: storage-provisioner, default-storageclass
-🏄  Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default                                
+🏄  Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
                             </span>
                         </div>
                     </section>
@@ -655,7 +655,7 @@ type: Control Plane
 host: Running
 kubelet: Running
 apiserver: Running
-kubeconfig: Configured                                                               
+kubeconfig: Configured
                             </span>
                         </div>
                     </section>
@@ -676,7 +676,7 @@ kubeconfig: Configured
                         </div>
                         <div class="command-response-container">
                             <span id="terminal__prompt--response" class="multiline-text">NAME   	    STATUS  ROLES       	AGE	    VERSION
-minikube    Ready	control-plane   2d4h    v1.31.0                                                             
+minikube    Ready	control-plane   2d4h    v1.31.0
                             </span>
                         </div>
                     </section>
@@ -841,7 +841,7 @@ spec:
                         <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">kubectl</marcador> apply <marcador class="param">-f</marcador> mongo-config.yaml</span>    
                         </div>
                         <div class="command-response-container">
-                            <span id="terminal__prompt--response" class="multiline-text">configmap/mongo-config created                                                          
+                            <span id="terminal__prompt--response" class="multiline-text">configmap/mongo-config created
                             </span>
                         </div>
                     </section>
@@ -861,7 +861,7 @@ spec:
                         <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">kubectl</marcador> apply <marcador class="param">-f</marcador> mongo-secret.yaml</span>    
                         </div>
                         <div class="command-response-container">
-                            <span id="terminal__prompt--response" class="multiline-text">configmap/mongo-secret created                                                          
+                            <span id="terminal__prompt--response" class="multiline-text">configmap/mongo-secret created
                             </span>
                         </div>
                     </section>
@@ -882,7 +882,7 @@ spec:
                         </div>
                         <div class="command-response-container">
                             <span id="terminal__prompt--response" class="multiline-text">deployment.apps/mongo-deployment created
-service/mongo-service created                                                                                      
+service/mongo-service created
                             </span>
                         </div>
                     </section>
@@ -903,7 +903,7 @@ service/mongo-service created
                         </div>
                         <div class="command-response-container">
                             <span id="terminal__prompt--response" class="multiline-text">deployment.apps/webapp-deployment created
-service/webapp-service created                                                                                                             
+service/webapp-service created
                             </span>
                         </div>
                     </section>
@@ -938,7 +938,7 @@ deployment.apps/webapp-deployment   1/1 	1        	 1       	 2m23s
 
 NAME                                       	    DESIRED     CURRENT     READY   AGE
 replicaset.apps/mongo-deployment-79bc7948d8	    1     	    1     	    1   	4m11s
-replicaset.apps/webapp-deployment-655ff6696b    1     	    1     	    1   	2m23s                                                                                                                                            
+replicaset.apps/webapp-deployment-655ff6696b    1     	    1     	    1   	2m23s
                             </span>
                         </div>
                     </section>
@@ -960,7 +960,7 @@ replicaset.apps/webapp-deployment-655ff6696b    1     	    1     	    1   	2m23s
                         <div class="command-response-container">
                             <span id="terminal__prompt--response" class="multiline-text">NAME                             	READY   STATUS	    RESTARTS    AGE
 mongo-deployment-79bc7948d8-cbdpn	1/1 	Running     0      	    11m
-webapp-deployment-655ff6696b-np9bw  1/1 	Running     0      	    10m                                                                                                            
+webapp-deployment-655ff6696b-np9bw  1/1 	Running     0      	    10m
                             </span>
                         </div>
                     </section>
@@ -997,7 +997,7 @@ Endpoints:            	  10.244.0.5:3000
 Session Affinity:     	  None
 External Traffic Policy:  Cluster
 Internal Traffic Policy:  Cluster
-Events:               	  <none>                                                                                                          
+Events:               	  <none>
                             </span>
                         </div>
                     </section>
@@ -1054,7 +1054,7 @@ Conditions:
   Initialized             	  True
   Ready                   	  True
 
-. . . [ snip ] . . .                                                                                                          
+. . . [ snip ] . . .
                             </span>
                         </div>
                     </section>
@@ -1097,7 +1097,7 @@ Conditions:
                             <span id="terminal__prompt--response" class="multiline-text">NAME         	TYPE    	CLUSTER-IP  	EXTERNAL-IP   PORT(S)      	   AGE
 kubernetes   	ClusterIP   10.96.0.1   	&lt;none&gt;    	  443/TCP      	   2d8h
 mongo-service	ClusterIP   10.105.110.78   &lt;none&gt;    	  27017/TCP    	   37m
-webapp-service   NodePort	10.102.40.177   &lt;none&gt;    	  3000:30100/TCP   35m                                                                                                                                     
+webapp-service   NodePort	10.102.40.177   &lt;none&gt;    	  3000:30100/TCP   35m
                             </span>
                         </div>
                     </section>
@@ -1117,7 +1117,7 @@ webapp-service   NodePort	10.102.40.177   &lt;none&gt;    	  3000:30100/TCP   35
                         <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">minikube</marcador> ip<marcador class="param"></marcador></span>    
                         </div>
                         <div class="command-response-container">
-                            <span id="terminal__prompt--response" class="multiline-text">192.168.49.2                                                                                                                                     
+                            <span id="terminal__prompt--response" class="multiline-text">192.168.49.2
                             </span>
                         </div>
                     </section>
@@ -1138,7 +1138,7 @@ webapp-service   NodePort	10.102.40.177   &lt;none&gt;    	  3000:30100/TCP   35
                         </div>
                         <div class="command-response-container">
                             <span id="terminal__prompt--response" class="multiline-text">NAME        STATUS  ROLES           AGE     VERSION   INTERNAL-IP   EXTERNAL-IP     OS-IMAGE            KERNEL-VERSION      CONTAINER-RUNTIME
-minikube    Ready   control-plane   2d8h    v1.31.0   192.168.49.2  &lt;none&gt;          Ubuntu 22.04.4 LTS  6.8.0-48-generic    docker://27.2.0                                                                                                                                     
+minikube    Ready   control-plane   2d8h    v1.31.0   192.168.49.2  &lt;none&gt;          Ubuntu 22.04.4 LTS  6.8.0-48-generic    docker://27.2.0
                             </span>
                         </div>
                     </section>
