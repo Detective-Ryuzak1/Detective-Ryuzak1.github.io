@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <link rel="icon" href="../media/imagen41.png" type="image/png">
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                        <li><a href="../devops.html">DevOps</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Aportar" onclick="window.open('https://buymeacoffee.com/ryuzak1', '_blank');">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <br>
+                <br>
+                <h1>Kubernetes</h1>
+                <p>Kubernetes es un sistema de orquestación de contenedores de código abierto que permite automatizar el despliegue, la administración y la escalabilidad de aplicaciones en contenedores. Desarrollado inicialmente por Google, Kubernetes es ahora mantenido por la Cloud Native Computing Foundation (CNCF). Gracias a su versatilidad y capacidad de escalabilidad, Kubernetes se ha convertido en un pilar fundamental en la adopción de arquitecturas modernas de microservicios, permitiendo que las aplicaciones sean más resistentes y fácilmente escalables.</p>
+                <h2>Características</h2>
+                <ul>
+                    <li><marcador class="resaltado2">Escalabilidad Automática: </marcador>Kubernetes permite escalar las aplicaciones de manera automática, adaptándose al aumento o disminución de la carga de trabajo mediante el ajuste dinámico de recursos.</li>
+                    <li><marcador class="resaltado2">Despliegues Rápidos y Consistentes: </marcador>Facilita el despliegue de aplicaciones y actualizaciones sin interrupciones, lo que permite una integración y entrega continua.</li>
+                    <li><marcador class="resaltado2">Portabilidad: </marcador>Kubernetes es compatible con múltiples plataformas, desde nubes públicas hasta servidores locales, facilitando la portabilidad de aplicaciones.</li>
+                    <li><marcador class="resaltado2">Recuperación Ante Fallos: </marcador>Kubernetes garantiza la disponibilidad y fiabilidad de las aplicaciones mediante la reiniciación de contenedores fallidos y el reemplazo de nodos no saludables.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/kubernetes2.avif" alt="">
+                </div>
+                <h2>Archivos de Configuración</h2>
+                <ol>
+                    <li><marcador class="resaltado9">Metadata: </marcador>La sección <strong>metadata</strong> de un archivo de configuración en Kubernetes contiene información descriptiva sobre el recurso, como el nombre, las etiquetas (labels), y las anotaciones. Estos datos ayudan a identificar y categorizar los recursos dentro del clúster. El campo <code>name</code> asigna un nombre único, y <code>labels</code> permite clasificar los recursos para organizarlos o seleccionarlos durante las operaciones de despliegue y escalado.</li>
+                    <p>⌭ Ejemplo de metadata:</p>
+                    <div class="archivo">
+metadata:
+    name: my-app-pod
+    labels:
+        app: my-app
+        env: production
+                    </div>
+                    <p>En este ejemplo, el nombre "my-app-pod" identifica el recurso, mientras que las etiquetas "app" y "env" lo clasifican para su administración.</p>
+
+                    <li><marcador class="resaltado9">Spec: </marcador>La sección <strong>spec</strong> define las especificaciones del recurso, detallando cómo debe comportarse y sus características esenciales. En un Pod, por ejemplo, <code>spec</code> incluye el contenedor que se desplegará, la imagen de Docker a usar, y las configuraciones de red o almacenamiento necesarias. Este campo también puede contener las directrices de réplicas, las políticas de reinicio y la configuración de puertos para aplicaciones más complejas.</li>
+                    <p>⌭ Ejemplo de spec en un Pod:</p>
+                    <div class="archivo">
+spec:
+    containers:
+    - name: my-app-container
+    image: my-app-image:latest
+    ports:
+    - containerPort: 8080
+                    </div>
+                    <p>Esta especificación indica el contenedor a desplegar (my-app-container), la imagen (my-app-image), y el puerto expuesto (8080).</p>
+
+                    <li><marcador class="resaltado9">Status: </marcador>La sección <strong>status</strong> proporciona información en tiempo real sobre el estado de un recurso. Este campo lo gestiona Kubernetes y no se incluye en los archivos de configuración que el usuario crea, ya que se actualiza automáticamente conforme cambia el estado del recurso. En el caso de un Pod, <code>status</code> puede mostrar si está en fase de ejecución, si tiene errores o si se encuentra en espera.</li>
+                    <p>⌭ Ejemplo de status (información generada automáticamente):</p>
+                    <div class="archivo">
+status:
+    phase: Running
+    conditions:
+    - type: Ready
+    status: True
+                    </div>
+                    <p>Aquí, el estado indica que el Pod está en fase "Running" y que está "Ready" para procesar solicitudes.</p>
+                    <li><marcador class="resaltado9">Kind: </marcador>El campo <strong>kind</strong> especifica el tipo de recurso que se desea crear, como Pod, Service, Deployment o ConfigMap. Este campo es esencial para que Kubernetes entienda qué tipo de recurso se está configurando y le asigne los controladores necesarios para su administración en el clúster.</li>
+                    <li><marcador class="resaltado9">API Version: </marcador>La sección <strong>apiVersion</strong> define la versión de la API de Kubernetes que se utilizará para el recurso. Es esencial seleccionar la versión correcta, ya que las versiones definen las funcionalidades disponibles y pueden variar entre tipos de recursos. Las versiones comunes incluyen <code>v1</code> para recursos básicos y <code>apps/v1</code> para controladores de aplicaciones más avanzadas.</li>
+                    <li><marcador class="resaltado9">Selector: </marcador>El campo selector define un criterio de selección que permite a Kubernetes identificar y asociar objetos, como pods, con otros recursos, como servicios o deployments. Este campo es crucial para asegurar que el recurso se aplique solo a los pods que cumplen con los criterios definidos, generalmente especificados mediante etiquetas (labels). Por ejemplo, un selector en un Service puede dirigir el tráfico solo a los pods que comparten la misma etiqueta app: mongo.</li>
+                    <li><marcador class="resaltado9">Env: </marcador>El campo env establece variables de entorno que se pasarán al contenedor en el momento de la creación. Estas variables permiten configurar el contenedor sin modificar el código dentro de la imagen y son especialmente útiles para manejar configuraciones, credenciales, y URLs que el contenedor necesita. Puedes asignar valores directamente o referenciarlos desde secretos o ConfigMaps para mayor seguridad y flexibilidad.</li>
+                </ol>
+                <h6>Pasos para Aplicar un CronJob</h6>
+                <ol>
+                    <li>Crear un archivo YAML con la configuración del CronJob. Guárdalo, por ejemplo, como <marcador class="resaltado1">my-cronjob.yaml</marcador>.</li>
+                    <li>Ejecuta el comando <marcador class="subrayado">kubectl apply -f my-cronjob.yaml</marcador> para aplicar la configuración en el clúster.</li>
+                    <li>Verifica si el CronJob está ejecutándose con <marcador class="subrayado">kubectl get jobs --watch</marcador>. Este comando permite ver las instancias de trabajo que el CronJob está creando en tiempo real.</li>
+                    <li>Accede a los registros de los Pods para verificar la salida de ejecución del CronJob con el comando <marcador class="subrayado">kubectl logs &lt;nombre-del-pod&gt;</marcador></code>.</li>
+                </ol>
+                <div class="blog-image-grande">
+                    <img src="media/kubernetes16.png" alt="">
+                </div>
+                <h2>Componentes</h2>
+                <h6>Nodes y Pods</h6>
+                <ul>
+                    <li><marcador class="resaltado3">Node: </marcador>En Kubernetes, un Node es una máquina (física o virtual) que ejecuta aplicaciones en contenedores. Cada Node forma parte del clúster de Kubernetes y contiene los recursos necesarios para ejecutar Pods. Además, en cada Node se encuentran los componentes necesarios para ejecutar Pods y comunicarse con el resto del clúster, tales como:</li>
+                    <ul  style="list-style-type: none;">
+                        <li>▱ <marcador class="resaltado8">Kubelet: </marcador>Este agente garantiza que los contenedores estén en ejecución, monitorea los Pods asignados al nodo y se comunica con el API Server para reportar el estado.</li>
+                        <li>▱ <marcador class="resaltado8">Kube-proxy: </marcador>Es un proxy de red que asegura la comunicación entre los servicios y gestiona las reglas de red en el nodo.</li>
+                        <li>▱ <marcador class="resaltado8">Container Runtime: </marcador>Un entorno que ejecuta los contenedores, como Docker o containerd.</li>
+                    </ul>
+                    <p>Los Nodes trabajan juntos bajo el control del plano de control (Control Plane) de Kubernetes, distribuyendo y gestionando las aplicaciones en el clúster.</p>
+                    <li><marcador class="resaltado3">Pod: </marcador>Un Pod es la unidad de despliegue más pequeña en Kubernetes, encapsulando uno o más contenedores que comparten almacenamiento, red y un espacio de nombres (namespace) de Linux. En casos simples, cada Pod contiene un único contenedor, pero en arquitecturas más complejas, un Pod puede agrupar contenedores que trabajan juntos (por ejemplo, una aplicación y su contenedor de monitoreo).</li>
+                    <p>⌭ Ejemplo de configuración de un Pod:</p>
+                    <div class="archivo">
+apiVersion: v1
+kind: Pod
+metadata:
+    name: my-app-pod
+spec:
+    containers:
+    - name: my-app-container
+        image: my-app-image:latest
+        ports:
+        - containerPort: 8080
+                    </div>
+                </ul>
+                <div class="blog-image">
+                    <img src="media/kubernetes6.jpg" alt="">
+                </div>
+                <h6>Service e Ingress</h6>
+                <ul>
+                    <li><marcador class="resaltado3">Service: </marcador>Un Service es un recurso de Kubernetes que define una política de acceso para Pods, proporcionando una IP fija y un mecanismo de enrutamiento. Es útil cuando varios Pods comparten una función y necesitan ser accesibles de manera consistente, incluso si se recrean.</li>
+                    <p>En Kubernetes, un Service permite definir una capa de abstracción para acceder a uno o más Pods, estableciendo una interfaz de red estable para conectarse a las aplicaciones, incluso si los Pods subyacentes se crean o eliminan. Al mantener una dirección IP y puerto constantes, un Service permite que otros componentes de la red o usuarios interactúen con el clúster sin importar los cambios en los Pods individuales.</p>
+                    <p>Existen varios tipos de Service:</p>
+                    <ul  style="list-style-type: none;">
+                        <li>▱ <marcador class="resaltado8">ClusterIP: </marcador>Exposición interna dentro del clúster.</li>
+                        <li>▱ <marcador class="resaltado8">NodePort: </marcador>Expone el servicio en un puerto específico en cada nodo, permitiendo el acceso externo.</li>
+                        <li>▱ <marcador class="resaltado8">LoadBalancer: </marcador>Para despliegues en la nube, crea un balanceador de carga externo para el servicio.</li>
+                    </ul>
+                    <p>⌭ Ejemplo de configuración de un Service de tipo ClusterIP:</p>
+                    <div class="archivo">
+apiVersion: v1
+kind: Service
+metadata:
+    name: my-service
+spec:
+    selector:
+    app: my-app
+    ports:
+    - protocol: TCP
+        port: 80
+        targetPort: 8080
+                    </div>
+                    <p>En este caso, el Service llamado my-service enruta el tráfico al puerto 8080 del Pod seleccionado.</p>
+                    <li><marcador class="resaltado3">Ingress: </marcador>En Kubernetes, un Ingress es un recurso que administra el acceso externo a los servicios del clúster, normalmente mediante HTTP y HTTPS, proporcionando reglas para enrutamiento de tráfico a diferentes Services en función de la ruta o el dominio solicitado. A diferencia de un Service de tipo LoadBalancer, que expone un único Service al exterior, un Ingress permite gestionar y enrutar el tráfico de forma centralizada a múltiples Services según reglas de dominio y ruta.</li>
+                    <p>El Ingress se conecta con uno o más Services, redirigiendo el tráfico entrante a los Pods asociados mediante estos Services. Utiliza reglas basadas en el nombre de dominio y en las rutas para determinar a qué Service y, por ende, a qué Pods dirigir el tráfico. Además, se configura con dominios en lugar de direcciones IP, lo que proporciona flexibilidad y escalabilidad en la comunicación entre aplicaciones. Dado que las IPs pueden cambiar debido al escalado o reprogramación de Pods, un dominio estático facilita la estabilidad en el enrutamiento y la disponibilidad del servicio, proporcionando un nombre de acceso constante y fácil de recordar. Por último, el Ingress ofrece balanceo de carga de capa 7 (basado en HTTP/HTTPS) y puede gestionar certificados SSL/TLS, permitiendo conexiones seguras al clúster, lo que otorga a los Ingress Controllers un mayor control y seguridad sobre el tráfico.</p>
+                    <p>⌭ Ejemplo de configuración de un Ingress:</p>
+                    <div class="archivo">
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+    name: my-ingress
+spec:
+    rules:
+    - host: example.com
+        http:
+        paths:
+            - path: /
+            pathType: Prefix
+            backend:
+                service:
+                name: my-service
+                port:
+                    number: 80
+                    </div>
+                    <p>Este ejemplo define una regla de Ingress para enrutar el tráfico de example.com hacia el Service llamado my-service.</p>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/kubernetes7.png" alt="">
+                </div>
+                <h6>ConfigMaps y Secrets</h6>
+                <ul>
+                    <li><marcador class="resaltado3">ConfigMap: </marcador>ConfigMap en Kubernetes permite almacenar configuraciones no confidenciales en forma de pares clave-valor que pueden ser utilizados por Pods y otros recursos. Esto permite separar la configuración de la aplicación del código, lo que facilita la actualización de configuraciones sin necesidad de modificar o reconstruir las imágenes de los contenedores. ConfigMap puede ser utilizado para proporcionar configuraciones de entorno, variables de configuración de aplicaciones, archivos de configuración de texto o incluso parámetros específicos que los Pods pueden leer durante su ejecución. Además, ConfigMap permite la reutilización de configuraciones a lo largo de diferentes entornos y aplicaciones, ofreciendo flexibilidad y consistencia en el manejo de configuraciones.</li>
+                    <p>⌭ Ejemplo de configuración de un ConfigMap:</p>
+                    <div class="archivo">
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: my-config
+data:
+    DATABASE_URL: "jdbc:mysql://db-service:3306/mydb"
+    APP_ENV: "production"
+                    </div>
+                    <p>En este caso, my-config almacena variables de configuración que pueden ser accedidas por los contenedores.</p>
+                    <li><marcador class="resaltado3">Secret: </marcador>En Kubernetes, un Secret es un recurso utilizado para almacenar información confidencial, como contraseñas, tokens o claves SSH. Los Secrets pueden configurarse como variables de entorno o montarse como archivos dentro de los contenedores. Estos permiten proteger los datos al reducir la exposición en texto plano dentro del clúster y pueden ser referenciados directamente por los Pods sin necesidad de incluir la información en las configuraciones estándar. Los datos de un Secret se almacenan en formato Base64, lo que permite que contraseñas y otros valores sean representados de manera legible para los sistemas, aunque no completamente encriptados.</li>
+                    <p>Para mayor seguridad, Kubernetes ofrece la opción de cifrar los Secrets en reposo utilizando cifrado AES o mediante proveedores de claves externas como AWS KMS o Google Cloud KMS. Esto garantiza que los datos estén encriptados a nivel de almacenamiento en etcd, evitando el acceso no autorizado y protegiendo la información sensible.</p>
+                    <p>Además, el acceso a los Secrets se puede controlar de manera detallada. Se pueden configurar políticas de acceso para que solo ciertos Pods o servicios puedan acceder a ellos, limitando así el riesgo de exposición. El acceso se administra mediante políticas RBAC (Role-Based Access Control), lo que permite definir de forma precisa qué entidades tienen permiso para leer o modificar los Secrets.</p>
+                    <p>⌭ Ejemplo de configuración de un Secret:</p>
+                    <div class="archivo">
+apiVersion: v1
+kind: Secret
+metadata:
+    name: my-secret
+type: Opaque
+data:
+    password: bXktcGFzc3dvcmQ=  # Valor codificado en base64
+                    </div>
+                    <p></p>
+                </ul>
+                <div class="blog-image">
+                    <img src="media/kubernetes8.png" alt="">
+                </div>
+                <h6>Volumes</h6>
+                <ul>
+                    <li><marcador class="resaltado3">Volumes: </marcador>En Kubernetes, los Volumes permiten almacenar datos que persisten entre reinicios de contenedores, ya que los datos almacenados directamente en un contenedor se pierden si el contenedor se detiene o se reinicia.</li>
+                    <p>Kubernetes ofrece varios tipos de volúmenes para adaptarse a diferentes requisitos de almacenamiento, desde almacenamiento temporal en el nodo hasta almacenamiento persistente que sobrevive al ciclo de vida de los Pods. Estos son algunos de los tipos principales:</p>
+                    <ul  style="list-style-type: none;">
+                        <li>▱ <marcador class="resaltado8">emptyDir: </marcador>Este volumen se crea cuando se inicia el Pod y se elimina al terminar el Pod. Se utiliza para almacenamiento temporal, donde los datos no son persistentes entre reinicios de Pods.</li>
+                        <li>▱ <marcador class="resaltado8">hostPath: </marcador>hostPath permite que un Pod use un archivo o directorio en el sistema de archivos del nodo. Es útil para acceder a recursos locales del nodo, aunque presenta riesgos si no se controla, ya que el Pod puede acceder a partes sensibles del nodo.</li>
+                        <li>▱ <marcador class="resaltado8">PersistentVolume (PV) y PersistentVolumeClaim (PVC): </marcador>PV es un volumen persistente que abstrae el almacenamiento físico, mientras que el PVC es una solicitud de almacenamiento realizada por un Pod. Los PV pueden ser de diferentes tipos, como almacenamiento en la nube (AWS EBS, GCP Persistent Disk, Azure Disk) o almacenamiento de red (NFS).</li>
+                        <p>Primero, se define el PV con el tipo de almacenamiento y la capacidad, y luego el PVC solicita ese recurso.</p>
+                        <li>▱ <marcador class="resaltado8">ConfigMap y Secret:</marcador>Aunque no son estrictamente volúmenes de datos, estos objetos pueden montarse en los Pods como volúmenes. ConfigMap se usa para almacenar datos de configuración que no sean secretos, mientras que Secret almacena datos sensibles. Ambos permiten que las aplicaciones accedan a configuraciones sin necesidad de almacenarlas en el código.</li>
+                        <li>▱ <marcador class="resaltado8">nfs:</marcador>nfs permite que el clúster acceda a sistemas de archivos remotos a través del protocolo NFS. Este tipo es adecuado para volúmenes compartidos entre varios Pods.</li>
+                        <li>▱ <marcador class="resaltado8">CSI (Container Storage Interface):</marcador>Kubernetes admite la integración con diferentes proveedores de almacenamiento a través de CSI, lo cual permite la creación y administración de volúmenes de proveedores de almacenamiento de terceros, como Ceph o GlusterFS.</li>
+                        <li>▱ <marcador class="resaltado8">ephemeral volumes (volúmenes efímeros):</marcador>Este tipo de volumen proporciona almacenamiento temporal que se elimina al destruir el Pod. Es útil para almacenamiento temporal y operaciones que requieren espacio de almacenamiento durante la ejecución del Pod.</li>
+                    </ul>
+                    <p>⌭ Ejemplo de configuración de un Pod con un Volume:</p>
+                    <div class="archivo">
+apiVersion: v1
+kind: Pod
+metadata:
+    name: pod-with-volume
+spec:
+    containers:
+    - name: app
+        image: my-app-image
+        volumeMounts:
+        - mountPath: "/app/data"
+            name: my-volume
+    volumes:
+    - name: my-volume
+        emptyDir: {}
+                    </div>
+                </ul>
+                <div class="blog-image-zoom">
+                    <img src="media/kubernetes9.gif" alt="">
+                </div>
+                <h6>Deployment y StatefulSet</h6>
+                <ul>
+                    <li><marcador class="resaltado3">Deployment: </marcador>Deployment se utiliza para aplicaciones sin estado (stateless) que no necesitan almacenamiento persistente o identificación específica en el clúster. Los Pods administrados por un Deployment son intercambiables y no conservan un identificador único entre ellos, lo que facilita el reemplazo de Pods sin necesidad de almacenar información específica en cada instancia.</li>
+                    <p>Un Deployment es ideal para aplicaciones sin estado como servidores web o aplicaciones frontend, donde la persistencia de datos no es necesaria entre los reinicios de los Pods. Si un Pod falla, Kubernetes puede reiniciar uno nuevo sin que afecte el comportamiento de la aplicación.</p>
+                    <p>El Deployment asegura que un número especificado de Pods esté siempre activo, y si uno de ellos falla, se crea automáticamente otro para mantener la cantidad requerida. Además, permite realizar actualizaciones continuas de la aplicación sin detener todos los Pods a la vez. Si algo sale mal durante una actualización, es fácil retroceder a una versión anterior. También ofrece escalabilidad, permitiendo agregar o eliminar réplicas de Pods para ajustar la carga de trabajo según sea necesario, lo que garantiza que el sistema pueda manejar variaciones en el tráfico o la demanda.</p>
+                    <p>⌭ Ejemplo de configuración de un Deployment:</p>
+                    <div class="archivo">
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: my-deployment
+spec:
+    replicas: 3
+    selector:
+    matchLabels:
+        app: my-app
+    template:
+    metadata:
+        labels:
+        app: my-app
+    spec:
+        containers:
+        - name: my-container
+        image: nginx
+        ports:
+        - containerPort: 80
+                    </div>
+                    <p>Replicas especifica el número de Pods que se ejecutarán, mientras que selector define una etiqueta que Kubernetes usará para identificar los Pods administrados. Finalmente, template describe el contenedor que se ejecutará en cada Pod, proporcionando los detalles necesarios para la creación de los Pods según las especificaciones del contenedor.</p>
+                    <li><marcador class="resaltado3">StatefulSet: </marcador>StatefulSet es un controlador diseñado para aplicaciones con estado, que necesitan que sus Pods tengan una identidad estable y almacenamiento persistente. Es ideal para bases de datos y sistemas de mensajería que dependen de mantener datos y configuraciones específicas entre reinicios.</li>
+                    <p>Cada Pod gestionado por un StatefulSet tiene una identidad estable, con un nombre único (como my-app-0, my-app-1) que se mantiene incluso al reiniciar el Pod. Además, los Pods se crean y eliminan en orden secuencial, lo que es crucial para aplicaciones que requieren un inicio o apagado ordenado, como las bases de datos distribuidas. También se asegura la persistencia, ya que cada Pod puede estar asociado con un PersistentVolume que retiene los datos, incluso si el Pod se reinicia o se reemplaza.</p>
+                    <p>⌭ Ejemplo de configuración de un StatefulSet:</p>
+                    <div class="archivo">
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+    name: my-statefulset
+spec:
+    serviceName: "my-service"
+    replicas: 3
+    selector:
+    matchLabels:
+        app: my-stateful-app
+    template:
+    metadata:
+        labels:
+        app: my-stateful-app
+    spec:
+        containers:
+        - name: my-container
+        image: postgres
+        ports:
+        - containerPort: 5432
+        volumeMounts:
+        - name: my-volume
+            mountPath: /var/lib/postgresql/data
+    volumeClaimTemplates:
+    - metadata:
+        name: my-volume
+    spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+        requests:
+            storage: 5Gi   
+                    </div>
+                    <p>serviceName es el servicio que permite a los Pods del StatefulSet comunicarse entre sí. Además, volumeClaimTemplates crea un PersistentVolumeClaim (PVC) para cada réplica, garantizando que cada Pod tenga su propio volumen persistente.</p>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/kubernetes10.png" alt="">
+                </div>
+                <h6>DaemonSet</h6>
+                <ul>
+                    <li><marcador class="resaltado3">DaemonSet: </marcador>Un DaemonSet es un recurso de Kubernetes diseñado para asegurar que un Pod específico se ejecute en cada Node del clúster, o en un subconjunto específico de Nodes. Los DaemonSets son esenciales para desplegar aplicaciones o servicios que deben estar presentes en todos los Nodes, como herramientas de monitoreo, recolección de logs o soluciones de red.</li>
+                    <ul style="list-style-type: none;">
+                        <li>▱ <marcador class="resaltado8">Distribución en todos los Nodes: </marcador>DaemonSets aseguran que cada Node en el clúster, tanto los nuevos como los ya existentes, ejecuten automáticamente el Pod asociado. Esto garantiza que todos los Nodes tengan el mismo servicio en ejecución, brindando un control uniforme en el clúster.</li>
+                        <li>▱ <marcador class="resaltado8">Actualización: </marcador>Permite actualizar todos los Pods de un DaemonSet sin necesidad de intervención manual. Kubernetes controla la propagación de la actualización, evitando interrupciones o duplicaciones de Pods.</li>
+                    </ul>
+                    <p>⌭ Ejemplo de configuración de un DaemonSet:</p>
+                    <div class="archivo">
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+    name: log-collector
+spec:
+    selector:
+        matchLabels:
+            app: log-collector
+    template:
+        metadata:
+            labels:
+                app: log-collector
+        spec:
+            containers:
+            - name: log-collector-container
+            image: log-collector-image:latest
+            resources:
+                limits:
+                    memory: "200Mi"
+                    cpu: "0.2"
+                    </div>
+                </ul>
+                <p>⌭ Este ejemplo configura un DaemonSet para un recolector de logs en el clúster. Cada Node ejecutará un Pod de recolección de logs, asegurando que los logs se capturen en toda la infraestructura de Kubernetes.</p>
+                <div class="blog-image-grande">
+                    <img src="media/kubernetes15.png" alt="">
+                </div>
+                <h2>Arquitectura</h2>
+                <p>Kubernetes cuenta con una arquitectura distribuida, diseñada para administrar y coordinar contenedores en clústeres de máquinas, ya sea en entornos de nube, híbridos o locales. Su arquitectura incluye componentes que funcionan en el plano de control (control plane) y en los nodos de trabajo (worker nodes).</p>
+                <h6>Plano de Control (Control Plane)</h6>
+                <p>El plano de control contiene los componentes necesarios para gestionar el clúster, decidir dónde y cuándo ejecutar los Pods, monitorizar los eventos del sistema y manejar el estado global del clúster. Este plano de control incluye los siguientes componentes principales:</p>
+                <ol>
+                    <li><marcador class="resaltado9">API Server: </marcador>El API Server es el componente central que actúa como la interfaz entre el clúster y los usuarios. Este servidor recibe y valida las peticiones (como crear o eliminar Pods), y expone la API de Kubernetes para la comunicación con otros componentes.</li>
+                    <ul style="list-style-type: none;">
+                        <li>⚙️ <marcador class="resaltado8">Configuración: </marcador>La configuración del API Server se encuentra en los archivos de configuración de Kubernetes (como <marcador class="resaltado1">kube-apiserver.yaml</marcador>) y permite definir parámetros clave como los puertos, el cifrado de comunicación y los mecanismos de autenticación y autorización.</li>
+                    </ul>
+                    <p>⌭ Ejemplo básico de configuración del API Server:</p>
+                    <div class="archivo">
+apiVersion: kubeadm.k8s.io/v1alpha3
+kind: APIService
+metadata:
+  name: v1.my-service
+spec:
+  service:
+    name: my-kube-apiserver
+    namespace: kube-system
+  group: "apiserver.k8s.io"
+                    </div>
+                    <p>En este caso, se define un servicio de API personalizado en el clúster.</p>
+                    <li><marcador class="resaltado9">Etcd: </marcador>Etcd es una base de datos distribuida de tipo key-value, que almacena toda la información crítica sobre el estado del clúster. Es fundamental para la resiliencia del sistema, ya que cualquier configuración, como los Pods activos, los servicios y las políticas de red, se guarda aquí.</li>
+                    <ul  style="list-style-type: none;">
+                        <li>⚙️ <marcador class="resaltado8">Configuración: </marcador>En un entorno de producción, se suele configurar etcd como un clúster distribuido, a menudo en servidores separados para mejorar la resiliencia. Configurarlo con certificados TLS es una práctica recomendada para proteger los datos.</li>
+                    </ul>
+                    <p>⌭ Este ejemplo muestra un clúster de etcd con tres réplicas, asegurando alta disponibilidad.</p>
+                    <div class="archivo">
+apiVersion: etcd.database.coreos.com/v1beta2
+kind: EtcdCluster
+metadata:
+    name: etcd-cluster
+spec:
+    size: 3
+    version: "3.4.13"
+                    </div>
+                    <p></p>
+                    <li><marcador class="resaltado9">Controller Manager: </marcador>El Controller Manager contiene varios controladores que ejecutan bucles de control para asegurar que el estado actual del clúster coincida con el estado deseado. Algunos controladores importantes incluyen:</li>
+                    <ul style="list-style-type: none;">
+                        <li>▱ <marcador class="resaltado8">Node Controller: </marcador>Detecta nodos inactivos y realiza acciones para mantener la integridad del clúster.</li>
+                        <li>▱ <marcador class="resaltado8">Replication Controller: </marcador>Asegura que un número especificado de réplicas de un Pod esté en ejecución.</li>
+                        <li>▱ <marcador class="resaltado8">Endpoint Controller: </marcador>Gestiona las conexiones entre servicios y Pods.</li>
+                        <li>⚙️ <marcador class="resaltado8">Configuración: </marcador>El archivo de configuración permite ajustar opciones como la sincronización de Pods y los intervalos de monitoreo, así como el número de hilos para cada tipo de controlador.</li>
+                    </ul>
+                    <li><marcador class="resaltado9">Scheduler: </marcador>El Scheduler asigna Pods a nodos basándose en los requisitos de los Pods y las capacidades de los nodos. Este componente usa políticas de afinidad y anti-afinidad para ubicar los Pods estratégicamente, optimizando el rendimiento y la disponibilidad.</li>
+                    <p>⌭ Ejemplo de configuración básica de un Scheduler personalizado:</p>
+                    <div class="archivo">
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: my-scheduler-config
+data:
+    schedulerName: "my-custom-scheduler"
+                    </div>
+                    <p>En este ejemplo, se crea un ConfigMap para un Scheduler personalizado, lo que permite definir preferencias de asignación de Pods.</p>
+                </ol>
+                <div class="blog-image-grande">
+                    <img src="media/kubernetes3.png" alt="">
+                </div>
+                <h6>Nodos de Trabajo (Worker Nodes)</h6>
+                <p>Los nodos de trabajo ejecutan los contenedores mediante Pods y son administrados por el plano de control. Cada nodo contiene los siguientes componentes principales:</p>
+                <ol>
+                    <li><marcador class="resaltado9">Kubelet: </marcador>Kubelet es un agente que se ejecuta en cada nodo y asegura que los contenedores estén activos según las especificaciones del Pod. Kubelet interactúa constantemente con el API Server para recibir y ejecutar las instrucciones.</li>
+                    <ul style="list-style-type: none;">
+                        <li>⚙️ <marcador class="resaltado8">Configuración: </marcador>El archivo de configuración de Kubelet (<marcador class="resaltado1">kubelet-config.yaml</marcador>) define detalles como la dirección IP del API Server, las opciones de red y los certificados.</li>
+                    </ul>
+                    <li><marcador class="resaltado9">Kube-proxy: </marcador>Kube-proxy gestiona las reglas de red en el nodo y habilita el reenvío de tráfico a los servicios correspondientes. Utiliza IP tables o modos basados en usuarios para garantizar que el tráfico entre los servicios y Pods fluya adecuadamente.</li>
+                    <ul style="list-style-type: none;">
+                        <li>⚙️ <marcador class="resaltado8">Configuración: </marcador>La configuración puede incluir reglas de enrutamiento específicas, balanceo de carga interno y control de acceso.</li>
+                    </ul>
+                    <li><marcador class="resaltado9">Container Runtime: </marcador>El runtime de contenedores ejecuta y gestiona los contenedores en el nodo. Docker y containerd son opciones comunes, y Kubernetes interactúa con ellos mediante el Container Runtime Interface (CRI).</li>
+                </ol>
+                <div class="blog-image-grande">
+                    <img src="media/kubernetes4.png" alt="">
+                </div>
+                <h6>Componentes Adicionales</h6>
+                <p>Además de los componentes centrales, existen otros recursos importantes en la arquitectura de Kubernetes que permiten gestionar aplicaciones complejas y datos persistentes:</p>
+                <ul>
+                    <li><marcador class="resaltado9">Network Plugins (CNI): </marcador>Kubernetes utiliza Container Network Interface (CNI) para configurar redes entre contenedores. Plugins como Calico o Flannel permiten establecer políticas de red, configuración de IPs y redes seguras.</li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            Configuración de CNI con Calico:
+                        </div>
+                        <div class="comandos">
+                        <input type="text" class="text" value="kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Este comando aplica una configuración de red de Calico para el clúster.</p>
+                    <li><marcador class="resaltado9">Storage (Persistent Volumes y Persistent Volume Claims): </marcador>Kubernetes permite el almacenamiento persistente a través de Persistent Volumes (PV) y Persistent Volume Claims (PVC), útiles para aplicaciones que necesitan retener datos. Un PV es una pieza de almacenamiento en el clúster, mientras que un PVC es una solicitud de almacenamiento que puede utilizar un Pod.</li>
+                    <p>⌭ Ejemplo de configuración de un PV y PVC:</p>
+                    <div class="archivo">
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+    name: my-pv
+spec:
+    capacity:
+    storage: 5Gi
+    accessModes:
+    - ReadWriteOnce
+    hostPath:
+    path: "/mnt/data"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+    name: my-pvc
+spec:
+    accessModes:
+    - ReadWriteOnce
+    resources:
+    requests:
+        storage: 5Gi                        
+                    </div>
+                    <li><marcador class="resaltado9">Addon de monitoreo y administración (Metric Server): </marcador>El Metric Server recopila datos sobre el consumo de recursos de los Pods y los nodos, permitiendo la auto-escalabilidad de aplicaciones.</li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            Instalación del Metric Server:
+                        </div>
+                        <div class="comandos">
+                        <input type="text" class="text" value="kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/kubernetes5.png" alt="">
+                </div>
+                <h2>Minikube</h2>
+                <p>Minikube es una herramienta que permite ejecutar un clúster de Kubernetes en una sola máquina, ya sea un entorno local o virtualizado, lo que facilita el aprendizaje, desarrollo y pruebas de aplicaciones en Kubernetes sin necesidad de infraestructura en la nube. Minikube crea una máquina virtual o un entorno virtualizado en el cual se ejecuta un clúster de Kubernetes de un solo nodo.</p>
+                <p>Esta herramienta es ideal para quienes desean experimentar con Kubernetes en sus equipos y probar configuraciones antes de desplegarlas en un entorno de producción. Minikube incluye una serie de complementos y características para simular funcionalidades avanzadas de Kubernetes, como Ingress Controllers, Dashboards y controladores de almacenamiento.</p>
+                <p>Instalación y Ejecución de Minikube: Para comenzar con Minikube, se necesitan ciertas dependencias básicas como kubectl y una herramienta de virtualización, como VirtualBox o Docker.</p>
+                <p>Descarga e instala Minikube según el sistema operativo.</p>               
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Inicia Minikube con el comando:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="minikube start" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Este comando iniciará el clúster de Kubernetes en una VM o en Docker, y en unos momentos podrás acceder al clúster local.</p>
+                <p>Minikube también ofrece acceso al Dashboard de Kubernetes con el comando <marcador class="subrayado">minikube dashboard</marcador>, que proporciona una interfaz visual para monitorear los Pods, servicios, configuraciones y otros recursos en el clúster.</p>
+                <div class="blog-image-grande">
+                    <img src="media/kubernetes11.jpg" alt="">
+                </div>
+                <h2>kubectl</h2>
+                <p>kubectl es la herramienta de línea de comandos que permite a los usuarios interactuar y administrar sus clústeres de Kubernetes. Proporciona comandos para realizar tareas comunes como crear, escalar y eliminar Pods, monitorear el estado de los recursos, y aplicar configuraciones.</p>
+                <p>Con kubectl, los desarrolladores pueden definir y aplicar configuraciones de recursos, como Deployments, Services, y Persistent Volumes, a través de archivos YAML o JSON. Esto permite gestionar el estado deseado de las aplicaciones y responder a eventos en el clúster.</p>
+                <div class="blog-image-grande">
+                    <img src="media/kubernetes12.jpg" alt="">
+                </div>
+                <h6>Comandos Esenciales de kubectl:</h6>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Para ver el estado de los nodos en el clúster:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="kubectl get nodes" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Para ver el estado de los pods en el clúster:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="kubectl get pods" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Para crear un recurso (usando un archivo YAML):
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="kubectl apply -f archivo.yaml" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Para escalar un Deployment a un número específico de réplicas:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="kubectl scale deployment mi-deployment --replicas=3" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Para eliminar un recurso:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="kubectl delete -f archivo.yaml" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>kubectl también incluye comandos avanzados como <marcador class="subrayado">kubectl exec</marcador> para ejecutar comandos dentro de un contenedor en un Pod, y <marcador class="subrayado">kubectl logs</marcador> para ver los registros de un contenedor, ayudando a los desarrolladores a depurar y monitorear aplicaciones en tiempo real.</p>
+                <div class="blog-image-grande">
+                    <img src="media/kubernetes13.jpg" alt="">
+                </div>
+                <h2>Proyecto en K8s</h2>
+                <p>Primero, es necesario instalar Minikube, y el primer paso es asegurarse de tener Docker instalado en tu sistema, ya que Minikube utiliza contenedores para simular un clúster de Kubernetes.</p>
+                <p>Con Docker ya en funcionamiento, descarga Minikube desde su <a href="https://minikube.sigs.k8s.io/docs/drivers/" target="blank">sitio oficial</a> o instala directamente ejecutando el siguiente comando en Linux:</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Ejecuta:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && chmod +x minikube-linux-amd64 && mv minikube-linux-amd64 minikube && sudo mv minikube /usr/local/bin/" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>❏ Edita el archivo de configuración de sudoers para permitir que se ejecute podman sin necesidad de ingresar una contraseña. Esto lo puedes hacer con los siguientes pasos:</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Abre el archivo sudoers con privilegios de administrador. Puedes usar visudo para evitar errores de sintaxis:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="sudo visudo" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Agrega la siguiente línea al final del archivo (reemplaza usuario con tu nombre de usuario):</p>
+                <div class="archivo">
+usuario ALL=(ALL) NOPASSWD: /usr/bin/podman
+                </div>
+                <p>Guarda y cierra el archivo. Ahora, Minikube debería poder ejecutar podman sin solicitar la contraseña de sudo.</p>
+                <p>❏ Luego intenta iniciar Minikube:</p>
+                
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9723;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">minikube</marcador> start <marcador class="param">--driver=podman</marcador></span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">😄  minikube v1.34.0 en Ubuntu 24.04
+✨  Using the podman driver based on existing profile
+👍  Starting "minikube" primary control-plane node in "minikube" cluster
+🚜  Pulling base image v0.0.45 ...
+E1110 13:59:06.019986	6223 cache.go:189] Error downloading kic artifacts:  not yet implemented, see issue #8426
+🔄  Restarting existing podman container for "minikube" ...
+🐳  Preparando Kubernetes v1.31.0 en Docker 27.2.0...
+🔎  Verifying Kubernetes components...
+    ▪ Using image gcr.io/k8s-minikube/storage-provisioner:v5
+🌟  Complementos habilitados: storage-provisioner, default-storageclass
+🏄  Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default                                
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Usa el siguiente comando en tu terminal para instalar kubectl:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="curl -LO &quot;https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl&quot; && chmod +x kubectl && sudo mv kubectl /usr/local/bin/" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Si prefieres usar un gestor de paquetes, puedes instalar kubectl de la siguiente manera, dependiendo de la distribución de Linux que uses.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        En Ubuntu/Debian:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="sudo apt update && sudo apt install -y kubectl" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>❏ Para verificar el estado del clúster de Minikube, puedes usar:</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9723;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">minikube</marcador> status <marcador class="param"></marcador></span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">minikube
+type: Control Plane
+host: Running
+kubelet: Running
+apiserver: Running
+kubeconfig: Configured                                                               
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>❏ Para verificar el estado de los nodos en Minikube, puedes usar:</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9723;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">kubectl</marcador> get nodes <marcador class="param"></marcador></span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">NAME   	    STATUS  ROLES       	AGE	    VERSION
+minikube    Ready	control-plane   2d4h    v1.31.0                                                             
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>Para configurar MongoDB en un entorno de Kubernetes, necesitas cuatro archivos de configuración en YAML para gestionar el despliegue y la comunicación del servicio en el clúster.</p>
+                <p>En el sitio web de <a href="https://kubernetes.io/docs/concepts/configuration/configmap/" target="blank">Kubernetes</a> está disponible la documentación que especifica el formato requerido para los archivos de configuración.</p>
+                <p>Estos archivos incluirán:</p>
+                <ol>
+                    <li><marcador class="resaltado11">ConfigMap: </marcador></li>
+                    <p>Almacena la URL de conexión (mongo-url) para MongoDB, que los pods pueden utilizar para conectarse al servicio de MongoDB en el clúster.</p>
+                    <div class="archivo">
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: mongo-config
+data:
+    mongo-url: mongo-service                        
+                    </div>
+                    <li><marcador class="resaltado11">Secret: </marcador></li>
+                    <p>Guarda el nombre de usuario (mongo-user) y la contraseña (mongo-password) de MongoDB en forma segura usando codificación base64, para proteger las credenciales.</p>
+                    <div class="archivo">
+apiVersion: v1
+kind: Secret
+metadata:
+    name: mongo-secret
+type: Opaque
+data:
+    mongo-user: bW9uZ291c2Vy
+    mongo-password: bW9uZ29wYXNzd29yZA==                       
+                    </div>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            Puedes generar los valores codificados en base64 con el siguiente comando:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="echo -n mongopassword | base64" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <li><marcador class="resaltado11">Deployment y Service de mongo: </marcador></li>
+                    <p>El deployment define el despliegue de MongoDB en un contenedor con una réplica, configurado para usar las credenciales almacenadas en el secreto mongo-secret.</p>
+                    <p>Luego service expone MongoDB dentro del clúster en el puerto 27017, permitiendo el acceso a otros pods usando el nombre de mongo-service.</p>
+                    <p>La imagen oficial de MongoDB está disponible en <a href="https://hub.docker.com/_/mongo/tags" target="blank">Docker Hub</a>, un repositorio de contenedores de uso común. Puedes obtenerla directamente desde Docker Hub usando la etiqueta de versión que desees, por ejemplo, mongo:5.0, mongo:6.0, o simplemente mongo para la última versión.</p>
+                    <div class="archivo">
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: mongo-deployment
+    labels:
+    app: mongo
+spec:
+    replicas: 1
+    selector:
+    matchLabels:
+        app: mongo
+    template:
+    metadata:
+        labels:
+        app: mongo
+    spec:
+        containers:
+        - name: mongodb
+        image: mongo:8.0.3
+        ports:
+        - containerPort: 27017
+        env:
+        - name: MONGO_INITDB_ROOT_USERNAME
+            valueFrom:
+            secretKeyRef:
+                name: mongo-secret
+                key: mongo-user
+        - name: MONGO_INITDB_ROOT_PASSWORD
+            valueFrom:
+            secretKeyRef:
+                name: mongo-secret
+                key: mongo-password  
+---
+apiVersion: v1
+kind: Service
+metadata:
+    name: mongo-service
+spec:
+    selector:
+    app: mongo
+    ports:
+    - protocol: TCP
+        port: 27017
+        targetPort: 27017                        
+                    </div>
+                    <p>Si tu aplicación MongoDB es no replicada y simplemente necesitas un contenedor con almacenamiento temporal (por ejemplo, para entornos de prueba o desarrollo), un Deployment podría ser suficiente. Sin embargo, para entornos de producción, o si necesitas replicación y persistencia, es mejor usar un StatefulSet.</p>
+                    <li><marcador class="resaltado11">Deployment y Service de nginx: </marcador></li>
+                    <p>Este archivo especifica el despliegue de un contenedor con la imagen de una webapp implementada en Nodejs y su configuración.</p>
+                    <p>Cuando la aplicación web se inicie, requerirá las credenciales de la base de datos para establecer la conexión. Esta información se gestionará como variables de entorno.</p>
+                    <p>En la configuración del servicio se definirá el puerto a través del cual se expondrá la aplicación web. La variable nodePort se utilizará para este propósito. Este número debe estar dentro del rango 30000-32767.</p>
+                    <div class="archivo">
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: webapp-deployment
+    labels:
+    app: webapp
+spec:
+    replicas: 1
+    selector:
+    matchLabels:
+        app: webapp
+    template:
+    metadata:
+        labels:
+        app: webapp
+    spec:
+        containers:
+        - name: webapp
+        image: nanajanashia/k8s-demo-app:v1.0
+        ports:
+        - containerPort: 3000
+        env:
+        - name: USER_NAME
+            valueFrom:
+            secretKeyRef:
+                name: mongo-secret
+                key: mongo-user
+        - name: USER_PWD
+            valueFrom:
+            secretKeyRef:
+                name: mongo-secret
+                key: mongo-password 
+        - name: DB_URL
+            valueFrom:
+            configMapKeyRef:
+                name: mongo-config
+                key: mongo-url
+---
+apiVersion: v1
+kind: Service
+metadata:
+    name: webapp-service
+spec:
+    type: NodePort
+    selector:
+    app: webapp
+    ports:
+    - protocol: TCP
+        port: 3000
+        targetPort: 3000
+        nodePort: 30100                        
+                    </div>
+                </ol>
+                <p>Ahora solo falta crear los recursos descritos en los archivos .yaml en el clúster de Kubernetes.</p>
+                <p>❏ ConfigMap</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9723;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">kubectl</marcador> apply <marcador class="param">-f</marcador> mongo-config.yaml</span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">configmap/mongo-config created                                                          
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>❏ Secret</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9723;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">kubectl</marcador> apply <marcador class="param">-f</marcador> mongo-secret.yaml</span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">configmap/mongo-secret created                                                          
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>❏ MongoDB</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9723;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">kubectl</marcador> apply <marcador class="param">-f</marcador> mongo.yaml</span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">deployment.apps/mongo-deployment created
+service/mongo-service created                                                                                      
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>❏ WebApp</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9723;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">kubectl</marcador> apply <marcador class="param">-f</marcador> webapp.yaml</span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">deployment.apps/webapp-deployment created
+service/webapp-service created                                                                                                             
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>❏ Para obtener una lista de todos los recursos principales en el clúster de Kubernetes.</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9723;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">kubectl</marcador> get all <marcador class="param"></marcador></span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">NAME                                 	READY   STATUS	    RESTARTS    AGE
+pod/mongo-deployment-79bc7948d8-cbdpn	1/1 	Running     0      	    4m11s
+pod/webapp-deployment-655ff6696b-np9bw  1/1 	Running     0      	    2m23s
+
+NAME                    TYPE            CLUSTER-IP      EXTERNAL-IP   PORT(S)             AGE
+service/kubernetes      ClusterIP       10.96.0.1       &lt;none&gt;        443/TCP             2d7h
+service/mongo-service   ClusterIP       10.105.110.78   &lt;none&gt;        27017/TCP           4m11s
+service/webapp-service  NodePort        10.102.40.177   &lt;none&gt;        3000:30100/TCP      2m23s
+
+NAME                            	READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/mongo-deployment	1/1 	1        	 1       	 4m11s
+deployment.apps/webapp-deployment   1/1 	1        	 1       	 2m23s
+
+NAME                                       	    DESIRED     CURRENT     READY   AGE
+replicaset.apps/mongo-deployment-79bc7948d8	    1     	    1     	    1   	4m11s
+replicaset.apps/webapp-deployment-655ff6696b    1     	    1     	    1   	2m23s                                                                                                                                            
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>❏ Para obtener una lista de todos los recursos principales en un clúster de Kubernetes.</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9723;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">kubectl</marcador> get pod <marcador class="param"></marcador></span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">NAME                             	READY   STATUS	    RESTARTS    AGE
+mongo-deployment-79bc7948d8-cbdpn	1/1 	Running     0      	    11m
+webapp-deployment-655ff6696b-np9bw  1/1 	Running     0      	    10m                                                                                                            
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>❏ Para obtener información detallada sobre un servicio específico en el clúster de Kubernetes.</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9723;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">kubectl</marcador> describe service webapp-service<marcador class="param"></marcador></span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">Name:                 	  webapp-service
+Namespace:            	  default
+Labels:               	  &lt;none&gt;
+Annotations:          	  &lt;none&gt;
+Selector:             	  app=webapp
+Type:                 	  NodePort
+IP Family Policy:     	  SingleStack
+IP Families:          	  IPv4
+IP:                   	  10.102.40.177
+IPs:                  	  10.102.40.177
+Port:                 	  &lt;unset&gt;  3000/TCP
+TargetPort:           	  3000/TCP
+NodePort:             	  &lt;unset&gt;  30100/TCP
+Endpoints:            	  10.244.0.5:3000
+Session Affinity:     	  None
+External Traffic Policy:  Cluster
+Internal Traffic Policy:  Cluster
+Events:               	  <none>                                                                                                          
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>❏ Para obtener información detallada sobre un pod específico en un clúster de Kubernetes.</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9723;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">kubectl</marcador> describe pod webapp-deployment-655ff6696b-np9bw <marcador class="param"></marcador></span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">Name:         	    webapp-deployment-655ff6696b-np9bw
+Namespace:    	    default
+Priority:     	    0
+Service Account:    default
+Node:         	    minikube/192.168.49.2
+Start Time:   	    Sun, 10 Nov 2024 17:38:10 -0600
+Labels:       	    app=webapp
+              	    pod-template-hash=655ff6696b
+Annotations:  	    &lt;none&gt;
+Status:       	    Running
+IP:           	    10.244.0.5
+IPs:
+  IP:       	    10.244.0.5
+Controlled By:      ReplicaSet/webapp-deployment-655ff6696b
+Containers:
+  webapp:
+	Container ID:   docker://9af2d3655f85f61e0e0f1adbac5e717b6b8003d658d6ec1fa42642538159681f
+	Image:      	nanajanashia/k8s-demo-app:v1.0
+	Image ID:   	docker-pullable://nanajanashia/k8s-demo-app@sha256:6f554135da39ac00a1c2f43e44c2b0b54ca13d3d8044da969361e7781adb7f95
+	Port:       	3000/TCP
+	Host Port:  	0/TCP
+	State:      	Running
+  	Started:  	    Sun, 10 Nov 2024 17:38:13 -0600
+	Ready:      	True
+	Restart Count:  0
+	Environment:
+  	USER_NAME:      &lt;set to the key 'mongo-user' in secret 'mongo-secret'&gt;  	Optional: false
+  	USER_PWD:       &lt;set to the key 'mongo-password' in secret 'mongo-secret'&gt;  Optional: false
+  	DB_URL: 	    &lt;set to the key 'mongo-url' of config map 'mongo-config'&gt;   Optional: false
+	Mounts:
+  	/var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-jlhs4 (ro)
+Conditions:
+  Type                    	  Status
+  PodReadyToStartContainers   True
+  Initialized             	  True
+  Ready                   	  True
+
+. . . [ snip ] . . .                                                                                                          
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>❏ Para ver los logs de un pod específico en un clúster de Kubernetes.</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9723;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">kubectl</marcador> logs webapp-deployment-655ff6696b-np9bw<marcador class="param"></marcador></span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">app listening on port 3000!                                                                                                           
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>❏ Para listar todos los servicios en el clúster de Kubernetes dentro del namespace predeterminado.</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9723;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">kubectl</marcador> get svc<marcador class="param"></marcador></span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">NAME         	TYPE    	CLUSTER-IP  	EXTERNAL-IP   PORT(S)      	   AGE
+kubernetes   	ClusterIP   10.96.0.1   	&lt;none&gt;    	  443/TCP      	   2d8h
+mongo-service	ClusterIP   10.105.110.78   &lt;none&gt;    	  27017/TCP    	   37m
+webapp-service   NodePort	10.102.40.177   &lt;none&gt;    	  3000:30100/TCP   35m                                                                                                                                     
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>❏ Para obtener la dirección IP de la máquina virtual (VM) que ejecuta el clúster de Minikube.</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9723;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">minikube</marcador> ip<marcador class="param"></marcador></span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">192.168.49.2                                                                                                                                     
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>❏ Para obtener una vista más completa de los nodos y ver detalles como las direcciones IP y las versiones del sistema operativo y de Kubernetes que están utilizando.</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9723;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">kubectl</marcador> get node<marcador class="param">-o</marcador> wide</span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">NAME        STATUS  ROLES           AGE     VERSION   INTERNAL-IP   EXTERNAL-IP     OS-IMAGE            KERNEL-VERSION      CONTAINER-RUNTIME
+minikube    Ready   control-plane   2d8h    v1.31.0   192.168.49.2  &lt;none&gt;          Ubuntu 22.04.4 LTS  6.8.0-48-generic    docker://27.2.0                                                                                                                                     
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>❏ Puedes acceder a tu aplicación web desplegada en Minikube utilizando la IP proporcionada por minikube ip junto con el puerto expuesto de tu Service o Deployment.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Para eliminar todos los servicios:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="kubectl delete svc --all" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>               
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Para eliminar todos los deployments:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="kubectl delete deployment --all" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>             
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Para eliminar todos los ConfigMaps:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="kubectl delete configmap --all" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>               
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Para eliminar todos los Secrets:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="kubectl delete secret --all" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>               
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Usa el siguiente comando en tu terminal para verificar que todos los recursos se eliminaron:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="kubectl get all" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="blog-image-grande">
+                    <img src="media/kubernetes14.png" alt="">
+                </div>
+                <h2>Proyecto Básico</h2>
+                <ol>
+                    <li><marcador class="resaltado8">Iniciar Minikube: </marcador>Ejecuta el comando <marcador class="subrayado">minikube start</marcador> para levantar el clúster en tu máquina local.</li>
+                    <li><marcador class="resaltado8">Crear un Archivo YAML para un Deployment: </marcador>Definimos un archivo <marcador class="resaltado1">deployment.yaml</marcador> que describe un Deployment con una imagen de Nginx:</li>
+                    <div class="archivo">
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: nginx-deployment
+spec:
+    replicas: 2
+    selector:
+    matchLabels:
+        app: nginx
+    template:
+    metadata:
+        labels:
+        app: nginx
+    spec:
+        containers:
+        - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80           
+                    </div>
+                    <li><marcador class="resaltado8">Aplicar el YAML con kubectl: </marcador>Ejecuta <marcador class="subrayado">kubectl apply -f deployment.yaml</marcador> para crear el Deployment en el clúster de Minikube. Esto iniciará dos réplicas de Nginx según lo especificado en el archivo.</li>
+                    <li><marcador class="resaltado8">Verificar el Estado del Deployment: </marcador>Usa <marcador class="subrayado">kubectl get deployments</marcador> y <marcador class="subrayado">kubectl get pods</marcador> para ver el estado del Deployment y sus Pods. También puedes observar los detalles de cada Pod y su asignación de IP dentro del clúster.</li>
+                    <li><marcador class="resaltado8">Exponer el Servicio: </marcador>Para acceder a la aplicación Nginx desde el navegador, crea un Service para exponer el Deployment.</li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            Ejecuta:
+                        </div>
+                        <div class="comandos">
+                          <input type="text" class="text" value="kubectl expose deployment nginx-deployment --type=NodePort --port=80" oninput="ajustarAncho(this)">
+                          <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Luego, usa <marcador class="subrayado">minikube service nginx-deployment</marcador> para abrir el servicio en el navegador. Minikube asignará un puerto accesible localmente.</p>
+                    <li><marcador class="resaltado8">Escalar el Deployment: </marcador>Supongamos que necesitas aumentar la capacidad. Ejecuta el comando <marcador class="subrayado">kubectl scale deployment nginx-deployment --replicas=4</marcador> para escalar a cuatro réplicas. Esto reflejará la capacidad de Kubernetes para escalar aplicaciones de manera eficiente.</li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            Usa el siguiente comando en tu terminal para verificar que la app fue escalada con éxito:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="kubectl get all" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <li><marcador class="resaltado8">Detener Minikube: </marcador>Cuando termines, ejecuta <marcador class="subrayado">minikube stop</marcador> para detener el clúster y liberar los recursos de tu máquina.</li>
+                </ol>
+                <p>Minikube permite levantar un clúster de Kubernetes completo en una sola máquina, y kubectl ofrece el control y administración necesarios para desplegar, escalar y gestionar aplicaciones dentro del clúster. Al combinar Minikube y kubectl, los desarrolladores pueden simular con precisión configuraciones de producción y experimentar con los componentes de Kubernetes sin costos adicionales en infraestructura de nube.</p>
+                <div class="blog-image-grande">
+                    <img src="media/kubernetes1.png" alt="">
+                </div>
+            </div>
+        </div>       
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
