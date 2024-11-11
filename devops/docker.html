@@ -323,6 +323,42 @@
 [registries.search]
 registries = ['docker.io']
                 </div>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9723;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">podman</marcador> <marcador class="param">--help</marcador></span>    
+                        <span id="terminal__prompt--cursor"></span>
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">Manage pods, containers and images
+
+Usage:
+    podman [options] [command]
+
+Available Commands:
+    attach      Attach to a running container
+    auto-update Auto update containers according to their auto-update policy
+    build       Build an image using instructions from Containerfiles
+    commit      Create new image based on the changed container
+    compose     Run compose workloads via an external provider such as docker-compose or podman-compose
+    container   Manage containers
+    cp          Copy files/folders between a container and the local filesystem
+    create      Create but do not start a container
+    diff        Display the changes to the object's file system
+    events      Show podman system events
+    exec        Run a process in a running container                                
+                            </span>
+                        </div>
+                    </section>
+                </div>
                 <p>❏ Después de haber actualizado el archivo de configuración, puedes intentar nuevamente tirar la imagen de Jenkins:</p>
                 <div id="terminal">
                     <section id="terminal__bar">
@@ -335,12 +371,10 @@ registries = ['docker.io']
                     </section>
                     <section id="terminal__body">
                         <div id="terminal__prompt">
-                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</Dentro del archivo, asegúrate de tener algo como esto bajo la sección [registries.search]:marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">podman</marcador> <marcador class="param">pull</marcador> jenkins/jenkins</span>    
-                        <span id="terminal__prompt--cursor"></span>
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">podman</marcador> <marcador class="param">pull</marcador> jenkins/jenkins</span>    
                         </div>
                         <div class="command-response-container">
-                            <span id="terminal__prompt--response" class="multiline-text">
-Trying to pull docker.io/jenkins/jenkins:latest...
+                            <span id="terminal__prompt--response" class="multiline-text">Trying to pull docker.io/jenkins/jenkins:latest...
 Getting image source signatures
 Copying blob efcf9cb62df3 done   | 
 Copying blob d60eb3dc3297 done   | 
@@ -373,13 +407,10 @@ Writing manifest to image destination
                     </section>
                     <section id="terminal__body">
                         <div id="terminal__prompt">
-                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">podman</marcador> <marcador class="param">images</marcador></span>
-                        
-    
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">podman</marcador> <marcador class="param">images</marcador></span>   
                         </div>
                         <div class="command-response-container">
-                            <span id="terminal__prompt--response" class="multiline-text">
-REPOSITORY                 TAG         IMAGE ID      CREATED       SIZE
+                            <span id="terminal__prompt--response" class="multiline-text">REPOSITORY                 TAG         IMAGE ID      CREATED       SIZE
 docker.io/jenkins/jenkins  latest      32808093ffc9  31 hours ago  482 MB                                
                             </span>
                         </div>
@@ -402,8 +433,7 @@ docker.io/jenkins/jenkins  latest      32808093ffc9  31 hours ago  482 MB
     
                         </div>
                         <div class="command-response-container">
-                            <span id="terminal__prompt--response" class="multiline-text">
-[
+                            <span id="terminal__prompt--response" class="multiline-text">[
     {
             "Id": "32808093ffc9282c19f3955d10b94e78c806a0c670d7dfcfa00093f0dc4f3109",
             "Digest": "sha256:61ab9ddcd44e526858efecf7ccdf3e26352b08c4d19a3fce0318f0bd5edda2dd",
@@ -469,8 +499,7 @@ docker.io/jenkins/jenkins  latest      32808093ffc9  31 hours ago  482 MB
     
                         </div>
                         <div class="command-response-container">
-                            <span id="terminal__prompt--response" class="multiline-text">
-jenkins@2f23f8238fb9:/$ whoami
+                            <span id="terminal__prompt--response" class="multiline-text">jenkins@2f23f8238fb9:/$ whoami
 jenkins
 jenkins@2f23f8238fb9:/$                                 
                             </span>
@@ -494,8 +523,7 @@ jenkins@2f23f8238fb9:/$
     
                         </div>
                         <div class="command-response-container">
-                            <span id="terminal__prompt--response" class="multiline-text">
-d92e4cf14ec1b8ce059381e0be0ee6fe6558a39f488d9aaa7fc864bbbb2df389
+                            <span id="terminal__prompt--response" class="multiline-text">d92e4cf14ec1b8ce059381e0be0ee6fe6558a39f488d9aaa7fc864bbbb2df389
                             </span>
                         </div>
                     </section>
@@ -517,8 +545,7 @@ d92e4cf14ec1b8ce059381e0be0ee6fe6558a39f488d9aaa7fc864bbbb2df389
     
                         </div>
                         <div class="command-response-container">
-                            <span id="terminal__prompt--response" class="multiline-text">
-CONTAINER ID  IMAGE                             COMMAND     CREATED             STATUS             PORTS                                                                  NAMES
+                            <span id="terminal__prompt--response" class="multiline-text">CONTAINER ID  IMAGE                             COMMAND     CREATED             STATUS             PORTS                                                                  NAMES
 d92e4cf14ec1  docker.io/jenkins/jenkins:latest              About a minute ago  Up About a minute  0.0.0.0:8080->8080/tcp, 0.0.0.0:50000->50000/tcp, 8080/tcp, 50000/tcp  jenkins
                             </span>
                         </div>
@@ -542,8 +569,7 @@ d92e4cf14ec1  docker.io/jenkins/jenkins:latest              About a minute ago  
     
                         </div>
                         <div class="command-response-container">
-                            <span id="terminal__prompt--response" class="multiline-text">
-. . . [ snip ] . . .  
+                            <span id="terminal__prompt--response" class="multiline-text">. . . [ snip ] . . .  
 2024-10-24 03:31:41.979+0000 [id=35]    INFO    jenkins.InitReactorRunner$1#onAttained: Configuration for all jobs updated
 2024-10-24 03:31:42.041+0000 [id=51]    INFO    hudson.util.Retrier#start: Attempt #1 to do the action check updates server
 2024-10-24 03:31:42.603+0000 [id=35]    INFO    jenkins.install.SetupWizard#init: 
@@ -586,8 +612,7 @@ This may also be found at: /var/jenkins_home/secrets/initialAdminPassword
                         
     
                         </div>
-                        <div class="command-response-container">
-jenkins
+                        <div class="command-response-container">jenkins
                             </span>
                         </div>
                     </section>
@@ -609,8 +634,7 @@ jenkins
     
                         </div>
                         <div class="command-response-container">
-                            <span id="terminal__prompt--response" class="multiline-text">
-jenkins
+                            <span id="terminal__prompt--response" class="multiline-text">jenkins
                             </span>
                         </div>
                     </section>
