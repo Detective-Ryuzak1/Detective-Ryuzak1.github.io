@@ -767,7 +767,7 @@ spec:
         targetPort: 27017                        
                     </div>
                     <p>Si tu aplicación MongoDB es no replicada y simplemente necesitas un contenedor con almacenamiento temporal (por ejemplo, para entornos de prueba o desarrollo), un Deployment podría ser suficiente. Sin embargo, para entornos de producción, o si necesitas replicación y persistencia, es mejor usar un StatefulSet.</p>
-                    <li><marcador class="resaltado11">Deployment y Service de nginx: </marcador></li>
+                    <li><marcador class="resaltado11">Deployment y Service de la AppWeb: </marcador></li>
                     <p>Este archivo especifica el despliegue de un contenedor con la imagen de una webapp implementada en Nodejs y su configuración.</p>
                     <p>Cuando la aplicación web se inicie, requerirá las credenciales de la base de datos para establecer la conexión. Esta información se gestionará como variables de entorno.</p>
                     <p>En la configuración del servicio se definirá el puerto a través del cual se expondrá la aplicación web. La variable nodePort se utilizará para este propósito. Este número debe estar dentro del rango 30000-32767.</p>
