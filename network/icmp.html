@@ -58,13 +58,13 @@
                 </div>
                 <h2>Encabezado ICMP y Códigos</h2>
                 <p>El encabezado ICMP consta de varias partes esenciales que permiten a los dispositivos de red comunicarse y diagnosticar problemas en la red. Además del campo "Type" (Tipo), también está el campo "Code" (Código), que proporciona información adicional sobre la naturaleza específica del mensaje ICMP.</p>
-                <ul>
-                    <li><marcador class="resaltado4">Tipo 0 (Echo Reply):</marcador> Utilizado para responder a los mensajes de solicitud de eco (ping).</li>
-                    <li><marcador class="resaltado4">Tipo 3 (Destino inalcanzable):</marcador> Indica que la máquina de destino no es accesible o que un puerto específico en el destino no está disponible.</li>
-                    <li><marcador class="resaltado4">Tipo 8 (Solicitud de eco - Ping):</marcador> Se utiliza para verificar la conectividad entre dos dispositivos enviando un paquete de solicitud de eco y esperando una respuesta.</li>
-                    <li><marcador class="resaltado4">Tipo 11 (Tiempo excedido):</marcador> Indica que el paquete IP no pudo ser entregado dentro del tiempo esperado.</li>
-                    <li><marcador class="resaltado4">Tipo 13 (Timestamp Request):</marcador> Solicita que el host destino responda con su hora actual.</li>
-                    <li><marcador class="resaltado4">Tipo 14 (Timestamp Reply):</marcador> Respuesta a una solicitud de marca de tiempo.</li>
+                <ul style="list-style-type: none;">
+                    <li>🔻 <marcador class="resaltado4">Tipo 0 (Echo Reply):</marcador> Utilizado para responder a los mensajes de solicitud de eco (ping).</li>
+                    <li>🔻 <marcador class="resaltado4">Tipo 3 (Destino inalcanzable):</marcador> Indica que la máquina de destino no es accesible o que un puerto específico en el destino no está disponible.</li>
+                    <li>🔻 <marcador class="resaltado4">Tipo 8 (Solicitud de eco - Ping):</marcador> Se utiliza para verificar la conectividad entre dos dispositivos enviando un paquete de solicitud de eco y esperando una respuesta.</li>
+                    <li>🔻 <marcador class="resaltado4">Tipo 11 (Tiempo excedido):</marcador> Indica que el paquete IP no pudo ser entregado dentro del tiempo esperado.</li>
+                    <li>🔻 <marcador class="resaltado4">Tipo 13 (Timestamp Request):</marcador> Solicita que el host destino responda con su hora actual.</li>
+                    <li>🔻 <marcador class="resaltado4">Tipo 14 (Timestamp Reply):</marcador> Respuesta a una solicitud de marca de tiempo.</li>
                 </ul>
                 <div class="blog-image-grande">
                     <img src="media/protocolos1.png" alt="">
@@ -150,14 +150,14 @@
                 <p>+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</p>
                 <p>El valor en el campo "Tipo" es 3 para indicar "Destino inalcanzable", y el valor en el campo "Code" es 0 para indicar "Red inalcanzable". El campo de suma de comprobación contendría el valor calculado para garantizar la integridad del paquete, y los datos adicionales podrían incluir información adicional sobre la red inalcanzable.</p>
                 <h2>Ataques Relacionados a ICMP</h2>
-                <p><marcador class="resaltado5">Ping of Death:</marcador> El ataque Ping of Death es un ataque de denegación de servicio (DoS) que explota vulnerabilidades en la implementación de ICMP. Consiste en enviar paquetes ICMP de tamaño excesivamente grande, lo que lleva a que el sistema objetivo no pueda manejarlos y se bloquee. Esto se debe a que muchos sistemas operativos no estaban preparados para manejar paquetes ICMP que superaran cierto tamaño.</p>
-                <p><marcador class="resaltado5">Ataque Smurf:</marcador> El ataque Smurf aprovecha la funcionalidad de difusión (broadcast) de las redes. El atacante envía paquetes ICMP de solicitud de eco (ping) con la dirección IP de la víctima como dirección de origen, a una red que permite la difusión. Esto provoca que todos los sistemas en esa red respondan al ping y saturen la víctima con respuestas, abrumando su capacidad de red.</p>
+                <p>✖ <marcador class="resaltado5">Ping of Death:</marcador> El ataque Ping of Death es un ataque de denegación de servicio (DoS) que explota vulnerabilidades en la implementación de ICMP. Consiste en enviar paquetes ICMP de tamaño excesivamente grande, lo que lleva a que el sistema objetivo no pueda manejarlos y se bloquee. Esto se debe a que muchos sistemas operativos no estaban preparados para manejar paquetes ICMP que superaran cierto tamaño.</p>
+                <p>✖ <marcador class="resaltado5">Ataque Smurf:</marcador> El ataque Smurf aprovecha la funcionalidad de difusión (broadcast) de las redes. El atacante envía paquetes ICMP de solicitud de eco (ping) con la dirección IP de la víctima como dirección de origen, a una red que permite la difusión. Esto provoca que todos los sistemas en esa red respondan al ping y saturen la víctima con respuestas, abrumando su capacidad de red.</p>
                 <ol>
                     <li>El atacante envía una gran cantidad de paquetes ICMP de solicitud de eco a una red que permite la difusión, utilizando la dirección IP de la víctima como dirección de origen.</li>
                     <li>Todos los sistemas en la red responden al ping, generando una gran cantidad de tráfico hacia la dirección IP de la víctima.</li>
                     <li>La víctima se ve abrumada por la cantidad de respuestas y sufre una denegación de servicio.</li>
                 </ol>
-                <p><marcador class="resaltado5">Ataque DDoS:</marcador> En los ataques de denegación de servicio distribuido (DDoS), los atacantes utilizan una red de dispositivos comprometidos para inundar un objetivo con una gran cantidad de tráfico. Los ataques DDoS también pueden involucrar paquetes ICMP, generando un alto volumen de tráfico ICMP para saturar los recursos del objetivo y hacer que sea inaccesible.</p>
+                <p>✖ <marcador class="resaltado5">Ataque DDoS:</marcador> En los ataques de denegación de servicio distribuido (DDoS), los atacantes utilizan una red de dispositivos comprometidos para inundar un objetivo con una gran cantidad de tráfico. Los ataques DDoS también pueden involucrar paquetes ICMP, generando un alto volumen de tráfico ICMP para saturar los recursos del objetivo y hacer que sea inaccesible.</p>
                 <ol>
                     <li>Un atacante controla una botnet (red de dispositivos comprometidos).</li>
                     <li>La botnet envía una gran cantidad de paquetes ICMP a un objetivo específico.</li>

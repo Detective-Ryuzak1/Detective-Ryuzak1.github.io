@@ -83,16 +83,16 @@
                 </div>
                 <h2>Estructura del Encabezado ARP</h2>
                 <p>El encabezado ARP consta de varios campos que permiten la resolución de direcciones de manera efectiva. Aquí están los campos principales del encabezado ARP:</p>
-                <ul>
-                    <li><marcador class="resaltado4">Tipo de hardware:</marcador> Indica el tipo de medio de transmisión utilizado en la red, como Ethernet.</li>
-                    <li><marcador class="resaltado4">Tipo de protocolo:</marcador> Indica el protocolo de capa superior que se utilizará, generalmente IPv4.</li>
-                    <li><marcador class="resaltado4">Longitud de dirección de hardware:</marcador> Especifica la longitud de las direcciones físicas en bytes.</li>
-                    <li><marcador class="resaltado4">Longitud de dirección de protocolo:</marcador> Especifica la longitud de las direcciones IP en bytes.</li>
-                    <li><marcador class="resaltado4">Código de operación:</marcador> Indica si la solicitud ARP es una solicitud (1) o una respuesta (2).</li>
-                    <li><marcador class="resaltado4">Dirección de hardware del remitente:</marcador> Contiene la dirección MAC del remitente.</li>
-                    <li><marcador class="resaltado4">Dirección de protocolo del remitente:</marcador> Contiene la dirección IP del remitente.</li>
-                    <li><marcador class="resaltado4">Dirección de hardware del destino:</marcador> Se llena solo en las respuestas ARP, contiene la dirección MAC del destinatario.</li>
-                    <li><marcador class="resaltado4">Dirección de protocolo del destino:</marcador> Contiene la dirección IP del destinatario.</li>
+                <ul style="list-style-type: none;">
+                    <li>🔻 <marcador class="resaltado4">Tipo de hardware:</marcador> Indica el tipo de medio de transmisión utilizado en la red, como Ethernet.</li>
+                    <li>🔻 <marcador class="resaltado4">Tipo de protocolo:</marcador> Indica el protocolo de capa superior que se utilizará, generalmente IPv4.</li>
+                    <li>🔻 <marcador class="resaltado4">Longitud de dirección de hardware:</marcador> Especifica la longitud de las direcciones físicas en bytes.</li>
+                    <li>🔻 <marcador class="resaltado4">Longitud de dirección de protocolo:</marcador> Especifica la longitud de las direcciones IP en bytes.</li>
+                    <li>🔻 <marcador class="resaltado4">Código de operación:</marcador> Indica si la solicitud ARP es una solicitud (1) o una respuesta (2).</li>
+                    <li>🔻 <marcador class="resaltado4">Dirección de hardware del remitente:</marcador> Contiene la dirección MAC del remitente.</li>
+                    <li>🔻 <marcador class="resaltado4">Dirección de protocolo del remitente:</marcador> Contiene la dirección IP del remitente.</li>
+                    <li>🔻 <marcador class="resaltado4">Dirección de hardware del destino:</marcador> Se llena solo en las respuestas ARP, contiene la dirección MAC del destinatario.</li>
+                    <li>🔻 <marcador class="resaltado4">Dirección de protocolo del destino:</marcador> Contiene la dirección IP del destinatario.</li>
                 </ul>
                 <div class="blog-image-grande">
                     <img src="media/protocolos5.png" alt="">
@@ -115,12 +115,12 @@
                     </div>
                 </div>
                 <h2>Ataques Relacionados a ARP</h2>
-                <p><marcador class="resaltado5">ARP Spoofing (ARP Poisoning):</marcador> En este ataque, un atacante envía mensajes ARP falsificados a los dispositivos en la red para asociar su dirección MAC con la dirección IP de otro dispositivo legítimo. Esto puede hacer que el tráfico de red pase por el atacante, lo que le permite interceptar y analizar el tráfico. También puede llevar a la suplantación de identidad.</p>
-                <p><marcador class="resaltado5">ARP Cache Poisoning:</marcador> Similar al ARP Spoofing, este ataque implica enviar respuestas ARP falsas a los dispositivos de la red, en un intento de corromper sus tablas de caché ARP. Esto puede causar que los dispositivos legítimos se comuniquen con el atacante en lugar del dispositivo real al que estaban intentando acceder.</p>
-                <p><marcador class="resaltado5">ARP DOS (Denial of Service):</marcador> Los atacantes pueden inundar la red con mensajes ARP falsos o repetidos, lo que puede abrumar las tablas ARP de los dispositivos, causando una degradación del rendimiento o incluso una interrupción completa del tráfico de red.</p>
-                <p><marcador class="resaltado5">ARP MiTM (Man-in-the-Middle):</marcador> En este escenario, el atacante intercepta el tráfico entre dos dispositivos legítimos. Esto se logra al enviar mensajes ARP falsificados a ambas partes, lo que hace que crean que están comunicándose directamente entre sí mientras el atacante actúa como intermediario.</p>
-                <p><marcador class="resaltado5">ARP Hijacking:</marcador> En lugar de interceptar el tráfico, un atacante puede reemplazar la dirección MAC de una máquina legítima en la tabla ARP de un dispositivo objetivo con su propia dirección MAC. Esto permite al atacante recibir el tráfico destinado a la máquina legítima.</p>
-                <p><marcador class="resaltado5">ARP-Based VLAN Hopping:</marcador> En este ataque, el atacante manipula las tablas ARP para moverse entre VLANs a las que normalmente no tendría acceso, lo que puede exponer segmentos de red sensibles.</p>   
+                <p>✖ <marcador class="resaltado5">ARP Spoofing (ARP Poisoning):</marcador> En este ataque, un atacante envía mensajes ARP falsificados a los dispositivos en la red para asociar su dirección MAC con la dirección IP de otro dispositivo legítimo. Esto puede hacer que el tráfico de red pase por el atacante, lo que le permite interceptar y analizar el tráfico. También puede llevar a la suplantación de identidad.</p>
+                <p>✖ <marcador class="resaltado5">ARP Cache Poisoning:</marcador> Similar al ARP Spoofing, este ataque implica enviar respuestas ARP falsas a los dispositivos de la red, en un intento de corromper sus tablas de caché ARP. Esto puede causar que los dispositivos legítimos se comuniquen con el atacante en lugar del dispositivo real al que estaban intentando acceder.</p>
+                <p>✖ <marcador class="resaltado5">ARP DOS (Denial of Service):</marcador> Los atacantes pueden inundar la red con mensajes ARP falsos o repetidos, lo que puede abrumar las tablas ARP de los dispositivos, causando una degradación del rendimiento o incluso una interrupción completa del tráfico de red.</p>
+                <p>✖ <marcador class="resaltado5">ARP MiTM (Man-in-the-Middle):</marcador> En este escenario, el atacante intercepta el tráfico entre dos dispositivos legítimos. Esto se logra al enviar mensajes ARP falsificados a ambas partes, lo que hace que crean que están comunicándose directamente entre sí mientras el atacante actúa como intermediario.</p>
+                <p>✖ <marcador class="resaltado5">ARP Hijacking:</marcador> En lugar de interceptar el tráfico, un atacante puede reemplazar la dirección MAC de una máquina legítima en la tabla ARP de un dispositivo objetivo con su propia dirección MAC. Esto permite al atacante recibir el tráfico destinado a la máquina legítima.</p>
+                <p>✖ <marcador class="resaltado5">ARP-Based VLAN Hopping:</marcador> En este ataque, el atacante manipula las tablas ARP para moverse entre VLANs a las que normalmente no tendría acceso, lo que puede exponer segmentos de red sensibles.</p>   
                 <div class="blog-image-zoom">
                     <img src="media/protocolo6.jpg" alt="">
                 </div>

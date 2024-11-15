@@ -86,20 +86,20 @@
                 </ul>
                 <h2>Header</h2>
                 <p>La cabecera de un paquete IPv4 consta de varios campos que se utilizan para controlar y dirigir el tráfico de red.</p>
-                <ul>
-                    <li><marcador class="resaltado4">Versión:</marcador> Indica la versión del protocolo IP utilizado, y generalmente es "4" para IPv4.</li>
-                    <li><marcador class="resaltado4">Longitud de cabecera:</marcador> Indica el tamaño de la cabecera en palabras de 32 bits. Este campo es importante ya que la cabecera puede variar en tamaño debido a la presencia de opciones adicionales.</li>
-                    <li><marcador class="resaltado4">Tipo de servicio:</marcador> Define el tipo de servicio que se debe dar a este paquete en términos de prioridad y calidad de servicio.</li>
-                    <li><marcador class="resaltado4">Longitud total:</marcador> Especifica la longitud total del paquete IPv4, incluyendo la cabecera y los datos.</li>
-                    <li><marcador class="resaltado4">Identificación:</marcador> Identifica de manera única cada paquete que se envía desde un host a otro. Se utiliza para ayudar en la reensamblaje de paquetes.</li>
-                    <li><marcador class="resaltado4">Banderas:</marcador> Estos son indicadores de control utilizados durante el proceso de fragmentación de paquetes.</li>
-                    <li><marcador class="resaltado4">Desplazamiento de fragmento:</marcador> Indica la posición del fragmento en el datagrama original, útil para el proceso de reensamblaje en el destino.</li>
-                    <li><marcador class="resaltado4">Tiempo de vida:</marcador> Especifica el tiempo máximo que el paquete puede permanecer en la red antes de ser descartado. Se utiliza para evitar que los paquetes queden atrapados en bucles infinitos.</li>
-                    <li><marcador class="resaltado4">Protocolo:</marcador> Identifica el protocolo de nivel superior que está utilizando el paquete encapsulado. Puede ser TCP, UDP, ICMP, entre otros.</li>
-                    <li><marcador class="resaltado4">Suma de comprobación:</marcador>Suma de comprobación: Se utiliza para verificar si la cabecera del paquete IP contiene errores.</li>
-                    <li><marcador class="resaltado4">Dirección de origen:</marcador> Es la dirección IP del remitente.</li>
-                    <li><marcador class="resaltado4">Dirección de destino:</marcador> Es la dirección IP del receptor.</li>
-                    <li><marcador class="resaltado4">Opciones:</marcador> Este campo es opcional y se utiliza para agregar funcionalidades adicionales a la cabecera, como la marca de tiempo, registro de ruta, seguridad, etc.</li>
+                <ul style="list-style-type: none;">
+                    <li>🔻 <marcador class="resaltado4">Versión:</marcador> Indica la versión del protocolo IP utilizado, y generalmente es "4" para IPv4.</li>
+                    <li>🔻 <marcador class="resaltado4">Longitud de cabecera:</marcador> Indica el tamaño de la cabecera en palabras de 32 bits. Este campo es importante ya que la cabecera puede variar en tamaño debido a la presencia de opciones adicionales.</li>
+                    <li>🔻 <marcador class="resaltado4">Tipo de servicio:</marcador> Define el tipo de servicio que se debe dar a este paquete en términos de prioridad y calidad de servicio.</li>
+                    <li>🔻 <marcador class="resaltado4">Longitud total:</marcador> Especifica la longitud total del paquete IPv4, incluyendo la cabecera y los datos.</li>
+                    <li>🔻 <marcador class="resaltado4">Identificación:</marcador> Identifica de manera única cada paquete que se envía desde un host a otro. Se utiliza para ayudar en la reensamblaje de paquetes.</li>
+                    <li>🔻 <marcador class="resaltado4">Banderas:</marcador> Estos son indicadores de control utilizados durante el proceso de fragmentación de paquetes.</li>
+                    <li>🔻 <marcador class="resaltado4">Desplazamiento de fragmento:</marcador> Indica la posición del fragmento en el datagrama original, útil para el proceso de reensamblaje en el destino.</li>
+                    <li>🔻 <marcador class="resaltado4">Tiempo de vida:</marcador> Especifica el tiempo máximo que el paquete puede permanecer en la red antes de ser descartado. Se utiliza para evitar que los paquetes queden atrapados en bucles infinitos.</li>
+                    <li>🔻 <marcador class="resaltado4">Protocolo:</marcador> Identifica el protocolo de nivel superior que está utilizando el paquete encapsulado. Puede ser TCP, UDP, ICMP, entre otros.</li>
+                    <li>🔻 <marcador class="resaltado4">Suma de comprobación:</marcador>Suma de comprobación: Se utiliza para verificar si la cabecera del paquete IP contiene errores.</li>
+                    <li>🔻 <marcador class="resaltado4">Dirección de origen:</marcador> Es la dirección IP del remitente.</li>
+                    <li>🔻 <marcador class="resaltado4">Dirección de destino:</marcador> Es la dirección IP del receptor.</li>
+                    <li>🔻 <marcador class="resaltado4">Opciones:</marcador> Este campo es opcional y se utiliza para agregar funcionalidades adicionales a la cabecera, como la marca de tiempo, registro de ruta, seguridad, etc.</li>
                 </ul>
                 <div class="blog-image-normal">
                     <img src="media/ipv4-6.png" alt="">
@@ -133,35 +133,35 @@
                 <br>
                 <ol>
                     <li><marcador class="resaltado15">Finanzas (Requiere 14 direcciones IP):</marcador></li>
-                    <ul style="list-style-type: square;">
-                        <li><marcador class="resaltado8">Máscara de Subred:</marcador> Necesitas al menos 14 direcciones disponibles, por lo que usamos los primeros 4 bits del último octeto (los primeros cuatro bits en el tercer octeto) para los hosts. La máscara de subred sería 11111111.11111111.11111111.1111 0000 en binario o /28 en notación CIDR.</li>
-                        <li><marcador class="resaltado8">Dirección de Red:</marcador> 192.168.1.0/28. Los últimos 4 bits son ceros (dirección de red).</li>
-                        <li><marcador class="resaltado8">Dirección de Broadcast:</marcador> 192.168.1.15/28. Los últimos 4 bits son unos (dirección de broadcast).</li>
-                        <li><marcador class="resaltado8">Rango Utilizable:</marcador> Desde 192.168.1.1 hasta 192.168.1.14.</li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">Máscara de Subred:</marcador> Necesitas al menos 14 direcciones disponibles, por lo que usamos los primeros 4 bits del último octeto (los primeros cuatro bits en el tercer octeto) para los hosts. La máscara de subred sería 11111111.11111111.11111111.1111 0000 en binario o /28 en notación CIDR.</li>
+                        <li>∘ <marcador class="resaltado8">Dirección de Red:</marcador> 192.168.1.0/28. Los últimos 4 bits son ceros (dirección de red).</li>
+                        <li>∘ <marcador class="resaltado8">Dirección de Broadcast:</marcador> 192.168.1.15/28. Los últimos 4 bits son unos (dirección de broadcast).</li>
+                        <li>∘ <marcador class="resaltado8">Rango Utilizable:</marcador> Desde 192.168.1.1 hasta 192.168.1.14.</li>
                     </ul>
                     <br>
                     <li><marcador class="resaltado15">Recursos Humanos (RH) (Requiere 14 direcciones IP):</marcador></li>
-                    <ul style="list-style-type: square;">
-                        <li><marcador class="resaltado8">Máscara de Subred:</marcador> Necesitas al menos 14 direcciones disponibles. Usamos los primeros 4 bits del último octeto para los hosts. La máscara de subred sería 11111111.11111111.11111111.1111 0000 en binario o /28 en notación CIDR.</li>
-                        <li><marcador class="resaltado8">Dirección de Red:</marcador> 192.168.1.16/28.</li>
-                        <li><marcador class="resaltado8">Dirección de Broadcast:</marcador> 192.168.1.31/28.</li>
-                        <li><marcador class="resaltado8">Rango Utilizable:</marcador> Desde 192.168.1.17 hasta 192.168.1.30.</li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">Máscara de Subred:</marcador> Necesitas al menos 14 direcciones disponibles. Usamos los primeros 4 bits del último octeto para los hosts. La máscara de subred sería 11111111.11111111.11111111.1111 0000 en binario o /28 en notación CIDR.</li>
+                        <li>∘ <marcador class="resaltado8">Dirección de Red:</marcador> 192.168.1.16/28.</li>
+                        <li>∘ <marcador class="resaltado8">Dirección de Broadcast:</marcador> 192.168.1.31/28.</li>
+                        <li>∘ <marcador class="resaltado8">Rango Utilizable:</marcador> Desde 192.168.1.17 hasta 192.168.1.30.</li>
                     </ul>
                     <br>
                     <li><marcador class="resaltado15">Ventas (Requiere 30 direcciones IP):</marcador></li>
-                    <ul style="list-style-type: square;">
-                        <li><marcador class="resaltado8">Máscara de Subred:</marcador> Necesitas al menos 30 direcciones disponibles. Usamos los primeros 5 bits del último octavo para los hosts. La máscara de subred sería 11111111.11111111.11111111.1110 0000 en binario o /27 en notación CIDR.</li>
-                        <li><marcador class="resaltado8">Dirección de Red:</marcador> 192.168.1.32/27.</li>
-                        <li><marcador class="resaltado8">Dirección de Broadcast:</marcador> 192.168.1.63/27.</li>
-                        <li><marcador class="resaltado8">Rango Utilizable:</marcador> Desde 192.168.1.33 hasta 192.168.1.62.</li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">Máscara de Subred:</marcador> Necesitas al menos 30 direcciones disponibles. Usamos los primeros 5 bits del último octavo para los hosts. La máscara de subred sería 11111111.11111111.11111111.1110 0000 en binario o /27 en notación CIDR.</li>
+                        <li>∘ <marcador class="resaltado8">Dirección de Red:</marcador> 192.168.1.32/27.</li>
+                        <li>∘ <marcador class="resaltado8">Dirección de Broadcast:</marcador> 192.168.1.63/27.</li>
+                        <li>∘ <marcador class="resaltado8">Rango Utilizable:</marcador> Desde 192.168.1.33 hasta 192.168.1.62.</li>
                     </ul>
                     <br>
                     <li><marcador class="resaltado15">Administración (Requiere 6 direcciones IP):</marcador></li>
-                    <ul style="list-style-type: square;">
-                        <li><marcador class="resaltado8">Máscara de Subred:</marcador> Necesitas al menos 6 direcciones disponibles. Usamos los primeros 3 bits del último octavo para los hosts. La máscara de subred sería 11111111.11111111.11111111.1111 1000 en binario o /29 en notación CIDR.</li>
-                        <li><marcador class="resaltado8">Dirección de Red:</marcador> 192.168.1.64/29.</li>
-                        <li><marcador class="resaltado8">Dirección de Broadcast:</marcador> 192.168.1.71/29.</li>
-                        <li><marcador class="resaltado8">Rango Utilizable:</marcador> Desde 192.168.1.65 hasta 192.168.1.70.</li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">Máscara de Subred:</marcador> Necesitas al menos 6 direcciones disponibles. Usamos los primeros 3 bits del último octavo para los hosts. La máscara de subred sería 11111111.11111111.11111111.1111 1000 en binario o /29 en notación CIDR.</li>
+                        <li>∘ <marcador class="resaltado8">Dirección de Red:</marcador> 192.168.1.64/29.</li>
+                        <li>∘ <marcador class="resaltado8">Dirección de Broadcast:</marcador> 192.168.1.71/29.</li>
+                        <li>∘ <marcador class="resaltado8">Rango Utilizable:</marcador> Desde 192.168.1.65 hasta 192.168.1.70.</li>
                     </ul>
                     <br>
                 </ol>
