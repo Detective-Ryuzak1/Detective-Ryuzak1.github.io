@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <link rel="icon" href="../media/imagen41.png" type="image/png">
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                        <li><a href="../devops.html">DevOps</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Aportar" onclick="window.open('https://buymeacoffee.com/ryuzak1', '_blank');">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <br>
+                <br>
+                <h1>PyTorch</h1>
+                <p>PyTorch es una biblioteca de código abierto especializada en aprendizaje profundo (deep learning) y redes neuronales. Fue lanzada en 2016 por Facebook AI Research (FAIR) y ha crecido rápidamente en popularidad tanto en la investigación académica como en el desarrollo de aplicaciones industriales. Lo que diferencia a PyTorch de otras herramientas es su capacidad para construir modelos de manera intuitiva y flexible, lo que facilita la experimentación y la depuración de los mismos.</p>
+                <p>En sus inicios, las principales bibliotecas de aprendizaje profundo eran TensorFlow, de Google, y Theano. Sin embargo, estas soluciones presentaban dificultades cuando se trataba de construir modelos de manera más dinámica y flexible, algo que los investigadores necesitaban. PyTorch fue diseñado para cubrir esa necesidad, enfocándose en la simplicidad y en un estilo de programación más familiar para los desarrolladores de Python. Con el tiempo, PyTorch se convirtió en la opción preferida de muchos investigadores debido a su facilidad de uso y su capacidad para ejecutar código en GPU de manera eficiente, lo que acelera los entrenamientos de modelos grandes y complejos.</p>
+                <p>PyTorch se utiliza principalmente para el desarrollo y la investigación en aprendizaje profundo. Ofrece herramientas poderosas para diseñar redes neuronales, optimizar modelos y realizar tareas avanzadas de procesamiento de datos. Algunas de sus aplicaciones incluyen:</p>
+                <ul>
+                    <li>Reconocimiento de imágenes</li>
+                    <li>Procesamiento de lenguaje natural (NLP)</li>
+                    <li>Visión por computadora</li>
+                    <li>Modelado secuencial</li>
+                    <li>Generación de modelos generativos adversarios (GANs)</li>
+                </ul>
+                <div class="blog-image">
+                    <img src="media/pytorch1.png" alt="">
+                </div>
+                <h2>Instalación de PyTorch</h2>
+                <p>Instalar PyTorch es sencillo y soporta múltiples plataformas. Los siguientes son los comandos básicos para instalar PyTorch en entornos diferentes. Se recomienda usar pip o conda, según el gestor de paquetes de tu elección.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Instalación con pip:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="pip install torch torchvision torchaudio" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Instalación con conda:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="conda install pytorch torchvision torchaudio cpuonly -c pytorch" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Aquí instalas PyTorch junto con <marcador class="subrayado">torchvision</marcador> (para visión por computadora) y <marcador class="subrayado">torchaudio</marcador> (para procesamiento de audio). El parámetro <marcador class="subrayado">-c pytorch</marcador> asegura que los paquetes se instalen desde el canal oficial de PyTorch.</p>
+                <p>Asegúrate de elegir la versión adecuada de acuerdo con la compatibilidad de tu GPU y el tipo de soporte CUDA que necesites.</p>
+                <h2>Los Tensores</h2>
+                <p>Los tensores son la base de PyTorch y representan arreglos multidimensionales, similares a los arrays de NumPy, pero con la ventaja de poder ser ejecutados en GPU, lo que mejora el rendimiento en cálculos intensivos.</p>
+                <h6>Creación de un tensor básico:</h6>
+                <div class="archivo">
+import torch
+
+# Crear un tensor de 3x3 lleno de ceros
+tensor = torch.zeros(3, 3)
+print(tensor)
+
+</div>
+                <p>Los tensores pueden ser manipulados fácilmente y transformados, y al igual que los arrays de NumPy, soportan operaciones matemáticas complejas, pero con la ventaja adicional de que PyTorch permite mover estos tensores entre CPU y GPU sin esfuerzo.</p>
+                <div class="blog-image">
+                    <img src="media/pytorch2.jpg" alt="">
+                </div>
+                <h2>Reglas de Broadcasting</h2>
+                <p>Las reglas de broadcasting en PyTorch (y en otros frameworks de cálculo numérico como NumPy) son un conjunto de reglas que permiten realizar operaciones entre tensores de diferentes dimensiones de manera eficiente. En lugar de requerir que los tensores tengan exactamente las mismas dimensiones, el broadcasting permite que un tensor más pequeño "se expanda" para que coincida con las dimensiones del tensor más grande durante las operaciones aritméticas.</p>
+                <p>El broadcasting es una poderosa característica que permite realizar operaciones de manera eficiente sin necesidad de crear copias adicionales de los datos. Esto no solo ahorra memoria, sino que también mejora el rendimiento al realizar cálculos en tensores de diferentes dimensiones.</p>
+                <ol>
+                    <li><marcador class="resaltado2">Compatibilidad de Dimensiones:</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>∅ Si los tensores tienen el mismo número de dimensiones, las dimensiones son compatibles si son iguales o si uno de los dos es igual a 1.</li>
+                        <li>∅ Si los tensores tienen un número diferente de dimensiones, las dimensiones del tensor más pequeño se expanden a la izquierda hasta que ambos tensores tengan el mismo número de dimensiones.</li>
+                    </ul>
+                    <li><marcador class="resaltado2">Expansión de Dimensiones:</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>∅ Cuando una dimensión tiene un tamaño de 1 en uno de los tensores, se "expande" para igualar el tamaño de la otra dimensión en el tensor de mayor tamaño. Esto se realiza conceptual y computacionalmente sin la necesidad de crear copias adicionales de los datos en memoria.</li>
+                    </ul>
+                    <li><marcador class="resaltado2">Operaciones:</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>∅ Las operaciones element-wise (como suma, resta, multiplicación, etc.) pueden realizarse entre tensores que se han expandido, como si tuvieran el mismo tamaño.</li>
+                    </ul>
+                </ol>
+                <div class="blog-image">
+                    <img src="media/pytorch7.png" alt="">
+                </div>
+                <h2>PyTorch vs TensorFlow</h2>
+                <p>PyTorch y TensorFlow son dos de los frameworks más populares en el campo del aprendizaje profundo. Aunque ambos tienen características similares, sus enfoques y funcionalidades presentan algunas diferencias clave:</p>
+                <ol>
+                    <li><marcador class="resaltado9">Gráficos computacionales:</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>◉ <marcador class="resaltado8">PyTorch: </marcador>Gráfico computacional dinámico. Los gráficos se construyen y ejecutan sobre la marcha, lo que facilita la depuración y permite mayor flexibilidad al modificar modelos sobre la marcha.</li>
+                        <li>◉ <marcador class="resaltado8">TensorFlow: </marcador>Originalmente, utilizaba gráficos computacionales estáticos, pero desde la versión 2.0, TensorFlow ha adoptado un enfoque más dinámico a través de <marcador class="subrayado">tf.function</marcador>.</li>
+                    </ul>
+                    <li><marcador class="resaltado9">Facilidad de uso:</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>◉ <marcador class="resaltado8">PyTorch: </marcador>Tiene una curva de aprendizaje suave para programadores acostumbrados a Python, ya que su sintaxis es muy cercana a este lenguaje. Los modelos y el flujo de datos son intuitivos.</li>
+                        <li>◉ <marcador class="resaltado8">TensorFlow: </marcador>Ofrece una API de alto nivel (Keras) que facilita el uso, pero puede ser más complicado cuando se trata de personalizar o depurar modelos más avanzados.</li>
+                    </ul>
+                    <li><marcador class="resaltado9">Popularidad en la investigación:</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>◉ <marcador class="resaltado8">PyTorch: </marcador>Ha ganado mucho terreno en la comunidad de investigación debido a su flexibilidad y facilidad para probar nuevas ideas.</li>
+                        <li>◉ <marcador class="resaltado8">TensorFlow: </marcador>Tiene un amplio soporte industrial y es más utilizado en entornos de producción debido a su ecosistema maduro y herramientas avanzadas como TensorFlow Lite y TensorFlow Extended (TFX).</li>
+                    </ul>
+                </ol>
+                <h2>Funcionalidades</h2>
+                <ul>
+                    <li><marcador class="resaltado4">TorchVision: </marcador>Una biblioteca auxiliar que ofrece utilidades para la visión por computadora, incluyendo transformaciones de imágenes y modelos preentrenados.</li>
+                    <li><marcador class="resaltado4">TorchScript: </marcador>Permite convertir modelos de PyTorch en un formato más optimizado y serializado, lo que facilita la implementación en entornos de producción.</li>
+                    <li><marcador class="resaltado4">Autograd: </marcador>Un motor automático de diferenciación que calcula gradientes, esencial para entrenar redes neuronales mediante backpropagation.</li>
+                    <li><marcador class="resaltado4">PyTorch Lightning: </marcador>Una herramienta que estructura los modelos de PyTorch, permitiendo desarrollar y entrenar de manera más eficiente al separar la lógica del modelo y la lógica del entrenamiento.</li>
+                </ul>
+                <div class="blog-image">
+                    <img src="media/pytorch3.jpg" alt="">
+                </div>
+                <p>Haz click <a href="https://github.com/Detective-Ryuzak1/Machine-Learnig-examples/blob/main/Pytorch/PyTorch.ipynb" target="blank">aquí</a> para ver algunos ejemplos de uso con PyTorch.</p>
+                <h2>Kaggle</h2>
+                <p>Kaggle es una plataforma en línea que proporciona un espacio para científicos de datos y entusiastas del machine learning donde pueden colaborar, compartir conocimientos, y participar en competencias de análisis de datos. En Kaggle, se pueden encontrar conjuntos de datos abiertos, soluciones a problemas complejos de aprendizaje automático, y herramientas como notebooks, que permiten trabajar directamente desde el navegador con un entorno configurado con Python y R. Además, la comunidad de Kaggle es muy activa, lo que fomenta el intercambio de ideas y el aprendizaje a través de kernels y discusiones.</p>
+                <p>Una de las principales atracciones de Kaggle son las competencias de ciencia de datos, donde las empresas proponen desafíos y los participantes compiten por crear el mejor modelo. También es muy útil para construir portafolios profesionales y ganar visibilidad en el campo de la ciencia de datos. Kaggle ofrece un entorno gratuito con acceso a GPUs y TPUs, facilitando el entrenamiento de modelos complejos sin la necesidad de recursos locales.</p>
+                <p>A continuación, te pasaré un modelo de clasificación de cartas de póker en <a href="https://www.kaggle.com/code/robikscube/train-your-first-pytorch-model-card-classifier" target="blank">Kaggle</a>, donde podrás evaluar el desempeño del modelo en este entorno especializado.</p>
+                <div class="blog-image-grande">
+                    <img src="media/pytorch6.jpg" alt="">
+                </div>
+                <h2>Conda</h2>
+                <p>Conda es una herramienta extremadamente útil para gestionar entornos y paquetes, permitiendo trabajar en proyectos de manera aislada sin que las dependencias de diferentes proyectos interfieran entre sí. Para crear un entorno de prueba con PyTorch, primero debes asegurarte de tener Conda instalado en tu sistema. Al crear un entorno virtual, puedes aislar las versiones de Python y las bibliotecas que necesitas para un proyecto específico, lo que evita problemas de compatibilidad entre distintos proyectos. Esto es particularmente útil cuando trabajas en múltiples proyectos que pueden requerir diferentes versiones de PyTorch, TensorFlow u otros paquetes.</p>
+                <p>A continuación te muestro los pasos para crear y activar un entorno en Conda y cómo instalar los paquetes necesarios para deep learning:</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Crear el entorno virtual:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="conda create --name pytorch_test python=3.8" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Este comando crea un entorno llamado pytorch_test con la versión 3.8 de Python. Puedes cambiar el nombre y la versión de Python si lo necesitas.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Activar el entorno:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="conda activate pytorch_test" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Este comando activa el entorno que acabas de crear, y a partir de aquí cualquier paquete que instales quedará limitado a este entorno.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Desactivar el entorno actual:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="conda deactivate" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Eliminar un entorno:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="conda remove --name pytorch_test --all" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Listar todos los entornos:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="conda env list" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Instalar paquetes en un entorno específico: 
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="conda install -n pytorch_test pytorch" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Actualizar un paquete: 
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="conda update -n pytorch_test pytorch" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Clonar un entorno:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="conda create --name new_env --clone pytorch_test" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Guardar las dependencias de un entorno en un archivo:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="conda env export --name pytorch_test > environment.yml" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Crear un entorno desde un archivo YAML: 
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="conda env create -f environment.yml" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Crear un entorno virtual es importante porque garantiza que puedes gestionar diferentes configuraciones de paquetes para distintos proyectos, manteniendo cada uno aislado en su propio espacio de trabajo. Esto no solo ayuda a evitar conflictos de dependencias, sino que también facilita la replicabilidad de los experimentos, ya que puedes controlar exactamente qué versión de cada paquete se está utilizando.</p>
+                <div class="blog-image">
+                    <img src="media/pytorch4.png" alt="">
+                </div>
+                <h2>Google Colab</h2>
+                <p>Google Colab es una plataforma gratuita de Google que permite ejecutar código en cuadernos Jupyter sin necesidad de configuraciones locales. Está especialmente diseñada para trabajar con proyectos de machine learning y deep learning, ya que viene preconfigurada con muchas de las bibliotecas más utilizadas, como PyTorch, TensorFlow, Keras y Scikit-learn. No requiere instalación local de Python ni de estas librerías, lo que la convierte en una herramienta muy conveniente para quienes desean probar y ejecutar modelos rápidamente.</p>
+                <p>Una de las mayores ventajas de Google Colab es que ofrece acceso gratuito a hardware acelerado, como GPUs y TPUs, lo que es esencial para entrenar modelos complejos de deep learning en menos tiempo. Esto resulta muy útil si no cuentas con una GPU en tu sistema local, ya que puedes beneficiarte de una aceleración significativa sin necesidad de inversión en hardware costoso. Para usar Google Colab, solo necesitas una cuenta de Google y un navegador web. Al abrir un cuaderno en Colab, puedes acceder a una máquina virtual con Python y las bibliotecas de deep learning ya instaladas. Simplemente puedes importar PyTorch o TensorFlow y comenzar a desarrollar o entrenar modelos sin preocuparte por instalaciones o configuraciones complejas.</p>
+                <p>Otra ventaja es la colaboración en tiempo real. Colab permite compartir cuadernos con otros usuarios de forma similar a Google Docs, lo que facilita el trabajo en equipo o la enseñanza de conceptos relacionados con machine learning y deep learning. Además, como los cuadernos se almacenan en Google Drive, no es necesario guardar nada en tu máquina local, lo que añade conveniencia y seguridad a tus proyectos.</p>
+                <div class="blog-image-grande">
+                    <img src="media/pytroch5.png" alt="">
+                </div>
+            </div>  
+        </div>     
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
