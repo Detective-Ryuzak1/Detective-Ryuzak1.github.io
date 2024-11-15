@@ -82,7 +82,7 @@
                 <p>En Fortinet, los objetos son componentes clave que se utilizan para crear políticas, reglas y configuraciones dentro del sistema. Los objetos representan elementos específicos de la red, tales como direcciones IP, servicios (como puertos o protocolos), usuarios, interfaces de red o direcciones virtuales, y ayudan a simplificar la administración de la seguridad y el tráfico de red. Al definir objetos, puedes reutilizarlos en diferentes políticas y configuraciones, lo que facilita la gestión y el mantenimiento de las políticas de seguridad en tu red.</p>
                 <ol style="list-style-type: lower-alpha;">
                     <li><marcador class="resaltado4">Objetos de Dirección (Address Objects): </marcador>Representan direcciones IP individuales, rangos de IP o subredes. Estos objetos se utilizan para especificar las fuentes y destinos en las reglas de firewall o en las políticas de NAT. Por ejemplo, podrías crear un objeto para una dirección IP de un servidor interno y luego usarlo en diferentes políticas.</li>
-                    <h6>Ejemplo de dirección IP estática:</h6>
+                    <h4>Ejemplo de dirección IP estática:</h4>
                     <div class="consola">
                         <div class="barra-superior-consola">
                             <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
@@ -106,7 +106,7 @@ end</code></pre>
                         </div>
                     </div>
                     <li><marcador class="resaltado4">Objetos de Servicio (Service Objects): </marcador>Representan servicios de red como HTTP, HTTPS, FTP, SSH, entre otros. Un objeto de servicio define el puerto y el protocolo (TCP/UDP/ICMP) para una política específica. Puedes crear servicios personalizados si necesitas algo que no esté predefinido.</li>
-                    <h6>Ejemplo de creación de servicio personalizado:</h6>
+                    <h4>Ejemplo de creación de servicio personalizado:</h4>
                     <div class="consola">
                         <div class="barra-superior-consola">
                             <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
@@ -125,7 +125,7 @@ end</code></pre>
                     <li><marcador class="resaltado4">Objetos de Usuario (User Objects): </marcador>Representan usuarios o grupos de usuarios que pueden ser autenticados mediante diferentes métodos (LDAP, RADIUS, local). Se utilizan para crear políticas basadas en usuarios, lo que permite aplicar reglas específicas según la identidad del usuario en lugar de solo basarse en direcciones IP o subredes.</li>
                     <li><marcador class="resaltado4">Objetos de Programación (Schedule Objects): </marcador>Estos objetos permiten definir horarios y fechas específicos en los que se activarán o desactivarán ciertas políticas o reglas. Es útil para gestionar el acceso a servicios o recursos en horarios laborales, por ejemplo.</li>
                     <li><marcador class="resaltado4">Objetos de Interfaces Virtuales (Virtual IPs o VIPs): </marcador>Se utilizan para la creación de NAT y la publicación de servicios internos al exterior. Los objetos VIP permiten definir una dirección IP externa que se traduce a una IP interna en la red, facilitando el acceso desde redes externas a recursos protegidos.</li>
-                    <h6>Ejemplo de configuración de un VIP:</h6>
+                    <h4>Ejemplo de configuración de un VIP:</h4>
                     <div class="consola">
                         <div class="barra-superior-consola">
                             <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
@@ -146,7 +146,7 @@ end</code></pre>
                 <p>Puedes crear objetos específicos para distintos escenarios y casos de uso, permitiendo un control granular sobre las políticas de seguridad y el tráfico de red.</p> 
                 <h2>Comandos y Subcomandos Comunes en el CLI de Fortinet</h2>
                 <p>La CLI de Fortinet es muy robusta y permite configuraciones detalladas. A continuación, se presentan algunos comandos y subcomandos clave:</p>
-                <h6>Configuración de la interfaz de red</h6>
+                <h4>Configuración de la interfaz de red</h4>
                 <div class="consola">
                     <div class="barra-superior-consola">
                         <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
@@ -160,7 +160,7 @@ set allowaccess &lt;services&gt;    # Define los servicios permitidos (p. ej., H
 end                           # Aplica y guarda los cambios.</code></pre>
                     </div>
                 </div>
-                <h6>Activar y configurar el servidor DHCP en una interfaz</h6>
+                <h4>Activar y configurar el servidor DHCP en una interfaz</h4>
                 <div class="consola">
                     <div class="barra-superior-consola">
                         <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
@@ -179,7 +179,7 @@ set default-gateway &lt;ip_gateway&gt;      # Dirección IP de la puerta de enla
 end</code></pre>
                     </div>
                 </div>
-                <h6>Configurar VLANs</h6>
+                <h4>Configurar VLANs</h4>
                 <div class="consola">
                     <div class="barra-superior-consola">
                         <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
@@ -196,7 +196,7 @@ set interface &lt;nombre_interface>&gt;     # Interfaz física donde se crea la 
 end</code></pre>
                     </div>
                 </div>
-                <h6>Configurar rutas estáticas</h6>
+                <h4>Configurar rutas estáticas</h4>
                 <div class="consola">
                     <div class="barra-superior-consola">
                         <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
@@ -211,7 +211,7 @@ set device &lt;nombre_interface&gt;         # Interfaz que usará la ruta (p. ej
 end</code></pre>
                     </div>
                 </div>
-                <h6>Configuración de políticas de firewall</h6>
+                <h4>Configuración de políticas de firewall</h4>
                 <div class="consola">
                     <div class="barra-superior-consola">
                         <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
@@ -231,7 +231,7 @@ set logtraffic all              # Activa el registro del tráfico.
 end                             # Aplica y guarda los cambios.</code></pre>
                     </div>
                 </div>
-                <h6>Configuración de una VPN IPsec</h6>
+                <h4>Configuración de una VPN IPsec</h4>
                 <div class="consola">
                     <div class="barra-superior-consola">
                         <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
