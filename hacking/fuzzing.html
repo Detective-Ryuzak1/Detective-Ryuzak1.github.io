@@ -80,7 +80,7 @@ ff02::2 ip6-allrouters
                     </div>
                   </div>
                   <br>
-                  <p>Este comando utiliza WFuzz para realizar un escaneo de fuzzing de directorios en el servidor web ubicado en http://sea.htb. Utiliza una lista de palabras para probar posibles rutas de directorios y archivos en el servidor, ocultando respuestas con códigos 404 y 401, y utiliza 200 hilos simultáneos para acelerar el proceso. La salida del comando estará coloreada para facilitar su lectura y análisis.</p>
+                  <p>❏ Este comando utiliza WFuzz para realizar un escaneo de fuzzing de directorios en el servidor web ubicado en http://sea.htb. Utiliza una lista de palabras para probar posibles rutas de directorios y archivos en el servidor, ocultando respuestas con códigos 404 y 401, y utiliza 200 hilos simultáneos para acelerar el proceso. La salida del comando estará coloreada para facilitar su lectura y análisis.</p>
                   <div id="terminal">
                     <section id="terminal__bar">
                         <div id="bar__buttons">
@@ -141,7 +141,7 @@ ID           Response   Lines    Word       Chars       Payload
                     <li><marcador class="resaltado3">http://sea.htb/FUZZ: </marcador>La URL objetivo donde se realizará el fuzzing, con FUZZ como marcador de posición que será reemplazado por cada entrada de la lista de palabras.</li>
                 </ul>
                 <br>
-                <p>Este comando realiza un escaneo de fuzzing en el servidor web en http://sea.htb, probando directorios y archivos con combinaciones de nombres y extensiones (php, html, txt). Utiliza una lista de palabras para generar los nombres de archivo y oculta las respuestas 404 para centrarse en recursos existentes. La salida es coloreada para facilitar su análisis y el uso de 200 hilos acelera el proceso.</p>
+                <p>❏ Este comando realiza un escaneo de fuzzing en el servidor web en http://sea.htb, probando directorios y archivos con combinaciones de nombres y extensiones (php, html, txt). Utiliza una lista de palabras para generar los nombres de archivo y oculta las respuestas 404 para centrarse en recursos existentes. La salida es coloreada para facilitar su análisis y el uso de 200 hilos acelera el proceso.</p>
                 <div id="terminal">
                     <section id="terminal__bar">
                         <div id="bar__buttons">
@@ -196,7 +196,7 @@ ID           Response   Lines    Word       Chars       Payload
                     <li><marcador class="resaltado3">http://sea.htb/FUZZ.FUZ2Z: </marcador>La URL objetivo donde se realizará el fuzzing. El marcador de posición FUZZ será reemplazado por cada entrada de la lista de palabras, y el marcador FUZ2Z será reemplazado por las extensiones especificadas.</li>
                 </ul>
                 <br>
-                <p>Con este comando las respuestas te ayudarán a entender cómo el servidor maneja distintos caracteres especiales en las solicitudes.</p>
+                <p>❏ Con este comando las respuestas te ayudarán a entender cómo el servidor maneja distintos caracteres especiales en las solicitudes.</p>
                 <div id="terminal">
                     <section id="terminal__bar">
                         <div id="bar__buttons">
@@ -240,7 +240,7 @@ ID    Response   Lines    Word         Chars       Payload
                     <li><marcador class="resaltado3">-d '{"name":"FUZZ"}': </marcador>Define el cuerpo de la solicitud POST en formato JSON, con el marcador FUZZ reemplazado por cada entrada de la lista de caracteres especiales.</li>
                 </ul>
                 <br>
-                <p>Este comando prueba diferentes subdominios bajo el dominio permx.htb, haciendo peticiones al servidor en la IP 10.10.11.23. El encabezado Host es modificado dinámicamente para cada subdominio. Al excluir los códigos de redirección (301 y 302), se enfocará solo en respuestas de interés, como códigos 200 (OK) o 403 (Forbidden).</p>
+                <p>❏ Este comando prueba diferentes subdominios bajo el dominio permx.htb, haciendo peticiones al servidor en la IP 10.10.11.23. El encabezado Host es modificado dinámicamente para cada subdominio. Al excluir los códigos de redirección (301 y 302), se enfocará solo en respuestas de interés, como códigos 200 (OK) o 403 (Forbidden).</p>
                 <div id="terminal">
                     <section id="terminal__bar">
                         <div id="bar__buttons">
@@ -298,7 +298,7 @@ ID           Response   Lines    Word       Chars       Payload
                     </div>
                   </div>
                 <br>
-                <p>Este comando realiza un escaneo de virtual hosts (vhosts) en el dominio sea.htb, eliminando de la salida los códigos de estado 301, 302 y 404.</p>
+                <p>❏ Este comando realiza un escaneo de virtual hosts (vhosts) en el dominio sea.htb, eliminando de la salida los códigos de estado 301, 302 y 404.</p>
                 <div id="terminal">
                     <section id="terminal__bar">
                         <div id="bar__buttons">
@@ -365,7 +365,7 @@ Found: lms Status: 200 [Size: 1834]
                     </div>
                   </div>
                   <br>
-                  <p>El comando realiza un fuzzing de subdominios utilizando FFUF.</p>
+                  <p>❏ El comando realiza un fuzzing de subdominios utilizando FFUF.</p>
                   <div id="terminal">
                     <section id="terminal__bar">
                         <div id="bar__buttons">
@@ -435,7 +435,7 @@ lms                     [Status: 200, Size: 19347, Words: 4910, Lines: 353, Dura
                     </div>
                 </div>
                 <br>
-                <p>Feroxbuster te permite realizar un análisis rápido y eficiente en aplicaciones web para descubrir contenido oculto. En este caso, se utiliza para escanear el dominio freelancer.htb, buscando directorios y archivos que podrían estar expuestos pero no listados públicamente.</p>
+                <p>❏ Feroxbuster te permite realizar un análisis rápido y eficiente en aplicaciones web para descubrir contenido oculto. En este caso, se utiliza para escanear el dominio freelancer.htb, buscando directorios y archivos que podrían estar expuestos pero no listados públicamente.</p>
                 <div id="terminal">
                     <section id="terminal__bar">
                         <div id="bar__buttons">
@@ -503,7 +503,7 @@ by Ben "epi" Risher 🤓                 ver: 2.10.3
                     </div>
                   </div>
                   <br>
-                  <p>Utiliza Dirsearch, una herramienta de línea de comandos para realizar fuzzing de directorios y archivos en aplicaciones web. En este caso, está apuntando al dominio sea.htb para descubrir posibles directorios y archivos ocultos en el servidor.</p>
+                  <p>❏ Utiliza Dirsearch, una herramienta de línea de comandos para realizar fuzzing de directorios y archivos en aplicaciones web. En este caso, está apuntando al dominio sea.htb para descubrir posibles directorios y archivos ocultos en el servidor.</p>
                   <div id="terminal">
                     <section id="terminal__bar">
                         <div id="bar__buttons">
