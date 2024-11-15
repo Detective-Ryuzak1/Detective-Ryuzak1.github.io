@@ -44,11 +44,9 @@
                 <h1>DHCP</h1>
                 <p>El Protocolo de Configuración Dinámica de Host (DHCP, por sus siglas en inglés) es una parte esencial de la infraestructura de redes modernas. Este protocolo permite la asignación automática y dinámica de direcciones IP a dispositivos en una red.</p>
                 <p>DHCP es un protocolo de red que permite la asignación de direcciones IP y otros parámetros de configuración de red a dispositivos, como computadoras, impresoras y dispositivos móviles, en una red local. Antes de profundizar en el proceso, es importante comprender algunos términos clave:</p>
-                <ul>
-                    <li><marcador class="resaltado5">Dirección IP: </marcador>Es un identificador numérico único que se utiliza para identificar dispositivos en una red. Hay direcciones IP públicas (accesibles desde Internet) y direcciones IP privadas (utilizadas en redes locales).</li>
-                    <li><marcador class="resaltado5">Servidor DHCP:</marcador> Es un dispositivo, como un enrutador o un servidor dedicado, que administra y proporciona direcciones IP a dispositivos clientes.</li>
-                    <li><marcador class="resaltado5">Cliente DHCP:</marcador> Es un dispositivo que solicita una dirección IP al servidor DHCP. Los clientes DHCP pueden ser computadoras, teléfonos, tabletas y otros dispositivos en la red.</li>
-                </ul>
+                <p><marcador class="resaltado5">Dirección IP: </marcador>Es un identificador numérico único que se utiliza para identificar dispositivos en una red. Hay direcciones IP públicas (accesibles desde Internet) y direcciones IP privadas (utilizadas en redes locales).</p>
+                <p><marcador class="resaltado5">Servidor DHCP:</marcador> Es un dispositivo, como un enrutador o un servidor dedicado, que administra y proporciona direcciones IP a dispositivos clientes.</p>
+                <p><marcador class="resaltado5">Cliente DHCP:</marcador> Es un dispositivo que solicita una dirección IP al servidor DHCP. Los clientes DHCP pueden ser computadoras, teléfonos, tabletas y otros dispositivos en la red.</p>
                 <h2>Proceso de Asignación de Direcciones IP</h2>
                 <p>El proceso de asignación de direcciones IP a través del protocolo DHCP implica varias etapas:</p>
                 <ol>
@@ -63,17 +61,17 @@
                 </div> 
                 <h2>Protocolos relacionados</h2>
                 <p>DHCP no opera en aislamiento y se relaciona con otros protocolos y tecnologías para garantizar el funcionamiento adecuado de una red. Algunos de los protocolos relacionados son:</p>
-                <ul>
-                    <li><marcador class="resaltado8">DNS (Domain Name System):</marcador> DHCP puede proporcionar la información del servidor DNS al dispositivo, permitiendo la resolución de nombres de dominio en direcciones IP.</li>
-                    <li><marcador class="resaltado8">TFTP (Trivial File Transfer Protocol):</marcador> DHCP puede proporcionar la ubicación de un servidor TFTP, lo que es útil para dispositivos que necesitan cargar archivos de configuración o firmware.</li>
-                    <li><marcador class="resaltado8">NTP (Network Time Protocol):</marcador> DHCP puede suministrar servidores NTP para garantizar que los dispositivos tengan una hora precisa.</li>
-                    <li><marcador class="resaltado8">SNMP (Simple Network Management Protocol):</marcador> DHCP puede proporcionar la dirección de un servidor SNMP para la gestión y supervisión de dispositivos de red.</li>
+                <ul style="list-style-type: none;">
+                    <li>∘ <marcador class="resaltado8">DNS (Domain Name System):</marcador> DHCP puede proporcionar la información del servidor DNS al dispositivo, permitiendo la resolución de nombres de dominio en direcciones IP.</li>
+                    <li>∘ <marcador class="resaltado8">TFTP (Trivial File Transfer Protocol):</marcador> DHCP puede proporcionar la ubicación de un servidor TFTP, lo que es útil para dispositivos que necesitan cargar archivos de configuración o firmware.</li>
+                    <li>∘ <marcador class="resaltado8">NTP (Network Time Protocol):</marcador> DHCP puede suministrar servidores NTP para garantizar que los dispositivos tengan una hora precisa.</li>
+                    <li>∘ <marcador class="resaltado8">SNMP (Simple Network Management Protocol):</marcador> DHCP puede proporcionar la dirección de un servidor SNMP para la gestión y supervisión de dispositivos de red.</li>
                 </ul>
                 <h2>Configuración de DHCP</h2>
-                <ul>
-                    <li><marcador class="resaltado8">Routers y switches:</marcador> Los dispositivos de red, como routers y switches, a menudo actúan como servidores DHCP en pequeñas redes o redirigen solicitudes DHCP a servidores dedicados.</li>
-                    <li><marcador class="resaltado8">Servidores DHCP dedicados:</marcador> En redes más grandes, se utilizan servidores DHCP dedicados que gestionan la asignación de direcciones IP y otros parámetros.</li>
-                    <li><marcador class="resaltado8">Módems y enrutadores combinados:</marcador> Son dispositivos proporcionados por los proveedores de servicios de Internet tienen funcionalidad DHCP para facilitar la configuración de direcciones IP y otros parámetros de red en dispositivos conectados.</li>
+                <ul style="list-style-type: none;">
+                    <li>∘ <marcador class="resaltado8">Routers y switches:</marcador> Los dispositivos de red, como routers y switches, a menudo actúan como servidores DHCP en pequeñas redes o redirigen solicitudes DHCP a servidores dedicados.</li>
+                    <li>∘ <marcador class="resaltado8">Servidores DHCP dedicados:</marcador> En redes más grandes, se utilizan servidores DHCP dedicados que gestionan la asignación de direcciones IP y otros parámetros.</li>
+                    <li>∘ <marcador class="resaltado8">Módems y enrutadores combinados:</marcador> Son dispositivos proporcionados por los proveedores de servicios de Internet tienen funcionalidad DHCP para facilitar la configuración de direcciones IP y otros parámetros de red en dispositivos conectados.</li>
                 </ul>
                 <br>
                 <p>La configuración de DHCP en dispositivos, como routers o switches, implica varios pasos clave. A continuación, te mostraré cómo configurar un servidor DHCP en un router Cisco utilizando comandos de ejemplo en el sistema operativo Cisco IOS (Internetwork Operating System). Ten en cuenta que los detalles específicos pueden variar según el modelo y la versión del dispositivo, pero los conceptos generales son similares.</p>
@@ -165,11 +163,11 @@ Router(config)# show ip dhcp binding</code></pre>
                 </ol>
                 <br>
                 <p>La exclusión de direcciones IP se utiliza en situaciones en las que deseas reservar direcciones específicas para dispositivos que no deben recibir asignaciones DHCP. Algunos casos típicos de exclusión de direcciones incluyen:</p>
-                <ul>
-                    <li><marcador class="resaltado8">Servidores críticos:</marcador> Si tienes servidores que deben tener direcciones IP fijas, puedes excluir esas direcciones de la asignación DHCP para garantizar que no se asignen a otros dispositivos.</li>
-                    <li><marcador class="resaltado8">Dispositivos de red:</marcador> Routers, switches y otros dispositivos de red pueden requerir direcciones IP estáticas para facilitar la administración y la configuración.</li>
-                    <li><marcador class="resaltado8">Impresoras de red:</marcador> Las impresoras de red a menudo se configuran con direcciones IP estáticas para garantizar que siempre estén disponibles en la misma dirección.</li>
-                    <li><marcador class="resaltado8">Dispositivos de seguridad:</marcador> Algunos dispositivos de seguridad, como cámaras IP o sistemas de seguridad, pueden necesitar direcciones IP fijas para funcionar correctamente.</li>
+                <ul style="list-style-type: none;">
+                    <li>∘ <marcador class="resaltado8">Servidores críticos:</marcador> Si tienes servidores que deben tener direcciones IP fijas, puedes excluir esas direcciones de la asignación DHCP para garantizar que no se asignen a otros dispositivos.</li>
+                    <li>∘ <marcador class="resaltado8">Dispositivos de red:</marcador> Routers, switches y otros dispositivos de red pueden requerir direcciones IP estáticas para facilitar la administración y la configuración.</li>
+                    <li>∘ <marcador class="resaltado8">Impresoras de red:</marcador> Las impresoras de red a menudo se configuran con direcciones IP estáticas para garantizar que siempre estén disponibles en la misma dirección.</li>
+                    <li>∘ <marcador class="resaltado8">Dispositivos de seguridad:</marcador> Algunos dispositivos de seguridad, como cámaras IP o sistemas de seguridad, pueden necesitar direcciones IP fijas para funcionar correctamente.</li>
                 </ul>
                 <div class="blog-image-grande">
                     <img src="media/dhcp2.jpg" alt="">
