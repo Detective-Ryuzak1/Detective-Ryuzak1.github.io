@@ -125,7 +125,7 @@
                     </ul>
                 </ol>
                 <h6>Ejemplo de código de comparación</h6>
-                <p>Una comparación simple entre pandas y PySpark para una operación común (filtrar datos):</p>
+                <p>⌨️ Una comparación simple entre pandas y PySpark para una operación común (filtrar datos):</p>
                 <div class="archivo">
 # Pandas
 import pandas as pd
@@ -160,7 +160,7 @@ filtered_data = data.filter(data.col1 > 2)
                     </div>
                 </div>
                 <p>Una vez instalado, puedes iniciar PySpark en un entorno interactivo de Python (por ejemplo, Jupyter Notebook) o ejecutar scripts de Python que usen PySpark.</p>
-                <p>❏ Aquí hay un ejemplo simple de cómo iniciar un <marcador class="subrayado">SparkSession</marcador>, que es la entrada principal para trabajar con PySpark:</p>
+                <p>⌨️ Aquí hay un ejemplo simple de cómo iniciar un <marcador class="subrayado">SparkSession</marcador>, que es la entrada principal para trabajar con PySpark:</p>
                 <div class="archivo">
 from pyspark.sql import SparkSession
 
@@ -178,12 +178,12 @@ df = spark.createDataFrame(datos, columnas)
 # Mostrar el DataFrame
 df.show()
                 </div>
-                <p>❏ PySpark permite cargar datos desde archivos CSV, JSON, Parquet y otras fuentes. Por ejemplo, para leer un archivo CSV:</p>
+                <p>⌨️ PySpark permite cargar datos desde archivos CSV, JSON, Parquet y otras fuentes. Por ejemplo, para leer un archivo CSV:</p>
                 <div class="archivo">
 df = spark.read.csv("ruta/del/archivo.csv", header=True, inferSchema=True)
 df.show()
                 </div>
-                <p>❏ Luego puedes usar métodos similares a los de pandas para manipular los datos:</p>
+                <p>⌨️ Luego puedes usar métodos similares a los de pandas para manipular los datos:</p>
                 <div class="archivo">
 # Seleccionar columnas
 df.select("Nombre").show()
@@ -194,7 +194,7 @@ df.filter(df["Edad"] > 30).show()
 # Agrupar y contar
 df.groupBy("Edad").count().show()
                 </div>
-                <p>❏ PySpark también tiene una biblioteca de machine learning llamada <marcador class="subrayado">MLlib</marcador>, que permite construir y entrenar modelos en grandes conjuntos de datos:</p>
+                <p>⌨️ PySpark también tiene una biblioteca de machine learning llamada <marcador class="subrayado">MLlib</marcador>, que permite construir y entrenar modelos en grandes conjuntos de datos:</p>
                 <div class="archivo">
 from pyspark.ml.classification import LogisticRegression
 
@@ -208,7 +208,7 @@ modelo = lr.fit(df)
                 <p>Para aprovechar al máximo PySpark, generalmente se usa en un clúster de Spark. Esto se puede configurar en servicios en la nube (como AWS o Google Cloud) o en sistemas distribuidos como Hadoop.</p>
                 <h2>Ejemplos</h2>
                 <p>Haz click <a href="https://github.com/Detective-Ryuzak1/Machine-Learnig-examples/blob/main/Pyspark/PySpark.ipynb" target="blank">aquí</a> para ver algunos ejemplos de uso con PySpark.</p>
-                <p>Para más ejemplos, visita la siguiente <a href="https://runawayhorse001.github.io/LearningApacheSpark/rdd.html#create-rdd" target="blank">página</a> con documentación relevante.</p>
+                <p>Para más ejemplos, visita la siguiente <a href="https://runawayhorse001.github.io/LearningApacheSpark/rdd.html#create-rdd" target="blank">página</a> con documentación relacionada.</p>
                 <div class="blog-image-grande">
                     <img src="media/spark3.png" alt="">
                 </div>
