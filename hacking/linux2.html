@@ -91,10 +91,10 @@
                 <p>Existen muchos tutoriales en internet que te guían paso a paso para poder realizar la instalación por cualquiera de estos métodos, pero es importante saber cuál es el método que se ajuste más a tus necesidades. En caso de tener una PC con bajos recursos, te recomiendo que realices una partición de disco.</p>
                 <p>Aquí están los pasos a seguir para cada método de instalación en caso de que tengas experiencia y no requieras un tutorial paso a paso:</p>
                 <br>
-                <ul>
-                    <li><marcador class="resaltado6">Instalación en Máquinas Virtuales</marcador></li>
+                <ul style="list-style-type: upper-alpha;">
+                    <li><marcador class="resaltado9">Instalación en Máquinas Virtuales</marcador></li>
                     <p>Las máquinas virtuales (VMs) permiten ejecutar un sistema operativo dentro de otro, lo que te brinda un entorno aislado y seguro para probar Linux sin afectar tu sistema principal. Aquí están los pasos generales para instalar Linux en una máquina virtual:</p>
-                    <ol>
+                    <ol style="list-style-type: upper-roman;">
                         <li>Elige un Software de Virtualización: Utiliza herramientas populares como VirtualBox, VMware o Hyper-V para crear y gestionar máquinas virtuales.</li>
                         <li>Descarga la Imagen de Linux: Descarga una imagen ISO de la distribución de Linux que deseas instalar, como Ubuntu, Fedora o Debian.</li>
                         <li>Crea una Nueva Máquina Virtual: Configura la VM con la cantidad adecuada de memoria RAM, espacio en disco y otros ajustes.</li>
@@ -103,9 +103,9 @@
                         <li>Finaliza la Instalación: Reinicia la VM y disfruta de tu nueva instalación de Linux en una máquina virtual.</li>
                     </ol>
                     <br>
-                    <li><marcador class="resaltado6">Instalación en Particiones de Disco</marcador></li>
+                    <li><marcador class="resaltado9">Instalación en Particiones de Disco</marcador></li>
                     <p>Instalar Linux en una partición de disco es una forma más permanente de usar el sistema. Aquí tienes los pasos básicos:</p>
-                    <ol>
+                    <ol style="list-style-type: upper-roman;">
                         <li>Prepara una Partición: Redimensiona tu disco duro para crear espacio no asignado donde se instalará Linux.</li>
                         <li>Descarga la Imagen de Linux: Descarga la imagen ISO de la distribución de Linux de tu elección.</li>
                         <li>Crea un USB Booteable: Utiliza herramientas como Rufus o Etcher para grabar la imagen ISO en un USB.</li>
@@ -115,9 +115,9 @@
                         <li>Completa la Instalación: Sigue las instrucciones del instalador para finalizar la instalación.</li>
                     </ol>
                     <br>
-                    <li><marcador class="resaltado6">Instalación en USB</marcador></li>
+                    <li><marcador class="resaltado9">Instalación en USB</marcador></li>
                     <p>La instalación en un USB booteable es una forma conveniente de instalar Linux en una computadora sin necesidad de particionar el disco duro. Sigue estos pasos:</p>
-                    <ol>
+                    <ol style="list-style-type: upper-roman;">
                         <li>Descarga la imagen ISO de la distribución de Linux que deseas instalar desde el sitio web oficial.</li>
                         <li>Consigue una unidad USB con suficiente capacidad (al menos 8 GB se recomienda) y asegúrate de que no haya datos importantes en ella, ya que el proceso borrará todo.</li>
                         <li>Descarga una herramienta de creación de medios de arranque, como Rufus (Windows) o balenaEtcher (Windows, macOS, Linux).</li>
@@ -139,21 +139,21 @@
                 </div>
                 <h2>Diferencias y Ventajas</h2>
                 <p>Cada método de instalación de Linux tiene sus propias características y ventajas. A continuación, detallamos las diferencias entre usar máquinas virtuales, particiones de disco y un USB booteable, junto con las ventajas específicas de la partición y las precauciones al usar un USB booteable:</p>
-                <ul style="list-style-type: square;">
+                <ul>
                     <li><marcador class="resaltado9">Máquinas Virtuales:</marcador></li>
-                    <ul>
-                        <li><marcador class="resaltado8">Diferencias: </marcador>Las máquinas virtuales (VMs) permiten ejecutar un sistema operativo dentro de otro. No afectan el sistema anfitrión y brindan un entorno aislado para probar Linux. La instalación se realiza en un archivo virtual, lo que facilita la eliminación o la duplicación.</li>
-                        <li><marcador class="resaltado8">Ventajas: </marcador>No se modifican las particiones del sistema anfitrión, lo que garantiza la seguridad y evita conflictos con otros sistemas operativos. Puedes experimentar con múltiples distribuciones de Linux sin comprometer la estabilidad del sistema principal.</li>
+                    <ul style="list-style-type: none;">
+                        <li>⦿ <marcador class="resaltado8">Diferencias: </marcador>Las máquinas virtuales (VMs) permiten ejecutar un sistema operativo dentro de otro. No afectan el sistema anfitrión y brindan un entorno aislado para probar Linux. La instalación se realiza en un archivo virtual, lo que facilita la eliminación o la duplicación.</li>
+                        <li>⦿ <marcador class="resaltado8">Ventajas: </marcador>No se modifican las particiones del sistema anfitrión, lo que garantiza la seguridad y evita conflictos con otros sistemas operativos. Puedes experimentar con múltiples distribuciones de Linux sin comprometer la estabilidad del sistema principal.</li>
                     </ul>
                     <li><marcador class="resaltado9">Particiones de Disco:</marcador></li>
-                    <ul>
-                        <li><marcador class="resaltado8">Diferencias: </marcador>La instalación en particiones de disco crea una instalación nativa en una partición del disco duro. Puede ser un proceso más involucrado, ya que requiere la reorganización del espacio en disco y la configuración de particiones.</li>
-                        <li><marcador class="resaltado8">Ventajas: </marcador>Obtienes un rendimiento óptimo, ya que Linux se ejecuta directamente en el hardware. Tienes acceso completo a los recursos del sistema y no estás limitado por la capa de virtualización. Puedes configurar tu sistema para que Linux sea el sistema operativo principal.</li>
+                    <ul style="list-style-type: none;">
+                        <li>⦿ <marcador class="resaltado8">Diferencias: </marcador>La instalación en particiones de disco crea una instalación nativa en una partición del disco duro. Puede ser un proceso más involucrado, ya que requiere la reorganización del espacio en disco y la configuración de particiones.</li>
+                        <li>⦿ <marcador class="resaltado8">Ventajas: </marcador>Obtienes un rendimiento óptimo, ya que Linux se ejecuta directamente en el hardware. Tienes acceso completo a los recursos del sistema y no estás limitado por la capa de virtualización. Puedes configurar tu sistema para que Linux sea el sistema operativo principal.</li>
                     </ul>
                     <li><marcador class="resaltado9">USB:</marcador></li>
-                    <ul>
-                        <li><marcador class="resaltado8">Diferencias: </marcador>Instalar Linux desde un USB booteable implica arrancar tu computadora directamente desde el USB. No requiere particionar el disco duro.</li>
-                        <li><marcador class="resaltado8">Ventajas: </marcador>Puedes probar Linux antes de comprometerte a una instalación permanente. Ideal para sistemas que no deseas modificar o que no te pertenecen. Es una forma de llevar tu sistema operativo y tus datos a cualquier lugar y ejecutarlo en diferentes computadoras y, al ejecutar tu sistema desde una unidad USB, evitas dejar rastros en la máquina anfitriona y tus datos quedan en la USB.También en una USB no afectará al sistema anfitrión, lo que es especialmente útil para probar diferentes distribuciones o entornos sin comprometer la instalación existente.</li>
+                    <ul style="list-style-type: none;">
+                        <li>⦿ <marcador class="resaltado8">Diferencias: </marcador>Instalar Linux desde un USB booteable implica arrancar tu computadora directamente desde el USB. No requiere particionar el disco duro.</li>
+                        <li>⦿ <marcador class="resaltado8">Ventajas: </marcador>Puedes probar Linux antes de comprometerte a una instalación permanente. Ideal para sistemas que no deseas modificar o que no te pertenecen. Es una forma de llevar tu sistema operativo y tus datos a cualquier lugar y ejecutarlo en diferentes computadoras y, al ejecutar tu sistema desde una unidad USB, evitas dejar rastros en la máquina anfitriona y tus datos quedan en la USB.También en una USB no afectará al sistema anfitrión, lo que es especialmente útil para probar diferentes distribuciones o entornos sin comprometer la instalación existente.</li>
                     </ul>
                 </ul>
                 <br>
