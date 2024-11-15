@@ -47,7 +47,7 @@
                     <img src="media/vlan1.jpeg" alt="">
                 </div>
                 <h2>Parámetros Clave</h2>
-                <ul>
+                <ul style="list-style-type: none;">
                     <li><marcador class="resaltado5">ID de VLAN: </marcador>Cada VLAN se identifica mediante un número de identificación único (ID de VLAN) que puede variar de 1 a 4096. Algunos números de VLAN, como la VLAN 1, suelen reservarse para propósitos especiales.</li>
                     <li><marcador class="resaltado5">Troncales (Trunks): </marcador>Los enlaces de red que transportan el tráfico de múltiples VLANs se llaman troncales. Los troncales utilizan protocolos como IEEE 802.1Q para etiquetar el tráfico de VLAN.</li>
                     <li><marcador class="resaltado5">Asignación de Puertos: </marcador>Los puertos en un switch se pueden asignar a una o más VLANs. Un puerto puede ser un puerto de acceso, que pertenece a una sola VLAN, o un puerto de troncal, que transporta el tráfico de múltiples VLANs.</li>
@@ -430,9 +430,9 @@ Switch4# copy running-config startup-config</code></pre>
                 </div>
                 <h6>DTP</h6>
                 <p>DTP (Dynamic Trunking Protocol) es un protocolo utilizado para negociar automáticamente si un enlace entre dos switches será un troncal (que puede transportar tráfico de múltiples VLANs) o no. En lugar de tener que configurar manualmente los enlaces troncales, DTP permite que los switches negocien entre sí.</p>
-                <ol>
-                    <li><marcador class="resaltado8">Modo Desirable: </marcador>Cuando un switch está en este modo, intenta activamente negociar el enlace troncal. Si el otro switch está en "auto" o "desirable", la conexión será troncal.</li>
-                    <li><marcador class="resaltado8">Modo Auto: </marcador>Este modo es el modo pasivo. El switch en este modo esperará que el otro dispositivo (si está en "desirable") inicie la negociación de la troncal. Si el otro dispositivo está en "desirable" o "auto", se negociará una troncal.</li>
+                <ol style="list-style-type: none;">
+                    <li>∘ <marcador class="resaltado8">Modo Desirable: </marcador>Cuando un switch está en este modo, intenta activamente negociar el enlace troncal. Si el otro switch está en "auto" o "desirable", la conexión será troncal.</li>
+                    <li>∘ <marcador class="resaltado8">Modo Auto: </marcador>Este modo es el modo pasivo. El switch en este modo esperará que el otro dispositivo (si está en "desirable") inicie la negociación de la troncal. Si el otro dispositivo está en "desirable" o "auto", se negociará una troncal.</li>
                 </ol>
                 <p>La conexión entre los switches se establece como troncal solo cuando ambos switches negocian y acuerdan configurar el enlace para permitir múltiples VLANs. Este proceso se facilita a través de DTP, que asegura que los enlaces adecuados se configuren sin intervención manual, lo cual es muy útil cuando hay cambios frecuentes en la infraestructura de red.</p>
                 <div class="consola">

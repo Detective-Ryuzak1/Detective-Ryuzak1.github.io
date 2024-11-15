@@ -61,7 +61,7 @@ Interfaz de salida: FastEthernet0/0</div>
                 <p>La identificación de dominios de red es fundamental para entender cómo se determina el inicio y el fin de una red. La dirección IP es una etiqueta única asignada a cada dispositivo en la red, mientras que la máscara de red define los límites de esa red. Por ejemplo, en una dirección IP de clase C como 192.168.1.0 con una máscara de red de 255.255.255.0, la red empieza en 192.168.1.0 y termina en 192.168.1.255. Esto significa que todas las direcciones IP desde 192.168.1.1 hasta 192.168.1.254 están dentro del mismo dominio de red. Si un paquete tiene una dirección de destino que no está dentro de este rango, el router sabe que el paquete pertenece a otra red, lo que significa que debe usar un gateway para enviarlo al destino correcto.</p>
                 <p>El gateway actúa como un intermediario entre la red local del router y otras redes. Una vez que el paquete llega al gateway, este utiliza su propia tabla de enrutamiento para decidir cómo proceder. El gateway puede tener varias rutas hacia diferentes redes y, en función de la dirección IP de destino del paquete, determinará el mejor camino para llevarlo a su destino.</p>
                 <p>En un router, cada interfaz puede tener su propia dirección IP y puede actuar como un gateway para la red que conecta. Por ejemplo, si un router tiene una interfaz conectada a la red local (LAN) con la dirección IP 192.168.1.1 y otra interfaz conectada a Internet (WAN) con la dirección IP 203.0.113.1, cada una de estas interfaces puede considerarse un gateway para las redes que conecta.</p>
-                <ul>
+                <ul style="list-style-type: none;">
                     <li><marcador class="resaltado5">Interfaz LAN: </marcador>La interfaz LAN del router (192.168.1.1) actúa como el gateway para todos los dispositivos en la red local. Cualquier dispositivo que quiera comunicarse con el exterior debe enviar sus paquetes a esta dirección, que es la dirección del gateway local.</li>
                     <li><marcador class="resaltado5">Interfaz WAN: </marcador>La interfaz WAN (203.0.113.1) actúa como el gateway hacia Internet. Cuando el router necesita enviar paquetes hacia Internet, utiliza esta interfaz.</li>
                 </ul>
@@ -117,10 +117,10 @@ Interfaz de salida: FastEthernet0/0</div>
                 </div>
                 <h2>Loopback</h2>
                 <p>Es una dirección IP especial que siempre apunta a la propia máquina en la que está configurada, sin necesidad de salir físicamente a la red. En IPv4, la dirección más comúnmente usada para loopback es 127.0.0.1, y en IPv6, es ::1.</p>
-                <ul>
+                <ul style="list-style-type: none;">
                     <li><marcador class="resaltado5">Pruebas locales: </marcador>Permite a los desarrolladores y administradores de sistemas realizar pruebas de conectividad sin necesidad de acceso a la red externa. Al hacer ping a 127.0.0.1, puedes verificar si la pila de red del sistema está funcionando correctamente.</li>
                     <li><marcador class="resaltado5">Simulación de red: </marcador>Sirve para probar servicios de red (servidores web, aplicaciones, bases de datos, etc.) localmente sin exponer la máquina a la red externa. Esto permite ejecutar software de red en tu computadora como si estuviera interactuando con otras máquinas.</li>
-                    <li>También se pueden configurar direcciones IP en la interfaz loopback de cada router, representando diferentes redes internas. Estas redes no necesitan conectarse físicamente a una interfaz real, pero aún pueden ser enrutadas o utilizadas para hacer pruebas de conectividad entre diferentes routers, como si cada router estuviera conectado a su propia LAN.</li>
+                    <li><marcador class="resaltado5">Loopback: </marcador>También se pueden configurar direcciones IP en la interfaz loopback de cada router, representando diferentes redes internas. Estas redes no necesitan conectarse físicamente a una interfaz real, pero aún pueden ser enrutadas o utilizadas para hacer pruebas de conectividad entre diferentes routers, como si cada router estuviera conectado a su propia LAN.</li>
                     <li><marcador class="resaltado5">Aislamiento de servicios: </marcador>Muchos servicios (como servidores web o bases de datos) pueden estar configurados para escuchar conexiones en la dirección loopback, asegurando que solo se pueda acceder a ellos localmente, lo que es útil para proteger servicios internos o realizar desarrollos en entornos locales.</li>
                     <li><marcador class="resaltado5">Diagnósticos de red: </marcador>Es utilizada para verificar si la pila TCP/IP del sistema está funcionando correctamente, permitiendo a los administradores detectar problemas de red en la configuración interna de un equipo.</li>
                 </ul>
@@ -133,19 +133,19 @@ Interfaz de salida: FastEthernet0/0</div>
                     <img src="media/static3.jpeg" alt="">
                 </div>
                 <h6>Direccionamiento y conexiones:</h6>
-                <ul>
-                    <li>R1 f0/0: 10.10.10.1/30 (Conecta con R3 f0/0)</li>
-                    <li>R1 f1/0: 10.10.11.1/30 (Conecta con R2 f1/0)</li>
-                    <li>R2 f0/0: 10.10.13.1/30 (Conecta con R4 f0/0)</li>
-                    <li>R2 f1/0: 10.10.11.2/30 (Conecta con R1 f1/0)</li>
-                    <li>R3 f0/0: 10.10.10.2/30 (Conecta con R1 f0/0)</li>
-                    <li>R3 f1/0: 10.10.12.1/30 (Conecta con R4 f1/0)</li>
-                    <li>R4 f0/0: 10.10.13.2/30 (Conecta con R2 f0/0)</li>
-                    <li>R4 f1/0: 10.10.12.2/30 (Conecta con R3 f1/0)</li>
+                <ul style="list-style-type: none;">
+                    <li>∘ R1 f0/0: 10.10.10.1/30 (Conecta con R3 f0/0)</li>
+                    <li>∘ R1 f1/0: 10.10.11.1/30 (Conecta con R2 f1/0)</li>
+                    <li>∘ R2 f0/0: 10.10.13.1/30 (Conecta con R4 f0/0)</li>
+                    <li>∘ R2 f1/0: 10.10.11.2/30 (Conecta con R1 f1/0)</li>
+                    <li>∘ R3 f0/0: 10.10.10.2/30 (Conecta con R1 f0/0)</li>
+                    <li>∘ R3 f1/0: 10.10.12.1/30 (Conecta con R4 f1/0)</li>
+                    <li>∘ R4 f0/0: 10.10.13.2/30 (Conecta con R2 f0/0)</li>
+                    <li>∘ R4 f1/0: 10.10.12.2/30 (Conecta con R3 f1/0)</li>
                 </ul>   
                 <h6>Configuración de rutas en cada router:</h6>
                 <h3>Cisco</h3>
-                <ul>
+                <ul class="custom-list">
                     <li>Router 1</li>
                 <div class="consola">
                     <div class="barra-superior-consola">
@@ -240,7 +240,7 @@ ip route 10.10.11.0 255.255.255.252 10.10.13.1  # Ruta hacia R1 a través de R2<
                     </div>
                   </div>
                 <h3>Huawei</h3>
-                <ul>
+                <ul class="custom-list">
                     <li>Router 1</li>
                 <div class="consola">
                     <div class="barra-superior-consola">
@@ -349,10 +349,10 @@ ip route-static 10.10.11.0 255.255.255.252 10.10.13.1  # Ruta hacia R1 a través
                     <img src="media/static9.png" alt="">
                 </div>
                 <h6>Direccionamiento y conexiones:</h6>
-                <ul>
-                    <li>Entre A y B: Red 70.0.0.0/24 (A: 70.0.0.1, B: 70.0.0.2).</li>
-                    <li>Entre B y C: Red 20.0.0.0/24 (B: 20.0.0.1, C: 20.0.0.2).</li>
-                    <li>Entre C y D: Red 40.0.0.0/24 (C: 40.0.0.1, D: 40.0.0.2).</li>
+                <ul style="list-style-type: none;">
+                    <li>∘ Entre A y B: Red 70.0.0.0/24 (A: 70.0.0.1, B: 70.0.0.2).</li>
+                    <li>∘ Entre B y C: Red 20.0.0.0/24 (B: 20.0.0.1, C: 20.0.0.2).</li>
+                    <li>∘ Entre C y D: Red 40.0.0.0/24 (C: 40.0.0.1, D: 40.0.0.2).</li>
                 </ul>
                 <h6>Configuración de rutas en cada router:</h6>
                 <p><marcador class="resaltado8">En Router A: </marcador>Router A tiene una conexión directa con Router B en la red 70.0.0.0/24. Como la red de Router D es remota (40.0.0.0/24), es necesario decirle a Router A que para llegar a la red 40.0.0.0/24, debe enviar el tráfico a Router B, que tiene la IP 70.0.0.2.</p>
@@ -415,7 +415,7 @@ ip route 10.0.2.0 255.255.255.252 10.0.4.2 10   # AD más bajo, más prioridad</
                 </div>
                 <p>En este ejemplo, la segunda ruta tendrá mayor prioridad ya que su AD es más bajo.</p>
                 <h2>Factores que influyen en la selección de rutas</h2>
-                <ul>
+                <ul style="list-style-type: none;">
                     <li><marcador class="resaltado5">Número de saltos: </marcador>Este es el número de routers por los que un paquete debe pasar para llegar a su destino. En protocolos como RIP, el número de saltos es el principal criterio para la selección de rutas.</li>
                     <li><marcador class="resaltado5">Ancho de banda: </marcador>En algunos protocolos, como OSPF, el ancho de banda de los enlaces entre routers se utiliza para calcular la mejor ruta. Una ruta con mayor ancho de banda puede ser seleccionada para garantizar un mejor rendimiento.</li>
                     <li><marcador class="resaltado5">Delay (retardo): </marcador>El tiempo que tarda un paquete en viajar por un enlace puede ser un factor importante en la selección de la ruta. Protocolo como EIGRP considera este factor.</li>

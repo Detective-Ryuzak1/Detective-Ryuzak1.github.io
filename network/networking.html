@@ -71,7 +71,7 @@
                 </ol>
                 <h2>Protocolos de detección de errores</h2>
                 <p>Los protocolos de detección de errores son mecanismos utilizados en las comunicaciones digitales para garantizar la integridad de los datos transmitidos. Ayudan a detectar si ha habido algún tipo de corrupción en los datos durante su transmisión desde el emisor al receptor. Funcionan agregando información adicional a los datos transmitidos, lo que permite al receptor verificar si los datos han sido alterados durante la transmisión.</p>
-                <ul>
+                <ul style="list-style-type: none;">
                     <li><marcador class="resaltado5">Checksums: </marcador>Los checksums son valores numéricos derivados de los datos transmitidos. El emisor calcula un checksum basado en los datos y lo envía junto con los datos. El receptor recalcula el checksum al recibir los datos y lo compara con el checksum recibido. Si los checksums no coinciden, se asume que ha ocurrido un error.</li>
                     <li><marcador class="resaltado5">CRC (Cyclic Redundancy Check): </marcador>El CRC es un algoritmo más sofisticado que los checksums y se basa en la división polinomial. El emisor y el receptor acuerdan un polinomio generador. El emisor divide los datos por este polinomio y envía el residuo junto con los datos. El receptor realiza la misma operación y compara el residuo calculado con el recibido para detectar errores.</li>
                     <li><marcador class="resaltado5">Paridad: </marcador>En la paridad, se agrega un bit adicional a los datos para garantizar que el número total de bits de valor "1" sea par o impar. Si el receptor encuentra un número impar de bits de valor "1", sabe que ha ocurrido un error.</li>
@@ -80,7 +80,7 @@
                     <img src="media/networking2.png" alt="">
                 </div> 
                 <h2>Protocolos de resolución de problemas de red (RARP, ARP, NARP)</h2>
-                <ul>
+                <ul style="list-style-type: none;">
                     <li><marcador class="resaltado5">RARP (Reverse Address Resolution Protocol): </marcador>Se utiliza para encontrar la dirección de capa de enlace (MAC) de un dispositivo cuando se conoce su dirección IP.</li>
                     <li><marcador class="resaltado5">ARP (Address Resolution Protocol): </marcador>Se utiliza para asociar direcciones IP con direcciones de hardware (MAC) en una red local.</li>
                     <li><marcador class="resaltado5">NARP (Node Address Resolution Protocol): </marcador>Similar a ARP, pero se utiliza para encontrar la dirección IP de un nodo cuando se conoce su dirección MAC.</li>
@@ -101,22 +101,22 @@
                 <h2>Protocolo de configuración de dirección dinámica (DDCP)</h2>
                 <p>Protocolo utilizado para asignar direcciones IP automáticamente a dispositivos en una red, así como también proporcionarles información de configuración adicional, como la dirección del servidor DNS y la puerta de enlace predeterminada.</p>
                 <h2>Algoritmo de acceso aleatorio persistente (PRMA) y CSMA/CD</h2>
-                <ul>
+                <ul style="list-style-type: none;">
                     <li><marcador class="resaltado5">PRMA (Persistent Random Access): </marcador>Algoritmo utilizado en sistemas de comunicación inalámbrica para coordinar el acceso al medio de comunicación.</li>
                     <li><marcador class="resaltado5">CSMA/CD (Carrier Sense Multiple Access with Collision Detection): </marcador>Algoritmo utilizado en redes Ethernet para evitar colisiones en la transmisión de datos. Los dispositivos verifican el medio antes de transmitir y, si detectan actividad, esperan un breve período antes de intentar transmitir nuevamente.</li>
                 </ul>
-                <ol>
-                    <li><marcador class="resaltado6">Carrier Sense (CS):</marcador></li>
+                <ol style="list-style-type: none;">
+                    <li>〤 <marcador class="resaltado6">Carrier Sense (CS):</marcador></li>
                     <ul style="list-style-type: none;">
                         <li>∘ Antes de transmitir datos, un dispositivo Ethernet escucha el medio compartido para detectar si hay alguna señal transmitida por otro dispositivo.</li>
                         <li>∘ Si el medio está en silencio (no hay señal detectada), el dispositivo puede iniciar su transmisión. Si detecta actividad en el medio, espera un tiempo aleatorio antes de volver a verificar el estado del canal.</li>
                     </ul>
-                    <li><marcador class="resaltado6">Multiple Access (MA):</marcador></li>
+                    <li>〤 <marcador class="resaltado6">Multiple Access (MA):</marcador></li>
                     <ul style="list-style-type: none;">
                         <li>∘ Varios dispositivos pueden intentar transmitir datos en el mismo medio compartido.</li>
                         <li>∘ El acceso al medio es compartido y cualquier dispositivo puede intentar transmitir en cualquier momento.</li>
                     </ul>
-                    <li><marcador class="resaltado6">Collision Detection (CD):</marcador></li>
+                    <li>〤 <marcador class="resaltado6">Collision Detection (CD):</marcador></li>
                     <ul style="list-style-type: none;">
                         <li>∘ Si dos dispositivos comienzan a transmitir al mismo tiempo y sus señales colisionan en el medio compartido, ambos dispositivos detectan la colisión.</li>
                         <li>∘ Cuando un dispositivo detecta una colisión, interrumpe su transmisión y envía una señal especial llamada jamming signal para notificar a los otros dispositivos de la colisión.</li>
