@@ -60,7 +60,7 @@
                 <h2>Comandos de Nmap</h2>
                 <p>Nmap puede utilizarse desde una terminal, ejecutando comandos para obtener diversa información sobre una red. A continuación, se muestran algunos comandos esenciales:</p>
                 <p>Primero, necesitas identificar tu rango de red (subred). Puedes usar el comando <marcardor class="subrayado">ipconfig</marcardor> en Windows o <marcardor class="subrayado">ifconfig</marcardor> e <marcardor class="subrayado">ip a</marcardor> en Linux y macOS para obtener esta información.</p>
-                <p>El siguiente comando sirve para escanear todas las IP activas en la red.</p>
+                <p>❏ El siguiente comando sirve para escanear todas las IP activas en la red.</p>
                 <div id="terminal">
                     <section id="terminal__bar">
                         <div id="bar__buttons">
@@ -90,7 +90,7 @@ Nmap done: 256 IP addresses (3 hosts up) scanned in 2.44 seconds
                     </section>
                 </div>
                 <br>
-                <p>Este comando escanea los 1,000 puertos más comunes de la dirección IP especificada. Útil para un análisis rápido de los puertos abiertos en un host.</p>
+                <p>❏ Este comando escanea los 1,000 puertos más comunes de la dirección IP especificada. Útil para un análisis rápido de los puertos abiertos en un host.</p>
                 <div id="terminal">
                     <section id="terminal__bar">
                         <div id="bar__buttons">
@@ -123,7 +123,7 @@ Nmap done: 1 IP address (1 host up) scanned in 0.35 seconds
                     </section>
                 </div>
                 <br>
-                <p>Este comando escanea un puerto específico (en este caso el 80, usado por HTTP) para ver si está abierto o cerrado.</p>
+                <p>❏ Este comando escanea un puerto específico (en este caso el 80, usado por HTTP) para ver si está abierto o cerrado.</p>
                 <div id="terminal">
                     <section id="terminal__bar">
                         <div id="bar__buttons">
@@ -154,7 +154,7 @@ Nmap done: 1 IP address (1 host up) scanned in 0.14 seconds
                     </section>
                 </div>
                 <br>
-                <p>Este comando es particularmente adecuado para escaneos rápidos y detallados, donde el objetivo es obtener información precisa sobre los puertos abiertos en un host sin preocuparse por los puertos cerrados o filtrados.</p>
+                <p>❏ Este comando es particularmente adecuado para escaneos rápidos y detallados, donde el objetivo es obtener información precisa sobre los puertos abiertos en un host sin preocuparse por los puertos cerrados o filtrados.</p>
                 <div id="terminal">
                     <section id="terminal__bar">
                         <div id="bar__buttons">
@@ -207,7 +207,7 @@ Nmap done: 1 IP address (1 host up) scanned in 20.41 seconds
                     <li><marcador class="resaltado3">-oG Puertos: </marcador>Este parámetro indica que los resultados del escaneo se guarden en un archivo con formato "grepable" (fácil de buscar con herramientas de línea de comandos como grep). En este caso, el archivo se llamará Puertos. Es útil cuando deseas analizar los resultados más tarde o procesarlos automáticamente con scripts.</li>
                 </ul>
                 <br>
-                <p>Este comando realiza un escaneo enfocado en los puertos 22 (SSH) y 80 (HTTP) de un host, utilizando scripts NSE y detección de versiones de servicios.</p>
+                <p>❏ Este comando realiza un escaneo enfocado en los puertos 22 (SSH) y 80 (HTTP) de un host, utilizando scripts NSE y detección de versiones de servicios.</p>
                 <div id="terminal">
                     <section id="terminal__bar">
                         <div id="bar__buttons">
@@ -254,7 +254,7 @@ Nmap done: 1 IP address (1 host up) scanned in 19.11 seconds
                 </ul>
                 <p>Se puede hacer uso del comando <marcardor class="subrayado">TARGET=10.10.11.23 && nmap -p$(nmap -sS -p- --min-rate=5000 -T4 $TARGET -Pn | grep ^[0-9] | cut -d '/' -f 1 | tr '\n' ',' | sed s/,$//) -sC -sV -Pn -vvv $TARGET -oN EscaneoDelObjetivo</marcardor> para combinar el descubrimiento de puertos abiertos y el análisis de servicios en una sola ejecución. Este comando realiza un escaneo rápido de todos los puertos usando un SYN scan (-sS), que es eficiente y no establece conexiones completas, para identificar qué puertos están abiertos. Luego, utiliza esos puertos detectados para hacer un análisis más profundo, con la ejecución de scripts NSE (-sC) y la detección de versiones (-sV), proporcionando detalles precisos sobre los servicios que se ejecutan en esos puertos. Finalmente, guarda el resultado en un archivo para facilitar su análisis.</p>
                 <br>
-                <p>Aquí el comando realiza un escaneo rápido y enfocado en los puertos UDP más comunes, con la máxima velocidad (-T5), omitiendo los puertos cerrados, y guardando los resultados en un archivo para análisis posterior.</p>
+                <p>❏ Aquí el comando realiza un escaneo rápido y enfocado en los puertos UDP más comunes, con la máxima velocidad (-T5), omitiendo los puertos cerrados, y guardando los resultados en un archivo para análisis posterior.</p>
                 <div id="terminal">
                     <section id="terminal__bar">
                         <div id="bar__buttons">
@@ -287,7 +287,7 @@ Discovered open port 69/udp on 10.10.11.23
                     <li><marcador class="resaltado3">-T5: </marcador>Especifica un nivel de agresividad alto en términos de velocidad y tiempo de espera para el escaneo (en este caso, "Insane"). -T5 maximiza la velocidad del escaneo, pero podría generar falsos negativos o activar medidas de seguridad como sistemas de detección de intrusiones (IDS).</li>
                 </ul>
                 <br>
-                <p>Este comando escanea el puerto UDP 69 del host 10.10.11.23 para identificar qué servicio está corriendo (probablemente TFTP), su versión, y obtener información adicional mediante scripts NSE.</p>
+                <p>❏ Este comando escanea el puerto UDP 69 del host 10.10.11.23 para identificar qué servicio está corriendo (probablemente TFTP), su versión, y obtener información adicional mediante scripts NSE.</p>
                 <div id="terminal">
                     <section id="terminal__bar">
                         <div id="bar__buttons">
@@ -332,7 +332,7 @@ PORT   STATE SERVICE VERSION
                 <p>Haciendo uso del comando <marcardor class="subrayado">locate .nse | xargs grep "categories" | grep -oP '".*?"' | sort -u</marcardor> se obtiene una lista única de todas las categorías de scripts NSE presentes en el sistema.</p>
                 <p>El comando busca en el sistema archivos con extensión .nse (scripts de Nmap), luego extrae las líneas que contienen la palabra "categories" dentro de esos scripts, filtra y extrae las categorías específicas entre comillas, y finalmente ordena esas categorías de forma única.</p>
                 <br>
-                <p>El siguiente comando combina los scripts categorizados como "vuln" y "safe", es decir, ejecuta scripts que detectan vulnerabilidades y aquellos marcados como seguros de ejecutar. No significa que haya un balance entre ellos, sino que simplemente aplica ambos tipos de scripts en un solo escaneo.</p>
+                <p>❏ El siguiente comando combina los scripts categorizados como "vuln" y "safe", es decir, ejecuta scripts que detectan vulnerabilidades y aquellos marcados como seguros de ejecutar. No significa que haya un balance entre ellos, sino que simplemente aplica ambos tipos de scripts en un solo escaneo.</p>
                 <div id="terminal">
                     <section id="terminal__bar">
                         <div id="bar__buttons">
@@ -365,7 +365,7 @@ Nmap done: 1 IP address (1 host up) scanned in 66.27 seconds
                 </div>
                 <p>En este caso los scripts que se ejecutaron, tanto los de la categoría "vuln" (vulnerabilidades) como los de "safe" (seguros), no detectaron nada significativo en los puertos abiertos (22 y 80).</p>
                 <br>
-                <p>El comando realiza un escaneo enfocado en enumerar los directorios y recursos accesibles a través del puerto 80 (HTTP) en el host 10.10.11.23.</p>
+                <p>❏ El comando realiza un escaneo enfocado en enumerar los directorios y recursos accesibles a través del puerto 80 (HTTP) en el host 10.10.11.23.</p>
                 <div id="terminal">
                     <section id="terminal__bar">
                         <div id="bar__buttons">
