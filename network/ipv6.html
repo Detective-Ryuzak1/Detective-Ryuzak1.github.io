@@ -55,13 +55,13 @@
                     <img src="media/ipv62.png" alt="">
                 </div>
                 <p>IPv6 se diseñó teniendo en cuenta la simplicidad y la eficiencia en la notación de direcciones. Para simplificar las direcciones IPv6, se siguen algunas reglas clave:</p>
-                <ul>
-                    <li><marcador class="resaltado6">Omisiones de Ceros en Bits Más Significativos:</marcador> En un bloque de cuatro dígitos hexadecimales, si hay un cero en el bit más significativo, este solo se omite. Por ejemplo, 2001:0db8:0c01:0042 se puede simplificar como 2001:db8:c01:42.</li>
-                    <li><marcador class="resaltado6">Omisiones de Ceros en Bloques:</marcador> Puedes omitir ceros consecutivos en cualquier bloque de cuatro dígitos hexadecimales. Por ejemplo, 2001:0db8:0000:0042:0000:8a2e:0370:7334 se puede simplificar como 2001:db8:0:42:0:8a2e:370:7334.</li>
-                    <li><marcador class="resaltado6">Omisiones de Bloques de Ceros:</marcador> Puedes simplificar bloques de ceros continuos contiguos en la dirección IPv6 escribiendo ::. Sin embargo, esta omisión solo se permite una vez en una dirección IPv6. Por ejemplo, 2001:0db8:0000:0042:0000:8a2e:0370:7334 se puede simplificar como 2001:db8:0:42::8a2e:370:7334.</li>
-                    <li><marcador class="resaltado6">Notación de Cero Múltiple:</marcador> Cuando hay múltiples bloques de ceros contiguos, solo puedes usar :: para omitir un solo bloque de ceros consecutivos. Por ejemplo, 2001:0db8:0000:0000:0000:0000:0370:7334 se puede simplificar como 2001:db8::370:7334, pero no se puede simplificar aún más.</li>
-                    <li><marcador class="resaltado6">Caso Insensible:</marcador> IPv6 es insensible a mayúsculas y minúsculas, por lo que abcd y ABCD representan la misma dirección.</li>
-                    <li><marcador class="resaltado6">Prefijo de Longitud de Máscara:</marcador> A veces, las direcciones IPv6 se acompañan de un prefijo de longitud de máscara, que indica cuántos bits de la dirección están en uso. Por ejemplo, 2001:db8::/32 significa que los primeros 32 bits están en uso y el resto se pueden asignar en subredes.</li>
+                <ul style="list-style-type: none;">
+                    <li>‣ <marcador class="resaltado8">Omisiones de Ceros en Bits Más Significativos:</marcador> En un bloque de cuatro dígitos hexadecimales, si hay un cero en el bit más significativo, este solo se omite. Por ejemplo, 2001:0db8:0c01:0042 se puede simplificar como 2001:db8:c01:42.</li>
+                    <li>‣ <marcador class="resaltado8">Omisiones de Ceros en Bloques:</marcador> Puedes omitir ceros consecutivos en cualquier bloque de cuatro dígitos hexadecimales. Por ejemplo, 2001:0db8:0000:0042:0000:8a2e:0370:7334 se puede simplificar como 2001:db8:0:42:0:8a2e:370:7334.</li>
+                    <li>‣ <marcador class="resaltado8">Omisiones de Bloques de Ceros:</marcador> Puedes simplificar bloques de ceros continuos contiguos en la dirección IPv6 escribiendo ::. Sin embargo, esta omisión solo se permite una vez en una dirección IPv6. Por ejemplo, 2001:0db8:0000:0042:0000:8a2e:0370:7334 se puede simplificar como 2001:db8:0:42::8a2e:370:7334.</li>
+                    <li>‣ <marcador class="resaltado8">Notación de Cero Múltiple:</marcador> Cuando hay múltiples bloques de ceros contiguos, solo puedes usar :: para omitir un solo bloque de ceros consecutivos. Por ejemplo, 2001:0db8:0000:0000:0000:0000:0370:7334 se puede simplificar como 2001:db8::370:7334, pero no se puede simplificar aún más.</li>
+                    <li>‣ <marcador class="resaltado8">Caso Insensible:</marcador> IPv6 es insensible a mayúsculas y minúsculas, por lo que abcd y ABCD representan la misma dirección.</li>
+                    <li>‣ <marcador class="resaltado8">Prefijo de Longitud de Máscara:</marcador> A veces, las direcciones IPv6 se acompañan de un prefijo de longitud de máscara, que indica cuántos bits de la dirección están en uso. Por ejemplo, 2001:db8::/32 significa que los primeros 32 bits están en uso y el resto se pueden asignar en subredes.</li>
                 </ul>
                 
                 <h2>Ventajas de IPv6</h2>
@@ -89,10 +89,10 @@
                 </ul>
                 <h2>Rangos y Clasificaciones</h2>
                 <p>En IPv6, los conceptos de clases A, B y C se han reemplazado por prefijos de longitud variable. Estos prefijos indican la longitud de la porción de red de la dirección. Algunos ejemplos de prefijos comunes incluyen /64, /48 y /32. Por ejemplo:</p>
-                <ul>
-                    <li>/64 se utiliza típicamente para redes locales.</li>
-                    <li>/48 se asigna a organizaciones.</li>
-                    <li>/32 se utiliza para direcciones IPv6 globales únicas.</li>
+                <ul style="list-style-type: none;">
+                    <li>‣ /64 se utiliza típicamente para redes locales.</li>
+                    <li>‣ /48 se asigna a organizaciones.</li>
+                    <li>‣ /32 se utiliza para direcciones IPv6 globales únicas.</li>
                 </ul>
                 <h2>Header</h2>
                 <p>El encabezado IPv6, también conocido como header IPv6 en inglés, es una parte fundamental de un paquete IPv6 y contiene información esencial para el enrutamiento y el procesamiento del paquete a medida que viaja a través de la red. Aquí tienes una explicación de los campos más importantes del encabezado IPv6:</p>

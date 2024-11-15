@@ -139,9 +139,9 @@
                 </ul>
                 <h2>Datos Adicionales y Suma de Comprobación (Checksum)</h2>
                 <p>Aparte de los campos "Type" y "Code", el encabezado ICMP también contiene otros campos importantes:</p>
-                <ul>
-                    <li><marcador class="resaltado18">Checksum (Suma de comprobación):</marcador> Se utiliza para verificar la integridad del paquete ICMP. La suma de comprobación se calcula sobre todo el encabezado ICMP y los datos, y el valor resultante se coloca en este campo. Si el valor de la suma de comprobación no coincide con el valor calculado, el paquete podría estar dañado o haber sido modificado en tránsito.</li>
-                    <li><marcador class="resaltado18">Resto del encabezado y datos:</marcador> Dependiendo del tipo y el código del mensaje ICMP, puede haber información adicional en el encabezado, como números de secuencia y de identificación para los mensajes de solicitud y respuesta de eco.</li>
+                <ul style="list-style-type: none;">
+                    <li>∘ <marcador class="resaltado8">Checksum (Suma de comprobación):</marcador> Se utiliza para verificar la integridad del paquete ICMP. La suma de comprobación se calcula sobre todo el encabezado ICMP y los datos, y el valor resultante se coloca en este campo. Si el valor de la suma de comprobación no coincide con el valor calculado, el paquete podría estar dañado o haber sido modificado en tránsito.</li>
+                    <li>∘ <marcador class="resaltado8">Resto del encabezado y datos:</marcador> Dependiendo del tipo y el código del mensaje ICMP, puede haber información adicional en el encabezado, como números de secuencia y de identificación para los mensajes de solicitud y respuesta de eco.</li>
                 </ul>
                 <h2>Ejemplo de Encabezado ICMP</h2>
                 <p>Supongamos que tenemos un mensaje ICMP de "Destino inalcanzable" con el código "Red inalcanzable". El encabezado ICMP para este mensaje se vería así:</p>

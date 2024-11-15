@@ -151,8 +151,8 @@
                 <p>Los puertos son números de identificación que permiten que múltiples aplicaciones en un mismo dispositivo compartan la misma dirección IP. Actúan como puntos de acceso virtuales que permiten que los datos se entreguen a la aplicación correcta en una computadora. Los puertos se dividen en dos rangos: puertos bien conocidos (0-1023), puertos registrados (1024-49151) y puertos dinámicos o privados (49152-65535).</p>
                 <p>Los protocolos de transporte TCP (Protocolo de Control de Transmisión) y UDP (Protocolo de Datagramas de Usuario) utilizan puertos para distinguir diferentes aplicaciones en la misma máquina. A través de estos puertos, se logra una comunicación eficiente y organizada en las redes.</p>
                 <h2>Diferencias entre TCP y UDP</h2>
-                <ul >
-                    <li>TCP (Protocolo de Control de Transmisión) proporciona una comunicación confiable y orientada a la conexión. Establece una conexión antes de enviar datos y garantiza la entrega secuencial.</li>
+                <ul style="list-style-type: none;">
+                    <li>‣ TCP (Protocolo de Control de Transmisión) proporciona una comunicación confiable y orientada a la conexión. Establece una conexión antes de enviar datos y garantiza la entrega secuencial.</li>
                     <ol>
                         <li><marcador class="resaltado9">Establecimiento de la conexión:</marcador> Cuando dos dispositivos (cliente y servidor) desean comunicarse, se inicia una conexión TCP. Esto se logra mediante un "apretón de manos" de tres pasos, donde se acuerdan los parámetros de la comunicación.</li>
                         <li><marcador class="resaltado9">Transferencia de datos:</marcador> Una vez establecida la conexión, los datos se dividen en segmentos y se envían a través de la red. Cada segmento contiene el número de puerto de origen y destino, lo que permite que los dispositivos sepan a qué aplicación deben entregar los datos.</li>
@@ -160,7 +160,7 @@
                         <li><marcador class="resaltado9">Cierre de la conexión:</marcador> Una vez que se completa la transferencia, se inicia el proceso de cierre de la conexión. Al igual que en el establecimiento, se realiza un "apretón de manos" de cuatro pasos para finalizar la conexión de manera ordenada.</li>
                     </ol>
                     <br>
-                    <li>UDP (Protocolo de Datagramas de Usuario) es más rápido pero menos confiable. Es útil para aplicaciones en tiempo real, como streaming y videojuegos, donde la velocidad es crucial y la pérdida ocasional de datos es aceptable.</li>
+                    <li>‣ UDP (Protocolo de Datagramas de Usuario) es más rápido pero menos confiable. Es útil para aplicaciones en tiempo real, como streaming y videojuegos, donde la velocidad es crucial y la pérdida ocasional de datos es aceptable.</li>
                     <ol>
                         <li><marcador class="resaltado9">Envío de datos:</marcador> En UDP, no hay un proceso de establecimiento de conexión. Los datos se dividen en datagramas y se envían a través de la red. Cada datagrama contiene la información del número de puerto de origen y destino.</li>
                         <li><marcador class="resaltado9">Entrega sin confirmación:</marcador> A diferencia de TCP, UDP no proporciona confirmaciones de recepción ni reenvía datos perdidos. Esto hace que UDP sea más rápido pero menos confiable.</li>
@@ -173,9 +173,9 @@
                     <img src="media/osi2.jpg" alt="">
                 </div>
                 <h2>Dispositivos en el Modelo OSI</h2>
-                <ul>
-                    <li><marcador class="resaltado8">Switches:</marcador> Operan en la capa de enlace de datos. Aprenden direcciones MAC y envían tráfico solo a los dispositivos necesarios, mejorando la eficiencia en la red local.</li>
-                    <li><marcador class="resaltado8">Routers:</marcador> Trabajan en la capa de red. Deciden la mejor ruta para enviar paquetes entre redes y utilizan tablas de enrutamiento para tomar decisiones.</li>
+                <ul style="list-style-type: none;">
+                    <li>∘ <marcador class="resaltado8">Switches:</marcador> Operan en la capa de enlace de datos. Aprenden direcciones MAC y envían tráfico solo a los dispositivos necesarios, mejorando la eficiencia en la red local.</li>
+                    <li>∘ <marcador class="resaltado8">Routers:</marcador> Trabajan en la capa de red. Deciden la mejor ruta para enviar paquetes entre redes y utilizan tablas de enrutamiento para tomar decisiones.</li>
                 </ul>
                 <h2>Conclusión</h2>
                 <p>El Modelo OSI es un pilar fundamental en la comprensión de cómo los dispositivos de red interactúan y colaboran para transmitir datos. Cada capa tiene su propio conjunto de funciones y protocolos, y la interacción fluida entre ellas permite que la comunicación sea exitosa. Desde la capa física hasta la capa de aplicación, cada nivel desempeña un papel esencial en el proceso de comunicación que impulsa nuestras redes modernas.</p>
