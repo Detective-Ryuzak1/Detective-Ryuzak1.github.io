@@ -44,13 +44,13 @@
                 <p>OSPF (Open Shortest Path First) es un protocolo de enrutamiento de estado de enlace ampliamente utilizado en redes IP. Se basa en el algoritmo de Dijkstra para determinar las rutas más cortas y forma parte de los protocolos de gateway interior (IGP). OSPF permite una convergencia rápida y es capaz de soportar redes complejas mediante una organización jerárquica por áreas, facilitando la escalabilidad y administración en redes grandes.</p>
                 <h2>Tipos de Redes en OSPF</h2>
                 <p>OSPF identifica varios tipos de redes, optimizando el comportamiento de sus mensajes:</p>
-                <ul>
-                    <li><marcador class="resaltado5">Broadcast: </marcador>Las redes broadcast son aquellas en las que todos los dispositivos en la misma red pueden comunicarse directamente entre sí sin necesidad de un mecanismo adicional. Un ejemplo típico es una red Ethernet. En este tipo de red, OSPF utiliza el mecanismo de Designated Router (DR) y Backup Designated Router (BDR) para reducir la cantidad de mensajes de enlace que se intercambian. Solo el DR y el BDR intercambian información de estado de enlace, lo que mejora la eficiencia y reduce la carga en la red.</li>
-                    <li><marcador class="resaltado5">Non-Broadcast Multi-Access (NBMA): </marcador>Las redes non-broadcast, por otro lado, son aquellas donde los dispositivos no pueden comunicarse directamente entre sí de manera automática. Esto puede incluir conexiones como Frame Relay o ATM, donde se requiere una configuración adicional para establecer comunicación. En estas redes, OSPF necesita un método para formar adyacencias. Esto se logra utilizando el modo point-to-point o configurando manualmente las conexiones OSPF en cada router, lo que puede requerir más administración y configuración.</li>
-                    <li><marcador class="resaltado5">Point-to-Multipoint: </marcador>En este tipo, un router se conecta a múltiples routers en forma de topología no jerárquica. OSPF trata estas conexiones como múltiples enlaces punto a punto, facilitando la comunicación entre todos los nodos.</li>
-                    <li><marcador class="resaltado5">Point-to-Point: </marcador>En este tipo de red, hay solo dos routers conectados directamente. La simplicidad de esta conexión permite una rápida convergencia y es común en enlaces de alta velocidad.</li>
-                    <li><marcador class="resaltado5">Redes de Área de Costo (Cost Area): </marcador>Este es el tipo más común, donde los routers OSPF se comunican dentro de un área específica. Cada área tiene un costo asignado que afecta cómo se eligen las rutas.</li>
-                    <li><marcador class="resaltado5">Redes No Conocidas (Stub Areas y Totally Stubby Areas): </marcador>Estas son áreas con restricciones en la cantidad de información que pueden recibir. Las stub areas limitan la información externa, mientras que las totally stubby areas no reciben ninguna ruta externa, lo que simplifica la tabla de rutas y reduce el uso de recursos.</li>
+                <ul style="list-style-type: none;">
+                    <li>‣ <marcador class="resaltado5">Broadcast: </marcador>Las redes broadcast son aquellas en las que todos los dispositivos en la misma red pueden comunicarse directamente entre sí sin necesidad de un mecanismo adicional. Un ejemplo típico es una red Ethernet. En este tipo de red, OSPF utiliza el mecanismo de Designated Router (DR) y Backup Designated Router (BDR) para reducir la cantidad de mensajes de enlace que se intercambian. Solo el DR y el BDR intercambian información de estado de enlace, lo que mejora la eficiencia y reduce la carga en la red.</li>
+                    <li>‣ <marcador class="resaltado5">Non-Broadcast Multi-Access (NBMA): </marcador>Las redes non-broadcast, por otro lado, son aquellas donde los dispositivos no pueden comunicarse directamente entre sí de manera automática. Esto puede incluir conexiones como Frame Relay o ATM, donde se requiere una configuración adicional para establecer comunicación. En estas redes, OSPF necesita un método para formar adyacencias. Esto se logra utilizando el modo point-to-point o configurando manualmente las conexiones OSPF en cada router, lo que puede requerir más administración y configuración.</li>
+                    <li>‣ <marcador class="resaltado5">Point-to-Multipoint: </marcador>En este tipo, un router se conecta a múltiples routers en forma de topología no jerárquica. OSPF trata estas conexiones como múltiples enlaces punto a punto, facilitando la comunicación entre todos los nodos.</li>
+                    <li>‣ <marcador class="resaltado5">Point-to-Point: </marcador>En este tipo de red, hay solo dos routers conectados directamente. La simplicidad de esta conexión permite una rápida convergencia y es común en enlaces de alta velocidad.</li>
+                    <li>‣ <marcador class="resaltado5">Redes de Área de Costo (Cost Area): </marcador>Este es el tipo más común, donde los routers OSPF se comunican dentro de un área específica. Cada área tiene un costo asignado que afecta cómo se eligen las rutas.</li>
+                    <li>‣ <marcador class="resaltado5">Redes No Conocidas (Stub Areas y Totally Stubby Areas): </marcador>Estas son áreas con restricciones en la cantidad de información que pueden recibir. Las stub areas limitan la información externa, mientras que las totally stubby areas no reciben ninguna ruta externa, lo que simplifica la tabla de rutas y reduce el uso de recursos.</li>
                 </ul>
                 <div class="blog-image-grande">
                     <img src="media/ospf3.svg" alt="">
@@ -68,18 +68,18 @@
                 </div>
                 <h2>Temporizadores</h2>
                 <p>En OSPF (Open Shortest Path First), el Hello Time y el Dead Time son temporizadores que gestionan la detección de vecinos:</p>
-                <ul>
-                    <li><marcador class="resaltado9">Hello Time: </marcador>Es el intervalo en segundos en que un router OSPF envía mensajes "Hello" a sus vecinos para indicar que está activo. El valor predeterminado suele ser 10 segundos en redes broadcast.</li>
-                    <li><marcador class="resaltado9">Dead Time: </marcador>Es el tiempo máximo que un router espera sin recibir mensajes "Hello" de un vecino antes de considerarlo inactivo o "muerto". Generalmente, es 4 veces el valor de Hello Time (40 segundos por defecto).</li>
+                <ul style="list-style-type: none;">
+                    <li>🌀 <marcador class="resaltado9">Hello Time: </marcador>Es el intervalo en segundos en que un router OSPF envía mensajes "Hello" a sus vecinos para indicar que está activo. El valor predeterminado suele ser 10 segundos en redes broadcast.</li>
+                    <li>🌀 <marcador class="resaltado9">Dead Time: </marcador>Es el tiempo máximo que un router espera sin recibir mensajes "Hello" de un vecino antes de considerarlo inactivo o "muerto". Generalmente, es 4 veces el valor de Hello Time (40 segundos por defecto).</li>
                 </ul>
                 <h2>Tipos de Mensajes de OSPF</h2>
                 <p>OSPF usa cinco tipos de mensajes para sus operaciones:</p>
-                <ul>
-                    <li><marcador class="resaltado9">Hello Packet: </marcador>Los routers envían Hello packets cada cierto intervalo para descubrir y mantener relaciones de vecindad. Estos paquetes contienen el ID de área, prioridad del router, temporizadores y la lista de routers vecinos conocidos.</li>
-                    <li><marcador class="resaltado9">Database Description (DBD) Packet: </marcador>Se usa para iniciar la sincronización de bases de datos entre routers vecinos. Incluye descripciones resumidas de las entradas de la base de datos para que cada router sepa qué rutas necesita solicitar.</li>
-                    <li><marcador class="resaltado9">Link-State Request (LSR): </marcador>Este mensaje se envía cuando un router necesita una actualización de información específica de la base de datos de enlace de otro router.</li>
-                    <li><marcador class="resaltado9">Link-State Update (LSU): </marcador>Proporciona actualizaciones completas o parciales de la base de datos, permitiendo que los routers vecinos sincronicen sus LSDB (Link-State Database). Cada LSA es encapsulada en un LSU.</li>
-                    <li><marcador class="resaltado9">Link-State Acknowledgment (LSAck): </marcador>Confirma la recepción de LSUs, reduciendo el riesgo de pérdida de datos en la sincronización.</li>
+                <ul style="list-style-type: none;">
+                    <li>🌀 <marcador class="resaltado9">Hello Packet: </marcador>Los routers envían Hello packets cada cierto intervalo para descubrir y mantener relaciones de vecindad. Estos paquetes contienen el ID de área, prioridad del router, temporizadores y la lista de routers vecinos conocidos.</li>
+                    <li>🌀 <marcador class="resaltado9">Database Description (DBD) Packet: </marcador>Se usa para iniciar la sincronización de bases de datos entre routers vecinos. Incluye descripciones resumidas de las entradas de la base de datos para que cada router sepa qué rutas necesita solicitar.</li>
+                    <li>🌀 <marcador class="resaltado9">Link-State Request (LSR): </marcador>Este mensaje se envía cuando un router necesita una actualización de información específica de la base de datos de enlace de otro router.</li>
+                    <li>🌀 <marcador class="resaltado9">Link-State Update (LSU): </marcador>Proporciona actualizaciones completas o parciales de la base de datos, permitiendo que los routers vecinos sincronicen sus LSDB (Link-State Database). Cada LSA es encapsulada en un LSU.</li>
+                    <li>🌀 <marcador class="resaltado9">Link-State Acknowledgment (LSAck): </marcador>Confirma la recepción de LSUs, reduciendo el riesgo de pérdida de datos en la sincronización.</li>
                 </ul>
                 <div class="blog-image-grande">
                     <img src="media/ospf2.png" alt="">
@@ -93,10 +93,10 @@
                 <h6>Funcionamiento en la Red</h6>
                 <p>Cuando un router se conecta a una red de tipo broadcast o non-broadcast, inicia un proceso de descubrimiento donde se identifican otros routers en la misma red. Todos los routers intercambian información sobre sus capacidades y estado. A partir de este intercambio, se elige un DR y un BDR. Los routers que no son DR ni BDR establecen adyacencias solo con el DR, lo que significa que la cantidad de enlaces que deben manejar es significativamente menor, permitiendo una convergencia más rápida y un uso más eficiente del ancho de banda.</p>
                 <h6>Proceso de Selección de DR y BDR</h6>
-                <ul>
-                    <li><marcador class="resaltado5">Prioridad OSPF: </marcador>Cada router en una red OSPF puede tener una prioridad configurada, que va de 0 a 255. Esta prioridad se utiliza para determinar cuál router será seleccionado como DR. Un valor de prioridad de 0 significa que el router no participará en la elección del DR. Los routers con una prioridad más alta tienen más posibilidades de convertirse en DR. Si un router tiene una prioridad más alta que los demás, será elegido como DR.</li>
-                    <li><marcador class="resaltado5">ID del Router: </marcador>Si hay un empate en la prioridad (es decir, si varios routers tienen la misma prioridad), se utiliza el ID del router como criterio de desempate. El ID del router es generalmente la dirección IP más alta de las interfaces del router o puede ser configurado manualmente. El router con el ID más alto se convertirá en DR.</li>
-                    <li><marcador class="resaltado5">Elección del BDR: </marcador>Una vez que se ha elegido el DR, el segundo router con la mayor prioridad se convierte en el BDR. Si hay un empate en la prioridad entre los routers, se aplica el mismo criterio del ID del router para determinar cuál será el BDR.</li>
+                <ul style="list-style-type: none;">
+                    <li>‣ <marcador class="resaltado5">Prioridad OSPF: </marcador>Cada router en una red OSPF puede tener una prioridad configurada, que va de 0 a 255. Esta prioridad se utiliza para determinar cuál router será seleccionado como DR. Un valor de prioridad de 0 significa que el router no participará en la elección del DR. Los routers con una prioridad más alta tienen más posibilidades de convertirse en DR. Si un router tiene una prioridad más alta que los demás, será elegido como DR.</li>
+                    <li>‣ <marcador class="resaltado5">ID del Router: </marcador>Si hay un empate en la prioridad (es decir, si varios routers tienen la misma prioridad), se utiliza el ID del router como criterio de desempate. El ID del router es generalmente la dirección IP más alta de las interfaces del router o puede ser configurado manualmente. El router con el ID más alto se convertirá en DR.</li>
+                    <li>‣ <marcador class="resaltado5">Elección del BDR: </marcador>Una vez que se ha elegido el DR, el segundo router con la mayor prioridad se convierte en el BDR. Si hay un empate en la prioridad entre los routers, se aplica el mismo criterio del ID del router para determinar cuál será el BDR.</li>
                 </ul>
                 <p>La dirección multicast 224.0.0.5 se utiliza para enviar mensajes a todos los routers OSPF en la red. Cuando el Designated Router (DR) envía actualizaciones de estado de enlace (LSA), lo hace a esta dirección. Todos los routers OSPF en la red escuchan en esta dirección para recibir actualizaciones.</p>
                 <p>La dirección multicast 224.0.0.6 se utiliza específicamente para comunicarse con el Backup Designated Router (BDR). Cuando el DR necesita enviar mensajes que solo deben ser recibidos por el BDR, lo hace utilizando la dirección 224.0.0.6. Esto es útil para mantener la sincronización entre el DR y el BDR, permitiendo que el BDR reciba información directamente del DR sin inundar la red con mensajes.</p>
@@ -108,10 +108,10 @@
                 <p>Cada entrada en la LSDB representa un enlace o una relación entre dos routers. Cada enlace incluye información como el ID del router, la dirección IP, el costo del enlace y el estado.</p>
                 <p>La LSDB contiene diferentes tipos de LSA (Link State Advertisements), que son los mensajes que se intercambian entre routers para actualizar la LSDB. Existen varios tipos de LSA, cada uno con un propósito específico, como anunciar rutas externas o describir la topología de una red.</p>
                 <h6>Función de la LSDB</h6>
-                <ol>
-                    <li><marcador class="resaltado6">Almacenamiento de Información: </marcador>La LSDB almacena detalles sobre todos los enlaces (interfaces) de los routers en la red, incluyendo su estado (up o down), costo, y la información de las adyacencias entre los routers. Esto permite que OSPF tenga una visión completa de la topología de la red.</li>
-                    <li><marcador class="resaltado6">Convergencia Rápida: </marcador>Cuando ocurre un cambio en la topología de la red (como la caída de un enlace), los routers envían actualizaciones a la LSDB. Esto permite que todos los routers converjan rápidamente hacia una nueva ruta óptima.</li>
-                    <li><marcador class="resaltado6">Cálculo de Rutas: </marcador>Utilizando la información de la LSDB, OSPF emplea el algoritmo de Dijkstra (Shortest Path First, SPF) para calcular la mejor ruta hacia cada destino en la red. La LSDB es esencial para este proceso, ya que proporciona la base de datos que se utiliza para determinar las rutas más eficientes.</li>
+                <ol style="list-style-type: none;">
+                    <li>⦿ <marcador class="resaltado6">Almacenamiento de Información: </marcador>La LSDB almacena detalles sobre todos los enlaces (interfaces) de los routers en la red, incluyendo su estado (up o down), costo, y la información de las adyacencias entre los routers. Esto permite que OSPF tenga una visión completa de la topología de la red.</li>
+                    <li>⦿ <marcador class="resaltado6">Convergencia Rápida: </marcador>Cuando ocurre un cambio en la topología de la red (como la caída de un enlace), los routers envían actualizaciones a la LSDB. Esto permite que todos los routers converjan rápidamente hacia una nueva ruta óptima.</li>
+                    <li>⦿ <marcador class="resaltado6">Cálculo de Rutas: </marcador>Utilizando la información de la LSDB, OSPF emplea el algoritmo de Dijkstra (Shortest Path First, SPF) para calcular la mejor ruta hacia cada destino en la red. La LSDB es esencial para este proceso, ya que proporciona la base de datos que se utiliza para determinar las rutas más eficientes.</li>
                 </ol>
                 <h6>Orden de Sincronización</h6>
                 <p>El proceso sigue el siguiente flujo:</p>
@@ -127,12 +127,12 @@
                 <p>OSPF permite que todos los routers en una misma área tengan una copia sincronizada de la LSDB, garantizando que cada router disponga de la misma visión topológica de la red. El intercambio de la base de datos comienza con el envío de paquetes DBD, seguido de LSRs y LSUs para completar el intercambio. La redundancia en el proceso de confirmación (LSAck) garantiza la precisión.</p>
                 <p>El establecimiento de vecindades en OSPF es crítico para la formación de rutas. El proceso sigue estos pasos:</p>
                 <ol>
-                    <li><marcador class="resaltado6">Init State: </marcador>El router envía paquetes Hello, esperando recibirlos de otros routers.</li>
-                    <li><marcador class="resaltado6">Two-Way State: </marcador>Cuando un router recibe un Hello de su vecino, entra en estado bidireccional (Two-Way). Aquí identifica si puede convertirse en DR o BDR.</li>
-                    <li><marcador class="resaltado6">ExStart State: </marcador>Los routers eligen quién comenzará a enviar DBDs mediante negociación.</li>
-                    <li><marcador class="resaltado6">Exchange State: </marcador>Intercambio de DBDs para sincronizar las LSDBs.</li>
-                    <li><marcador class="resaltado6">Loading State: </marcador>Los routers envían LSRs y LSUs para completar cualquier entrada faltante en su base de datos.</li>
-                    <li><marcador class="resaltado6">Full State: </marcador>La sincronización está completa; ambos routers tienen LSDB idénticas y están listos para participar en la red OSPF.</li>
+                    <li><marcador class="resaltado9">Init State: </marcador>El router envía paquetes Hello, esperando recibirlos de otros routers.</li>
+                    <li><marcador class="resaltado9">Two-Way State: </marcador>Cuando un router recibe un Hello de su vecino, entra en estado bidireccional (Two-Way). Aquí identifica si puede convertirse en DR o BDR.</li>
+                    <li><marcador class="resaltado9">ExStart State: </marcador>Los routers eligen quién comenzará a enviar DBDs mediante negociación.</li>
+                    <li><marcador class="resaltado9">Exchange State: </marcador>Intercambio de DBDs para sincronizar las LSDBs.</li>
+                    <li><marcador class="resaltado9">Loading State: </marcador>Los routers envían LSRs y LSUs para completar cualquier entrada faltante en su base de datos.</li>
+                    <li><marcador class="resaltado9">Full State: </marcador>La sincronización está completa; ambos routers tienen LSDB idénticas y están listos para participar en la red OSPF.</li>
                 </ol>
                 <div class="blog-image-doble-grande">
                     <img src="media/ospf4.png" alt="">
@@ -142,9 +142,9 @@
                 <p>La selección de caminos en OSPF se basa en el concepto de “costo”, una métrica que mide el ancho de banda de los enlaces. Cada enlace tiene un valor de costo inversamente proporcional a su ancho de banda (es decir, cuanto mayor sea el ancho de banda, menor será el costo del enlace). OSPF elige el camino hacia cada destino en función del costo total acumulado, calculado sumando los costos de todos los enlaces en una ruta dada.</p>
                 <p>Si existen múltiples rutas hacia el mismo destino con el mismo costo, OSPF utiliza un balanceo de carga entre estos caminos, distribuyendo el tráfico de manera equitativa. Esto ayuda a maximizar el uso de la infraestructura de red y puede mejorar la disponibilidad. Este balanceo de carga puede ser configurado tanto para balanceo de carga igual (donde los costos son idénticos) como para carga desigual en ciertas implementaciones, aunque esto último es menos común en OSPF.</p>
                 <p>Para entender cómo realiza OSPF la selección de rutas, es útil recordar que las rutas se eligen en función de dos principios clave:</p>
-                <ul>
-                    <li><marcador class="resaltado6">Métrica acumulada: </marcador>Se suman los costos de cada enlace para obtener el costo total de la ruta.</li>
-                    <li><marcador class="resaltado6">Balanceo de carga: </marcador>Si hay varios caminos con el mismo costo total, OSPF utiliza todos ellos para distribuir el tráfico equitativamente.</li>
+                <ul style="list-style-type: none;">
+                    <li>⦿ <marcador class="resaltado6">Métrica acumulada: </marcador>Se suman los costos de cada enlace para obtener el costo total de la ruta.</li>
+                    <li>⦿ <marcador class="resaltado6">Balanceo de carga: </marcador>Si hay varios caminos con el mismo costo total, OSPF utiliza todos ellos para distribuir el tráfico equitativamente.</li>
                 </ul>
                 <div class="blog-image-grande">
                     <img src="media/ospf13.jpeg" alt="">
@@ -163,38 +163,38 @@
                 </div>
                 <h2>Tipos de Áreas en OSPF</h2>
                 <p>En OSPF (Open Shortest Path First), las áreas son divisiones lógicas dentro de una red que ayudan a optimizar el enrutamiento y a manejar la escalabilidad. Cada área tiene características específicas que determinan cómo se maneja la información de enrutamiento. A continuación, se describen los principales tipos de áreas en OSPF:</p>
-                <ol>
-                    <li><marcador class="resaltado5">Área Cero (Area 0)</marcador></li>
-                    <ul>
-                        <li><marcador class="resaltado8">Descripción: </marcador>También conocida como el área backbone, es el corazón de cualquier implementación de OSPF. Todas las demás áreas deben conectarse a esta área.</li>
-                        <li><marcador class="resaltado8">Uso: </marcador>Actúa como un centro de interconexión para el enrutamiento entre diferentes áreas, facilitando la comunicación entre ellas.</li>
+                <ul style="list-style-type: none;">
+                    <li>〤 <marcador class="resaltado5">Área Cero (Area 0)</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">Descripción: </marcador>También conocida como el área backbone, es el corazón de cualquier implementación de OSPF. Todas las demás áreas deben conectarse a esta área.</li>
+                        <li>∘ <marcador class="resaltado8">Uso: </marcador>Actúa como un centro de interconexión para el enrutamiento entre diferentes áreas, facilitando la comunicación entre ellas.</li>
                     </ul>
-                    <li><marcador class="resaltado5">Áreas Normales</marcador></li>
-                    <ul>
-                        <li><marcador class="resaltado8">Descripción: </marcador>Estas son áreas típicas que pueden tener cualquier número de routers OSPF. Pueden recibir y enviar información de enrutamiento de y hacia el área cero.</li>
-                        <li><marcador class="resaltado8">Uso: </marcador>Permiten la distribución de información de estado de enlace y se utilizan para segmentar la red y mejorar la eficiencia del enrutamiento.</li>
+                    <li>〤 <marcador class="resaltado5">Áreas Normales</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">Descripción: </marcador>Estas son áreas típicas que pueden tener cualquier número de routers OSPF. Pueden recibir y enviar información de enrutamiento de y hacia el área cero.</li>
+                        <li>∘ <marcador class="resaltado8">Uso: </marcador>Permiten la distribución de información de estado de enlace y se utilizan para segmentar la red y mejorar la eficiencia del enrutamiento.</li>
                     </ul>
-                    <li><marcador class="resaltado5">Área Stub</marcador></li>
-                    <ul>
-                        <li><marcador class="resaltado8">Descripción: </marcador>Un área stub no recibe información de rutas externas (Type 5 LSA). En su lugar, solo tiene conocimiento de las rutas internas de OSPF y las rutas de resumen (Type 3 LSA) desde el área cero.</li>
-                        <li><marcador class="resaltado8">Uso: </marcador>Reduce la complejidad y la cantidad de información de enrutamiento en el área, mejorando la eficiencia del procesamiento y el uso de recursos.</li>
+                    <li>〤 <marcador class="resaltado5">Área Stub</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">Descripción: </marcador>Un área stub no recibe información de rutas externas (Type 5 LSA). En su lugar, solo tiene conocimiento de las rutas internas de OSPF y las rutas de resumen (Type 3 LSA) desde el área cero.</li>
+                        <li>∘ <marcador class="resaltado8">Uso: </marcador>Reduce la complejidad y la cantidad de información de enrutamiento en el área, mejorando la eficiencia del procesamiento y el uso de recursos.</li>
                     </ul>
-                    <li><marcador class="resaltado5">Área Totally Stubby</marcador></li>
-                    <ul>
-                        <li><marcador class="resaltado8">Descripción: </marcador>Una variante más restrictiva de un área stub. No recibe información sobre rutas externas (Type 5 LSA) ni resumen de otras áreas (Type 3 LSA). Solo conoce las rutas de los routers dentro de su área.</li>
-                        <li><marcador class="resaltado8">Uso: </marcador>Proporciona una reducción aún mayor en el tamaño de la tabla de enrutamiento, ideal para áreas con un número limitado de conexiones externas.</li>
+                    <li>〤 <marcador class="resaltado5">Área Totally Stubby</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">Descripción: </marcador>Una variante más restrictiva de un área stub. No recibe información sobre rutas externas (Type 5 LSA) ni resumen de otras áreas (Type 3 LSA). Solo conoce las rutas de los routers dentro de su área.</li>
+                        <li>∘ <marcador class="resaltado8">Uso: </marcador>Proporciona una reducción aún mayor en el tamaño de la tabla de enrutamiento, ideal para áreas con un número limitado de conexiones externas.</li>
                     </ul>
-                    <li><marcador class="resaltado5">Área NSSA (Not-So-Stubby Area)</marcador></li>
-                    <ul>
-                        <li><marcador class="resaltado8">Descripción: </marcador>Permite que un ASBR (Autonomous System Boundary Router) introduzca rutas externas (Type 7 LSA) en el área, pero sigue limitando la propagación de otras rutas externas (Type 5 LSA).</li>
-                        <li><marcador class="resaltado8">Uso: </marcador>Útil en situaciones donde se necesita permitir el acceso a ciertas rutas externas sin inundar el área con información de enrutamiento completa.</li>
+                    <li>〤 <marcador class="resaltado5">Área NSSA (Not-So-Stubby Area)</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">Descripción: </marcador>Permite que un ASBR (Autonomous System Boundary Router) introduzca rutas externas (Type 7 LSA) en el área, pero sigue limitando la propagación de otras rutas externas (Type 5 LSA).</li>
+                        <li>∘ <marcador class="resaltado8">Uso: </marcador>Útil en situaciones donde se necesita permitir el acceso a ciertas rutas externas sin inundar el área con información de enrutamiento completa.</li>
                     </ul>
-                    <li><marcador class="resaltado5">Área Totally NSSA</marcador></li>
-                    <ul>
-                        <li><marcador class="resaltado8">Descripción: </marcador>Similar a un NSSA, pero aún más restrictiva, ya que no recibe rutas de resumen (Type 3 LSA) y solo conoce las rutas internas y las rutas externas que se introducen en el área mediante Type 7 LSA.</li>
-                        <li><marcador class="resaltado8">Uso: </marcador>Minimiza la cantidad de información de enrutamiento y es adecuada para áreas con limitaciones estrictas en cuanto a la información que pueden manejar.</li>
+                    <li>〤 <marcador class="resaltado5">Área Totally NSSA</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">Descripción: </marcador>Similar a un NSSA, pero aún más restrictiva, ya que no recibe rutas de resumen (Type 3 LSA) y solo conoce las rutas internas y las rutas externas que se introducen en el área mediante Type 7 LSA.</li>
+                        <li>∘ <marcador class="resaltado8">Uso: </marcador>Minimiza la cantidad de información de enrutamiento y es adecuada para áreas con limitaciones estrictas en cuanto a la información que pueden manejar.</li>
                     </ul>
-                </ol>
+                </ul>
                 <div class="blog-image-grande">
                     <img src="media/ospf11.png" alt="">
                 </div>
@@ -212,39 +212,39 @@
                 <p>Los Link-State Advertisements (LSA) son mensajes fundamentales en OSPF (Open Shortest Path First) que se utilizan para comunicar información sobre el estado de los enlaces y la topología de la red. Existen varios tipos de LSA, cada uno con un propósito específico. Aquí te explico los principales tipos de LSA:</p>
                 <ol>
                     <li><marcador class="resaltado9">Type 1: Router LSA</marcador></li>
-                    <ul>
-                        <li><marcador class="resaltado8">Descripción: </marcador>Generado por cada router en OSPF, este LSA describe el estado de las interfaces del router y las adyacencias con otros routers. Contiene información como el costo del enlace y el tipo de red.</li>
-                        <li><marcador class="resaltado8">Uso: </marcador>Esencial para que otros routers conozcan las capacidades y el estado del router que lo genera.</li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">Descripción: </marcador>Generado por cada router en OSPF, este LSA describe el estado de las interfaces del router y las adyacencias con otros routers. Contiene información como el costo del enlace y el tipo de red.</li>
+                        <li>∘ <marcador class="resaltado8">Uso: </marcador>Esencial para que otros routers conozcan las capacidades y el estado del router que lo genera.</li>
                     </ul>
                     <li><marcador class="resaltado9">Type 2: Network LSA</marcador></li>
-                    <ul>
-                        <li><marcador class="resaltado8">Descripción: </marcador>Este LSA es generado por el Designated Router (DR) en redes multiacceso (como Ethernet). Describe la red y todos los routers conectados a ella.</li>
-                        <li><marcador class="resaltado8">Uso: </marcador>Ayuda a construir una visión completa de la topología de la red en la que el DR está operando.</li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">Descripción: </marcador>Este LSA es generado por el Designated Router (DR) en redes multiacceso (como Ethernet). Describe la red y todos los routers conectados a ella.</li>
+                        <li>∘ <marcador class="resaltado8">Uso: </marcador>Ayuda a construir una visión completa de la topología de la red en la que el DR está operando.</li>
                     </ul>
                     <li><marcador class="resaltado9">Type 3: Summary LSA</marcador></li>
-                    <ul>
-                        <li><marcador class="resaltado8">Descripción: </marcador>Utilizado para anunciar rutas entre áreas en OSPF. Es generado por los routers en la frontera de área (ABR, Area Border Router) y resume las rutas de una área a otra.</li>
-                        <li><marcador class="resaltado8">Uso: </marcador>Facilita la comunicación de rutas entre diferentes áreas dentro de la jerarquía OSPF.</li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">Descripción: </marcador>Utilizado para anunciar rutas entre áreas en OSPF. Es generado por los routers en la frontera de área (ABR, Area Border Router) y resume las rutas de una área a otra.</li>
+                        <li>∘ <marcador class="resaltado8">Uso: </marcador>Facilita la comunicación de rutas entre diferentes áreas dentro de la jerarquía OSPF.</li>
                     </ul>
                     <li><marcador class="resaltado9">Type 4: Summary LSA (ASBR)</marcador></li>
-                    <ul>
-                        <li><marcador class="resaltado8">Descripción: </marcador>Similar al Type 3, pero este LSA es utilizado por los routers que son routers de frontera de área (ASBR, Autonomous System Boundary Routers) para anunciar rutas hacia routers externos.</li>
-                        <li><marcador class="resaltado8">Uso: </marcador>Permite que otras áreas conozcan la existencia de rutas externas a la red OSPF.</li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">Descripción: </marcador>Similar al Type 3, pero este LSA es utilizado por los routers que son routers de frontera de área (ASBR, Autonomous System Boundary Routers) para anunciar rutas hacia routers externos.</li>
+                        <li>∘ <marcador class="resaltado8">Uso: </marcador>Permite que otras áreas conozcan la existencia de rutas externas a la red OSPF.</li>
                     </ul>
                     <li><marcador class="resaltado9">Type 5: AS External LSA</marcador></li>
-                    <ul>
-                        <li><marcador class="resaltado8">Descripción: </marcador>Generado por los ASBR, este LSA se utiliza para anunciar rutas a redes externas (por ejemplo, redes fuera del dominio OSPF).</li>
-                        <li><marcador class="resaltado8">Uso: </marcador>Permite que OSPF integre rutas de otros protocolos de enrutamiento o redes fuera del dominio OSPF.</li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">Descripción: </marcador>Generado por los ASBR, este LSA se utiliza para anunciar rutas a redes externas (por ejemplo, redes fuera del dominio OSPF).</li>
+                        <li>∘ <marcador class="resaltado8">Uso: </marcador>Permite que OSPF integre rutas de otros protocolos de enrutamiento o redes fuera del dominio OSPF.</li>
                     </ul>
                     <li><marcador class="resaltado9">Type 6: Group Membership LSA</marcador></li>
-                    <ul>
-                        <li><marcador class="resaltado8">Descripción: </marcador>Este LSA se utiliza en redes multicast y no es común en la mayoría de las implementaciones de OSPF.</li>
-                        <li><marcador class="resaltado8">Uso: </marcador>Facilita la gestión de membresías en grupos multicast.</li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">Descripción: </marcador>Este LSA se utiliza en redes multicast y no es común en la mayoría de las implementaciones de OSPF.</li>
+                        <li>∘ <marcador class="resaltado8">Uso: </marcador>Facilita la gestión de membresías en grupos multicast.</li>
                     </ul>
                     <li><marcador class="resaltado9">Type 7: NSSA External LSA</marcador></li>
-                    <ul>
-                        <li><marcador class="resaltado8">Descripción: </marcador>Se utiliza en áreas NSSA (Not-So-Stubby Areas). Permite que un ASBR anuncie rutas externas en un área que no debería recibir rutas externas directamente.</li>
-                        <li><marcador class="resaltado8">Uso: </marcador>Ayuda a llevar información de rutas externas en áreas NSSA.</li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">Descripción: </marcador>Se utiliza en áreas NSSA (Not-So-Stubby Areas). Permite que un ASBR anuncie rutas externas en un área que no debería recibir rutas externas directamente.</li>
+                        <li>∘ <marcador class="resaltado8">Uso: </marcador>Ayuda a llevar información de rutas externas en áreas NSSA.</li>
                     </ul>
                 </ol>
                 <div class="blog-image-grande">
@@ -263,9 +263,9 @@
                 <p>Al usar Multi-Area Adjacency, los routers pueden soportar múltiples áreas a través de una sola interfaz de red, manteniendo adjacencias separadas y gestionando las LSDB para cada área de forma independiente.</p>
                 <h2>Inter-Area y Prefijos Externos (Tipos E1 y E2)</h2>
                 <p>OSPF puede manejar rutas entre áreas y rutas externas con dos tipos de métricas: E1 y E2. Estas métricas ayudan a definir cómo un router ASBR (Autonomous System Boundary Router) anuncia rutas externas hacia otras áreas dentro de la red OSPF.</p>
-                <ul>
-                    <li><marcador class="resaltado9">E1 (External Type 1): </marcador>La métrica de este tipo considera tanto el costo de la ruta externa como el costo de la ruta interna dentro de la red OSPF hacia el ASBR. Es útil cuando se quiere priorizar las rutas basadas en el costo total de la ruta desde el router de origen hasta el destino final.</li>
-                    <li><marcador class="resaltado9">E2 (External Type 2): </marcador>En este tipo, solo se considera el costo de la ruta externa especificado por el ASBR. Independientemente del costo acumulado dentro de la red OSPF, el router E2 se mantiene fijo y no incluye los costos de los enlaces internos en el cálculo.</li>
+                <ul style="list-style-type: none;">
+                    <li>∘ <marcador class="resaltado8">E1 (External Type 1): </marcador>La métrica de este tipo considera tanto el costo de la ruta externa como el costo de la ruta interna dentro de la red OSPF hacia el ASBR. Es útil cuando se quiere priorizar las rutas basadas en el costo total de la ruta desde el router de origen hasta el destino final.</li>
+                    <li>∘ <marcador class="resaltado8">E2 (External Type 2): </marcador>En este tipo, solo se considera el costo de la ruta externa especificado por el ASBR. Independientemente del costo acumulado dentro de la red OSPF, el router E2 se mantiene fijo y no incluye los costos de los enlaces internos en el cálculo.</li>
                 </ul>
                 <p>La distinción entre E1 y E2 es importante porque permite una mejor planificación de rutas externas en redes de gran escala. La métrica E1 se usa generalmente cuando se desea que las rutas respondan a cambios en la topología OSPF, mientras que la E2 se prefiere para rutas externas estables que deben permanecer sin alteraciones en sus costos internos.</p>
                 <div class="blog-image-grande">
@@ -276,18 +276,18 @@
                 <p>En una red grande, los routers stub pueden colocarse en áreas que no requieren rutas externas y en las cuales se desea optimizar el uso de recursos. Los routers en estas áreas pueden operar de manera más eficiente, ya que manejan menos rutas. Además, existe una variación llamada Totally Stubby Area, que incluso bloquea las LSAs tipo 3 (resúmenes de otras áreas), reteniendo solo la ruta por defecto.</p>
                 <p>Estas configuraciones también son beneficiosas en redes de acceso, donde los routers solo necesitan conectarse a la red interna y no requieren información adicional sobre rutas externas. </p>
                 <h2>Max-LSA, Throttle-LSA, Arrival and Passing</h2>
-                <ul>
-                    <li><marcador class="resaltado9">Max-LSA: </marcador>Define el número máximo de LSAs que un router OSPF puede almacenar. Cuando se alcanza este límite, el router puede iniciar una acción para protegerse contra posibles sobrecargas, como disminuir la prioridad del router o reiniciar la sesión OSPF. Esto evita saturación en redes grandes.</li>
-                    <li><marcador class="resaltado9">Throttle-LSA: </marcador>Este parámetro permite configurar intervalos entre el envío de LSAs, limitando el número de LSAs enviados durante un cambio de topología en la red. Esto reduce el tráfico de control y ayuda a evitar picos de procesamiento en routers, especialmente durante cambios abruptos en la topología.</li>
-                    <li><marcador class="resaltado9">Arrival y Passing: </marcador>Ajustan la frecuencia con la que los LSAs se procesan o pasan de un router a otro. Estos ajustes son importantes para mejorar el rendimiento de OSPF y asegurar una propagación de rutas más eficiente. Configurando tiempos adecuados de “Arrival” y “Passing”, los routers OSPF pueden procesar cambios sin sobrecargar sus recursos.</li>
+                <ul style="list-style-type: none;">
+                    <li>‣ <marcador class="resaltado5">Max-LSA: </marcador>Define el número máximo de LSAs que un router OSPF puede almacenar. Cuando se alcanza este límite, el router puede iniciar una acción para protegerse contra posibles sobrecargas, como disminuir la prioridad del router o reiniciar la sesión OSPF. Esto evita saturación en redes grandes.</li>
+                    <li>‣ <marcador class="resaltado5">Throttle-LSA: </marcador>Este parámetro permite configurar intervalos entre el envío de LSAs, limitando el número de LSAs enviados durante un cambio de topología en la red. Esto reduce el tráfico de control y ayuda a evitar picos de procesamiento en routers, especialmente durante cambios abruptos en la topología.</li>
+                    <li>‣ <marcador class="resaltado5">Arrival y Passing: </marcador>Ajustan la frecuencia con la que los LSAs se procesan o pasan de un router a otro. Estos ajustes son importantes para mejorar el rendimiento de OSPF y asegurar una propagación de rutas más eficiente. Configurando tiempos adecuados de “Arrival” y “Passing”, los routers OSPF pueden procesar cambios sin sobrecargar sus recursos.</li>
                 </ul>
                 <div class="blog-image-grande">
                     <img src="media/ospf16.png" alt="">
                 </div>
                 <h2>Throttle SPF y Bidirectional Forwarding</h2>
-                <ul>
-                    <li><marcador class="resaltado9">Throttle SPF: </marcador>Este ajuste controla la frecuencia y el intervalo de tiempo entre los cálculos de SPF en respuesta a los cambios de red. La configuración de “Throttle SPF” permite definir intervalos para inicializar, aumentar y alcanzar el valor máximo de cálculo SPF, lo cual es crítico para redes dinámicas que requieren ajustes rápidos en situaciones de inestabilidad.</li>
-                    <li><marcador class="resaltado9">Bidirectional Forwarding Detection (BFD): </marcador>Aunque no es una función exclusiva de OSPF, BFD es un protocolo que se integra con OSPF para detectar rápidamente fallos en el enlace de capa 2 entre routers. BFD permite a OSPF reaccionar a fallos de enlace de forma casi instantánea, mejorando la capacidad de la red para responder a caídas sin esperar a los mecanismos tradicionales de detección de fallos de OSPF.</li>
+                <ul style="list-style-type: none;">
+                    <li>‣ <marcador class="resaltado5">Throttle SPF: </marcador>Este ajuste controla la frecuencia y el intervalo de tiempo entre los cálculos de SPF en respuesta a los cambios de red. La configuración de “Throttle SPF” permite definir intervalos para inicializar, aumentar y alcanzar el valor máximo de cálculo SPF, lo cual es crítico para redes dinámicas que requieren ajustes rápidos en situaciones de inestabilidad.</li>
+                    <li>‣ <marcador class="resaltado5">Bidirectional Forwarding Detection (BFD): </marcador>Aunque no es una función exclusiva de OSPF, BFD es un protocolo que se integra con OSPF para detectar rápidamente fallos en el enlace de capa 2 entre routers. BFD permite a OSPF reaccionar a fallos de enlace de forma casi instantánea, mejorando la capacidad de la red para responder a caídas sin esperar a los mecanismos tradicionales de detección de fallos de OSPF.</li>
                 </ul>
                 <div class="blog-image-grande">
                     <img src="media/ospf17.png" alt="">
@@ -305,7 +305,7 @@
                     <img src="media/ospf19.png" alt="">
                 </div>
                 <h3>Cisco</h3>
-                <ul>
+                <ul class="custom-list">
                     <li><marcador class="resaltado8">Router R1 (Área 0 y Área 1)</marcador></li>
                     <div class="consola">
                         <div class="barra-superior-consola">
@@ -417,15 +417,15 @@ interface GigabitEthernet0/0
                     </div>
                     <li><marcador class="resaltado8">Router ISP</marcador></li>
                     <p>Este router se conecta al prefijo externo (172.33.1.2/30) que se redistribuirá en INET-1.</p>
-                    <h6>Parámetros Clave</h6>
-                    <ol>
-                        <li><marcador class="resaltado8">Prioridad de DR en el Área 0: </marcador>Se configura <marcador class="subrayado">ip ospf priority</marcador> en el área 0, siendo INET-1 el router con la prioridad más alta (200) para actuar como Designated Router (DR), mientras que otros routers en el área tienen menor prioridad.</li>
-                        <li><marcador class="resaltado8">Redistribución de Rutas Externas (E1): </marcador>En INET-1, se configuran rutas E1 para redistribuir los prefijos externos provenientes del router ISP.</li>
-                        <li><marcador class="resaltado8">Throttle SPF: </marcador>Configurado en INET-1 para optimizar el tiempo de recalculo de SPF en caso de cambios en la topología, usando los valores de 10 ms (inicial), 100 ms (segunda iteración), y 5000 ms (máximo).</li>
-                    </ol>
                 </ul>
+                <h6>Parámetros Clave</h6>
+                <ol>
+                    <li><marcador class="resaltado8">Prioridad de DR en el Área 0: </marcador>Se configura <marcador class="subrayado">ip ospf priority</marcador> en el área 0, siendo INET-1 el router con la prioridad más alta (200) para actuar como Designated Router (DR), mientras que otros routers en el área tienen menor prioridad.</li>
+                    <li><marcador class="resaltado8">Redistribución de Rutas Externas (E1): </marcador>En INET-1, se configuran rutas E1 para redistribuir los prefijos externos provenientes del router ISP.</li>
+                    <li><marcador class="resaltado8">Throttle SPF: </marcador>Configurado en INET-1 para optimizar el tiempo de recalculo de SPF en caso de cambios en la topología, usando los valores de 10 ms (inicial), 100 ms (segunda iteración), y 5000 ms (máximo).</li>
+                </ol>
                 <h3>Huawei</h3>
-                <ul>
+                <ul class="custom-list">
                     <li><marcador class="resaltado8">Router R1 (Área 0 y Área 1)</marcador></li>
                     <div class="consola">
                         <div class="barra-superior-consola">
@@ -543,13 +543,13 @@ interface GigabitEthernet0/0
                     </div>
                     <li><marcador class="resaltado8">Router ISP</marcador></li>
                     <p>Este router se conecta al prefijo externo (172.33.1.2/30) que se redistribuirá en INET-1.</p>
-                    <h6>Parámetros Clave</h6>
-                    <ol>
-                        <li><marcador class="resaltado8">Prioridad de DR en el Área 0: </marcador>Se configura <marcador class="subrayado">ospf priority</marcador> en el área 0, siendo INET-1 el router con la prioridad más alta (200) para actuar como Designated Router (DR), mientras que otros routers en el área tienen menor prioridad.</li>
-                        <li><marcador class="resaltado8">Redistribución de Rutas Externas (E1): </marcador>En INET-1, se configuran rutas E1 para redistribuir los prefijos externos provenientes del router ISP.</li>
-                        <li><marcador class="resaltado8">Throttle SPF: </marcador>Configurado en INET-1 para optimizar el tiempo de recalculo de SPF en caso de cambios en la topología, usando los valores de 10 ms (inicial), 100 ms (segunda iteración), y 5000 ms (máximo).</li>
-                    </ol>
                 </ul>
+                <h6>Parámetros Clave</h6>
+                <ol>
+                    <li><marcador class="resaltado8">Prioridad de DR en el Área 0: </marcador>Se configura <marcador class="subrayado">ospf priority</marcador> en el área 0, siendo INET-1 el router con la prioridad más alta (200) para actuar como Designated Router (DR), mientras que otros routers en el área tienen menor prioridad.</li>
+                    <li><marcador class="resaltado8">Redistribución de Rutas Externas (E1): </marcador>En INET-1, se configuran rutas E1 para redistribuir los prefijos externos provenientes del router ISP.</li>
+                    <li><marcador class="resaltado8">Throttle SPF: </marcador>Configurado en INET-1 para optimizar el tiempo de recalculo de SPF en caso de cambios en la topología, usando los valores de 10 ms (inicial), 100 ms (segunda iteración), y 5000 ms (máximo).</li>
+                </ol>
                 <h6>BGP</h6>
                 <p>Para conectar con el ISP en esta topología, lo más común sería utilizar el protocolo BGP (Border Gateway Protocol) para la interconexión entre el ISP y tu red interna que utiliza OSPF. Esto se debe a que:</p>
                 <ol>
