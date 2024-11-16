@@ -51,42 +51,42 @@
                     <img src="media/hdlc2.jpeg" alt="">
                 </div>
                 <h2>Tipos de Conexiones</h2>
-                <ul>
+                <ul style="list-style-type: none;">
                     <li><marcador class="resaltado6">Punto a Punto: </marcador>Conexión directa entre dos dispositivos. Ejemplo: un enlace entre dos routers.</li>
                     <li><marcador class="resaltado6">Multipunto: </marcador>Varios dispositivos conectados en el mismo enlace físico. Se comparten los recursos del medio de transmisión, ideal para redes que no necesitan conexiones dedicadas constantes.</li>
                     <li><marcador class="resaltado6">Conexiones de Circuito Conmutado y Conmutación de Paquetes: </marcador>Basadas en la tecnología de conmutación, donde los paquetes de datos son conmutados en la red para seguir una ruta óptima hasta su destino.</li>
                 </ul>
                 <h2>Características</h2>
                 <p>HDLC se rige por el estándar ISO/IEC 13239. Algunas características técnicas clave de HDLC son:</p>
-                <ul>
-                    <li><marcador class="resaltado5">Control de enlace: </marcador>HDLC maneja el control de enlace punto a punto y multipunto.</li>
-                    <li><marcador class="resaltado5">Modo de Operación: </marcador></li>
+                <ul style="list-style-type: none;">
+                    <li>‣ <marcador class="resaltado5">Control de enlace: </marcador>HDLC maneja el control de enlace punto a punto y multipunto.</li>
+                    <li>‣ <marcador class="resaltado5">Modo de Operación: </marcador></li>
                     <ol>
                         <li><marcador class="resaltado8">Normal Response Mode (NRM): </marcador>Un nodo actúa como principal y otro como secundario, usado en conexiones maestro-esclavo.</li>
                         <li><marcador class="resaltado8">Asynchronous Balanced Mode (ABM): </marcador>Ambos nodos pueden iniciar la transmisión de datos, ideal para redes simétricas.</li>
                     </ol>
-                    <li><marcador class="resaltado5">Encapsulación: </marcador>Utiliza un formato de encapsulación simple, que hace que el protocolo sea rápido y eficiente.</li>
+                    <li>‣ <marcador class="resaltado5">Encapsulación: </marcador>Utiliza un formato de encapsulación simple, que hace que el protocolo sea rápido y eficiente.</li>
                 </ul> 
                 <div class="blog-image-grande">
                     <img src="media/hdlc1.png" alt="">
                 </div>
                 <h2>Estructura del Header</h2>
                 <p>En HDLC, los datos se encapsulan dentro de tramas con una estructura clara:</p>
-                <ul>
-                    <li><marcador class="resaltado9">Flag: </marcador>Campo de sincronización de 1 byte que contiene el valor 01111110 (0x7E).</li>
-                    <li><marcador class="resaltado9">Address: </marcador>Indica el destino de la trama.</li>
-                    <li><marcador class="resaltado9">Control: </marcador>Define el tipo de trama y controla el flujo de datos y las solicitudes de confirmación.</li>
-                    <li><marcador class="resaltado9">Information: </marcador>Contiene los datos de usuario, solo en tramas de información.</li>
-                    <li><marcador class="resaltado9">Frame Check Sequence (FCS): </marcador>Proporciona detección de errores utilizando CRC.</li>
+                <ul style="list-style-type: none;">
+                    <li>🔻 <marcador class="resaltado4">Flag: </marcador>Campo de sincronización de 1 byte que contiene el valor 01111110 (0x7E).</li>
+                    <li>🔻 <marcador class="resaltado4">Address: </marcador>Indica el destino de la trama.</li>
+                    <li>🔻 <marcador class="resaltado4">Control: </marcador>Define el tipo de trama y controla el flujo de datos y las solicitudes de confirmación.</li>
+                    <li>🔻 <marcador class="resaltado4">Information: </marcador>Contiene los datos de usuario, solo en tramas de información.</li>
+                    <li>🔻 <marcador class="resaltado4">Frame Check Sequence (FCS): </marcador>Proporciona detección de errores utilizando CRC.</li>
                 </ul>
                 <div class="blog-image-grande">
                     <img src="media/hdlc4.png" alt="">
                 </div>
                 <p>En HDLC , existen tres tipos de tramas, cada una diseñada para cumplir funciones específicas en la comunicación de datos. Estos tipos son:</p>
-                <ul>
-                    <li><marcador class="resaltado9">Trama de Información (I-Frame): </marcador>Esta es la trama principal utilizada para la transmisión de datos de usuario. Contiene información útil y permite la transferencia de datos entre dispositivos. Las I-Frames también pueden incluir números de secuencia para la gestión de flujo y control de errores.</li>
-                    <li><marcador class="resaltado9">Trama de Supervisión (S-Frame): </marcador>Estas tramas se utilizan para el control y la supervisión de la conexión. Permiten al dispositivo receptor enviar mensajes de confirmación sobre las I-Frames recibidas, así como gestionar el flujo de datos (por ejemplo, mediante solicitudes de suspensión o reanudación de la transmisión).</li>
-                    <li><marcador class="resaltado9">Trama No Numerada (U-Frame): </marcador>Este tipo de trama se utiliza para diversas funciones de control que no requieren el uso de números de secuencia, como la configuración y la gestión de la conexión. Las U-Frames pueden llevar comandos y respuestas, y son esenciales para la gestión del enlace de comunicación.</li>
+                <ul style="list-style-type: none;">
+                    <li>🌀 <marcador class="resaltado9">Trama de Información (I-Frame): </marcador>Esta es la trama principal utilizada para la transmisión de datos de usuario. Contiene información útil y permite la transferencia de datos entre dispositivos. Las I-Frames también pueden incluir números de secuencia para la gestión de flujo y control de errores.</li>
+                    <li>🌀 <marcador class="resaltado9">Trama de Supervisión (S-Frame): </marcador>Estas tramas se utilizan para el control y la supervisión de la conexión. Permiten al dispositivo receptor enviar mensajes de confirmación sobre las I-Frames recibidas, así como gestionar el flujo de datos (por ejemplo, mediante solicitudes de suspensión o reanudación de la transmisión).</li>
+                    <li>🌀 <marcador class="resaltado9">Trama No Numerada (U-Frame): </marcador>Este tipo de trama se utiliza para diversas funciones de control que no requieren el uso de números de secuencia, como la configuración y la gestión de la conexión. Las U-Frames pueden llevar comandos y respuestas, y son esenciales para la gestión del enlace de comunicación.</li>
                 </ul>
                 <p>En una conexión, las tramas HDLC están diseñadas para crear una comunicación confiable. Cada dispositivo confirma la recepción correcta y permite una retransmisión en caso de error.</p>
                 <h2>Configuración</h2>

@@ -51,19 +51,19 @@
                 <p>Existen varios tipos de NAT, cada uno adecuado para diferentes escenarios y configuraciones de red. A continuación, se describen los más comunes:</p>
                 <ol>
                     <li><marcador class="resaltado9">NAT Estático (Static NAT):</marcador></li>
-                    <ul>
-                        <li>Este tipo de NAT mapea una dirección IP privada única a una dirección IP pública única. Es útil cuando se necesita que un dispositivo interno sea accesible desde Internet, como en el caso de servidores web o de correo.</li>
-                        <li><marcador class="resaltado8">Ejemplo de uso: </marcador>Si tienes un servidor web en tu red interna y necesitas que sea accesible desde Internet, puedes asignarle una dirección IP pública específica usando NAT estático.</li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ Este tipo de NAT mapea una dirección IP privada única a una dirección IP pública única. Es útil cuando se necesita que un dispositivo interno sea accesible desde Internet, como en el caso de servidores web o de correo.</li>
+                        <li>∘ <marcador class="resaltado8">Ejemplo de uso: </marcador>Si tienes un servidor web en tu red interna y necesitas que sea accesible desde Internet, puedes asignarle una dirección IP pública específica usando NAT estático.</li>
                     </ul>
                     <li><marcador class="resaltado9">NAT Dinámico (Dynamic NAT):</marcador></li>
-                    <ul>
-                        <li>NAT dinámico asigna una dirección IP pública disponible a cualquier dispositivo de la red interna que necesite acceso a Internet. A diferencia del NAT estático, este tipo permite que varias direcciones IP privadas compartan un conjunto de direcciones IP públicas disponibles.</li>
-                        <li><marcador class="resaltado8">Ejemplo de uso: </marcador>Una empresa con varias computadoras y una cantidad limitada de direcciones IP públicas asignadas por su ISP podría usar NAT dinámico para gestionar el acceso a Internet.</li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ NAT dinámico asigna una dirección IP pública disponible a cualquier dispositivo de la red interna que necesite acceso a Internet. A diferencia del NAT estático, este tipo permite que varias direcciones IP privadas compartan un conjunto de direcciones IP públicas disponibles.</li>
+                        <li>∘ <marcador class="resaltado8">Ejemplo de uso: </marcador>Una empresa con varias computadoras y una cantidad limitada de direcciones IP públicas asignadas por su ISP podría usar NAT dinámico para gestionar el acceso a Internet.</li>
                     </ul>
                     <li><marcador class="resaltado9">PAT (Port Address Translation), también conocido como NAT Sobrecargado:</marcador></li>
-                    <ul>
-                        <li>PAT permite que múltiples dispositivos usen una sola dirección IP pública, diferenciándolos mediante el uso de números de puerto. Esto es especialmente útil en redes de gran tamaño, ya que permite que cientos de dispositivos compartan una misma IP pública sin problemas de escasez.</li>
-                        <li><marcador class="resaltado8">Ejemplo de uso: </marcador>Este es el tipo de NAT más común en redes domésticas, donde el router asigna puertos únicos a cada conexión que sale a Internet, permitiendo que todos los dispositivos de la casa usen la misma dirección IP pública.</li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ PAT permite que múltiples dispositivos usen una sola dirección IP pública, diferenciándolos mediante el uso de números de puerto. Esto es especialmente útil en redes de gran tamaño, ya que permite que cientos de dispositivos compartan una misma IP pública sin problemas de escasez.</li>
+                        <li>∘ <marcador class="resaltado8">Ejemplo de uso: </marcador>Este es el tipo de NAT más común en redes domésticas, donde el router asigna puertos únicos a cada conexión que sale a Internet, permitiendo que todos los dispositivos de la casa usen la misma dirección IP pública.</li>
                     </ul>
                 </ol>
                 <div class="blog-image-grande">
@@ -73,28 +73,28 @@
                 <p>El proceso de NAT ocurre en un router o un dispositivo de red que maneja la conexión entre la red interna y externa. El dispositivo examina cada paquete de datos y modifica las direcciones IP de origen o destino, según la dirección de tráfico. Veamos cómo funciona en los casos de NAT dinámico y PAT:</p>
                 <ol>
                     <li><marcador class="resaltado9">NAT Dinámico:</marcador></li>
-                    <ul>
-                        <li>Cuando un dispositivo en la red interna quiere acceder a Internet, el router verifica si tiene una dirección IP pública disponible.</li>
-                        <li>Si hay una dirección pública libre, se asigna temporalmente a ese dispositivo, y el router modifica el paquete de datos para usar esta IP pública como dirección de origen.</li>
-                        <li>Cuando el tráfico de regreso llega a la IP pública, el router traduce la dirección de nuevo a la IP privada original y reenvía el paquete al dispositivo interno.</li>
-                        <li>Una vez finalizada la conexión, la IP pública vuelve a estar disponible para otros dispositivos.</li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ Cuando un dispositivo en la red interna quiere acceder a Internet, el router verifica si tiene una dirección IP pública disponible.</li>
+                        <li>∘ Si hay una dirección pública libre, se asigna temporalmente a ese dispositivo, y el router modifica el paquete de datos para usar esta IP pública como dirección de origen.</li>
+                        <li>∘ Cuando el tráfico de regreso llega a la IP pública, el router traduce la dirección de nuevo a la IP privada original y reenvía el paquete al dispositivo interno.</li>
+                        <li>∘ Una vez finalizada la conexión, la IP pública vuelve a estar disponible para otros dispositivos.</li>
                     </ul>
                     <li><marcador class="resaltado9">PAT (NAT Sobrecargado):</marcador></li>
-                    <ul>
-                        <li>En lugar de asignar una dirección IP pública única a cada dispositivo, PAT asigna un número de puerto único a cada conexión.</li>
-                        <li>Cuando un dispositivo accede a Internet, el router modifica el número de puerto de origen en el paquete y lo registra en una tabla de traducción junto con la IP privada del dispositivo.</li>
-                        <li>Al regresar el paquete, el router usa el número de puerto para identificar el dispositivo de destino en la red interna, cambiando nuevamente la dirección y el puerto de origen antes de entregar el paquete.</li>
-                        <li>PAT permite que cientos de dispositivos compartan una misma dirección IP pública al utilizar puertos únicos para cada conexión.</li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ En lugar de asignar una dirección IP pública única a cada dispositivo, PAT asigna un número de puerto único a cada conexión.</li>
+                        <li>∘ Cuando un dispositivo accede a Internet, el router modifica el número de puerto de origen en el paquete y lo registra en una tabla de traducción junto con la IP privada del dispositivo.</li>
+                        <li>∘ Al regresar el paquete, el router usa el número de puerto para identificar el dispositivo de destino en la red interna, cambiando nuevamente la dirección y el puerto de origen antes de entregar el paquete.</li>
+                        <li>∘ PAT permite que cientos de dispositivos compartan una misma dirección IP pública al utilizar puertos únicos para cada conexión.</li>
                     </ul>
                 </ol>
                 <div class="blog-image-grande">
                     <img src="media/nat3.jpg" alt="">
                 </div>
                 <h2>Datos Técnicos</h2>
-                <ul>
-                    <li><marcador class="resaltado5">Rango de Puertos: </marcador>En una configuración de PAT, se utilizan puertos de 1024 a 65535 para asignar conexiones únicas a dispositivos en la red interna. Esto permite manejar múltiples conexiones simultáneas.</li>
-                    <li><marcador class="resaltado5">Direcciones IP Privadas: </marcador>Las redes internas suelen utilizar direcciones IP privadas que no se pueden enrutar directamente en Internet, como los rangos 192.168.0.0/16, 10.0.0.0/8 y 172.16.0.0/12.</li>
-                    <li><marcador class="resaltado5">Tablas de Traducción: </marcador>NAT depende de tablas de traducción que almacenan información sobre cada conexión y mapeo de IP, especialmente en PAT, donde el número de puerto identifica la conexión de origen.</li>
+                <ul style="list-style-type: none;">
+                    <li>‣ <marcador class="resaltado5">Rango de Puertos: </marcador>En una configuración de PAT, se utilizan puertos de 1024 a 65535 para asignar conexiones únicas a dispositivos en la red interna. Esto permite manejar múltiples conexiones simultáneas.</li>
+                    <li>‣ <marcador class="resaltado5">Direcciones IP Privadas: </marcador>Las redes internas suelen utilizar direcciones IP privadas que no se pueden enrutar directamente en Internet, como los rangos 192.168.0.0/16, 10.0.0.0/8 y 172.16.0.0/12.</li>
+                    <li>‣ <marcador class="resaltado5">Tablas de Traducción: </marcador>NAT depende de tablas de traducción que almacenan información sobre cada conexión y mapeo de IP, especialmente en PAT, donde el número de puerto identifica la conexión de origen.</li>
                 </ul>
                 <h2>¿Cómo verificar tu dirección IP pública?</h2>
                 <p>En <a href="https://www.whatismyip.com/" target="blank">WhatIsMyIP</a>, puedes realizar varias acciones útiles relacionadas con tu conexión a Internet. En primer lugar, el sitio te permite ver claramente tu dirección IP pública, que es esencial para entender cómo te conectas a la red. Esta información se muestra de manera prominente en la parte superior de la página, lo que facilita su localización.</p>

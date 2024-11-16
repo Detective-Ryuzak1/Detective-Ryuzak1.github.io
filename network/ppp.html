@@ -44,28 +44,28 @@
                 <p>El Protocolo Punto a Punto (PPP) es un protocolo de enlace de datos ampliamente utilizado en redes WAN para establecer conexiones directas entre dos nodos de red. Desarrollado para soportar conexiones seriales, PPP es preferido sobre HDLC cuando se necesita compatibilidad entre diferentes fabricantes, ya que es un estándar abierto. Además, PPP proporciona autenticación, compresión de datos y detección de errores, lo que lo convierte en una opción versátil para conexiones WAN.</p>
                 <h2>Características</h2>
                 <p>PPP está definido en el RFC 1661 y proporciona diversas características:</p>
-                <ul>
-                    <li><marcador class="resaltado5">Encapsulación de Datos: </marcador>PPP encapsula los paquetes de datos en tramas y soporta múltiples protocolos de red como IP y IPX.</li>
-                    <li><marcador class="resaltado5">Autenticación: </marcador>Autenticación de tres vías más segura, utilizada para verificar de manera continua la identidad de los dispositivos.</li>
+                <ul style="list-style-type: none;">
+                    <li>‣ <marcador class="resaltado5">Encapsulación de Datos: </marcador>PPP encapsula los paquetes de datos en tramas y soporta múltiples protocolos de red como IP y IPX.</li>
+                    <li>‣ <marcador class="resaltado5">Autenticación: </marcador>Autenticación de tres vías más segura, utilizada para verificar de manera continua la identidad de los dispositivos.</li>
                     <ol>
                         <li><marcador class="resaltado8">PAP (Password Authentication Protocol): </marcador>Método simple de autenticación basado en contraseñas.</li>
                         <li><marcador class="resaltado8">CHAP (Challenge Handshake Authentication Protocol): </marcador>Autenticación de tres vías más segura, utilizada para verificar de manera continua la identidad de los dispositivos.</li>
                     </ol>
-                    <li><marcador class="resaltado5">Detección de Errores: </marcador>Utiliza una secuencia de verificación de tramas (FCS) para identificar errores en los datos.</li>
-                    <li><marcador class="resaltado5">Multilink PPP (MLPPP): </marcador>Permite la unión de múltiples enlaces físicos en un único enlace lógico, incrementando el ancho de banda disponible.</li>
+                    <li>‣ <marcador class="resaltado5">Detección de Errores: </marcador>Utiliza una secuencia de verificación de tramas (FCS) para identificar errores en los datos.</li>
+                    <li>‣ <marcador class="resaltado5">Multilink PPP (MLPPP): </marcador>Permite la unión de múltiples enlaces físicos en un único enlace lógico, incrementando el ancho de banda disponible.</li>
                 </ul>
                 <div class="blog-image-grande">
                     <img src="media/ppp1.jpg" alt="">
                 </div>
                 <h2>Estructura del Encabezado</h2>
                 <p>Cada trama PPP incluye los siguientes componentes:</p>
-                <ol>
-                    <li><marcador class="resaltado9">Flag: </marcador>Marca de inicio y fin de la trama (0x7E).</li>
-                    <li><marcador class="resaltado9">Address: </marcador>Campo de dirección (0xFF) en conexiones punto a punto.</li>
-                    <li><marcador class="resaltado9">Control: </marcador>Valor fijo (0x03) que indica el modo de trama.</li>
-                    <li><marcador class="resaltado9">Protocol: </marcador>Define el protocolo transportado (por ejemplo, IP, IPv6).</li>
-                    <li><marcador class="resaltado9">Information: </marcador>Contiene los datos de usuario.</li>
-                    <li><marcador class="resaltado9">Frame Check Sequence (FCS): </marcador>Sección de verificación de errores, generalmente de 2 bytes.</li>
+                <ol style="list-style-type: none;">
+                    <li>🔻 <marcador class="resaltado4">Flag: </marcador>Marca de inicio y fin de la trama (0x7E).</li>
+                    <li>🔻 <marcador class="resaltado4">Address: </marcador>Campo de dirección (0xFF) en conexiones punto a punto.</li>
+                    <li>🔻 <marcador class="resaltado4">Control: </marcador>Valor fijo (0x03) que indica el modo de trama.</li>
+                    <li>🔻 <marcador class="resaltado4">Protocol: </marcador>Define el protocolo transportado (por ejemplo, IP, IPv6).</li>
+                    <li>🔻 <marcador class="resaltado4">Information: </marcador>Contiene los datos de usuario.</li>
+                    <li>🔻 <marcador class="resaltado4">Frame Check Sequence (FCS): </marcador>Sección de verificación de errores, generalmente de 2 bytes.</li>
                 </ol>
                 <div class="blog-image-grande">
                     <img src="media/ppp3.png" alt="">

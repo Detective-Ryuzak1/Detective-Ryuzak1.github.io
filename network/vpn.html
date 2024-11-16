@@ -48,26 +48,26 @@
                 </div>
                 <h2>Componentes principales</h2>
                 <p>La arquitectura de una VPN entre dispositivos de red se compone de varios elementos esenciales:</p>
-                <ol>
-                    <li><marcador class="resaltado9">Túnel VPN: </marcador>Es el canal seguro a través del cual se transmiten los datos. Este túnel oculta el tráfico y evita que los datos sean visibles para interceptores en la red pública.</li>
-                    <li><marcador class="resaltado9">Protocolos de VPN: </marcador>Determinan cómo se envían y protegen los datos en la red privada virtual. Algunos de los más comunes son:</li>
-                    <ul>
-                        <li><marcador class="resaltado8">IPsec (Internet Protocol Security): </marcador>Proporciona autenticación y cifrado en cada paquete IP.</li>
-                        <li><marcador class="resaltado8">SSL/TLS (Secure Sockets Layer/Transport Layer Security): </marcador>Usado para conexiones basadas en web.</li>
-                        <li><marcador class="resaltado8">L2TP (Layer 2 Tunneling Protocol) y PPTP (Point-to-Point Tunneling Protocol): </marcador>Protocolos más antiguos y menos seguros, pero aún en uso.</li>
+                <ol style="list-style-type: none;">
+                    <li>🌀 <marcador class="resaltado9">Túnel VPN: </marcador>Es el canal seguro a través del cual se transmiten los datos. Este túnel oculta el tráfico y evita que los datos sean visibles para interceptores en la red pública.</li>
+                    <li>🌀 <marcador class="resaltado9">Protocolos de VPN: </marcador>Determinan cómo se envían y protegen los datos en la red privada virtual. Algunos de los más comunes son:</li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">IPsec (Internet Protocol Security): </marcador>Proporciona autenticación y cifrado en cada paquete IP.</li>
+                        <li>∘ <marcador class="resaltado8">SSL/TLS (Secure Sockets Layer/Transport Layer Security): </marcador>Usado para conexiones basadas en web.</li>
+                        <li>∘ <marcador class="resaltado8">L2TP (Layer 2 Tunneling Protocol) y PPTP (Point-to-Point Tunneling Protocol): </marcador>Protocolos más antiguos y menos seguros, pero aún en uso.</li>
                     </ul>
-                    <li><marcador class="resaltado9">Métodos de autenticación: </marcador>Estos métodos aseguran que solo los dispositivos autorizados puedan conectarse al túnel VPN. Incluyen:</li>
-                    <ul>
-                        <li><marcador class="resaltado8">Autenticación de certificados: </marcador>Utiliza certificados digitales para verificar la identidad de los dispositivos.</li>
-                        <li><marcador class="resaltado8">Pre-shared key (PSK): </marcador>Una clave compartida entre los dispositivos que se usa para autenticarlos antes de permitir la conexión.</li>
+                    <li>🌀 <marcador class="resaltado9">Métodos de autenticación: </marcador>Estos métodos aseguran que solo los dispositivos autorizados puedan conectarse al túnel VPN. Incluyen:</li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">Autenticación de certificados: </marcador>Utiliza certificados digitales para verificar la identidad de los dispositivos.</li>
+                        <li>∘ <marcador class="resaltado8">Pre-shared key (PSK): </marcador>Una clave compartida entre los dispositivos que se usa para autenticarlos antes de permitir la conexión.</li>
                     </ul>
-                    <li><marcador class="resaltado9">Cifrado: </marcador>Protege los datos mediante algoritmos que los convierten en información ilegible para quienes no tengan la clave de descifrado. Los algoritmos comunes incluyen:</li>
-                    <ul>
-                        <li><marcador class="resaltado8">AES (Advanced Encryption Standard): </marcador>Cifrado fuerte y rápido, usado en varias configuraciones como 128, 192 o 256 bits.</li>
-                        <li><marcador class="resaltado8">3DES (Triple Data Encryption Standard): </marcador>Cifrado en tres capas, pero con mayor carga computacional y más antiguo que AES.</li>
-                        <li><marcador class="resaltado8">ChaCha20: </marcador>Un cifrado moderno y eficiente, especialmente en dispositivos con menos capacidad de procesamiento.</li>
+                    <li>🌀 <marcador class="resaltado9">Cifrado: </marcador>Protege los datos mediante algoritmos que los convierten en información ilegible para quienes no tengan la clave de descifrado. Los algoritmos comunes incluyen:</li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">AES (Advanced Encryption Standard): </marcador>Cifrado fuerte y rápido, usado en varias configuraciones como 128, 192 o 256 bits.</li>
+                        <li>∘ <marcador class="resaltado8">3DES (Triple Data Encryption Standard): </marcador>Cifrado en tres capas, pero con mayor carga computacional y más antiguo que AES.</li>
+                        <li>∘ <marcador class="resaltado8">ChaCha20: </marcador>Un cifrado moderno y eficiente, especialmente en dispositivos con menos capacidad de procesamiento.</li>
                     </ul>
-                    <li><marcador class="resaltado9">Integridad de los datos: </marcador>Los mecanismos como el HMAC (Hashed Message Authentication Code) garantizan que los datos no sean alterados durante la transmisión. HMAC-MD5 y HMAC-SHA-256 son ejemplos comunes de algoritmos de integridad.</li>
+                    <li>🌀 <marcador class="resaltado9">Integridad de los datos: </marcador>Los mecanismos como el HMAC (Hashed Message Authentication Code) garantizan que los datos no sean alterados durante la transmisión. HMAC-MD5 y HMAC-SHA-256 son ejemplos comunes de algoritmos de integridad.</li>
                     <p>El proceso de cálculo de HMAC implica ajustar la clave secreta al tamaño adecuado para la función hash, concatenarla con bloques de ceros (ipad y opad) junto con el mensaje en dos pasos, y luego aplicar la función hash para generar el HMAC final, que se transmite junto al mensaje. En la verificación, el receptor calcula el HMAC del mensaje recibido con la misma clave secreta y compara el resultado con el HMAC recibido; si coinciden, se confirma que el mensaje no ha sido alterado y proviene de una fuente autenticada.</p>
                 </ol>
                 <div class="blog-image-grande">
@@ -85,33 +85,33 @@
                 </div>
                 <h2>Parámetros importantes</h2>
                 <p>Para configurar una VPN segura entre dispositivos de red, es necesario comprender algunos parámetros técnicos:</p>
-                <ul>
+                <ul style="list-style-type: none;">
                     <li><marcador class="resaltado6">Rangos de IP y enrutamiento: </marcador>Los dispositivos deben definir qué rangos de IP se utilizarán para el tráfico VPN. Es común que cada red en ambos extremos de la VPN tenga su propio rango IP privado, como 10.0.0.0/24 o 192.168.1.0/24. Estos rangos no deben solaparse, ya que esto causaría problemas de enrutamiento.</li>
                     <li><marcador class="resaltado6">MTU (Maximum Transmission Unit): </marcador>El tamaño máximo de paquete que puede transmitirse por el túnel. En redes VPN, este valor se ajusta para evitar fragmentación, que puede reducir el rendimiento y afectar la estabilidad.</li>
                     <li><marcador class="resaltado6">Duración de las claves: </marcador>En la mayoría de las configuraciones de VPN, las claves de sesión tienen una duración limitada, tras la cual se deben renegociar. Esto aumenta la seguridad de la conexión, ya que reduce la posibilidad de que una clave comprometida sea utilizada por mucho tiempo.</li>
                 </ul>
                 <h2>Métodos de encriptación y autenticación</h2>
                 <p>Existen varias opciones para configurar la autenticación y el cifrado en una VPN, lo que permite adaptar la configuración a las necesidades de seguridad y rendimiento. A continuación, algunos ejemplos comunes:</p>
-                <ul>
-                    <li><marcador class="resaltado9">IKE (Internet Key Exchange): </marcador>Protocolo utilizado en IPsec VPNs para la negociación de claves y la autenticación de los dispositivos.</li>
-                    <li><marcador class="resaltado9">Certificados digitales: </marcador>Una forma muy segura de autenticación que depende de una infraestructura de clave pública (PKI) y proporciona una verificación más robusta que una PSK.</li>
-                    <li><marcador class="resaltado9">Cifrado simétrico y asimétrico: </marcador>AES, que es un cifrado simétrico, se usa a menudo para el cifrado de los datos en la VPN debido a su eficiencia. Sin embargo, los protocolos como IKE pueden usar cifrado asimétrico (RSA o ECC) para la autenticación inicial, asegurando que solo los dispositivos autorizados puedan establecer la VPN.</li>
+                <ul style="list-style-type: none;">
+                    <li>‣ <marcador class="resaltado5">IKE (Internet Key Exchange): </marcador>Protocolo utilizado en IPsec VPNs para la negociación de claves y la autenticación de los dispositivos.</li>
+                    <li>‣ <marcador class="resaltado5">Certificados digitales: </marcador>Una forma muy segura de autenticación que depende de una infraestructura de clave pública (PKI) y proporciona una verificación más robusta que una PSK.</li>
+                    <li>‣ <marcador class="resaltado5">Cifrado simétrico y asimétrico: </marcador>AES, que es un cifrado simétrico, se usa a menudo para el cifrado de los datos en la VPN debido a su eficiencia. Sin embargo, los protocolos como IKE pueden usar cifrado asimétrico (RSA o ECC) para la autenticación inicial, asegurando que solo los dispositivos autorizados puedan establecer la VPN.</li>
                 </ul>
                 <div class="blog-image-grande">
                     <img src="media/vpn4.png" alt="">
                 </div>
                 <h2>Ventajas y desventajas de una VPN entre dispositivos de red</h2>
                 <h6>Ventajas</h6>
-                <ul>
-                    <li><marcador class="resaltado6">Seguridad de datos: </marcador>La VPN asegura que la información transmitida esté protegida contra interceptación.</li>
-                    <li><marcador class="resaltado6">Flexibilidad y accesibilidad: </marcador>Permite conectar dispositivos ubicados en diferentes sitios sin necesidad de infraestructura dedicada.</li>
-                    <li><marcador class="resaltado6">Escalabilidad: </marcador>Las conexiones VPN pueden escalarse a medida que las necesidades de la red cambian.</li>
+                <ul style="list-style-type: none;">
+                    <li><marcador class="resaltado8">Seguridad de datos: </marcador>La VPN asegura que la información transmitida esté protegida contra interceptación.</li>
+                    <li><marcador class="resaltado8">Flexibilidad y accesibilidad: </marcador>Permite conectar dispositivos ubicados en diferentes sitios sin necesidad de infraestructura dedicada.</li>
+                    <li><marcador class="resaltado8">Escalabilidad: </marcador>Las conexiones VPN pueden escalarse a medida que las necesidades de la red cambian.</li>
                 </ul>
                 <h6>Desventajas</h6>
-                <ul>
-                    <li><marcador class="resaltado6">Rendimiento: </marcador>El cifrado y descifrado de datos consume recursos de procesamiento, lo que puede ralentizar la red.</li>
-                    <li><marcador class="resaltado6">Complejidad: </marcador>La configuración de una VPN entre dispositivos requiere conocimientos técnicos avanzados, especialmente en el caso de protocolos como IPsec.</li>
-                    <li><marcador class="resaltado6">Problemas de compatibilidad: </marcador>Dispositivos de diferentes fabricantes pueden tener configuraciones y compatibilidades diferentes, lo que puede complicar la configuración.</li>
+                <ul style="list-style-type: none;">
+                    <li><marcador class="resaltado8">Rendimiento: </marcador>El cifrado y descifrado de datos consume recursos de procesamiento, lo que puede ralentizar la red.</li>
+                    <li><marcador class="resaltado8">Complejidad: </marcador>La configuración de una VPN entre dispositivos requiere conocimientos técnicos avanzados, especialmente en el caso de protocolos como IPsec.</li>
+                    <li><marcador class="resaltado8">Problemas de compatibilidad: </marcador>Dispositivos de diferentes fabricantes pueden tener configuraciones y compatibilidades diferentes, lo que puede complicar la configuración.</li>
                 </ul>
                 <h2>Conclusión</h2>
                 <p>Una VPN entre dispositivos de red es una solución poderosa para establecer conexiones seguras y confiables a través de internet, especialmente cuando se necesita conectar múltiples ubicaciones o permitir el acceso remoto. La seguridad depende en gran medida de los protocolos de cifrado y autenticación utilizados.</p>
@@ -122,15 +122,15 @@
                 </div>
                 <h3>Cisco</h3>
                 <p>En este caso:</p>
-                <p>Router-A:</p>
-                <ul>
-                    <li>IP externa en la interfaz GigabitEthernet0/0/0: 100.0.0.1</li>
-                    <li>Red interna: 192.168.1.0/24</li>
+                <p>⫸ Router-A:</p>
+                <ul style="list-style-type: none;">
+                    <li>∘ IP externa en la interfaz GigabitEthernet0/0/0: 100.0.0.1</li>
+                    <li>∘ Red interna: 192.168.1.0/24</li>
                 </ul>
-                <p>Router-B:</p>
-                <ul>
-                    <li>IP externa en la interfaz GigabitEthernet0/0/0: 200.0.0.1</li>
-                    <li>Red interna: 192.168.2.0/24</li>
+                <p>⫸ Router-B:</p>
+                <ul style="list-style-type: none;">
+                    <li>∘ IP externa en la interfaz GigabitEthernet0/0/0: 200.0.0.1</li>
+                    <li>∘ Red interna: 192.168.2.0/24</li>
                 </ul>
                 <h6>Pasos de Configuración</h6>
                 <ol>
@@ -247,15 +247,15 @@ show crypto ipsec sa     ! Verifica la Fase 2 (IPsec)</code></pre>
                 </div>
                 <h3>Huawei</h3>
                 <p>En este caso:</p>
-                <p>Router-A:</p>
-                <ul>
-                    <li>IP externa en la interfaz GigabitEthernet0/0/0: 100.0.0.1</li>
-                    <li>Red interna: 192.168.1.0/24</li>
+                <p>⫸ Router-A:</p>
+                <ul style="list-style-type: none;">
+                    <li>∘ IP externa en la interfaz GigabitEthernet0/0/0: 100.0.0.1</li>
+                    <li>∘ Red interna: 192.168.1.0/24</li>
                 </ul>
-                <p>Router-B:</p>
-                <ul>
-                    <li>IP externa en la interfaz GigabitEthernet0/0/0: 200.0.0.1</li>
-                    <li>Red interna: 192.168.2.0/24</li>
+                <p>⫸ Router-B:</p>
+                <ul style="list-style-type: none;">
+                    <li>∘ IP externa en la interfaz GigabitEthernet0/0/0: 200.0.0.1</li>
+                    <li>∘ Red interna: 192.168.2.0/24</li>
                 </ul>
                 <h6>Router A</h6>
                 <div class="consola">

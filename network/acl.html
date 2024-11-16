@@ -48,36 +48,36 @@
                 </div>
                 <h2>Estructura</h2>
                 <p>Los componentes de una ACL (Lista de Control de Acceso) en dispositivos de red incluyen:</p>
-                <ol>
-                    <li><marcador class="resaltado9">Entradas de ACL</marcador></li>
-                    <ul>
-                        <li><marcador class="resaltado8">Permisos: </marcador>Indican si se permite o se deniega el tráfico (permitir/denegar).</li>
-                        <li><marcador class="resaltado8">Protocolos: </marcador>Especifican el tipo de tráfico (por ejemplo, TCP, UDP, ICMP).</li>
-                        <li><marcador class="resaltado8">Dirección IP de origen: </marcador>La dirección IP del dispositivo que envía el tráfico.</li>
-                        <li><marcador class="resaltado8">Dirección IP de destino: </marcador>La dirección IP del dispositivo al que se envía el tráfico.</li>
-                        <li><marcador class="resaltado8">Puertos de origen y destino: </marcador>Los números de puerto relevantes para el tráfico (especialmente para TCP y UDP).</li>
+                <ol style="list-style-type: none;">
+                    <li>🌀 <marcador class="resaltado9">Entradas de ACL</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">Permisos: </marcador>Indican si se permite o se deniega el tráfico (permitir/denegar).</li>
+                        <li>∘ <marcador class="resaltado8">Protocolos: </marcador>Especifican el tipo de tráfico (por ejemplo, TCP, UDP, ICMP).</li>
+                        <li>∘ <marcador class="resaltado8">Dirección IP de origen: </marcador>La dirección IP del dispositivo que envía el tráfico.</li>
+                        <li>∘ <marcador class="resaltado8">Dirección IP de destino: </marcador>La dirección IP del dispositivo al que se envía el tráfico.</li>
+                        <li>∘ <marcador class="resaltado8">Puertos de origen y destino: </marcador>Los números de puerto relevantes para el tráfico (especialmente para TCP y UDP).</li>
                     </ul>
-                    <li><marcador class="resaltado9">Número de Secuencia</marcador></li>
-                    <ul>
-                        <li>Las entradas en una ACL suelen tener un número de secuencia que determina el orden en que se evalúan.</li>
+                    <li>🌀 <marcador class="resaltado9">Número de Secuencia</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ Las entradas en una ACL suelen tener un número de secuencia que determina el orden en que se evalúan.</li>
                         <p>Cuando se evalúan los paquetes contra las entradas de una ACL, el orden de las reglas es crucial. La primera regla que coincida con el paquete determina la acción que se tomará, ya sea permitir (allow) o denegar (deny). Esto significa que, si hay dos reglas que podrían aplicarse a un paquete, la acción de la primera regla que coincida se ejecutará, ignorando las reglas posteriores.</p>
                     </ul>
-                    <li><marcador class="resaltado9">Tipo de ACL</marcador></li>
-                    <ul>
-                        <li><marcador class="resaltado8">ACL Estándar: </marcador>Controla el tráfico solo por la dirección IP de origen.</li>
-                        <li><marcador class="resaltado8">ACL Extendida: </marcador>Controla el tráfico por dirección IP de origen y destino, protocolo, y puertos.</li>
+                    <li>🌀 <marcador class="resaltado9">Tipo de ACL</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">ACL Estándar: </marcador>Controla el tráfico solo por la dirección IP de origen.</li>
+                        <li>∘ <marcador class="resaltado8">ACL Extendida: </marcador>Controla el tráfico por dirección IP de origen y destino, protocolo, y puertos.</li>
                     </ul>
-                    <li><marcador class="resaltado9">Wildcards</marcador></li>
-                    <ul>
-                        <li>Se utilizan para especificar rangos de direcciones IP. Por ejemplo, un wildcard de 0.0.0.255 permitiría cualquier dirección IP dentro de un rango específico.</li>
+                    <li>🌀 <marcador class="resaltado9">Wildcards</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ Se utilizan para especificar rangos de direcciones IP. Por ejemplo, un wildcard de 0.0.0.255 permitiría cualquier dirección IP dentro de un rango específico.</li>
                     </ul>
-                    <li><marcador class="resaltado9">Comentarios</marcador></li>
-                    <ul>
-                        <li>Algunos dispositivos permiten agregar comentarios o descripciones a las entradas para facilitar la gestión y la comprensión.</li>
+                    <li>🌀 <marcador class="resaltado9">Comentarios</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ Algunos dispositivos permiten agregar comentarios o descripciones a las entradas para facilitar la gestión y la comprensión.</li>
                     </ul>
-                    <li><marcador class="resaltado9">Aplicación</marcador></li>
-                    <ul>
-                        <li>La ACL se puede aplicar a interfaces de red (entrante o saliente) para controlar el tráfico que pasa a través de ellas.</marcador></li>
+                    <li>🌀 <marcador class="resaltado9">Aplicación</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ La ACL se puede aplicar a interfaces de red (entrante o saliente) para controlar el tráfico que pasa a través de ellas.</marcador></li>
                     </ul>
                 </ol>
                 <div class="blog-image-grande">
@@ -85,9 +85,9 @@
                 </div>
                 <h2>Inbound y Outbound</h2>
                 <p>Cuando se aplica una ACL a una interfaz de red, puedes definir si se aplica al tráfico que entra (inbound) o al tráfico que sale (outbound):</p>
-                <ul>
-                    <li><marcador class="resaltado5">Inbound (Entrante): </marcador>La ACL se aplica a los paquetes que están llegando a la interfaz. Esto significa que el dispositivo evalúa los paquetes a medida que entran en la red. Por ejemplo, puedes usar una ACL inbound para bloquear ciertos tipos de tráfico antes de que lleguen a una máquina o servicio específico.</li>
-                    <li><marcador class="resaltado5">Outbound (Saliente): </marcador>La ACL se aplica a los paquetes que están saliendo de la interfaz. Esto significa que el dispositivo evalúa los paquetes a medida que se dirigen fuera de la red. Por ejemplo, puedes usar una ACL outbound para restringir el tráfico que los dispositivos de la red envían hacia Internet.</li>
+                <ul style="list-style-type: none;">
+                    <li>‣ <marcador class="resaltado5">Inbound (Entrante): </marcador>La ACL se aplica a los paquetes que están llegando a la interfaz. Esto significa que el dispositivo evalúa los paquetes a medida que entran en la red. Por ejemplo, puedes usar una ACL inbound para bloquear ciertos tipos de tráfico antes de que lleguen a una máquina o servicio específico.</li>
+                    <li>‣ <marcador class="resaltado5">Outbound (Saliente): </marcador>La ACL se aplica a los paquetes que están saliendo de la interfaz. Esto significa que el dispositivo evalúa los paquetes a medida que se dirigen fuera de la red. Por ejemplo, puedes usar una ACL outbound para restringir el tráfico que los dispositivos de la red envían hacia Internet.</li>
                 </ul>
                 <div class="blog-image">
                     <img src="media/acl3.png" alt="">
@@ -98,9 +98,9 @@
                 <p>Aquí están los rangos de números y su significado en dispositivos Cisco:</p>
                 <ol>
                     <li><marcador class="resaltado5">ACL Estándar</marcador></li>
-                    <ul>
-                        <li><marcador class="resaltado8">Rango de números: </marcador>1 - 99 y 1300 - 1999</li>
-                        <li><marcador class="resaltado8">Función: </marcador>Las ACL estándar solo filtran tráfico basándose en la dirección IP de origen. No permiten filtrar por puerto o protocolo.</li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">Rango de números: </marcador>1 - 99 y 1300 - 1999</li>
+                        <li>∘ <marcador class="resaltado8">Función: </marcador>Las ACL estándar solo filtran tráfico basándose en la dirección IP de origen. No permiten filtrar por puerto o protocolo.</li>
                         <div class="contenedor">
                             <div class="etiqueta">
                                 <marcador class="resaltado8">Ejemplo:</marcador>
@@ -113,9 +113,9 @@
                     </ul>
                     <p>Esta ACL permite todo el tráfico que proviene de la red 192.168.1.0/24.</p>
                     <li><marcador class="resaltado5">ACL Extendida</marcador></li>
-                    <ul>
-                        <li><marcador class="resaltado8">Rango de números: </marcador>100 - 199 y 2000 - 2699</li>
-                        <li><marcador class="resaltado8">Función: </marcador>Las ACL extendidas permiten filtrar tráfico basándose en varios criterios, incluyendo la dirección IP de origen y destino, protocolo, y puertos. Esto proporciona un mayor control y es útil para configuraciones más complejas.</li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">Rango de números: </marcador>100 - 199 y 2000 - 2699</li>
+                        <li>∘ <marcador class="resaltado8">Función: </marcador>Las ACL extendidas permiten filtrar tráfico basándose en varios criterios, incluyendo la dirección IP de origen y destino, protocolo, y puertos. Esto proporciona un mayor control y es útil para configuraciones más complejas.</li>
                         <div class="contenedor">
                             <div class="etiqueta">
                                 <marcador class="resaltado8">Ejemplo:</marcador>
@@ -128,9 +128,9 @@
                     </ul>
                     <p>Esta regla permite el tráfico TCP desde cualquier host en la red 192.168.1.0/24 hacia cualquier destino en el puerto 80 (HTTP).</p>
                     <li><marcador class="resaltado5">ACL de Capa 2</marcador></li>
-                    <ul>
-                        <li><marcador class="resaltado8">Rango de números: </marcador>No aplica un rango específico como en las ACL IP extendidas; las MAC ACLs en Cisco usan nombres para identificarse.</li>
-                        <li><marcador class="resaltado8">Función: </marcador>Las ACL de Capa 2 permiten filtrar tráfico basándose en las direcciones MAC de origen y destino, útil para controlar el acceso a nivel de capa 2 en switches.</li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">Rango de números: </marcador>No aplica un rango específico como en las ACL IP extendidas; las MAC ACLs en Cisco usan nombres para identificarse.</li>
+                        <li>∘ <marcador class="resaltado8">Función: </marcador>Las ACL de Capa 2 permiten filtrar tráfico basándose en las direcciones MAC de origen y destino, útil para controlar el acceso a nivel de capa 2 en switches.</li>
                         <li><marcador class="resaltado8">Ejemplo:</marcador></li>
                         <div class="consola">
                             <div class="barra-superior-consola">
@@ -146,9 +146,9 @@ deny any any</code></pre>
                     </ul>
                     <p>Permite el tráfico proveniente de la dirección MAC 0050.56b3.4f1a hacia cualquier otro destino.</p>
                     <li><marcador class="resaltado5">ACL de Nombre (Nombradas)</marcador></li>
-                    <ul>
-                        <li>Cisco permite crear ACLs con nombres en lugar de números, lo cual facilita la organización y administración, especialmente en redes grandes.</li>
-                        <li>Estas ACL pueden ser estándar o extendidas y permiten agregar, modificar o eliminar reglas individuales.</li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ Cisco permite crear ACLs con nombres en lugar de números, lo cual facilita la organización y administración, especialmente en redes grandes.</li>
+                        <li>∘ Estas ACL pueden ser estándar o extendidas y permiten agregar, modificar o eliminar reglas individuales.</li>
                         <li><marcador class="resaltado8">Ejemplo:</marcador></li>
                         <div class="consola">
                             <div class="barra-superior-consola">
@@ -175,9 +175,9 @@ deny ip any any</code></pre>
                 <p>En Huawei, los rangos de números para las listas de control de acceso (ACL) también están diseñados para diferentes tipos de filtrado, lo que permite elegir el tipo de ACL según la granularidad y las necesidades de control en la red. Aquí está el desglose de los rangos de ACL en Huawei y cuándo elegir cada uno.</p>
                 <ol>
                     <li><marcador class="resaltado5">ACL Básica</marcador></li>
-                    <ul>
-                        <li><marcador class="resaltado8">Rango de números: </marcador>2000 - 2999</li>
-                        <li><marcador class="resaltado8">Función: </marcador>Las ACL básicas permiten filtrar tráfico únicamente basándose en la dirección IP de origen. Son adecuadas para configuraciones simples donde solo se necesita controlar el acceso según la IP de origen.</li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">Rango de números: </marcador>2000 - 2999</li>
+                        <li>∘ <marcador class="resaltado8">Función: </marcador>Las ACL básicas permiten filtrar tráfico únicamente basándose en la dirección IP de origen. Son adecuadas para configuraciones simples donde solo se necesita controlar el acceso según la IP de origen.</li>
                         <li><marcador class="resaltado8">Ejemplo:</marcador></li>
                         <div class="consola">
                             <div class="barra-superior-consola">
@@ -192,9 +192,9 @@ rule 5 permit source 192.168.1.0 0.0.0.255</code></pre>
                     </ul>
                     <p>Este ejemplo permite el tráfico proveniente de la red 192.168.1.0/24.</p>
                     <li><marcador class="resaltado5">ACL Avanzada</marcador></li>
-                    <ul>
-                        <li><marcador class="resaltado8">Rango de números: </marcador>3000 - 3999</li>
-                        <li><marcador class="resaltado8">Función: </marcador>Las ACL avanzadas permiten un filtrado más detallado, incluyendo direcciones IP de origen y destino, protocolos, y puertos específicos. Son útiles para configuraciones que requieren mayor control sobre el tráfico, como permitir o denegar servicios específicos.</li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">Rango de números: </marcador>3000 - 3999</li>
+                        <li>∘ <marcador class="resaltado8">Función: </marcador>Las ACL avanzadas permiten un filtrado más detallado, incluyendo direcciones IP de origen y destino, protocolos, y puertos específicos. Son útiles para configuraciones que requieren mayor control sobre el tráfico, como permitir o denegar servicios específicos.</li>
                         <li><marcador class="resaltado8">Ejemplo:</marcador></li>
                         <div class="consola">
                             <div class="barra-superior-consola">
@@ -209,9 +209,9 @@ rule 5 permit tcp source 192.168.1.0 0.0.0.255 destination 10.0.0.0 0.0.0.255 de
                     </ul>
                     <p>Este ejemplo permite el tráfico HTTP (puerto 80) desde la red 192.168.1.0/24 hacia la red 10.0.0.0/24.</p>
                     <li><marcador class="resaltado5">ACL de Capa 2</marcador></li>
-                    <ul>
-                        <li><marcador class="resaltado8">Rango de números: </marcador>4000 - 4999</li>
-                        <li><marcador class="resaltado8">Función: </marcador>Las ACL de Capa 2 permiten el filtrado de tráfico basándose en la dirección MAC y son útiles para configuraciones de seguridad a nivel de capa de enlace (capa 2 del modelo OSI).</li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">Rango de números: </marcador>4000 - 4999</li>
+                        <li>∘ <marcador class="resaltado8">Función: </marcador>Las ACL de Capa 2 permiten el filtrado de tráfico basándose en la dirección MAC y son útiles para configuraciones de seguridad a nivel de capa de enlace (capa 2 del modelo OSI).</li>
                         <li><marcador class="resaltado8">Ejemplo:</marcador></li>
                         <div class="consola">
                             <div class="barra-superior-consola">
@@ -227,9 +227,9 @@ rule 10 permit</code></pre>
                     </ul>
                     <p>Este ejemplo deniega el tráfico proveniente de un dispositivo con la dirección MAC 00e0.fc12.3456.</p>
                     <li><marcador class="resaltado5">ACL de Capa 3 y Capa 4</marcador></li>
-                    <ul>
-                        <li><marcador class="resaltado8">Rango de números: </marcador>5000 - 5999</li>
-                        <li><marcador class="resaltado8">Función: </marcador>Estas ACL se utilizan para un control más específico en términos de protocolos y puertos a nivel de Capa 3 (IP) y Capa 4 (Transporte), como permitir o denegar tráfico TCP, UDP, ICMP, etc. Proporcionan un filtrado detallado, similar a las ACL avanzadas, pero ofrecen más opciones y flexibilidad en dispositivos de Huawei de gama alta.</li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">Rango de números: </marcador>5000 - 5999</li>
+                        <li>∘ <marcador class="resaltado8">Función: </marcador>Estas ACL se utilizan para un control más específico en términos de protocolos y puertos a nivel de Capa 3 (IP) y Capa 4 (Transporte), como permitir o denegar tráfico TCP, UDP, ICMP, etc. Proporcionan un filtrado detallado, similar a las ACL avanzadas, pero ofrecen más opciones y flexibilidad en dispositivos de Huawei de gama alta.</li>
                         <li><marcador class="resaltado8">Ejemplo:</marcador></li>
                         <div class="consola">
                             <div class="barra-superior-consola">
@@ -258,35 +258,35 @@ rule 10 deny ip</code></pre>
                 </div>
                 <h2>Función de las ACLs en Equipos de Red</h2>
                 <p>Las ACLs cumplen múltiples funciones clave en la gestión y seguridad de una red:</p>
-                <ul>
-                    <li><marcador class="resaltado6">Control de acceso: </marcador>Permiten o deniegan el tráfico de acuerdo con las reglas configuradas, proporcionando una barrera de protección.</li>
-                    <li><marcador class="resaltado6">Segmentación de tráfico: </marcador>Separan distintos tipos de tráfico en la red, facilitando el diseño de redes segmentadas y seguras.</li>
-                    <li><marcador class="resaltado6">Prevención de amenazas: </marcador>Ayudan a evitar el acceso no autorizado y la propagación de amenazas al bloquear tráfico desde o hacia direcciones IP o puertos específicos.</li>
-                    <li><marcador class="resaltado6">Optimización del tráfico: </marcador>Restringen el acceso a ciertos recursos, disminuyendo la carga de trabajo en dispositivos y redes.</li>
+                <ul style="list-style-type: none;">
+                    <li>⦿ <marcador class="resaltado6">Control de acceso: </marcador>Permiten o deniegan el tráfico de acuerdo con las reglas configuradas, proporcionando una barrera de protección.</li>
+                    <li>⦿ <marcador class="resaltado6">Segmentación de tráfico: </marcador>Separan distintos tipos de tráfico en la red, facilitando el diseño de redes segmentadas y seguras.</li>
+                    <li>⦿ <marcador class="resaltado6">Prevención de amenazas: </marcador>Ayudan a evitar el acceso no autorizado y la propagación de amenazas al bloquear tráfico desde o hacia direcciones IP o puertos específicos.</li>
+                    <li>⦿ <marcador class="resaltado6">Optimización del tráfico: </marcador>Restringen el acceso a ciertos recursos, disminuyendo la carga de trabajo en dispositivos y redes.</li>
                 </ul>
                 <div class="blog-image">
                     <img src="media/acl11.png" alt="">
                 </div>
                 <h2>Puertos y Protocolos</h2>
                 <p>Al configurar ACLs, algunos de los puertos y protocolos más frecuentemente empleados son:</p>
-                <ul>
-                    <li><marcador class="resaltado9">HTTP y HTTPS: </marcador>Usan los puertos 80 y 443 respectivamente, siendo el primero para tráfico web no cifrado y el segundo para tráfico cifrado. Las ACLs pueden bloquear el tráfico HTTP para redirigir todo a HTTPS, garantizando un acceso seguro.</li>
-                    <li><marcador class="resaltado9">FTP: </marcador>Utiliza los puertos 20 y 21, y se suele aplicar una ACL para controlar el acceso a servidores FTP, bloqueando o permitiendo el tráfico en función de las necesidades de seguridad.</li>
-                    <li><marcador class="resaltado9">SMTP, POP3, e IMAP: </marcador>Utilizados en el tráfico de correo electrónico, con puertos como el 25 (SMTP), 110 (POP3) y 143 (IMAP). Las ACLs pueden ayudar a restringir el tráfico de correo a ciertos servidores o usuarios.</li>
-                    <li><marcador class="resaltado9">SSH y Telnet: </marcador>Utilizan los puertos 22 (SSH) y 23 (Telnet). Las ACLs suelen bloquear Telnet por su falta de cifrado y permitir únicamente SSH para conexiones seguras.</li>
-                    <li><marcador class="resaltado9">DNS: </marcador>Emplea el puerto 53 y es común configurarlo en ACLs para permitir únicamente consultas DNS hacia servidores autorizados.</li>
+                <ul style="list-style-type: none;">
+                    <li><marcador class="resaltado8">HTTP y HTTPS: </marcador>Usan los puertos 80 y 443 respectivamente, siendo el primero para tráfico web no cifrado y el segundo para tráfico cifrado. Las ACLs pueden bloquear el tráfico HTTP para redirigir todo a HTTPS, garantizando un acceso seguro.</li>
+                    <li><marcador class="resaltado8">FTP: </marcador>Utiliza los puertos 20 y 21, y se suele aplicar una ACL para controlar el acceso a servidores FTP, bloqueando o permitiendo el tráfico en función de las necesidades de seguridad.</li>
+                    <li><marcador class="resaltado8">SMTP, POP3, e IMAP: </marcador>Utilizados en el tráfico de correo electrónico, con puertos como el 25 (SMTP), 110 (POP3) y 143 (IMAP). Las ACLs pueden ayudar a restringir el tráfico de correo a ciertos servidores o usuarios.</li>
+                    <li><marcador class="resaltado8">SSH y Telnet: </marcador>Utilizan los puertos 22 (SSH) y 23 (Telnet). Las ACLs suelen bloquear Telnet por su falta de cifrado y permitir únicamente SSH para conexiones seguras.</li>
+                    <li><marcador class="resaltado8">DNS: </marcador>Emplea el puerto 53 y es común configurarlo en ACLs para permitir únicamente consultas DNS hacia servidores autorizados.</li>
                 </ul>
                 <div class="blog-image">
                     <img src="media/acl2.png" alt="">
                 </div>
                 <h2>Aplicaciones</h2>
                 <p>Las ACLs no solo se configuran en protocolos de aplicaciones o servicios, sino que también pueden aplicarse en otros protocolos de red para un control más profundo:</p>
-                <ul>
-                    <li><marcador class="resaltado6">Protocolos de enrutamiento (RIP, EIGRP, OSPF): </marcador>Las ACLs en estos protocolos pueden limitar qué redes o routers pueden participar en el enrutamiento dinámico, restringiendo las rutas aceptadas o compartidas.</li>
-                    <li><marcador class="resaltado6">NAT (Network Address Translation): </marcador>Las ACLs se utilizan para determinar qué tráfico puede ser traducido y hacia qué direcciones, ayudando a controlar la exposición de direcciones internas hacia el exterior.</li>
-                    <li><marcador class="resaltado6">VPN (Virtual Private Network): </marcador>Las ACLs controlan qué tráfico puede pasar a través de la VPN, limitando el acceso a ciertos recursos en la red remota.</li>
-                    <li><marcador class="resaltado6">QoS (Quality of Service): </marcador>En algunas configuraciones de QoS, se pueden aplicar ACLs para identificar y priorizar el tráfico de ciertas aplicaciones o servicios, asegurando un ancho de banda adecuado para aplicaciones críticas.</li>
-                    <li><marcador class="resaltado6">STP (Spanning Tree Protocol): </marcador>Aunque no es común aplicar ACLs directamente sobre STP, sí se configuran en entornos donde STP está activo para controlar el tráfico de puertos específicos, como el tráfico de BPDUs, y así prevenir posibles bucles.</li>
+                <ul style="list-style-type: none;">
+                    <li>⦿ <marcador class="resaltado6">Protocolos de enrutamiento (RIP, EIGRP, OSPF): </marcador>Las ACLs en estos protocolos pueden limitar qué redes o routers pueden participar en el enrutamiento dinámico, restringiendo las rutas aceptadas o compartidas.</li>
+                    <li>⦿ <marcador class="resaltado6">NAT (Network Address Translation): </marcador>Las ACLs se utilizan para determinar qué tráfico puede ser traducido y hacia qué direcciones, ayudando a controlar la exposición de direcciones internas hacia el exterior.</li>
+                    <li>⦿ <marcador class="resaltado6">VPN (Virtual Private Network): </marcador>Las ACLs controlan qué tráfico puede pasar a través de la VPN, limitando el acceso a ciertos recursos en la red remota.</li>
+                    <li>⦿ <marcador class="resaltado6">QoS (Quality of Service): </marcador>En algunas configuraciones de QoS, se pueden aplicar ACLs para identificar y priorizar el tráfico de ciertas aplicaciones o servicios, asegurando un ancho de banda adecuado para aplicaciones críticas.</li>
+                    <li>⦿ <marcador class="resaltado6">STP (Spanning Tree Protocol): </marcador>Aunque no es común aplicar ACLs directamente sobre STP, sí se configuran en entornos donde STP está activo para controlar el tráfico de puertos específicos, como el tráfico de BPDUs, y así prevenir posibles bucles.</li>
                 </ul>
                 <div class="blog-image-grande">
                     <img src="media/acl7.png" alt="">
@@ -297,36 +297,36 @@ rule 10 deny ip</code></pre>
                     <img src="media/acl1.png" alt="">
                 </div>
                 <p>Subred:</p>
-                <ul>
-                    <li><marcador class="resaltado8">Subred de la empresa: </marcador>192.168.1.0/24</li>
-                    <li><marcador class="resaltado8">Subred HR: </marcador>172.17.0.0/20</li>
+                <ul style="list-style-type: none;">
+                    <li>⫸ <marcador class="resaltado8">Subred de la empresa: </marcador>192.168.1.0/24</li>
+                    <li>⫸ <marcador class="resaltado8">Subred HR: </marcador>172.17.0.0/20</li>
                 </ul>
                 <ol>
                     <li>En R1:</li>
-                    <ul>
-                        <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia R2: </marcador>192.168.1.1</li>
-                        <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia S1: </marcador>192.168.2.1</li>
-                        <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia S2: </marcador>192.168.3.1</li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">Interfaz hacia R2: </marcador>192.168.1.1</li>
+                        <li>∘ <marcador class="resaltado8">Interfaz hacia S1: </marcador>192.168.2.1</li>
+                        <li>∘ <marcador class="resaltado8">Interfaz hacia S2: </marcador>192.168.3.1</li>
                     </ul>
                     <li>En R2:</li>
-                    <ul>
-                        <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia R1: </marcador>192.168.1.2</li>
-                        <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia Internet: </marcador>192.168.4.1</li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">Interfaz hacia R1: </marcador>192.168.1.2</li>
+                        <li>∘ <marcador class="resaltado8">Interfaz hacia Internet: </marcador>192.168.4.1</li>
                     </ul>
                     <li>En R3:</li>
-                    <ul>
-                        <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia R2: </marcador>192.168.1.3</li>
-                        <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia subred HR:  </marcador>172.17.0.1</li>
-                        <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia S3: </marcador>192.168.5.1</li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">Interfaz hacia R2: </marcador>192.168.1.3</li>
+                        <li>∘ <marcador class="resaltado8">Interfaz hacia subred HR:  </marcador>172.17.0.1</li>
+                        <li>∘ <marcador class="resaltado8">Interfaz hacia S3: </marcador>192.168.5.1</li>
                     </ul>
                 </ol>
                 <p>Cada ACL deberá aplicarse en la interfaz correcta y en la dirección adecuada (entrante o saliente) para cumplir con los requisitos de seguridad.</p>
                 <h3>Cisco</h3>
                 <h6>Router 1</h6>
-                <ul>
-                    <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia R2: </marcador>192.168.1.1</li>
-                    <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia S1: </marcador>192.168.2.1</li>
-                    <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia S2: </marcador>192.168.3.1</li>
+                <ul style="list-style-type: none;">
+                    <li>∘ <marcador class="resaltado8">Interfaz hacia R2: </marcador>192.168.1.1</li>
+                    <li>∘ <marcador class="resaltado8">Interfaz hacia S1: </marcador>192.168.2.1</li>
+                    <li>∘ <marcador class="resaltado8">Interfaz hacia S2: </marcador>192.168.3.1</li>
                 </ul>
                 <br>
                 <ol>
@@ -375,9 +375,9 @@ interface GigabitEthernet0/1
                     <p>Se asume que S1 tiene la IP 192.168.2.2 y S2 la IP 192.168.3.2.</p>
                 </ol>
                     <h6>Router 2</h6>
-                    <ul>
-                        <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia R1: </marcador>192.168.1.2</li>
-                        <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia Internet: </marcador>192.168.4.1</li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">Interfaz hacia R1: </marcador>192.168.1.2</li>
+                        <li>∘ <marcador class="resaltado8">Interfaz hacia Internet: </marcador>192.168.4.1</li>
                     </ul>
                     <br>
                 <ol>
@@ -410,10 +410,10 @@ interface GigabitEthernet0/1
                     <p>Los puertos 25 (SMTP), 110 (POP3) y 143 (IMAP) permiten el tráfico de correo entrante, mientras que el puerto 23 (Telnet) es denegado.</p>
                 </ol>
                 <h6>Router 3</h6>
-                <ul>
-                    <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia R2: </marcador>192.168.1.3</li>
-                    <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia subred HR:  </marcador>172.17.0.1</li>
-                    <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia S3: </marcador>192.168.5.1</li>
+                <ul style="list-style-type: none;">
+                    <li>∘ <marcador class="resaltado8">Interfaz hacia R2: </marcador>192.168.1.3</li>
+                    <li>∘ <marcador class="resaltado8">Interfaz hacia subred HR:  </marcador>172.17.0.1</li>
+                    <li>∘ <marcador class="resaltado8">Interfaz hacia S3: </marcador>192.168.5.1</li>
                 </ul>
                 <br>
                 <ol>
@@ -480,34 +480,34 @@ show ip interface GigabitEthernet0/2</code></pre>
                 </div>
                 <h3>Huawei</h3>
                 <p>Subred:</p>
-                <ul>
-                    <li><marcador class="resaltado8">Subred de la empresa: </marcador>192.168.1.0/24</li>
-                    <li><marcador class="resaltado8">Subred HR: </marcador>172.17.0.0/20</li>
+                <ul style="list-style-type: none;">
+                    <li>⫸ <marcador class="resaltado8">Subred de la empresa: </marcador>192.168.1.0/24</li>
+                    <li>⫸ <marcador class="resaltado8">Subred HR: </marcador>172.17.0.0/20</li>
                 </ul>
                 <ol>
                     <li>En R1:</li>
-                    <ul>
-                        <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia R2: </marcador>192.168.1.1</li>
-                        <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia S1: </marcador>192.168.2.1</li>
-                        <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia S2: </marcador>192.168.3.1</li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">Interfaz hacia R2: </marcador>192.168.1.1</li>
+                        <li>∘ <marcador class="resaltado8">Interfaz hacia S1: </marcador>192.168.2.1</li>
+                        <li>∘ <marcador class="resaltado8">Interfaz hacia S2: </marcador>192.168.3.1</li>
                     </ul>
                     <li>En R2:</li>
-                    <ul>
-                        <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia R1: </marcador>192.168.1.2</li>
-                        <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia Internet: </marcador>192.168.4.1</li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">Interfaz hacia R1: </marcador>192.168.1.2</li>
+                        <li>∘ <marcador class="resaltado8">Interfaz hacia Internet: </marcador>192.168.4.1</li>
                     </ul>
                     <li>En R3:</li>
-                    <ul>
-                        <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia R2: </marcador>192.168.1.3</li>
-                        <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia subred HR:  </marcador>172.17.0.1</li>
-                        <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia S3: </marcador>192.168.5.1</li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">Interfaz hacia R2: </marcador>192.168.1.3</li>
+                        <li>∘ <marcador class="resaltado8">Interfaz hacia subred HR:  </marcador>172.17.0.1</li>
+                        <li>∘ <marcador class="resaltado8">Interfaz hacia S3: </marcador>192.168.5.1</li>
                     </ul>
                 </ol>
                 <h6>Router 1</h6>
-                <ul>
-                    <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia R2: </marcador>192.168.1.1</li>
-                    <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia S1: </marcador>192.168.2.1</li>
-                    <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia S2: </marcador>192.168.3.1</li>
+                <ul style="list-style-type: none;">
+                    <li>∘ <marcador class="resaltado8">Interfaz hacia R2: </marcador>192.168.1.1</li>
+                    <li>∘ <marcador class="resaltado8">Interfaz hacia S1: </marcador>192.168.2.1</li>
+                    <li>∘ <marcador class="resaltado8">Interfaz hacia S2: </marcador>192.168.3.1</li>
                 </ul>
                 <br>
                 <ol>
@@ -559,9 +559,9 @@ interface GigabitEthernet0/0/1
                     <p>Se asume que S1 tiene la IP 192.168.1.1 y S2 la IP 192.168.1.2.</p>
                 </ol>
                 <h6>Router 2</h6>
-                <ul>
-                    <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia R1: </marcador>192.168.1.2</li>
-                    <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia Internet: </marcador>192.168.4.1</li>
+                <ul style="list-style-type: none;">
+                    <li>∘ <marcador class="resaltado8">Interfaz hacia R1: </marcador>192.168.1.2</li>
+                    <li>∘ <marcador class="resaltado8">Interfaz hacia Internet: </marcador>192.168.4.1</li>
                 </ul>
                 <br>
                 <ol>
@@ -595,10 +595,10 @@ interface GigabitEthernet0/0/1
                     <p>Los puertos 25 (SMTP), 110 (POP3) y 143 (IMAP) permiten el tráfico de correo entrante, mientras que el puerto 23 (Telnet) es denegado.</p>
                 </ol>
                 <h6>Router 3</h6>
-                <ul>
-                    <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia R2: </marcador>192.168.1.3</li>
-                    <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia subred HR:  </marcador>172.17.0.1</li>
-                    <li style="list-style-type: square;"><marcador class="resaltado8">Interfaz hacia S3: </marcador>192.168.5.1</li>
+                <ul style="list-style-type: none;">
+                    <li>∘ <marcador class="resaltado8">Interfaz hacia R2: </marcador>192.168.1.3</li>
+                    <li>∘ <marcador class="resaltado8">Interfaz hacia subred HR:  </marcador>172.17.0.1</li>
+                    <li>∘ <marcador class="resaltado8">Interfaz hacia S3: </marcador>192.168.5.1</li>
                 </ul>
                 <br>
                 <ol>

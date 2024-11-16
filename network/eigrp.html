@@ -46,15 +46,15 @@
                     <img src="media/eigrp1.png" alt="">
                 </div>
                 <h2>Características</h2>
-                <ul>
-                    <li><marcador class="resaltado5">Híbrido: </marcador>EIGRP se considera un protocolo híbrido, ya que utiliza características tanto de los protocolos de enrutamiento de estado de enlace (como OSPF) como de distancia-vector (como RIP).</li>
-                    <li><marcador class="resaltado5">Convergencia rápida: </marcador>Una de las principales ventajas de EIGRP es su capacidad de converger rápidamente gracias a su uso del algoritmo DUAL (Diffusing Update Algorithm), que calcula las mejores rutas sin necesidad de actualizar toda la tabla de enrutamiento.</li>
-                    <li><marcador class="resaltado5">Balanceo de carga desigual: </marcador>EIGRP soporta balanceo de carga tanto igual como desigual, permitiendo a los administradores utilizar rutas con diferentes métricas para balancear el tráfico.</li>
-                    <li><marcador class="resaltado5">Métrica compuesta: </marcador>EIGRP usa una métrica compuesta basada en cinco parámetros: ancho de banda, retardo, confiabilidad, carga y MTU (tamaño máximo de la unidad de transmisión).</li>
-                    <li><marcador class="resaltado5">VLSM y CIDR: </marcador>EIGRP soporta el uso de VLSM (Variable Length Subnet Masking) y CIDR (Classless Inter-Domain Routing).</li>
-                    <li><marcador class="resaltado5">Autenticación: </marcador>EIGRP soporta autenticación MD5 para garantizar que solo routers autorizados participen en el intercambio de rutas.</li>
-                    <li><marcador class="resaltado5">Actualización parcial: </marcador>A diferencia de RIP, EIGRP envía solo actualizaciones parciales, lo que mejora la eficiencia del ancho de banda.</li>
-                    <li><marcador class="resaltado5">Sin clase: </marcador>A diferencia de RIP v1, EIGRP es un protocolo sin clase, lo que le permite soportar múltiples subredes y sumarización de rutas.</li>
+                <ul style="list-style-type: none;">
+                    <li>‣ <marcador class="resaltado5">Híbrido: </marcador>EIGRP se considera un protocolo híbrido, ya que utiliza características tanto de los protocolos de enrutamiento de estado de enlace (como OSPF) como de distancia-vector (como RIP).</li>
+                    <li>‣ <marcador class="resaltado5">Convergencia rápida: </marcador>Una de las principales ventajas de EIGRP es su capacidad de converger rápidamente gracias a su uso del algoritmo DUAL (Diffusing Update Algorithm), que calcula las mejores rutas sin necesidad de actualizar toda la tabla de enrutamiento.</li>
+                    <li>‣ <marcador class="resaltado5">Balanceo de carga desigual: </marcador>EIGRP soporta balanceo de carga tanto igual como desigual, permitiendo a los administradores utilizar rutas con diferentes métricas para balancear el tráfico.</li>
+                    <li>‣ <marcador class="resaltado5">Métrica compuesta: </marcador>EIGRP usa una métrica compuesta basada en cinco parámetros: ancho de banda, retardo, confiabilidad, carga y MTU (tamaño máximo de la unidad de transmisión).</li>
+                    <li>‣ <marcador class="resaltado5">VLSM y CIDR: </marcador>EIGRP soporta el uso de VLSM (Variable Length Subnet Masking) y CIDR (Classless Inter-Domain Routing).</li>
+                    <li>‣ <marcador class="resaltado5">Autenticación: </marcador>EIGRP soporta autenticación MD5 para garantizar que solo routers autorizados participen en el intercambio de rutas.</li>
+                    <li>‣ <marcador class="resaltado5">Actualización parcial: </marcador>A diferencia de RIP, EIGRP envía solo actualizaciones parciales, lo que mejora la eficiencia del ancho de banda.</li>
+                    <li>‣ <marcador class="resaltado5">Sin clase: </marcador>A diferencia de RIP v1, EIGRP es un protocolo sin clase, lo que le permite soportar múltiples subredes y sumarización de rutas.</li>
                 </ul>
                 <div class="blog-image-grande">
                     <img src="media/eigrp8.jpg" alt="">
@@ -82,22 +82,22 @@
                 <h2>Algoritmo</h2>
                 <p>EIGRP utiliza el algoritmo DUAL (Diffusing Update Algorithm) para calcular las rutas y garantizar una convergencia rápida y eficiente en la red. Este algoritmo fue desarrollado por Cisco y es una de las características que distingue a EIGRP de otros protocolos de enrutamiento.</p>
                 <p>Características Clave:</p>
-                <ul>
-                    <li><marcador class="resaltado6">Convergencia Rápida: </marcador>DUAL permite que los routers recalculen las rutas de manera rápida en caso de cambios en la topología de la red, minimizando el tiempo de inactividad y la pérdida de paquetes.</li>
-                    <li><marcador class="resaltado6">Rutas Suplementarias: </marcador>DUAL mantiene no solo la mejor ruta a un destino, sino también rutas alternativas (rutas secundarias) que pueden ser utilizadas si la ruta principal falla. Esto mejora la resiliencia de la red.</li>
-                    <li><marcador class="resaltado6">Métrica Compleja: </marcador>El algoritmo utiliza una métrica compuesta que toma en cuenta múltiples factores, como ancho de banda, retardo, carga y confiabilidad. Esto permite que EIGRP elija las rutas más eficientes en función de las condiciones actuales de la red.</li>
-                    <li><marcador class="resaltado6">Tablas de Enrutamiento: </marcador>DUAL utiliza dos tablas principales:</li>
-                    <ol>
-                        <li><marcador class="resaltado8">Topología: </marcador>Almacena toda la información de las rutas conocidas, incluyendo rutas válidas y posibles.</li>
-                        <li><marcador class="resaltado8">Ruta de Enrutamiento: </marcador>Contiene solo la mejor ruta hacia cada destino.</li>
+                <ul style="list-style-type: none;">
+                    <li>⦿ <marcador class="resaltado6">Convergencia Rápida: </marcador>DUAL permite que los routers recalculen las rutas de manera rápida en caso de cambios en la topología de la red, minimizando el tiempo de inactividad y la pérdida de paquetes.</li>
+                    <li>⦿ <marcador class="resaltado6">Rutas Suplementarias: </marcador>DUAL mantiene no solo la mejor ruta a un destino, sino también rutas alternativas (rutas secundarias) que pueden ser utilizadas si la ruta principal falla. Esto mejora la resiliencia de la red.</li>
+                    <li>⦿ <marcador class="resaltado6">Métrica Compleja: </marcador>El algoritmo utiliza una métrica compuesta que toma en cuenta múltiples factores, como ancho de banda, retardo, carga y confiabilidad. Esto permite que EIGRP elija las rutas más eficientes en función de las condiciones actuales de la red.</li>
+                    <li>⦿ <marcador class="resaltado6">Tablas de Enrutamiento: </marcador>DUAL utiliza dos tablas principales:</li>
+                    <ol style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">Topología: </marcador>Almacena toda la información de las rutas conocidas, incluyendo rutas válidas y posibles.</li>
+                        <li>∘ <marcador class="resaltado8">Ruta de Enrutamiento: </marcador>Contiene solo la mejor ruta hacia cada destino.</li>
                     </ol>
-                    <li><marcador class="resaltado6">Estados de las Rutas: </marcador>DUAL clasifica las rutas en diferentes estados:</li>
+                    <li>⦿ <marcador class="resaltado6">Estados de las Rutas: </marcador>DUAL clasifica las rutas en diferentes estados:</li>
                     <ol>
-                        <li><marcador class="resaltado8">Rutas Suplementarias: </marcador>Rutas que pueden ser utilizadas si la ruta principal falla.</li>
-                        <li><marcador class="resaltado8">Rutas Viables: </marcador>Rutas que cumplen con los criterios de DUAL para ser utilizadas.</li>
-                        <li><marcador class="resaltado8">Rutas No Viables: </marcador>Rutas que no son elegibles para ser utilizadas.</li>
+                        <li>∘ <marcador class="resaltado8">Rutas Suplementarias: </marcador>Rutas que pueden ser utilizadas si la ruta principal falla.</li>
+                        <li>∘ <marcador class="resaltado8">Rutas Viables: </marcador>Rutas que cumplen con los criterios de DUAL para ser utilizadas.</li>
+                        <li>∘ <marcador class="resaltado8">Rutas No Viables: </marcador>Rutas que no son elegibles para ser utilizadas.</li>
                     </ol>
-                    <li><marcador class="resaltado6">Aseguramiento de Consistencia: </marcador>DUAL utiliza un mecanismo de "diffusing" para garantizar que los cambios en las rutas se propaguen de manera controlada a todos los routers en la red, evitando así bucles de enrutamiento y garantizando la estabilidad.</li>
+                    <li>⦿ <marcador class="resaltado6">Aseguramiento de Consistencia: </marcador>DUAL utiliza un mecanismo de "diffusing" para garantizar que los cambios en las rutas se propaguen de manera controlada a todos los routers en la red, evitando así bucles de enrutamiento y garantizando la estabilidad.</li>
                 </ul>
                 <div class="blog-image-grande">
                     <img src="media/eigrp3.png" alt="">
@@ -108,7 +108,7 @@
                 <h2>Autonomous System (AS)</h2>
                 <p>Un Autonomous System en el contexto de EIGRP se refiere a un conjunto de routers bajo el control administrativo de una sola entidad o una organización. En términos de EIGRP, un AS se utiliza para identificar y agrupar routers que comparten las mismas políticas de enrutamiento y protocolos.</p>
                 <p>Funciones y Características del AS:</p>
-                <ul>
+                <ul style="list-style-type: none;">
                     <li><marcador class="resaltado6">Identificación de Rutas: </marcador>Cada router en un AS utiliza un número de sistema autónomo único para identificarse. Este número es esencial para que los routers dentro de un AS intercambien información de enrutamiento correctamente. Si dos routers no comparten el mismo número de AS, no podrán establecer una vecindad EIGRP y, por lo tanto, no podrán intercambiar rutas.</li>
                     <li><marcador class="resaltado6">Convergencia Rápida: </marcador>Dentro de un AS, EIGRP utiliza el algoritmo DUAL (Diffusing Update Algorithm) para calcular las rutas más óptimas y garantizar una rápida convergencia. Esto significa que, una vez que se produce un cambio en la red, los routers pueden rápidamente recalcular y actualizar sus tablas de enrutamiento.</li>
                     <li><marcador class="resaltado6">Control de Políticas: </marcador>Al agrupar routers en un AS, las organizaciones pueden aplicar políticas de enrutamiento específicas que se alineen con sus necesidades de red. Esto permite un mejor control sobre cómo se enrutan los paquetes y qué rutas se prefieren.</li>
@@ -120,14 +120,14 @@
                 <h2>Wildcards</h2>
                 <p>Las wildcards (o máscaras comodín) son un tipo de expresión utilizada en redes para especificar un rango de direcciones IP. A diferencia de las máscaras de subred tradicionales, que determinan qué parte de una dirección IP corresponde a la red y qué parte corresponde a los hosts, las wildcards permiten definir qué bits de la dirección se deben considerar y cuáles pueden ser ignorados.</p>
                 <p>Las wildcards son comúnmente utilizadas en varios contextos de configuración de redes, como en:</p>
-                <ul>
+                <ul style="list-style-type: none;">
                     <li><marcador class="resaltado5">Protocolos de Enrutamiento: </marcador>En protocolos como OSPF y EIGRP, las wildcards se utilizan para definir qué direcciones IP deben incluirse en el proceso de enrutamiento. Por ejemplo, en EIGRP, puedes especificar un rango de direcciones a incluir en la configuración de la red.</li>
                     <li><marcador class="resaltado5">Listas de Control de Acceso (ACL): </marcador>En las ACL, las wildcards son utilizadas para especificar qué direcciones IP están permitidas o denegadas. Esto permite un control granular sobre el tráfico que puede entrar o salir de una red.</li>
                 </ul>
                 <p>Una wildcard se expresa en el mismo formato que una dirección IP, donde cada bit puede ser "0" (que indica que el bit debe coincidir exactamente) o "1" (que indica que el bit puede ser ignorado). Por ejemplo:</p>
-                <ul>
-                    <li><marcador class="resaltado8">Dirección IP: </marcador>192.168.1.0</li>
-                    <li><marcador class="resaltado8">Wildcard: </marcador>0.0.0.255</li>
+                <ul style="list-style-type: none;">
+                    <li>∘ <marcador class="resaltado8">Dirección IP: </marcador>192.168.1.0</li>
+                    <li>∘ <marcador class="resaltado8">Wildcard: </marcador>0.0.0.255</li>
                 </ul>
                 <p>En este caso, la wildcard 0.0.0.255 significa que los primeros tres octetos (192.168.1) deben coincidir exactamente, mientras que el último octeto (0-255) puede ser cualquier valor. Esto permitiría que cualquier dirección en el rango 192.168.1.0 a 192.168.1.255 fuera considerada.</p>
                 <div class="blog-image-grande">
@@ -138,7 +138,7 @@
                 <div class="blog-image-grande">
                     <img src="media/rip1.jpeg" alt="">
                 </div>
-                <ul>
+                <ul class="custom-list">
                     <li>Router 1</li>
                 <div class="consola">
                     <div class="barra-superior-consola">
@@ -155,10 +155,8 @@ router eigrp 1
                     </div>
                 </div>
                 <p>Aquí, la línea <marcador class="subrayado">no auto-summary</marcador> desactiva la función de auto resumen. Esto significa que EIGRP anunciará las redes exactas tal como están configuradas, sin resumirlas a su clase de red superior.</p>
-                <ul>
-                    <li><marcador class="resaltado8"></marcador>Primera línea: <marcador class="subrayado">network 192.168.0.0 0.0.0.255</marcador> incluye todas las subredes de la clase C 192.168.0.0.</li>
-                    <li><marcador class="resaltado8"></marcador>Segunda línea: <marcador class="subrayado">network 172.16.0.0 0.0.0.3</marcador> incluye un rango muy específico de direcciones de clase B (en este caso, la subred 172.16.0.0/30).</li>
-                </ul>
+                    <p>∘ <marcador class="resaltado8"></marcador>Primera línea: <marcador class="subrayado">network 192.168.0.0 0.0.0.255</marcador> incluye todas las subredes de la clase C 192.168.0.0.</p>
+                    <p>∘ <marcador class="resaltado8"></marcador>Segunda línea: <marcador class="subrayado">network 172.16.0.0 0.0.0.3</marcador> incluye un rango muy específico de direcciones de clase B (en este caso, la subred 172.16.0.0/30).</p>
                 <p>Al desactivar el auto resumen, EIGRP puede manejar las subredes de manera más precisa, lo que es especialmente útil en configuraciones donde se utilizan VLSM (Variable Length Subnet Mask) o redes no contiguas. Esto ayuda a evitar la confusión y los problemas que podrían surgir al resumir incorrectamente las rutas.</p>
                     <li>Router 2</li>
                 <div class="consola">
@@ -209,31 +207,31 @@ router eigrp 1
                     <li>El router R3 es el único que se encuentra en ambos sistemas autónomos, funcionando como un ASBR (Autonomous System Boundary Router) entre los dos AS.</li>
                 </ol>
                 <p>La red conecta los siguientes enlaces:</p>
-                <ul>
-                    <li>R1: 1.1.1.1/32</li>
-                    <li>R2: 2.2.2.2/32</li>
-                    <li>R3: 3.3.3.3/32</li>
-                    <li>R4: 4.4.4.4/32</li>
-                    <li>R5: 5.5.5.5/32</li>
+                <ul style="list-style-type: none;">
+                    <li>∘ R1: 1.1.1.1/32</li>
+                    <li>∘ R2: 2.2.2.2/32</li>
+                    <li>∘ R3: 3.3.3.3/32</li>
+                    <li>∘ R4: 4.4.4.4/32</li>
+                    <li>∘ R5: 5.5.5.5/32</li>
                 </ul>
                 <p>Explicación de la configuración:</p>
                 <ol>
                     <li>AS 10:</li>
-                    <ul>
-                        <li style="list-style-type: square;">R3, R4, y R5 pertenecen al AS 10.</li>
-                        <li style="list-style-type: square;">El AS 10 tiene sus propias redes, incluida la red 10.10.10.0/31 que conecta R3, R4, y R5.</li>
-                        <li style="list-style-type: square;">R4 y R5 también tienen redes de loopback configuradas para 4.4.4.4/32 y 5.5.5.5/32, respectivamente.</li>
+                    <ul style="list-style-type: none;">
+                        <li>⊵ R3, R4, y R5 pertenecen al AS 10.</li>
+                        <li>⊵ El AS 10 tiene sus propias redes, incluida la red 10.10.10.0/31 que conecta R3, R4, y R5.</li>
+                        <li>⊵ R4 y R5 también tienen redes de loopback configuradas para 4.4.4.4/32 y 5.5.5.5/32, respectivamente.</li>
                     </ul>  
                     <li>AS 20:</li>
-                    <ul>
-                        <li style="list-style-type: square;">Los routers R1 y R2 tienen interfaces conectadas en la red 20.20.20.0/30.</li>
-                        <li style="list-style-type: square;">Cada uno de estos routers tiene también una red de loopback configurada (1.1.1.1/32 para R1 y 2.2.2.2/32 para R2).</li>
-                        <li style="list-style-type: square;">EIGRP en AS 20 está configurado en R1, R2, y la interfaz de R3 que conecta con la red 20.20.20.0/30.</li>
+                    <ul style="list-style-type: none;">
+                        <li>⊵ Los routers R1 y R2 tienen interfaces conectadas en la red 20.20.20.0/30.</li>
+                        <li>⊵ Cada uno de estos routers tiene también una red de loopback configurada (1.1.1.1/32 para R1 y 2.2.2.2/32 para R2).</li>
+                        <li>⊵ EIGRP en AS 20 está configurado en R1, R2, y la interfaz de R3 que conecta con la red 20.20.20.0/30.</li>
                     </ul>  
                     <li>R3 actúa como un ASBR (Autonomous System Boundary Router), ya que se conecta tanto al AS 10 como al AS 20, facilitando la comunicación entre los dos sistemas autónomos.</li>
                 </ol>
                 <p></p>
-                <ul>
+                <ul class="custom-list">
                     <li>Configuración de R1 (AS 20)</li>
                     <div class="consola">
                         <div class="barra-superior-consola">

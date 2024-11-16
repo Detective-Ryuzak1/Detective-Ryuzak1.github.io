@@ -49,24 +49,24 @@
                 <p>RIP tiene varias versiones, cada una con sus características específicas:</p>
                 <ol>
                     <li><marcador class="resaltado6">RIP v1:</marcador></li>
-                    <ul>
-                        <li>Publicado en 1988 en la RFC 1058.</li>
-                        <li>Soporta enrutamiento de clase A, B y C, pero no admite CIDR (Classless Inter-Domain Routing), es decir, no soporta máscaras de subred de longitud variable (VLSM).</li>
-                        <li>No incluye soporte para autenticación.</li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ Publicado en 1988 en la RFC 1058.</li>
+                        <li>∘ Soporta enrutamiento de clase A, B y C, pero no admite CIDR (Classless Inter-Domain Routing), es decir, no soporta máscaras de subred de longitud variable (VLSM).</li>
+                        <li>∘ No incluye soporte para autenticación.</li>
                     </ul>
                     <li><marcador class="resaltado6">RIP v2:</marcador></li>
-                    <ul>
-                        <li>Publicado en 1994 en la RFC 2453.</li>
-                        <li>Añade soporte para CIDR y VLSM.</li>
-                        <li>Soporta autenticación (texto claro y MD5).</li>
-                        <li>Incluye multicasting en lugar de broadcasting (dirige mensajes solo a routers RIP en lugar de a toda la red).</li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ Publicado en 1994 en la RFC 2453.</li>
+                        <li>∘ Añade soporte para CIDR y VLSM.</li>
+                        <li>∘ Soporta autenticación (texto claro y MD5).</li>
+                        <li>∘ Incluye multicasting en lugar de broadcasting (dirige mensajes solo a routers RIP en lugar de a toda la red).</li>
                     </ul>
                     <li><marcador class="resaltado6">RIPng:</marcador></li>
-                    <ul>
-                        <li>Publicado en la RFC 2080 en 1997.</li>
-                        <li>Versión de RIP adaptada para IPv6.</li>
-                        <li>Utiliza el puerto UDP 521, en lugar del 520 utilizado por RIP v1 y v2.</li>
-                        <li>No incluye autenticación, ya que la seguridad debe ser implementada a nivel de IPv6 (por ejemplo, con IPsec).</li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ Publicado en la RFC 2080 en 1997.</li>
+                        <li>∘ Versión de RIP adaptada para IPv6.</li>
+                        <li>∘ Utiliza el puerto UDP 521, en lugar del 520 utilizado por RIP v1 y v2.</li>
+                        <li>∘ No incluye autenticación, ya que la seguridad debe ser implementada a nivel de IPv6 (por ejemplo, con IPsec).</li>
                     </ul>
                 </ol>
                 <div class="blog-image-grande">
@@ -83,31 +83,31 @@
                 <h2>Algoritmo</h2>
                 <p>El algoritmo de distance vector en el contexto de RIP (Routing Information Protocol) es un método de enrutamiento en el que cada router comparte información sobre las distancias a diferentes destinos en la red.</p>
                 <p>Conceptos Clave:</p>
-                <ul>
-                    <li><marcador class="resaltado9">Vector de Distancia: </marcador>Cada router mantiene una tabla que contiene la distancia (número de saltos) a cada destino conocido en la red. Esta tabla se actualiza periódicamente.</li>
-                    <li><marcador class="resaltado9">Actualización Periódica: </marcador>Los routers envían sus tablas de enrutamiento a sus vecinos en intervalos regulares (cada 30 segundos, por defecto). Esta información incluye la distancia a los destinos y la dirección del siguiente salto.</li>
-                    <li><marcador class="resaltado9">Cálculo de Rutas: </marcador>Al recibir actualizaciones de sus vecinos, cada router compara la información recibida con su tabla de enrutamiento. Si encuentra una ruta más corta a un destino, actualiza su tabla.</li>
-                    <li><marcador class="resaltado9">Métrica de Saltos: </marcador>RIP utiliza el número de saltos como su única métrica para determinar la mejor ruta. El límite es de 15 saltos, como mencioné anteriormente.</li>
-                    <li><marcador class="resaltado9">Problemas Potenciales: </marcador>Aunque es simple y fácil de implementar, el enfoque de vector de distancia tiene desventajas, como la convergencia lenta y la posibilidad de bucles de enrutamiento.</li>
+                <ul style="list-style-type: none;">
+                    <li>🌀 <marcador class="resaltado9">Vector de Distancia: </marcador>Cada router mantiene una tabla que contiene la distancia (número de saltos) a cada destino conocido en la red. Esta tabla se actualiza periódicamente.</li>
+                    <li>🌀 <marcador class="resaltado9">Actualización Periódica: </marcador>Los routers envían sus tablas de enrutamiento a sus vecinos en intervalos regulares (cada 30 segundos, por defecto). Esta información incluye la distancia a los destinos y la dirección del siguiente salto.</li>
+                    <li>🌀 <marcador class="resaltado9">Cálculo de Rutas: </marcador>Al recibir actualizaciones de sus vecinos, cada router compara la información recibida con su tabla de enrutamiento. Si encuentra una ruta más corta a un destino, actualiza su tabla.</li>
+                    <li>🌀 <marcador class="resaltado9">Métrica de Saltos: </marcador>RIP utiliza el número de saltos como su única métrica para determinar la mejor ruta. El límite es de 15 saltos, como mencioné anteriormente.</li>
+                    <li>🌀 <marcador class="resaltado9">Problemas Potenciales: </marcador>Aunque es simple y fácil de implementar, el enfoque de vector de distancia tiene desventajas, como la convergencia lenta y la posibilidad de bucles de enrutamiento.</li>
                 </ul>
                 <div class="blog-image-grande">
                     <img src="media/rip3.jpeg" alt="">
                 </div> 
                 <h2>Estándares y características técnicas</h2>
-                <ul>
-                    <li><marcador class="resaltado5">Protocolo basado en UDP: </marcador>Utiliza el puerto 520 (en RIPng, el puerto 521).</li>
-                    <li><marcador class="resaltado5">Métrica: </marcador>La métrica utilizada es la cantidad de saltos (hops), con un límite máximo de 15. Si una ruta tiene más de 15 saltos, se considera inalcanzable.</li>
-                    <li><marcador class="resaltado5">Actualizaciones periódicas: </marcador>Los routers envían actualizaciones cada 30 segundos.</li>
-                    <li><marcador class="resaltado5">Convergencia lenta: </marcador>Uno de los principales inconvenientes de RIP es su tiempo de convergencia lento comparado con otros protocolos de enrutamiento como OSPF o EIGRP.</li>
-                    <li><marcador class="resaltado5">Split horizon: </marcador>Una técnica que evita que la información de enrutamiento se envíe de vuelta por la interfaz de donde provino.</li>
-                    <li><marcador class="resaltado5">Triggered updates: </marcador>RIP envía actualizaciones inmediatas si detecta un cambio en la red, en lugar de esperar el intervalo de 30 segundos.</li>
-                    <li><marcador class="resaltado5">Hold-down timer: </marcador>Cuando se detecta una ruta caída, el router espera un tiempo antes de aceptar cualquier actualización de esa ruta, previniendo la propagación de información incorrecta.</li>
-                    <li><marcador class="resaltado5">Balanceo de carga: </marcador>RIP soporta el balanceo de carga de manera automática cuando existen múltiples rutas con el mismo costo (igual número de saltos). Puede balancear hasta 6 rutas de manera predeterminada, aunque este número se puede ajustar.</li>
-                    <li><marcador class="resaltado5">Prioridad: </marcador>RIP no tiene una prioridad de ruta como tal, pero es posible influir en las decisiones de enrutamiento ajustando el número de saltos (métrica) o, en casos específicos, se puede usar la manipulación de rutas estáticas para priorizar ciertos caminos.</li>
+                <ul style="list-style-type: none;">
+                    <li>‣ <marcador class="resaltado5">Protocolo basado en UDP: </marcador>Utiliza el puerto 520 (en RIPng, el puerto 521).</li>
+                    <li>‣ <marcador class="resaltado5">Métrica: </marcador>La métrica utilizada es la cantidad de saltos (hops), con un límite máximo de 15. Si una ruta tiene más de 15 saltos, se considera inalcanzable.</li>
+                    <li>‣ <marcador class="resaltado5">Actualizaciones periódicas: </marcador>Los routers envían actualizaciones cada 30 segundos.</li>
+                    <li>‣ <marcador class="resaltado5">Convergencia lenta: </marcador>Uno de los principales inconvenientes de RIP es su tiempo de convergencia lento comparado con otros protocolos de enrutamiento como OSPF o EIGRP.</li>
+                    <li>‣ <marcador class="resaltado5">Split horizon: </marcador>Una técnica que evita que la información de enrutamiento se envíe de vuelta por la interfaz de donde provino.</li>
+                    <li>‣ <marcador class="resaltado5">Triggered updates: </marcador>RIP envía actualizaciones inmediatas si detecta un cambio en la red, en lugar de esperar el intervalo de 30 segundos.</li>
+                    <li>‣ <marcador class="resaltado5">Hold-down timer: </marcador>Cuando se detecta una ruta caída, el router espera un tiempo antes de aceptar cualquier actualización de esa ruta, previniendo la propagación de información incorrecta.</li>
+                    <li>‣ <marcador class="resaltado5">Balanceo de carga: </marcador>RIP soporta el balanceo de carga de manera automática cuando existen múltiples rutas con el mismo costo (igual número de saltos). Puede balancear hasta 6 rutas de manera predeterminada, aunque este número se puede ajustar.</li>
+                    <li>‣ <marcador class="resaltado5">Prioridad: </marcador>RIP no tiene una prioridad de ruta como tal, pero es posible influir en las decisiones de enrutamiento ajustando el número de saltos (métrica) o, en casos específicos, se puede usar la manipulación de rutas estáticas para priorizar ciertos caminos.</li>
                 </ul>
                 <h2>Autenticación en RIP v2</h2>
                 <p>RIP v2 permite habilitar autenticación para evitar que routers no autorizados envíen rutas incorrectas. Las dos opciones son:</p>
-                <ul>
+                <ul style="list-style-type: none;">
                     <li><marcador class="resaltado6">Autenticación simple en texto claro: </marcador>Aunque es fácil de configurar, no es seguro ya que las credenciales viajan sin cifrar.</li>
                     <li><marcador class="resaltado6">Autenticación MD5: </marcador>Proporciona una mejor seguridad al cifrar las contraseñas, lo que evita su exposición.</li>
                 </ul>
@@ -116,7 +116,7 @@
                 <div class="blog-image-grande">
                     <img src="media/rip1.jpeg" alt="">
                 </div>
-                <ul>
+                <ul class="custom-list">
                     <li>Router 1</li>
                 <div class="consola">
                     <div class="barra-superior-consola">
@@ -136,10 +136,8 @@ router rip
                     </div>
                 </div>
                 <p>Aquí, la línea <marcador class="subrayado">no auto-summary</marcador> desactiva la función de auto resumen. Esto significa que EIGRP anunciará las redes exactas tal como están configuradas, sin resumirlas a su clase de red superior.</p>
-                <ul>
-                    <li><marcador class="resaltado8"></marcador>Primera línea: <marcador class="subrayado">network 192.168.0.0</marcador> incluye todas las subredes de la clase C 192.168.0.0.</li>
-                    <li><marcador class="resaltado8"></marcador>Segunda línea: <marcador class="subrayado">network 172.16.0.0</marcador> incluye un rango muy específico de direcciones de clase B (en este caso, la subred 172.16.0.0/30).</li>
-                </ul>
+                <p>∘ <marcador class="resaltado8"></marcador>Primera línea: <marcador class="subrayado">network 192.168.0.0</marcador> incluye todas las subredes de la clase C 192.168.0.0.</p>
+                <p>∘ <marcador class="resaltado8"></marcador>Segunda línea: <marcador class="subrayado">network 172.16.0.0</marcador> incluye un rango muy específico de direcciones de clase B (en este caso, la subred 172.16.0.0/30).</p>
                 <p>Al desactivar el auto resumen, RIP puede manejar las subredes de manera más precisa, lo que es especialmente útil en configuraciones donde se utilizan VLSM (Variable Length Subnet Mask) o redes no contiguas. Esto ayuda a evitar la confusión y los problemas que podrían surgir al resumir incorrectamente las rutas.</p>
                 <p>En el contexto de la configuración de RIP (Routing Information Protocol), la directiva <marcador class="subrayado">passive-interface</marcador> se utiliza para controlar en qué interfaces el protocolo RIP enviará y recibirá actualizaciones de enrutamiento. Cuando se establece <marcador class="subrayado">passive-interface default</marcador>, todas las interfaces se configuran en modo pasivo de manera predeterminada. Esto significa que el router no enviará actualizaciones de RIP por esas interfaces, aunque aún podrá recibirlas.</p>
                 <p>La línea <marcador class="subrayado">no passive-interface gig0/0</marcador> tiene el efecto contrario: se utiliza para activar el envío y recepción de actualizaciones de RIP en la interfaz especificada (en este caso, la interfaz Gigabit Ethernet 0/0). Esto es útil en situaciones donde deseas que RIP comunique información de enrutamiento a través de una interfaz específica que está conectada a otro router (como R3 en tu ejemplo), mientras que en otras interfaces, probablemente aquellas que no están conectadas a otros routers, deseas evitar el envío de actualizaciones.</p>
@@ -189,7 +187,7 @@ router rip
                 <p>También puedes verificar la tabla de rutas de RIP con <marcador class="subrayado">show ip route rip</marcador>, o usar <marcador class="subrayado">show ip rip database</marcador> para ver estadísticas y detalles sobre el proceso RIP.</p>
                 <h3>Huawei</h3>
                 <p>A continuación se muestra la configuración correspondiente para los routers R1, R2 y R3 de Huawei.</p>
-                <ul>
+                <ul class="custom-list">
                     <li>Router 1</li>
                 <div class="consola">
                     <div class="barra-superior-consola">
