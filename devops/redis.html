@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <link rel="icon" href="../media/imagen41.png" type="image/png">
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                        <li><a href="../devops.html">DevOps</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Aportar" onclick="window.open('https://buymeacoffee.com/ryuzak1', '_blank');">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <br>
+                <br>
+                <h1>Redis</h1>
+                <p>Redis es un sistema de almacenamiento en memoria de estructura de datos clave-valor, que se utiliza principalmente como base de datos, caché y sistema de mensajes. Lanzado en 2009, Redis se destaca por su velocidad y versatilidad al gestionar datos en memoria, lo que lo convierte en una opción popular para aplicaciones que requieren un acceso extremadamente rápido a los datos. A diferencia de otras bases de datos, Redis maneja varios tipos de estructuras de datos como cadenas, listas, conjuntos y mapas hash.</p>
+                <p>Redis es altamente eficiente y se puede usar para una variedad de tareas, desde almacenar datos temporales en caché hasta gestionar colas de mensajes, sesiones de usuario y más. Su capacidad para operar con datos en memoria permite que las operaciones sean mucho más rápidas en comparación con los sistemas de bases de datos tradicionales.</p>
+                <div class="blog-image-grande">
+                    <img src="media/redis1.png" alt="">
+                </div>
+                <h2>Estructura</h2>
+                <p>Redis organiza los datos utilizando una estructura clave-valor. Cada clave es un identificador único que se asocia con un valor, el cual puede ser de diferentes tipos de datos:</p>
+                <p><marcador class="resaltado8">Claves: </marcador>Las claves en Redis son únicas y sirven para acceder a los valores asociados. Pueden ser cadenas de texto y pueden tener una longitud de hasta 512 MB.</p>
+                <p><marcador class="resaltado8">Valores: </marcador>Los valores en Redis pueden ser de diferentes tipos, entre los más comunes se encuentran cadenas, listas, conjuntos, conjuntos ordenados, mapas hash, y más. Esta diversidad de tipos de datos permite usar Redis en una amplia variedad de aplicaciones.</p>
+                <p><marcador class="resaltado8">Tipos de datos en Redis: </marcador>Redis es conocido por su soporte para diferentes estructuras de datos que permiten modelar diversas situaciones.</p>
+                <div class="blog-image-grande">
+                    <img src="media/redis2.jpg" alt="">
+                </div>
+                <h2>Tipos de datos</h2>
+                <p>Redis soporta una variedad de tipos de datos, que se pueden utilizar para diferentes casos de uso. A continuación se describen algunos de los más utilizados:</p>
+                <ol>
+                <li><marcador class="resaltado9">Cadenas</marcador></li>
+                <ul class="custom-list2">
+                    <li><marcador class="resaltado8">String: </marcador>Las cadenas en Redis son el tipo de dato más básico. Pueden contener cualquier tipo de información, como texto, números y más.</li>
+                </ul>
+                <li><marcador class="resaltado9">Listas</marcador></li>
+                <ul class="custom-list2">
+                    <li><marcador class="resaltado8">List: </marcador>Una lista es una secuencia de elementos ordenados. Redis permite agregar elementos a las listas de manera eficiente desde ambos extremos.</li>
+                </ul>
+                <li><marcador class="resaltado9">Conjuntos</marcador></li>
+                <ul class="custom-list2">
+                    <li><marcador class="resaltado8">Set: </marcador>Un conjunto es una colección de elementos únicos no ordenados. Ideal para operaciones como la verificación de membresía y la eliminación de duplicados.</li>
+                </ul>
+                <li><marcador class="resaltado9">Conjuntos ordenados</marcador></li>
+                <ul class="custom-list2">
+                    <li><marcador class="resaltado8">Sorted Set: </marcador>Es similar a un conjunto, pero cada elemento tiene un score que permite ordenarlo automáticamente según ese valor.</li>
+                </ul>
+                <li><marcador class="resaltado9">Mapas Hash</marcador></li>
+                <ul class="custom-list2">
+                    <li><marcador class="resaltado8">Hash: </marcador>Un mapa hash es una colección de campos y valores asociados, útil para almacenar objetos y datos complejos.</li>
+                </ul>
+                </ol>
+                <div class="blog-image-grande">
+                    <img src="media/redis3.png" alt="">
+                </div>
+                <h2>Características principales de Redis</h2>
+                <p><marcador class="resaltado8">Alto rendimiento: </marcador>Redis es extremadamente rápido, con operaciones que se ejecutan en microsegundos, lo que lo convierte en una opción ideal para aplicaciones que requieren baja latencia.</p>
+                <p><marcador class="resaltado8">Persistencia de datos: </marcador>A pesar de ser una base de datos en memoria, Redis ofrece mecanismos de persistencia como snapshots y logs para asegurar que los datos no se pierdan en caso de fallo.</p>
+                <p><marcador class="resaltado8">Escalabilidad: </marcador>Redis es altamente escalable, ya que permite la replicación de datos, particionado de claves (sharding) y clustering, lo que lo hace adecuado para aplicaciones que requieren una infraestructura distribuida.</p>
+                <p><marcador class="resaltado8">Soporte para Pub/Sub: </marcador>Redis también ofrece capacidades de publicación y suscripción (Pub/Sub), lo que lo hace útil para la creación de sistemas de mensajería en tiempo real.</p>
+                <h2>Operaciones comunes</h2>
+                <h6>CRUD (Create, Read, Update, Delete)</h6>
+                <p>En Redis, las operaciones CRUD se realizan principalmente a través de comandos que manipulan las claves y sus valores en la base de datos de Redis.</p>
+                <ul class="custom-list">
+                    <li><marcador class="resaltado9">SET</marcador></li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            El comando SET permite agregar o actualizar un valor asociado a una clave:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="SET empleado:1001 nombre 'Carlos' salario 5000 departamento 'Finanzas'" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Este comando agrega o actualiza la clave 'empleado:1001' con un conjunto de atributos (nombre, salario, departamento). En Redis, los valores pueden ser cadenas de texto, números u otros tipos.</p>
+                    
+                    <li><marcador class="resaltado9">GET</marcador></li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            El comando GET permite recuperar el valor de una clave:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="GET empleado:1001" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Este comando devuelve el valor asociado con la clave 'empleado:1001', como los detalles del empleado con ese ID, si existe.</p>                    
+                    <li><marcador class="resaltado9">DEL</marcador></li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            El comando DEL permite eliminar una o más claves:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="DEL empleado:1001" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Este comando elimina la clave 'empleado:1001' de la base de datos de Redis. Todos los datos asociados con esa clave serán eliminados.</p>
+                </ul>
+                <h6>Manipulación de datos complejos</h6>
+                <p>Redis permite trabajar con tipos de datos más complejos, como listas, conjuntos, y hashes.</p>
+                <ul class="custom-list">
+                    <li><marcador class="resaltado9">HSET</marcador></li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            El comando HSET permite agregar o actualizar campos dentro de un hash:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="HSET empleado:1001 nombre 'Carlos' salario 5000 departamento 'Finanzas'" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Este comando actualiza o agrega los campos 'nombre', 'salario' y 'departamento' al hash 'empleado:1001', permitiendo almacenar múltiples atributos para una clave en un solo objeto.</p>                   
+                    <li><marcador class="resaltado9">HGETALL</marcador></li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            El comando HGETALL permite obtener todos los campos y valores de un hash:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="HGETALL empleado:1001" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Este comando devuelve todos los campos y valores del hash 'empleado:1001'. Es útil para obtener todos los detalles asociados con una clave que contiene un hash.</p>
+                </ul>
+                <h6>Administración de la base de datos</h6>
+                <p>Redis permite administrar las bases de datos mediante comandos específicos.</p>
+                <ul class="custom-list">
+                    <li><marcador class="resaltado9">FLUSHALL</marcador></li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            El comando FLUSHALL elimina todas las claves de todas las bases de datos:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="FLUSHALL" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Este comando elimina todas las claves de todas las bases de datos en Redis. Es útil cuando necesitas borrar completamente todos los datos almacenados.</p>                   
+                    <li><marcador class="resaltado9">DBSIZE</marcador></li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            El comando DBSIZE devuelve el número de claves en la base de datos actual:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="DBSIZE" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Este comando devuelve el número total de claves presentes en la base de datos activa de Redis.</p>
+                </ul>
+                <h6>Control de acceso</h6>
+                <p>Redis permite configurar el acceso a la base de datos mediante autenticación y permisos.</p>
+                <ul class="custom-list">
+                    <li><marcador class="resaltado9">AUTH</marcador></li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            El comando AUTH permite autenticar a un cliente utilizando una contraseña:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="AUTH mi_contraseña_secreta" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Este comando permite autenticar a un cliente con la contraseña 'mi_contraseña_secreta' antes de permitirle ejecutar operaciones en la base de datos de Redis.</p>                   
+                    <li><marcador class="resaltado9">CONFIG SET</marcador></li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            El comando CONFIG SET permite modificar la configuración de Redis en tiempo real:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="CONFIG SET requirepass 'mi_nueva_contraseña'" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Este comando establece una nueva contraseña de acceso para la base de datos Redis, reemplazando la contraseña anterior.</p>
+                </ul>
+                <div class="blog-image">
+                    <img src="media/redis5.png" alt="">
+                </div>
+                <h2>Operadores</h2>
+                <p>En Redis, las funciones y operadores permiten realizar manipulaciones de datos, como la transformación, filtrado, y modificación de valores de las claves de manera eficiente. Redis, a diferencia de bases de datos como MongoDB o SQL, se basa en un modelo de datos en memoria y no tiene una sintaxis tan rica para agregación, pero permite realizar operaciones rápidas y eficientes sobre conjuntos de datos.</p>
+
+                <h6>Operadores Básicos</h6>
+                <p>Redis proporciona un conjunto de operadores básicos para manipular los datos en sus estructuras de datos. Estos operadores pueden usarse en comandos como SET, GET, DEL, y otros.</p>
+                <ul class="custom-list2">
+                    <li><marcador class="resaltado8">SET: </marcador>Asigna un valor a una clave.</li>
+                    <li><marcador class="resaltado8">GET: </marcador>Recupera el valor de una clave.</li>
+                    <li><marcador class="resaltado8">DEL: </marcador>Elimina una o más claves.</li>
+                    <li><marcador class="resaltado8">EXPIRE: </marcador>Establece un tiempo de expiración para una clave.</li>
+                </ul>
+                <p>Estos comandos son útiles para manipular directamente los datos en Redis y administrar claves con caducidad.</p>
+                <h6>Operadores en Listas</h6>
+                <p>Redis también permite trabajar con listas, donde se pueden agregar, obtener o eliminar elementos de las listas. Los comandos más comunes para listas incluyen:</p>
+                <ul class="custom-list2">
+                    <li><marcador class="resaltado8">LPUSH: </marcador>Inserta un valor al principio de una lista.</li>
+                    <li><marcador class="resaltado8">RPUSH: </marcador>Inserta un valor al final de una lista.</li>
+                    <li><marcador class="resaltado8">LPOP: </marcador>Elimina y devuelve el primer elemento de una lista.</li>
+                    <li><marcador class="resaltado8">RPOP: </marcador>Elimina y devuelve el último elemento de una lista.</li>
+                    <li><marcador class="resaltado8">LRANGE: </marcador>Recupera un rango de elementos de una lista.</li>
+                </ul>
+                <h6>Operadores en Conjuntos</h6>
+                <p>Los conjuntos en Redis son colecciones de elementos únicos. Los comandos para trabajar con conjuntos incluyen:</p>
+                <ul class="custom-list2">
+                    <li><marcador class="resaltado8">SADD: </marcador>Agrega uno o más miembros a un conjunto.</li>
+                    <li><marcador class="resaltado8">SREM: </marcador>Elimina uno o más miembros de un conjunto.</li>
+                    <li><marcador class="resaltado8">SMEMBERS: </marcador>Devuelve todos los miembros de un conjunto.</li>
+                    <li><marcador class="resaltado8">SISMEMBER: </marcador>Verifica si un miembro está presente en un conjunto.</li>
+                </ul>
+                <h6>Operadores en Hashes</h6>
+                <p>Los hashes en Redis son estructuras que almacenan pares de campo-valor. Algunos de los comandos más utilizados para manipular hashes incluyen:</p>
+                <ul class="custom-list2">
+                    <li><marcador class="resaltado8">HSET: </marcador>Establece el valor de un campo en un hash.</li>
+                    <li><marcador class="resaltado8">HGET: </marcador>Obtiene el valor de un campo en un hash.</li>
+                    <li><marcador class="resaltado8">HDEL: </marcador>Elimina uno o más campos de un hash.</li>
+                    <li><marcador class="resaltado8">HGETALL: </marcador>Devuelve todos los campos y valores de un hash.</li>
+                </ul>
+                <h6>Operadores en Sorted Sets</h6>
+                <p>Los conjuntos ordenados en Redis permiten mantener un conjunto de elementos que son ordenados según una puntuación. Algunos de los comandos más comunes son:</p>
+                <ul class="custom-list2">
+                    <li><marcador class="resaltado8">ZADD: </marcador>Agrega un miembro con una puntuación a un conjunto ordenado.</li>
+                    <li><marcador class="resaltado8">ZRANGE: </marcador>Devuelve un rango de miembros en un conjunto ordenado, ordenados por su puntuación.</li>
+                    <li><marcador class="resaltado8">ZREM: </marcador>Elimina uno o más miembros de un conjunto ordenado.</li>
+                    <li><marcador class="resaltado8">ZINCRBY: </marcador>Incrementa la puntuación de un miembro en un conjunto ordenado.</li>
+                </ul>
+                <h2>Consultas Avanzadas en Redis</h2>
+                <ul class="custom-list">
+                    <li><marcador class="resaltado9">SCAN</marcador></li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            El comando <code>SCAN</code> se utiliza para iterar sobre las claves de Redis de manera eficiente sin bloquear el servidor. Por ejemplo:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="SCAN 0 MATCH user:*" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Este comando devuelve todas las claves que comienzan con "user:". El comando se utiliza en una forma iterativa para evitar la sobrecarga del servidor.</p>
+                    <li><marcador class="resaltado9">MGET</marcador></li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            El comando <code>MGET</code> se utiliza para obtener los valores de múltiples claves a la vez. Por ejemplo:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="MGET user:1 user:2 user:3" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Este comando devuelve los valores de las claves "user:1", "user:2" y "user:3" en una sola operación.</p>
+                    <li><marcador class="resaltado9">PUBLISH</marcador></li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            El comando <code>PUBLISH</code> se utiliza para enviar un mensaje a un canal en Redis, permitiendo la comunicación entre suscriptores. Por ejemplo:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="PUBLISH news 'New article posted!'" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Este comando publica el mensaje "New article posted!" en el canal "news".</p>
+                    <li><marcador class="resaltado9">HSCAN</marcador></li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            El comando <code>HSCAN</code> se utiliza para iterar sobre los campos de un hash en Redis. Por ejemplo:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="HSCAN user:100 0 MATCH *email*" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Este comando busca todos los campos en el hash "user:100" que contienen "email" en su nombre.</p>
+                    <li><marcador class="resaltado9">ZSCAN</marcador></li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            El comando <code>ZSCAN</code> permite iterar sobre los elementos de un conjunto ordenado en Redis. Por ejemplo:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="ZSCAN ranking 0 MATCH *player*" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Este comando busca todos los miembros en el conjunto ordenado "ranking" que contienen "player" en su nombre.</p>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/redis6.png" alt="">
+                </div>
+                <h2>Ejemplo práctico de uso</h2>
+                <p>Para empezar a trabajar con Redis, primero necesitamos instalarlo en nuestro sistema. Redis puede instalarse en diversas plataformas, incluyendo Linux, macOS y Windows. Además, Redis ofrece un cliente que puede interactuar con él utilizando comandos en la línea de comandos o a través de librerías para lenguajes de programación como Python, Java, Node.js, entre otros.</p>
+                <p>La instalación de Redis varía según el sistema operativo. Aquí te dejamos una guía básica para instalarlo en algunos de los sistemas más comunes:</p>
+                <h6>Instalación en Linux</h6>
+                <p></p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        En sistemas basados en Debian/Ubuntu, puedes usar el siguiente comando para instalar Redis:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="sudo apt update && sudo apt install redis-server" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Una vez instalado, puedes iniciar el servicio de Redis con:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="sudo systemctl start redis" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <h6>Instalación en Windows</h6>
+                <p>En Windows, puedes usar el Subsistema de Windows para Linux (WSL) para ejecutar Redis o utilizar una versión precompilada desde el sitio web de Redis.</p>
+                <p>A continuación se presenta un ejemplo de cómo usar Redis en una aplicación Python utilizando la librería <code>redis-py</code>:</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Primero, necesitas instalar la librería en tu entorno Python. Puedes hacerlo con pip:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="pip install redis" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Luego, puedes crear un cliente Redis en Python de la siguiente manera:</p>
+                <div class="archivo">import redis
+
+# Conectar a Redis
+r = redis.Redis(host='localhost', port=6379, db=0)
+
+# Establecer un valor
+r.set('foo', 'bar')
+
+# Obtener el valor
+print(r.get('foo'))
+                </div>
+                <p>Este código conecta a Redis, establece un valor asociado a la clave "foo" y luego recupera ese valor.</p>
+                <div class="blog-image-grande">
+                    <img src="media/redis7.png" alt="">
+                </div>
+            </div>
+        </div>       
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>

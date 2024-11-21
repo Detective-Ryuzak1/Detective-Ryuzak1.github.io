@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <link rel="icon" href="../media/imagen41.png" type="image/png">
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                        <li><a href="../devops.html">DevOps</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Aportar" onclick="window.open('https://buymeacoffee.com/ryuzak1', '_blank');">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <br>
+                <br>
+                <h1>MongoDB</h1>
+                <p>MongoDB es una base de datos NoSQL orientada a documentos diseñada para manejar grandes volúmenes de datos no estructurados. Lanzada en 2009, MongoDB ha ganado popularidad por su flexibilidad, escalabilidad y capacidad de trabajar con datos que no encajan bien en un modelo tabular tradicional. En lugar de tablas y filas como en las bases de datos relacionales, MongoDB utiliza colecciones y documentos.</p>
+                <p>A diferencia de las bases de datos relacionales, MongoDB no requiere esquemas estrictos, lo que permite almacenar datos en formatos flexibles. Esto lo convierte en una opción ideal para aplicaciones modernas que evolucionan rápidamente y manejan datos complejos o en constante cambio.</p>
+                <div class="blog-image">
+                    <img src="media/mongodb1.png" alt="">
+                </div>
+                <h2>Estructura</h2>
+                <p>En MongoDB, los datos se organizan en una estructura jerárquica que consta de bases de datos, colecciones y documentos:</p>
+                <ul>
+                    <li><marcador class="resaltado8">Bases de datos: </marcador>Una base de datos en MongoDB es el nivel más alto de organización. Dentro de una base de datos, se pueden crear múltiples colecciones para diferentes conjuntos de datos relacionados.</li>
+                    <li><marcador class="resaltado8">Colecciones: </marcador>Una colección es el equivalente a una tabla en las bases de datos relacionales. Contiene múltiples documentos que comparten un propósito común, aunque no tienen que tener el mismo esquema.</li>
+                    <li><marcador class="resaltado8">Documentos: </marcador>Los documentos son las unidades fundamentales de datos en MongoDB. Se almacenan en formato BSON (Binary JSON) y suelen representarse como objetos JSON. Cada documento es una estructura flexible que puede incluir diferentes campos y tipos de datos.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/mongodb2.png" alt="">
+                </div>
+                <h2>Tipos de datos</h2>
+                <p>MongoDB admite una amplia variedad de tipos de datos para representar información compleja y diversa. Algunos de los tipos más comunes incluyen:</p>
+                <ol>
+                    <li><marcador class="resaltado9">Cadenas de texto</marcador></li>
+                    <ul class="custom-list2">
+                        <li><marcador class="resaltado8">String: </marcador>Almacena texto en formato UTF-8, ideal para nombres, descripciones, y otros campos de texto.</li>
+                    </ul>
+                    <li><marcador class="resaltado9">Números</marcador></li>
+                    <ul class="custom-list2">
+                        <li><marcador class="resaltado8">Integer: </marcador>Almacena números enteros de varios tamaños según la implementación.</li>
+                        <li><marcador class="resaltado8">Double: </marcador>Almacena números con punto flotante, útiles para datos como precios o mediciones.</li>
+                    </ul>
+                    <li><marcador class="resaltado9">Fechas</marcador></li>
+                    <ul class="custom-list2">
+                        <li><marcador class="resaltado8">Date: </marcador>Almacena datos de tiempo con soporte para operaciones avanzadas.</li>
+                    </ul>
+                    <li><marcador class="resaltado9">Booleanos</marcador></li>
+                    <ul class="custom-list2">
+                        <li><marcador class="resaltado8">Boolean: </marcador>Representa valores de verdadero o falso.</li>
+                    </ul>
+                    <li><marcador class="resaltado9">Datos binarios</marcador></li>
+                    <ul class="custom-list2">
+                        <li><marcador class="resaltado8">BinData: </marcador>Almacena datos binarios como imágenes o archivos comprimidos.</li>
+                    </ul>
+                </ol>
+                <div class="blog-image-grande">
+                    <img src="media/mongodb3.png" alt="">
+                </div>
+                <h2>Características principales</h2>
+                <p><marcador class="resaltado8">Modelo de datos flexible: </marcador>MongoDB permite crear documentos con estructuras personalizadas, lo que facilita manejar datos complejos y cambiar su esquema sin afectar a otros documentos.</p>
+                <p><marcador class="resaltado8">Escalabilidad horizontal: </marcador>MongoDB se diseñó con la escalabilidad en mente. Utiliza particionamiento de datos (sharding) para distribuir documentos en múltiples servidores, lo que permite manejar cantidades masivas de información.</p>
+                <p><marcador class="resaltado8">Consultas avanzadas: </marcador>MongoDB soporta consultas complejas y operaciones de agregación que permiten analizar datos y obtener resultados sofisticados sin necesidad de transformar los datos previamente.</p>
+                <p><marcador class="resaltado8">Alta disponibilidad: </marcador>Con la configuración de réplicas, MongoDB asegura que los datos estén disponibles incluso en caso de fallos del sistema.</p>
+                <h2>Operaciones comunes</h2>
+                <h6>Operaciones CRUD (Create, Read, Update, Delete)</h6>
+                <p>Estas operaciones están relacionadas con la manipulación de los datos dentro de las colecciones. Los comandos CRUD permiten crear, leer, actualizar y eliminar documentos.</p>
+                <ul class="custom-list">
+                    <li><marcador class="resaltado9">INSERT</marcador></li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            El comando INSERT permite agregar nuevos documentos a una colección:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="db.empleados.insertOne({nombre: 'Carlos', apellido: 'Lopez', salario: 5000, departamento: 'Finanzas'});" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Este comando inserta un nuevo documento en la colección empleados. El documento contiene los campos nombre, apellido, salario y departamento, con valores específicos para un empleado. En términos generales, esta operación agrega un nuevo registro a la colección de empleados en la base de datos.</p>                    
+                    <li><marcador class="resaltado9">FIND</marcador></li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            El comando FIND permite recuperar documentos de una colección:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="db.empleados.find({salario: {$gt: 5000}});" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Esta consulta encuentra todos los documentos en la colección empleados donde el salario es mayor a 5000. La operación extrae todos los documentos que cumplen con el criterio especificado, mostrando la información de esos empleados.</p>
+                    
+                    <li><marcador class="resaltado9">UPDATE</marcador></li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            El comando UPDATE permite modificar documentos existentes en una colección:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="db.empleados.updateOne({nombre: 'Carlos'}, {$set: {salario: 5500}});" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Este comando actualiza el documento del empleado con nombre 'Carlos' en la colección empleados, estableciendo un nuevo salario de 5500. La operación modifica solo el salario del documento que cumple con el criterio de búsqueda.</p>
+                    
+                    <li><marcador class="resaltado9">DELETE</marcador></li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            El comando DELETE permite eliminar documentos de una colección:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="db.empleados.deleteOne({nombre: 'Carlos'});" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Este comando elimina el documento del empleado con nombre 'Carlos' de la colección empleados. La operación borra por completo el documento que cumple con el criterio de búsqueda.</p>
+                </ul> 
+                <div class="blog-image-grande">
+                    <img src="media/mongodb4.png" alt="">
+                </div>               
+                <h6>Operaciones de agregación</h6>
+                <p>MongoDB también ofrece una poderosa función de agregación que permite realizar operaciones complejas en los datos, como filtrado, clasificación y agrupación.</p>
+                <ul class="custom-list">
+                    <li><marcador class="resaltado9">AGGREGATE</marcador></li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            El comando AGGREGATE permite realizar operaciones avanzadas de agregación:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="db.empleados.aggregate([{$match: {departamento: 'Finanzas'}}, {$group: {_id: '$departamento', promedioSalario: {$avg: '$salario'}}}]);" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Esta operación utiliza el comando aggregate para filtrar primero los empleados del departamento 'Finanzas' y luego calcular el salario promedio de ese departamento. La operación de agregación es útil para obtener resúmenes y métricas de los datos almacenados.</p>
+                </ul>               
+                <h6>Operaciones de definición de colecciones</h6>
+                <p>MongoDB permite definir colecciones dentro de la base de datos, lo que permite estructurar los datos y las operaciones sobre ellos.</p>
+                <ul class="custom-list">
+                    <li><marcador class="resaltado9">CREATE</marcador></li>  
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            MongoDB no requiere un comando específico para crear colecciones, ya que las colecciones se crean automáticamente al insertar el primer documento en ellas. Sin embargo, puedes crear una colección explícitamente usando:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="db.createCollection('empleados');" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+
+                    <p>Este comando crea explícitamente una colección llamada 'empleados'. En MongoDB, las colecciones son flexibles y no requieren una definición rígida, como en SQL, por lo que la estructura de los documentos puede variar.</p>                   
+                    <li><marcador class="resaltado9">DROP</marcador></li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            El comando DROP elimina una colección de la base de datos:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="db.empleados.drop();" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Este comando elimina la colección empleados de la base de datos. Todos los documentos almacenados en esa colección se perderán, y la colección dejará de existir.</p>
+                </ul>               
+                <h6>Operaciones de control de acceso</h6>
+                <p>MongoDB permite definir roles y permisos para controlar el acceso a las bases de datos y las colecciones.</p>
+                <ul class="custom-list">
+                    <li><marcador class="resaltado9">GRANT</marcador></li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            El comando GRANT otorga permisos a los usuarios:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="db.grantRolesToUser('usuario1', [{role: 'readWrite', db: 'empresa'}]);" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Este comando otorga el rol 'readWrite' en la base de datos 'empresa' al usuario 'usuario1'. Esto le permitirá al usuario leer y escribir documentos en esa base de datos.</p>                    
+                    <li><marcador class="resaltado9">REVOKE</marcador></li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            El comando REVOKE revoca permisos previamente otorgados a los usuarios:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="db.revokeRolesFromUser('usuario1', [{role: 'readWrite', db: 'empresa'}]);" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Este comando revoca el rol 'readWrite' en la base de datos 'empresa' para el usuario 'usuario1'. Después de esta operación, el usuario ya no podrá realizar operaciones de lectura y escritura en esa base de datos.</p>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/mongodb6.png" alt="">
+                </div>
+                <h2>Funciones y Operadores</h2>
+                <p>En MongoDB, las funciones y operadores permiten realizar transformaciones y cálculos en los datos, así como filtrar, ordenar o modificar documentos de manera eficiente. Similar a SQL, las funciones en MongoDB pueden clasificarse en dos tipos principales: funciones de agregación y funciones escalares. Estas son útiles para el análisis, transformación y manipulación de datos dentro de las consultas.</p>
+                <h6>Funciones de Agregación</h6>
+                <p>Las funciones de agregación en MongoDB operan sobre conjuntos de datos y devuelven un único valor o conjunto procesado. Se utilizan dentro de una operación de agregación como el pipeline de agregación.</p>
+                <ul class="custom-list2">
+                    <li><marcador class="resaltado8">$sum: </marcador>Suma los valores de un campo numérico.</li>
+                    <li><marcador class="resaltado8">$avg: </marcador>Calcula el promedio de los valores de un campo.</li>
+                    <li><marcador class="resaltado8">$count: </marcador>Cuenta el número de documentos en una agrupación.</li>
+                    <li><marcador class="resaltado8">$min y $max: </marcador>Encuentran el valor mínimo o máximo dentro de un conjunto de valores.</li>
+                </ul>
+                <p>Estas funciones se utilizan dentro de la etapa <code>$group</code> del pipeline de agregación para realizar cálculos sobre los datos agrupados.</p>
+                <h6>Funciones Escalares</h6>
+                <p>A diferencia de las funciones de agregación, las funciones escalares operan sobre un único documento o fila. Se aplican a cada documento individualmente y retornan un valor basado en los datos de ese documento.</p>
+                <ul class="custom-list2">
+                    <li><marcador class="resaltado8">$toLower y $toUpper: </marcador>Convierte cadenas de texto a minúsculas o mayúsculas.</li>
+                    <li><marcador class="resaltado8">$concat: </marcador>Une dos o más cadenas de texto en una sola.</li>
+                    <li><marcador class="resaltado8">$substr: </marcador>Extrae una parte de una cadena de texto.</li>
+                    <li><marcador class="resaltado8">$round: </marcador>Redondea un número a un número específico de decimales.</li>
+                    <li><marcador class="resaltado8">$currentDate: </marcador>Devuelve la fecha y hora actual del sistema.</li>
+                </ul>
+                <p>Estas funciones son útiles para la manipulación y el formateo de los datos dentro de la consulta.</p>
+                <h6>Operadores</h6>
+                <p>MongoDB también ofrece una variedad de operadores que se utilizan en las consultas para realizar comparaciones y cálculos. Algunos de los operadores más comunes incluyen:</p>
+                <ul class="custom-list2">
+                    <li><marcador class="resaltado8">eq: </marcador>Equivalente al operador de igualdad (=) en SQL.</li>
+                    <li><marcador class="resaltado8">ne: </marcador>Distinto a (!=) en SQL.</li>
+                    <li><marcador class="resaltado8">gt: </marcador>Mayor que (>) en SQL.</li>
+                    <li><marcador class="resaltado8">lt: </marcador>Menor que (<) en SQL.</li>
+                    <li><marcador class="resaltado8">gte: </marcador>Mayor o igual que (>=) en SQL.</li>
+                    <li><marcador class="resaltado8">lte: </marcador>Menor o igual que (<=) en SQL.</li>
+                    <li><marcador class="resaltado8">+ , - , * , /: </marcador>Operadores aritméticos para sumar, restar, multiplicar y dividir.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/mongodb7.png" alt="">
+                </div>
+                <h2>Consultas Avanzadas</h2>
+                <ul class="custom-list">
+                    <li><marcador class="resaltado9">$distinct</marcador></li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            El operador <code>$distinct</code> se utiliza para devolver valores únicos de un campo en una colección. Por ejemplo:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="db.empleados.distinct('departamento');" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Esta consulta recupera todos los departamentos únicos de la colección de empleados. Si dos o más empleados pertenecen al mismo departamento, este solo se mostrará una vez.</p>
+                    <li><marcador class="resaltado9">$unionWith</marcador></li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            <code>$unionWith</code> combina los resultados de dos colecciones diferentes. Por ejemplo:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="db.empleados.aggregate([{ $unionWith: { coll: 'ex_empleados' } }]);" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Esta consulta devuelve todos los empleados, combinando la colección de empleados con la colección de ex empleados.</p>
+                    <li><marcador class="resaltado9">$group</marcador></li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            El operador <code>$group</code> agrupa documentos por una o más claves y aplica una función de agregación. Por ejemplo:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="db.empleados.aggregate([{ $group: { _id: '$departamento', count: { $sum: 1 } } }]);" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Agrupa a los empleados por departamento y cuenta cuántos empleados hay en cada uno.</p>
+                    <li><marcador class="resaltado9">$match</marcador></li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            <code>$match</code> filtra los documentos de acuerdo con una condición. Por ejemplo:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="db.empleados.aggregate([{ $match: { edad: { $gt: 30 } } }]);" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Devuelve todos los empleados cuya edad es mayor a 30.</p>
+                    <li><marcador class="resaltado9">$regex</marcador></li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            El operador <code>$regex</code> se utiliza para buscar un patrón en un campo. Por ejemplo:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="db.empleados.find({ nombre: { $regex: '^A' } });" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Esta consulta obtiene los empleados cuyos nombres comienzan con la letra "A". El símbolo ^ es un ancla que representa el inicio de la cadena.</p>
+                    <li><marcador class="resaltado9">$in</marcador></li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            El operador <code>$in</code> permite especificar múltiples valores en una condición. Por ejemplo:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="db.empleados.find({ departamento: { $in: ['Ventas', 'Marketing'] } });" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Esta consulta obtiene los empleados que trabajan en los departamentos de Ventas o Marketing.</p>
+                    <li><marcador class="resaltado9">$or</marcador></li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            El operador <code>$or</code> se utiliza para realizar una consulta con varias condiciones. Por ejemplo:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="db.empleados.find({ $or: [{ edad: { $lt: 30 } }, { salario: { $gt: 50000 } }] });" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Esta consulta devuelve los empleados que tienen menos de 30 años o un salario superior a 50,000.</p>
+                </ul>
+                <p>Estos operadores son solo una pequeña muestra de las capacidades que ofrece MongoDB para trabajar con datos. MongoDB permite crear consultas avanzadas y realizar análisis detallados de manera eficiente.</p>
+                <div class="blog-image-grande">
+                    <img src="media/mongodb5.png" alt="">
+                </div>
+                <ul class="custom-list">
+                    <li><marcador class="resaltado9">JOIN en MongoDB</marcador></li>
+                    <p>MongoDB es una base de datos NoSQL que no utiliza tablas ni relaciones entre ellas, por lo que no tiene un concepto directo de "JOIN" como en SQL. Sin embargo, MongoDB ofrece una operación similar llamada <code>$lookup</code>, que permite hacer uniones entre colecciones.</p>                
+                    <div class="consola">
+                        <div class="barra-superior-consola">
+                            <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                        </div>
+                        <div class="codigo-consola">
+                            <pre><code>db.empleados.aggregate([
+{
+    $lookup: {
+        from: "departamentos",
+        localField: "depto_id",
+        foreignField: "id",
+        as: "departamento_info"
+    }
+}
+]);</code></pre>
+                        </div>
+                    </div>
+                    <p>En esta consulta, <code>$lookup</code> se usa para unir los documentos de la colección <code>empleados</code> con los documentos de la colección <code>departamentos</code>. La operación compara el campo <code>depto_id</code> de la colección empleados con el campo <code>id</code> de la colección departamentos. Los resultados se almacenan en un nuevo campo llamado <code>departamento_info</code> dentro de cada documento de la colección <code>empleados</code>.</p>
+                    <li><marcador class="resaltado9">$lookup en MongoDB</marcador></li>
+                    <p><code>$lookup</code> es el operador que permite realizar una especie de "join" entre colecciones en MongoDB. Si bien no es exactamente igual a un JOIN en SQL, permite combinar datos de diferentes colecciones en una sola consulta de agregación.</p>               
+                    <div class="consola">
+                        <div class="barra-superior-consola">
+                            <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                        </div>
+                        <div class="codigo-consola">
+                            <pre><code>db.empleados.aggregate([
+{
+    $lookup: {
+        from: "departamentos",
+        localField: "depto_id",
+        foreignField: "id",
+        as: "departamento_info"
+    }
+},
+{ 
+$unwind: "$departamento_info" 
+},
+{ 
+$project: { "nombre": 1, "departamento_info.nombre": 1 } 
+}
+]);</code></pre>
+                        </div>
+                    </div>
+                    <p>Este ejemplo utiliza <code>$unwind</code> para desestructurar el array resultante del <code>$lookup</code>, a fin de trabajar con los campos de la colección unida de manera más sencilla. Luego, el operador <code>$project</code> permite seleccionar solo las columnas que queremos que aparezcan en el resultado, en este caso, el nombre del empleado y el nombre del departamento.</p>               
+                    <li><marcador class="resaltado9">Operadores de Agregación en MongoDB</marcador></li>
+                    <p>MongoDB ofrece varios operadores de agregación como <code>$match</code>, <code>$group</code>, <code>$sort</code>, entre otros, que permiten realizar consultas complejas y manejar grandes volúmenes de datos de manera eficiente.</p>               
+                    <div class="consola">
+                        <div class="barra-superior-consola">
+                            <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                        </div>
+                        <div class="codigo-consola">
+                            <pre><code>db.empleados.aggregate([
+{ 
+$match: { salario: { $gt: 50000 } } 
+},
+{ $lookup: {
+    from: "departamentos",
+    localField: "depto_id",
+    foreignField: "id",
+    as: "departamento_info"
+    } 
+},
+{ 
+$unwind: "$departamento_info" 
+},
+{ 
+$project: { "nombre": 1, "departamento_info.nombre": 1 } 
+}
+]);</code></pre>
+                        </div>
+                    </div>
+                    <p>En este ejemplo, usamos <code>$match</code> para filtrar a los empleados que ganan más de 50,000 antes de hacer el <code>$lookup</code>. Esto mejora la eficiencia al reducir los documentos que se procesan en el <code>$lookup</code> y hace la consulta más rápida.</p>               
+                    <div class="blog-image-grande">
+                        <img src="media/mongodb9.jpeg" alt="">
+                    </div>
+                </ul>            
+                <h2>Instalación y Conexión a MongoDB</h2>
+                <p>MongoDB es una base de datos NoSQL muy popular, especialmente utilizada en aplicaciones web modernas debido a su capacidad para manejar grandes volúmenes de datos no estructurados. En este tutorial, veremos cómo instalar MongoDB en tu máquina y cómo conectarte a ella usando la herramienta de línea de comandos de MongoDB.</p>
+                <p>Para instalar MongoDB en tu máquina, sigue los pasos según el sistema operativo que estés utilizando:</p>
+                <p>Descarga el instalador desde el sitio web oficial de <a href="https://www.mongodb.com/try/download/community" target="blank">MongoDB</a>. Sigue las instrucciones del instalador para completar la instalación.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="sudo dpkg -i paqueteDescargado.deb" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Para iniciar el servicio de MongoDB en Linux, puedes usar el siguiente comando:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="sudo systemctl start mongod.service" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Descarga la shell desde el sitio web oficial de <a href="https://www.mongodb.com/try/download/shell" target="blank">MongoDB</a>.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="sudo dpkg -i paqueteDescargado.deb" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Una vez que MongoDB esté instalado, puedes conectarte a él usando <marcador class="subrayado">mongosh</marcador>, una shell interactiva que reemplaza a la antigua <marcador class="subrayado">mongo</marcador>. Esta shell es más moderna y soporta nuevas funcionalidades para interactuar con la base de datos de manera eficiente.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Una vez que MongoDB esté instalado, puedes conectarte a él usando la herramienta de línea de comandos de MongoDB, llamada <marcador class="subrayado">mongosh</marcador>. Para iniciar la sesión en el shell de MongoDB, simplemente ejecuta:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="mongosh" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Una vez conectado a MongoDB, puedes empezar a interactuar con tus bases de datos y colecciones. Si deseas salir de la shell de <marcador class="subrayado">mongosh</marcador>, simplemente escribe <marcador class="subrayado">exit</marcador> y presiona Enter.</p>
+                <p>Por defecto, MongoDB se conecta al puerto 27017. Este es el puerto predeterminado en el que MongoDB escucha para las conexiones entrantes. Si estás ejecutando MongoDB localmente, no necesitas especificar el puerto, ya que <marcador class="subrayado">mongosh</marcador> se conecta automáticamente al localhost en el puerto 27017.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Sin embargo, si tu servidor de MongoDB está corriendo en una dirección o puerto diferente, puedes especificar la URL de conexión en el siguiente formato:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="mongosh mongodb://<direccion-ip>:<puerto>" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <h6>Comandos Básicos en mongosh</h6>
+                <p>Al estar dentro de la shell de <code>mongosh</code>, puedes ejecutar comandos para interactuar con la base de datos. Algunos de los comandos más comunes son:</p>
+                <ul>
+                    <li><marcador class="subrayado">show dbs</marcador>: Muestra todas las bases de datos disponibles en tu servidor MongoDB.</li>
+                    <li><marcador class="subrayado">use &lt;nombre-db&gt;</marcador>: Cambia a una base de datos específica.</li>
+                    <li><marcador class="subrayado">show collections</marcador>: Muestra las colecciones dentro de la base de datos seleccionada.</li>
+                    <li><marcador class="subrayado">db.&lt;nombre-coleccion&gt;.find()</marcador>: Muestra todos los documentos en una colección específica.</li>
+                </ul>
+                <h2>Introducción a Mongoose</h2>
+                <p>Mongoose es una biblioteca de JavaScript que facilita la interacción con MongoDB desde aplicaciones Node.js. Mongoose proporciona una solución basada en esquemas para trabajar con colecciones de datos, permitiendo un modelado más estructurado y controlado de los documentos.</p>
+
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Para usar Mongoose, primero necesitas instalarlo en tu proyecto de Node.js. Puedes hacerlo usando <marcador class="subrayado">npm</marcador>:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="npm install mongoose" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>               
+                <p>Una vez que Mongoose esté instalado, puedes usarlo para conectarte a tu base de datos MongoDB. Aquí tienes un ejemplo de cómo establecer una conexión:</p>
+                <div class="archivo">
+const mongoose = require('mongoose');
+
+// Conexión a MongoDB
+mongoose.connect('mongodb://localhost:27017/miBaseDeDatos', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
+.then(() => console.log('Conectado a MongoDB'))
+.catch((error) => console.error('Error de conexión:', error));   
+                </div>
+                <p>Este código establece una conexión a una base de datos MongoDB en el servidor local (localhost) y usa el puerto 27017 por defecto. Si la conexión es exitosa, se imprime el mensaje 'Conectado a MongoDB'. En caso de error, se muestra el mensaje de error en la consola.</p>
+                <h6>Creando un Modelo con Mongoose</h6>
+                <p>Una de las características principales de Mongoose es su sistema de modelos. Los modelos en Mongoose definen cómo se deben estructurar los documentos dentro de una colección de MongoDB. Aquí hay un ejemplo de cómo definir un modelo para un documento de empleado:</p>
+                <div class="archivo">
+const mongoose = require('mongoose');
+
+// Definición del esquema para un empleado
+const empleadoSchema = new mongoose.Schema({
+    nombre: { type: String, required: true },
+    edad: { type: Number, required: true },
+    departamento: { type: String, required: true }
+});
+
+// Creación del modelo basado en el esquema
+const Empleado = mongoose.model('Empleado', empleadoSchema);
+
+// Crear un nuevo empleado
+const nuevoEmpleado = new Empleado({
+    nombre: 'Carlos',
+    edad: 30,
+    departamento: 'Ventas'
+});
+
+nuevoEmpleado.save()
+    .then(() => console.log('Empleado guardado'))
+    .catch((error) => console.error('Error al guardar:', error));
+                </div>
+               
+                <p>En este ejemplo, primero definimos un esquema para el modelo 'Empleado', indicando los campos 'nombre', 'edad' y 'departamento'. Luego, creamos un nuevo documento con este esquema y lo guardamos en la base de datos MongoDB.</p>               
+                <h2>Recursos</h2>
+                <p>Si deseas profundizar más en MongoDB y Mongoose, puedes revisar la documentación oficial:</p>
+                <ul>
+                    <li><a href="https://www.mongodb.com/docs/" target="blank">Documentación oficial de MongoDB</a></li>
+                    <li><a href="https://mongoosejs.com/docs/" target="blank">Documentación oficial de Mongoose</a></li>
+                </ul> 
+                <div class="blog-image-grande">
+                    <img src="media/mongodb10.svg" alt="">
+                </div>                
+            </div>
+        </div>       
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
