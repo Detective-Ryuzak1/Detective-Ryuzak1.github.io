@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <link rel="icon" href="../media/imagen41.png" type="image/png">
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                        <li><a href="../devops.html">DevOps</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Aportar" onclick="window.open('https://buymeacoffee.com/ryuzak1', '_blank');">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <br>
+                <br>
+                <h1></h1>
+                <h1>OpenCV</h1>
+                <p>OpenCV, que significa Open Source Computer Vision Library, es una biblioteca de código abierto enfocada en la visión por computadora y el aprendizaje automático. Fue diseñada para proporcionar herramientas eficientes para el procesamiento de imágenes y videos, siendo ampliamente utilizada tanto en investigación como en aplicaciones prácticas.</p>
+                <p>Con OpenCV, es posible realizar tareas como detección de objetos, reconocimiento facial, seguimiento de movimiento, y mucho más. Es compatible con múltiples lenguajes de programación, incluidos Python, C++, Java y MATLAB, lo que la convierte en una herramienta versátil para desarrolladores de diversas disciplinas.</p>
+                <p>OpenCV fue desarrollado originalmente por Intel en 1999 y desde entonces se ha convertido en un estándar en la industria y en el ámbito académico, gracias a su amplia funcionalidad y a su comunidad activa.</p>
+                <div class="blog-image-grande">
+                    <img src="media/opnecv4.png" alt="">
+                </div>
+
+                <h2>Características</h2>
+                <ul>
+                    <li><marcador class="resaltado8">Procesamiento de Imágenes: </marcador>Soporte para operaciones básicas y avanzadas como filtros, transformaciones geométricas y segmentación.</li>
+                    <li><marcador class="resaltado8">Análisis de Video: </marcador>Capacidades para leer, procesar y analizar secuencias de video en tiempo real o grabadas.</li>
+                    <li><marcador class="resaltado8">Integración con Frameworks: </marcador>Puede integrarse fácilmente con herramientas de aprendizaje profundo como TensorFlow y PyTorch.</li>
+                </ul>
+
+                <h2>Usos Comunes de OpenCV</h2>
+                <ul style="list-style-type: none;">
+                    <li>❍ <marcador class="resaltado4">Reconocimiento Facial: </marcador>Desde autenticación biométrica hasta etiquetado de fotos, OpenCV es una herramienta clave en este campo.</li>
+                    <li>❍ <marcador class="resaltado4">Detección de Objetos: </marcador>Se utiliza ampliamente en aplicaciones como conducción autónoma y sistemas de vigilancia.</li>
+                    <li>❍ <marcador class="resaltado4">Procesamiento de Imágenes Médicas: </marcador>En aplicaciones como diagnóstico asistido por computadora y análisis de imágenes médicas.</li>
+                    <li>❍ <marcador class="resaltado4">Realidad Aumentada: </marcador>Para superponer objetos virtuales en escenas del mundo real utilizando datos de video.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/opencv1.jpg" alt="">
+                </div>
+                <h2>Instalación</h2>
+                <p>OpenCV se puede instalar fácilmente utilizando pip, el gestor de paquetes de Python, asegurando que tengas Python instalado previamente en tu sistema.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Abre tu terminal o línea de comandos y ejecuta el siguiente comando:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="pip install opencv-contrib-python" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <h2>YOLO (You Only Look Once)</h2>
+                <p>YOLO es uno de los algoritmos más avanzados y populares para la detección de objetos en tiempo real. Su enfoque principal es procesar una imagen completa en un solo paso, dividiendo la imagen en una cuadrícula y asignando detecciones a las celdas. Este enfoque permite a YOLO ser extremadamente rápido y preciso, haciéndolo ideal para aplicaciones como vigilancia, conducción autónoma y análisis de video en tiempo real.</p>
+                <p>YOLO puede integrarse fácilmente con OpenCV para realizar detección de objetos, donde OpenCV se utiliza para manejar la preprocesación de imágenes, la visualización de resultados y otras funciones complementarias.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Abre tu terminal y ejecuta el siguiente comando para instalar YOLO utilizando pip: 
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="pip install ultralytics" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="blog-image-grande">
+                    <img src="media/opencv3.png" alt="Detección de objetos con YOLO">
+                </div>
+                <h2>Ejemplos</h2>
+                <p>Haz click <a href="https://github.com/Detective-Ryuzak1/Machine-Learnig-examples/blob/main/OpenCV/OpenCV.ipynb" target="blank">aquí</a> para ver algunos ejemplos básicos de uso con OpenCV.</p>
+                <div class="blog-image-grande">
+                    <img src="media/opencv2.jpg" alt="">
+                </div>
+                <p></p>
+            </div>  
+        </div>     
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
