@@ -313,6 +313,15 @@
                     <li><marcador class="resaltado8">LPOP: </marcador>Elimina y devuelve el primer elemento de una lista.</li>
                     <li><marcador class="resaltado8">RPOP: </marcador>Elimina y devuelve el último elemento de una lista.</li>
                     <li><marcador class="resaltado8">LRANGE: </marcador>Recupera un rango de elementos de una lista.</li>
+                    <li><marcador class="resaltado8">LLEN: </marcador>Devuelve la longitud de una lista.</li>
+                    <li><marcador class="resaltado8">LREM: </marcador>Elimina elementos de una lista que coincidan con un valor dado.</li>
+                    <li><marcador class="resaltado8">LINSERT: </marcador>Inserta un valor antes o después de un elemento específico en una lista.</li>
+                    <li><marcador class="resaltado8">LSET: </marcador>Establece el valor de un elemento en una lista en una posición específica.</li>
+                    <li><marcador class="resaltado8">LPOP: </marcador>Elimina y devuelve el primer elemento de una lista.</li>
+                    <li><marcador class="resaltado8">RPOP: </marcador>Elimina y devuelve el último elemento de una lista.</li>
+                    <li><marcador class="resaltado8">BLPOP: </marcador>Bloquea una lista para obtener el primer elemento.</li>
+                    <li><marcador class="resaltado8">BRPOP: </marcador>Bloquea una lista para obtener el último elemento.</li>
+                    <li><marcador class="resaltado8">LRANGEBYLEX: </marcador>Devuelve un rango de elementos en una lista basado en orden lexicográfico.</li>
                 </ul>
                 <div class="blog-image-grande">
                     <img src="media/redis10.jpg" alt="">
@@ -324,6 +333,16 @@
                     <li><marcador class="resaltado8">SREM: </marcador>Elimina uno o más miembros de un conjunto.</li>
                     <li><marcador class="resaltado8">SMEMBERS: </marcador>Devuelve todos los miembros de un conjunto.</li>
                     <li><marcador class="resaltado8">SISMEMBER: </marcador>Verifica si un miembro está presente en un conjunto.</li>
+                    <li><marcador class="resaltado8">SCARD: </marcador>Devuelve el número de miembros en un conjunto.</li>
+                    <li><marcador class="resaltado8">SPOP: </marcador>Elimina y devuelve un miembro aleatorio de un conjunto.</li>
+                    <li><marcador class="resaltado8">SRANDMEMBER: </marcador>Devuelve un miembro aleatorio de un conjunto sin eliminarlo.</li>
+                    <li><marcador class="resaltado8">SINTER: </marcador>Devuelve la intersección de varios conjuntos.</li>
+                    <li><marcador class="resaltado8">SINTERSTORE: </marcador>Almacena la intersección de varios conjuntos en un nuevo conjunto.</li>
+                    <li><marcador class="resaltado8">SUNION: </marcador>Devuelve la unión de varios conjuntos.</li>
+                    <li><marcador class="resaltado8">SUNIONSTORE: </marcador>Almacena la unión de varios conjuntos en un nuevo conjunto.</li>
+                    <li><marcador class="resaltado8">SDIFF: </marcador>Devuelve la diferencia entre varios conjuntos.</li>
+                    <li><marcador class="resaltado8">SDIFFSTORE: </marcador>Almacena la diferencia entre varios conjuntos en un nuevo conjunto.</li>
+                    <li><marcador class="resaltado8">SSCAN: </marcador>Itera sobre los miembros de un conjunto.</li>
                 </ul>
                 <div class="blog-image-grande">
                     <img src="media/redis12.jpg" alt="">
@@ -335,7 +354,18 @@
                     <li><marcador class="resaltado8">HGET: </marcador>Obtiene el valor de un campo en un hash.</li>
                     <li><marcador class="resaltado8">HDEL: </marcador>Elimina uno o más campos de un hash.</li>
                     <li><marcador class="resaltado8">HGETALL: </marcador>Devuelve todos los campos y valores de un hash.</li>
+                    <li><marcador class="resaltado8">HEXISTS: </marcador>Verifica si un campo existe en un hash.</li>
+                    <li><marcador class="resaltado8">HINCRBY: </marcador>Incrementa el valor de un campo numérico en un hash.</li>
+                    <li><marcador class="resaltado8">HINCRBYFLOAT: </marcador>Incrementa el valor de un campo flotante en un hash.</li>
+                    <li><marcador class="resaltado8">HMGET: </marcador>Obtiene los valores de varios campos en un hash.</li>
+                    <li><marcador class="resaltado8">HMSET: </marcador>Establece múltiples campos en un hash (obsoleto, se recomienda usar HSET).</li>
+                    <li><marcador class="resaltado8">HKEYS: </marcador>Devuelve todos los campos de un hash.</li>
+                    <li><marcador class="resaltado8">HVALS: </marcador>Devuelve todos los valores de un hash.</li>
+                    <li><marcador class="resaltado8">HSCAN: </marcador>Itera sobre los campos y valores de un hash.</li>
+                    <li><marcador class="resaltado8">HSTRLEN: </marcador>Devuelve la longitud de un valor de campo en un hash.</li>
+                    <li><marcador class="resaltado8">HSETNX: </marcador>Establece el valor de un campo en un hash solo si el campo no existe.</li>
                 </ul>
+                
                 <div class="blog-image-grande">
                     <img src="media/redis9.jpg" alt="">
                 </div>
@@ -346,7 +376,20 @@
                     <li><marcador class="resaltado8">ZRANGE: </marcador>Devuelve un rango de miembros en un conjunto ordenado, ordenados por su puntuación.</li>
                     <li><marcador class="resaltado8">ZREM: </marcador>Elimina uno o más miembros de un conjunto ordenado.</li>
                     <li><marcador class="resaltado8">ZINCRBY: </marcador>Incrementa la puntuación de un miembro en un conjunto ordenado.</li>
+                    <li><marcador class="resaltado8">ZREVRANGE: </marcador>Devuelve un rango de miembros en un conjunto ordenado, ordenados en orden descendente de puntuación.</li>
+                    <li><marcador class="resaltado8">ZCARD: </marcador>Devuelve el número de miembros de un conjunto ordenado.</li>
+                    <li><marcador class="resaltado8">ZLEXCOUNT: </marcador>Cuenta los miembros en un conjunto ordenado dentro de un rango lexicográfico.</li>
+                    <li><marcador class="resaltado8">ZREMRANGEBYRANK: </marcador>Elimina los miembros de un conjunto ordenado dentro de un rango específico de índices.</li>
+                    <li><marcador class="resaltado8">ZREMRANGEBYSCORE: </marcador>Elimina los miembros de un conjunto ordenado dentro de un rango de puntuaciones específicas.</li>
+                    <li><marcador class="resaltado8">ZMSCORE: </marcador>Devuelve las puntuaciones de uno o más miembros en un conjunto ordenado.</li>
+                    <li><marcador class="resaltado8">ZINTERSTORE: </marcador>Realiza una intersección de múltiples conjuntos ordenados y almacena el resultado en un nuevo conjunto.</li>
+                    <li><marcador class="resaltado8">ZUNIONSTORE: </marcador>Realiza una unión de múltiples conjuntos ordenados y almacena el resultado en un nuevo conjunto.</li>
+                    <li><marcador class="resaltado8">ZSCAN: </marcador>Itera sobre los miembros de un conjunto ordenado para buscar por patrones.</li>
+                    <li><marcador class="resaltado8">ZPOPMIN: </marcador>Elimina y devuelve el miembro con la puntuación más baja de un conjunto ordenado.</li>
+                    <li><marcador class="resaltado8">ZPOPMAX: </marcador>Elimina y devuelve el miembro con la puntuación más alta de un conjunto ordenado.</li>
+                    <li><marcador class="resaltado8">ZRANGEBYSCORE: </marcador>Devuelve los miembros de un conjunto ordenado dentro de un rango de puntuaciones específicas.</li>
                 </ul>
+                
                 <div class="blog-image-grande">
                     <img src="media/redis12.jpg" alt="">
                 </div>
