@@ -454,11 +454,33 @@
                 <div class="blog-image-grande">
                     <img src="media/redis6.png" alt="">
                 </div>
+                <h2>Redis on Flash (RoF)</h2>
+                <p>Redis on Flash extiende la capacidad de almacenamiento de Redis al permitir guardar datos menos utilizados (o "datos fríos") en dispositivos de almacenamiento SSD, mientras los datos más utilizados (o "datos calientes") permanecen en RAM. Este modelo combina la velocidad de Redis con el costo más bajo del almacenamiento en disco.</p>
+                <p>El sistema funciona dividiendo los datos:</p>
+                <ul>
+                    <li><marcador class="resaltado6">Hot Data (Datos calientes): </marcador>Residen en RAM para accesos frecuentes y rápidos.</li>
+                    <li><marcador class="resaltado6">Cold Data (Datos fríos): </marcador>Se almacenan en SSD para minimizar el uso de memoria cara, pero siguen siendo accesibles cuando se necesitan.</li>
+                </ul>
+                <p>Redis on Flash utiliza algoritmos para gestionar automáticamente el intercambio de datos entre RAM y SSD, asegurando que las operaciones más críticas se mantengan rápidas.</p>
+                <h2>Redis Enterprise</h2>
+                <p>Redis Enterprise proporciona una serie de características avanzadas que mejoran la capacidad de Redis para funcionar en entornos empresariales. Estas incluyen:</p>
+                <ul>
+                    <li><marcador class="resaltado8">Escalabilidad horizontal: </marcador>Permite escalar de manera eficiente mediante la adición de nodos adicionales sin afectar el rendimiento.</li>
+                    <li><marcador class="resaltado8">Alta disponibilidad: </marcador>Ofrece mecanismos de replicación, failover automático y recuperación ante desastres.</li>
+                    <li><marcador class="resaltado8">Soporte multi-modelo: </marcador>Redis Enterprise admite múltiples modelos de datos, incluidos Strings, Hashes, Listas, Sets, Sorted Sets, Streams, y más.</li>
+                    <li><marcador class="resaltado8">Seguridad avanzada: </marcador>Incluye cifrado en tránsito y en reposo, control de acceso granular y autenticación basada en roles.</li>
+                    <li><marcador class="resaltado8">Desempeño optimizado: </marcador>Redis Enterprise está diseñado para ofrecer un rendimiento de baja latencia con altos volúmenes de operaciones por segundo.</li>
+                    <li><marcador class="resaltado8">Persistencia mejorada: </marcador>Ofrece persistencia avanzada con características como Redis on Flash y persistencia sin pérdidas de datos.</li>
+                    <li><marcador class="resaltado8">Multi-cloud y despliegue híbrido: </marcador>Redis Enterprise soporta la implementación en múltiples nubes y entornos híbridos.</li>
+                </ul>
+                <p>Redis Enterprise está diseñado para integrarse con las principales plataformas en la nube, como AWS, Azure y Google Cloud, y proporciona una solución ideal para aplicaciones que requieren una alta disponibilidad, rendimiento y escalabilidad.</p>
+                <div class="blog-image-grande">
+                    <img src="media/redis7.png" alt="">
+                </div>
                 <h2>Ejemplo práctico de uso</h2>
                 <p>Para empezar a trabajar con Redis, primero necesitamos instalarlo en nuestro sistema. Redis puede instalarse en diversas plataformas, incluyendo Linux, macOS y Windows. Además, Redis ofrece un cliente que puede interactuar con él utilizando comandos en la línea de comandos o a través de librerías para lenguajes de programación como Python, Java, Node.js, entre otros.</p>
                 <p>La instalación de Redis varía según el sistema operativo. Aquí te dejamos una guía básica para instalarlo en algunos de los sistemas más comunes:</p>
                 <h6>Instalación en Linux</h6>
-                <p></p>
                 <div class="contenedor">
                     <div class="etiqueta">
                         En sistemas basados en Debian/Ubuntu, puedes usar el siguiente comando para instalar Redis:
@@ -477,6 +499,15 @@
                         <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                 </div>
+                <div class="blog-image-grande">
+                    <img src="media/redis15.png" alt="">
+                </div>
+                <div class="blog-image-grande">
+                    <img src="media/redis16.png" alt="">
+                </div>
+                <div class="blog-image-grande">
+                    <img src="media/redis17.png" alt="">
+                </div>
                 <h6>Instalación en Windows</h6>
                 <p>En Windows, puedes usar el Subsistema de Windows para Linux (WSL) para ejecutar Redis o utilizar una versión precompilada desde el sitio web de Redis.</p>
                 <p>A continuación se presenta un ejemplo de cómo usar Redis en una aplicación Python utilizando la librería <code>redis-py</code>:</p>
@@ -489,6 +520,7 @@
                         <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                 </div>
+
                 <p>Luego, puedes crear un cliente Redis en Python de la siguiente manera:</p>
                 <div class="archivo">import redis
 
@@ -502,16 +534,8 @@ r.set('foo', 'bar')
 print(r.get('foo'))
                 </div>
                 <p>Este código conecta a Redis, establece un valor asociado a la clave "foo" y luego recupera ese valor.</p>
-                <h2>Redis on Flash (RoF)</h2>
-                <p>Redis on Flash extiende la capacidad de almacenamiento de Redis al permitir guardar datos menos utilizados (o "datos fríos") en dispositivos de almacenamiento SSD, mientras los datos más utilizados (o "datos calientes") permanecen en RAM. Este modelo combina la velocidad de Redis con el costo más bajo del almacenamiento en disco.</p>
-                <p>El sistema funciona dividiendo los datos:</p>
-                <ul>
-                    <li><marcador class="resaltado8">Hot Data (Datos calientes): </marcador>Residen en RAM para accesos frecuentes y rápidos.</li>
-                    <li><marcador class="resaltado8">Cold Data (Datos fríos): </marcador>Se almacenan en SSD para minimizar el uso de memoria cara, pero siguen siendo accesibles cuando se necesitan.</li>
-                </ul>
-                <p>Redis on Flash utiliza algoritmos para gestionar automáticamente el intercambio de datos entre RAM y SSD, asegurando que las operaciones más críticas se mantengan rápidas.</p>
                 <div class="blog-image-grande">
-                    <img src="media/redis7.png" alt="">
+                    <img src="media/redis18.png" alt="">
                 </div>
             </div>
         </div>       
