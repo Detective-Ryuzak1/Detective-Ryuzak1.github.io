@@ -43,6 +43,8 @@
                 <h1>Redis</h1>
                 <p>Redis es un sistema de almacenamiento en memoria de estructura de datos clave-valor, que se utiliza principalmente como base de datos, caché y sistema de mensajes. Lanzado en 2009, Redis se destaca por su velocidad y versatilidad al gestionar datos en memoria, lo que lo convierte en una opción popular para aplicaciones que requieren un acceso extremadamente rápido a los datos. A diferencia de otras bases de datos, Redis maneja varios tipos de estructuras de datos como cadenas, listas, conjuntos y mapas hash.</p>
                 <p>Redis es altamente eficiente y se puede usar para una variedad de tareas, desde almacenar datos temporales en caché hasta gestionar colas de mensajes, sesiones de usuario y más. Su capacidad para operar con datos en memoria permite que las operaciones sean mucho más rápidas en comparación con los sistemas de bases de datos tradicionales.</p>
+                <p>Mientras que en bases de datos como MySQL o PostgreSQL es necesario definir un esquema con tablas, columnas y tipos de datos antes de almacenar información, Redis adopta un enfoque más flexible debido a su naturaleza como una base de datos NoSQL basada en memoria.</p>
+                <p>En Redis, los datos se almacenan en estructuras como cadenas, listas, conjuntos, hashes y más, donde cada elemento se identifica por una clave única. Esto significa que puedes comenzar a trabajar con Redis directamente, sin necesidad de planificar o definir previamente un esquema fijo.</p>
                 <div class="blog-image-grande">
                     <img src="media/redis1.png" alt="">
                 </div>
@@ -51,41 +53,102 @@
                 <p><marcador class="resaltado8">Claves: </marcador>Las claves en Redis son únicas y sirven para acceder a los valores asociados. Pueden ser cadenas de texto y pueden tener una longitud de hasta 512 MB.</p>
                 <p><marcador class="resaltado8">Valores: </marcador>Los valores en Redis pueden ser de diferentes tipos, entre los más comunes se encuentran cadenas, listas, conjuntos, conjuntos ordenados, mapas hash, y más. Esta diversidad de tipos de datos permite usar Redis en una amplia variedad de aplicaciones.</p>
                 <p><marcador class="resaltado8">Tipos de datos en Redis: </marcador>Redis es conocido por su soporte para diferentes estructuras de datos que permiten modelar diversas situaciones.</p>
-                <div class="blog-image-grande">
-                    <img src="media/redis2.jpg" alt="">
-                </div>
                 <h2>Tipos de datos</h2>
-                <p>Redis soporta una variedad de tipos de datos, que se pueden utilizar para diferentes casos de uso. A continuación se describen algunos de los más utilizados:</p>
+                <p>Redis utiliza una arquitectura interna que asigna las claves a diferentes tipos de datos, donde cada clave puede tener asociado un tipo único. Esto significa que Redis funciona como un espacio de nombres unificado donde puedes almacenar y consultar datos de diferentes modelos:</p>
                 <ol>
-                <li><marcador class="resaltado9">Cadenas</marcador></li>
-                <ul class="custom-list2">
-                    <li><marcador class="resaltado8">String: </marcador>Las cadenas en Redis son el tipo de dato más básico. Pueden contener cualquier tipo de información, como texto, números y más.</li>
-                </ul>
-                <li><marcador class="resaltado9">Listas</marcador></li>
-                <ul class="custom-list2">
-                    <li><marcador class="resaltado8">List: </marcador>Una lista es una secuencia de elementos ordenados. Redis permite agregar elementos a las listas de manera eficiente desde ambos extremos.</li>
-                </ul>
-                <li><marcador class="resaltado9">Conjuntos</marcador></li>
-                <ul class="custom-list2">
-                    <li><marcador class="resaltado8">Set: </marcador>Un conjunto es una colección de elementos únicos no ordenados. Ideal para operaciones como la verificación de membresía y la eliminación de duplicados.</li>
-                </ul>
-                <li><marcador class="resaltado9">Conjuntos ordenados</marcador></li>
-                <ul class="custom-list2">
-                    <li><marcador class="resaltado8">Sorted Set: </marcador>Es similar a un conjunto, pero cada elemento tiene un score que permite ordenarlo automáticamente según ese valor.</li>
-                </ul>
-                <li><marcador class="resaltado9">Mapas Hash</marcador></li>
-                <ul class="custom-list2">
-                    <li><marcador class="resaltado8">Hash: </marcador>Un mapa hash es una colección de campos y valores asociados, útil para almacenar objetos y datos complejos.</li>
-                </ul>
+                    <li><marcador class="resaltado5">Tipos de datos básicos soportados nativamente</marcador></li>
+                    <ol style="list-style-type: none;">
+                        <li><marcador class="resaltado9">Cadenas</marcador></li>
+                        <ul class="custom-list2">
+                            <li><marcador class="resaltado8">String: </marcador>Las cadenas en Redis son el tipo de dato más básico. Pueden contener cualquier tipo de información, como texto, números y más.</li>
+                        </ul>
+                        <li><marcador class="resaltado9">Listas</marcador></li>
+                        <ul class="custom-list2">
+                            <li><marcador class="resaltado8">List: </marcador>Una lista es una secuencia de elementos ordenados. Redis permite agregar elementos a las listas de manera eficiente desde ambos extremos.</li>
+                        </ul>
+                        <li><marcador class="resaltado9">Conjuntos</marcador></li>
+                        <ul class="custom-list2">
+                            <li><marcador class="resaltado8">Set: </marcador>Un conjunto es una colección de elementos únicos no ordenados. Ideal para operaciones como la verificación de membresía y la eliminación de duplicados.</li>
+                        </ul>
+                        <li><marcador class="resaltado9">Conjuntos ordenados</marcador></li>
+                        <ul class="custom-list2">
+                            <li><marcador class="resaltado8">Sorted Set: </marcador>Es similar a un conjunto, pero cada elemento tiene un score que permite ordenarlo automáticamente según ese valor.</li>
+                        </ul>
+                        <li><marcador class="resaltado9">Mapas Hash</marcador></li>
+                        <ul class="custom-list2">
+                            <li><marcador class="resaltado8">Hash: </marcador>Un mapa hash es una colección de campos y valores asociados, útil para almacenar objetos y datos complejos.</li>
+                        </ul>
+                        <li><marcador class="resaltado9">Flujos</marcador></li>
+                        <ul class="custom-list2">
+                            <li><marcador class="resaltado8">Streams: </marcador>Son flujos de datos que permiten el procesamiento de mensajes en tiempo real.</li>
+                        </ul>
+                        <li><marcador class="resaltado9">Estructuras avanzadas</marcador></li>
+                        <ul class="custom-list2">
+                            <li><marcador class="resaltado8">Bitmaps y HyperLogLogs: </marcador>Son estructuras optimizadas para tareas como el conteo aproximado de elementos o la manipulación eficiente de bits.</li>
+                        </ul>
+                    </ol>
+                    <li><marcador class="resaltado5">Tipos avanzados mediante módulos</marcador></li>
+                    <ol style="list-style-type: none;">
+                        <li><marcador class="resaltado9">RedisJSON</marcador></li>
+                        <ul class="custom-list2">
+                            <li><marcador class="resaltado8">RedisJSON: </marcador>Permite almacenar y consultar documentos JSON directamente en Redis.</li>
+                        </ul>
+                        <li><marcador class="resaltado9">RedisGraph</marcador></li>
+                        <ul class="custom-list2">
+                            <li><marcador class="resaltado8">RedisGraph: </marcador>Un motor de grafos basado en Cypher, adecuado para realizar consultas complejas sobre grafos.</li>
+                        </ul>
+                        <li><marcador class="resaltado9">RedisTimeSeries</marcador></li>
+                        <ul class="custom-list2">
+                            <li><marcador class="resaltado8">RedisTimeSeries: </marcador>Optimizado para almacenar y consultar datos temporales, con soporte para agregaciones y compresión.</li>
+                        </ul>
+                        <li><marcador class="resaltado9">RedisBloom</marcador></li>
+                        <ul class="custom-list2">
+                            <li><marcador class="resaltado8">RedisBloom: </marcador>Permite utilizar estructuras de datos probabilísticas como filtros Bloom para mejorar la eficiencia de las consultas.</li>
+                        </ul>
+                        <li><marcador class="resaltado9">RedisAI</marcador></li>
+                        <ul class="custom-list2">
+                            <li><marcador class="resaltado8">RedisAI: </marcador>Permite ejecutar modelos de inteligencia artificial directamente en Redis.</li>
+                        </ul>
+                    </ol>
                 </ol>
                 <div class="blog-image-grande">
                     <img src="media/redis3.png" alt="">
                 </div>
                 <h2>Características principales de Redis</h2>
-                <p><marcador class="resaltado8">Alto rendimiento: </marcador>Redis es extremadamente rápido, con operaciones que se ejecutan en microsegundos, lo que lo convierte en una opción ideal para aplicaciones que requieren baja latencia.</p>
-                <p><marcador class="resaltado8">Persistencia de datos: </marcador>A pesar de ser una base de datos en memoria, Redis ofrece mecanismos de persistencia como snapshots y logs para asegurar que los datos no se pierdan en caso de fallo.</p>
-                <p><marcador class="resaltado8">Escalabilidad: </marcador>Redis es altamente escalable, ya que permite la replicación de datos, particionado de claves (sharding) y clustering, lo que lo hace adecuado para aplicaciones que requieren una infraestructura distribuida.</p>
-                <p><marcador class="resaltado8">Soporte para Pub/Sub: </marcador>Redis también ofrece capacidades de publicación y suscripción (Pub/Sub), lo que lo hace útil para la creación de sistemas de mensajería en tiempo real.</p>
+                <p>∘ <marcador class="resaltado8">Alto rendimiento: </marcador>Redis es extremadamente rápido, con operaciones que se ejecutan en microsegundos, lo que lo convierte en una opción ideal para aplicaciones que requieren baja latencia.</p>
+                <p>∘ <marcador class="resaltado8">Persistencia de datos: </marcador>A pesar de ser una base de datos en memoria, Redis ofrece mecanismos de persistencia como snapshots y logs para asegurar que los datos no se pierdan en caso de fallo.</p>
+                <p>∘ <marcador class="resaltado8">Escalabilidad: </marcador>Redis es altamente escalable, ya que permite la replicación de datos, particionado de claves (sharding) y clustering, lo que lo hace adecuado para aplicaciones que requieren una infraestructura distribuida.</p>
+                <p>∘ <marcador class="resaltado8">Soporte para Pub/Sub: </marcador>Redis también ofrece capacidades de publicación y suscripción (Pub/Sub), lo que lo hace útil para la creación de sistemas de mensajería en tiempo real.</p>
+                <h2>AOL</h2>
+                <p>Redis en AOL (Append-Only Log) utiliza un sistema de registro que guarda cada comando de escritura en un archivo, lo que permite garantizar la persistencia de los datos incluso en caso de fallos o reinicios. Este mecanismo opera como un diario donde cada operación que modifica el estado de la base de datos se escribe secuencialmente.</p>
+                <p>El archivo de log, conocido como appendonly.aof, asegura que todas las operaciones sean registradas en el mismo orden en que fueron ejecutadas. Esto facilita reconstruir el estado exacto de la base de datos en caso de recuperación, reproduciendo los comandos uno por uno.</p>
+                <p>Redis permite configurar la frecuencia con la que los datos se sincronizan con el disco para equilibrar rendimiento y durabilidad. Esto se gestiona mediante la opción appendfsync, que puede configurarse en tres modos principales: sincronización en cada comando (mayor durabilidad pero más lento), sincronización cada cierto intervalo de tiempo o confiar en el sistema operativo para la escritura.</p>
+                <p>Una característica destacable de AOL es la compactación periódica, conocida como AOF rewrite. Este proceso genera una nueva versión optimizada del archivo, que contiene solo el estado actual de los datos y elimina operaciones redundantes, reduciendo el tamaño del archivo y mejorando la eficiencia en la restauración.</p>
+                <h2>Enfoque multi-model de Redis</h2>
+                <p>Un enfoque multi-model significa que Redis puede manejar diferentes tipos de datos y estructuras, como cadenas, listas, conjuntos, mapas y otros, bajo una misma instancia. Esto permite que múltiples aplicaciones con diferentes necesidades interactúen con la misma base de datos, reduciendo la complejidad de mantenimiento y aumentando la flexibilidad.</p>
+                <p>Redis combina esta capacidad nativa con módulos extensibles para manejar formatos especializados como gráficos, documentos y datos de series temporales, haciendo que sea más que una simple base de datos clave-valor.</p>
+                <p>Redis es capaz de almacenar estos diferentes tipos de datos y manejarlos gracias a su eficiente arquitectura interna:</p>
+                <p>⌭ <marcador class="resaltado5">Espacio unificado de claves: </marcador>Todas las claves se gestionan en el mismo espacio de nombres, lo que significa que puedes combinar diferentes tipos de datos sin necesidad de crear particiones explícitas.</p>
+                <p>⌭ <marcador class="resaltado5">Tipificación de datos: </marcador>Cada clave tiene un tipo asociado. Por ejemplo, puedes usar una clave user:123 como un hash para almacenar los detalles de un usuario, y otra clave user:123:activity como un stream para registrar actividades en tiempo real.</p>
+                <p>⌭ <marcador class="resaltado5">Módulos como extensiones nativas: </marcador>Redis utiliza su API de módulos para ampliar su funcionalidad sin comprometer el rendimiento. Estos módulos se integran profundamente, permitiendo que los desarrolladores utilicen comandos familiares como SET o GET para interactuar con nuevos modelos de datos.</p>                   
+                <p>⌭ <marcador class="resaltado5">Optimización en memoria: </marcador>Cada tipo de dato está diseñado para ser altamente eficiente en memoria, utilizando algoritmos y estructuras específicas que minimizan el consumo de recursos mientras maximizan el rendimiento.</p>                   
+                <div class="blog-image-grande">
+                    <img src="media/redis2.jpg" alt="">
+                </div>
+                <h2>Módulos extendidos</h2>
+                <p>∘ <marcador class="resaltado8">RedisJSON: </marcador>Este módulo permite almacenar, consultar y modificar datos en formato JSON directamente en Redis. Es útil para aplicaciones que trabajan con documentos estructurados, ya que permite realizar consultas rápidas y manipular estructuras JSON anidadas. Sus comandos principales incluyen <code>JSON.SET</code> para almacenar documentos, <code>JSON.GET</code> para recuperarlos y <code>JSON.ARRAPPEND</code> para modificar arreglos dentro de ellos.</p>
+                <p>∘ <marcador class="resaltado8">RedisGraph: </marcador>RedisGraph implementa un motor de base de datos de grafos que utiliza el lenguaje Cypher para consultas. Es ideal para casos de uso como redes sociales, grafos de conocimiento o sistemas de recomendación. Con comandos como <code>GRAPH.QUERY</code> para ejecutar consultas y <code>GRAPH.DELETE</code> para eliminar grafos, este módulo expande las capacidades analíticas de Redis en el ámbito de las relaciones.</p>
+                <p>∘ <marcador class="resaltado8">RedisTimeSeries: </marcador>Diseñado para manejar datos de series temporales, este módulo ofrece soporte para agregaciones y compresión de datos. Es especialmente útil para monitoreo en tiempo real y análisis histórico. Permite comandos como <code>TS.ADD</code> para agregar puntos de datos, <code>TS.RANGE</code> para consultar rangos históricos y <code>TS.CREATE</code> para inicializar series temporales.</p>
+                <p>∘ <marcador class="resaltado8">RedisBloom: </marcador>Este módulo añade estructuras de datos probabilísticas como filtros Bloom y Count-Min Sketch, ideales para conteos aproximados y verificación de membresía en grandes conjuntos de datos. Comandos como <code>BF.ADD</code> para añadir elementos y <code>BF.EXISTS</code> para verificar membresías lo hacen excelente para escenarios donde el uso eficiente de memoria es crítico.</p>
+                <p>∘ <marcador class="resaltado8">RedisAI: </marcador>RedisAI permite integrar modelos de machine learning directamente en Redis, soportando frameworks como TensorFlow, PyTorch y ONNX. Es ideal para inferencias en tiempo real, ofreciendo comandos como <code>AI.MODELSET</code> para cargar modelos y <code>AI.TENSORSET</code> para trabajar con tensores en almacenamiento.</p>
+                <p>∘ <marcador class="resaltado8">RediSearch: </marcador>Este módulo transforma Redis en un motor de búsqueda de texto completo con soporte para índices secundarios. Es perfecto para aplicaciones que requieren búsquedas rápidas y avanzadas. Incluye comandos como <code>FT.CREATE</code> para crear índices, <code>FT.SEARCH</code> para realizar búsquedas y <code>FT.AGGREGATE</code> para consultas con agregaciones complejas.</p>
+                <p>∘ <marcador class="resaltado8">RedisGears: </marcador>RedisGears permite ejecutar flujos de trabajo distribuidos y procesamiento de datos basado en eventos. Es ideal para transformaciones en tiempo real y procesamiento masivo de datos. Utiliza comandos como <code>RG.PYEXECUTE</code> para ejecutar scripts en Python y <code>RG.TRIGGER</code> para activar flujos definidos.</p>
+                <p>∘ <marcador class="resaltado8">RedisML: </marcador>Este módulo ofrece soporte básico para operaciones de aprendizaje automático, como regresiones y predicciones simples. Con comandos como <code>ML.MODELSET</code> para definir modelos y <code>ML.MODELRUN</code> para realizar predicciones, es ideal para aplicaciones ligeras de IA en tiempo real.</p>
+                <p>∘ <marcador class="resaltado8">RedisCluster: </marcador>RedisCluster proporciona la capacidad de configurar sistemas distribuidos con múltiples nodos, facilitando alta disponibilidad y escalabilidad. Permite particionar datos de manera eficiente en sistemas grandes, asegurando rendimiento en aplicaciones críticas.</p>
+                <p>∘ <marcador class="resaltado8">RedisGraphQL: </marcador>Este módulo facilita la integración de consultas GraphQL en Redis, simplificando la construcción de APIs modernas y la conexión entre bases de datos y capas de aplicación frontend. Es una solución eficiente para aplicaciones que manejan grandes volúmenes de datos interrelacionados.</p>
+                <div class="blog-image-grande">
+                    <img src="media/redis13.png" alt="">
+                </div>
                 <h2>Operaciones comunes</h2>
                 <h6>CRUD (Create, Read, Update, Delete)</h6>
                 <p>En Redis, las operaciones CRUD se realizan principalmente a través de comandos que manipulan las claves y sus valores en la base de datos de Redis.</p>
@@ -203,9 +266,30 @@
                     </div>
                     <p>Este comando establece una nueva contraseña de acceso para la base de datos Redis, reemplazando la contraseña anterior.</p>
                 </ul>
+                <h2>Escalamiento en Redis</h2>
+                <p>Redis es una base de datos extremadamente rápida que puede escalar horizontalmente para manejar grandes volúmenes de datos y tráfico. El escalamiento en Redis se logra principalmente a través de la fragmentación (sharding) y la replicación, aprovechando configuraciones como el modelo <marcador class="resaltado8">Master-Slave</marcador> y el sistema <marcador class="resaltado8">SOSS (Scale Out State Server)</marcador>.</p>
+
+                <h6>Master-Slave</h6>
+                <p>El modelo Master-Slave en Redis permite distribuir las operaciones de lectura y escritura de manera eficiente. En esta configuración, una instancia principal (Master) se encarga de las escrituras y actualizaciones de datos, mientras que múltiples réplicas (Slaves) manejan las operaciones de lectura.</p>
+                <ul class="custom-list2">
+                    <li><marcador class="resaltado8">Master: </marcador>Es la instancia principal que almacena los datos y se encarga de replicarlos a los Slaves.</li>
+                    <li><marcador class="resaltado8">Slave: </marcador>Son réplicas del Master que reciben los datos a través de replicación asíncrona y responden a las solicitudes de lectura.</li>
+                    <li><marcador class="resaltado8">Alta disponibilidad: </marcador>Si el Master falla, puede configurarse una nueva promoción automática de un Slave a Master utilizando sistemas como Redis Sentinel.</li>
+                </ul>
                 <div class="blog-image">
                     <img src="media/redis5.png" alt="">
                 </div>
+                <h6>SOSS (Scale Out State Server)</h6>
+                <p>El sistema SOSS permite el escalamiento horizontal de Redis mediante la fragmentación de los datos en varios nodos. Cada nodo almacena una parte de los datos, y los clientes acceden a ellos utilizando un mecanismo de mapeo que garantiza que las claves se dirijan al nodo correcto.</p>
+                <ul class="custom-list2">
+                    <li><marcador class="resaltado8">Fragmentación: </marcador>Los datos se dividen en fragmentos (shards), y cada shard se almacena en un nodo diferente.</li>
+                    <li><marcador class="resaltado8">Distribución consistente: </marcador>Redis Cluster utiliza un algoritmo de hash para garantizar que las claves se distribuyan de manera uniforme entre los nodos.</li>
+                    <li><marcador class="resaltado8">Failover: </marcador>En caso de fallo de un nodo, Redis Cluster puede redistribuir las claves afectadas a los nodos restantes.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/redis14.jpg" alt="">
+                </div>
+                <p>Ambas estrategias combinan rendimiento y escalabilidad, lo que permite a Redis manejar cargas de trabajo intensivas y volúmenes de datos en crecimiento de manera eficiente. El modelo Master-Slave es ideal para mejorar el rendimiento de lectura, mientras que el sistema SOSS permite escalar Redis horizontalmente para manejar grandes conjuntos de datos.</p>
                 <h2>Operadores</h2>
                 <p>En Redis, las funciones y operadores permiten realizar manipulaciones de datos, como la transformación, filtrado, y modificación de valores de las claves de manera eficiente. Redis, a diferencia de bases de datos como MongoDB o SQL, se basa en un modelo de datos en memoria y no tiene una sintaxis tan rica para agregación, pero permite realizar operaciones rápidas y eficientes sobre conjuntos de datos.</p>
 
@@ -375,6 +459,14 @@ r.set('foo', 'bar')
 print(r.get('foo'))
                 </div>
                 <p>Este código conecta a Redis, establece un valor asociado a la clave "foo" y luego recupera ese valor.</p>
+                <h2>Redis on Flash (RoF)</h2>
+                <p>Redis on Flash extiende la capacidad de almacenamiento de Redis al permitir guardar datos menos utilizados (o "datos fríos") en dispositivos de almacenamiento SSD, mientras los datos más utilizados (o "datos calientes") permanecen en RAM. Este modelo combina la velocidad de Redis con el costo más bajo del almacenamiento en disco.</p>
+                <p>El sistema funciona dividiendo los datos:</p>
+                <ul>
+                    <li><marcador class="resaltado8">Hot Data (Datos calientes): </marcador>Residen en RAM para accesos frecuentes y rápidos.</li>
+                    <li><marcador class="resaltado8">Cold Data (Datos fríos): </marcador>Se almacenan en SSD para minimizar el uso de memoria cara, pero siguen siendo accesibles cuando se necesitan.</li>
+                </ul>
+                <p>Redis on Flash utiliza algoritmos para gestionar automáticamente el intercambio de datos entre RAM y SSD, asegurando que las operaciones más críticas se mantengan rápidas.</p>
                 <div class="blog-image-grande">
                     <img src="media/redis7.png" alt="">
                 </div>

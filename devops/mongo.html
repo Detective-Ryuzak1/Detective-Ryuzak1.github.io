@@ -224,6 +224,16 @@
                     <li><marcador class="resaltado8">$count: </marcador>Cuenta el número de documentos en una agrupación.</li>
                     <li><marcador class="resaltado8">$min y $max: </marcador>Encuentran el valor mínimo o máximo dentro de un conjunto de valores.</li>
                 </ul>
+                <h6>Operadores Lógicos en MongoDB</h6>
+                <p>En MongoDB, los operadores lógicos son fundamentales para construir consultas avanzadas y filtrar documentos según condiciones específicas. Estos operadores permiten combinar múltiples criterios y realizar evaluaciones complejas dentro de una consulta.</p>
+
+                <ul class="custom-list2">
+                    <li><marcador class="resaltado8">$and: </marcador>Evalúa múltiples expresiones y devuelve los documentos que cumplen con todas las condiciones especificadas. Es útil para filtrar documentos que deben cumplir varios criterios simultáneamente.</li>
+                    <li><marcador class="resaltado8">$or: </marcador>Devuelve los documentos que cumplen al menos una de las condiciones especificadas. Es ideal para búsquedas donde cualquier de los criterios sea suficiente.</li>
+                    <li><marcador class="resaltado8">$nor: </marcador>Devuelve los documentos que no cumplen ninguna de las condiciones especificadas. Es la combinación lógica de "not" y "or".</li>
+                    <li><marcador class="resaltado8">$not: </marcador>Invierte la condición de un operador y devuelve los documentos que no cumplen el criterio especificado. Generalmente se utiliza dentro de expresiones de comparación.</li>
+                    <li><marcador class="resaltado8">$expr: </marcador>Permite usar expresiones de agregación para realizar operaciones lógicas directamente en la consulta.</li>
+                </ul>
                 <p>Estas funciones se utilizan dentro de la etapa <code>$group</code> del pipeline de agregación para realizar cálculos sobre los datos agrupados.</p>
                 <h6>Funciones Escalares</h6>
                 <p>A diferencia de las funciones de agregación, las funciones escalares operan sobre un único documento o fila. Se aplican a cada documento individualmente y retornan un valor basado en los datos de ese documento.</p>
@@ -262,6 +272,105 @@
                         </div>
                     </div>
                     <p>Esta consulta recupera todos los departamentos únicos de la colección de empleados. Si dos o más empleados pertenecen al mismo departamento, este solo se mostrará una vez.</p>
+                    <li><marcador class="resaltado9">$currentDate</marcador></li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            El operador <code>$currentDate</code> establece el valor de un campo como la fecha y hora actual. Por ejemplo:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="db.ordenes.update({ _id: 1 }, { $currentDate: { ultimaActualizacion: true } })" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Actualiza el campo <code>ultimaActualizacion</code> con la fecha y hora actual.</p>
+                    <li><marcador class="resaltado9">$inc</marcador></li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            El operador <code>$inc</code> incrementa un valor numérico de un campo. Por ejemplo:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="db.cuentas.update({ _id: 1 }, { $inc: { saldo: 100 } })" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Aumenta el saldo de la cuenta en 100 unidades.</p>
+                    <li><marcador class="resaltado9">$rename</marcador></li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            El operador <code>$rename</code> cambia el nombre de un campo dentro de un documento. Por ejemplo:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="db.usuarios.update({ _id: 1 }, { $rename: { 'direccion': 'direccionPostal' } })" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Cambia el nombre del campo <code>direccion</code> a <code>direccionPostal</code>.</p>
+                    <li><marcador class="resaltado9">$set</marcador></li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            El operador <code>$set</code> establece un valor para un campo específico. Si el campo no existe, lo crea. Por ejemplo:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="db.productos.update({ _id: 1 }, { $set: { categoria: 'electronica' } })" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Establece el valor del campo <code>categoria</code> a 'electronica'.</p>
+                    <li><marcador class="resaltado9">$unset</marcador></li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            El operador <code>$unset</code> elimina un campo de un documento. Por ejemplo:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="db.productos.update({ _id: 1 }, { $unset: { descuento: '' } })" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Elimina el campo <code>descuento</code> del documento.</p>
+                    <li><marcador class="resaltado9">$addToSet</marcador></li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            El operador <code>$addToSet</code> agrega un valor a un conjunto (array) si no está ya presente. Por ejemplo:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="db.usuarios.update({ _id: 1 }, { $addToSet: { intereses: 'deportes' } })" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Agrega el valor 'deportes' al array <code>intereses</code> si no existe ya.</p>
+                    <li><marcador class="resaltado9">$pop</marcador></li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            El operador <code>$pop</code> elimina el primer o último elemento de un array. Por ejemplo:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="db.usuarios.update({ _id: 1 }, { $pop: { intereses: 1 } })" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Elimina el último elemento del array <code>intereses</code>.</p>
+                    <li><marcador class="resaltado9">$pull</marcador></li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            El operador <code>$pull</code> elimina los elementos de un array que coinciden con una condición. Por ejemplo:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="db.usuarios.update({ _id: 1 }, { $pull: { intereses: 'futbol' } })" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Elimina todos los elementos en el array <code>intereses</code> que sean 'futbol'.</p>
+                    <li><marcador class="resaltado9">$push</marcador></li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            El operador <code>$push</code> agrega un valor al final de un array. Por ejemplo:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="db.usuarios.update({ _id: 1 }, { $push: { intereses: 'videojuegos' } })" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Agrega el valor 'videojuegos' al final del array <code>intereses</code>.</p>
                     <li><marcador class="resaltado9">$unionWith</marcador></li>
                     <div class="contenedor">
                         <div class="etiqueta">
@@ -305,6 +414,17 @@
                             <button><i class="fa fa-clone"></i><span> Copy</span></button>
                         </div>
                     </div>
+                    <li><marcador class="resaltado9">$regex</marcador></li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            El operador <code>$regex</code> permite realizar búsquedas de patrones complejos dentro de campos de texto utilizando expresiones regulares. Un ejemplo avanzado sería:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="db.articulos.find({ nombre: { $regex: /^(?!.*(fácil|rápido)).*/i } })" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Este ejemplo busca artículos cuyo nombre no contenga las palabras 'fácil' ni 'rápido', usando una expresión regular avanzada con lookahead negativo.</p>
                     <p>Esta consulta obtiene los empleados cuyos nombres comienzan con la letra "A". El símbolo ^ es un ancla que representa el inicio de la cadena.</p>
                     <li><marcador class="resaltado9">$in</marcador></li>
                     <div class="contenedor">
@@ -328,6 +448,28 @@
                         </div>
                     </div>
                     <p>Esta consulta devuelve los empleados que tienen menos de 30 años o un salario superior a 50,000.</p>
+                    <li><marcador class="resaltado9">$text</marcador></li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            El operador <code>$text</code> permite realizar búsquedas de texto completo en campos indexados. Por ejemplo:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="db.articulos.find({ $text: { $search: 'tecnología' } })" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Busca artículos que contengan la palabra "tecnología" en campos indexados como <code>titulo</code> o <code>contenido</code>.</p>
+                    <li><marcador class="resaltado9">$where</marcador></li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            El operador <code>$where</code> permite evaluar una expresión JavaScript dentro de una consulta. Por ejemplo:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="db.productos.find({ $where: 'this.precio > 100' })" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Encuentra productos cuyo precio sea mayor a 100, evaluando la condición en JavaScript.</p>
                 </ul>
                 <p>Estos operadores son solo una pequeña muestra de las capacidades que ofrece MongoDB para trabajar con datos. MongoDB permite crear consultas avanzadas y realizar análisis detallados de manera eficiente.</p>
                 <div class="blog-image-grande">
