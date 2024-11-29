@@ -107,12 +107,14 @@ botones.forEach((boton) => {
 
 // Obtén todos los botones con la clase "boton-copiar-consola"
 const botonesCopiar = document.querySelectorAll(".boton-copiar-consola");
+
 // Itera a través de los botones y agrega un controlador de eventos a cada uno
 botonesCopiar.forEach((boton) => {
   boton.addEventListener("click", function () {
     // Encuentra el elemento ".codigo-consola" dentro del contenedor actual
     const codigo = this.parentElement.nextElementSibling.querySelector("pre code");
     const codigoTexto = codigo.textContent;
+
     // Crea un elemento de textarea para copiar el código
     const textarea = document.createElement("textarea");
     textarea.value = codigoTexto;
@@ -120,14 +122,19 @@ botonesCopiar.forEach((boton) => {
     textarea.select();
     document.execCommand("copy");
     document.body.removeChild(textarea);
-    // Cambia el texto del botón a "Copiado"
-    this.innerText = "Copied!";
+
+    // Cambia solo el texto al lado del ícono
+    const textoOriginal = this.innerHTML; // Guarda el contenido completo original
+    const icono = this.querySelector("i").outerHTML; // Extrae el ícono original
+    this.innerHTML = `${icono}&nbsp;Copied!`; // Cambia solo el texto a "Copied!"
+
     // Restaura el texto original después de dos segundos
     setTimeout(() => {
-      this.innerText = "Copy";
+      this.innerHTML = textoOriginal; // Restaura el contenido original
     }, 2000);
   });
 });
+
 
 
 
