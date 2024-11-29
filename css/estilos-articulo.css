@@ -222,6 +222,16 @@ a:hover {
     font-family: 'Roboto';
 }
 
+.resaltado113 {
+    color: rgb(250, 38, 10);
+    opacity: 1.5;
+    background-color: rgb(10, 250, 230);
+    border-radius: 3px;
+    padding-left: 3px; /* Agrega padding a la izquierda */
+    padding-right: 3px; /* Agrega padding a la derecha */
+    font-family: 'Roboto';
+}
+
 /* Colores de letra */
 .resaltado2 {
     color: rgb(163, 221, 136);
@@ -249,7 +259,7 @@ a:hover {
 .resaltado6 {
     font-style: italic;
     opacity: 1.5;
-    color: rgb(237, 250, 162); /* Cambia el color a tu preferencia */
+    color: #edfa78; /* Cambia el color a tu preferencia */
     font-family: 'Roboto';
 }
 
@@ -287,7 +297,7 @@ a:hover {
 /* Italic */
 .resaltado9 {
     font-style: italic;
-    color: #848cfa; /* Cambia el color a tu preferencia */ 
+    color: #8f96f7; /* Cambia el color a tu preferencia */ 
     opacity: 1.5; 
     font-family: 'Roboto'; 
 }
@@ -587,7 +597,7 @@ iframe {
 
 .icono-cmd {
     height: 100%; /* La imagen se ajusta a la altura de la barra */
-    max-height: 21px; /* Límite máximo de altura para evitar desbordamiento */
+    max-height: 22px; /* Límite máximo de altura para evitar desbordamiento */
     width: auto; /* Mantiene la proporción de la imagen */
     display: inline-block; /* Asegura el alineamiento correcto */
     margin-right: 5px;
