@@ -149,11 +149,12 @@ main{
     font-family: 'Roboto';
 }
 .text__articulo-cover h5{
-    font-size: 16px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    color: rgb(175, 84, 236);
+    font-size: 20px;
+    /*color: rgb(122, 162, 235);*/
+    color: rgb(255, 99, 99);
     font-weight: normal;
+    margin-top: 20px;
+    margin-bottom: 20px;
     font-family: 'Roboto';
 }
 .text__articulo-cover h6{
@@ -234,12 +235,12 @@ a:hover {
 
 /* Resultado de ecuaciones */
 .resaltado7 {
-    border: 1px solid #d7e93a;
+    border: 1px solid #ecff3f;
     padding: 8px;
     font-family: 'Roboto'
 }
 .resaltado17 {
-    border: 1px solid #d7e93a;
+    border: 1px solid #ecff3f;
     padding: 4px;
     font-family: 'Roboto';
 }
