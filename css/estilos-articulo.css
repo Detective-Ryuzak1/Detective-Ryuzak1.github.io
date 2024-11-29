@@ -251,7 +251,7 @@ a:hover {
     font-family: 'Roboto';
 }
 .resaltado5 {
-    color: rgb(255, 117, 117);
+    color: rgb(255, 122, 122);
     font-style: italic;
     opacity: 1.5;
     font-family: 'Roboto';
@@ -259,7 +259,7 @@ a:hover {
 .resaltado6 {
     font-style: italic;
     opacity: 1.5;
-    color: #edfd59; /* Cambia el color a tu preferencia */
+    color: #f2ff7d; /* Cambia el color a tu preferencia */
     font-family: 'Roboto';
 }
 
@@ -297,7 +297,7 @@ a:hover {
 /* Italic */
 .resaltado9 {
     font-style: italic;
-    color: #8f96f7; /* Cambia el color a tu preferencia */ 
+    color: #9399f1; /* Cambia el color a tu preferencia */ 
     opacity: 1.5; 
     font-family: 'Roboto'; 
 }
