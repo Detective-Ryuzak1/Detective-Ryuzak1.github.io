@@ -203,30 +203,40 @@ a:hover {
 }
 
 .resaltado111 {
-    color: rgb(250, 10, 198);
+    color: rgb(255, 0, 128);
     opacity: 1.5;
     background-color: rgb(217, 253, 15);
-    border-radius: 3px;
+    border-radius: 8px;
     padding-left: 3px; /* Agrega padding a la izquierda */
     padding-right: 3px; /* Agrega padding a la derecha */
     font-family: 'Roboto';
 }
 
 .resaltado112 {
-    color: rgb(250, 10, 10);
+    color: rgb(0, 0, 0);
     opacity: 1.5;
-    background-color: rgb(217, 253, 15);
-    border-radius: 3px;
+    background-color: rgb(232, 255, 21);
+    border-radius: 8px;
     padding-left: 3px; /* Agrega padding a la izquierda */
     padding-right: 3px; /* Agrega padding a la derecha */
     font-family: 'Roboto';
 }
 
 .resaltado113 {
-    color: rgb(250, 38, 10);
+    color: rgb(255, 73, 49);
     opacity: 1.5;
     background-color: rgb(10, 250, 230);
-    border-radius: 3px;
+    border-radius: 8px;
+    padding-left: 3px; /* Agrega padding a la izquierda */
+    padding-right: 3px; /* Agrega padding a la derecha */
+    font-family: 'Roboto';
+}
+
+.resaltado114 {
+    color: rgb(0, 0, 0);
+    opacity: 1.5;
+    background-color: rgb(123, 255, 0);
+    border-radius: 8px;
     padding-left: 3px; /* Agrega padding a la izquierda */
     padding-right: 3px; /* Agrega padding a la derecha */
     font-family: 'Roboto';
@@ -259,7 +269,7 @@ a:hover {
 .resaltado6 {
     font-style: italic;
     opacity: 1.5;
-    color: #f2ff7d; /* Cambia el color a tu preferencia */
+    color: #f0ff6c; /* Cambia el color a tu preferencia */
     font-family: 'Roboto';
 }
 
