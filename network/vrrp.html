@@ -68,10 +68,10 @@
                 <h2>Parámetros</h2>
                 <p>Para implementar VRRP, es importante configurar correctamente varios parámetros clave:</p>
                 <ul style="list-style-type: none;">
-                    <li>‣ <marcador class="resaltado5">Prioridad: </marcador>Un valor numérico que varía de 1 a 254 y determina el rol de cada router en el grupo. El router con el valor más alto se convierte en el maestro.</li>
-                    <li>‣ <marcador class="resaltado5">Intervalo de anuncios (Advertisement Interval): </marcador>Es el tiempo en segundos entre cada mensaje de advertencia que envía el maestro. Normalmente, este valor es corto para asegurar una transición rápida en caso de falla (por ejemplo, 1 segundo).</li>
-                    <li>‣ <marcador class="resaltado5">Preempt: </marcador>Esta opción permite que un router con una prioridad más alta se convierta automáticamente en el maestro si entra en línea después de un fallo. Este ajuste es útil para garantizar que el router preferido se mantenga como maestro.</li>
-                    <li>‣ <marcador class="resaltado5">Tiempo de espera (Master Down Interval): </marcador>Es el tiempo que el router de respaldo espera antes de asumir que el maestro ha fallado. Generalmente se calcula como tres veces el intervalo de anuncios.</li>
+                    <li>⋆ <marcador class="resaltado5">Prioridad: </marcador>Un valor numérico que varía de 1 a 254 y determina el rol de cada router en el grupo. El router con el valor más alto se convierte en el maestro.</li>
+                    <li>⋆ <marcador class="resaltado5">Intervalo de anuncios (Advertisement Interval): </marcador>Es el tiempo en segundos entre cada mensaje de advertencia que envía el maestro. Normalmente, este valor es corto para asegurar una transición rápida en caso de falla (por ejemplo, 1 segundo).</li>
+                    <li>⋆ <marcador class="resaltado5">Preempt: </marcador>Esta opción permite que un router con una prioridad más alta se convierta automáticamente en el maestro si entra en línea después de un fallo. Este ajuste es útil para garantizar que el router preferido se mantenga como maestro.</li>
+                    <li>⋆ <marcador class="resaltado5">Tiempo de espera (Master Down Interval): </marcador>Es el tiempo que el router de respaldo espera antes de asumir que el maestro ha fallado. Generalmente se calcula como tres veces el intervalo de anuncios.</li>
                 </ul>
                 <div class="blog-image-grande">
                     <img src="media/vrrp3.jpg" alt="">

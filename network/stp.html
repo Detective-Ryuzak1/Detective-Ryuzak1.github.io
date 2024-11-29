@@ -55,8 +55,8 @@
                 <h2>Funcionamiento de STP</h2>
                 <p>STP evita los bucles de capa 2 mediante el bloqueo de ciertos puertos para que los datos solo tengan un camino posible hacia el root. Sin STP, los bucles pueden causar problemas en las tablas MAC:</p>
                 <ul style="list-style-type: none;">
-                    <li>‣ <marcador class="resaltado5">Generación de Tablas MAC: </marcador>Cada switch construye una tabla MAC, que asocia direcciones MAC con puertos específicos. Los switches aprenden esta información al recibir tramas.</li>
-                    <li>‣ <marcador class="resaltado5">Problemas en Bucles: </marcador>En un bucle, los paquetes se duplican y circulan indefinidamente:</li>
+                    <li>⋆ <marcador class="resaltado5">Generación de Tablas MAC: </marcador>Cada switch construye una tabla MAC, que asocia direcciones MAC con puertos específicos. Los switches aprenden esta información al recibir tramas.</li>
+                    <li>⋆ <marcador class="resaltado5">Problemas en Bucles: </marcador>En un bucle, los paquetes se duplican y circulan indefinidamente:</li>
                     <ol>
                         <li>Las tablas MAC se llenan de entradas duplicadas o incorrectas, ya que los switches reciben el mismo paquete en múltiples puertos.</li>
                         <li>Esto puede llevar a una sobrecarga en los switches, que consumen más CPU y memoria, y provocan pérdida de conectividad.</li>
@@ -155,8 +155,8 @@
                 <h2>Prioridades en STP y Selección del Switch Root</h2>
                 <p>Cada switch en STP tiene un valor de prioridad, el cual determina qué switch se convierte en el root bridge (raíz de la red). El root bridge actúa como el centro de la red y envía BPDU (Bridge Protocol Data Units) a otros switches para mantener la estructura de la red.</p>
                 <ul style="list-style-type: none;">
-                    <li>‣ <marcador class="resaltado5">Rango de Prioridades: </marcador>La prioridad se establece en incrementos de 4096, dentro de un rango de 0 a 61440.</li>
-                    <li>‣ <marcador class="resaltado5">Elección del Root: </marcador>El switch con la prioridad más baja se convierte en el root. En caso de empate en prioridades, se elige el switch con la dirección MAC más baja.</li>
+                    <li>⋆ <marcador class="resaltado5">Rango de Prioridades: </marcador>La prioridad se establece en incrementos de 4096, dentro de un rango de 0 a 61440.</li>
+                    <li>⋆ <marcador class="resaltado5">Elección del Root: </marcador>El switch con la prioridad más baja se convierte en el root. En caso de empate en prioridades, se elige el switch con la dirección MAC más baja.</li>
                 </ul>
                 <p>Por ejemplo, si un switch tiene una prioridad de 0 y otro tiene una prioridad de 4096, el switch con 0 se convierte en el root, ya que su prioridad es menor.</p>
                 <div class="blog-image-grande">

@@ -95,15 +95,15 @@
                 </div> 
                 <h2>Estándares y características técnicas</h2>
                 <ul style="list-style-type: none;">
-                    <li>‣ <marcador class="resaltado5">Protocolo basado en UDP: </marcador>Utiliza el puerto 520 (en RIPng, el puerto 521).</li>
-                    <li>‣ <marcador class="resaltado5">Métrica: </marcador>La métrica utilizada es la cantidad de saltos (hops), con un límite máximo de 15. Si una ruta tiene más de 15 saltos, se considera inalcanzable.</li>
-                    <li>‣ <marcador class="resaltado5">Actualizaciones periódicas: </marcador>Los routers envían actualizaciones cada 30 segundos.</li>
-                    <li>‣ <marcador class="resaltado5">Convergencia lenta: </marcador>Uno de los principales inconvenientes de RIP es su tiempo de convergencia lento comparado con otros protocolos de enrutamiento como OSPF o EIGRP.</li>
-                    <li>‣ <marcador class="resaltado5">Split horizon: </marcador>Una técnica que evita que la información de enrutamiento se envíe de vuelta por la interfaz de donde provino.</li>
-                    <li>‣ <marcador class="resaltado5">Triggered updates: </marcador>RIP envía actualizaciones inmediatas si detecta un cambio en la red, en lugar de esperar el intervalo de 30 segundos.</li>
-                    <li>‣ <marcador class="resaltado5">Hold-down timer: </marcador>Cuando se detecta una ruta caída, el router espera un tiempo antes de aceptar cualquier actualización de esa ruta, previniendo la propagación de información incorrecta.</li>
-                    <li>‣ <marcador class="resaltado5">Balanceo de carga: </marcador>RIP soporta el balanceo de carga de manera automática cuando existen múltiples rutas con el mismo costo (igual número de saltos). Puede balancear hasta 6 rutas de manera predeterminada, aunque este número se puede ajustar.</li>
-                    <li>‣ <marcador class="resaltado5">Prioridad: </marcador>RIP no tiene una prioridad de ruta como tal, pero es posible influir en las decisiones de enrutamiento ajustando el número de saltos (métrica) o, en casos específicos, se puede usar la manipulación de rutas estáticas para priorizar ciertos caminos.</li>
+                    <li>⋆ <marcador class="resaltado5">Protocolo basado en UDP: </marcador>Utiliza el puerto 520 (en RIPng, el puerto 521).</li>
+                    <li>⋆ <marcador class="resaltado5">Métrica: </marcador>La métrica utilizada es la cantidad de saltos (hops), con un límite máximo de 15. Si una ruta tiene más de 15 saltos, se considera inalcanzable.</li>
+                    <li>⋆ <marcador class="resaltado5">Actualizaciones periódicas: </marcador>Los routers envían actualizaciones cada 30 segundos.</li>
+                    <li>⋆ <marcador class="resaltado5">Convergencia lenta: </marcador>Uno de los principales inconvenientes de RIP es su tiempo de convergencia lento comparado con otros protocolos de enrutamiento como OSPF o EIGRP.</li>
+                    <li>⋆ <marcador class="resaltado5">Split horizon: </marcador>Una técnica que evita que la información de enrutamiento se envíe de vuelta por la interfaz de donde provino.</li>
+                    <li>⋆ <marcador class="resaltado5">Triggered updates: </marcador>RIP envía actualizaciones inmediatas si detecta un cambio en la red, en lugar de esperar el intervalo de 30 segundos.</li>
+                    <li>⋆ <marcador class="resaltado5">Hold-down timer: </marcador>Cuando se detecta una ruta caída, el router espera un tiempo antes de aceptar cualquier actualización de esa ruta, previniendo la propagación de información incorrecta.</li>
+                    <li>⋆ <marcador class="resaltado5">Balanceo de carga: </marcador>RIP soporta el balanceo de carga de manera automática cuando existen múltiples rutas con el mismo costo (igual número de saltos). Puede balancear hasta 6 rutas de manera predeterminada, aunque este número se puede ajustar.</li>
+                    <li>⋆ <marcador class="resaltado5">Prioridad: </marcador>RIP no tiene una prioridad de ruta como tal, pero es posible influir en las decisiones de enrutamiento ajustando el número de saltos (métrica) o, en casos específicos, se puede usar la manipulación de rutas estáticas para priorizar ciertos caminos.</li>
                 </ul>
                 <h2>Autenticación en RIP v2</h2>
                 <p>RIP v2 permite habilitar autenticación para evitar que routers no autorizados envíen rutas incorrectas. Las dos opciones son:</p>
