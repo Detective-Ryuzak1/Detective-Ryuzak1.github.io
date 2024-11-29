@@ -560,24 +560,48 @@ iframe {
 }
 /* Estilos para la barra superior */
 .barra-superior-consola {
-    text-align: right;
+    display: flex; /* Usamos flexbox para organizar los elementos */
+    justify-content: space-between; /* Ubica los elementos en esquinas opuestas */
+    align-items: center; /* Alinea verticalmente los elementos */
     background-color: rgb(117, 236, 240);
-    color: #fff;
+    color: #000;
     height: 35px;
-    line-height: 30px;
+    padding: 0 10px; /* Espaciado interno */
+    font-family: monospace;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    padding: 0 10px;
 }
-/* Estilos para el botón */
+
+.grupo-icono-texto {
+    display: flex; /* Agrupar imagen y texto juntos */
+    align-items: center; /* Alinear verticalmente */
+}
+
+.texto-cmd {
+    color: #000; /* Color del texto */
+    font-size: 14px; /* Tamaño de fuente */
+    font-family: monospace; /* Fuente monospace */
+    margin: 0; /* Elimina márgenes extra */
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+}
+
+.icono-cmd {
+    height: 100%; /* La imagen se ajusta a la altura de la barra */
+    max-height: 21px; /* Límite máximo de altura para evitar desbordamiento */
+    width: auto; /* Mantiene la proporción de la imagen */
+    display: inline-block; /* Asegura el alineamiento correcto */
+    margin-right: 5px;
+}
+
 .boton-copiar-consola {
     background-color: rgb(117, 236, 240);
     font-family: monospace;
     color: #000;
     border: none;
-    padding: 0;
     cursor: pointer;
     border-radius: 0;
+    padding: 0;
+    font-size: 14px;
 }
 
 .boton-copiar-consola:hover {
