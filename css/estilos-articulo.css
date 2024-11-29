@@ -215,7 +215,7 @@ a:hover {
     font-family: 'Roboto';
 }
 .resaltado4 {
-    color: rgb(153, 229, 231);
+    color: rgb(154, 247, 250);
     font-style: italic;
     opacity: 1.5;
     font-family: 'Roboto';
@@ -561,7 +561,7 @@ iframe {
 }
 
 .boton-copiar-consola:hover {
-    background: linear-gradient(45deg, #99E5E7, #89d3a2);
+    background: linear-gradient(45deg, #74e0e4, #e1fdff);
 }
 /* Estilos para el código */
 .codigo-consola {
