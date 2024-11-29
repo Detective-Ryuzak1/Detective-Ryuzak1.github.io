@@ -126,7 +126,7 @@ botonesCopiar.forEach((boton) => {
     // Cambia solo el texto al lado del ícono
     const textoOriginal = this.innerHTML; // Guarda el contenido completo original
     const icono = this.querySelector("i").outerHTML; // Extrae el ícono original
-    this.innerHTML = `${icono}&nbsp;Copied!`; // Cambia solo el texto a "Copied!"
+    this.innerHTML = `Copied!`; // Cambia solo el texto a "Copied!" --> this.innerHTML = `${icono}Copied!`;
 
     // Restaura el texto original después de dos segundos
     setTimeout(() => {
