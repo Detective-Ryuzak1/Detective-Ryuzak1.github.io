@@ -202,6 +202,16 @@ a:hover {
     font-family: 'Roboto';
 }
 
+.resaltado111 {
+    color: rgb(255, 96, 207);
+    opacity: 1.5;
+    background-color: rgb(237, 250, 162);
+    border-radius: 3px;
+    padding-left: 3px; /* Agrega padding a la izquierda */
+    padding-right: 3px; /* Agrega padding a la derecha */
+    font-family: 'Roboto';
+}
+
 /* Colores de letra */
 .resaltado2 {
     color: rgb(163, 221, 136);
