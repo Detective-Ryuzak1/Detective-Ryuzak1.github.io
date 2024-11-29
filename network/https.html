@@ -95,21 +95,21 @@
                 <h2>Intercambio de información</h2>
                 <p>Durante el proceso de handshake en una conexión HTTPS, se intercambia una cantidad de información crucial entre el cliente (tu navegador) y el servidor web. Esto se hace para establecer una comunicación segura y cifrada. Aquí está la información que se comparte durante el proceso de handshake:</p>
                 <ol>
-                    <li><marcador class="resaltado111">ClientHello:</marcador> Tu navegador envía un mensaje ClientHello al servidor. Este mensaje contiene:</li>
+                    <li><marcador class="resaltado112">ClientHello:</marcador> Tu navegador envía un mensaje ClientHello al servidor. Este mensaje contiene:</li>
                     <ul style="list-style-type: none;">
                         <li>∘ <marcador class="resaltado8">Versión de Protocolo:</marcador></marcador> La versión de SSL/TLS que tu navegador admite.</li>
                         <li>∘ <marcador class="resaltado8">Cifrado y Compresión Soportados:</marcador> Los algoritmos de cifrado y métodos de compresión que tu navegador puede utilizar.</li>
                         <li>∘ <marcador class="resaltado8">Datos Aleatorios:</marcador> Un valor aleatorio único generado por el navegador. Este valor se utiliza para añadir entropía y seguridad a la conexión.</li>
                         <li>∘ <marcador class="resaltado8">Sesión ID:</marcador> Si ya has visitado el sitio web antes y se estableció una sesión segura, esta ID se incluirá para reanudar la sesión anterior (opcional).</li>
                     </ul>
-                    <li><marcador class="resaltado111">ServerHello:</marcador> El servidor web responde al ClientHello con un mensaje ServerHello, que contiene:</li>
+                    <li><marcador class="resaltado112">ServerHello:</marcador> El servidor web responde al ClientHello con un mensaje ServerHello, que contiene:</li>
                     <ul style="list-style-type: none;">
                         <li>∘ <marcador class="resaltado8">Versión de Protocolo:</marcador> La versión de SSL/TLS que el servidor y el cliente usarán para la conexión (normalmente seleccionando la versión más alta compatible).</li>
                         <li>∘ <marcador class="resaltado8">Cifrado y Compresión Seleccionados:</marcador> El servidor elige uno de los algoritmos de cifrado y métodos de compresión proporcionados por el cliente.</li>
                         <li>∘ <marcador class="resaltado8">Datos Aleatorios:</marcador> Al igual que en el ClientHello, el servidor envía su propio valor aleatorio único.</li>
                         <li>∘ <marcador class="resaltado8">Sesión ID:</marcador> Si la reanudación de la sesión está habilitada y se encontró una coincidencia con la ID proporcionada por el cliente, el servidor incluye la ID de sesión correspondiente.</li>
                     </ul>
-                    <li><marcador class="resaltado111">Intercambio de Claves:</marcador> Durante esta etapa, se realiza un proceso llamado "intercambio de claves" para establecer una clave secreta compartida que se utilizará para cifrar y descifrar los datos. Esto implica los siguientes pasos:</li>
+                    <li><marcador class="resaltado112">Intercambio de Claves:</marcador> Durante esta etapa, se realiza un proceso llamado "intercambio de claves" para establecer una clave secreta compartida que se utilizará para cifrar y descifrar los datos. Esto implica los siguientes pasos:</li>
                     <ul style="list-style-type: none;">
                         <li>∘ <marcador class="resaltado8">Envío de Clave Pública del Servidor:</marcador> El servidor envía su certificado, que incluye su clave pública. Esta clave pública se utiliza para cifrar los datos que el cliente enviará al servidor.</li>
                         <li>∘ <marcador class="resaltado8">Generación de Clave Secreta:</marcador> Tanto el cliente como el servidor generan una clave secreta compartida llamada "clave de sesión". Esto se hace utilizando la información intercambiada anteriormente y ciertos algoritmos matemáticos.</li>
