@@ -132,7 +132,7 @@ main{
 .text__articulo-cover h3{
     font-size: 20px;
     /*color: rgb(122, 162, 235);*/
-    color: rgb(231, 113, 113);
+    color: rgb(235, 99, 99);
     font-weight: normal;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -221,7 +221,7 @@ a:hover {
     font-family: 'Roboto';
 }
 .resaltado5 {
-    color: rgb(247, 139, 139);
+    color: rgb(255, 117, 117);
     font-style: italic;
     opacity: 1.5;
     font-family: 'Roboto';
