@@ -205,7 +205,7 @@ a:hover {
 .resaltado111 {
     color: rgb(255, 96, 207);
     opacity: 1.5;
-    background-color: rgb(207, 236, 41);
+    background-color: rgb(225, 255, 58);
     border-radius: 3px;
     padding-left: 3px; /* Agrega padding a la izquierda */
     padding-right: 3px; /* Agrega padding a la derecha */
@@ -245,12 +245,12 @@ a:hover {
 
 /* Resultado de ecuaciones */
 .resaltado7 {
-    border: 1px solid #e2ee7a;
+    border: 1px solid #e9ff22;
     padding: 8px;
     font-family: 'Roboto'
 }
 .resaltado17 {
-    border: 1px solid #e2ee7a;
+    border: 1px solid #e9ff22;
     padding: 4px;
     font-family: 'Roboto';
 }
