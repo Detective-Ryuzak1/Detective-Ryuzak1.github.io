@@ -97,7 +97,7 @@
                 <p>En Cisco también existen rangos de números específicos para las listas de control de acceso (ACL), y estos números indican el tipo de ACL que se está configurando. En Cisco, las ACL pueden ser estándar o extendidas, y los números determinan qué tipo de ACL se va a aplicar.</p>
                 <p>Aquí están los rangos de números y su significado en dispositivos Cisco:</p>
                 <ol>
-                    <li><marcador class="resaltado5">ACL Estándar</marcador></li>
+                    <li><marcador class="resaltado9">ACL Estándar</marcador></li>
                     <ul style="list-style-type: none;">
                         <li>∘ <marcador class="resaltado8">Rango de números: </marcador>1 - 99 y 1300 - 1999</li>
                         <li>∘ <marcador class="resaltado8">Función: </marcador>Las ACL estándar solo filtran tráfico basándose en la dirección IP de origen. No permiten filtrar por puerto o protocolo.</li>
@@ -112,7 +112,7 @@
                         </div>
                     </ul>
                     <p>Esta ACL permite todo el tráfico que proviene de la red 192.168.1.0/24.</p>
-                    <li><marcador class="resaltado5">ACL Extendida</marcador></li>
+                    <li><marcador class="resaltado9">ACL Extendida</marcador></li>
                     <ul style="list-style-type: none;">
                         <li>∘ <marcador class="resaltado8">Rango de números: </marcador>100 - 199 y 2000 - 2699</li>
                         <li>∘ <marcador class="resaltado8">Función: </marcador>Las ACL extendidas permiten filtrar tráfico basándose en varios criterios, incluyendo la dirección IP de origen y destino, protocolo, y puertos. Esto proporciona un mayor control y es útil para configuraciones más complejas.</li>
@@ -127,7 +127,7 @@
                         </div>
                     </ul>
                     <p>Esta regla permite el tráfico TCP desde cualquier host en la red 192.168.1.0/24 hacia cualquier destino en el puerto 80 (HTTP).</p>
-                    <li><marcador class="resaltado5">ACL de Capa 2</marcador></li>
+                    <li><marcador class="resaltado9">ACL de Capa 2</marcador></li>
                     <ul style="list-style-type: none;">
                         <li>∘ <marcador class="resaltado8">Rango de números: </marcador>No aplica un rango específico como en las ACL IP extendidas; las MAC ACLs en Cisco usan nombres para identificarse.</li>
                         <li>∘ <marcador class="resaltado8">Función: </marcador>Las ACL de Capa 2 permiten filtrar tráfico basándose en las direcciones MAC de origen y destino, útil para controlar el acceso a nivel de capa 2 en switches.</li>
@@ -149,7 +149,7 @@ deny any any</code></pre>
                         </div>
                     </ul>
                     <p>Permite el tráfico proveniente de la dirección MAC 0050.56b3.4f1a hacia cualquier otro destino.</p>
-                    <li><marcador class="resaltado5">ACL de Nombre (Nombradas)</marcador></li>
+                    <li><marcador class="resaltado9">ACL de Nombre (Nombradas)</marcador></li>
                     <ul style="list-style-type: none;">
                         <li>∘ Cisco permite crear ACLs con nombres en lugar de números, lo cual facilita la organización y administración, especialmente en redes grandes.</li>
                         <li>∘ Estas ACL pueden ser estándar o extendidas y permiten agregar, modificar o eliminar reglas individuales.</li>
@@ -182,7 +182,7 @@ deny ip any any</code></pre>
                 <h3>Huawei</h3>
                 <p>En Huawei, los rangos de números para las listas de control de acceso (ACL) también están diseñados para diferentes tipos de filtrado, lo que permite elegir el tipo de ACL según la granularidad y las necesidades de control en la red. Aquí está el desglose de los rangos de ACL en Huawei y cuándo elegir cada uno.</p>
                 <ol>
-                    <li><marcador class="resaltado5">ACL Básica</marcador></li>
+                    <li><marcador class="resaltado9">ACL Básica</marcador></li>
                     <ul style="list-style-type: none;">
                         <li>∘ <marcador class="resaltado8">Rango de números: </marcador>2000 - 2999</li>
                         <li>∘ <marcador class="resaltado8">Función: </marcador>Las ACL básicas permiten filtrar tráfico únicamente basándose en la dirección IP de origen. Son adecuadas para configuraciones simples donde solo se necesita controlar el acceso según la IP de origen.</li>
@@ -203,7 +203,7 @@ rule 5 permit source 192.168.1.0 0.0.0.255</code></pre>
                         </div>
                     </ul>
                     <p>Este ejemplo permite el tráfico proveniente de la red 192.168.1.0/24.</p>
-                    <li><marcador class="resaltado5">ACL Avanzada</marcador></li>
+                    <li><marcador class="resaltado9">ACL Avanzada</marcador></li>
                     <ul style="list-style-type: none;">
                         <li>∘ <marcador class="resaltado8">Rango de números: </marcador>3000 - 3999</li>
                         <li>∘ <marcador class="resaltado8">Función: </marcador>Las ACL avanzadas permiten un filtrado más detallado, incluyendo direcciones IP de origen y destino, protocolos, y puertos específicos. Son útiles para configuraciones que requieren mayor control sobre el tráfico, como permitir o denegar servicios específicos.</li>
@@ -224,7 +224,7 @@ rule 5 permit tcp source 192.168.1.0 0.0.0.255 destination 10.0.0.0 0.0.0.255 de
                         </div>
                     </ul>
                     <p>Este ejemplo permite el tráfico HTTP (puerto 80) desde la red 192.168.1.0/24 hacia la red 10.0.0.0/24.</p>
-                    <li><marcador class="resaltado5">ACL de Capa 2</marcador></li>
+                    <li><marcador class="resaltado9">ACL de Capa 2</marcador></li>
                     <ul style="list-style-type: none;">
                         <li>∘ <marcador class="resaltado8">Rango de números: </marcador>4000 - 4999</li>
                         <li>∘ <marcador class="resaltado8">Función: </marcador>Las ACL de Capa 2 permiten el filtrado de tráfico basándose en la dirección MAC y son útiles para configuraciones de seguridad a nivel de capa de enlace (capa 2 del modelo OSI).</li>
@@ -246,7 +246,7 @@ rule 10 permit</code></pre>
                         </div>
                     </ul>
                     <p>Este ejemplo deniega el tráfico proveniente de un dispositivo con la dirección MAC 00e0.fc12.3456.</p>
-                    <li><marcador class="resaltado5">ACL de Capa 3 y Capa 4</marcador></li>
+                    <li><marcador class="resaltado9">ACL de Capa 3 y Capa 4</marcador></li>
                     <ul style="list-style-type: none;">
                         <li>∘ <marcador class="resaltado8">Rango de números: </marcador>5000 - 5999</li>
                         <li>∘ <marcador class="resaltado8">Función: </marcador>Estas ACL se utilizan para un control más específico en términos de protocolos y puertos a nivel de Capa 3 (IP) y Capa 4 (Transporte), como permitir o denegar tráfico TCP, UDP, ICMP, etc. Proporcionan un filtrado detallado, similar a las ACL avanzadas, pero ofrecen más opciones y flexibilidad en dispositivos de Huawei de gama alta.</li>
