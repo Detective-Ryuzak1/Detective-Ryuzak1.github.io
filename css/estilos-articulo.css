@@ -132,7 +132,7 @@ main{
 .text__articulo-cover h3{
     font-size: 20px;
     /*color: rgb(122, 162, 235);*/
-    color: rgb(235, 64, 64);
+    color: rgb(224, 58, 58);
     font-weight: normal;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -151,7 +151,7 @@ main{
 .text__articulo-cover h5{
     font-size: 20px;
     /*color: rgb(122, 162, 235);*/
-    color: rgb(224, 45, 45);
+    color: rgb(235, 47, 47);
     font-weight: normal;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -160,12 +160,53 @@ main{
 .text__articulo-cover h6{
     font-size: 20px;
     /*color: rgb(122, 162, 235);*/
-    color: rgb(222, 238, 5);
+    color: rgb(232, 248, 0);
     font-weight: normal;
     margin-top: 20px;
     margin-bottom: 20px;
     font-family: 'Roboto';
 }
+
+.text__articulo-cover h66{
+    font-size: 20px;
+    /*color: rgb(122, 162, 235);*/
+    color: rgb(239, 255, 99);
+    font-weight: normal;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: 'Roboto';
+}
+
+.text__articulo-cover h7{
+    font-size: 20px;
+    /*color: rgb(122, 162, 235);*/
+    color: rgb(255, 252, 203);
+    font-weight: normal;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: 'Roboto';
+}
+
+.text__articulo-cover h8{
+    font-size: 20px;
+    /*color: rgb(122, 162, 235);*/
+    color: rgb(122, 255, 44);
+    font-weight: normal;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: 'Roboto';
+}
+
+.text__articulo-cover h9{
+    font-size: 20px;
+    /*color: rgb(122, 162, 235);*/
+    color: rgb(76, 154, 156);
+    font-weight: normal;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: 'Roboto';
+}
+
 .text__articulo-cover p{
     font-size: 16px;
     margin-top: 10px;
@@ -183,6 +224,102 @@ a:hover {
     color: rgb(167, 111, 207);
 }
 
+.metallic-text {
+    font-family: 'Roboto';
+    font-size: 20px;
+    font-weight: bold;
+    background: linear-gradient(90deg, #a1a099, #FFFACD, #a1a099, #4d4d4d);
+    background-size: 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 0.85s infinite linear;
+}
+
+/* Brillo dinámico */
+@keyframes shine {
+    0% { background-position: 15% 50%; }
+    100% { background-position: 85% 50%; }
+}
+
+/* Parpadeo */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Pulso */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Movimiento lateral */
+@keyframes slide {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(20px); }
+    100% { transform: translateX(0); }
+}
+
+/* Cambio de colores */
+@keyframes colorChange {
+    0% { background-color: #ff6f61; }
+    50% { background-color: #6fb1ff; }
+    100% { background-color: #ff6f61; }
+}
+
+/* Rotación */
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Crecimiento y contracción */
+@keyframes growShrink {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* Subida y bajada */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Degradado que se mueve */
+@keyframes gradientMove {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+}
+
+/* Oscilación */
+@keyframes swing {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(10deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(-10deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.bronze-text {
+    font-family: 'Roboto';
+    font-size: 20px;
+    font-weight: bold;
+    background: linear-gradient(45deg, #CD7F32, #A97142, #C9A56D);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 1px 1px 2px #8B4513, 0 0 20px #CD7F32, 0 0 5px #A97142;
+}
+
+.gold-text {
+    font-family: 'Roboto';
+    font-size: 20px;
+    font-weight: bold;
+    background: linear-gradient(45deg, #FFD700, #FFA500, #FFEC8B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 1px 1px 2px #DAA520, 0 0 25px #FFD700, 0 0 5px #FFA500;
+}
 
 /* Marcador*/
 .subrayado {
@@ -261,7 +398,7 @@ a:hover {
     font-family: 'Roboto';
 }
 .resaltado5 {
-    color: rgb(255, 122, 122);
+    color: rgb(255, 64, 64);
     font-style: italic;
     opacity: 1.5;
     font-family: 'Roboto';
@@ -269,7 +406,7 @@ a:hover {
 .resaltado6 {
     font-style: italic;
     opacity: 1.5;
-    color: #ecff43; /* Cambia el color a tu preferencia */
+    color: #eeff51; /* Cambia el color a tu preferencia */
     font-family: 'Roboto';
 }
 
@@ -307,7 +444,7 @@ a:hover {
 /* Italic */
 .resaltado9 {
     font-style: italic;
-    color: #9399f1; /* Cambia el color a tu preferencia */ 
+    color: #7fbafd; /* Cambia el color a tu preferencia */ 
     opacity: 1.5; 
     font-family: 'Roboto'; 
 }
