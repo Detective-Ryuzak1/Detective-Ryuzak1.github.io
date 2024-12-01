@@ -392,7 +392,7 @@ a:hover {
     font-family: 'Roboto';
 }
 .resaltado4 {
-    color: rgb(154, 247, 250);
+    color: rgb(176, 252, 255);
     font-style: italic;
     opacity: 1.5;
     font-family: 'Roboto';
@@ -444,7 +444,7 @@ a:hover {
 /* Italic */
 .resaltado9 {
     font-style: italic;
-    color: #7fbafd; /* Cambia el color a tu preferencia */ 
+    color: #add3ff; /* Cambia el color a tu preferencia */ 
     opacity: 1.5; 
     font-family: 'Roboto'; 
 }
