@@ -151,7 +151,7 @@ main{
 .text__articulo-cover h5{
     font-size: 20px;
     /*color: rgb(122, 162, 235);*/
-    color: rgb(243, 89, 89);
+    color: rgb(255, 75, 75);
     font-weight: normal;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -228,7 +228,7 @@ a:hover {
     font-family: 'Roboto';
     font-size: 20px;
     font-weight: bold;
-    background: linear-gradient(90deg, #a1a099, #FFFACD, #a1a099, #4d4d4d);
+    background: linear-gradient(90deg, #a1a099, #cbfda2, #a1a099, #77f006);
     background-size: 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
