@@ -160,7 +160,7 @@ main{
 .text__articulo-cover h6{
     font-size: 20px;
     /*color: rgb(122, 162, 235);*/
-    color: rgb(232, 248, 0);
+    color: rgb(229, 243, 40);
     font-weight: normal;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -170,7 +170,7 @@ main{
 .text__articulo-cover h66{
     font-size: 20px;
     /*color: rgb(122, 162, 235);*/
-    color: rgb(239, 255, 99);
+    color: rgb(240, 250, 101);
     font-weight: normal;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -406,7 +406,7 @@ a:hover {
 .resaltado6 {
     font-style: italic;
     opacity: 1.5;
-    color: #eeff51; /* Cambia el color a tu preferencia */
+    color: #edfc65; /* Cambia el color a tu preferencia */
     font-family: 'Roboto';
 }
 
