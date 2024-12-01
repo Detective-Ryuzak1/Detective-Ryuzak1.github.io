@@ -90,9 +90,9 @@
                     <li><marcador class="resaltado9">Designated Router (DR): </marcador>El DR es un router seleccionado dentro de una red para actuar como el principal punto de comunicación entre todos los routers en esa red. Su función es recolectar y distribuir la información de estado de enlace a todos los demás routers (nodos) en la red. Cuando un router se convierte en DR, se encarga de enviar LSA a los demás routers, lo que minimiza el número de adjacencias que deben formarse. Esto es crucial en redes grandes, ya que reduce la sobrecarga de control y mejora la eficiencia del enrutamiento. El DR se elige mediante un proceso de elección basado en la prioridad configurada y, en caso de empate, en el ID del router más alto.</li>
                     <li><marcador class="resaltado9">Backup Designated Router (BDR): </marcador>El BDR actúa como un respaldo del DR. Su función principal es asumir el rol de DR en caso de que este falle o se desconecte. El BDR también participa en el proceso de recopilación de información de estado de enlace, pero en menor medida que el DR. Esta función de respaldo asegura que la red mantenga su capacidad de comunicación y convergencia rápida, minimizando la posibilidad de pérdida de información durante un fallo. Al igual que el DR, el BDR se elige durante el proceso de selección inicial, siguiendo las mismas reglas de prioridad y ID de router.</li>
                 </ol>
-                <h6>Funcionamiento en la Red</h6>
+                <h66>Funcionamiento en la Red</h6>
                 <p>Cuando un router se conecta a una red de tipo broadcast o non-broadcast, inicia un proceso de descubrimiento donde se identifican otros routers en la misma red. Todos los routers intercambian información sobre sus capacidades y estado. A partir de este intercambio, se elige un DR y un BDR. Los routers que no son DR ni BDR establecen adyacencias solo con el DR, lo que significa que la cantidad de enlaces que deben manejar es significativamente menor, permitiendo una convergencia más rápida y un uso más eficiente del ancho de banda.</p>
-                <h6>Proceso de Selección de DR y BDR</h6>
+                <h66>Proceso de Selección de DR y BDR</h6>
                 <ul style="list-style-type: none;">
                     <li>⋆ <marcador class="resaltado5">Prioridad OSPF: </marcador>Cada router en una red OSPF puede tener una prioridad configurada, que va de 0 a 255. Esta prioridad se utiliza para determinar cuál router será seleccionado como DR. Un valor de prioridad de 0 significa que el router no participará en la elección del DR. Los routers con una prioridad más alta tienen más posibilidades de convertirse en DR. Si un router tiene una prioridad más alta que los demás, será elegido como DR.</li>
                     <li>⋆ <marcador class="resaltado5">ID del Router: </marcador>Si hay un empate en la prioridad (es decir, si varios routers tienen la misma prioridad), se utiliza el ID del router como criterio de desempate. El ID del router es generalmente la dirección IP más alta de las interfaces del router o puede ser configurado manualmente. El router con el ID más alto se convertirá en DR.</li>
@@ -107,13 +107,13 @@
                 <p>La Link-State Database (LSDB) es una de las componentes clave del protocolo OSPF (Open Shortest Path First). La LSDB contiene información sobre el estado de los enlaces de todos los routers dentro de un área OSPF y es fundamental para la toma de decisiones de enrutamiento. </p>
                 <p>Cada entrada en la LSDB representa un enlace o una relación entre dos routers. Cada enlace incluye información como el ID del router, la dirección IP, el costo del enlace y el estado.</p>
                 <p>La LSDB contiene diferentes tipos de LSA (Link State Advertisements), que son los mensajes que se intercambian entre routers para actualizar la LSDB. Existen varios tipos de LSA, cada uno con un propósito específico, como anunciar rutas externas o describir la topología de una red.</p>
-                <h6>Función de la LSDB</h6>
+                <h66>Función de la LSDB</h6>
                 <ol style="list-style-type: none;">
                     <li>⦿ <marcador class="resaltado6">Almacenamiento de Información: </marcador>La LSDB almacena detalles sobre todos los enlaces (interfaces) de los routers en la red, incluyendo su estado (up o down), costo, y la información de las adyacencias entre los routers. Esto permite que OSPF tenga una visión completa de la topología de la red.</li>
                     <li>⦿ <marcador class="resaltado6">Convergencia Rápida: </marcador>Cuando ocurre un cambio en la topología de la red (como la caída de un enlace), los routers envían actualizaciones a la LSDB. Esto permite que todos los routers converjan rápidamente hacia una nueva ruta óptima.</li>
                     <li>⦿ <marcador class="resaltado6">Cálculo de Rutas: </marcador>Utilizando la información de la LSDB, OSPF emplea el algoritmo de Dijkstra (Shortest Path First, SPF) para calcular la mejor ruta hacia cada destino en la red. La LSDB es esencial para este proceso, ya que proporciona la base de datos que se utiliza para determinar las rutas más eficientes.</li>
                 </ol>
-                <h6>Orden de Sincronización</h6>
+                <h66>Orden de Sincronización</h6>
                 <p>El proceso sigue el siguiente flujo:</p>
                 <ul>
                     <li>Los routers no DR envían sus LSAs al DR.</li>
@@ -442,7 +442,7 @@ interface GigabitEthernet0/0
                     <li><marcador class="resaltado8">Router ISP</marcador></li>
                     <p>Este router se conecta al prefijo externo (172.33.1.2/30) que se redistribuirá en INET-1.</p>
                 </ul>
-                <h6>Parámetros Clave</h6>
+                <h66>Parámetros Clave</h6>
                 <ol>
                     <li><marcador class="resaltado8">Prioridad de DR en el Área 0: </marcador>Se configura <marcador class="subrayado">ip ospf priority</marcador> en el área 0, siendo INET-1 el router con la prioridad más alta (200) para actuar como Designated Router (DR), mientras que otros routers en el área tienen menor prioridad.</li>
                     <li><marcador class="resaltado8">Redistribución de Rutas Externas (E1): </marcador>En INET-1, se configuran rutas E1 para redistribuir los prefijos externos provenientes del router ISP.</li>
@@ -592,13 +592,13 @@ interface GigabitEthernet0/0
                     <li><marcador class="resaltado8">Router ISP</marcador></li>
                     <p>Este router se conecta al prefijo externo (172.33.1.2/30) que se redistribuirá en INET-1.</p>
                 </ul>
-                <h6>Parámetros Clave</h6>
+                <h66>Parámetros Clave</h6>
                 <ol>
                     <li><marcador class="resaltado8">Prioridad de DR en el Área 0: </marcador>Se configura <marcador class="subrayado">ospf priority</marcador> en el área 0, siendo INET-1 el router con la prioridad más alta (200) para actuar como Designated Router (DR), mientras que otros routers en el área tienen menor prioridad.</li>
                     <li><marcador class="resaltado8">Redistribución de Rutas Externas (E1): </marcador>En INET-1, se configuran rutas E1 para redistribuir los prefijos externos provenientes del router ISP.</li>
                     <li><marcador class="resaltado8">Throttle SPF: </marcador>Configurado en INET-1 para optimizar el tiempo de recalculo de SPF en caso de cambios en la topología, usando los valores de 10 ms (inicial), 100 ms (segunda iteración), y 5000 ms (máximo).</li>
                 </ol>
-                <h6>BGP</h6>
+                <h66>BGP</h6>
                 <p>Para conectar con el ISP en esta topología, lo más común sería utilizar el protocolo BGP (Border Gateway Protocol) para la interconexión entre el ISP y tu red interna que utiliza OSPF. Esto se debe a que:</p>
                 <ol>
                     <li>BGP es el protocolo estándar para comunicar redes autónomas, como la red interna y la del ISP.</li>

@@ -185,7 +185,7 @@ Switch4# copy running-config startup-config</code></pre>
                 <p>El problema radica en que, por defecto, los switches de capa 2 no pueden enrutar el tráfico entre diferentes VLANs. Aunque tienes una conexión física entre las VLANs a través del Switch1, los switches de capa 2 no pueden entender las direcciones IP ni enrutar el tráfico entre ellas.</p>
                 <p>Para permitir que el tráfico de VLAN pase entre los switches 2, 3 y 4 a través del Switch1, necesitas configurar el Switch1 para que actúe como un enrutador inter-VLAN. Esto implica configurar interfaces vlan en el Switch1 para cada VLAN.</p>
                 <p>Una vez configurado como un enrutador inter-VLAN, el Switch1 podrá enrutar el tráfico entre las VLANs, permitiendo que la VLAN 10 se comunique con la VLAN 20 a través de él.</p>
-                <h6>Inter-VLAN Routing</h6>
+                <h66>Inter-VLAN Routing</h6>
                 <p>En la siguiente configuración, los Switches 2, 3 y 4 tienen sus puertos configurados como puertos de acceso para sus respectivas VLANs. El router tiene una interfaz configurada para cada una de las VLANs, y actuará como un router inter-VLAN para enrutar el tráfico entre ellas.</p>
                 <p>De igual manera se va a usar la topología de red que se muestra en la imagen anterior para configurar los dispositivos de red, solo que se sustituye un switch por un router, con el cual podrán comunicarse todas las VLANs entre sí mediante subinterfaces.</p>
                 <div class="consola">
@@ -334,7 +334,7 @@ Switch4# copy running-config startup-config</code></pre>
                     </div>
                 </div>
                 <p>El comando <marcador class="subrayado">switchport trunk native vlan 10</marcador> establece la VLAN 10 como la VLAN nativa para el tráfico no etiquetado que ingresa al troncal. El tráfico que ingresa a la VLAN nativa no necesita etiquetarse con una VLAN específica.</p>
-                <h6>VTP</h6>
+                <h66>VTP</h6>
                 <p>Normalmente, para los puertos de los switches que están habilitados en modo trunk, solo es necesario activar el modo trunk en un lado del enlace, en este caso, el Switch1 que trabaja en la capa 3 y distribuye el tráfico de los switches que están en modo acceso.</p>
                 <p>De igual manera se va a usar la topología que se muestra en la imagen anterior para configurar los dispositivos de red, solo que se usa un switch capa 3 (switch1), con el cual podrán comunicarse todas las VLANs entre sí.<p>
                 <p>A continuación, se muestra como configurar el Protocolo de Transmisión de VLAN (VTP) y establecer la conectividad entre todas las VLANs a través de todos los switches configurados en modo de acceso:</p>
@@ -440,7 +440,7 @@ Switch4(config-if)# end
 Switch4# copy running-config startup-config</code></pre>
                     </div>
                 </div>
-                <h6>DTP</h6>
+                <h66>DTP</h6>
                 <p>DTP (Dynamic Trunking Protocol) es un protocolo utilizado para negociar automáticamente si un enlace entre dos switches será un troncal (que puede transportar tráfico de múltiples VLANs) o no. En lugar de tener que configurar manualmente los enlaces troncales, DTP permite que los switches negocien entre sí.</p>
                 <ol style="list-style-type: none;">
                     <li>∘ <marcador class="resaltado8">Modo Desirable: </marcador>Cuando un switch está en este modo, intenta activamente negociar el enlace troncal. Si el otro switch está en "auto" o "desirable", la conexión será troncal.</li>
@@ -550,7 +550,7 @@ Switch4# copy running-config startup-config</code></pre>
                     </div>
                 </div>
                 <h3>Huawei</h3>
-                <h6>Inter-VLAN Routing</h6>
+                <h66>Inter-VLAN Routing</h6>
                 <p>No es necesario configurar protocolos de enrutamiento si las VLANs están en diferentes dominios de broadcas.</p>
                 <p>Las VLANs en los switches se comunicarán entre sí a través del router sin problemas. Esto se debe a que el router está configurado con subinterfaces para cada VLAN y actúa como una puerta de enlace entre ellas.</p>
                 <p>De igual manera se va a usar la topología de red que se muestra en la imagen anterior para configurar los dispositivos de red, solo que se sustituye un switch por un router, con el cual podrán comunicarse todas las VLANs entre sí mediante subintefaces.</p>
@@ -701,7 +701,7 @@ Switch4# copy running-config startup-config</code></pre>
 </code></pre>
                     </div>
                 </div>
-                <h6>Switch Capa 3</h6>
+                <h66>Switch Capa 3</h6>
                 <p>Estos switches de capa 3 tienen capacidades de enrutamiento incorporadas, lo que les permite manejar múltiples VLANs y dirigir el tráfico entre ellas eficientemente dentro de la red local.</p>
                 <p>Los routers son dispositivos diseñados específicamente para el enrutamiento de datos entre redes y ofrecen funcionalidades avanzadas de enrutamiento y seguridad. El tráfico entre VLANs que se envía al router para su procesamiento y enrutamiento, puede introducir cierta latencia adicional en comparación con los switches de capa 3.</p>
                 <p>De igual manera se va a usar la topología de red que se muestra en la imagen anterior para configurar los dispositivos de red, solo que se usa un switch capa 3 (switch1), con el cual podrán comunicarse todas las VLANs entre sí.<p>
