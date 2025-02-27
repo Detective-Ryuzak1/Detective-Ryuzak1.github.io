@@ -454,6 +454,7 @@ print(result)
                 <div class="archivo">from langchain_ollama import OllamaLLM
 from langchain_core.prompts import ChatPromptTemplate
 
+# Definimos una plantilla de prompt para guiar las respuestas del chatbot
 template = """
 Answer the question below.
 
@@ -464,21 +465,31 @@ Question: {question}
 Answer:
 """
 
+# Cargamos el modelo de lenguaje local (Llama 3) usando Ollama
 model = OllamaLLM(model="llama3")
+
+# Creamos una plantilla de prompt a partir de la plantilla definida
 prompt = ChatPromptTemplate.from_template(template)
+
+# Combinamos la plantilla de prompt con el modelo de lenguaje
 chain = prompt | model
 
+# Función principal para manejar la conversación con el usuario
 def handle_conversation():
     context = ""
     print("Welcome to the AI Chatbot! Type 'exit' to quit.")
+    # Bucle infinito para mantener la conversación
     while True:
         user_input = input("You: ")
         if user_input.lower() == "exit":
             break
+        # Invocamos el modelo de lenguaje con el historial y la pregunta del usuario
         result = model.invoke({"context": context, "question": user_input})
         print("Bot: ", result)
+        # Actualizamos el historial de la conversación con la interacción actual
         context += f"\nUser: {user_input}\nAI: {result}"
 
+# Llamamos a la función para iniciar la conversación
 if __name__ == "__main__":
     handle_conversation()
                 </div>
