@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <link rel="icon" href="../media/imagen41.png" type="image/png">
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                        <li><a href="../devops.html">DevOps</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Aportar" onclick="window.open('https://buymeacoffee.com/ryuzak1', '_blank');">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <br>
+                <br>
+                <h1>Speech Recognition</h1>
+                <p>SpeechRecognition es una librería de Python diseñada para convertir voz en texto de manera eficiente. Funciona como una interfaz para múltiples motores de reconocimiento de voz, incluyendo Google Web Speech API, Sphinx, Microsoft Bing Voice Recognition, entre otros. Su capacidad para procesar audio en distintos formatos y su facilidad de integración la convierten en una herramienta útil para el desarrollo de asistentes virtuales, transcripción automática y otras aplicaciones de inteligencia artificial basadas en voz.</p>
+                <p>SpeechRecognition admite múltiples idiomas, aunque su soporte varía según el motor de reconocimiento utilizado. Por ejemplo, Google Web Speech API ofrece compatibilidad con más de 100 idiomas, mientras que PocketSphinx, una de las opciones offline, tiene soporte limitado a algunos idiomas como inglés y español.</p>
+                <div class="blog-image-grande">
+                    <img src="media/speech3.png" alt="">
+                </div>
+                <h6>Procesamiento de Voz</h6>
+                <p>El procesamiento de voz en SpeechRecognition implica la conversión de señales de audio en texto. Para lograrlo, se toman en cuenta varios factores técnicos:</p>
+                <ul>
+                    <li><marcador class="resaltado8">Sample Rate: </marcador>Indica la cantidad de muestras por segundo en un archivo de audio. Un valor común es 44.1 kHz (44,100 muestras por segundo).</li>
+                    <li><marcador class="resaltado8">Sample Width: </marcador>Representa el número de bytes utilizados para almacenar cada muestra de audio.</li>
+                    <li><marcador class="resaltado8">Canales: </marcador>Un archivo de audio puede ser mono (un canal) o estéreo (dos canales).</li>
+                    <li><marcador class="resaltado8">Frames: </marcador>Son los fragmentos en los que se divide el audio para su análisis.</li>
+                </ul>
+                <p>La calidad y precisión del reconocimiento dependen en gran medida de estos parámetros, ya que afectan la claridad y fidelidad de la voz capturada.</p>
+                <div class="blog-image-grande">
+                    <img src="media/speech2.jpg" alt="">
+                </div>
+                <h2>Tipos de Archivos de Audio Soportados</h2>
+                <p>La librería puede procesar archivos de audio en diversos formatos, incluyendo:</p>
+                <ul>
+                    <li><marcador class="resaltado8">WAV: </marcador>Formato sin compresión con alta calidad de audio.</li>
+                    <li><marcador class="resaltado8">AIFF: </marcador>Similar a WAV pero con mayor compatibilidad en dispositivos Apple.</li>
+                    <li><marcador class="resaltado8">FLAC: </marcador>Formato comprimido sin pérdida de calidad.</li>
+                    <li><marcador class="resaltado8">OGG: </marcador>Alternativa comprimida y abierta al MP3.</li>
+                </ul>
+                <h2>Instalación de paquetes</h2>
+                <div class="contenedor">
+                    <div class="etiqueta">Para instalar la librería, simplemente ejecuta el siguiente comando en tu terminal:</div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="pip install SpeechRecognition" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">Si deseas utilizar PocketSphinx como motor de reconocimiento, también necesitas instalarlo con:</div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="pip install pocketsphinx" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <h2>Ejemplo de Uso</h2>
+                <p>PocketSphinx es un motor de reconocimiento de voz offline compatible con SpeechRecognition. A continuación, se muestra un ejemplo de cómo utilizarlo:</p>
+                <div class="archivo">import speech_recognition as sr
+
+# Inicializar el reconocedor
+recognizer = sr.Recognizer()
+
+# Cargar un archivo de audio
+with sr.AudioFile("audio.wav") as source:
+    audio_data = recognizer.record(source)  # Capturar audio
+
+# Intentar reconocer el audio usando PocketSphinx
+try:
+    text = recognizer.recognize_sphinx(audio_data)
+    print("Texto reconocido:", text)
+except sr.UnknownValueError:
+    print("No se pudo entender el audio.")
+except sr.RequestError:
+    print("Error con el motor de reconocimiento.")</div>
+                <p>Este código carga un archivo de audio en formato WAV, lo procesa con PocketSphinx y devuelve el texto reconocido. Es una opción útil para proyectos que requieren reconocimiento de voz sin conexión a internet.</p>
+                <p>Haz click <a href="https://github.com/Detective-Ryuzak1/Machine-Learnig-examples/blob/main/SpeechRecognition/SpeechRecognition.ipynb" target="blank">aquí</a> para ver algunos ejemplos de uso con SpeechRecognition.</p>
+                <div class="blog-image-grande">
+                    <img src="media/speech1.jpg" alt="">
+                </div>
+            </div>  
+        </div>     
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
