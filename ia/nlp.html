@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <link rel="icon" href="../media/imagen41.png" type="image/png">
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                        <li><a href="../devops.html">DevOps</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Aportar" onclick="window.open('https://buymeacoffee.com/ryuzak1', '_blank');">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <br>
+                <br>
+                <h1>Procesamiento de Lenguaje Natural (NLP)</h1>
+                <p>El Procesamiento de Lenguaje Natural (NLP, por sus siglas en inglés) es un campo de la inteligencia artificial y la lingüística computacional que permite a las máquinas comprender, interpretar y generar lenguaje humano. Esta tecnología es la base de muchas aplicaciones modernas, como chatbots, asistentes virtuales, motores de búsqueda, traducción automática y análisis de sentimientos.</p>
+                <div class="blog-image-grande">
+                    <img src="media/nlp1.jpg" alt="">
+                </div>
+                <h2>Librerías para NLP</h2>
+                <p>El desarrollo de NLP ha sido facilitado por varias librerías especializadas que permiten procesar texto de manera eficiente. Algunas de las más populares son:</p>
+                <ul>
+                    <li><marcador class="resaltado8">SpaCy: </marcador>Optimizada para rendimiento y producción. Ofrece modelos preentrenados, procesamiento rápido y una API fácil de usar.</li>
+                    <li><marcador class="resaltado8">NLTK (Natural Language Toolkit): </marcador>Una de las librerías más antiguas y completas para NLP en Python. Proporciona herramientas para análisis léxico, sintáctico y semántico.</li>
+                    <li><marcador class="resaltado8">Gensim: </marcador>Se especializa en modelado de temas y procesamiento de grandes volúmenes de texto.</li>
+                    <li><marcador class="resaltado8">Stanford NLP: </marcador>Proporciona análisis gramatical avanzado y modelos estadísticos para múltiples idiomas.</li>
+                    <li><marcador class="resaltado8">Transformers (Hugging Face): </marcador>Permite el uso de modelos de aprendizaje profundo como BERT, GPT y T5 para tareas avanzadas de NLP.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/nlp2.png" alt="">
+                </div>
+                <h2>Tokenización</h2>
+                <p>La tokenización es el proceso de dividir un texto en unidades más pequeñas llamadas tokens. Un token puede ser una palabra, un signo de puntuación o incluso una oración.</p>
+                <p>Ejemplo con SpaCy:</p>
+                <div class="archivo">import spacy
+
+nlp = spacy.load("en_core_web_sm")
+doc = nlp("El NLP es fascinante y muy útil.")
+for token in doc:
+    print(token.text) 
+
+# Salida:
+# El
+# NLP
+# es
+# fascinante
+# y
+# muy
+# útil
+# .
+                </div>
+                <h2>Stemming</h2>
+                <p>El stemming es la reducción de las palabras a su raíz mediante reglas heurísticas. No siempre produce palabras con significado real.</p>
+                <p>Ejemplo con NLTK:</p>
+                <div class="archivo">from nltk.stem import PorterStemmer
+stemmer = PorterStemmer()
+print(stemmer.stem("running"))  
+
+# Salida:
+# run
+                </div>
+                <h2>Lemmatization</h2>
+                <p>La lemmatización es más avanzada, ya que reduce una palabra a su forma base considerando su contexto gramatical.</p>
+                <p>Ejemplo con SpaCy:</p>
+                <div class="archivo">import spacy
+nlp = spacy.load("en_core_web_sm")
+doc = nlp("running runs ran")
+for token in doc:
+    print(token.text, "->", token.lemma_)
+
+# Salida:
+# running -> run
+# runs -> run
+# ran -> run
+                </div>
+                <h2>POS Tagging (Part of Speech Tagging)</h2>
+                <p>El etiquetado de partes del discurso (POS Tagging) asigna una categoría gramatical a cada palabra de un texto.</p>
+                <p>Ejemplo con SpaCy:</p>
+                <div class="archivo">import spacy
+
+nlp = spacy.load("en_core_web_sm")
+doc = nlp("The cat sat on the mat.")
+for token in doc:
+    print(token.text, token.pos_)
+
+# Salida:    
+# The DET
+# cat NOUN
+# sat VERB
+# on ADP
+# the DET
+# mat NOUN
+# . PUNCT
+                </div>
+                <h2>Word Vectors</h2>
+                <p>Los word vectors representan palabras en un espacio multidimensional donde palabras con significado similar están más cercanas.</p>
+                <p>Ejemplo con SpaCy:</p>
+                <div class="archivo">import spacy
+
+nlp = spacy.load("en_core_web_md")
+dog = nlp("dog")
+cat = nlp("cat")
+print(dog.similarity(cat))  
+
+# Salida: 0.8 
+# (aproximadamente, depende del modelo)   
+                </div>
+                <h2>NLP Pipelines</h2>
+                <p>Una pipeline de NLP es una serie de pasos por los cuales pasa un texto para su procesamiento.</p>
+                <ol>
+                    <li><marcador class="resaltado6">Tokenizer: </marcador>Divide el texto en tokens.</li>
+                    <li><marcador class="resaltado6">Tagger: </marcador>Asigna POS tags a los tokens.</li>
+                    <li><marcador class="resaltado6">Parser: </marcador>Analiza la estructura sintáctica.</li>
+                    <li><marcador class="resaltado6">NER (Named Entity Recognition): </marcador>Identifica entidades nombradas.</li>
+                </ol>
+                <p>Ejemplo de pipeline en SpaCy:</p>
+                <div class="archivo">import spacy
+
+nlp = spacy.load("en_core_web_sm")
+doc = nlp("Barack Obama was the 44th President of the United States.")
+for ent in doc.ents:
+    print(ent.text, ent.label_)  
+
+# Salida:
+# Barack Obama PERSON
+# 44th ORDINAL
+# United States GPE
+                </div>
+                <div class="blog-image-grande">
+                    <img src="media/nlp3.png" alt="">
+                </div>
+                <h2>Entity Ruler</h2>
+                <p>Permite definir reglas personalizadas para la detección de entidades.</p>
+                <p>Ejemplo en SpaCy:</p>
+                <div class="archivo">from spacy.pipeline import EntityRuler
+
+nlp = spacy.blank("en")
+ruler = nlp.add_pipe("entity_ruler")
+patterns = [{"label": "ORG", "pattern": "OpenAI"}]
+ruler.add_patterns(patterns)
+doc = nlp("I love OpenAI!")
+print([(ent.text, ent.label_) for ent in doc.ents])
+                    
+# Salida:
+# [('OpenAI', 'ORG')]
+                </div>
+                <h2>Matcher</h2>
+                <p>El matcher permite buscar patrones específicos en un texto.</p>
+                <p>Ejemplo en SpaCy:</p>
+                <div class="archivo">from spacy.matcher import Matcher
+
+nlp = spacy.load("en_core_web_sm")
+matcher = Matcher(nlp.vocab)
+pattern = [{"LOWER": "nlp"}]
+matcher.add("NLP_PATTERN", [pattern])
+doc = nlp("I love NLP!")
+matches = matcher(doc)
+for match_id, start, end in matches:
+    print(doc[start:end])
+                    
+# Salida:
+# NLP    
+                </div>
+                <h2>Custom Components</h2>
+                <p>Los custom components en SpaCy permiten agregar funcionalidades personalizadas a la pipeline de procesamiento de texto. Estos componentes pueden realizar tareas específicas, como preprocesamiento de datos, validaciones adicionales o incluso cálculos personalizados basados en el contenido del texto. Se integran dentro de la pipeline y se ejecutan en orden junto con los otros procesadores como el tokenizer, POS tagger y Named Entity Recognizer (NER).</p>
+                <p>Estos componentes permiten extender las capacidades de SpaCy y adaptar su pipeline a necesidades específicas en distintos proyectos de NLP.</p>
+                <div class="blog-image-grande">
+                    <img src="media/nlp4.jpg" alt="">
+                </div>
+                <h2>Expresiones Regulares en NLP</h2>
+                <p>Las regex (expresiones regulares) son útiles para buscar patrones en texto, como correos electrónicos o fechas.</p>
+                <p>Ejemplo:</p>
+                <div class="archivo">import re
+
+text = "My email is example@email.com"
+match = re.search(r'\S+@\S+', text)
+print(match.group())  
+
+# Salida:
+# example@email.com
+                </div>
+                <h2>Usos Comunes de NLP</h2>
+                <ul>
+                    <li>Chatbots y asistentes virtuales (Alexa, Siri, Google Assistant)</li>
+                    <li>Análisis de sentimientos en redes sociales</li>
+                    <li>Traducción automática (Google Translate)</li>
+                    <li>Corrección gramatical (Grammarly)</li>
+                    <li>Clasificación de texto (spam vs. no spam)</li>
+                </ul>
+                <p>Las aplicaciones de NLP abarcan múltiples áreas, desde la comprensión y generación de texto hasta el análisis semántico y la traducción automática. Entre las tareas más comunes se encuentran la clasificación de texto, el reconocimiento de entidades, la generación de lenguaje natural y la respuesta automática a preguntas. Gracias a la combinación de técnicas estadísticas, aprendizaje profundo y modelos basados en transformers, NLP sigue avanzando hacia una mayor precisión y eficiencia, facilitando la automatización de procesos lingüísticos complejos en diversas industrias, incluyendo la salud, el comercio, la educación y la seguridad informática.</p>
+                
+                <p>Haz click <a href="https://github.com/Detective-Ryuzak1/Machine-Learnig-examples/blob/main/NLP/nlp.ipynb" target="blank">aquí</a> para ver algunos ejemplos de uso para NLP.</p><div class="blog-image-grande">
+                    <img src="media/nlp5.jpg" alt="">
+                </div>
+            </div>  
+        </div>     
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
