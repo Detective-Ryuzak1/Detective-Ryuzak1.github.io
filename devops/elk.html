@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <link rel="icon" href="../media/imagen41.png" type="image/png">
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                        <li><a href="../devops.html">DevOps</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Aportar" onclick="window.open('https://buymeacoffee.com/ryuzak1', '_blank');">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <br>
+                <br>
+                <h1>ELK Stack</h1>
+                <p>ELK Stack es un conjunto de herramientas de código abierto diseñado para la recolección, análisis y visualización de datos en tiempo real. Su nombre proviene de las iniciales de sus tres componentes principales: Elasticsearch, Logstash y Kibana. Este conjunto de herramientas es ampliamente utilizado en el monitoreo de sistemas, análisis de registros (logs) y seguridad informática.</p>
+                <p>Con la creciente cantidad de datos generados por sistemas modernos, la necesidad de soluciones eficientes para procesar, indexar y visualizar estos datos ha llevado a ELK Stack a convertirse en una de las alternativas preferidas frente a otras herramientas.</p>
+                <div class="blog-image-grande">
+                    <img src="media/elk1.png" alt="">
+                </div>
+                <h2>Componentes de ELK Stack</h2>
+                <ul style="list-style-type: none;">
+                    <li>⌬ <marcador class="resaltado2">Elasticsearch: </marcador>Es el motor de búsqueda y análisis que sirve como base del stack. Elasticsearch está diseñado para almacenar grandes volúmenes de datos y proporcionar búsquedas rápidas y eficientes. Utiliza un modelo de almacenamiento basado en documentos JSON y es altamente escalable gracias a su arquitectura distribuida.</li>
+                    <li>⌬ <marcador class="resaltado2">Logstash: </marcador>Es la herramienta encargada de la ingesta, transformación y carga de datos. Logstash permite recolectar datos desde diversas fuentes, como archivos de registros, bases de datos y colas de mensajes, y procesarlos para normalizarlos antes de enviarlos a Elasticsearch.</li>
+                    <li>⌬ <marcador class="resaltado2">Kibana: </marcador>Es la interfaz de visualización de datos. Permite crear dashboards interactivos, realizar búsquedas avanzadas y analizar tendencias a través de gráficos, mapas y otras herramientas visuales.</li>
+                    <p>Adicionalmente, se puede integrar Beats, una colección de agentes ligeros diseñados para enviar datos desde los servidores a Logstash o directamente a Elasticsearch.</p>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/elk2.png" alt="">
+                </div>
+                <h2>Funcionamiento de ELK Stack</h2>
+                <p>El flujo de datos dentro de ELK Stack puede describirse en los siguientes pasos:</p>
+                <ol>
+                    <li><marcador class="resaltado8">Recolecta de datos: </marcador>Logstash (o Beats) recopila datos desde fuentes como archivos de logs, bases de datos, APIs o eventos de red.</li>
+                    <li><marcador class="resaltado8">Procesamiento y transformación: </marcador>Logstash aplica filtros y transforma los datos para estructurarlos correctamente antes de enviarlos a Elasticsearch.</li>
+                    <li><marcador class="resaltado8">Indexación y almacenamiento: </marcador>Elasticsearch recibe los datos procesados y los almacena en su índice distribuido, permitiendo consultas rápidas y eficientes.</li>
+                    <li><marcador class="resaltado8">Análisis y visualización: </marcador>Kibana se conecta a Elasticsearch para proporcionar dashboards y herramientas de visualización interactivas.</li>
+                </ol>
+                <div class="blog-image-grande">
+                    <img src="media/elk3.jpg" alt="">
+                </div>
+                <h2>Ventajas frente a otras alternativas</h2>
+                <ul  class="custom-list2">
+                    <li><marcador class="resaltado3">Open Source: </marcador>A diferencia de otras soluciones comerciales como Splunk, ELK Stack es de código abierto, lo que significa que puede ser implementado sin costos de licencia y con acceso a una comunidad activa de desarrolladores.</li>
+                    <li><marcador class="resaltado3">Escalabilidad y Flexibilidad: </marcador>Elasticsearch permite escalar horizontalmente agregando nuevos nodos al clúster, lo que facilita la gestión de grandes volúmenes de datos sin comprometer el rendimiento.</li>
+                    <li><marcador class="resaltado3">Integración: </marcador>ELK Stack puede integrarse con plataformas cloud, bases de datos, herramientas de automatización y servicios de mensajería, lo que lo hace altamente adaptable a distintas necesidades empresariales.</li>
+                    <li><marcador class="resaltado3">Personalización y Análisis Avanzado: </marcador>Kibana permite la creación de dashboards altamente personalizados con alertas, paneles de control interactivos y compatibilidad con Machine Learning para análisis predictivos.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/elk4.png" alt="">
+                </div>
+                <h2>Instalar Elasticsearch</h2>
+                <p>❏ Puedes instalar Elasticsearch desde los repositorios de Elastic.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Importar la clave GPG de Elastic:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Agregar el repositorio de Elasticsearch:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="echo &quot;deb https://artifacts.elastic.co/packages/8.x/apt stable main&quot; | sudo tee -a /etc/apt/sources.list.d/elastic-8.x.list" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Actualizar los repositorios e instalar Elasticsearch:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="sudo apt update && sudo apt install elasticsearch -y" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>❏ Configurar Elasticsearch para un único nodo.</p>
+                
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9633;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="sudo">sudo</marcador> <marcador class="tool">nano</marcador> /etc/elasticsearch/elasticsearch.yml <marcador class="param"></marcador></span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">  GNU nano 8.1                                                       /etc/elasticsearch/elasticsearch.yml *                                                              
+# ======================== Elasticsearch Configuration =========================
+#
+# NOTE: Elasticsearch comes with reasonable defaults for most settings.
+#       Before you set out to tweak and tune the configuration, make sure you
+#       understand what are you trying to accomplish and the consequences.
+#
+# The primary way of configuring a node is via this file. This template lists
+# the most important settings you may want to configure for a production cluster.
+#
+# Please consult the documentation for further information on configuration options:
+# https://www.elastic.co/guide/en/elasticsearch/reference/index.html
+#
+# ---------------------------------- Cluster -----------------------------------
+#
+# Use a descriptive name for your cluster:
+#
+cluster.name: my-application
+#
+# ------------------------------------ Node ------------------------------------
+#
+# Use a descriptive name for the node:
+#
+node.name: node-1
+#
+# ---------------------------------- Network -----------------------------------
+#
+# By default Elasticsearch is only accessible on localhost. Set a different
+# address here to expose this node on the network:
+#
+network.host: 0.0.0.0
+#
+# --------------------------------- Discovery ----------------------------------
+#
+# Pass an initial list of hosts to perform discovery when this node is started:
+# The default list of hosts is ["127.0.0.1", "[::1]"]
+# 
+discovery.seed_hosts: ["127.0.0.1"]
+#
+# Bootstrap the cluster using an initial set of master-eligible nodes:
+#
+cluster.initial_master_nodes: ["node-1"]
+#
+#----------------------- BEGIN SECURITY AUTO CONFIGURATION -----------------------
+#
+# The following settings, TLS certificates, and keys have been automatically      
+# generated to configure Elasticsearch security features on 08-03-2025 01:13:55
+#
+# --------------------------------------------------------------------------------
+
+# Enable security features  
+xpack.security.enabled: false
+
+xpack.security.enrollment.enabled: false
+
+# Enable encryption for HTTP API client connections, such as Kibana, Logstash, and Agents
+xpack.security.http.ssl:
+  enabled: false
+  keystore.path: certs/http.p12
+
+# Enable encryption and mutual authentication between cluster nodes
+xpack.security.transport.ssl:
+  enabled: false
+  verification_mode: certificate    
+  keystore.path: certs/transport.p12  
+  truststore.path: certs/transport.p12 
+
+# cluster.initial_master_nodes: ["Computer"]
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>Desactivar la seguridad en Elasticsearch puede ser útil en entornos de pruebas locales o aislados, pero no es recomendable en entornos de producción o accesibles desde Internet. Si decides desactivarla, asegúrate de restringir el acceso a Elasticsearch y de volver a habilitar la seguridad una vez que termines las pruebas.</p>
+                <p>Desactivar la seguridad en Elasticsearch tiene las siguientes implicaciones:</p>
+                <ul>
+                    <li>Cualquier persona con acceso a la red donde está corriendo Elasticsearch podrá acceder a los datos sin necesidad de autenticarse.</li>
+                    <li>Las comunicaciones entre los nodos de Elasticsearch y entre Elasticsearch y los clientes no estarán cifradas.</li>
+                    <li>No habrá restricciones basadas en roles o permisos. Todos los usuarios tendrán acceso completo a los índices y datos.</li>
+                </ul>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Elasticsearch, por defecto, utiliza el puerto 9200 para las conexiones HTTP. Verifica si el puerto está en uso con el siguiente comando:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="sudo lsof -i :9200" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Si necesitas cambiar el puerto predeterminado, debes editar el archivo de configuración de Elasticsearch.</p>
+                <p>Busca la línea "http.port: 9200" y reemplaza 9200 por el puerto que desees utilizar.</p>
+                <p>❏ Cambiar la cantidad de memoria utilizada.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Modifica los valores de -Xms y -Xmx según la RAM disponible.
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="sudo nano /etc/elasticsearch/jvm.options" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>❏ Habilitar y arrancar Elasticsearch.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Habilitar elasticsearch:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="sudo systemctl enable elasticsearch && sudo systemctl start elasticsearch" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>❏ Verificar que Elasticsearch está corriendo.</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9633;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="sudo">sudo</marcador> <marcador class="tool">systemctl</marcador> status elasticsearch<marcador class="param"></marcador></span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text"><marcador class="sudo">●</marcador> elasticsearch.service - Elasticsearch
+Loaded: loaded (/usr/lib/systemd/system/elasticsearch.service; enabled; preset: disabled)
+Active: <marcador class="sudo">active (running)</marcador> since Fri 2025-03-07 19:41:11 CST; 24s ago
+Invocation: 7ae7fa01afea434859c56fdc2e715cab
+    Docs: https://www.elastic.co
+Main PID: 9141 (java)
+    Tasks: 105 (limit: 9393)
+Memory: 4.3G (peak: 4.3G swap: 67.3M swap peak: 75.2M)
+    CPU: 34.105s
+CGroup: /system.slice/elasticsearch.service
+        ├─9141 /usr/share/elasticsearch/jdk/bin/java -Xms4m -Xmx64m -XX:+UseSerialGC -Dcli.name=server -Dcli.script=/usr/share/elasticsearch/bin/elasticsearch -Dcl>
+        ├─9200 /usr/share/elasticsearch/jdk/bin/java -Des.networkaddress.cache.ttl=60 -Des.networkaddress.cache.negative.ttl=10 -XX:+AlwaysPreTouch -Xss1m -Djava.a>
+        └─9226 /usr/share/elasticsearch/modules/x-pack-ml/platform/linux-x86_64/bin/controller                           
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>Usa curl para verificar que el servicio está activo:</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9633;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">curl</marcador> <marcador class="param">-X</marcador> GET &quot;http://localhost:9200/_cluster/health?pretty&quot;<marcador class="param"></marcador></span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">{
+"name" : "node-1",
+"cluster_name" : "my-application",
+"cluster_uuid" : "mvXwIjRZS2qhbZ8tcy4uYA",
+"version" : {
+    "number" : "8.17.3",
+    "build_flavor" : "default",
+    "build_type" : "deb",
+    "build_hash" : "a091340de489bd4b127874f7e365b0cadf9b140d2",
+    "build_date" : "2025-02-28T10:07:26.089129809Z",
+    "build_snapshot" : false,
+    "lucene_version" : "9.12.0",
+    "minimum_wire_compatibility_version" : "7.17.0",
+    "minimum_index_compatibility_version" : "7.0.0"
+},
+"tagline" : "You Know, for Search"
+}                         
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <h6>Uso Básico de Elasticsearch</h6>
+                <p>Elasticsearch es un motor de búsqueda basado en documentos que almacena datos en formato JSON. Se organiza en índices, que contienen documentos, los cuales tienen campos con valores estructurados o no estructurados.</p>
+                <p>Antes de agregar documentos, debes definir un índice. Si no lo defines, Elasticsearch lo creará automáticamente cuando insertes el primer documento.</p>
+                <p>❏ Para crear un índice:</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9633;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">curl</marcador> <marcador class="param">-X</marcador> PUT &quot;http://localhost:9200/test&quot; <marcador class="param">-H</marcador> &quot;Content-Type: application/json&quot; <marcador class="param">-d</marcador> ' {&quot;settings&quot;: {&quot;number_of_shards&quot;: 1, &quot;number_of_replicas&quot;: 1}}'</span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">{"acknowledged":true,"shards_acknowledged":true,"index":"test"}                        
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <ul style="list-style-type: none;">
+                    <li>⌭ <marcador class="resaltado8">number_of_shards: </marcador>Número de fragmentos en los que se divide el índice.</li>
+                    <li>⌭ <marcador class="resaltado8">number_of_replicas: </marcador>Número de copias de seguridad de los datos.</li>
+                </ul>
+                <p>Los documentos se almacenan en JSON dentro de un índice. Puedes insertar un documento usando POST o PUT.</p>
+                <p>❏ Ejemplo de agregar un documento con POST:</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9633;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">curl</marcador> <marcador class="param">-X</marcador> POST &quot;http://localhost:9200/test/_doc/&quot; <marcador class="param">-H</marcador> &quot;Content-Type: application/json&quot; <marcador class="param">-d</marcador> '{&quot;nombre&quot;: &quot;Juan Pérez&quot;, &quot;edad&quot;: 30, &quot;ciudad&quot;: &quot;Madrid&quot;, &quot;profesion&quot;: &quot;Ingeniero&quot;}'</span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">{"_index":"test","_id":"7m0KdJUBtLEq70R13ito","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":0,"_primary_term":1}                       
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>❏ Esto creará un documento con un ID autogenerado. Si quieres asignar un ID específico, usa PUT:</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9633;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">curl</marcador> <marcador class="param">-X</marcador> PUT &quot;http://localhost:9200/test/_doc/1&quot; <marcador class="param">-H</marcador> &quot;Content-Type: application/json&quot; <marcador class="param">-d</marcador> '{&quot;nombre&quot;: &quot;Ana López&quot;, &quot;edad&quot;: 35, &quot;ciudad&quot;: &quot;Barcelona&quot;, &quot;profesion&quot;: &quot;Analista&quot;}'</span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">{"_index":"test","_id":"1","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":1,"_primary_term":1}                     
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>❏ Para recuperar un documento específico por su ID:</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9633;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">curl</marcador> <marcador class="param">-X</marcador> GET &quot;http://localhost:9200/test/_doc/1?pretty&quot; <marcador class="param"></marcador></span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">{
+    "_index" : "test",
+    "_id" : "1",
+    "_version" : 3,
+    "_seq_no" : 3,
+    "_primary_term" : 1,
+    "found" : true,
+    "_source" : {
+        "nombre" : "Ana López",
+        "edad" : 35,
+        "ciudad" : "Barcelona",
+        "profesion" : "Analista"
+    }
+}                                                
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>❏ Puedes buscar documentos que cumplan ciertos criterios usando _search:</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9633;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">curl</marcador> <marcador class="param">-X</marcador> GET &quot;http://localhost:9200/test/_search&quot; <marcador class="param">-H</marcador> &quot;Content-Type: application/json&quot; <marcador class="param">-d</marcador> '{&quot;query&quot;: {&quot;match&quot;: {&quot;ciudad&quot;: &quot;Madrid&quot;}}}'</span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">{"took":3,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":4,"relation":"eq"},"max_score":0.5753642,"hits":[{"_index":"test","_id":"7m0KdJUBtLEq70R13ito","_score":0.5753642,"_source":{"nombre": "Juan Pérez", "edad": 30, "ciudad": "Madrid", "profesion": "Ingeniero"}},{"_index":"test","_id":"3","_score":0.5753642,"_source":{"nombre": "Marco Hernánez", "edad": 31, "ciudad": "Madrid", "profesion": "Ingeniero"}},{"_index":"test","_id":"4","_score":0.5753642,"_source":{"nombre": "Francisco Pérez", "edad": 26, "ciudad": "Madrid", "profesion": "Diseñador Gráfico"}},{"_index":"test","_id":"6","_score":0.5753642,"_source":{"nombre": "Brenda García", "edad": 29, "ciudad": "Madrid", "profesion": "Ingeniero"}}]}}                   
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>❏ Para actualizar un campo de un documento sin reemplazarlo por completo, usa _update:</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9633;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">curl</marcador> <marcador class="param">-X</marcador> POST &quot;http://localhost:9200/test/_update/1&quot; <marcador class="param">-H</marcador> &quot;Content-Type: application/json&quot; <marcador class="param">-d</marcador> '{&quot;doc&quot;: {&quot;edad&quot;: 26}}'</span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">{"_index":"test","_id":"1","_version":4,"result":"updated","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":9,"_primary_term":1}                     
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>❏ Para recuperar un documento específico por su ID:</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9633;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">curl</marcador> <marcador class="param">-X</marcador> DELETE &quot;http://localhost:9200/test/_doc/6&quot; <marcador class="param"></marcador></span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">{"_index":"test","_id":"6","_version":2,"result":"deleted","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":10,"_primary_term":1}
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>❏ Puedes obtener solo una parte de los resultados con size y from:</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9633;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">curl</marcador> <marcador class="param">-X</marcador> GET &quot;http://localhost:9200/test/_search&quot; <marcador class="param">-H</marcador> &quot;Content-Type: application/json&quot; <marcador class="param">-d</marcador> '{&quot;query&quot;: {&quot;match_all&quot;: {}}, &quot;size&quot;: 3, &quot;from&quot;: 2}'</span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":7,"relation":"eq"},"max_score":1.0,"hits":[{"_index":"test","_id":"3","_score":1.0,"_source":{"nombre": "Marco Hernánez", "edad": 31, "ciudad": "Madrid", "profesion": "Ingeniero"}},{"_index":"test","_id":"4","_score":1.0,"_source":{"nombre": "Francisco Pérez", "edad": 26, "ciudad": "Madrid", "profesion": "Diseñador Gráfico"}},{"_index":"test","_id":"5","_score":1.0,"_source":{"nombre": "Arturo Vázquez", "edad": 33, "ciudad": "Barcelona", "profesion": "Psicólogo"}}]}}                     
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>Esto devuelve 3 documentos empezando desde el número 2.</p>
+                <p>❏ Para ordenar los resultados por la edad de menor a mayor:</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9633;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">curl</marcador> <marcador class="param">-X</marcador> GET &quot;http://localhost:9200/test/_search&quot; <marcador class="param">-H</marcador> &quot;Content-Type: application/json&quot; <marcador class="param">-d</marcador> '{&quot;query&quot;: {&quot;match_all&quot;: {}}, &quot;sort&quot;: [{ &quot;edad&quot;: &quot;asc&quot; }]}'</span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":7,"relation":"eq"},"max_score":null,"hits":[{"_index":"test","_id":"4","_score":null,"_source":{"nombre": "Francisco Pérez", "edad": 26, "ciudad": "Madrid", "profesion": "Diseñador Gráfico"},"sort":[26]},{"_index":"test","_id":"1","_score":null,"_source":{"nombre":"Ana López","edad":26,"ciudad":"Barcelona","profesion":"Analista"},"sort":[26]},{"_index":"test","_id":"2","_score":null,"_source":{"nombre": "Pedro Alba", "edad": 27, "ciudad": "Barcelona", "profesion": "Analista"},"sort":[27]},{"_index":"test","_id":"6","_score":null,"_source":{"nombre": "Brenda García", "edad": 29, "ciudad": "Madrid", "profesion": "Ingeniero"},"sort":[29]},{"_index":"test","_id":"7m0KdJUBtLEq70R13ito","_score":null,"_source":{"nombre": "Juan Pérez", "edad": 30, "ciudad": "Madrid", "profesion": "Ingeniero"},"sort":[30]},{"_index":"test","_id":"3","_score":null,"_source":{"nombre": "Marco Hernánez", "edad": 31, "ciudad": "Madrid", "profesion": "Ingeniero"},"sort":[31]},{"_index":"test","_id":"5","_score":null,"_source":{"nombre": "Arturo Vázquez", "edad": 33, "ciudad": "Barcelona", "profesion": "Psicólogo"},"sort":[33]}]}}                    
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>❏ Para buscar documentos donde "edad" esté entre 25 y 28 años:</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9633;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">curl</marcador> <marcador class="param">-X</marcador> GET &quot;http://localhost:9200/test/_search&quot; <marcador class="param">-H</marcador> &quot;Content-Type: application/json&quot; <marcador class="param">-d</marcador> '{&quot;query&quot;: {&quot;range&quot;: {&quot;edad&quot;: {&quot;gte&quot;: 25, &quot;lte&quot;: 28 }}}}'</span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">{"took":8,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":3,"relation":"eq"},"max_score":1.0,"hits":[{"_index":"test","_id":"2","_score":1.0,"_source":{"nombre": "Pedro Alba", "edad": 27, "ciudad": "Barcelona", "profesion": "Analista"}},{"_index":"test","_id":"4","_score":1.0,"_source":{"nombre": "Francisco Pérez", "edad": 26, "ciudad": "Madrid", "profesion": "Diseñador Gráfico"}},{"_index":"test","_id":"1","_score":1.0,"_source":{"nombre":"Ana López","edad":26,"ciudad":"Barcelona","profesion":"Analista"}}]}}                  
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <h6>Formatos de Datos en Elasticsearch</h6>
+                <p>Elasticsearch acepta documentos en JSON, y dentro de cada documento puedes usar los siguientes tipos de datos:</p>
+                <ul  class="custom-list2">
+                    <li><marcador class="resaltado9">Texto (text, keyword): </marcador>Para almacenar cadenas de caracteres.</li>
+                    <li><marcador class="resaltado9">Números (integer, float, double, long, short): </marcador>Para datos numéricos.</li>
+                    <li><marcador class="resaltado9">Booleanos (boolean): </marcador>Para true o false.</li>
+                    <li><marcador class="resaltado9">Fechas (date):</marcador>Formatos como YYYY-MM-DD.</li>
+                    <li><marcador class="resaltado9">Objetos (object): </marcador>Datos anidados dentro de un documento.</li>
+                    <li><marcador class="resaltado9">Geo (geo_point, geo_shape): </marcador>Para almacenar ubicaciones geográficas.</li>
+                </ul>
+                <p>Ejemplo de un documento con varios tipos de datos:</p>
+                <div class="archivo">
+{
+    "nombre": "Pedro Gómez",
+    "edad": 35,
+    "activo": true,
+    "fecha_registro": "2024-03-07",
+    "ubicacion": {
+        "lat": 40.416775,
+        "lon": -3.703790
+    }
+}    
+                </div>
+                <div class="blog-image-grande">
+                    <img src="media/elk6.png" alt="">
+                </div>
+                <h2>Instalar Logstash</h2>
+                <p>❏ Puedes descargar Logstash para Windows desde la web oficial de Elastic: https://www.elastic.co/downloads/logstash.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        En Linux (Debian/Ubuntu):
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="sudo apt update && sudo apt install logstash -y" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Logstash usa archivos de configuración .conf con tres secciones principales:</p>
+                <ul style="list-style-type: none;">
+                    <li>▱ <marcador class="resaltado8">input: </marcador>Define la fuente de los datos (archivos, bases de datos, syslog, Kafka, etc.).</li>
+                    <li>▱ <marcador class="resaltado8">filter: </marcador>Aplica transformaciones a los datos (parseo, eliminación, enriquecimiento, etc.).</li>
+                    <li>▱ <marcador class="resaltado8">output: </marcador>Define el destino de los datos (Elasticsearch, bases de datos, archivos, etc.).</li>
+                </ul>
+                <h6>Uso Básico de Logstash</h6>
+                <p>❏ Crear un Archivo de Configuración Básico.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Si quieres leer datos de un archivo y enviarlos a Elasticsearch, crea un archivo llamado logstash.conf con el siguiente contenido:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="sudo nano /etc/logstash/conf.d/logstash.conf" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Y agrega lo siguiente:</p>
+                <div class="archivo">
+input {
+    file {
+        path => "/var/log/syslog"
+        start_position => "beginning"
+    }
+}
+    
+filter {
+    grok {
+        match => { "message" => "%{SYSLOGTIMESTAMP:timestamp} %{SYSLOGHOST:host} %{WORD:process} %{GREEDYDATA:log}" }
+    }
+}
+    
+output {
+    elasticsearch {
+        hosts => ["http://localhost:9200"]
+        index => "logs-syslog"
+    }
+    stdout { codec => rubydebug }
+}                    
+                </div>
+                <ul style="list-style-type: none;">
+                    <li>⌭ <marcador class="resaltado8">input: </marcador>Se define como fuente el archivo <marcador class="resaltado1">/var/log/syslog</marcador>.</li>
+                    <li>⌭ <marcador class="resaltado8">filter: </marcador>Usa grok para extraer campos estructurados del log.</li>
+                    <li>⌭ <marcador class="resaltado8">output: </marcador>Envía los datos a un índice en Elasticsearch llamado logs-syslog y los muestra en la terminal (stdout).</li>
+                </ul>
+                <p>❏ Iniciar Logstash con el Archivo de Configuración.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Para ejecutar Logstash con la configuración creada:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="sudo systemctl start logstash" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        O si prefieres correrlo manualmente desde el archivo de configuración:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="sudo /usr/share/logstash/bin/logstash -f /etc/logstash/conf.d/logstash.conf" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>❏ Leer Datos desde Diferentes Fuentes.</p>
+                <ol>
+                    <li>Leer desde un Archivo</li>
+                    <p>Si tienes un archivo de logs llamado <marcador class="resaltado1">log.txt</marcador>, usa la siguiente configuración:</p>
+                    <div class="archivo">
+input {
+    file {
+        path => "/home/usuario/log.txt"
+        start_position => "beginning"
+        sincedb_path => "/dev/null"
+    }
+}
+output {
+    stdout { codec => rubydebug }
+}
+                    </div>
+                    <p>sincedb_path => "/dev/null" hace que siempre lea el archivo desde el inicio.</p>
+                    <li>Leer desde Syslog en Tiempo Real</li>
+                    <p>Si quieres procesar logs del sistema:</p>
+                    <div class="archivo">
+input {
+    syslog {
+        port => 5514
+    }
+}
+    output {
+    elasticsearch {
+        hosts => ["http://localhost:9200"]
+        index => "logs-syslog"
+    }
+}
+                    </div>
+                    <p>Esto captura logs enviados a través de syslog en el puerto 5514.</p>
+                    <li>Recibir Datos desde HTTP (API REST)</li>
+                    <p>Si una aplicación quiere enviar datos a Logstash mediante HTTP POST:</p>
+                    <div class="archivo">
+input {
+    http {
+        port => 8080
+    }
+}
+    output {
+    elasticsearch {
+        hosts => ["http://localhost:9200"]
+        index => "api-logs"
+    }
+}
+                    </div>
+                </ol>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Puedes enviar datos así:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="curl -X POST &quot;http://localhost:8080&quot; -H &quot;Content-Type: application/json&quot; -d '{&quot;mensaje&quot;:&quot;Hola Logstash&quot;}'" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>❏ Procesamiento Avanzado con Filtros</p>
+                <ol>
+                    <li>Uso de GROK para Extraer Datos</li>
+                    <p>Si tienes logs en texto sin formato y necesitas estructurarlos:</p>
+                    <div class="archivo">
+filter {
+    grok {
+        match => { "message" => "%{COMBINEDAPACHELOG}" }
+    }
+}
+                    </div>
+                    <p>Esto estructura logs de Apache automáticamente.</p>
+                    <li>Convertir Formato de Fechas</li>
+                    <p>Si un campo llamado timestamp tiene un formato incorrecto:</p>
+                    <div class="archivo">
+filter {
+    date {
+        match => ["timestamp", "dd/MMM/yyyy:HH:mm:ss Z"]
+        target => "@timestamp"
+    }
+}
+                    </div>
+                    <p>Ajusta fechas al formato estándar de Elasticsearch.</p>
+                    <li>Convertir Datos a Minúsculas o Mayúsculas</li>
+                    <p></p>
+                    <div class="archivo">
+filter {
+    mutate {
+        lowercase => ["usuario"]
+    }
+}
+                    </div>
+                    <p>Esto convierte Usuario a usuario.</p>
+                    <p>❏ Enviar Datos a Múltiples Destinos.</p>
+                    <p>Puedes enviar los datos a Elasticsearch, un archivo y stdout al mismo tiempo:</p>
+                    <div class="archivo">
+output {
+    elasticsearch {
+        hosts => ["http://localhost:9200"]
+        index => "multi-output"
+    }
+    file {
+        path => "/var/log/logstash_output.log"
+    }
+    stdout { codec => rubydebug }
+}
+                    </div>
+                    <p>Esto almacena los logs en Elasticsearch, los guarda en un archivo y los imprime en la consola.</p>
+                    <p>❏ Verificar Errores en Logstash.</p>
+                    <p></p>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            Si Logstash no está funcionando como esperas, revisa los logs:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="sudo journalctl -u logstash --no-pager | tail -50" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <div class="blog-image-grande">
+                        <img src="media/elk7.png" alt="">
+                    </div>
+                <h2>Instalar Kibana</h2>
+                <p>❏ Puedes descargar Kibana para Windows desde la web oficial de Elastic: https://www.elastic.co/downloads/kibana.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        En Linux (Debian/Ubuntu):
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="sudo apt update && sudo apt install kibana -y" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>❏ Configurar Kibana.</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9633;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="sudo">sudo</marcador> <marcador class="tool">nano</marcador> /etc/kibana/kibana.yml <marcador class="param"></marcador></span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">  GNU nano 8.1                                                       /etc/kibana/kibana.yml *                                                              
+# Specifies the address to which the Kibana server will bind. IP addresses and host names are both valid values.
+# The default is 'localhost', which usually means remote machines will not be able to connect.
+# To allow connections from remote users, set this parameter to a non-loopback address.
+server.host: "0.0.0.0"
+                                
+# =================== System: Kibana Server (Optional) ===================
+# Enables SSL and paths to the PEM-format SSL certificate and SSL key files, respectively.
+# These settings enable SSL for outgoing requests from the Kibana server to the browser.
+#server.ssl.enabled: false
+#server.ssl.certificate: /path/to/your/server.crt
+#server.ssl.key: /path/to/your/server.key
+
+# =================== System: Elasticsearch ===================
+# The URLs of the Elasticsearch instances to use for all your queries.
+elasticsearch.hosts: ["http://localhost:9200"]
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Iniciar Kibana con:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="sudo systemctl start kibana" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Accede en un navegador a: http://localhost:5601</p>
+                <h6>Importar Datos en Kibana.</h6>
+                <p>Desde un Archivo CSV o JSON</p>
+                <ol>
+                    <li>Ve a "Stack Management" → "Index Patterns".</li>
+                    <li>Usa "Upload a file" para cargar un CSV o JSON.</li>
+                    <li>Define los campos y crea un índice.</li>
+                </ol>
+                <h6>Alertas y Monitorización en Kibana.</h6>
+                <p>Si quieres recibir alertas cuando los datos cumplan ciertas condiciones:</p>
+                <ol>
+                    <li>Ve a "Alerts & Actions".</li>
+                    <li>Define una nueva alerta con condiciones específicas (por ejemplo, si un servidor está caído).</li>
+                    <li>Configura las acciones: Enviar un email, webhook o Slack notification.</li>
+                </ol>
+                <h6>Uso Básico de Kibana</h6>
+                <p>❏ Buscar y Filtrar Datos en Kibana.</p>
+                <p>Puedes buscar datos en tiempo real usando KQL (Kibana Query Language).</p>
+                <p>Ejemplo:</p>
+                <ul>
+                    <li>Buscar errores en logs: <marcador class="subrayado">message: "error"</marcador></li>
+                    <li>Filtrar registros de usuarios de México: <marcador class="subrayado">country: "Mexico"</marcador></li>
+                </ul>
+                <p>❏ Conectar Kibana con Logstash y Elasticsearch.</p>
+                <p>Si Logstash envía datos a Elasticsearch, Kibana puede visualizarlos.</p>
+                <p>Ejemplo de configuración en <marcador class="resaltado1">logstash.conf</marcador>:</p>
+                <div class="archivo">
+output {
+    elasticsearch {
+        hosts => ["http://localhost:9200"]
+        index => "logs"
+    }
+}  
+                </div>
+                <p>Luego, en Kibana:</p>
+                <ol>
+                    <li>Ve a "Stack Management" → "Index Patterns".</li>
+                    <li>Crea un patrón de índice para logs-*.</li>
+                    <li>Visualiza los datos en "Discover".</li>
+                </ol>
+                <div class="blog-image-grande">
+                    <img src="media/elk8.jpeg" alt="">
+                </div>
+            </div>
+        </div>       
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
