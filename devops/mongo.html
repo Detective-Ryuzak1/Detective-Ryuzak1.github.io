@@ -249,12 +249,19 @@
                 <h6>Operadores</h6>
                 <p>MongoDB también ofrece una variedad de operadores que se utilizan en las consultas para realizar comparaciones y cálculos. Algunos de los operadores más comunes incluyen:</p>
                 <ul class="custom-list2">
-                    <li><marcador class="resaltado8">eq: </marcador>Equivalente al operador de igualdad (=) en SQL.</li>
-                    <li><marcador class="resaltado8">ne: </marcador>Distinto a (!=) en SQL.</li>
-                    <li><marcador class="resaltado8">gt: </marcador>Mayor que (>) en SQL.</li>
-                    <li><marcador class="resaltado8">lt: </marcador>Menor que (<) en SQL.</li>
-                    <li><marcador class="resaltado8">gte: </marcador>Mayor o igual que (>=) en SQL.</li>
-                    <li><marcador class="resaltado8">lte: </marcador>Menor o igual que (<=) en SQL.</li>
+                    <li><marcador class="resaltado8">$eq: </marcador>Equivalente al operador de igualdad (=) en SQL.</li>
+                    <li><marcador class="resaltado8">$ne: </marcador>Distinto a (!=) en SQL.</li>
+                    <li><marcador class="resaltado8">$gt: </marcador>Mayor que (>) en SQL.</li>
+                    <li><marcador class="resaltado8">$lt: </marcador>Menor que (<) en SQL.</li>
+                    <li><marcador class="resaltado8">$gte: </marcador>Mayor o igual que (>=) en SQL.</li>
+                    <li><marcador class="resaltado8">$lte: </marcador>Menor o igual que (<=) en SQL.</li>
+                </ul>
+                <h6>Operadores aritméticos</h6>
+                <ul class="custom-list2">
+                    <li><marcador class="resaltado8">$add: </marcador>Suma dos o más valores.</li>
+                    <li><marcador class="resaltado8">$subtract: </marcador>Resta un valor de otro.</li>
+                    <li><marcador class="resaltado8">$multiply: </marcador>Multiplica dos o más valores.</li>
+                    <li><marcador class="resaltado8">$divide: </marcador>Divide un valor entre otro.</li>
                     <li><marcador class="resaltado8">+ , - , * , /: </marcador>Operadores aritméticos para sumar, restar, multiplicar y dividir.</li>
                 </ul>
                 <div class="blog-image-grande">
@@ -331,13 +338,24 @@
                     <li><marcador class="resaltado9">$addToSet</marcador></li>
                     <div class="contenedor">
                         <div class="etiqueta">
-                            El operador <code>$addToSet</code> agrega un valor a un conjunto (array) si no está ya presente. Por ejemplo:
+                            El operador <code>$addToSet</code> agrega un valor a un conjunto (array) si no está presente. Es ideal para agregar valores a un array sin duplicados. Por ejemplo:
                         </div>
                         <div class="comandos">
                             <input type="text" class="text" value="db.usuarios.update({ _id: 1 }, { $addToSet: { intereses: 'deportes' } })" oninput="ajustarAncho(this)">
                             <button><i class="fa fa-clone"></i><span> Copy</span></button>
                         </div>
                     </div>
+                    <li><marcador class="resaltado9">$addToSet con $each</marcador></li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            El operador <code>$addToSet</code> también puede usarse con <code>$each</code> para agregar múltiples valores a un array. Por ejemplo:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="db.usuarios.updateOne({ nombre: 'Maria' }, { $addToSet: { intereses: { $each: ['lectura', 'cine', 'viajes'] } } });" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Esta consulta agrega "lectura", "cine" y "viajes" al array de intereses de "Maria", evitando duplicados.</p>
                     <p>Agrega el valor 'deportes' al array <code>intereses</code> si no existe ya.</p>
                     <li><marcador class="resaltado9">$pop</marcador></li>
                     <div class="contenedor">
@@ -438,6 +456,17 @@
                         </div>
                     </div>
                     <p>Esta consulta obtiene los empleados que trabajan en los departamentos de Ventas o Marketing.</p>
+                    <li><marcador class="resaltado9">$nin</marcador></li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            El operador <code>$nin</code> permite especificar múltiples valores en una condición. Por ejemplo:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="db.empleados.find({ departamento: { $nin: ['Ventas', 'Marketing'] } });" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Esta consulta obtiene los empleados que no trabajan en los departamentos de Ventas o Marketing.</p>
                     <li><marcador class="resaltado9">$or</marcador></li>
                     <div class="contenedor">
                         <div class="etiqueta">
@@ -449,6 +478,28 @@
                         </div>
                     </div>
                     <p>Esta consulta devuelve los empleados que tienen menos de 30 años o un salario superior a 50,000.</p>
+                    <li><marcador class="resaltado9">$subtract</marcador></li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            El operador <code>$subtract</code> se utiliza para restar valores. Por ejemplo, una triple resta:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="db.ventas.aggregate([{ $project: { ganancia: { $subtract: [{ $subtract: [{ $subtract: ['$ingresos', '$costos'] }, '$impuestos'] }, '$descuentos'] } } }]);" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Esta consulta calcula la ganancia restando los costos, impuestos y descuentos de los ingresos.</p>
+                    <li><marcador class="resaltado9">$divide</marcador></li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            El operador <code>$divide</code> se utiliza para dividir valores. Por ejemplo:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="db.ventas.aggregate([{ $project: { promedio: { $divide: ['$ventas_totales', '$numero_clientes'] } } }]);" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Esta consulta calcula el promedio de ventas por cliente.</p>
                     <li><marcador class="resaltado9">$text</marcador></li>
                     <div class="contenedor">
                         <div class="etiqueta">
@@ -471,12 +522,47 @@
                         </div>
                     </div>
                     <p>Encuentra productos cuyo precio sea mayor a 100, evaluando la condición en JavaScript.</p>
+                    <li><marcador class="resaltado9">$group</marcador></li>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            El operador <code>$group</code> se utiliza para agrupar documentos en una consulta de agregación. Por ejemplo:
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="db.ventas.aggregate([{ $group: { _id: '$vendedor', total_ventas: { $sum: '$monto' }, promedio_ventas: { $avg: '$monto' }, productos_vendidos: { $push: '$producto' }}}]);" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <p>Esta consulta agrupa las ventas por vendedor, calcula el total y el promedio de ventas, y lista los productos vendidos por cada vendedor.</p>
                 </ul>
                 <p>Estos operadores son solo una pequeña muestra de las capacidades que ofrece MongoDB para trabajar con datos. MongoDB permite crear consultas avanzadas y realizar análisis detallados de manera eficiente.</p>
                 <div class="blog-image-grande">
                     <img src="media/mongodb5.png" alt="">
                 </div>
                 <ul class="custom-list">
+                    <li><marcador class="resaltado9">$aggregate</marcador></li>
+                    <p>La función <code>$aggregate</code> se utiliza para realizar operaciones avanzadas en MongoDB. Este ejemplo combina <code>$match</code>, <code>$group</code> y operadores como <code>$sum</code>, <code>$avg</code> y <code>$push</code>:</p>
+                    <div class="consola">
+                        <div class="barra-superior-consola">
+                            <div class="grupo-icono-texto">
+                                <img src="../media/cmd.png" alt="Icono" class="icono-cmd">
+                                <span class="texto-cmd">C:\Windows\system32\cmd.exe</span>
+                            </div>
+                            <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                        </div>
+                        <div class="codigo-consola">
+                            <pre><code>db.ventas.aggregate([
+{ $match: { fecha: { $gte: ISODate('2023-01-01'), $lt: ISODate('2024-01-01') } } },
+{ $group: {
+    _id: '$vendedor',
+    total_ventas: { $sum: '$monto' },
+    promedio_ventas: { $avg: '$monto' },
+    productos_vendidos: { $push: '$producto' }
+} },
+{ $sort: { total_ventas: -1 } }
+]);</code></pre>
+                        </div>
+                    </div>
+                    <p>Esta consulta filtra las ventas del año 2023, agrupa por vendedor, calcula el total y el promedio de ventas, y lista los productos vendidos por cada vendedor. Finalmente, ordena los resultados por el total de ventas en orden descendente.</p>
                     <li><marcador class="resaltado9">Relaciones en MongoDB</marcador></li>
                     <p>MongoDB es una base de datos NoSQL que no utiliza tablas ni relaciones entre ellas, por lo que no tiene un concepto directo de "JOIN" como en SQL. Sin embargo, MongoDB ofrece una operación similar llamada <code>$lookup</code>, que permite hacer uniones entre colecciones.</p>                
                     <div class="consola">
@@ -530,7 +616,7 @@ $project: { "nombre": 1, "departamento_info.nombre": 1 }
 ]);</code></pre>
                         </div>
                     </div>
-                    <p>Este ejemplo utiliza <code>$unwind</code> para desestructurar el array resultante del <code>$lookup</code>, a fin de trabajar con los campos de la colección unida de manera más sencilla. Luego, el operador <code>$project</code> permite seleccionar solo las columnas que queremos que aparezcan en el resultado, en este caso, el nombre del empleado y el nombre del departamento.</p>               
+                    <p>Este ejemplo utiliza <code>$unwind</code> para desestructurar el array resultante del <code>$lookup</code>, a fin de trabajar con los campos de la colección unida de manera más sencilla. Luego, el operador <code>$project</code> permite seleccionar solo las columnas que queremos que aparezcan en el resultado, en este caso, el nombre del empleado y el nombre del departamento.</p>                              
                     <li><marcador class="resaltado9">Operadores de Agregación en MongoDB</marcador></li>
                     <p>MongoDB ofrece varios operadores de agregación como <code>$match</code>, <code>$group</code>, <code>$sort</code>, entre otros, que permiten realizar consultas complejas y manejar grandes volúmenes de datos de manera eficiente.</p>               
                     <div class="consola">
@@ -562,11 +648,11 @@ $project: { "nombre": 1, "departamento_info.nombre": 1 }
 ]);</code></pre>
                         </div>
                     </div>
-                    <p>En este ejemplo, usamos <code>$match</code> para filtrar a los empleados que ganan más de 50,000 antes de hacer el <code>$lookup</code>. Esto mejora la eficiencia al reducir los documentos que se procesan en el <code>$lookup</code> y hace la consulta más rápida.</p>               
-                    <div class="blog-image-grande">
-                        <img src="media/mongodb9.jpeg" alt="">
-                    </div>
+                    <p>En este ejemplo, usamos <code>$match</code> para filtrar a los empleados que ganan más de 50,000 antes de hacer el <code>$lookup</code>. Esto mejora la eficiencia al reducir los documentos que se procesan en el <code>$lookup</code> y hace la consulta más rápida.</p>
                 </ul>            
+                <div class="blog-image-grande">
+                    <img src="media/mongodb9.jpeg" alt="">
+                </div>
                 <h2>Instalación y Conexión a MongoDB</h2>
                 <p>MongoDB es una base de datos NoSQL muy popular, especialmente utilizada en aplicaciones web modernas debido a su capacidad para manejar grandes volúmenes de datos no estructurados. En este tutorial, veremos cómo instalar MongoDB en tu máquina y cómo conectarte a ella usando la herramienta de línea de comandos de MongoDB.</p>
                 <p>Para instalar MongoDB en tu máquina, sigue los pasos según el sistema operativo que estés utilizando:</p>
