@@ -243,7 +243,7 @@
                     El comando <marcador class="subrayado">batcat</marcador> se utiliza para mostrar el contenido de un archivo en la terminal con formato (Puede que se necesite instalar antes <marcador class="subrayado">batcat</marcador>).
                   </div>
                   <div class="comandos">
-                    <input type="text" class="text" value="batcat --style plain --paging never archivo.php" oninput="ajustarAncho(this)">
+                    <input type="text" class="text" value="batcat --style plain --paging never -l php archivo.php" oninput="ajustarAncho(this)">
                     <button><i class="fa fa-clone"></i><span> Copy</span></button>
                   </div>
                 </div>
@@ -420,6 +420,26 @@
 
                 <div class="contenedor">
                   <div class="etiqueta">
+                    Muestra información sobre el hostname.
+                  </div>
+                  <div class="comandos">
+                    <input type="text" class="text" value="hostnamectl" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                  </div>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Muestra información sobre la memoria del sistema.
+                  </div>
+                  <div class="comandos">
+                    <input type="text" class="text" value="free -h" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                  </div>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
                     Busca todos los archivos contenidos en ruta actual de manera recursiva.
                   </div>
                   <div class="comandos">
@@ -530,7 +550,7 @@
 
                 <div class="contenedor">
                   <div class="etiqueta">
-                    Muestra los procesos del sistema.
+                    Muestra los procesos del sistema:
                   </div>
                   <div class="comandos">
                     <input type="text" class="text" value="ps aux" oninput="ajustarAncho(this)">
@@ -540,10 +560,70 @@
 
                 <div class="contenedor">
                   <div class="etiqueta">
-                    Muestra los procesos del sistema en tiempo real.
+                    Buscar procesos relacionados con Apache:
+                  </div>
+                  <div class="comandos">
+                    <input type="text" class="text" value="ps aux | grep apache" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                  </div>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Muestra los procesos del sistema en tiempo real:
                   </div>
                   <div class="comandos">
                     <input type="text" class="text" value="htop" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                  </div>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Muestra los puertos en los que los servicios están escuchando:
+                  </div>
+                  <div class="comandos">
+                    <input type="text" class="text" value="sudo ss -tuln" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                  </div>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Muestra información sobre un puerto:
+                  </div>
+                  <div class="comandos">
+                    <input type="text" class="text" value="sudo lsof -i :9200" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                  </div>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Ver qué proceso usa un puerto:
+                  </div>
+                  <div class="comandos">
+                    <input type="text" class="text" value="sudo fuser -n tcp 80" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                  </div>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Muestra todos los servicios (systemd):
+                  </div>
+                  <div class="comandos">
+                    <input type="text" class="text" value="sudo systemctl list-units --type=service" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                  </div>
+                </div>
+
+                <div class="contenedor">
+                  <div class="etiqueta">
+                    Muestra solo servicios activos (systemd):
+                  </div>
+                  <div class="comandos">
+                    <input type="text" class="text" value="sudo systemctl list-units --type=service --state=running" oninput="ajustarAncho(this)">
                     <button><i class="fa fa-clone"></i><span> Copy</span></button>
                   </div>
                 </div>
