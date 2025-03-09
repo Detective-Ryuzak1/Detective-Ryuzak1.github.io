@@ -125,11 +125,13 @@
                         </div>
                     </div>
                     <li>Para descargar modelos desde Hugging Face, se usa la librería transformers de Python:</li>
-                    <div class="archivo">from transformers import pipeline
+                    <div class="archivo">
+from transformers import pipeline
 
 model = pipeline(task:"summarization", model="facebook/bart-large-cnn")
 response = model("text to summarize")
-print(response)</div>
+print(response)
+                </div>
                 </ol>
                 <p>Esto permite cargar modelos listos para inferencia o fine-tuning en aplicaciones personalizadas.</p>
                 <div class="blog-image-grande">
@@ -180,18 +182,21 @@ print(response)</div>
                     <p>(Si usas otra versión, cambia cu128 por la que corresponda, como cu121 para CUDA 12.1).</p>
                     <li>Verificar que PyTorch reconoce CUDA</li>
                     <p>Ejecuta el siguiente script en Python:</p>
-                    <div class="archivo">import torch
+                    <div class="archivo">
+import torch
 
 # Verifica si CUDA está disponible
 if torch.cuda.is_available():
     print("CUDA está disponible")
     print(f"GPU utilizada: {torch.cuda.get_device_name(0)}")
 else:
-    print("CUDA no está disponible")</div>
+    print("CUDA no está disponible")
+                    </div>
                     <li>Ejemplo de uso en Python con CUDA</li>
                     <p>Aquí se hace uso del script previo para usar CUDA y cambiar entre CPU y GPU dinámicamente:</p>
                 </ol>
-                <div class="archivo">import torch
+                <div class="archivo">
+import torch
 from transformers import pipeline
 
 # Determinar el dispositivo disponible
@@ -238,7 +243,8 @@ print(response, max_length=130, min_length=30, do_sample=False)
                 <ol>
                     <li><marcador class="resaltado9">Prompts Personalizados: </marcador>LangChain permite definir plantillas de prompts para estructurar mejor las consultas que se envían a los modelos, optimizando su rendimiento y obteniendo respuestas más precisas.</li>
                     <p>Ejemplo:</p>
-                    <div class="archivo">from langchain.prompts import PromptTemplate
+                    <div class="archivo">
+from langchain.prompts import PromptTemplate
 
 prompt = PromptTemplate(
     input_variables=["producto"],
@@ -253,7 +259,8 @@ print(prompt.format(producto="teléfono inteligente"))
                         <li>⌭ <marcador class="resaltado8">Long-term memory: </marcador>Almacena conversaciones más largas, generalmente en bases de datos o archivos.</li>
                     </ul>
                     <p>Ejemplo de memoria en un chatbot:</p>
-                    <div class="archivo">from langchain.memory import ConversationBufferMemory
+                    <div class="archivo">
+from langchain.memory import ConversationBufferMemory
 
 memory = ConversationBufferMemory()
 memory.save_context({"input": "Hola, ¿cómo estás?"}, {"output": "¡Hola! Estoy bien, ¿y tú?"})
@@ -262,7 +269,8 @@ print(memory.load_memory_variables({}))
                     </div>
                     <li><marcador class="resaltado9">Cadenas de Procesamiento (Chains): </marcador>Permite combinar múltiples pasos en una única ejecución. Por ejemplo, recibir una consulta, reformatearla, obtener una respuesta de un modelo y devolver un resultado estructurado.</li>
                     <p>Ejemplo:</p>
-                    <div class="archivo">from langchain.chains import LLMChain
+                    <div class="archivo">
+from langchain.chains import LLMChain
 from langchain.llms import OpenAI
 from langchain.prompts import PromptTemplate
 
@@ -274,7 +282,8 @@ print(chain.run("inteligencia artificial"))
                     </div>
                     <li><marcador class="resaltado9">Conectores a Bases de Datos (Vector Stores): </marcador>LangChain permite usar bases de datos vectoriales como ChromaDB, FAISS, Weaviate, Pinecone, etc., para almacenar información en forma de embeddings y mejorar la búsqueda de datos en grandes volúmenes de texto.</li>
                     <p>Ejemplo con ChromaDB:</p>
-                    <div class="archivo">from langchain.embeddings import OpenAIEmbeddings
+                    <div class="archivo">
+from langchain.embeddings import OpenAIEmbeddings
 from langchain.vectorstores import Chroma
 
 embeddings = OpenAIEmbeddings()
@@ -282,7 +291,8 @@ vectorstore = Chroma(embedding_function=embeddings)
                         </div>
                     <li><marcador class="resaltado9">Agentes y Herramientas: </marcador>LangChain permite crear agentes que pueden interactuar con múltiples herramientas y realizar tareas como consultas en bases de datos, llamadas a APIs, búsquedas web, cálculos matemáticos, etc.</li>
                     <p>Ejemplo de agente:</p>
-                    <div class="archivo">from langchain.agents import initialize_agent, AgentType
+                    <div class="archivo">
+from langchain.agents import initialize_agent, AgentType
 from langchain.tools import Tool
 from langchain.llms import OpenAI
 
@@ -309,7 +319,8 @@ print(agente.run("¿Quién fue Nikola Tesla?"))
                     </div>
                 </div>
                 <p>⌨️ El siguiente script en Python utiliza procesamiento de lenguaje natural (NLP) para resumir textos de manera inteligente y adaptada a la comprensión de diferentes grupos de edad.</p>
-                <div class="archivo">from transformers import pipeline
+                <div class="archivo">
+from transformers import pipeline
 from langchain_huggingface import HuggingFacePipeline
 from langchain.prompts import PromptTemplate
 from transformers.utils.logging import set_verbosity_error
@@ -345,7 +356,8 @@ print(summary)
                 </div>
                 <h6>Ejemplo 2</h6>
                 <p>⌨️ Este script es una herramienta avanzada que combina la generación de resúmenes con la capacidad de responder preguntas sobre el contenido resumido. Utiliza modelos preentrenados de Hugging Face y la integración con LangChain para ofrecer una experiencia completa de procesamiento de lenguaje natural (NLP).</p>
-                <div class="archivo">from transformers import pipeline
+                <div class="archivo">
+from transformers import pipeline
 from langchain_huggingface import HuggingFacePipeline
 from langchain.prompts import PromptTemplate
 
@@ -442,7 +454,8 @@ while True:
                     </div>
                 </div>
                 <p>Ejemplo de uso en Python:</p>
-                <div class="archivo">from langchain_ollama import OllamaLLM
+                <div class="archivo">
+from langchain_ollama import OllamaLLM
 
 model = OllamaLLM(model="llama3")
 
@@ -450,7 +463,8 @@ result = model.invoke(input="¿Qué es la inteligencia artificial?")
 print(result)
                 </div>
                 <p>⌨️ El siguiente script implementa un chatbot interactivo utilizando un modelo de lenguaje local a través de Ollama y el framework LangChain. El chatbot es capaz de mantener una conversación con el usuario, recordando el historial de la conversación para proporcionar respuestas contextualmente relevantes.</p>
-                <div class="archivo">from langchain_ollama import OllamaLLM
+                <div class="archivo">
+from langchain_ollama import OllamaLLM
 from langchain_core.prompts import ChatPromptTemplate
 
 # Definimos una plantilla de prompt para guiar las respuestas del chatbot

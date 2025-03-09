@@ -83,7 +83,8 @@
                 </div>
                 <h2>Ejemplo de Uso</h2>
                 <p>PocketSphinx es un motor de reconocimiento de voz offline compatible con SpeechRecognition. A continuación, se muestra un ejemplo de cómo utilizarlo:</p>
-                <div class="archivo">import speech_recognition as sr
+                <div class="archivo">
+import speech_recognition as sr
 
 # Inicializar el reconocedor
 recognizer = sr.Recognizer()
@@ -99,7 +100,8 @@ try:
 except sr.UnknownValueError:
     print("No se pudo entender el audio.")
 except sr.RequestError:
-    print("Error con el motor de reconocimiento.")</div>
+    print("Error con el motor de reconocimiento.")
+                </div>
                 <p>Este código carga un archivo de audio en formato WAV, lo procesa con PocketSphinx y devuelve el texto reconocido. Es una opción útil para proyectos que requieren reconocimiento de voz sin conexión a internet.</p>
                 <p>Haz click <a href="https://github.com/Detective-Ryuzak1/Machine-Learnig-examples/blob/main/SpeechRecognition/SpeechRecognition.ipynb" target="blank">aquí</a> para ver algunos ejemplos de uso con Reconocimiento de voz.</p>
                 <div class="blog-image-grande">
