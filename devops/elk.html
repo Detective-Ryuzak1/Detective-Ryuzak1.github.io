@@ -68,11 +68,11 @@
                     <img src="media/elk3.jpg" alt="">
                 </div>
                 <h2>Ventajas frente a otras alternativas</h2>
-                <ul  class="custom-list2">
-                    <li><marcador class="resaltado3">Open Source: </marcador>A diferencia de otras soluciones comerciales como Splunk, ELK Stack es de código abierto, lo que significa que puede ser implementado sin costos de licencia y con acceso a una comunidad activa de desarrolladores.</li>
-                    <li><marcador class="resaltado3">Escalabilidad y Flexibilidad: </marcador>Elasticsearch permite escalar horizontalmente agregando nuevos nodos al clúster, lo que facilita la gestión de grandes volúmenes de datos sin comprometer el rendimiento.</li>
-                    <li><marcador class="resaltado3">Integración: </marcador>ELK Stack puede integrarse con plataformas cloud, bases de datos, herramientas de automatización y servicios de mensajería, lo que lo hace altamente adaptable a distintas necesidades empresariales.</li>
-                    <li><marcador class="resaltado3">Personalización y Análisis Avanzado: </marcador>Kibana permite la creación de dashboards altamente personalizados con alertas, paneles de control interactivos y compatibilidad con Machine Learning para análisis predictivos.</li>
+                <ul class="custom-list2">
+                    <li><marcador class="resaltado6">Open Source: </marcador>A diferencia de otras soluciones comerciales como Splunk, ELK Stack es de código abierto, lo que significa que puede ser implementado sin costos de licencia y con acceso a una comunidad activa de desarrolladores.</li>
+                    <li><marcador class="resaltado6">Escalabilidad y Flexibilidad: </marcador>Elasticsearch permite escalar horizontalmente agregando nuevos nodos al clúster, lo que facilita la gestión de grandes volúmenes de datos sin comprometer el rendimiento.</li>
+                    <li><marcador class="resaltado6">Integración: </marcador>ELK Stack puede integrarse con plataformas cloud, bases de datos, herramientas de automatización y servicios de mensajería, lo que lo hace altamente adaptable a distintas necesidades empresariales.</li>
+                    <li><marcador class="resaltado6">Personalización y Análisis Avanzado: </marcador>Kibana permite la creación de dashboards altamente personalizados con alertas, paneles de control interactivos y compatibilidad con Machine Learning para análisis predictivos.</li>
                 </ul>
                 <div class="blog-image-grande">
                     <img src="media/elk4.png" alt="">
@@ -526,12 +526,12 @@ CGroup: /system.slice/elasticsearch.service
                 <h6>Formatos de Datos en Elasticsearch</h6>
                 <p>Elasticsearch acepta documentos en JSON, y dentro de cada documento puedes usar los siguientes tipos de datos:</p>
                 <ul  class="custom-list2">
-                    <li><marcador class="resaltado9">Texto (text, keyword): </marcador>Para almacenar cadenas de caracteres.</li>
-                    <li><marcador class="resaltado9">Números (integer, float, double, long, short): </marcador>Para datos numéricos.</li>
-                    <li><marcador class="resaltado9">Booleanos (boolean): </marcador>Para true o false.</li>
-                    <li><marcador class="resaltado9">Fechas (date):</marcador>Formatos como YYYY-MM-DD.</li>
-                    <li><marcador class="resaltado9">Objetos (object): </marcador>Datos anidados dentro de un documento.</li>
-                    <li><marcador class="resaltado9">Geo (geo_point, geo_shape): </marcador>Para almacenar ubicaciones geográficas.</li>
+                    <li><marcador class="resaltado8">Texto (text, keyword): </marcador>Para almacenar cadenas de caracteres.</li>
+                    <li><marcador class="resaltado8">Números (integer, float, double, long, short): </marcador>Para datos numéricos.</li>
+                    <li><marcador class="resaltado8">Booleanos (boolean): </marcador>Para true o false.</li>
+                    <li><marcador class="resaltado8">Fechas (date):</marcador>Formatos como YYYY-MM-DD.</li>
+                    <li><marcador class="resaltado8">Objetos (object): </marcador>Datos anidados dentro de un documento.</li>
+                    <li><marcador class="resaltado8">Geo (geo_point, geo_shape): </marcador>Para almacenar ubicaciones geográficas.</li>
                 </ul>
                 <p>Ejemplo de un documento con varios tipos de datos:</p>
                 <div class="archivo">
@@ -549,8 +549,55 @@ CGroup: /system.slice/elasticsearch.service
                 <div class="blog-image-grande">
                     <img src="media/elk6.png" alt="">
                 </div>
+                <h2>Logstash</h2>
+                <p>Logstash es un motor de procesamiento de datos en tiempo real que puede ingerir, enriquecer, transformar y transportar datos desde una variedad de fuentes a diversos destinos. En su esencia, Logstash actúa como un pipeline de datos flexible y extensible.</p>
+                <p>Logstash destaca en la ingesta de datos de fuentes dispares, como archivos de registro, bases de datos, colas de mensajes y servicios web. Una vez ingeridos, los datos pueden ser enriquecidos con información adicional, como geolocalización de direcciones IP o resolución de nombres de dominio. Logstash también ofrece capacidades de filtrado condicional y de control de flujo, lo que permite enrutar los datos a diferentes destinos o realizar acciones específicas según su contenido.</p>
+                <p>Logstash usa archivos de configuración .conf con tres secciones principales:</p>
+                <ul style="list-style-type: none;">
+                    <li>▱ <marcador class="resaltado9">input: </marcador>Define la fuente de los datos (archivos, bases de datos, syslog, Kafka, etc.).</li>
+                    <li>▱ <marcador class="resaltado9">filter: </marcador>Aplica transformaciones a los datos (parseo, eliminación, enriquecimiento, etc.).</li>
+                    <li>▱ <marcador class="resaltado9">output: </marcador>Define el destino de los datos (Elasticsearch, bases de datos, archivos, etc.).</li>
+                </ul>
+                <p>Logstash ofrece una amplia gama de filtros que permiten transformar y enriquecer tus datos antes de enviarlos a tu destino (generalmente Elasticsearch). Aquí te presento los tipos de filtros más comunes y útiles:</p>
+                <ol>
+                    <li>Filtros de Análisis y Extracción de Datos:</li>
+                    <ul style="list-style-type: none;">
+                        <li>⌭ <marcador class="resaltado5">grok: </marcador>Este es uno de los filtros más poderosos. Permite analizar y extraer campos específicos de cadenas de texto no estructuradas utilizando patrones predefinidos o personalizados.</li>
+                        <p>Es ideal para procesar registros de logs con formatos variados.</p>
+                        <li>⌭ <marcador class="resaltado5">dissect: </marcador>Similar a Grok, pero más rápido para datos estructurados con delimitadores consistentes.</li>
+                        <p>Útil para procesar registros CSV o datos con patrones predecibles.</p>
+                        <li>⌭ <marcador class="resaltado5">csv: </marcador>Analiza datos en formato CSV y los convierte en campos individuales.</li>
+                        <li>⌭ <marcador class="resaltado5">json: </marcador>Analiza datos en formato JSON y los convierte en campos estructurados.</li>
+                        <li>⌭ <marcador class="resaltado5">xml: </marcador>Analiza datos en formato XML y los convierte en campos estructurados.</li>
+                        <li>⌭ <marcador class="resaltado5">kv: </marcador>Analiza pares clave-valor en cadenas de texto y los convierte en campos individuales.</li>
+                    </ul>
+                    <li>Filtros de Transformación y Enriquecimiento de Datos:</li>
+                    <ul style="list-style-type: none;">
+                        <li>⌭ <marcador class="resaltado5">mutate: </marcador>Permite realizar diversas transformaciones en los campos, como renombrar campos, eliminar campos, reemplazar valores, dividir cadenas y convertir tipos de datos.</li>
+                        <li>⌭ <marcador class="resaltado5">date: </marcador>Analiza cadenas de texto que representan fechas y las convierte en objetos de fecha y hora.</li>
+                        <p>Esencial para trabajar con datos basados en tiempo.</p>
+                        <li>⌭ <marcador class="resaltado5">geoip: </marcador>Enriquece los eventos con información geográfica basada en direcciones IP.</li>
+                        <p>Permite obtener la ubicación, el país y otros detalles geográficos.</p>
+                        <li>⌭ <marcador class="resaltado5">dns: </marcador>Realiza búsquedas de DNS inversas para obtener nombres de host a partir de direcciones IP.</li>
+                        <li>⌭ <marcador class="resaltado5">ruby: </marcador>Permite ejecutar código Ruby para realizar transformaciones personalizadas complejas.</li>
+                    </ul>
+                    <li>Filtros Condicionales y de Control de Flujo:</li>
+                    <ul style="list-style-type: none;">
+                        <li>⌭ <marcador class="resaltado5">if/else: </marcador>Permite aplicar filtros condicionalmente según ciertas condiciones.</li>
+                        <p>Esencial para crear pipelines de procesamiento de datos flexibles.</p>
+                        <li>⌭ <marcador class="resaltado5">drop: </marcador>Descarta eventos que no cumplen con ciertos criterios.</li>
+                        <p>Útil para filtrar datos no deseados.</p>
+                        <li>⌭ <marcador class="resaltado5">clone: </marcador>Duplica eventos para procesarlos de diferentes maneras.</li>
+                        <li>⌭ <marcador class="resaltado5">aggregate: </marcador>Combina múltiples eventos en un solo evento.</li>
+                    </ul>
+                    <li>Filtros de Codificación y Decodificación:</li>
+                    <ul style="list-style-type: none;">
+                        <li>⌭ <marcador class="resaltado5">urldecode: </marcador>Decodifica cadenas de texto codificadas en formato URL.</li>
+                        <li>⌭ <marcador class="resaltado5">base64: </marcador>Codifica o decodifica datos en formato Base64.</li>
+                    </ul>
+                </ol>
                 <h2>Instalar Logstash</h2>
-                <p>❏ Puedes descargar Logstash para Windows desde la web oficial de Elastic: https://www.elastic.co/downloads/logstash.</p>
+                <p>❏ Puedes descargar Logstash para Windows desde la web oficial de <a href="https://www.elastic.co/downloads/logstash" target="blank">Elastic</a>.</p>
                 <div class="contenedor">
                     <div class="etiqueta">
                         En Linux (Debian/Ubuntu):
@@ -560,13 +607,36 @@ CGroup: /system.slice/elasticsearch.service
                         <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                 </div>
-                <p>Logstash usa archivos de configuración .conf con tres secciones principales:</p>
-                <ul style="list-style-type: none;">
-                    <li>▱ <marcador class="resaltado8">input: </marcador>Define la fuente de los datos (archivos, bases de datos, syslog, Kafka, etc.).</li>
-                    <li>▱ <marcador class="resaltado8">filter: </marcador>Aplica transformaciones a los datos (parseo, eliminación, enriquecimiento, etc.).</li>
-                    <li>▱ <marcador class="resaltado8">output: </marcador>Define el destino de los datos (Elasticsearch, bases de datos, archivos, etc.).</li>
-                </ul>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Instalar syslog-ng en tu sistema Linux :
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="sudo apt install syslog-ng" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Reiniciar el Servicio Syslog-ng:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="sudo systemctl restart syslog-ng" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
                 <h6>Uso Básico de Logstash</h6>
+                <p>❏ Generar Tráfico de Registro:</p>
+                <ul style="list-style-type: none;">
+                    <li>⌭ <marcador class="resaltado5">Autenticación (auth.log): </marcador>Intenta iniciar sesión con un nombre de usuario incorrecto: <marcador class="subrayado">sudo su - usuario_incorrecto</marcador> (esto generará un intento de autenticación fallido).</li>
+                    <p>O intenta usar <marcador class="subrayado">sudo</marcador> para ejecutar cualquier comando.</p>
+                    <li>⌭ <marcador class="resaltado5">Cron (cron.log): </marcador>Añade una tarea cron sencilla que se ejecute en el próximo minuto: <marcador class="subrayado">(crontab -l ; echo "* * * * * echo 'Prueba Cron' >> /tmp/cron_test.log") | crontab -</marcador> (esto generará una entrada en <marcador class="resaltado1">cron.log</marcador> cuando la tarea se ejecute).</li>
+                    <p>Si deseas que la tarea deje de ejecutarse, debes eliminarla del crontab. Para hacerlo, sigue estos pasos: primero, abre el crontab en modo edición ejecutando <marcador class="subrayado">crontab -e</marcador>, luego busca la línea que añadiste (<marcador class="subrayado">* * * * * echo 'Prueba Cron' >> /tmp/cron_test.log</marcador>), elimínala y guarda el archivo. Finalmente, verifica que la tarea se haya eliminado listando las tareas cron nuevamente con <marcador class="subrayado">crontab -l</marcador>. Este proceso asegura que la tarea programada, que originalmente se ejecutaba cada minuto, ya no esté activa y no continúe escribiendo en el archivo <marcador class="resaltado1">/tmp/cron_test.log</marcador>.</p>
+                    <li>⌭ <marcador class="resaltado5">Kernel (kern.log): </marcador>Conecta o desconecta un dispositivo USB.</li>
+                    <p>Puedes intentar cargar o descargar un módulo del kernel (con precaución): <marcador class="subrayado">sudo modprobe usb-storage</marcador> o <marcador class="subrayado">sudo modprobe -r usb-storage</marcador>.</p>
+                    <li>⌭ <marcador class="resaltado5">Syslog (syslog): </marcador>Usa el comando logger para enviar mensajes directamente a syslog: <marcador class="subrayado">logger "Mensaje de prueba syslog"</marcador>.</li>
+                    <li>⌭ <marcador class="resaltado5">Mail (mail.log): </marcador>Si tienes un servidor de correo configurado, envía o recibe un correo electrónico.</li>
+                </ul>
                 <p>❏ Crear un Archivo de Configuración Básico.</p>
                 <div class="contenedor">
                     <div class="etiqueta">
@@ -583,27 +653,28 @@ input {
     file {
         path => "/var/log/syslog"
         start_position => "beginning"
+        sincedb_path => "/var/lib/logstash/sincedb"  # Usa un archivo de sincedb para mantener un seguimiento de los logs ya procesados
     }
 }
-    
+
 filter {
     grok {
-        match => { "message" => "%{SYSLOGTIMESTAMP:timestamp} %{SYSLOGHOST:host} %{WORD:process} %{GREEDYDATA:log}" }
+        match => { "message" => "%{SYSLOGTIMESTAMP:timestamp} %{SYSLOGHOST:host} %{DATA:process}(?:\[%{POSINT:pid}\])?: %{GREEDYDATA:log}" }
     }
 }
-    
+
 output {
     elasticsearch {
         hosts => ["http://localhost:9200"]
         index => "logs-syslog"
     }
     stdout { codec => rubydebug }
-}                    
+}                   
                 </div>
-                <ul style="list-style-type: none;">
-                    <li>⌭ <marcador class="resaltado8">input: </marcador>Se define como fuente el archivo <marcador class="resaltado1">/var/log/syslog</marcador>.</li>
-                    <li>⌭ <marcador class="resaltado8">filter: </marcador>Usa grok para extraer campos estructurados del log.</li>
-                    <li>⌭ <marcador class="resaltado8">output: </marcador>Envía los datos a un índice en Elasticsearch llamado logs-syslog y los muestra en la terminal (stdout).</li>
+                <ul class="custom-list2">
+                    <li><marcador class="resaltado8">input: </marcador>Se define como fuente el archivo <marcador class="resaltado1">/var/log/syslog</marcador>.</li>
+                    <li><marcador class="resaltado8">filter: </marcador>Usa grok para extraer campos estructurados del log.</li>
+                    <li><marcador class="resaltado8">output: </marcador>Envía los datos a un índice en Elasticsearch llamado logs-syslog y los muestra en la terminal (stdout).</li>
                 </ul>
                 <p>❏ Iniciar Logstash con el Archivo de Configuración.</p>
                 <div class="contenedor">
@@ -621,6 +692,89 @@ output {
                     </div>
                     <div class="comandos">
                         <input type="text" class="text" value="sudo /usr/share/logstash/bin/logstash -f /etc/logstash/conf.d/logstash.conf" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Usa la API de Elasticsearch para listar los índices:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="curl http://localhost:9200/_cat/indices?v" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Usa la API de Elasticsearch para listar los documentos en el índice:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="curl http://localhost:9200/logs-syslog/_search?pretty" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Al mandar la salida con formato de timestamp Elasticsearch debe crear un índice con el nombre .ds-logs-syslog-2025.03.09-2025.03.09-000001. Este nombre sugiere que estás utilizando Data Streams en Elasticsearch, lo cual es común si has habilitado ILM (Index Lifecycle Management) o Data Streams en tu configuración.</p>
+                <p>Un Data Stream es una abstracción en Elasticsearch que permite manejar índices basados en el tiempo (time-series) de manera más eficiente. En lugar de crear un índice directamente (como logs-syslog-2025.03.09), Elasticsearch crea un índice con un nombre generado automáticamente (por ejemplo, .ds-logs-syslog-2025.03.09-2025.03.09-000001).</p>
+                <div class="archivo">
+output {
+    elasticsearch {
+        hosts => ["http://localhost:9200"]
+        data_stream => true
+    }
+    stdout { codec => rubydebug }
+}   
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Verifica si estás utilizando un Data Stream:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="curl http://localhost:9200/_data_stream/logs-generic-default?pretty" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Usa la API de Elasticsearch para listar los documentos en el índice:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="curl http://localhost:9200/logs-generic-default/_search?pretty" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Puedes acceder directamente al índice usando curl:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="curl -X GET 'http://localhost:9200/.ds-logs-generic-default-2025.03.09-000001/_search?pretty'" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Para borrar todos los índices en Elasticsearch, puedes usar el siguiente comando:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="curl -X DELETE 'http://localhost:9200/_all?pretty'" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Si solo deseas eliminar los índices relacionados con logs-generic-default, puedes usar:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="curl -X DELETE 'http://localhost:9200/logs-generic-default*?pretty'" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Si deseas eliminar todos los datos asociados con un data stream específico, puedes eliminar el data stream completo, usando:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="curl -X DELETE 'http://localhost:9200/.ds-logs-generic-default-2025.03.09-000001?pretty'" oninput="ajustarAncho(this)">
                         <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                 </div>
@@ -745,7 +899,7 @@ output {
                         <img src="media/elk7.png" alt="">
                     </div>
                 <h2>Instalar Kibana</h2>
-                <p>❏ Puedes descargar Kibana para Windows desde la web oficial de Elastic: https://www.elastic.co/downloads/kibana.</p>
+                <p>❏ Puedes descargar Kibana para Windows desde la web oficial de <a href="https://www.elastic.co/downloads/kibana" target="blank">Elastic</a>.</p>
                 <div class="contenedor">
                     <div class="etiqueta">
                         En Linux (Debian/Ubuntu):
@@ -836,7 +990,7 @@ output {
                 <p>Luego, en Kibana:</p>
                 <ol>
                     <li>Ve a "Stack Management" → "Index Patterns".</li>
-                    <li>Crea un patrón de índice para logs-*.</li>
+                    <li>Crea un patrón de índice para logs-syslog-*.</li>
                     <li>Visualiza los datos en "Discover".</li>
                 </ol>
                 <div class="blog-image-grande">
