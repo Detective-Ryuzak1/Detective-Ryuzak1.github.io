@@ -783,7 +783,7 @@ output {
                         Si necesitas mover los datos a otro índice, puedes usar la API de reindexación.
                     </div>
                     <div class="comandos">
-                        <input type="text" class="text" value="curl -X POST &quot;http://localhost:9400/_reindex?pretty&quot; -H 'Content-Type: application/json' -d '{&quot;source&quot;: {&quot;index&quot;: &quot;logs-generic-default&quot;}, &quot;dest&quot;: {&quot;index&quot;: &quot;logs-backup&quot;}}'" oninput="ajustarAncho(this)">
+                        <input type="text" class="text" value="curl -X POST &quot;http://localhost:9200/_reindex?pretty&quot; -H 'Content-Type: application/json' -d '{&quot;source&quot;: {&quot;index&quot;: &quot;logs-generic-default&quot;}, &quot;dest&quot;: {&quot;index&quot;: &quot;logs-backup&quot;}}'" oninput="ajustarAncho(this)">
                         <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                 </div>
