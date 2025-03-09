@@ -713,6 +713,33 @@ output {
                         <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                 </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Puedes verificar el mapeo (estructura de campos) del índice para entender cómo están definidos los campos:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="curl -X GET 'http://localhost:9200/logs-syslog/_mapping?pretty'" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Para borrar todos los índices en Elasticsearch, puedes usar el siguiente comando:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="curl -X DELETE 'http://localhost:9200/_all?pretty'" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Si deseas eliminar todos los datos asociados con un data stream específico, puedes eliminar el data stream completo, usando:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="curl -X DELETE 'http://localhost:9200/logs-syslog?pretty'" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
                 <p>Elasticsearch puede crear un índice Data Streams en Elasticsearch, lo cual es común si has habilitado ILM (Index Lifecycle Management) o Data Streams en tu configuración.</p>
                 <p>Un Data Stream es una abstracción en Elasticsearch que permite manejar índices basados en el tiempo (time-series) de manera más eficiente.</p>
                 <div class="archivo">
@@ -753,28 +780,10 @@ output {
                 </div>
                 <div class="contenedor">
                     <div class="etiqueta">
-                        Para borrar todos los índices en Elasticsearch, puedes usar el siguiente comando:
+                        Si necesitas mover los datos a otro índice, puedes usar la API de reindexación.
                     </div>
                     <div class="comandos">
-                        <input type="text" class="text" value="curl -X DELETE 'http://localhost:9200/_all?pretty'" oninput="ajustarAncho(this)">
-                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
-                    </div>
-                </div>
-                <div class="contenedor">
-                    <div class="etiqueta">
-                        Si solo deseas eliminar los índices relacionados con logs-generic-default, puedes usar:
-                    </div>
-                    <div class="comandos">
-                        <input type="text" class="text" value="curl -X DELETE 'http://localhost:9200/logs-generic-default*?pretty'" oninput="ajustarAncho(this)">
-                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
-                    </div>
-                </div>
-                <div class="contenedor">
-                    <div class="etiqueta">
-                        Si deseas eliminar todos los datos asociados con un data stream específico, puedes eliminar el data stream completo, usando:
-                    </div>
-                    <div class="comandos">
-                        <input type="text" class="text" value="curl -X DELETE 'http://localhost:9200/.ds-logs-generic-default-2025.03.09-000001?pretty'" oninput="ajustarAncho(this)">
+                        <input type="text" class="text" value="curl -X POST &quot;http://localhost:9400/_reindex?pretty&quot; -H 'Content-Type: application/json' -d '{&quot;source&quot;: {&quot;index&quot;: &quot;logs-generic-default&quot;}, &quot;dest&quot;: {&quot;index&quot;: &quot;logs-backup&quot;}}'" oninput="ajustarAncho(this)">
                         <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                 </div>
