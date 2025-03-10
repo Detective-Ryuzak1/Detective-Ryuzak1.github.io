@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <link rel="icon" href="../media/imagen41.png" type="image/png">
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                        <li><a href="../devops.html">DevOps</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Aportar" onclick="window.open('https://buymeacoffee.com/ryuzak1', '_blank');">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <br>
+                <br>
+                <h1>Apache Kafka</h1>
+                <p>Apache Kafka es una plataforma de mensajería distribuida diseñada para manejar grandes volúmenes de datos en tiempo real. Originalmente desarrollado por LinkedIn y posteriormente donado a la Apache Software Foundation, Kafka se ha convertido en una solución ampliamente adoptada para la transmisión de datos en entornos distribuidos.</p>
+                <p>Este sistema se basa en el concepto de "publicar y suscribirse" (publish-subscribe) y permite que los sistemas intercambien datos de manera confiable, eficiente y escalable. Su arquitectura distribuida lo hace ideal para aplicaciones que requieren alta disponibilidad y tolerancia a fallos.</p>
+                <p>Kafka es un sistema diseñado para procesar flujos de eventos en tiempo real. Esto significa que está optimizado para capturar y responder a sucesos que ocurren de manera continua. Los "productores" envían estos eventos a Kafka, organizándolos en "topics" (temas) que actúan como canales de datos.</p>
+                <p>Los "brokers" de Kafka almacenan estos eventos de forma duradera y los distribuyen a los "consumidores". Estos consumidores son aplicaciones que procesan los eventos a medida que llegan, permitiendo reacciones casi instantáneas. La capacidad de Kafka para manejar grandes volúmenes de datos y su arquitectura distribuida aseguran que estas reacciones ocurran de manera eficiente y escalable.</p>
+                <div class="blog-image">
+                    <img src="media/kafka0.jpeg" alt="">
+                </div>
+                <h2>¿Para qué sirve Apache Kafka?</h2>
+                <p>Apache Kafka se utiliza para la ingesta y procesamiento de grandes cantidades de datos en tiempo real. Su funcionalidad es útil en diversos escenarios, tales como:</p>
+                <ul style="list-style-type: none;">
+                    <li>🔸<marcador class="resaltado8">Procesamiento de eventos en tiempo real: </marcador>Empresas que necesitan analizar datos al instante, como plataformas de redes sociales, comercio electrónico y sistemas de detección de fraudes.</li>
+                    <li>🔸<marcador class="resaltado8">Monitoreo de logs y métricas: </marcador>Kafka facilita la recolección y análisis de registros y métricas en sistemas distribuidos.</li>
+                    <li>🔸<marcador class="resaltado8">Integración de sistemas: </marcador>Permite la comunicación entre distintos servicios y aplicaciones a través de su sistema de eventos.</li>
+                    <li>🔸<marcador class="resaltado8">Procesamiento de flujos de datos: </marcador>Gracias a Kafka Streams, se pueden procesar datos en tiempo real con baja latencia.</li>
+                    <li>🔸<marcador class="resaltado8">Mensajería escalable: </marcador>Sirve como alternativa a sistemas de mensajería tradicionales como RabbitMQ o ActiveMQ, pero con una mayor capacidad de escalabilidad.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/kafka1.png" alt="">
+                </div>
+                <h2>Arquitectura</h2>
+                <p>Kafka está compuesto por varios elementos clave que permiten su funcionamiento:</p>
+                <ul style="list-style-type: none;">
+                    <li>▱ <marcador class="resaltado9">Producers: </marcador>Los productores son la primera línea en el ecosistema de Kafka. Son aplicaciones que generan datos y los envían a Kafka. Estos datos pueden ser de cualquier tipo: registros de actividad de usuarios, datos de sensores, logs de aplicaciones, transacciones financieras, etc.</li>
+                    <p>∘ La clave de los productores es su capacidad para enviar datos de forma asíncrona y a alta velocidad. Esto permite que las aplicaciones continúen funcionando sin tener que esperar a que los datos sean procesados.</p>
+                    <p>∘ Los productores tienen la flexibilidad de elegir a qué "topic" (tema) enviar sus mensajes, lo que permite organizar los datos en categorías lógicas.</p>
+                    <li>▱ <marcador class="resaltado9">Topics: </marcador>Los productores tienen la flexibilidad de elegir a qué "topic" (tema) enviar sus mensajes, lo que permite organizar los datos en categorías lógicas.</li>
+                    <p>∘ Cada mensaje enviado a Kafka debe pertenecer a un topic. Por ejemplo, podrías tener un topic para "logs de usuarios", otro para "transacciones de ventas" y otro para "datos de sensores".</p>
+                    <p>∘ Los topics permiten que diferentes aplicaciones (productores y consumidores) interactúen con flujos de datos específicos.</p>
+                    <li>▱ <marcador class="resaltado9">Brokers: </marcador>Los brokers son los servidores que componen el clúster de Kafka. Son responsables de almacenar los mensajes y distribuirlos a los consumidores.</li>
+                    <p>∘ Un clúster de Kafka puede estar compuesto por múltiples brokers, lo que proporciona alta disponibilidad y tolerancia a fallos.</p>
+                    <p>∘ Cuando un productor envía un mensaje, este se almacena en uno o varios brokers, dependiendo de la configuración del topic.</p>
+                    <p>∘ Los brokers son los responsables de la persistencia de los datos, guardando los mensajes en el disco. Esto asegura que los datos no se pierdan, incluso en caso de fallos del sistema.</p>
+                    <li>▱ <marcador class="resaltado9">Partitions: </marcador>Para mejorar la escalabilidad y el rendimiento, cada topic puede dividirse en múltiples particiones.</li>
+                    <p>∘ Cada partición es una secuencia ordenada de mensajes, y cada mensaje dentro de una partición tiene un offset único.</p>
+                    <p>∘ Las particiones permiten distribuir la carga de trabajo entre múltiples brokers, lo que aumenta el rendimiento y la capacidad de procesamiento de Kafka.</p>
+                    <p>∘ Además, las particiones permiten que múltiples consumidores procesen los mensajes en paralelo, lo que acelera el procesamiento de datos.</p>
+                    <li>▱ <marcador class="resaltado9">Consumers: </marcador>Los consumidores son aplicaciones que leen los mensajes almacenados en Kafka.</li>
+                    <p>∘ Los consumidores se suscriben a uno o varios topics y procesan los mensajes a medida que llegan.</p>
+                    <p>∘ Kafka permite que múltiples consumidores trabajen en paralelo para procesar los mensajes de un topic. Esto se logra mediante la asignación de particiones a los consumidores.</p>
+                    <p>∘ Los consumidores pueden agruparse en grupos de consumidores (consumer groups), lo que permite distribuir la carga de trabajo y asegurar que cada mensaje sea procesado una sola vez dentro de un grupo.</p>
+                    <li>▱ <marcador class="resaltado9">Zookeeper: </marcador>Zookeeper es un servicio de coordinación que se utiliza para gestionar el clúster de Kafka.</li>
+                    <p>∘ Zookeeper se encarga de mantener la información de configuración del clúster, como la lista de brokers, los topics y las particiones.</p>
+                    <p>∘ También se encarga de la elección del líder de las particiones, que es el broker responsable de recibir las escrituras de los productores.</p>
+                    <p>∘ Zookeeper es crucial para la estabilidad y la fiabilidad de Kafka, ya que garantiza que todos los componentes del clúster estén sincronizados.</p>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/kafka2.png" alt="">
+                </div>
+                <h2>Tecnologías Compatibles</h2>
+                <p>Kafka es compatible con diversas tecnologías y frameworks, lo que lo hace una opción versátil en arquitecturas modernas:</p>
+                <ul>
+                    <li><marcador class="resaltado8">Bases de Datos: </marcador>Puede integrarse con bases de datos relacionales (MySQL, PostgreSQL) y NoSQL (MongoDB, Cassandra).</li>
+                    <li><marcador class="resaltado8">Sistemas de Big Data: </marcador>Funciona con Apache Spark, Hadoop, y Flink para el procesamiento de datos a gran escala.</li>
+                    <li><marcador class="resaltado8">Lenguajes de Programación: </marcador>Ofrece soporte para Java, Python, Scala, Go, y más.</li>
+                    <li><marcador class="resaltado8">Sistemas de Mensajería: </marcador>Puede complementar o reemplazar soluciones como RabbitMQ y ActiveMQ.</li>
+                    <li><marcador class="resaltado8">Servicios en la Nube: </marcador>Se puede implementar en AWS, Azure y Google Cloud Platform.</li>
+                </ul>
+                <div class="blog-image">
+                    <img src="media/kafka3.gif" alt="">
+                </div>
+                <h2>Flujo de Apache Kafka</h2>
+                <p>Imagina una plataforma de comercio electrónico en tiempo real. Cada vez que un usuario realiza una compra, se genera un evento. Este evento, que contiene detalles como el ID del producto, el precio, la ubicación del usuario y la hora de la compra, es producido por una aplicación (el productor) y enviado a un topic de Kafka llamado "compras". Este topic está dividido en varias particiones para manejar el alto volumen de transacciones.</p>
+                <p>Los brokers de Kafka, que forman un clúster, reciben estos eventos y los almacenan de forma duradera en las particiones del topic "compras". Como el topic está particionado, los eventos se distribuyen entre múltiples brokers, lo que permite manejar una gran cantidad de datos y asegurar la disponibilidad. Zookeeper se encarga de coordinar el clúster, asegurando que todos los brokers estén sincronizados y que las particiones tengan líderes designados.</p>
+                <p>Ahora, imagina que el equipo de análisis de datos necesita procesar estas compras en tiempo real para generar informes y detectar anomalías. Tienen una aplicación (el consumidor) que se suscribe al topic "compras". El consumidor lee los eventos de las particiones y los procesa. Como el topic está particionado, pueden tener múltiples instancias del consumidor trabajando en paralelo, cada una procesando una o varias particiones. Esto permite un procesamiento en tiempo real y escalable de los datos de compra.</p>
+                <p>Además, el equipo de marketing tiene otra aplicación (otro consumidor) que también se suscribe al topic "compras". Esta aplicación utiliza los datos de compra para personalizar las recomendaciones de productos para los usuarios. Como tienen su propio grupo de consumidores, pueden procesar los mismos eventos de compra sin interferir con el trabajo del equipo de análisis de datos.</p>
+                <p>En resumen, Kafka actúa como un sistema de mensajería centralizado y escalable que permite la transmisión y el procesamiento de datos en tiempo real. Los productores generan eventos, los brokers los almacenan y los consumidores los procesan, todo ello coordinado por Zookeeper.</p>
+                <div class="blog-image-doble-grande">
+                    <img src="media/kafka4.png" alt="">
+                    <img src="media/kafka5.png" alt="">
+                </div>
+                <h2>Configuración</h2>
+                <p>Para instalar y configurar Kafka, se requieren algunos pasos básicos:</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Antes de instalar Kafka, es necesario tener instalado Java y Apache Zookeeper:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="sudo apt update && sudo apt install openjdk-11-jdk zookeeperd" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Para instalar Apache Kafka en Linux, necesitas descargar los archivos binarios directamente desde el sitio web oficial de <a href="https://kafka.apache.org/downloads" target="blank">Apache Kafka</a>. </p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Descarga y Configuración de Kafka:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="mv ../../Descargas/kafka-3.9.0-src.tgz . && tar -xvzf kafka-3.9.0-src.tgz && cd kafka-3.9.0-src" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Construir el proyecto:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="./gradlew jar -PscalaVersion=2.13.14" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Primero, asegúrate de crear el directorio de zookeeper: 
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="sudo mkdir -p /tmp/zookeeper" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>El directorio /tmp está diseñado para archivos temporales. Los sistemas Linux suelen limpiar este directorio periódicamente, especialmente al reiniciar. Esto significa que los datos de Zookeeper podrían perderse, lo que podría provocar la corrupción de los datos de Kafka.</p>
+                <p>Para un entorno de producción crea un directorio dedicado para los datos de Zookeeper en una ubicación persistente, como /var/lib/zookeeper o un directorio dentro de tu directorio de inicio (/home/$USER/zookeeper).</p>
+                <p>Edita el archivo config/zookeeper.properties y modifica "dataDir=/var/lib/zookeeper" para que apunten a tu directorio dedicado:</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Luego, cambia los permisos: 
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="sudo chmod -R 777 /tmp/zookeeper" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Nota: dar permisos 777 es muy permisivo, para un entorno de producción, se recomienda configurar permisos mas restrictivos.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Iniciar Zookeeper:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="bin/zookeeper-server-start.sh config/zookeeper.properties" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Iniciar Kafka:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="bin/kafka-server-start.sh config/server.properties" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>❏ Crear un Topic en Kafka:</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9633;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="sudo"></marcador>bin/kafka-topics.sh  <marcador class="tool"></marcador> <marcador class="param">--create</marcador> <marcador class="param">--topic</marcador> mi-topic <marcador class="param">--bootstrap-server</marcador> localhost:9092 <marcador class="param">--partitions</marcador> 1 <marcador class="param">--replication-factor</marcador> 1<marcador class="param"></marcador></span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">Created topic mi-topic.
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <ul style="list-style-type: none;">
+                    <li>⌭ <marcador class="resaltado8">topic mi-topic: </marcador>Nombre del topic a crear.</li>
+                    <li>⌭ <marcador class="resaltado8">partitions 3: </marcador>Número de particiones del topic.</li>
+                    <li>⌭ <marcador class="resaltado8">replication-factor 2: </marcador>Número de réplicas del topic para tolerancia a fallos.</li>
+                </ul>
+                <p>❏ Enviar Mensajes:</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9633;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="sudo"></marcador>bin/kafka-console-producer.sh <marcador class="tool"></marcador><marcador class="param">--topic</marcador> mi-topic <marcador class="param">--bootstrap-server</marcador> localhost:9092<marcador class="param"></marcador></span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">>testing
+>hello world
+>i am your father
+>
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>❏ Leer Mensajes:</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9633;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="sudo"></marcador>bin/kafka-console-consumer.sh <marcador class="tool"></marcador><marcador class="param">--topic</marcador> mi-topic <marcador class="param">--from-beginning</marcador> <marcador class="param">--bootstrap-server</marcador> localhost:9092</span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">testing
+hello world
+i am your father                                
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Para detener Zookeeper:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="bin/zookeeper-server-stop.sh" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Para detener Kafka:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="bin/kafka-server-stop.sh" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Para permitir conexiones remotas, edita el archivo config/server.properties:</p>
+                <div class="archivo">
+listeners=PLAINTEXT://0.0.0.0:9092
+advertised.listeners=PLAINTEXT://IP_DEL_SERVIDOR:9092
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Después, reinicia Kafka:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="bin/kafka-server-stop.sh && bin/kafka-server-start.sh config/server.properties" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>En el host remoto, usa la IP del servidor para conectarte.</p>
+                <div class="blog-image-grande">
+                    <img src="media/kafka6.png" alt="">
+                </div>
+                <h6>Cluster de Apache Kafka</h6>
+                <p>Crear un clúster de Apache Kafka con Docker es una excelente manera de experimentar y desarrollar con Kafka de forma rápida y sencilla. Aquí te explico cómo puedes hacerlo, junto con algunas consideraciones importantes:</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Creación de los contenedores con Docker: 
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="sudo podman run -it --rm ubuntu:latest" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Es necesario crear 3 contenedores en diferentes terminales, para cada uno de los nodos del cluster.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Verificar las direcciones IP: 
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="cat /etc/hosts" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Instalar las dependencias en los contenedores: 
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="apt update && apt install -y nano wget curl openjdk-11-jdk" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Descargar Kafka en los contenedores: 
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="wget https://dlcdn.apache.org/kafka/3.9.0/kafka-3.9.0-src.tgz && tar -xvzf kafka-3.9.0-src.tgz && cd kafka-3.9.0-src" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Crear la carpeta para zookeeper: 
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="mkdir /root/zookeeper-data" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>❏ Configurar Zookeeper.</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9633;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="sudo"></marcador><marcador class="tool">nano</marcador> config/zookeeper.properties <marcador class="param"></marcador></span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text"># Licensed to the Apache Software Foundation (ASF) under one or more
+# contributor license agreements.  See the NOTICE file distributed with
+# this work for additional information regarding copyright ownership.
+# The ASF licenses this file to You under the Apache License, Version 2.0
+# (the "License"); you may not use this file except in compliance with
+# the License.  You may obtain a copy of the License at
+# 
+#    http://www.apache.org/licenses/LICENSE-2.0
+# 
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# the directory where the snapshot is stored.
+dataDir=/root/zookeeper-data
+# the port at which the clients will connect
+clientPort=2181
+# disable the per-ip limit on the number of connections since this is a non-production config
+maxClientCnxns=0
+# Disable the adminserver by default to avoid port conflicts.
+# Set the port to something non-conflicting if choosing to enable this
+admin.enableServer=false
+# admin.serverPort=8080
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Construir el proyecto:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="./gradlew jar -PscalaVersion=2.13.14" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Iniciar Zookeeper:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="bin/zookeeper-server-start.sh config/zookeeper.properties" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Crear la carpeta para el nodo 1 y 2: 
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="mkdir /root/kafka-logs" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>❏ Configurar el nodo 1:</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9633;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="sudo"></marcador><marcador class="tool">nano</marcador> config/server.properties <marcador class="param"></marcador></span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">############################# Server Basics #############################
+
+# The id of the broker. This must be set to a unique integer for each broker.
+broker.id=1
+
+############################# Socket Server Settings #############################
+
+# The address the socket server listens on. If not configured, the host name will be equal to the value of
+# java.net.InetAddress.getCanonicalHostName(), with PLAINTEXT listener name, and port 9092.
+#   FORMAT:
+#     listeners = listener_name://host_name:port
+#   EXAMPLE:
+#     listeners = PLAINTEXT://your.host.name:9092
+listeners=PLAINTEXT://10.88.0.3:9092
+
+############################# Log Basics #############################
+
+# A comma separated list of directories under which to store log files
+log.dirs=/root/kafka-logs
+
+############################# Zookeeper #############################
+
+# Zookeeper connection string (see zookeeper docs for details).
+# This is a comma separated host:port pairs, each corresponding to a zk
+# server. e.g. "127.0.0.1:3000,127.0.0.1:3001,127.0.0.1:3002".
+# You can also append an optional chroot string to the urls to specify the
+# root directory for all kafka znodes.
+zookeeper.connect=10.88.0.2:2181
+
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <ul style="list-style-type: none;">
+                    <li>⌭ <marcador class="resaltado8">broker.id: </marcador>Este es el identificador único del broker de Kafka. Cada broker en un clúster debe tener un broker.id diferente.</li>
+                    <li>⌭ <marcador class="resaltado8">listeners: </marcador>Define las direcciones y puertos en los que el broker de Kafka escuchará las conexiones de los clientes y otros brokers (es la IP del contenedor en sí).</li>
+                    <li>⌭ <marcador class="resaltado8">log.dirs: </marcador>Especifica el directorio o directorios donde Kafka almacenará los archivos de registro (logs) de los mensajes.</li>
+                    <li>⌭ <marcador class="resaltado8">zookeeper.connect: </marcador>Define la cadena de conexión para el clúster de Zookeeper.</li>
+                </ul>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Construir el proyecto:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="./gradlew jar -PscalaVersion=2.13.14" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Iniciar el nodo 1:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="bin/kafka-server-start.sh config/server.properties" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>❏ Configurar el nodo 2:</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9633;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="sudo"></marcador><marcador class="tool">nano</marcador> config/server.properties <marcador class="param"></marcador></span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">############################# Server Basics #############################
+
+# The id of the broker. This must be set to a unique integer for each broker.
+broker.id=2
+
+############################# Socket Server Settings #############################
+
+# The address the socket server listens on. If not configured, the host name will be equal to the value of
+# java.net.InetAddress.getCanonicalHostName(), with PLAINTEXT listener name, and port 9092.
+#   FORMAT:
+#     listeners = listener_name://host_name:port
+#   EXAMPLE:
+#     listeners = PLAINTEXT://your.host.name:9092
+listeners=PLAINTEXT://10.88.0.4:9092
+
+############################# Log Basics #############################
+
+# A comma separated list of directories under which to store log files
+log.dirs=/root/kafka-logs
+
+############################# Zookeeper #############################
+
+# Zookeeper connection string (see zookeeper docs for details).
+# This is a comma separated host:port pairs, each corresponding to a zk
+# server. e.g. "127.0.0.1:3000,127.0.0.1:3001,127.0.0.1:3002".
+# You can also append an optional chroot string to the urls to specify the
+# root directory for all kafka znodes.
+zookeeper.connect=10.88.0.2:2181
+
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Construir el proyecto:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="./gradlew jar -PscalaVersion=2.13.14" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Iniciar el nodo 2:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="bin/kafka-server-start.sh config/server.properties" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Ahora, asegúrate de ir al directorio de kafka en una nueva terminal: 
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="cd kafka-3.9.0-src" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Construir el proyecto:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="./gradlew jar -PscalaVersion=2.13.14" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>❏ Crear un Topic en el cluster Kafka:</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9633;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="sudo"></marcador>bin/kafka-topics.sh  <marcador class="tool"></marcador> <marcador class="param">--create</marcador> <marcador class="param">--topic</marcador> test-cluster <marcador class="param">--bootstrap-server</marcador> 10.88.0.3:9092 <marcador class="param">--partitions</marcador> 2 <marcador class="param">--replication-factor</marcador> 2<marcador class="param"></marcador></span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">Created topic mi-topic.
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>❏ Listar los Topics en el cluster Kafka:</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9633;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="sudo"></marcador>bin/kafka-topics.sh  <marcador class="tool"></marcador> <marcador class="param">--list</marcador> <marcador class="param">--bootstrap-server</marcador> 10.88.0.4:9092</span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">test-cluster
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>❏ Enviar Mensajes:</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9633;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="sudo"></marcador>bin/kafka-console-producer.sh <marcador class="tool"></marcador><marcador class="param">--topic</marcador> test-cluster <marcador class="param">--bootstrap-server</marcador> 10.88.0.3:9092<marcador class="param"></marcador></span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">>123
+>456
+>789
+>feeling good
+>
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>❏ Leer Mensajes:</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9633;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="sudo"></marcador>bin/kafka-console-consumer.sh <marcador class="tool"></marcador><marcador class="param">--topic</marcador> test-cluster <marcador class="param">--bootstrap-server</marcador> 10.88.0.4:9092 <marcador class="param">--from-beginning</marcador></span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">123
+456
+789
+feeling good                                                              
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p></p>
+                <div class="blog-image-grande">
+                    <img src="media/kafka7.png" alt="">
+                </div>
+            </div>
+        </div>       
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
