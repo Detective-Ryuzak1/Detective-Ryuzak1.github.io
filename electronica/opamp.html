@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <link rel="icon" href="../media/imagen41.png" type="image/png">
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                        <li><a href="../devops.html">DevOps</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Aportar" onclick="window.open('https://buymeacoffee.com/ryuzak1', '_blank');">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <br>
+                <br>
+                <h1>Amplificadores Operacionales</h1>
+                <p>Los amplificadores operacionales surgieron en la década de 1940 como parte de los primeros computadores analógicos. Inicialmente, eran dispositivos construidos con tubos de vacío, pero con la evolución de la tecnología, se convirtieron en circuitos integrados de silicio en la década de 1960.</p>
+                <p>Los amplificadores operacionales (opamps) son componentes electrónicos fundamentales en circuitos analógicos. Se utilizan en una gran variedad de aplicaciones, desde filtrado de señales hasta procesamiento de audio y control de sensores. Son dispositivos altamente versátiles que pueden amplificar, sumar, restar, integrar y derivar señales eléctricas.</p>
+                <h2>Estructura Básica y Funcionamiento</h2>
+                <p>Un amplificador operacional es esencialmente un amplificador diferencial de alta ganancia. Tiene dos entradas: una inversora (-) y una no inversora (+), además de una salida. Su ecuación básica de funcionamiento es:</p>
+                <p>\( V_{out} = A(V_{+} - V_{-}) \)</p>
+                <p>\( V_{out} \) es la salida del opamp.</p>
+                <p>\( A \) es la ganancia de lazo abierto, usualmente muy alta (del orden de 100,000 o más).</p>
+                <p>\( V_{+} - V_{-} \) son las tensiones en las entradas no inversora e inversora, respectivamente.</p>
+                <div class="blog-image-grande">
+                    <img src="media/opamp1.png" alt="">
+                </div>
+                <h2>Características Claves</h2>
+                <ul style="list-style-type: none;">
+                    <li>⫸ <marcador class="resaltado8">Alta Ganancia de Lazo Abierto: </marcador>La ganancia de un opamp sin retroalimentación es extremadamente alta, lo que teóricamente podría significar una amplificación infinita. Sin embargo, se emplea retroalimentación negativa para estabilizar el circuito y controlar la ganancia de lazo cerrado. Esta retroalimentación reduce drásticamente la ganancia efectiva del circuito, pero a cambio, mejora su linealidad, estabilidad y ancho de banda. En esencia, la ganancia extremadamente alta del op-amp se utiliza para minimizar el error entre las entradas, permitiendo que la retroalimentación negativa defina la ganancia del circuito con precisión, en lugar de depender de la ganancia intrínseca del op-amp.</li>
+                    <li>⫸ <marcador class="resaltado8">Baja Impedancia de Salida: </marcador>Un opamp tiene una impedancia de salida muy baja. Esto significa que puede entregar corriente sin que su voltaje de salida varíe significativamente, lo cual es ideal para alimentar otros circuitos sin perder señal.</li>
+                    <li>⫸ <marcador class="resaltado8">Alta Impedancia de Entrada: </marcador>Las entradas de un opamp tienen una impedancia extremadamente alta, lo que significa que extraen muy poca corriente de la fuente de señal. Esto es útil porque permite conectar el opamp a sensores o circuitos previos sin afectar su funcionamiento.</li>
+                </ul>
+                <h2>Configuraciones Principales</h2>
+                <ul style="list-style-type: none;">
+                    <li>🧩 <marcador class="resaltado8">Amplificador Inversor</marcador></li>
+                    <p>La característica más distintiva del amplificador inversor es que la señal de salida es una versión invertida de la señal de entrada. Esto significa que si la señal de entrada es positiva, la señal de salida será negativa, y viceversa.</p>
+                    <p>La ganancia del amplificador inversor está determinada por la relación entre dos resistencias: la resistencia de retroalimentación y la resistencia de entrada.</p>
+                    <p>La fórmula para calcular la ganancia es:</p>
+                    <p>\( A_{v} = - \frac{R_{f}}{R_{1}} \)</p>
+                    <p>Donde \( R_{f} \) es la resistencia de retroalimentación y \( R_{1} \) la resistencia de entrada.</p>
+                    <div class="blog-image-grande">
+                        <img src="media/opamp2.png" alt="">
+                    </div>
+                    <p>- Uso: Se usa en procesamiento de señales, circuitos de suma y resta, convertidores de corriente a voltaje y filtrado.</p>
+                    <br>
+                    <li>🧩 <marcador class="resaltado8">Amplificador No Inversor</marcador></li>
+                    <p>A diferencia del amplificador inversor, el amplificador no inversor mantiene la fase de la señal de entrada. Esto significa que si la señal de entrada es positiva, la señal de salida también será positiva, y viceversa.</p>
+                    <p>La ganancia del amplificador no inversor también está determinada por la relación entre dos resistencias: la resistencia de retroalimentación y la resistencia a tierra.</p>
+                    <p>La fórmula para calcular la ganancia es:</p>
+                    <p>\( A_{v} = 1 + \frac{R_{f}}{R_{1}} \)</p>
+                    <p>Donde \( R_{f} \) es la resistencia de retroalimentación y \( R_{1} \) la resistencia de entrada.</p>
+                    <div class="blog-image-grande">
+                        <img src="media/opamp3.png" alt="">
+                    </div>
+                    <p>- Uso: Se emplea en etapas de amplificación de audio, sensores, conversión de señales.</p>
+                    <br>
+                    <li>🧩 <marcador class="resaltado8">Sumador</marcador></li>
+                    <p>El amplificador sumador es un circuito versátil que utiliza un amplificador operacional para combinar algebraicamente múltiples señales de entrada en una sola señal de salida, permitiendo ajustar la ganancia de cada señal individualmente mediante resistencias; en su configuración más común, este circuito invierte la polaridad de la señal de salida, pero también puede configurarse para no invertirla, y tiene la capacidad de sumar tanto señales de corriente como de voltaje, lo que lo hace útil en una amplia gama de aplicaciones.</p>
+                    <p>El amplificador sumador se presenta en dos configuraciones principales: el sumador inversor, que es la más común y produce una salida con polaridad invertida respecto a la suma de las entradas, y el sumador no inversor, menos frecuente, que mantiene la polaridad de la señal de salida igual a la suma de las entradas; si bien la ecuación fundamental de la ganancia cambia de signo entre estas dos configuraciones, la diferencia no se reduce solo a un cambio de signo, ya que la estructura del circuito y la forma en que se aplican las señales de entrada también varían, afectando la impedancia de entrada y otras características del circuito.</p>
+                    <p>En cuanto a las diferencias específicas, el sumador inversor se caracteriza por tener una impedancia de entrada relativamente baja, ya que las señales se aplican a la entrada inversora del op-amp a través de resistencias, lo que puede cargar la fuente de señal si esta tiene una impedancia de salida alta; por otro lado, el sumador no inversor presenta una impedancia de entrada alta, ya que las señales se aplican a la entrada no inversora, lo que lo hace ideal para sumar señales de fuentes con alta impedancia; además, la ganancia de cada entrada en el sumador inversor se controla mediante la relación entre la resistencia de entrada correspondiente y la resistencia de retroalimentación, mientras que en el sumador no inversor, la ganancia depende de la relación entre la resistencia de retroalimentación y una resistencia conectada a tierra.</p>
+                    <p>La fórmula para calcular el voltaje de salida es:</p>
+                    <p>\( V_{out} = - \left( \frac{R_f}{R_1} V_1 + \frac{R_f}{R_2} V_2 \right) \)</p> 
+                    <p>Donde \( R_{f} \) es la resistencia de retroalimentación y \( R_{1}, R_{2} \) son las resistencias de entrada.</p>
+                    <div class="blog-image-grande">
+                        <img src="media/opamp4.png" alt="">
+                    </div>
+                    <p>- Uso: Se usa en mezcladores de audio, procesamiento de señales, convertidores digital-analógico (DAC) y circuitos de computación analógica (para realizar operaciones de suma y resta).</p>
+                    <br>
+                    <li>🧩 <marcador class="resaltado8">Derivador</marcador></li>
+                    <p>El amplificador derivador es un circuito que utiliza un amplificador operacional para generar una señal de salida proporcional a la derivada de la señal de entrada, siendo sensible a los cambios rápidos en esta; en su configuración, un condensador se coloca en serie con la entrada inversora del amplificador operacional, y el factor de ganancia está determinado por la relación entre la resistencia de retroalimentación y la capacitancia del condensador, lo que resulta en una salida igual al negativo del producto de la resistencia de retroalimentación, la capacitancia del condensador y la derivada de la señal de entrada con respecto al tiempo.</p>
+                    <p>El amplificador derivador, conocido por su alta sensibilidad a cambios rápidos en la señal de entrada, puede generar picos de voltaje significativos en respuesta a tales variaciones; sin embargo, esta misma característica lo hace propenso a la inestabilidad y al ruido, especialmente a frecuencias elevadas, y al igual que el amplificador inversor, comúnmente invierte la polaridad de la señal de salida.</p>
+                    <p>La fórmula para calcular el voltaje de salida es:</p>
+                    <p>\( V_{out} = -RC \frac{dV_{in}}{dt} \)</p> 
+                    <p>Donde \( R \) es la resistencia de retroalimentación y \( C \) el capacitor de entrada.</p>
+                    <div class="blog-image-grande">
+                        <img src="media/opamp5.png" alt="">
+                    </div>
+                    <p>Cuando se aplica una señal seno a la entrada de un amplificador derivador, la salida resultante será una señal coseno. Esto se debe a que la derivada de una función seno es una función coseno. Además, la amplitud de la señal coseno de salida dependerá de la frecuencia de la señal seno de entrada y de los valores de la resistencia de retroalimentación y el condensador del circuito derivador. En términos más sencillos, la salida del derivador será una versión desplazada en fase (90 grados) y posiblemente amplificada de la señal de entrada.</p>
+                    <div class="blog-image">
+                        <img src="media/opamp5-1.png" alt="">
+                    </div>
+                    <p>- Uso: En generación de formas de onda, circuitos de procesamiento de señal, filtros de paso alto y para detectar cambios rápidos en señales digitales.</p>
+                    <br>
+                    <li>🧩 <marcador class="resaltado8">Integrador</marcador></li>
+                    <p>El amplificador integrador es un circuito que utiliza un amplificador operacional (op-amp) para generar una señal de salida proporcional a la integral de la señal de entrada. A diferencia del derivador, que resalta los cambios rápidos, el integrador suaviza las señales, produciendo una salida que representa la acumulación de la señal de entrada a lo largo del tiempo.</p>
+                    <p>El amplificador integrador actúa como un filtro de paso bajo, atenuando las altas frecuencias y suavizando las señales de entrada; sin embargo, los integradores pueden ser propensos a la saturación y al desplazamiento de CC, especialmente a bajas frecuencias, y al igual que el amplificador inversor y el derivador, comúnmente invierte la polaridad de la señal de salida.</p>
+                    <p>La fórmula para calcular el voltaje de salida es:</p>
+                    <p>\( V_{out} = - \frac{1}{RC} \int V_{in} dt \)</p>
+                    <p>Donde \( C \) es el capacitor de retroalimentación y \( R \) la resistencia de entrada.</p>
+                    <div class="blog-image-grande">
+                        <img src="media/opamp6.png" alt="">
+                    </div>
+                    <p> Cuando se aplica una señal seno a la entrada de un amplificador integrador, la salida resultante será una señal coseno invertida. Esto se debe a que la integral de una función seno es una función coseno negativo. Además, la amplitud de la señal coseno de salida dependerá de la frecuencia de la señal seno de entrada y de los valores de la resistencia de entrada y el condensador del circuito integrador. En términos más sencillos, la salida del integrador será una versión desplazada en fase (-90 grados) y posiblemente atenuada de la señal de entrada.</p>
+                    <div class="blog-image-grande">
+                        <img src="media/opamp6-1.png" alt="">
+                    </div>
+                    <p>- Uso: En generación de formas de onda (generación de rampas), circuitos de procesamiento de señal, filtros de paso bajo, circuitos de control y computación analógica.</p>
+                </ul>
+                <h2>Encapsulado y Polarización</h2>
+                <p>El encapsulado más común de los amplificadores operacionales es el DIP-8 (Dual In-line Package), aunque también existen en encapsulados SOIC para aplicaciones de montaje superficial. Un ejemplo de opamp ampliamente utilizado es el LM741.</p>
+                <p>Para su correcta operación, los opamps requieren una fuente de alimentación dual, generalmente \( \pm 15V \), aunque algunos modelos pueden operar con voltajes más bajos, como \( \pm 5V \). La polarización correcta garantiza que el opamp funcione en la región lineal y evita la saturación.</p>
+                <div class="blog-image-grande">
+                    <img src="media/opamp7.png" alt="">
+                </div>
+            </div>  
+        </div>     
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
