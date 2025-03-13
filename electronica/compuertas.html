@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <link rel="icon" href="../media/imagen41.png" type="image/png">
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                        <li><a href="../devops.html">DevOps</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Aportar" onclick="window.open('https://buymeacoffee.com/ryuzak1', '_blank');">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <br>
+                <br>
+                <h1>Compuertas Lógicas</h1>
+                <p>Las compuertas lógicas son los bloques fundamentales de la electrónica digital. Son circuitos que realizan operaciones lógicas sobre una o más señales de entrada para producir una salida determinada, basándose en principios del álgebra booleana. Estas compuertas son esenciales en la construcción de microprocesadores, memorias, sistemas de comunicación y todo tipo de dispositivos digitales.</p>
+                <p>Existen varios tipos de compuertas lógicas, cada una con una función específica. La compuerta AND produce una salida alta solo cuando todas sus entradas son altas, mientras que la OR genera una salida alta si al menos una de sus entradas lo es. La compuerta NOT, también llamada inversor, cambia el estado de la señal de entrada, convirtiendo un 1 en 0 y viceversa.</p>
+                <p>Otras compuertas incluyen la NAND y la NOR, que son versiones negadas de AND y OR respectivamente, proporcionando salidas invertidas. También está la XOR (OR exclusiva), que solo genera una salida alta si las entradas son diferentes, y la XNOR, su complemento, que solo es alta cuando las entradas son iguales.</p>
+                <p>El uso de estas compuertas permite la creación de circuitos combinacionales, donde la salida depende únicamente de las entradas actuales, y circuitos secuenciales, que incorporan almacenamiento de datos y permiten el desarrollo de sistemas más complejos como registros, contadores y máquinas de estado.</p>
+                <p>En términos físicos, las compuertas lógicas pueden implementarse con diferentes tecnologías, como transistores MOSFET en circuitos integrados, tecnología TTL (Transistor-Transistor Logic) o mediante componentes programables como FPGA. Su uso es esencial en la arquitectura de computadoras, controladores industriales y cualquier sistema basado en procesamiento digital.</p>
+                <div class="blog-image-grande">
+                    <img src="media/compuertas1.jpg" alt="">
+                </div>
+                <h6>AND</h6>
+                <p>La compuerta AND es un componente fundamental en la electrónica digital, actuando como un bloque de construcción básico para circuitos más complejos. Su función principal es realizar una operación lógica que produce una salida "verdadera" (1) solo cuando todas sus entradas son "verdaderas" (1). En cualquier otro caso, la salida será "falsa" (0).</p>
+                <p>Esta compuerta se puede visualizar como un interruptor en serie: solo cuando todos los interruptores están cerrados (entradas en 1), la corriente puede fluir (salida en 1). La compuerta AND es esencial en circuitos de control, procesamiento de datos y sistemas de toma de decisiones, donde se requiere que múltiples condiciones se cumplan simultáneamente para activar una acción.</p>                
+                <div class="blog-image">
+                    <img src="media/compuertas2.jpg" alt="">
+                </div>
+                <h6>OR</h6>
+                <p>La compuerta OR es otro componente fundamental en la electrónica digital, complementando la función de la compuerta AND. A diferencia de la AND, la compuerta OR produce una salida "verdadera" (1) cuando al menos una de sus entradas es "verdadera" (1). Solo si todas las entradas son "falsas" (0), la salida será "falsa" (0).</p>
+                <p>Esta compuerta se puede imaginar como interruptores en paralelo: si al menos un interruptor está cerrado (entrada en 1), la corriente puede fluir (salida en 1). La compuerta OR es esencial en circuitos donde se requiere que al menos una de varias condiciones se cumpla para activar una acción, como en sistemas de alarma o circuitos de selección de datos.</p>
+                <div class="blog-image">
+                    <img src="media/compuertas3.jpg" alt="">
+                </div>
+                <h6>NOT</h6>
+                <p>La compuerta NOT, también conocida como inversor, es la más simple de las compuertas lógicas, pero no por ello menos fundamental. Su función es invertir el estado lógico de su única entrada. Si la entrada es "verdadera" (1), la salida será "falsa" (0), y viceversa.</p>
+                <p>Esta compuerta actúa como un interruptor que siempre está en el estado opuesto al de su entrada. Esencial en circuitos de control y procesamiento de señales, la compuerta NOT se utiliza para negar o complementar señales, permitiendo la creación de circuitos más complejos que realizan operaciones lógicas avanzadas.</p>
+                <div class="blog-image">
+                    <img src="media/compuertas4.jpg" alt="">
+                </div>
+                <h6>NAND</h6>
+                <p>La compuerta NAND, una combinación de las funciones NOT y AND, es una de las compuertas lógicas más versátiles y fundamentales en la electrónica digital. Su salida es "falsa" (0) únicamente cuando todas sus entradas son "verdaderas" (1); en cualquier otro caso, la salida será "verdadera" (1).</p>
+                <p>Esta compuerta se puede entender como una compuerta AND seguida de un inversor. Debido a su capacidad para implementar cualquier otra función lógica, la NAND se considera una compuerta universal. Esencial en la construcción de circuitos complejos, desde microprocesadores hasta memorias, la NAND permite realizar operaciones lógicas avanzadas con un mínimo de componentes.</p>
+                <div class="blog-image">
+                    <img src="media/compuertas5.jpg" alt="">
+                </div>
+                <h6>NOR</h6>
+                <p>La compuerta NOR, una combinación de las funciones NOT y OR, es otra compuerta lógica universal fundamental en la electrónica digital. Su salida es "verdadera" (1) únicamente cuando todas sus entradas son "falsas" (0); en cualquier otro caso, es decir, si al menos una de sus entradas es "verdadera" (1), la salida será "falsa" (0).</p>
+                <p>Esta compuerta se puede entender como una compuerta OR seguida de un inversor. Al igual que la NAND, la NOR es una compuerta universal, lo que significa que puede utilizarse para construir cualquier otra función lógica. Esencial en la creación de circuitos complejos, la compuerta NOR permite realizar operaciones lógicas avanzadas con un número mínimo de componentes.</p>
+                <div class="blog-image">
+                    <img src="media/compuertas6.jpg" alt="">
+                </div>
+                <h6>XOR</h6>
+                <p>La compuerta XOR, también conocida como OR exclusiva, es una compuerta lógica que produce una salida "verdadera" (1) solo cuando sus entradas son diferentes. Si ambas entradas son "falsas" (0) o ambas son "verdaderas" (1), la salida será "falsa" (0).</p>
+                <p>Esta compuerta se utiliza en circuitos donde se requiere detectar diferencias entre dos señales, como en sumadores binarios, comparadores y generadores de paridad. Su capacidad para identificar disparidades la hace esencial en aplicaciones de cifrado y corrección de errores, donde la detección de cambios sutiles es crucial para la integridad de los datos.</p>
+                <div class="blog-image">
+                    <img src="media/compuertas7.png" alt="">
+                </div>
+                <h6>XNOR</h6>
+                <p>La compuerta XNOR, también conocida como NOR exclusiva o equivalencia, es la contraparte de la compuerta XOR. Su salida es "verdadera" (1) solo cuando ambas entradas son iguales, es decir, ambas "falsas" (0) o ambas "verdaderas" (1). Si las entradas son diferentes, la salida será "falsa" (0).</p>
+                <p>Esta compuerta se utiliza en circuitos donde se requiere detectar la igualdad entre dos señales, como en comparadores y detectores de paridad. Su capacidad para identificar coincidencias la hace esencial en aplicaciones de verificación de datos y circuitos de control, donde la confirmación de la igualdad es crucial para el funcionamiento correcto del sistema.</p>
+                <div class="blog-image">
+                    <img src="media/compuertas8.png" alt="">
+                </div>
+                <h2>Flip-Flops</h2>
+                <p>Los flip-flops son circuitos digitales secuenciales que pueden almacenar un bit de información. A diferencia de las compuertas lógicas, que generan una salida basada únicamente en sus entradas actuales, los flip-flops tienen memoria y pueden cambiar de estado en función de una señal de reloj o un evento específico. Son fundamentales en la construcción de registros, contadores, memoria RAM y otros dispositivos que requieren almacenamiento temporal de datos.</p>
+                <p>Existen varios tipos de flip-flops, cada uno con características específicas. El flip-flop SR (Set-Reset) es el más básico y tiene dos entradas: una para establecer el estado (Set) y otra para restablecerlo (Reset). Sin embargo, puede generar una condición indeterminada si ambas entradas son activadas simultáneamente. Para solucionar esto, se creó el flip-flop JK, que funciona de manera similar pero evita estados no definidos al alternar su salida cuando ambas entradas están activas.</p>
+                <p>Otro tipo importante es el flip-flop D (Data o Delay), que almacena el valor de su entrada en la salida con cada pulso de reloj, permitiendo una sincronización precisa de los datos. Por su parte, el flip-flop T (Toggle) cambia de estado en cada pulso de reloj, lo que lo hace útil en contadores binarios y divisores de frecuencia.</p>
+                <p>Los flip-flops pueden ser activados por nivel o por flanco. Los activados por nivel cambian de estado mientras la señal de reloj se mantenga en un valor alto o bajo, mientras que los activados por flanco responden únicamente en la transición de la señal de reloj, ya sea de bajo a alto (flanco positivo) o de alto a bajo (flanco negativo).</p>
+                <p>Gracias a estas características, los flip-flops son esenciales en circuitos digitales que requieren sincronización y almacenamiento temporal de datos, como registros de desplazamiento, máquinas de estado y sistemas de comunicación digital.</p>
+                <div class="blog-image">
+                    <img src="media/compuertas9.png" alt="">
+                </div>
+                <h6>Flip-Flop SR</h6>
+                <p>El flip-flop SR es un circuito secuencial básico que almacena un bit de información. Se caracteriza por tener dos entradas, S (Set) y R (Reset), y dos salidas, Q y Q' (Q negada). Su funcionamiento se basa en la manipulación de las entradas para cambiar el estado de las salidas.</p>
+                <p>La función de operación de los flip-flops SR se basa en dos pines de entrada, conocidos como S (Set) y R (Reset), que constan de cuatro estados posibles, cada uno determinando el comportamiento del circuito. El flip-flop SR, en su esencia, es un dispositivo de almacenamiento binario que mantiene su estado hasta que se le indica lo contrario a través de sus entradas. Este circuito biestable, capaz de residir en uno de dos estados estables, utiliza la manipulación de las señales S y R para controlar su salida.</p>
+                <ul>
+                    <li><marcador class="resaltado9">Set (S=1, R=0): </marcador>Cuando la entrada S está en 1 y la entrada R está en 0, la salida Q se pone en 1 y la salida Q' se pone en 0. Este estado se mantiene incluso después de que las entradas vuelven a 0.</li>
+                    <li><marcador class="resaltado9">Reset (S=0, R=1): </marcador>Cuando la entrada R está en 1 y la entrada S está en 0, la salida Q se pone en 0 y la salida Q' se pone en 1. Este estado también se mantiene.</li>
+                    <li><marcador class="resaltado9">Estado de retención (S=0, R=0): </marcador>Cuando ambas entradas S y R están en 0, el flip-flop mantiene su estado actual. Es decir, las salidas Q y Q' no cambian.</li>
+                    <li><marcador class="resaltado9">Estado no válido (S=1, R=1): </marcador>Cuando ambas entradas S y R están en 1, el comportamiento del flip-flop es indeterminado o no válido. Por lo tanto, esta combinación de entradas generalmente se evita.</li>
+                </ul>
+                <p>Este mecanismo permite al flip-flop SR servir como un elemento de memoria fundamental en circuitos digitales, almacenando información binaria y sirviendo como base para la construcción de otros circuitos secuenciales más complejos.</p>
+                <div class="blog-image">
+                    <img src="media/compuertas10.png" alt="">
+                </div>
+                <h6>Flip-Flop JK</h6>
+                <p>El flip-flop JK es un circuito secuencial versátil que almacena un bit de información, superando las limitaciones del flip-flop SR. Se caracteriza por tener dos entradas, J y K, y dos salidas, Q y Q' (Q negada). Su funcionamiento se basa en la manipulación de las entradas y una señal de reloj para cambiar el estado de las salidas.</p>
+                <p>La función de operación de los flip-flops JK se basa en dos pines de entrada, conocidos como J y K, que, junto con una señal de reloj, determinan el comportamiento del circuito. El flip-flop JK es un dispositivo de almacenamiento binario que, a diferencia del SR, resuelve el estado no válido. Este circuito biestable, sincronizado por una señal de reloj, utiliza la manipulación de las señales J y K para controlar su salida.</p>
+                <ul>
+                    <li><marcador class="resaltado9">Estado de retención (J=0, K=0): </marcador>El flip-flop mantiene su estado actual, sin cambios en las salidas Q y Q'.</li>
+                    <li><marcador class="resaltado9">Estado de reinicio (Reset) (J=0, K=1): </marcador>La salida Q se pone en 0 y la salida Q' se pone en 1, independientemente del estado anterior.</li>
+                    <li><marcador class="resaltado9">Estado de establecimiento (Set) (J=1, K=0): </marcador>La salida Q se pone en 1 y la salida Q' se pone en 0, independientemente del estado anterior.</li>
+                    <li><marcador class="resaltado9">Estado de conmutación (Toggle) (J=1, K=1): </marcador>La salida Q cambia al estado opuesto en cada pulso de reloj.</li>
+                </ul>
+                <p>Este mecanismo permite al flip-flop JK ser un elemento de memoria fundamental en circuitos digitales, resolviendo el estado indeterminado del SR y permitiendo la operación de toggle, lo que lo hace muy útil en contadores, registros de desplazamiento y otros circuitos secuenciales complejos.</p>
+                <div class="blog-image">
+                    <img src="media/compuertas11.png" alt="">
+                </div>
+                <h6>Flip-Flop D</h6>
+                <p>El flip-flop D es un circuito secuencial que almacena un bit de información, simplificando el funcionamiento de los flip-flops SR y JK. Se caracteriza por tener una única entrada, D (Data), y dos salidas, Q y Q' (Q negada). Su funcionamiento se basa en transferir el valor presente en la entrada D a la salida Q en cada pulso de reloj.</p>
+                <p>La función de operación del flip-flop D se centra en la transferencia directa de datos. Al tener una sola entrada, el flip-flop D elimina la necesidad de manejar combinaciones de entrada complejas, simplificando su uso en circuitos digitales. Este circuito biestable, sincronizado por una señal de reloj, asegura que la salida Q refleje el valor de la entrada D en el momento del pulso de reloj.</p>
+                <ul>
+                    <li><marcador class="resaltado9">D=0: </marcador>En el siguiente pulso de reloj, la salida Q se pone en 0 y la salida Q' se pone en 1.</li>
+                    <li><marcador class="resaltado9">D=1: </marcador>En el siguiente pulso de reloj, la salida Q se pone en 1 y la salida Q' se pone en 0.</li>
+                </ul>
+                <p>Este mecanismo permite al flip-flop D ser un elemento de memoria fundamental en registros de desplazamiento, registros de almacenamiento y otros circuitos secuenciales donde se requiere almacenar y transferir datos de manera sincronizada y eficiente</p>
+                <div class="blog-image">
+                    <img src="media/compuertas12.png" alt="">
+                </div>
+                <h6>Flip-Flop T</h6>
+                <p>El flip-flop T es un circuito secuencial que cambia su estado de salida con cada pulso de reloj que recibe en su entrada T (Toggle). Este flip-flop es una simplificación del flip-flop JK, donde las entradas J y K están conectadas entre sí.</p>
+                <p>La función de operación del flip-flop T se centra en la conmutación de su estado. Al recibir un pulso de reloj, si la entrada T está en 1, la salida Q cambia al estado opuesto; si T está en 0, la salida Q mantiene su estado actual. Este comportamiento de conmutación lo hace ideal para aplicaciones de conteo y división de frecuencia.</p>
+                <ul>
+                    <li><marcador class="resaltado9">Estado de retención (T=0): </marcador>En el siguiente pulso de reloj, la salida Q mantiene su estado actual.</li>
+                    <li><marcador class="resaltado9">Estado de conmutación (T=1): </marcador>En el siguiente pulso de reloj, la salida Q cambia al estado opuesto (toggle).</li>
+                </ul>
+                <p>Este mecanismo permite al flip-flop T ser un elemento fundamental en contadores binarios, divisores de frecuencia y otros circuitos secuenciales donde se requiere la conmutación de estado con cada pulso de reloj.</p>
+                <div class="blog-image">
+                    <img src="media/compuertas13.jpg" alt="">
+                </div>
+            </div>  
+        </div>     
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
