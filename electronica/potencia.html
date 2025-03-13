@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <link rel="icon" href="../media/imagen41.png" type="image/png">
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                        <li><a href="../devops.html">DevOps</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Aportar" onclick="window.open('https://buymeacoffee.com/ryuzak1', '_blank');">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <br>
+                <br>
+                <h1>Electrónica de Potencia</h1>
+                <p>La electrónica de potencia es una rama de la ingeniería eléctrica que se enfoca en la conversión, control y manejo de la energía eléctrica utilizando dispositivos semiconductores. Su objetivo principal es transformar y regular la energía eléctrica de una forma a otra, como de corriente alterna (CA) a corriente continua (CC), de CC a CA, o cambiar los niveles de voltaje o frecuencia, de manera eficiente y precisa.</p>
+                <div class="blog-image-grande">
+                    <img src="media/potencia1.jpg" alt="">
+                </div>
+                <h2>MOSFET</h2>
+                <p>El MOSFET (Metal-Oxide-Semiconductor Field-Effect Transistor) es uno de los dispositivos semiconductores más utilizados en la electrónica moderna. Su diseño y características lo hacen superior en muchas aplicaciones frente a los transistores bipolares comunes (BJT).</p>
+                <p>El MOSFET fue inventado en 1959 por Mohamed Atalla y Dawon Kahng en los laboratorios Bell. Su desarrollo revolucionó la electrónica, permitiendo la creación de circuitos integrados y, posteriormente, los microprocesadores. Hoy en día, es el componente fundamental de la electrónica moderna, desde dispositivos móviles hasta sistemas de energía renovable.</p>
+                <p>Los MOSFET se utilizan en aplicaciones como convertidores CC-CC, inversores y control de motores, donde es fundamental lograr una alta eficiencia y manejar corrientes elevadas. En los circuitos de alta frecuencia, como los sistemas de comunicación, amplificadores de RF y fuentes de alimentación conmutadas, la velocidad de conmutación es un factor crítico para garantizar un rendimiento óptimo.</p>
+                <p>Por otro lado, en los dispositivos portátiles como smartphones, tablets y laptops, la prioridad es el bajo consumo de energía y la miniaturización de los componentes, lo que permite prolongar la autonomía de la batería y reducir el tamaño del hardware. Finalmente, en los sistemas de energía renovable, como los inversores solares y los controladores de carga, es esencial manejar altas potencias con pérdidas mínimas, asegurando así una mayor eficiencia en la conversión y almacenamiento de energía.</p>
+                <p>El MOSFET funciona controlando el flujo de corriente entre el drenador (drain) y la fuente (source) mediante un voltaje aplicado en la compuerta (gate). Existen dos tipos principales:</p>
+                <ul>
+                    <li><marcador class="resaltado8">MOSFET de canal N: </marcador>Cuando se aplica un voltaje positivo en la compuerta, se crea un canal conductor entre el drenador y la fuente, permitiendo el flujo de corriente.</li>
+                    <li><marcador class="resaltado8">MOSFET de canal P: </marcador>Funciona de manera similar, pero requiere un voltaje negativo en la compuerta para activarse.</li>
+                </ul>
+                <div class="blog-image">
+                    <img src="media/potencia2.png" alt="">
+                </div>
+                <h6>Estructura interna</h6>
+                <p>Un MOSFET está compuesto por tres terminales principales:</p>
+                <ol>
+                    <li><marcador class="resaltado9">Compuerta (Gate): </marcador>Controla la conducción entre el drenador y la fuente.</li>
+                    <li><marcador class="resaltado9">Drenador (Drain):</marcador>Por donde sale la corriente.</li>
+                    <li><marcador class="resaltado9">Fuente (Source): </marcador>Por donde entra la corriente.</li>
+                </ol>
+                <p>Internamente, tiene una capa de óxido aislante entre la fuente y el drenaje, cuya conductividad es controlada por la compuerta (Gate).</p>
+                <p>El elemento distintivo del MOSFET es la presencia de una capa de óxido (generalmente dióxido de silicio) que aísla la compuerta del canal, lo que permite que el dispositivo opere controlando el flujo de corriente a través de un campo eléctrico, sin necesidad de una corriente de compuerta significativa. Este aislamiento reduce las pérdidas de potencia y mejora la eficiencia del dispositivo en comparación con otros transistores.</p>
+                <p>Cuando se aplica un voltaje a la compuerta, se forma una región conductiva en el canal, permitiendo que la corriente fluya entre la fuente y el drenaje. La estructura interna del MOSFET le permite operar con tiempos de conmutación muy rápidos, haciéndolo ideal para aplicaciones de alta frecuencia y circuitos de potencia.</p>
+                <div class="blog-image-grande">
+                    <img src="media/potencia3.jpg" alt="">
+                </div>
+                <h6>Características</h6>
+                <p>Al seleccionar un MOSFET para una aplicación específica, es crucial considerar una serie de parámetros que determinan su rendimiento y adecuación.</p>
+                <ul>
+                    <li><marcador class="resaltado6">Voltaje de umbral (Vth): </marcador>Es el voltaje mínimo necesario en la compuerta para que el MOSFET comience a conducir. Debe ser compatible con el circuito de control.</li>
+                    <li><marcador class="resaltado6">Resistencia en estado encendido (RDS(on)): </marcador>Una RDS(on) baja reduce las pérdidas de energía y mejora la eficiencia, especialmente en aplicaciones de alta corriente.</li>
+                    <li><marcador class="resaltado6">Corriente máxima (ID): </marcador>La corriente máxima que el MOSFET puede manejar sin dañarse. Debe ser mayor que la corriente requerida en la aplicación.</li>
+                    <li><marcador class="resaltado6">Voltaje máximo (VDS): </marcador>El voltaje máximo que puede soportar entre el drenador (drain) y la fuente (source). Debe exceder el voltaje de operación del circuito.</li>
+                    <li><marcador class="resaltado6">Capacitancia de entrada (Ciss): </marcador>Afecta la velocidad de conmutación. Una capacitancia más baja permite una conmutación más rápida.</li>
+                    <li><marcador class="resaltado6">Dissipación de potencia (Pd): </marcador>La cantidad de energía que el MOSFET puede disipar en forma de calor sin sobrecalentarse.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/potencia4.jpg" alt="">
+                </div>
+                <h6>Mejoras del MOSFET frente a un transistor común BJT</h6>
+                <p>El MOSFET se distingue por varias ventajas clave sobre los BJT, lo que lo hace preferible en muchas aplicaciones modernas. A continuación, se detallan algunas de las diferencias clave que hacen del MOSFET una opción preferida en numerosos diseños electrónicos:</p>
+                <ul>
+                    <li><marcador class="resaltado8">Alta impedancia de entrada: </marcador>El MOSFET tiene una impedancia de entrada extremadamente alta (del orden de megaohms o gigaohms), lo que significa que consume muy poca corriente en la compuerta (gate). Esto lo hace ideal para aplicaciones donde se requiere un control preciso con bajo consumo de energía.</li>
+                    <p>En cambio, un BJT requiere una corriente de base significativa para funcionar, lo que aumenta el consumo de energía.</p>
+                    <li><marcador class="resaltado8">Conmutación rápida: </marcador>Los MOSFET pueden cambiar entre estados (encendido/apagado) mucho más rápido que los BJT, lo que los hace ideales para aplicaciones de alta frecuencia, como fuentes de alimentación conmutadas (SMPS) o inversores.</li>
+                    <li><marcador class="resaltado8">Eficiencia energética: </marcador>Al tener una resistencia en estado encendido (RDS(on)) muy baja, los MOSFET disipan menos energía en forma de calor, lo que mejora la eficiencia en aplicaciones de potencia.</li>
+                    <li><marcador class="resaltado8">Control por voltaje: </marcador>El MOSFET se controla mediante un voltaje en la compuerta, a diferencia del BJT, que se controla por corriente. Esto simplifica los circuitos de control y reduce el consumo de energía.</li>
+                    <li><marcador class="resaltado8">Escalabilidad: </marcador>Los MOSFET son más fáciles de miniaturizar, lo que ha permitido su uso masivo en circuitos integrados y dispositivos electrónicos portátiles.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/potencia5.avif" alt="">
+                </div>
+                <h2>El SCR (Silicon Controlled Rectifier)</h2>
+                <p>El SCR es un dispositivo semiconductor ampliamente utilizado en el control de potencia y conmutación de alta corriente. Su diseño y características lo hacen ideal para aplicaciones donde se requiere manejar cargas elevadas con alta eficiencia y control preciso.</p>
+                <p>El SCR fue desarrollado en la década de 1950 por ingenieros de General Electric, y su invención permitió avances significativos en la electrónica de potencia. Su capacidad para operar como un interruptor controlado lo convirtió en un componente esencial en circuitos de control industrial, rectificadores controlados y sistemas de protección. Hoy en día, los SCR se utilizan en aplicaciones que van desde el control de motores hasta el manejo de energía en sistemas industriales y comerciales.</p>
+                <p>Los SCR, componentes clave en sistemas de control de potencia, desempeñan un papel fundamental en una amplia gama de aplicaciones, desde el control preciso de motores de CA y CC y la rectificación controlada en fuentes de alimentación reguladas, hasta la regulación de iluminación y temperatura en sistemas de calefacción eléctrica; además, su capacidad para manejar altas corrientes y voltajes los hace indispensables en circuitos de conmutación, corrección de factor de potencia, inversores y sistemas de distribución de energía, así como en la protección de circuitos contra sobrecargas y cortocircuitos.</p>
+                <p>En el ámbito de la conversión de energía, los SCR juegan un papel clave en rectificadores controlados y sistemas de energía renovable, donde permiten una regulación eficiente de la energía generada y su conversión a diferentes niveles de voltaje. Su capacidad para operar en condiciones extremas los hace adecuados para aplicaciones en entornos industriales exigentes.</p>
+                <p>El funcionamiento del SCR se basa en la activación del dispositivo mediante un pulso de corriente en la compuerta (gate), lo que permite que la corriente fluya entre el ánodo (anode) y el cátodo (cathode). Una vez activado, el SCR permanece en conducción hasta que la corriente que lo atraviesa cae por debajo de un umbral mínimo, lo que lo convierte en un dispositivo ideal para el control de potencia en corriente alterna y continua.</p>
+                <div class="blog-image">
+                    <img src="media/potencia6.JPG" alt="">
+                </div>
+                <h6>Estructura interna</h6>
+                <p>El SCR está compuesto por cuatro capas de material semiconductor (PNPN), que forman tres uniones:</p>
+                <ol>
+                    <li><marcador class="resaltado9">Ánodo (A): </marcador>Conectado a la capa P exterior.</li>
+                    <li><marcador class="resaltado9">Cátodo (K): </marcador>Conectado a la capa N exterior.</li>
+                    <li><marcador class="resaltado9">Compuerta (G): </marcador>Conectada a la capa P cercana al cátodo.</li>
+                </ol>
+                <p>La estructura interna permite que el SCR funcione como un interruptor controlado, donde la compuerta actúa como el mecanismo de activación.</p>
+                <div class="blog-image-grande">
+                    <img src="media/potencia7.png" alt="">
+                </div>
+                <h6>Limitaciones</h6>
+                <ul>
+                    <li><marcador class="resaltado8">Conmutación lenta: </marcador>Los SCR no son adecuados para aplicaciones de alta frecuencia debido a su tiempo de desactivación relativamente lento.</li>
+                    <li><marcador class="resaltado8">Control unidireccional: </marcador>Los SCR solo pueden controlar corriente en una dirección, lo que limita su uso en aplicaciones de CA.</li>
+                    <li><marcador class="resaltado8">Pérdidas de potencia: </marcador>En estado de conducción, los SCR tienen una caída de voltaje que genera pérdidas de energía.</li>
+                </ul>
+                <h6>Características</h6>
+                <p>Al seleccionar un SCR para una aplicación específica, es crucial considerar los siguientes parámetros:</p>
+                <ul>
+                    <li><marcador class="resaltado6">Voltaje de ruptura (VDRM): </marcador>El voltaje máximo que el SCR puede soportar en estado de bloqueo sin activarse.</li>
+                    <li><marcador class="resaltado6">Corriente directa (IF): </marcador>La corriente máxima que el SCR puede manejar en estado de conducción.</li>
+                    <li><marcador class="resaltado6">Corriente de compuerta (IGT): </marcador>La corriente mínima requerida en la compuerta para activar el SCR.</li>
+                    <li><marcador class="resaltado6">Corriente de mantenimiento (IH): </marcador>La corriente mínima necesaria para mantener el SCR en estado de conducción.</li>
+                    <li><marcador class="resaltado6">Tiempo de activación (ton): </marcador>El tiempo que tarda el SCR en pasar del estado de bloqueo al estado de conducción.</li>
+                    <li><marcador class="resaltado6">Tiempo de desactivación (toff): </marcador>El tiempo que tarda el SCR en pasar del estado de conducción al estado de bloqueo.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/potencia8.jpg" alt="">
+                </div>
+                <h6>Funcionamiento</h6>
+                <p>El SCR es un dispositivo de cuatro capas (PNPN) con tres terminales: ánodo (A), cátodo (K) y compuerta (G). Funciona como un interruptor controlado:</p>
+                <ul>
+                    <li><marcador class="resaltado5">En estado de bloqueo: </marcador>Cuando no se aplica voltaje a la compuerta, el SCR no conduce, incluso si hay un voltaje positivo entre el ánodo y el cátodo.</li>
+                    <li><marcador class="resaltado5">Activación: </marcador>Al aplicar un pulso de corriente positiva a la compuerta, el SCR se activa y comienza a conducir corriente entre el ánodo y el cátodo.</li>
+                    <li><marcador class="resaltado5">Conducción: </marcador>Una vez activado, el SCR permanece en estado de conducción incluso si se retira la señal de la compuerta. Solo se apaga cuando la corriente entre el ánodo y el cátodo cae por debajo de un valor mínimo, conocido como corriente de mantenimiento.</li>
+                </ul>
+                <p>En el SCR, el ángulo de disparo juega un papel fundamental y se podría considerar un factor principal en su funcionamiento, ya que este ángulo es un mecanismo de control que permite regular la cantidad de energía que un SCR entrega a un circuito, sincronizando el momento de activación del dispositivo con la señal de corriente alterna.</p>
+                <p>La corriente alterna varía su dirección y magnitud de forma cíclica, generalmente en forma de una onda sinusoidal. Cada ciclo de esta onda se puede medir en grados, desde 0° hasta 360°. Un SCR es un interruptor semiconductor que se activa (conduce corriente) cuando se le aplica una corriente a su terminal de compuerta (gate). Una vez activado, el SCR continúa conduciendo hasta que la corriente que lo atraviesa cae por debajo de un cierto umbral (corriente de mantenimiento).</p>
+                <p>El ángulo de disparo se refiere al punto específico dentro de un ciclo de la señal de CA en el que se activa el SCR. Es decir, es el número de grados que transcurren desde el inicio del ciclo de CA hasta el momento en que se aplica la corriente de compuerta y el SCR comienza a conducir. Variando este ángulo, se puede controlar la cantidad de potencia que se entrega a una carga conectada al SCR.</p>
+                <div class="blog-image-grande">
+                    <img src="media/potencia9.jpg" alt="">
+                </div>
+                <h2>DIAC (Diode for Alternating Current)</h2>
+                <p>El DIAC es un dispositivo semiconductor de dos terminales utilizado principalmente en el control de potencia en circuitos de corriente alterna. Su diseño y características lo hacen ideal para aplicaciones donde se necesita un disparo preciso de dispositivos como los TRIACs en circuitos de regulación y control.</p>
+                <p>El DIAC fue desarrollado como una solución para mejorar la estabilidad y eficiencia en el disparo de dispositivos de conmutación en electrónica de potencia. Su funcionamiento se basa en un principio bidireccional, lo que significa que puede conducir corriente en ambos sentidos una vez que se alcanza un voltaje de ruptura específico. Esto lo hace especialmente útil en aplicaciones donde se requiere una activación simétrica y estable.</p>
+                <p>Los DIAC son componentes esenciales en circuitos de control de fase, ampliamente utilizados en reguladores de luz, controladores de velocidad para motores y sistemas de calefacción, donde su capacidad para ajustar la potencia es crucial; además, desempeñan un papel fundamental en la activación de TRIACs y SCRs, garantizando un disparo uniforme y controlado que reduce la distorsión y mejora la eficiencia en la conmutación, lo que los hace indispensables en electrónica de potencia para variadores de voltaje y reguladores de intensidad en lámparas incandescentes y circuitos de calefacción resistiva.</p>
+                <p>El DIAC opera como un interruptor de encendido súbito: inicialmente, actúa como un circuito abierto hasta que el voltaje aplicado alcanza su nivel de ruptura. En ese punto, el DIAC entra en conducción y permite el flujo de corriente hasta que la corriente disminuye por debajo de un umbral determinado, momento en el cual vuelve a su estado de alta impedancia. Esta característica lo convierte en un elemento clave para mejorar la eficiencia y estabilidad en circuitos de control de potencia en corriente alterna.</p>
+                <h6>Estructura interna</h6>
+                <p>El DIAC está compuesto por dos diodos Shockley conectados en antiparalelo, lo que le permite conducir corriente en ambas direcciones. Esta estructura interna permite que el DIAC se active cuando el voltaje aplicado supera el voltaje de ruptura en cualquier dirección.</p>
+                <div class="blog-image-grande">
+                    <img src="media/potencia10.jpg" alt="">
+                </div>
+                <h6>Ventajas</h6>
+                <ul>
+                    <li><marcador class="resaltado8">Simplicidad: </marcador>El DIAC no tiene terminal de compuerta, lo que simplifica su uso en circuitos de control.</li>
+                    <li><marcador class="resaltado8">Bidireccionalidad: </marcador>El DIAC puede conducir corriente en ambas direcciones, lo que lo hace ideal para aplicaciones de CA.</li>
+                    <li><marcador class="resaltado8">Estabilidad: </marcador>El DIAC proporciona un disparo estable y reproducible, lo que es crucial en aplicaciones de control de potencia.</li>
+                </ul>
+                <h6>Limitaciones</h6>
+                <ul>
+                    <li><marcador class="resaltado8">Baja capacidad de corriente: </marcador>Los DIAC no pueden manejar corrientes muy altas, lo que limita su uso en aplicaciones de alta potencia.</li>
+                    <li><marcador class="resaltado8">Voltaje de ruptura fijo: </marcador>El voltaje de ruptura del DIAC es fijo y no puede ajustarse, lo que limita su flexibilidad en algunas aplicaciones.</li>
+                    <li><marcador class="resaltado8">Pérdidas de potencia: </marcador>En estado de conducción, los DIAC tienen una caída de voltaje que genera pérdidas de energía.</li>
+                </ul>
+                <h6>Características</h6>
+                <p>Al seleccionar un DIAC para una aplicación específica, es crucial considerar los siguientes parámetros:</p>
+                <ul>
+                    <li><marcador class="resaltado6">Voltaje de ruptura (VBO): </marcador>El voltaje mínimo necesario para activar el DIAC. Este valor es típicamente simétrico para ambas polaridades.</li>
+                    <li><marcador class="resaltado6">Corriente de ruptura (IBO): </marcador>La corriente mínima requerida para mantener el DIAC en estado de conducción.</li>
+                    <li><marcador class="resaltado6">Corriente de mantenimiento (IH): </marcador>La corriente mínima necesaria para mantener el DIAC en estado de conducción.</li>
+                    <li><marcador class="resaltado6">Tensión de conducción (VT): </marcador>El voltaje en el DIAC cuando está en estado de conducción.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/potencia11.png" alt="">
+                </div>
+                <h6>Funcionamiento</h6>
+                <p>El DIAC es un dispositivo bidireccional, lo que significa que puede conducir corriente en ambas direcciones. Su funcionamiento se basa en la ruptura de voltaje:</p>
+                <ul>
+                    <li><marcador class="resaltado5">Estado de bloqueo: </marcador>Cuando el voltaje aplicado es menor que el voltaje de ruptura (VBO), el DIAC no conduce y se comporta como un circuito abierto.</li>
+                    <li><marcador class="resaltado5">Activación: </marcador>Cuando el voltaje aplicado supera el voltaje de ruptura (VBO), el DIAC se activa y comienza a conducir corriente en la dirección correspondiente.</li>
+                    <li><marcador class="resaltado5">Conducción: </marcador>Una vez activado, el DIAC permanece en estado de conducción hasta que la corriente cae por debajo de un valor mínimo, conocido como corriente de mantenimiento.</li>
+                </ul>
+                <div class="blog-image">
+                    <img src="media/potencia12.JPG" alt="">
+                </div>
+                <h2>TRIAC (Triode for Alternating Current)</h2>
+                <p>El TRIAC es un dispositivo semiconductor de tres terminales utilizado para el control de corriente alterna en aplicaciones de conmutación y regulación de potencia. Su principal ventaja es la capacidad de conducir en ambas direcciones, lo que lo convierte en un elemento clave en circuitos de control de fase y regulación de potencia.</p>
+                <p>El TRIAC fue desarrollado como una evolución del SCR (Silicon-Controlled Rectifier), permitiendo el control bidireccional de la corriente sin necesidad de un puente rectificador. Su funcionamiento se basa en la conducción cuando se aplica un pulso de disparo en la compuerta (gate), permitiendo el flujo de corriente entre los terminales ánodo 1 (A1) y ánodo 2 (A2) en ambos sentidos. Una vez activado, permanece en conducción hasta que la corriente disminuye por debajo de un umbral específico, similar a los SCRs.</p>
+                <p>Los TRIACs, dispositivos clave en el control de cargas de corriente alterna, son ampliamente utilizados en una variedad de aplicaciones que abarcan desde el ámbito doméstico hasta el industrial; en el hogar, destacan por su presencia en reguladores de intensidad para iluminación, controladores de velocidad en motores de electrodomésticos como ventiladores, taladros y lavadoras, y en la regulación de temperatura de sistemas de calefacción eléctrica, incluyendo termostatos y calentadores; en el sector industrial, los TRIACs permiten ajustar la potencia suministrada a máquinas y equipos mediante técnicas como el control de fase, lo que los hace esenciales en dimmers, reguladores de temperatura y variadores de velocidad, así como en el control de potencia de dispositivos como licuadoras, batidoras y aspiradoras.</p>
+                <p>A diferencia de los DIACs, que solo conducen cuando alcanzan un voltaje de ruptura, el TRIAC puede activarse con un pulso en la compuerta, lo que ofrece un control más preciso. Sin embargo, para garantizar un disparo simétrico y reducir la distorsión en la señal de corriente alterna, es común utilizar un DIAC en conjunto con el TRIAC. Esto es especialmente importante en aplicaciones como el control de iluminación y motores de corriente alterna, donde se busca minimizar armónicos y mejorar la eficiencia energética.</p>
+                <h6>Estructura interna</h6>
+                <p>El TRIAC está compuesto por dos SCR conectados en antiparalelo, lo que le permite controlar la corriente en ambos semiciclos de una señal de CA. Esta estructura interna permite que el TRIAC sea activado por pulsos positivos o negativos en la compuerta.</p>
+                <div class="blog-image">
+                    <img src="media/potencia13.jpg" alt="">
+                </div>
+                <h6>Ventajas</h6>
+                <ul>
+                    <li><marcador class="resaltado8">Bidireccionalidad: </marcador>El TRIAC puede controlar la corriente en ambos sentidos, lo que lo hace ideal para aplicaciones de CA.</li>
+                    <li><marcador class="resaltado8">Simplicidad de control: </marcador>Una vez activado, el TRIAC no requiere señal de compuerta para mantenerse en conducción, lo que simplifica los circuitos de control.</li>
+                    <li><marcador class="resaltado8">Compactibilidad: </marcador>El TRIAC integra dos SCR en un solo dispositivo, lo que reduce el tamaño y el costo del circuito.</li>
+                </ul>
+                <h6>Limitaciones</h6>
+                <ul>
+                    <li><marcador class="resaltado8">Conmutación lenta: </marcador>Los TRIAC no son adecuados para aplicaciones de alta frecuencia debido a su tiempo de desactivación relativamente lento.</li>
+                    <li><marcador class="resaltado8">Sensibilidad a ruido: </marcador>Los TRIAC pueden activarse accidentalmente debido a ruido eléctrico o transitorios de voltaje.</li>
+                    <li><marcador class="resaltado8">Pérdidas de potencia: </marcador>En estado de conducción, los TRIAC tienen una caída de voltaje que genera pérdidas de energía.</li>
+                </ul>
+                <h6>Características</h6>
+                <p>Al seleccionar un TRIAC para una aplicación específica, es crucial considerar los siguientes parámetros:</p>
+                <ul>
+                    <li><marcador class="resaltado6">Voltaje de ruptura (VDRM): </marcador>El voltaje máximo que el TRIAC puede soportar en estado de bloqueo sin activarse.</li>
+                    <li><marcador class="resaltado6">Corriente directa (IT(RMS)): </marcador>La corriente máxima que el TRIAC puede manejar en estado de conducción.</li>
+                    <li><marcador class="resaltado6">Corriente de compuerta (IGT): </marcador>La corriente mínima requerida en la compuerta para activar el TRIAC.</li>
+                    <li><marcador class="resaltado6">Corriente de mantenimiento (IH): </marcador>La corriente mínima necesaria para mantener el TRIAC en estado de conducción.</li>
+                    <li><marcador class="resaltado6">Tensión de conducción (VT): </marcador>El voltaje en el TRIAC cuando está en estado de conducción.</li>
+                    <li><marcador class="resaltado6">Tiempo de activación (ton): </marcador>El tiempo que tarda el TRIAC en pasar del estado de bloqueo al estado de conducción.</li>
+                    <li><marcador class="resaltado6">Tiempo de desactivación (toff): </marcador>El tiempo que tarda el TRIAC en pasar del estado de conducción al estado de bloqueo.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/potencia14.jpg" alt="">
+                </div>
+                <h6>Funcionamiento</h6>
+                <p>El TRIAC es un dispositivo de tres terminales: MT1 (Main Terminal 1), MT2 (Main Terminal 2) y compuerta (Gate). Su funcionamiento se basa en la activación mediante un pulso en la compuerta, lo que permite controlar el flujo de corriente en ambos sentidos.</p>
+                <ul>
+                    <li><marcador class="resaltado5">Activación: </marcador>Al aplicar un pulso de corriente positiva o negativa en la compuerta, el TRIAC se activa y comienza a conducir corriente entre MT1 y MT2.</li>
+                    <li><marcador class="resaltado5">Conducción: </marcador>Una vez activado, el TRIAC permanece en estado de conducción hasta que la corriente cae por debajo de un valor mínimo, conocido como corriente de mantenimiento.</li>
+                    <li><marcador class="resaltado5">Bidireccionalidad: </marcador>El TRIAC puede conducir corriente en ambas direcciones, lo que lo hace ideal para aplicaciones de CA.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/potencia15.JPG" alt="">
+                </div>
+                <h6>Optoacoplador</h6>
+                <p>Un optoacoplador, también conocido como optoaislador o aislador acoplado ópticamente, es un componente electrónico que permite la transferencia de señales eléctricas entre dos circuitos aislados eléctricamente. Funciona mediante la conversión de una señal eléctrica en luz, que luego se convierte de nuevo en una señal eléctrica.</p>
+                <p>El funcionamiento de los optoacopladores se lleva a cabo mediante una interacción entre componentes optoelectrónicos, cuyo propósito principal es transferir señales eléctricas preservando un aislamiento galvánico esencial. Este proceso se sustenta en tres elementos fundamentales:</p>
+                <ul>
+                    <li><marcador class="resaltado5">Emisor de luz: </marcador>Generalmente, un LED (diodo emisor de luz) que emite luz infrarroja cuando se aplica una corriente eléctrica.</li>
+                    <li><marcador class="resaltado5">Detector de luz: </marcador>Un fototransistor, fotodiodo o fototriac que detecta la luz emitida por el LED y genera una corriente eléctrica proporcional.</li>
+                    <li><marcador class="resaltado5">Aislamiento: </marcador>La luz actúa como el medio de transferencia de la señal, proporcionando un aislamiento eléctrico completo entre los dos circuitos.</li>
+                </ul>
+                <p>La principal ventaja del optoacoplador reside en su capacidad para proporcionar aislamiento eléctrico entre dos circuitos, protegiendo así un circuito de las altas tensiones o corrientes presentes en el otro; además, este dispositivo contribuye a la prevención de la transferencia de ruido eléctrico entre circuitos, lo que mejora significativamente la calidad de la señal transmitida; finalmente, el optoacoplador facilita la comunicación entre circuitos que operan a diferentes niveles de voltaje, adaptando las señales para garantizar una transmisión efectiva.</p>
+                <p>Es común encontrar optoacopladores diseñados específicamente para trabajar en conjunto con TRIACs. Estos dispositivos, conocidos como optoTRIACs, integran un optoacoplador y un TRIAC en un solo encapsulado, facilitando el control aislado de cargas de corriente alterna.</p>
+                <h6>Funcionamiento de los optoTRIACs</h6>
+                <ul>
+                    <li><marcador class="resaltado8">Aislamiento óptico:</marcador>Al igual que un optoacoplador estándar, un optoTRIAC utiliza un LED y un fotodetector para aislar eléctricamente el circuito de control del circuito de potencia.</li>
+                    <p>Cuando se aplica una corriente al LED, este emite luz que activa el fotodetector.</p>
+                    <li><marcador class="resaltado8">Activación del TRIAC:</marcador>El fotodetector, en este caso, está conectado a la compuerta de un TRIAC.</li>
+                    <p>Cuando el fotodetector se activa, suministra la corriente necesaria para disparar el TRIAC, permitiendo que la corriente alterna fluya a través de la carga.</p>
+                </ul>
+                <br>
+                <p>Los optoTRIACs destacan por su capacidad para proporcionar un aislamiento seguro de alta tensión entre circuitos de baja tensión, como los microcontroladores, y los circuitos de alta tensión presentes en la red eléctrica; además, facilitan el control eficiente y seguro de cargas de corriente alterna, como lámparas, motores y calefactores; finalmente, estos dispositivos simplifican el diseño de circuitos al integrar en un solo componente tanto el optoacoplador como el TRIAC, lo que reduce el tamaño y la complejidad de los circuitos de control de potencia.</p>
+                <div class="blog-image">
+                    <img src="media/potencia16.png" alt="">
+                </div>
+                <h2>Relevador</h2>
+                <p>El relé o relevador es un interruptor electromecánico que permite el control de un circuito eléctrico mediante una señal de baja potencia. Su funcionamiento se basa en un electroimán que, al recibir corriente, genera un campo magnético capaz de accionar un conjunto de contactos eléctricos, permitiendo o interrumpiendo el paso de corriente en otro circuito independiente.</p>
+                <p>El relevador fue inventado en el siglo XIX y se utilizó ampliamente en los primeros sistemas de telecomunicaciones y automatización. A pesar del avance de la electrónica de estado sólido, sigue siendo una opción confiable en aplicaciones donde es necesario aislar eléctricamente dos circuitos o manejar cargas de alta potencia con una señal de control débil.</p>
+                <p>Los relevadores se encuentran en diversas aplicaciones, como sistemas de control industrial, domótica, protección eléctrica y circuitos automotrices. En la industria, se utilizan para activar motores, sistemas de iluminación y maquinaria pesada, mientras que en los automóviles permiten el control de luces, bocinas y otros dispositivos sin sobrecargar los interruptores del tablero.</p>
+                <p>Existen diferentes tipos de relevadores, como los electromecánicos tradicionales, los de estado sólido, los temporizados y los de protección. Cada uno tiene características específicas según la velocidad de conmutación, la resistencia al desgaste y la capacidad de manejar altas corrientes o voltajes.</p>
+                <p>Una de las principales ventajas de los relevadores es su capacidad de aislamiento entre el circuito de control y el circuito de carga, lo que proporciona una mayor seguridad y evita interferencias eléctricas. Sin embargo, los modelos electromecánicos tienen una vida útil limitada debido al desgaste mecánico de los contactos, lo que en algunas aplicaciones ha impulsado el uso de alternativas como los triacs o los optoacopladores.</p>
+                <div class="blog-image-grande">
+                    <img src="media/potencia17.png" alt="">
+                </div>
+                <h6>Estructura interna</h6>
+                <p>Un relevador típico está compuesto por los siguientes elementos:</p>
+                <ol>
+                    <li><marcador class="resaltado9">Bobina electromagnética: </marcador>Convierte la energía eléctrica en un campo magnético para activar el relevador.</li>
+                    <li><marcador class="resaltado9">Armadura móvil: </marcador>Es atraída por el campo magnético y mueve los contactos.</li>
+                    <li><marcador class="resaltado9">Contactos: </marcador>Interruptores que abren o cierran el circuito controlado. Pueden ser normalmente abiertos (NA) o normalmente cerrados (NC).</li>
+                    <li><marcador class="resaltado9">Resorte: </marcador>Devuelve la armadura a su posición original cuando se desactiva la bobina.</li>
+                </ol>
+                <div class="blog-image-grande">
+                    <img src="media/potencia18.jpg" alt="">
+                </div>
+                <h6>Características</h6>
+                <p>Al seleccionar un relevador para una aplicación específica, es crucial considerar los siguientes parámetros:</p>
+                <ul>
+                    <li><marcador class="resaltado6">Tensión de la bobina (Vcoil): </marcador>El voltaje necesario para activar la bobina del relevador.</li>
+                    <li><marcador class="resaltado6">Corriente de la bobina (Icoil): </marcador>La corriente requerida para generar el campo magnético en la bobina.</li>
+                    <li><marcador class="resaltado6">Capacidad de los contactos: </marcador>La corriente y voltaje máximos que los contactos pueden manejar sin dañarse.</li>
+                    <li><marcador class="resaltado6">Tipo de contactos: </marcador>Normalmente abiertos (NA), normalmente cerrados (NC) o conmutadores (NA + NC).</li>
+                    <li><marcador class="resaltado6">Tiempo de activación (ton): </marcador>El tiempo que tarda el relevador en activarse después de aplicar la corriente a la bobina.</li>
+                    <li><marcador class="resaltado6">Tiempo de desactivación (toff): </marcador>El tiempo que tarda el relevador en desactivarse después de interrumpir la corriente en la bobina.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/potencia19.png" alt="">
+                </div>
+                <h6>Funcionamiento</h6>
+                <p>El relevador consta de dos partes principales: la bobina electromagnética y los contactos. Su funcionamiento se basa en el principio de electromagnetismo:</p>
+                <ul>
+                    <li><marcador class="resaltado5">Activación: </marcador>Cuando se aplica una corriente eléctrica a la bobina, se genera un campo magnético que atrae una armadura móvil.</li>
+                    <li><marcador class="resaltado5">Conmutación: </marcador>La armadura móvil cierra o abre los contactos, dependiendo del tipo de relevador (normalmente abierto o normalmente cerrado).</li>
+                    <li><marcador class="resaltado5">Desactivación: </marcador>Cuando se interrumpe la corriente en la bobina, el campo magnético desaparece y los contactos vuelven a su estado original.</li>
+                </ul>
+                <br>
+                <p>Los relés, tanto los tradicionales electromecánicos como los modernos de estado sólido (SSR), desempeñan un papel crucial en el control de circuitos eléctricos. Mientras que los relés tradicionales utilizan una bobina para accionar un interruptor mecánico, proporcionando un aislamiento limitado que puede no ser suficiente en entornos con altas tensiones o ruido, los relés con optoacopladores, especialmente los SSR, emplean un optoacoplador para aislar el circuito de control del circuito de potencia. Esto permite que un circuito de baja tensión controle un circuito de alta tensión de manera segura y eficiente, lo que resulta en un aislamiento galvánico mucho mayor y protege los circuitos de control de picos de tensión y ruido eléctrico.</p>
+                <p>Las ventajas de los relés con optoacopladores incluyen un aislamiento reforzado que mejora la seguridad y la fiabilidad del sistema, una interfaz simplificada con circuitos digitales gracias a la baja corriente de control del optoacoplador, y una reducción significativa del ruido eléctrico entre circuitos, lo que mejora la calidad de la señal transmitida.</p>
+                <div class="blog-image-grande">
+                    <img src="media/potencia20.png" alt="">
+                </div>
+            </div>  
+        </div>     
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
