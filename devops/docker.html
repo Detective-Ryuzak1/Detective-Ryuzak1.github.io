@@ -790,7 +790,7 @@ bloodhound_1  | {"time":"2025-03-13T17:47:53.77841472Z","level":"INFO","message"
                         </div>
                     </section>
                 </div>
-                <p>❏ Acceder a BloodHound.</p>
+                <p>❏ Acceder a BloodHound:</p>
                 <p>Abre tu navegador web y accede a la interfaz de BloodHound: http://localhost:8888.</p>
                 <p>Inicia sesión en BloodHound:</p>
                 <ul>
@@ -799,6 +799,33 @@ bloodhound_1  | {"time":"2025-03-13T17:47:53.77841472Z","level":"INFO","message"
                 </ul>
                 <div class="blog-image-grande">
                     <img src="media/docker6.png" alt="">
+                </div>
+                <p>❏ Recopilar datos con SharpHound:</p>
+                <ul>
+                    <li>SharpHound es el recolector de datos oficial para BloodHound. Debes ejecutarlo en el entorno de Active Directory que deseas analizar.</li>
+                    <li>Descarga SharpHound desde el repositorio oficial de BloodHound: <a href="https://github.com/SpecterOps/SharpHound/releases" target="blank">SharpHound GitHub</a></li>
+                </ul>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Ejecuta SharpHound en un sistema unido al dominio con permisos suficientes para recopilar datos:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value=".\SharpHound.exe -c All" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Esto generará archivos ZIP con los datos recopilados.</p>
+                <p>❏ Buscar caminos en BloodHound:</p>
+                <ul>
+                    <li>En la interfaz de BloodHound, haz clic en el botón "Upload Data" (Cargar datos).</li>
+                    <li>BloodHound permite buscar caminos entre dos objetos (por ejemplo, un usuario y un grupo de administradores) para identificar posibles rutas de escalada de privilegios.</li>
+                    <li>Haz clic en el objeto para seleccionarlo, en modo add to owned.</li>
+                    <li>En el panel de detalles del objeto seleccionado, busca la sección "Outbound Control Rights" (Derechos de Control Salientes).</li>
+                    <li>Utiliza la opción "Outbound Object Control", que es una relación clave en BloodHound, para identificar cómo un usuario o grupo puede tomar control sobre otros objetos en Active Directory.</li>
+                </ul>
+                <p>En el siguiente <a href="https://github.com/Detective-Ryuzak1/Detective-Ryuzak1.github.io/tree/main/devops/resources" target="blank">enlace</a>, se encuentra disponible un archivo zip diseñado específicamente para la ejecución de pruebas en un entorno de Active Directory. Este recurso ha sido meticulosamente elaborado para facilitar la simulación de escenarios complejos, permitiendo a los administradores y profesionales de TI evaluar la integridad, seguridad y rendimiento de sus implementaciones de Active Directory de manera controlada y precisa</p>
+                <div class="blog-image-grande">
+                    <img src="media/docker7.png" alt="">
                 </div>
                 <div class="contenedor">
                     <div class="etiqueta">
