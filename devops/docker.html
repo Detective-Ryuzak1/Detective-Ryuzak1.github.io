@@ -289,7 +289,7 @@
                 <p>Para instalar Docker CLI en Linux, sigue estos pasos básicos:</p>
                 <div class="contenedor">
                     <div class="etiqueta">
-                        Actualizar el sistema para evitar conflictos con las dependencias de Docker.
+                        Actualizar el sistema para evitar conflictos con las dependencias de Docker:
                     </div>
                     <div class="comandos">
                       <input type="text" class="text" value="sudo apt-get update" oninput="ajustarAncho(this)">
@@ -298,10 +298,10 @@
                 </div>
                 <div class="contenedor">
                     <div class="etiqueta">
-                        Instala Docker CLI.
+                        Instalar Docker CLI:
                     </div>
                     <div class="comandos">
-                      <input type="text" class="text" value="sudo apt-get install docker-cli podman-docker" oninput="ajustarAncho(this)">
+                      <input type="text" class="text" value="sudo apt-get install podman-docker" oninput="ajustarAncho(this)">
                       <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                 </div>
@@ -310,7 +310,7 @@
                         Verifica la instalación para asegurarte de que Docker está instalado correctamente, puedes verificar la versión instalada con el siguiente comando:
                     </div>
                     <div class="comandos">
-                      <input type="text" class="text" value="sudo docker --version" oninput="ajustarAncho(this)">
+                      <input type="text" class="text" value="sudo podman --version" oninput="ajustarAncho(this)">
                       <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                 </div>
@@ -662,9 +662,153 @@ This may also be found at: /var/jenkins_home/secrets/initialAdminPassword
                       <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                 </div>
-                <h2>Play with Docker</h2>
-                <p><a href="https://www.docker.com/play-with-docker/" target="blank">"Play with Docker"</a> es una plataforma en línea que permite a los usuarios experimentar con Docker de forma interactiva. Ofrece un entorno de prueba donde puedes ejecutar comandos de Docker sin tener que instalarlo en tu máquina local. Esto facilita el aprendizaje, las pruebas rápidas y la posibilidad de compartir ejemplos de código sin complicaciones.</p>
-                <p>La plataforma es especialmente útil para aquellos que desean explorar las funcionalidades de Docker sin configurar un entorno complejo. Además, permite la colaboración entre usuarios, lo que resulta ideal para tutoriales o sesiones de enseñanza. Sin embargo, como es un entorno en línea, puede tener limitaciones en cuanto a recursos y la persistencia de datos, ya que los contenedores se eliminan al finalizar la sesión.</p>
+                <h2>Docker Compose</h2>
+                <p>Docker Compose es una herramienta esencial en el ecosistema de Docker, diseñada para simplificar la definición, configuración y ejecución de aplicaciones compuestas por múltiples contenedores. Si Docker es la herramienta que permite crear y gestionar contenedores individuales, Docker Compose es la que permite orquestar varios contenedores que trabajan juntos para formar una aplicación completa.</p>
+                <p>Docker Compose es una herramienta que permite definir y gestionar aplicaciones multi-contenedor mediante un archivo de configuración en formato YAML (generalmente llamado docker-compose.yml). Este archivo describe los servicios, redes y volúmenes necesarios para que la aplicación funcione correctamente.</p>
+                <p>Con Docker Compose, puedes:</p>
+                <ul>
+                    <li>Definir todos los componentes de tu aplicación (bases de datos, servidores web, APIs, etc.) en un solo archivo.</li>
+                    <li>Levantar y detener todos los servicios con un solo comando.</li>
+                    <li>Gestionar las dependencias entre contenedores.</li>
+                    <li>Simplificar el desarrollo, pruebas y despliegue de aplicaciones complejas.</li>
+                </ul>
+                <p>Docker Compose es una herramienta poderosa para definir y ejecutar aplicaciones multi-contenedor. Sus componentes clave trabajan en conjunto para simplificar la gestión de aplicaciones complejas. Aquí están los componentes esenciales:</p>
+                <ol style="list-style-type: none;">
+                    <li>▱ <marcador class="resaltado8">Servicios: </marcador>Cada servicio representa un contenedor en la aplicación. Por ejemplo, un servicio puede ser una base de datos, un servidor web o un microservicio.</li>
+                    <li>▱ <marcador class="resaltado8">Redes: </marcador>Docker Compose permite definir redes personalizadas para que los contenedores se comuniquen entre sí de manera aislada.</li>
+                    <li>▱ <marcador class="resaltado8">Volúmenes: </marcador>Los volúmenes permiten persistir datos fuera de los contenedores, lo que es útil para bases de datos o archivos de configuración.</li>
+                    <li>▱ <marcador class="resaltado8">Variables de entorno: </marcador>Puedes definir variables de entorno para configurar los servicios sin modificar el archivo docker-compose.yml.</li>
+                </ol>
+                <h6>Ejemplo con Docker Compose</h6>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Instala Docker Compose.
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="sudo apt install podman-compose" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Descargar el repositorio de la herramienta:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="git clone https://github.com/SpecterOps/BloodHound" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Navegar al directorio del archivo de configuración docker-compose.yml:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="cd BloodHound/examples/docker-compose/" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>❏ Levanta los servicios con Podman Compose:</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9633;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador>BLOODHOUND_PORT=8888 <marcador class="tool">docker-compose</marcador><marcador class="param"></marcador> up</span>
+                        
+    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">. . . [ snip ] . . .  
+                                Creating docker-compose_app-db_1   ... done
+Creating docker-compose_graph-db_1 ... done
+Creating docker-compose_bloodhound_1 ... done
+Attaching to docker-compose_app-db_1, docker-compose_graph-db_1, docker-compose_bloodhound_1
+app-db_1      | The files belonging to this database system will be owned by user "postgres".
+app-db_1      | This user must also own the server process.
+app-db_1      | 
+app-db_1      | The database cluster will be initialized with locale "en_US.utf8".
+app-db_1      | The default database encoding has accordingly been set to "UTF8".
+app-db_1      | The default text search configuration will be set to "english".
+app-db_1      | 
+app-db_1      | Data page checksums are disabled.
+app-db_1      | 
+app-db_1      | fixing permissions on existing directory /var/lib/postgresql/data ... ok
+app-db_1      | creating subdirectories ... ok
+app-db_1      | selecting dynamic shared memory implementation ... posix
+app-db_1      | selecting default max_connections ... 100
+app-db_1      | selecting default shared_buffers ... 128MB
+app-db_1      | selecting default time zone ... Etc/UTC
+app-db_1      | creating configuration files ... ok
+graph-db_1    | Changed password for user 'neo4j'. IMPORTANT: this change will only take effect if performed before the database is started for the first time.
+graph-db_1    | 2025-03-13 17:47:41.149+0000 INFO  Starting...
+graph-db_1    | 2025-03-13 17:47:41.401+0000 INFO  This instance is ServerId{35da0670} (35da0670-1b37-4205-89e9-6f02ff387a22)
+graph-db_1    | 2025-03-13 17:47:42.017+0000 INFO  ======== Neo4j 4.4.41 ========
+graph-db_1    | 2025-03-13 17:47:43.309+0000 INFO  Initializing system graph model for component 'security-users' with version -1 and status UNINITIALIZED
+graph-db_1    | 2025-03-13 17:47:43.318+0000 INFO  Setting up initial user from `auth.ini` file: neo4j
+graph-db_1    | 2025-03-13 17:47:43.318+0000 INFO  Creating new user 'neo4j' (passwordChangeRequired=false, suspended=false)
+graph-db_1    | 2025-03-13 17:47:43.330+0000 INFO  Setting version for 'security-users' to 3
+graph-db_1    | 2025-03-13 17:47:43.331+0000 INFO  After initialization of system graph model component 'security-users' have version 3 and status CURRENT
+graph-db_1    | 2025-03-13 17:47:43.334+0000 INFO  Performing postInitialization step for component 'security-users' with version 3 and status CURRENT
+graph-db_1    | 2025-03-13 17:47:43.487+0000 INFO  Bolt enabled on [0:0:0:0:0:0:0:0]:7687.
+graph-db_1    | 2025-03-13 17:47:43.881+0000 INFO  Remote interface available at http://localhost:7474/
+graph-db_1    | 2025-03-13 17:47:43.884+0000 INFO  id: C19ED0DBA9C27A6CEE2A321CBEF88CABA166F73C0A78470D3C3B52DCA7035820
+app-db_1      | running bootstrap script ... ok
+app-db_1      | performing post-bootstrap initialization ... ok
+app-db_1      | syncing data to disk ... ok
+app-db_1      | 
+app-db_1      | 
+app-db_1      | Success. You can now start the database server using:
+app-db_1      | 
+app-db_1      |     pg_ctl -D /var/lib/postgresql/data -l logfile start
+app-db_1      | 
+app-db_1      | initdb: warning: enabling "trust" authentication for local connections
+app-db_1      | initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+graph-db_1    | 2025-03-13 17:47:43.884+0000 INFO  name: system
+graph-db_1    | 2025-03-13 17:47:43.884+0000 INFO  creationDate: 2025-03-13T17:47:42.329Z
+graph-db_1    | 2025-03-13 17:47:43.884+0000 INFO  Started.
+app-db_1      | waiting for server to start....2025-03-13 17:47:38.429 UTC [45] LOG:  starting PostgreSQL 16.8 (Debian 16.8-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+bloodhound_1  | {"time":"2025-03-13T17:47:48.899385546Z","level":"INFO","message":"Executing SQL migrations for v6.2.0"}
+bloodhound_1  | {"time":"2025-03-13T17:47:48.901054366Z","level":"INFO","message":"Executing SQL migrations for v6.3.0"}
+bloodhound_1  | {"time":"2025-03-13T17:47:48.902174061Z","level":"INFO","message":"Executing SQL migrations for v6.4.0"}
+bloodhound_1  | {"time":"2025-03-13T17:47:48.90316274Z","level":"INFO","message":"Executing SQL migrations for v7.1.0"}
+bloodhound_1  | {"time":"2025-03-13T17:47:51.253488921Z","level":"INFO","message":"###################################################################"}
+bloodhound_1  | {"time":"2025-03-13T17:47:51.253508577Z","level":"INFO","message":"#                                                                 #"}
+bloodhound_1  | {"time":"2025-03-13T17:47:51.253511713Z","level":"INFO","message":"# Initial Password Set To:    GteFU7sIMGx3r5kx8Mn1hymZbDbH0rGv    #"}
+bloodhound_1  | {"time":"2025-03-13T17:47:51.253514328Z","level":"INFO","message":"#                                                                 #"}
+bloodhound_1  | {"time":"2025-03-13T17:47:51.253516582Z","level":"INFO","message":"###################################################################"}
+bloodhound_1  | {"time":"2025-03-13T17:47:53.626003415Z","level":"INFO","message":"Adding index azbase_system_tags_index to labels AZBase on properties system_tags using lucene+native-3.0"}
+bloodhound_1  | {"time":"2025-03-13T17:47:53.742655386Z","level":"INFO","message":"Adding index azwebapp_name_index to labels AZWebApp on properties name using lucene+native-3.0"}
+bloodhound_1  | {"time":"2025-03-13T17:47:53.77841472Z","level":"INFO","message":"Adding index adlocaluser_tenantid_index to labels ADLocalUser on properties tenantid using native-btree-1.0"}                                
+. . . [ snip ] . . .
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>❏ Acceder a BloodHound.</p>
+                <p>Abre tu navegador web y accede a la interfaz de BloodHound: http://localhost:8888.</p>
+                <p>Inicia sesión en BloodHound:</p>
+                <ul>
+                    <li>Usuario: admin</li>
+                    <li>Contraseña: Es proporcionada la primera vez que se inicia el servicio y debe ser cambiada una vez que se haya iniciado sesión en la app.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/docker6.png" alt="">
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Cuando termines de usar BloodHound, puedes detener y eliminar los contenedores con el siguiente comando:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="podman-compose down" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
                 <br>
                 <br>
             </div>
