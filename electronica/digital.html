@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <link rel="icon" href="../media/imagen41.png" type="image/png">
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                        <li><a href="../devops.html">DevOps</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Aportar" onclick="window.open('https://buymeacoffee.com/ryuzak1', '_blank');">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <br>
+                <br>
+                <h1>Sistemas Digitales</h1>
+                <p>Los sistemas digitales son conjuntos de circuitos electrónicos diseñados para procesar, almacenar y transmitir información en forma de señales binarias, es decir, utilizando solo los valores 0 y 1. Estos sistemas están presentes en computadoras, dispositivos de comunicación, controladores industriales y una amplia variedad de aplicaciones electrónicas.</p>
+                <p>Dentro de los sistemas digitales, existen varios componentes fundamentales que permiten su funcionamiento:</p>
+                <ul style="list-style-type: none;">
+                    <li>⌽ <marcador class="resaltado9">Multiplexores (MUX): </marcador>Son circuitos combinacionales que seleccionan una de varias señales de entrada y la dirigen a una única salida. Su funcionamiento se basa en señales de control, lo que permite transmitir datos de múltiples fuentes a través de un solo canal, optimizando recursos y reduciendo el número de conexiones.</li>
+                    <li>⌽ <marcador class="resaltado9">Demultiplexores (DEMUX): </marcador>Operan de manera inversa a los multiplexores. Reciben una señal de entrada y la distribuyen en varias salidas según la señal de control, facilitando la distribución de datos en sistemas de comunicación y procesamiento.</li>
+                    <li>⌽ <marcador class="resaltado9">Registros: </marcador>Son conjuntos de flip-flops utilizados para almacenar datos de forma temporal. Se usan en microprocesadores y sistemas digitales para retener información mientras se procesa. Pueden ser registros de desplazamiento, que permiten mover los datos en serie de un bit a otro.</li>
+                    <li>⌽ <marcador class="resaltado9">Contadores: </marcador>Son circuitos secuenciales que cuentan pulsos de reloj y almacenan el resultado en forma binaria. Se utilizan en aplicaciones como relojes digitales, generación de señales y sistemas de control. Pueden ser ascendentes, descendentes o programables, dependiendo de su configuración.</li>
+                    <li>⌽ <marcador class="resaltado9">Codificadores y Decodificadores: </marcador>Los codificadores convierten múltiples señales de entrada en un código binario reducido, mientras que los decodificadores hacen la función inversa, transformando una señal binaria en una de varias salidas. Son esenciales en sistemas de comunicación y almacenamiento de datos.</li>
+                </ul>
+                <p>Estos componentes trabajan en conjunto en los sistemas digitales modernos, permitiendo la realización de tareas como el almacenamiento de información, la transmisión eficiente de datos y el control de dispositivos electrónicos. Su combinación forma la base de la computación y la automatización en diversas industrias.</p>
+                <div class="blog-image-grande">
+                    <img src="media/digital1.png" alt="">
+                </div>
+                <h2>Multiplexores (MUX)</h2>
+                <p>Los circuitos integrados multiplexores, comúnmente conocidos como MUX, son componentes esenciales en la electrónica digital. Su función principal es seleccionar una de varias señales de entrada y dirigirla a una única salida. Esto los hace extremadamente útiles en aplicaciones donde se necesita manejar múltiples señales con recursos limitados, como en sistemas de comunicación, procesamiento de datos y control de dispositivos.</p>
+                <ul style="list-style-type: none;">
+                    <li>☉ <marcador class="resaltado5">Entradas: </marcador>Son las señales que el multiplexor puede seleccionar. Por ejemplo, un multiplexor de 4 a 1 tiene 4 entradas.</li>
+                    <li>☉ <marcador class="resaltado5">Salida: </marcador>Es la señal que se selecciona y se dirige a la salida.</li>
+                    <li>☉ <marcador class="resaltado5">Líneas de control: </marcador>Determinan cuál de las entradas se conecta a la salida. El número de líneas de control depende de la cantidad de entradas. Por ejemplo, un multiplexor de 4 a 1 requiere 2 líneas de control (ya que \( 2^2 = 4 \))</li>
+                </ul>
+                <br>
+                <p>Los multiplexores tienen diversas aplicaciones en distintos campos de la electrónica y las telecomunicaciones. En los sistemas de comunicación, se utilizan para combinar múltiples señales en un solo canal de transmisión, lo que optimiza el uso del ancho de banda y mejora la eficiencia de la transmisión de datos. En el procesamiento de datos, son fundamentales en microprocesadores y FPGAs, ya que permiten seleccionar entre diferentes fuentes de información según sea necesario para la ejecución de operaciones lógicas y aritméticas.</p>
+                <p>En cuanto al control de dispositivos, los sistemas embebidos emplean multiplexores para gestionar múltiples dispositivos utilizando un número reducido de pines, lo que simplifica el diseño de hardware y reduce costos. También desempeñan un papel clave en la conversión de señales dentro de los sistemas de adquisición de datos, donde permiten leer múltiples sensores con un solo convertidor analógico-digital (ADC), optimizando el procesamiento de la información. Finalmente, en los sistemas de transmisión de datos, los multiplexores ayudan a reducir la cantidad de cables necesarios para enviar múltiples señales, lo que disminuye la complejidad del cableado y facilita la instalación y mantenimiento de los sistemas electrónicos.</p>
+                <h6>Estructura interna</h6>
+                <p>Los multiplexores están compuestos por:</p>
+                <ul style="list-style-type: none;">
+                    <li>○ <marcador class="resaltado8">Compuertas lógicas: </marcador>Utilizan compuertas AND, OR y NOT para implementar la lógica de selección.</li>
+                    <li>○ <marcador class="resaltado8">Líneas de selección: </marcador>Conectadas a las compuertas lógicas para determinar cuál entrada se dirige a la salida.</li>
+                    <li>○ <marcador class="resaltado8">Buffer de salida: </marcador>Asegura que la señal de salida tenga la intensidad adecuada para ser utilizada en otros circuitos.</li>
+                </ul>
+                <br>
+                <p>Por ejemplo, un multiplexor de 2 a 1 tiene:</p>
+                <ul>
+                    <li>2 entradas (\(I_0\) e \(I_1\)).</li>
+                    <li>1 línea de control (\(S\)).</li>
+                    <li>1 salida (\(Y\)).</li>
+                </ul>
+                <p>La lógica del multiplexor se puede expresar como:</p>
+                <p>\(Y = I_0 \cdot \overline{S} + I_1 \cdot S\)</p>
+                <h6>Pines</h6>
+                <p>Los multiplexores vienen en diferentes configuraciones, pero los pines más comunes son:</p>
+                <ul style="list-style-type: none;">
+                    <li>⋗ <marcador class="resaltado6">Entradas de datos (\(I_0, I_1, I_2, \ldots\)): </marcador>Son las señales que el multiplexor puede seleccionar. El número de entradas depende del tipo de multiplexor (por ejemplo, 2, 4, 8, 16, etc.).</li>
+                    <li>⋗ <marcador class="resaltado6">Líneas de selección (\(S_0, S_1, \ldots\)): </marcador>Determinan cuál entrada se conecta a la salida. El número de líneas de selección depende del número de entradas. Por ejemplo:</li>
+                    <p>- 2 entradas: 1 línea de selección.</p>
+                    <p>- 4 entradas: 2 líneas de selección.</p>
+                    <p>- 8 entradas: 3 líneas de selección.</p>
+                    <li>⋗ <marcador class="resaltado6">Salida (\(Y\)): </marcador>Es la señal seleccionada que se dirige a la salida.</li>
+                    <li>⋗ <marcador class="resaltado6">Habilitación (\(EN\)): </marcador>Algunos multiplexores tienen un pin de habilitación que activa o desactiva el dispositivo. Cuando está desactivado, la salida puede estar en un estado de alta impedancia (flotante).</li>
+                    <li>⋗ <marcador class="resaltado6">Alimentación (\(V_{CC}\) y \(GND\)): </marcador>Proporcionan voltaje y tierra para el funcionamiento del circuito.</li>
+                </ul>
+                <h6>Funcionamiento</h6>
+                <p>El funcionamiento de un multiplexor se basa en las líneas de selección. Por ejemplo, en un multiplexor de 4 a 1:</p>
+                <ul>
+                    <li>Si las líneas de selección son \(S_1 = 0\) y \(S_0 = 0\), la entrada \(I_0\) se conecta a la salida \(Y\).</li>
+                    <li>Si \(S_1 = 0\) y \(S_0 = 1\), la entrada \(I_1\) se conecta a la salida \(Y\).</li>
+                    <li>Si \(S_1 = 1\) y \(S_0 = 0\), la entrada \(I_2\) se conecta a la salida \(Y\).</li>
+                    <li>Si \(S_1 = 1\) y \(S_0 = 1\), la entrada \(I_3\) se conecta a la salida \(Y\).</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/digital2.png" alt="">
+                </div>
+                <h2>Registros</h2>
+                <p>Los registros son componentes fundamentales en la electrónica digital y los sistemas de computación. Son circuitos secuenciales que permiten almacenar y manipular datos binarios de manera temporal. Los registros son esenciales en aplicaciones como el almacenamiento de datos, el procesamiento de instrucciones en CPUs, la transferencia de información entre dispositivos y mucho más.</p>
+                <p>Un registro es un circuito secuencial compuesto por un conjunto de biestables (flip-flops) conectados entre sí. Cada biestable almacena un bit de información (0 o 1), y un registro de n bits está compuesto por n biestables. Los registros pueden realizar operaciones como:</p>
+                <ul style="list-style-type: none;">
+                    <li>☉ <marcador class="resaltado5">Almacenamiento: </marcador>Guardar datos temporalmente.</li>
+                    <li>☉ <marcador class="resaltado5">Desplazamiento: </marcador>Mover los bits hacia la izquierda o la derecha.</li>
+                    <li>☉ <marcador class="resaltado5">Carga paralela: </marcador>Cargar múltiples bits de datos al mismo tiempo.</li>
+                </ul>
+                <br>
+                <p>Los registros tienen diversas aplicaciones en el procesamiento y almacenamiento de datos dentro de los sistemas digitales. En las CPUs, cumplen un papel fundamental en el almacenamiento temporal de datos e instrucciones mientras se ejecutan los programas, permitiendo una rápida manipulación de la información. También se utilizan en la conversión de datos, especialmente mediante registros de desplazamiento, que permiten transformar datos de serie a paralelo y viceversa, como ocurre en los sistemas de comunicación UART.</p>
+                <p>En los sistemas de visualización, los registros de desplazamiento son esenciales para el control de displays, ya que facilitan la gestión de matrices de LEDs o displays de 7 segmentos con un número reducido de pines. Además, en los sistemas de transferencia de datos, los registros funcionan como buffers para almacenar información temporalmente, asegurando que los datos se transmitan de manera eficiente y sin pérdidas. Finalmente, en las ALUs (Unidades Aritméticas Lógicas), los registros desempeñan un papel clave al almacenar los operandos y los resultados de las operaciones matemáticas, contribuyendo al correcto funcionamiento de los procesos aritméticos y lógicos dentro de los procesadores.</p>
+                <h6>Estructura interna</h6>
+                <p>Un registro está compuesto por:</p>
+                <ul style="list-style-type: none;">
+                    <li>○ <marcador class="resaltado8">Biestables (Flip-Flops): </marcador>Cada biestable almacena un bit de información. Los biestables más comunes son los de tipo D, que tienen una entrada de datos (\(D\)) y una salida (\(Q\)).</li>
+                    <li>○ <marcador class="resaltado8">Conexiones de reloj (Clock): </marcador>Todos los biestables en un registro están sincronizados por una señal de reloj (\(CLK\)). Cuando el reloj cambia de estado (por ejemplo, en el flanco de subida), los datos en las entradas se almacenan en los biestables.</li>
+                    <li>○ <marcador class="resaltado8">Entradas y salidas: </marcador>Dependiendo del tipo de registro, puede tener entradas y salidas en serie o en paralelo.</li>
+                    <li>○ <marcador class="resaltado8">Lógica de control: </marcador>Algunos registros incluyen lógica adicional para realizar operaciones como desplazamiento, carga paralela o reset.</li>
+                </ul>
+                <h6>Tipos de Registros</h6>
+                <ul>
+                    <li><marcador class="resaltado8">Registro de almacenamiento (Buffer): </marcador>Almacena datos temporalmente y los mantiene hasta que se carguen nuevos datos.</li>
+                    <p>Ejemplo: Registro de 8 bits (74HC374).</p>
+                    <li><marcador class="resaltado8">Registro de desplazamiento (Shift Register): </marcador>Desplaza los bits hacia la izquierda o la derecha en cada ciclo de reloj.</li>
+                    <ol>    
+                        <li>Serie a paralelo: Convierte una entrada en serie en una salida en paralelo.</li>
+                        <li>Paralelo a serie: Convierte una entrada en paralelo en una salida en serie.</li>
+                    </ol>
+                    <p>Ejemplo: 74HC164 (serie a paralelo), 74HC165 (paralelo a serie).</p>
+                    <li><marcador class="resaltado8">Registro de carga paralela: </marcador>Permite cargar múltiples bits de datos al mismo tiempo.</li>
+                    <p>Ejemplo: 74HC195.</p>
+                    <li><marcador class="resaltado8">Registro universal: </marcador>Combina las funcionalidades de almacenamiento, desplazamiento y carga paralela.</li>
+                    <p>Ejemplo: 74HC194.</p>
+                </ul>
+                <h6>Pines</h6>
+                <p>Los pines de un registro dependen de su tipo, pero los más comunes son:</p>
+                <ul style="list-style-type: none;">
+                  <li>⋗ <marcador class="resaltado6">Entradas de datos (\(D_0, D_1, \ldots, D_n\)): </marcador>Para registros de carga paralela, estas entradas permiten cargar datos en los biestables.</li>
+                  <li>⋗ <marcador class="resaltado6">Salidas de datos (\(Q_0, Q_1, \ldots, Q_n\)): </marcador>Representan los bits almacenados en el registro.</li>
+                  <li>⋗ <marcador class="resaltado6">Entrada de reloj (\(CLK\)): </marcador>Sincroniza las operaciones del registro. Los datos se almacenan o desplazan en el flanco de subida o bajada del reloj.</li>
+                  <li>⋗ <marcador class="resaltado6">Entrada de desplazamiento (\(DS\)): </marcador>En registros de desplazamiento, esta entrada define el bit que se introduce en el registro en cada ciclo de reloj.</li>
+                  <li>⋗ <marcador class="resaltado6">Entrada de reset (\(RST\) o \(CLR\)): </marcador>Reinicia el registro, estableciendo todas las salidas a 0.</li>
+                  <li>⋗ <marcador class="resaltado6">Entrada de habilitación (\(EN\)): </marcador>Activa o desactiva el registro.</li>
+                  <li>⋗ <marcador class="resaltado6">Alimentación (\(V_{CC}\) y \(GND\)): </marcador>Proporcionan voltaje y tierra para el funcionamiento del circuito.</li>
+                </ul>
+                <h6>Funcionamiento</h6>
+                <p>El funcionamiento de un registro depende de su tipo. Por ejemplo, en un registro de desplazamiento serie a paralelo:</p>
+                <ol>
+                    <li>Los datos se introducen bit a bit en la entrada de desplazamiento (\(DS\)).</li>
+                    <li>En cada ciclo de reloj, los bits se desplazan hacia la derecha o izquierda.</li>
+                    <li>Después de \(n\) ciclos de reloj, los \(n\) bits de datos están disponibles en las salidas paralelas (\(Q_0\) a \(Q_n\)).</li>
+                </ol>
+                <br>
+                <p>En un registro de carga paralela:</p>
+                <ol>
+                    <li>Los datos se cargan en las entradas paralelas (\(D_0\) a \(D_n\)).</li>
+                    <li>En el flanco de reloj, los datos se almacenan en los biestables y están disponibles en las salidas (\(Q_0\) a \(Q_n\)).</li>
+                </ol>
+                <div class="blog-image-grande">
+                    <img src="media/digital3.gif" alt="">
+                </div>
+                <h2>Contadores</h2>
+                <p>Un contador es un circuito secuencial que cuenta pulsos de una señal de reloj (CLK) y almacena el resultado en forma de un número binario. Según su diseño, puede contar hacia arriba (incrementar), hacia abajo (decrementar) o en ambas direcciones, funcionando como un contador ascendente/descendente.</p>
+                <p>Estos circuitos están formados por biestables (flip-flops) conectados en cascada, donde cada biestable representa un bit del número binario en conteo. Gracias a esta estructura, los contadores juegan un papel fundamental en numerosos sistemas digitales, permitiendo el seguimiento y control de eventos.</p>
+                <p>En aplicaciones de temporización, se utilizan para medir intervalos de tiempo con alta precisión, facilitando la sincronización de procesos electrónicos. También son esenciales en la división de frecuencia, donde reducen la frecuencia de una señal de reloj para generar señales más lentas, ajustadas a distintas aplicaciones.</p>
+                <p>En los sistemas de control de procesos, los contadores registran eventos como el número de productos en una línea de ensamblaje, asegurando un seguimiento preciso de la producción. Además, en la generación de secuencias, crean patrones binarios utilizados en generadores de señales y circuitos lógicos. Finalmente, en sistemas de conteo, permiten registrar datos en tiempo real, como la cantidad de personas que ingresan a un lugar o el flujo de vehículos en una vía, facilitando su análisis y gestión.</p>
+                <h6>Estructura interna</h6>
+                <p>Un contador típico está compuesto por:</p>
+                <ul style="list-style-type: none;">
+                    <li>○ <marcador class="resaltado8">Biestables (Flip-Flops): </marcador>Cada biestable almacena un bit del contador. Los biestables más comunes son los de tipo D o JK.</li>
+                    <li>○ <marcador class="resaltado8">Lógica de conteo: </marcador>Circuitos combinacionales que determinan cómo cambia el estado del contador en cada pulso de reloj.</li>
+                    <li>○ <marcador class="resaltado8">Entrada de reloj (\(CLK\)): </marcador>Sincroniza las operaciones del contador. En cada flanco de subida o bajada del reloj, el contador incrementa o decrementa su valor.</li>
+                    <li>○ <marcador class="resaltado8">Entrada de reset (\(RST\) o \(CLR\)): </marcador>Reinicia el contador, estableciendo todas las salidas a 0.</li>
+                    <li>○ <marcador class="resaltado8">Entrada de habilitación (\(EN\)): </marcador>Activa o desactiva el contador.</li>
+                    <li>○ <marcador class="resaltado8">Salidas (\(Q_0, Q_1, \ldots, Q_n\)): </marcador>Representan el valor binario actual del contador.</li>
+                </ul>
+                <h6>Tipos de Contadores</h6>
+                <ul>
+                    <li><marcador class="resaltado8">Contador ascendente (Up Counter): </marcador>Incrementa su valor en 1 con cada pulso de reloj.</li>
+                    <p>Ejemplo: Contador de 4 bits (0 a 15).</p>                    
+                    <li><marcador class="resaltado8">Contador descendente (Down Counter): </marcador>Decrementa su valor en 1 con cada pulso de reloj.</li>
+                    <p>Ejemplo: Contador de 4 bits (15 a 0).</p>                    
+                    <li><marcador class="resaltado8">Contador ascendente/descendente (Up/Down Counter): </marcador>Puede contar hacia arriba o hacia abajo, dependiendo de una señal de control.</li>
+                    <p>Ejemplo: 74HC193.</p>                    
+                    <li><marcador class="resaltado8">Contador síncrono: </marcador>Todos los biestables cambian de estado simultáneamente con el pulso de reloj.</li>                    
+                    <li><marcador class="resaltado8">Contador asíncrono (Ripple Counter): </marcador>Los biestables no cambian de estado simultáneamente. El cambio se propaga de un biestable al siguiente.</li>                    
+                    <li><marcador class="resaltado8">Contador de módulo N: </marcador>Cuenta hasta un valor específico (N) y luego se reinicia.</li>
+                    <p>Ejemplo: Un contador de módulo 10 cuenta de 0 a 9.</p>
+                </ul>
+                <h6>Pines</h6>
+                <p>Los pines de un contador dependen de su tipo, pero los más comunes son:</p>
+                <ul style="list-style-type: none;">
+                    <li>⋗ <marcador class="resaltado6">Entrada de reloj (\(CLK\)): </marcador>Sincroniza las operaciones del contador.</li>
+                    <li>⋗ <marcador class="resaltado6">Entrada de reset (\(RST\) o \(CLR\)): </marcador>Reinicia el contador, estableciendo todas las salidas a 0.</li>
+                    <li>⋗ <marcador class="resaltado6">Entrada de habilitación (\(EN\)): </marcador>Activa o desactiva el contador.</li>
+                    <li>⋗ <marcador class="resaltado6">Entrada de dirección (\(UP/DOWN\)): </marcador>En contadores ascendentes/descendentes, esta entrada determina si el contador cuenta hacia arriba o hacia abajo.</li>
+                    <li>⋗ <marcador class="resaltado6">Salidas (\(Q_0, Q_1, \ldots, Q_n\)): </marcador>Representan el valor binario actual del contador.</li>
+                    <li>⋗ <marcador class="resaltado6">Salida de acarreo (\(CO\)): </marcador>Indica cuando el contador ha alcanzado su valor máximo y se reinicia.</li>
+                    <li>⋗ <marcador class="resaltado6">Salida de préstamo (\(BO\)): </marcador>En contadores descendentes, indica cuando el contador ha alcanzado su valor mínimo y se reinicia.</li>
+                    <li>⋗ <marcador class="resaltado6">Alimentación (\(V_{CC}\) y \(GND\)): </marcador>Proporcionan voltaje y tierra para el funcionamiento del circuito.</li>
+                </ul>
+                <h6>Funcionamiento</h6>
+                <p>El funcionamiento de un contador depende de su tipo. Por ejemplo, en un contador ascendente de 4 bits:</p>
+                <ol>
+                    <li>Inicialmente, el contador está en 0 (\(Q_0=0, Q_1=0, Q_2=0, Q_3=0\)).</li>
+                    <li>En cada flanco de subida del reloj, el contador incrementa su valor en 1.</li>
+                    <li>Después de 15 pulsos de reloj, el contador alcanza su valor máximo (15 en binario: \(1111\)) y se reinicia a 0.</li>
+                </ol>
+                <br>
+                <p>En un contador descendente:</p>
+                <ol>
+                    <li>Inicialmente, el contador está en su valor máximo (por ejemplo, 15 para un contador de 4 bits).</li>
+                    <li>En cada flanco de subida del reloj, el contador decrementa su valor en 1.</li>
+                    <li>Después de 15 pulsos de reloj, el contador alcanza su valor mínimo (0) y se reinicia.</li>
+                </ol>
+                <iframe width="560" height="315" 
+                src="https://www.youtube.com/embed/VLQrjZqmDns" 
+                title="Contador secuencial con BCD" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+                </iframe>
+                <h2>Codificadores</h2>
+                <p>Los codificadores son circuitos combinacionales esenciales en la electrónica digital que convierten múltiples entradas en una salida codificada de menor tamaño, reduciendo el número de líneas necesarias para representar información, lo que los hace útiles en aplicaciones como la compresión de datos, la multiplexación y la interfaz entre dispositivos; por ejemplo, un codificador de 8 a 3 toma 8 entradas y genera una salida de 3 bits que representa la entrada activa.</p>
+                <ul style="list-style-type: none;">
+                    <li>☉ <marcador class="resaltado5">Entradas: </marcador>Son las señales que el codificador procesa. Solo una entrada puede estar activa (generalmente en nivel alto, 1) en un momento dado.</li>
+                    <li>☉ <marcador class="resaltado5">Salida: </marcador>Es el código binario que representa la entrada activa.</li>
+                </ul>
+                <br>
+                <p>Los codificadores desempeñan un papel fundamental en la compresión de datos al reducir el número de líneas necesarias para representar información, lo que resulta especialmente útil en sistemas de transmisión de datos. En la interfaz entre dispositivos, permiten la conexión de sistemas embebidos con diferentes números de líneas de entrada y salida, facilitando la comunicación entre ellos. En los teclados matriciales, los codificadores convierten la pulsación de una tecla en un código binario, optimizando el uso de líneas de conexión. También son clave en los sistemas de prioridad, donde los codificadores prioritarios determinan la entrada de mayor importancia, como en el control de interrupciones. Finalmente, en la conversión de señales, estos circuitos transforman señales analógicas o digitales en códigos binarios, lo que los hace esenciales en sistemas de adquisición de datos.</p>
+                <h6>Estructura interna</h6>
+                <p>Un codificador está compuesto por:</p>
+                <ul style="list-style-type: none;">
+                    <li>○ <marcador class="resaltado8">Compuertas lógicas: </marcador>Utiliza compuertas AND, OR y NOT para implementar la lógica de codificación.</li>
+                    <li>○ <marcador class="resaltado8">Entradas: </marcador>Dependiendo del tipo de codificador, puede tener 4, 8, 16 o más entradas.</li>
+                    <li>○ <marcador class="resaltado8">Salidas: </marcador>Genera un código binario que representa la entrada activa.</li>
+                    <li>○ <marcador class="resaltado8">Lógica de prioridad (en codificadores prioritarios): </marcador>Determina qué entrada tiene prioridad si varias entradas están activas al mismo tiempo.</li>
+                </ul>
+                <h6>Tipos de Codificadores</h6>
+                <ul>
+                    <li><marcador class="resaltado8">Codificador simple: </marcador>Convierte una entrada activa en un código binario. Solo una entrada puede estar activa a la vez.</li>
+                    <p>Ejemplo: Codificador de 4 a 2.</p>                    
+                    <li><marcador class="resaltado8">Codificador prioritario (Priority Encoder): </marcador>Si varias entradas están activas al mismo tiempo, el codificador prioriza la entrada de mayor valor y genera el código correspondiente.</li>
+                    <p>Ejemplo: 74HC148 (codificador prioritario de 8 a 3).</p>                    
+                    <li><marcador class="resaltado8">Codificador decimal a BCD: </marcador>Convierte una entrada decimal (0-9) en su equivalente en código BCD (Binary-Coded Decimal).</li>
+                    <p>Ejemplo: 74HC147.</p>
+                </ul>
+                <h6>Pines</h6>
+                <p>Los pines de un codificador dependen de su tipo, pero los más comunes son:</p>
+                <ul style="list-style-type: none;">
+                    <li>⋗ <marcador class="resaltado6">Entradas (\(I_0, I_1, \ldots, I_n\)): </marcador>Son las señales que el codificador procesa. Solo una entrada puede estar activa a la vez (en codificadores simples).</li>
+                    <li>⋗ <marcador class="resaltado6">Salidas (\(Y_0, Y_1, \ldots, Y_m\)): </marcador>Representan el código binario de la entrada activa. El número de salidas depende del número de entradas. Por ejemplo, un codificador de 8 a 3 tiene 3 salidas.</li>
+                    <li>⋗ <marcador class="resaltado6">Habilitación (\(EN\)): </marcador>Activa o desactiva el codificador. Cuando está desactivado, las salidas pueden estar en un estado de alta impedancia.</li>
+                    <li>⋗ <marcador class="resaltado6">Salida de validación (\(GS\) o \(EO\)): </marcador>Indica si al menos una entrada está activa. Es útil en codificadores prioritarios.</li>
+                    <li>⋗ <marcador class="resaltado6">Salida de prioridad (\(EO\)): </marcador>En codificadores prioritarios, indica si la salida corresponde a una entrada válida.</li>
+                    <li>⋗ <marcador class="resaltado6">Alimentación (\(V_{CC}\) y \(GND\)): </marcador>Proporcionan voltaje y tierra para el funcionamiento del circuito.</li>
+                </ul>
+                <h6>Funcionamiento</h6>
+                <p>El funcionamiento de un codificador depende de su tipo. Por ejemplo, en un codificador de 4 a 2:</p>
+                <ol>
+                    <li>Si la entrada \(I_0\) está activa, la salida será \(Y_1=0\), \(Y_0=0\) (código 00).</li>
+                    <li>Si la entrada \(I_1\) está activa, la salida será \(Y_1=0\), \(Y_0=1\) (código 01).</li>
+                    <li>Si la entrada \(I_2\) está activa, la salida será \(Y_1=1\), \(Y_0=0\) (código 10).</li>
+                    <li>Si la entrada \(I_3\) está activa, la salida será \(Y_1=1\), \(Y_0=1\) (código 11).</li>
+                </ol>
+                <br>
+                <p>En un codificador prioritario, si varias entradas están activas, el codificador selecciona la entrada de mayor valor. Por ejemplo, en un codificador prioritario de 8 a 3:</p>
+                <ul>
+                    <li>Si \(I_7\) está activa, la salida será \(111\), independientemente de otras entradas activas.</li>
+                    <li>Si \(I_7\) no está activa pero \(I_6\) sí, la salida será \(110\), y así sucesivamente.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/digital4.jpg" alt="">
+                </div>
+                <h2>Señal de Reloj</h2>
+                <p>La señal de reloj es una onda periódica utilizada para sincronizar el funcionamiento de circuitos digitales. Es generada por un oscilador y alterna entre niveles altos y bajos a una frecuencia específica. Su propósito es coordinar la ejecución de operaciones dentro de un sistema digital, asegurando que los componentes actúen en el momento correcto. En contadores, registros y microprocesadores, la señal de reloj establece el ritmo de ejecución de las instrucciones.</p>
+                <h6>Circuito Integrado 555</h6>
+                <p>El 555 es un temporizador versátil que puede funcionar en tres modos principales: astable, monoestable y biestable. Es ampliamente utilizado en electrónica debido a su simplicidad y múltiples aplicaciones.</p>
+                <ul style="list-style-type: none;">
+                    <li>☉ <marcador class="resaltado5">Modo astable: </marcador>Genera una señal de onda cuadrada continua sin necesidad de una señal externa, funcionando como un oscilador o generador de pulsos.</li>
+                    <li>☉ <marcador class="resaltado5">Modo monoestable: </marcador>Actúa como un temporizador, generando un único pulso de duración controlada cuando recibe un disparo externo.</li>
+                    <li>☉ <marcador class="resaltado5">Modo biestable: </marcador>Funciona como un flip-flop, cambiando su estado con cada pulso de entrada, útil en aplicaciones de almacenamiento de estado.</li>
+                </ul>
+                <br>
+                <p>Este circuito se usa en temporizadores, generadores de señal, control de ancho de pulso (PWM) y sistemas de retardo, siendo fundamental en electrónica digital y analógica.</p>
+                <div class="blog-image-doble-grande">
+                    <img src="media/digital5.jpg" alt="">
+                    <img src="media/digital6.png" alt="">
+                </div>
+                <h2>Diseño de Sistemas Digitales</h2>
+                <p>Los circuitos secuenciales son sistemas digitales cuya salida depende no solo de las entradas actuales, sino también de su historia pasada. Esta característica los hace indispensables para la implementación de sistemas de memoria, contadores, registros y máquinas de estado. En este documento, se analizarán los fundamentos teóricos y prácticos de los circuitos secuenciales, incluyendo los diferentes tipos de flip-flops, sus tablas de verdad, diagramas de estado y aplicaciones en el diseño de sistemas digitales complejos.</p>
+                <iframe src="media/digital.pdf" style="width: 100%; height: 60vh;"></iframe>
+                <br>
+                <br>
+            </div>  
+        </div>     
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
