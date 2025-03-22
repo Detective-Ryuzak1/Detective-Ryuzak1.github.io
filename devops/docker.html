@@ -719,7 +719,7 @@ This may also be found at: /var/jenkins_home/secrets/initialAdminPassword
                     </section>
                     <section id="terminal__body">
                         <div id="terminal__prompt">
-                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador>BLOODHOUND_PORT=8888 <marcador class="tool">docker-compose</marcador><marcador class="param"></marcador> up</span>
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador>BLOODHOUND_PORT=8888 <marcador class="tool">podman-compose</marcador><marcador class="param"></marcador> up</span>
                         
     
                         </div>
@@ -833,7 +833,7 @@ bloodhound_1  | {"time":"2025-03-13T17:47:53.77841472Z","level":"INFO","message"
                         Cuando termines de usar BloodHound, puedes detener y eliminar los contenedores con el siguiente comando:
                     </div>
                     <div class="comandos">
-                      <input type="text" class="text" value="podman-compose down" oninput="ajustarAncho(this)">
+                      <input type="text" class="text" value="podman-compose down -v" oninput="ajustarAncho(this)">
                       <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                 </div>
