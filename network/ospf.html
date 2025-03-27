@@ -69,17 +69,17 @@
                 <h2>Temporizadores</h2>
                 <p>En OSPF (Open Shortest Path First), el Hello Time y el Dead Time son temporizadores que gestionan la detección de vecinos:</p>
                 <ul style="list-style-type: none;">
-                    <li>🌀 <marcador class="resaltado9">Hello Time: </marcador>Es el intervalo en segundos en que un router OSPF envía mensajes "Hello" a sus vecinos para indicar que está activo. El valor predeterminado suele ser 10 segundos en redes broadcast.</li>
-                    <li>🌀 <marcador class="resaltado9">Dead Time: </marcador>Es el tiempo máximo que un router espera sin recibir mensajes "Hello" de un vecino antes de considerarlo inactivo o "muerto". Generalmente, es 4 veces el valor de Hello Time (40 segundos por defecto).</li>
+                    <li>𖦹 <marcador class="resaltado9">Hello Time: </marcador>Es el intervalo en segundos en que un router OSPF envía mensajes "Hello" a sus vecinos para indicar que está activo. El valor predeterminado suele ser 10 segundos en redes broadcast.</li>
+                    <li>𖦹 <marcador class="resaltado9">Dead Time: </marcador>Es el tiempo máximo que un router espera sin recibir mensajes "Hello" de un vecino antes de considerarlo inactivo o "muerto". Generalmente, es 4 veces el valor de Hello Time (40 segundos por defecto).</li>
                 </ul>
                 <h2>Tipos de Mensajes de OSPF</h2>
                 <p>OSPF usa cinco tipos de mensajes para sus operaciones:</p>
                 <ul style="list-style-type: none;">
-                    <li>🌀 <marcador class="resaltado9">Hello Packet: </marcador>Los routers envían Hello packets cada cierto intervalo para descubrir y mantener relaciones de vecindad. Estos paquetes contienen el ID de área, prioridad del router, temporizadores y la lista de routers vecinos conocidos.</li>
-                    <li>🌀 <marcador class="resaltado9">Database Description (DBD) Packet: </marcador>Se usa para iniciar la sincronización de bases de datos entre routers vecinos. Incluye descripciones resumidas de las entradas de la base de datos para que cada router sepa qué rutas necesita solicitar.</li>
-                    <li>🌀 <marcador class="resaltado9">Link-State Request (LSR): </marcador>Este mensaje se envía cuando un router necesita una actualización de información específica de la base de datos de enlace de otro router.</li>
-                    <li>🌀 <marcador class="resaltado9">Link-State Update (LSU): </marcador>Proporciona actualizaciones completas o parciales de la base de datos, permitiendo que los routers vecinos sincronicen sus LSDB (Link-State Database). Cada LSA es encapsulada en un LSU.</li>
-                    <li>🌀 <marcador class="resaltado9">Link-State Acknowledgment (LSAck): </marcador>Confirma la recepción de LSUs, reduciendo el riesgo de pérdida de datos en la sincronización.</li>
+                    <li>𖦹 <marcador class="resaltado9">Hello Packet: </marcador>Los routers envían Hello packets cada cierto intervalo para descubrir y mantener relaciones de vecindad. Estos paquetes contienen el ID de área, prioridad del router, temporizadores y la lista de routers vecinos conocidos.</li>
+                    <li>𖦹 <marcador class="resaltado9">Database Description (DBD) Packet: </marcador>Se usa para iniciar la sincronización de bases de datos entre routers vecinos. Incluye descripciones resumidas de las entradas de la base de datos para que cada router sepa qué rutas necesita solicitar.</li>
+                    <li>𖦹 <marcador class="resaltado9">Link-State Request (LSR): </marcador>Este mensaje se envía cuando un router necesita una actualización de información específica de la base de datos de enlace de otro router.</li>
+                    <li>𖦹 <marcador class="resaltado9">Link-State Update (LSU): </marcador>Proporciona actualizaciones completas o parciales de la base de datos, permitiendo que los routers vecinos sincronicen sus LSDB (Link-State Database). Cada LSA es encapsulada en un LSU.</li>
+                    <li>𖦹 <marcador class="resaltado9">Link-State Acknowledgment (LSAck): </marcador>Confirma la recepción de LSUs, reduciendo el riesgo de pérdida de datos en la sincronización.</li>
                 </ul>
                 <div class="blog-image-grande">
                     <img src="media/ospf2.png" alt="">

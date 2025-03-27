@@ -49,25 +49,25 @@
                 <h2>Componentes principales</h2>
                 <p>La arquitectura de una VPN entre dispositivos de red se compone de varios elementos esenciales:</p>
                 <ol style="list-style-type: none;">
-                    <li>🌀 <marcador class="resaltado9">Túnel VPN: </marcador>Es el canal seguro a través del cual se transmiten los datos. Este túnel oculta el tráfico y evita que los datos sean visibles para interceptores en la red pública.</li>
-                    <li>🌀 <marcador class="resaltado9">Protocolos de VPN: </marcador>Determinan cómo se envían y protegen los datos en la red privada virtual. Algunos de los más comunes son:</li>
+                    <li>𖦹 <marcador class="resaltado9">Túnel VPN: </marcador>Es el canal seguro a través del cual se transmiten los datos. Este túnel oculta el tráfico y evita que los datos sean visibles para interceptores en la red pública.</li>
+                    <li>𖦹 <marcador class="resaltado9">Protocolos de VPN: </marcador>Determinan cómo se envían y protegen los datos en la red privada virtual. Algunos de los más comunes son:</li>
                     <ul style="list-style-type: none;">
                         <li>∘ <marcador class="resaltado8">IPsec (Internet Protocol Security): </marcador>Proporciona autenticación y cifrado en cada paquete IP.</li>
                         <li>∘ <marcador class="resaltado8">SSL/TLS (Secure Sockets Layer/Transport Layer Security): </marcador>Usado para conexiones basadas en web.</li>
                         <li>∘ <marcador class="resaltado8">L2TP (Layer 2 Tunneling Protocol) y PPTP (Point-to-Point Tunneling Protocol): </marcador>Protocolos más antiguos y menos seguros, pero aún en uso.</li>
                     </ul>
-                    <li>🌀 <marcador class="resaltado9">Métodos de autenticación: </marcador>Estos métodos aseguran que solo los dispositivos autorizados puedan conectarse al túnel VPN. Incluyen:</li>
+                    <li>𖦹 <marcador class="resaltado9">Métodos de autenticación: </marcador>Estos métodos aseguran que solo los dispositivos autorizados puedan conectarse al túnel VPN. Incluyen:</li>
                     <ul style="list-style-type: none;">
                         <li>∘ <marcador class="resaltado8">Autenticación de certificados: </marcador>Utiliza certificados digitales para verificar la identidad de los dispositivos.</li>
                         <li>∘ <marcador class="resaltado8">Pre-shared key (PSK): </marcador>Una clave compartida entre los dispositivos que se usa para autenticarlos antes de permitir la conexión.</li>
                     </ul>
-                    <li>🌀 <marcador class="resaltado9">Cifrado: </marcador>Protege los datos mediante algoritmos que los convierten en información ilegible para quienes no tengan la clave de descifrado. Los algoritmos comunes incluyen:</li>
+                    <li>𖦹 <marcador class="resaltado9">Cifrado: </marcador>Protege los datos mediante algoritmos que los convierten en información ilegible para quienes no tengan la clave de descifrado. Los algoritmos comunes incluyen:</li>
                     <ul style="list-style-type: none;">
                         <li>∘ <marcador class="resaltado8">AES (Advanced Encryption Standard): </marcador>Cifrado fuerte y rápido, usado en varias configuraciones como 128, 192 o 256 bits.</li>
                         <li>∘ <marcador class="resaltado8">3DES (Triple Data Encryption Standard): </marcador>Cifrado en tres capas, pero con mayor carga computacional y más antiguo que AES.</li>
                         <li>∘ <marcador class="resaltado8">ChaCha20: </marcador>Un cifrado moderno y eficiente, especialmente en dispositivos con menos capacidad de procesamiento.</li>
                     </ul>
-                    <li>🌀 <marcador class="resaltado9">Integridad de los datos: </marcador>Los mecanismos como el HMAC (Hashed Message Authentication Code) garantizan que los datos no sean alterados durante la transmisión. HMAC-MD5 y HMAC-SHA-256 son ejemplos comunes de algoritmos de integridad.</li>
+                    <li>𖦹 <marcador class="resaltado9">Integridad de los datos: </marcador>Los mecanismos como el HMAC (Hashed Message Authentication Code) garantizan que los datos no sean alterados durante la transmisión. HMAC-MD5 y HMAC-SHA-256 son ejemplos comunes de algoritmos de integridad.</li>
                     <p>El proceso de cálculo de HMAC implica ajustar la clave secreta al tamaño adecuado para la función hash, concatenarla con bloques de ceros (ipad y opad) junto con el mensaje en dos pasos, y luego aplicar la función hash para generar el HMAC final, que se transmite junto al mensaje. En la verificación, el receptor calcula el HMAC del mensaje recibido con la misma clave secreta y compara el resultado con el HMAC recibido; si coinciden, se confirma que el mensaje no ha sido alterado y proviene de una fuente autenticada.</p>
                 </ol>
                 <div class="blog-image-grande">

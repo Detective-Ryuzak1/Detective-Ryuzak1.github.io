@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <link rel="icon" href="../media/imagen41.png" type="image/png">
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                        <li><a href="../devops.html">DevOps</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Aportar" onclick="window.open('https://buymeacoffee.com/ryuzak1', '_blank');">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <br>
+                <br>
+                <h1>Multiprotocol Label Switching (MPLS)</h1>
+                <p>MPLS es una tecnología de conmutación de paquetes desarrollada a finales de los años 90 con el propósito de mejorar la eficiencia y velocidad del enrutamiento en redes IP. Su creación respondió a la necesidad de reducir la latencia en el reenvío de paquetes y optimizar la calidad del servicio (QoS) en redes con alto tráfico. MPLS permite el transporte eficiente de diversos tipos de tráfico, incluyendo datos, voz y video, a través de una infraestructura de red unificada.</p>
+                <h6>Características Técnicas</h6>
+                <p>MPLS opera en una capa intermedia entre la Capa 2 (Enlace de Datos) y la Capa 3 (Red) del modelo OSI, lo que le otorga una flexibilidad única. Sus principales características incluyen:</p>
+                <ul style="list-style-type: none;">
+                    <li>∘ <marcador class="resaltado8">Etiquetado de paquetes: </marcador>MPLS asigna una etiqueta a cada paquete de datos, lo que permite un reenvío eficiente sin necesidad de analizar direcciones IP.</li>
+                    <li>∘ <marcador class="resaltado8">Rápida conmutación: </marcador>El uso de etiquetas permite a los routers tomar decisiones de reenvío basadas en tablas de conmutación preconfiguradas, reduciendo el tiempo de procesamiento.</li>
+                    <li>∘ <marcador class="resaltado8">Calidad de Servicio (QoS): </marcador>Facilita la priorización del tráfico para aplicaciones críticas como VoIP y transmisión de video.</li>
+                    <li>∘ <marcador class="resaltado8">Soporte de múltiples protocolos: </marcador>Puede transportar tráfico IPv4, IPv6, ATM, Frame Relay y Ethernet, de ahí su nombre "Multiprotocol".</li>
+                    <li>∘ <marcador class="resaltado8">Ingeniería de tráfico: </marcador>Permite la creación de rutas optimizadas y predefinidas, evitando congestión en la red.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/mpls.png" alt="">
+                </div>
+                <p></p>
+                <p></p>
+                <p></p>
+            </div>
+        </div>       
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
