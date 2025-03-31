@@ -42,8 +42,9 @@
                 <br>
                 <h1>Multiprotocol Label Switching (MPLS)</h1>
                 <p>MPLS es una tecnología de conmutación de paquetes desarrollada a finales de los años 90 con el propósito de mejorar la eficiencia y velocidad del enrutamiento en redes IP. Su creación respondió a la necesidad de reducir la latencia en el reenvío de paquetes y optimizar la calidad del servicio (QoS) en redes con alto tráfico. MPLS permite el transporte eficiente de diversos tipos de tráfico, incluyendo datos, voz y video, a través de una infraestructura de red unificada.</p>
-                <h6>Características Técnicas</h6>
-                <p>MPLS opera en una capa intermedia entre la Capa 2 (Enlace de Datos) y la Capa 3 (Red) del modelo OSI, lo que le otorga una flexibilidad única. Sus principales características incluyen:</p>
+                <p>Su flexibilidad permite la conmutación eficiente de datos IP tradicionales (IPv4/IPv6), la optimización de rutas y la reducción de latencia para Voz sobre IP (VoIP), la transmisión de video en tiempo real sin interrupciones y el soporte de Redes Privadas Virtuales (VPNs) de capa 2 y capa 3, garantizando seguridad y aislamiento del tráfico.</p>
+                <h2>Características Técnicas</h2>
+                <p>MPLS opera en una capa intermedia, conocida como Capa 2.5, ubicada entre la Capa 2 (Enlace de Datos) y la Capa 3 (Red) del modelo OSI, lo que le otorga una flexibilidad única. Esta posición intermedia le permite combinar las ventajas de ambas capas, ofreciendo un enrutamiento eficiente y una alta calidad de servicio. Sus principales características incluyen:</p>
                 <ul style="list-style-type: none;">
                     <li>∘ <marcador class="resaltado8">Etiquetado de paquetes: </marcador>MPLS asigna una etiqueta a cada paquete de datos, lo que permite un reenvío eficiente sin necesidad de analizar direcciones IP.</li>
                     <li>∘ <marcador class="resaltado8">Rápida conmutación: </marcador>El uso de etiquetas permite a los routers tomar decisiones de reenvío basadas en tablas de conmutación preconfiguradas, reduciendo el tiempo de procesamiento.</li>
@@ -54,8 +55,689 @@
                 <div class="blog-image-grande">
                     <img src="media/mpls.png" alt="">
                 </div>
+                <h2>Funcionamiento</h2>
+                <p>MPLS introduce un método de reenvío basado en etiquetas que reemplaza las tradicionales búsquedas en la tabla de enrutamiento IP. Su operación se basa en los siguientes procesos:</p>
+                <ol>
+                    <li><marcador class="resaltado8">Asignación de etiquetas: </marcador>El router de entrada (Label Edge Router, LER) examina el paquete IP entrante y le asigna una etiqueta basada en la ruta de destino.</li>
+                    <li><marcador class="resaltado8">Reenvío basado en etiquetas: </marcador>Una vez etiquetado, el paquete es transportado a través de la red MPLS por una serie de routers intermedios (Label Switch Routers, LSR), que utilizan la etiqueta para determinar la ruta sin examinar la dirección IP.</li>
+                    <li><marcador class="resaltado8">Eliminación de la etiqueta: </marcador>En el router de salida, la etiqueta MPLS es eliminada y el paquete se entrega al destino final utilizando enrutamiento IP estándar.</li>
+                </ol>
+                <br>
+                <p>El uso de etiquetas en MPLS es mejor que el enrutamiento basado en direcciones IP porque reduce la carga de procesamiento en los routers y acelera la transmisión de datos. En el enrutamiento IP tradicional, cada router debe analizar la dirección de destino y buscar la mejor ruta en su tabla de enrutamiento, lo que consume tiempo y recursos. En cambio, MPLS asigna etiquetas a los paquetes desde el inicio y los routers solo deben leer la etiqueta para reenviarlos, lo que hace el proceso mucho más rápido.</p>
+                <p>Además, MPLS es más escalable, ya que las redes IP grandes requieren tablas de enrutamiento enormes, mientras que en MPLS los routers intermedios solo manejan etiquetas, reduciendo el uso de memoria y procesamiento. Esto es ideal para proveedores de servicios que manejan múltiples clientes sin sobrecargar sus equipos.</p>
+                <p>Otro beneficio clave es la capacidad de aplicar Calidad de Servicio (QoS) y optimizar el tráfico. Con etiquetas, se pueden priorizar ciertos tipos de datos, como voz o video, garantizando una mejor experiencia sin interrupciones. En IP tradicional, todos los paquetes compiten por el mismo ancho de banda, lo que puede generar latencias y congestión.</p>
+                <p>MPLS también facilita la ingeniería de tráfico al permitir que ciertos flujos de datos tomen rutas específicas según la disponibilidad de ancho de banda, algo que el enrutamiento IP no hace de manera eficiente. Esto permite evitar congestión en la red y optimizar el uso de los enlaces disponibles.</p>
+                <p>Finalmente, MPLS es la base de muchas soluciones de VPN empresariales, ya que permite separar el tráfico de diferentes clientes sin necesidad de configurar túneles adicionales. Esto simplifica la administración y mejora la seguridad.</p>
+                <div class="blog-image-grande">
+                    <img src="media/mpls2.jpg" alt="">
+                </div>
+                <h2>Componentes</h2>
+                <p>Para entender a fondo el funcionamiento de MPLS, es crucial conocer los elementos que intervienen en su arquitectura:</p>
+                <ul style="list-style-type: none;">
+                    <li>𖦹 <marcador class="resaltado9">Label Edge Routers (LERs): </marcador>Routers ubicados en los bordes de la red MPLS. Son responsables de asignar y eliminar etiquetas en los paquetes. Se dividen en:</li>
+                    <li>∘ <marcador class="resaltado8">Provider Edge (PE): </marcador>Routers en el límite de la red del proveedor. Son responsables de la asignación y eliminación de etiquetas en los paquetes que entran o salen de la red MPLS. También manejan la conectividad con los Customer Edge (CE).</li>
+                    <li>∘ <marcador class="resaltado8">Customer Edge (CE): </marcador>Routers ubicados en la red del cliente y conectados a los PE. Aunque no forman parte de la red MPLS, envían tráfico a los PE sin conocimiento del etiquetado MPLS.</li>
+                    <li>𖦹 <marcador class="resaltado9">Label Switch Routers (LSRs): </marcador>Routers dentro de la red MPLS que leen y conmutan paquetes basándose en las etiquetas asignadas. Aquí es donde entra el siguiente tipo de router:</li>
+                    <li>∘ <marcador class="resaltado8">Provider (P) Routers: </marcador>Son routers dentro del núcleo de la red MPLS. Se encargan únicamente de la conmutación de paquetes basándose en etiquetas, sin interactuar directamente con los clientes. No tienen conocimiento de las redes externas y solo manejan tráfico etiquetado entre routers PE.</li>
+                    <li>𖦹 <marcador class="resaltado9">Forwarding Equivalence Class (FEC): </marcador>Conjunto de paquetes que son tratados de la misma manera y asignados a la misma etiqueta, facilitando una conmutación eficiente.</li>
+                    <p>Al agrupar los paquetes en la misma FEC, se pueden implementar varias optimizaciones y características avanzadas, tales como:</p>
+                    <li>∘ <marcador class="resaltado8">Calidad de Servicio (QoS): </marcador>Permite priorizar ciertos tipos de tráfico, como VoIP o video en tiempo real, asegurando un menor retardo y mayor estabilidad en la comunicación.</li>
+                    <li>∘ <marcador class="resaltado8">Traffic Engineering (TE): </marcador>MPLS permite definir rutas específicas para optimizar el uso del ancho de banda y evitar congestiones en la red.</li>
+                    <li>∘ <marcador class="resaltado8">Redundancia y recuperación rápida: </marcador>Con el uso de Fast Reroute (FRR), MPLS puede establecer rutas de respaldo para minimizar el impacto de fallos en los enlaces.</li>
+                    <li>∘ <marcador class="resaltado8">Seguridad: </marcador>Al separar flujos de tráfico en diferentes etiquetas, se pueden aislar redes virtuales y mejorar la seguridad mediante MPLS VPNs.</li>
+                    <li>∘ <marcador class="resaltado8">Balanceo de carga: </marcador>MPLS permite distribuir tráfico de manera uniforme entre varios enlaces, optimizando el rendimiento de la red.</li>
+                    <li>𖦹 <marcador class="resaltado9">Label Switched Path (LSP): </marcador>Ruta predefinida a través de la red MPLS que sigue un paquete basado en las etiquetas asignadas. Se establece entre un LER de entrada y un LER de salida, pasando por varios LSRs dentro de la red. Es fundamental para optimizar la entrega del tráfico y soportar aplicaciones como VPNs y QoS.</li>
+                    <p>El LSP en MPLS es unidireccional, por lo que para comunicación en ambos sentidos se requieren dos LSPs separados, uno para cada dirección. Esto permite optimizar cada ruta según la red, y en algunos casos, se usan protocolos como RSVP-TE para mejorar la gestión del tráfico y la calidad del servicio.</p>
+                    <li>𖦹 <marcador class="resaltado9">Label Distribution Protocol (LDP): </marcador>Protocolo utilizado para la distribución de etiquetas entre routers MPLS.</li>
+                </ul>
+                <div class="blog-image-zoom">
+                    <img src="media/mpls3.png" alt="">
+                </div>
+                <h2>Formato de las Etiquetas</h2>
+                <p>Cada paquete MPLS contiene una etiqueta que incluye los siguientes campos:</p>
+                <ul style="list-style-type: none;">
+                    <li>⋆ <marcador class="resaltado5">Label (20 bits): </marcador>Identificador único asignado al paquete.</li>
+                    <li>⋆ <marcador class="resaltado5">Exp (3 bits): </marcador>Usado para priorización de tráfico (QoS).</li>
+                    <li>⋆ <marcador class="resaltado5">S (1 bit): </marcador>Indica si es la última etiqueta en la pila de etiquetas MPLS. Si su valor es 1, significa que es la última etiqueta; si es 0, hay más etiquetas en la pila.</li>
+                    <li>⋆ <marcador class="resaltado5">TTL (8 bits): </marcador>Controla la vida útil del paquete para evitar bucles.</li>
+                </ul>
+                <br>
+                <p>El tamaño de la MTU en redes MPLS es 1500 bytes en la capa 3, que es el tamaño estándar de un paquete Ethernet sin encapsulación adicional. Sin embargo, cuando MPLS se aplica, cada paquete lleva una etiqueta de 4 bytes de tamaño, lo que aumenta el tamaño total del paquete. Para que los paquetes MPLS se transmitan correctamente sin que se fragmenten, se debe configurar una MTU más grande para las interfaces de los routers y dispositivos MPLS. Esto se debe a que los 4 bytes de cada etiqueta MPLS se suman al tamaño del paquete original.</p>
+                <p>Si hay switches intermedios entre routers MPLS, especialmente en una red de alto rendimiento, es recomendable activar Jumbo Frames. Los Jumbo Frames son paquetes Ethernet de más de 1500 bytes, que pueden ser configurados para permitir una MTU mayor (por ejemplo, 9000 bytes o más). Esto permite que los paquetes MPLS sean más grandes y, por lo tanto, no se vean afectados por la limitación de MTU de 1500 bytes en redes Ethernet tradicionales.</p>
+                <p>Activar Jumbo Frames es importante cuando hay switches intermedios que también necesitan manejar estos paquetes más grandes. Si no se activan los Jumbo Frames, los paquetes MPLS que excedan la MTU de 1500 bytes podrían fragmentarse, lo que afectaría la eficiencia de la transmisión y podría generar problemas de rendimiento o errores en la red.</p>
+                <p>Es común y recomendable configurar la MTU a un valor mayor para optimizar el rendimiento y evitar problemas de fragmentación, especialmente cuando se utilizan Jumbo Frames. Configurar una MTU de 9216 bytes es una práctica recomendada, ya que asegura que los paquetes MPLS, incluidos los encabezados de etiquetas, puedan circular sin problemas a través de la red.</p>
+                <div class="blog-image-grande">
+                    <img src="media/mpls4.gif" alt="">
+                </div>
+                <h2>Manipulación de las Etiquetas</h2>
+                <p>El funcionamiento de MPLS se basa en la manipulación de etiquetas a lo largo de la red. Los principales procesos son:</p>
+                <ul style="list-style-type: none;">
+                    <li>⋆ <marcador class="resaltado5">Push: </marcador>Un LER asigna y coloca una etiqueta en un paquete IP entrante.</li>
+                    <li>⋆ <marcador class="resaltado5">Swap: </marcador>Un LSR reemplaza una etiqueta con otra nueva para reenviar el paquete al siguiente nodo.</li>
+                    <li>⋆ <marcador class="resaltado5">Pop: </marcador>Un LER de salida elimina la etiqueta antes de entregar el paquete al destino final.</li>
+                    <li>⋆ <marcador class="resaltado5">PHP (Penultimate Hop Popping): </marcador>En este proceso, el LSR justo antes del LER de salida elimina la etiqueta del paquete en lugar de que lo haga el LER de salida. Esto ayuda a reducir la carga de trabajo en el LER final y mejora la eficiencia en el enrutamiento.</li>
+                    <li>⋆ <marcador class="resaltado5">Untagged: </marcador>Este proceso ocurre en el último LER, donde el paquete es "desetiquetado", es decir, la etiqueta MPLS es eliminada, y el paquete vuelve a ser un paquete IP estándar que puede ser dirigido de acuerdo con la dirección IP de destino, sin ninguna etiqueta MPLS.</li>
+                    <li>⋆ <marcador class="resaltado5">Aggregate: </marcador>Implica la combinación de varias rutas o flujos de tráfico que comparten la misma etiqueta, optimizando el uso de recursos al tratar múltiples flujos como uno solo en la red.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/mpls5.gif" alt="">
+                </div>
+                <h2>Base de Datos de Etiquetas</h2>
+                <p>El enrutamiento en MPLS se basa en bases de datos especializadas que gestionan la asignación y reenvío de etiquetas:</p>
+                <ul style="list-style-type: none;">
+                    <li>𖦹 <marcador class="resaltado9">Label Information Base (LIB): </marcador>Es la base de datos donde se almacenan las etiquetas asignadas y sus correspondencias con los prefijos de red. Cada router MPLS mantiene su propia LIB.</li>
+                    <li>𖦹 <marcador class="resaltado9">Label Forwarding Information Base (LFIB): </marcador>Se utiliza para el reenvío de paquetes, indicando cómo deben ser procesadas y enviadas las etiquetas en función de la LIB.</li>
+                    <li>𖦹 <marcador class="resaltado9">Forwarding Information Base (FIB): </marcador>Similar a una tabla de enrutamiento, pero optimizada para reenvío rápido en MPLS.</li>
+                </ul>
+                <p>Cuando un paquete entra en la red MPLS, el router de borde consulta la LIB para determinar la etiqueta correspondiente y la almacena en la LFIB para su reenvío eficiente. A medida que el paquete avanza por la red, cada LSR consulta su LFIB para intercambiar etiquetas sin necesidad de procesar direcciones IP.</p>
+                <div class="blog-image-doble-grande">
+                    <img src="media/mpls6.png" alt="">
+                    <img src="media/mpls7.png" alt="">
+                </div>
+                <h2>Manejo del Plano de Control, Mantenimiento y Datos</h2>
+                <p>En los routers Cisco, la arquitectura de red se divide en tres planos funcionales principales, cada uno con responsabilidades específicas para garantizar el correcto funcionamiento del dispositivo:</p>
+                <h6>Plano de Control</h6>
+                <p>Es el "cerebro" del router, responsable de tomar decisiones de routing y gestionar la inteligencia de la red.</p>
+                <ul style="list-style-type: none;">
+                    <li>〤 <marcador class="resaltado6">Funciones clave:</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ Ejecuta protocolos de routing (OSPF, BGP, EIGRP) para construir tablas de enrutamiento (Routing Information Base, RIB).</li>
+                        <li>∘ Genera la FIB (Forwarding Information Base) y la tabla de adyacencias para CEF.</li>
+                        <li>∘ Maneja señales de control (ej. mensajes ICMP, TCP SYN, actualizaciones de protocolos).</li>
+                    </ul>
+                    <li>〤 <marcador class="resaltado6">Componentes:</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ Procesador principal (CPU del router).</li>
+                        <li>∘ Software del sistema operativo (IOS/IOS-XE).</li>
+                    </ul>
+                    <li>〤 <marcador class="resaltado6">Ejemplo:</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <p>Cuando se recibe una actualización de ruta BGP, el plano de control procesa la información y actualiza la RIB.</p>
+                    </ul>
+                </ul>
+                <h6>Plano de Datos (Forwarding Plane)</h6>
+                <ul style="list-style-type: none;">
+                    <li>〤 <marcador class="resaltado6">Funciones clave:</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ Reenvía paquetes basándose en la FIB (para CEF) o mediante process switching (si CEF está desactivado).</li>
+                        <li>∘ Realiza operaciones como NAT, QoS, ACLs y encapsulamientos.</li>
+                    </ul>
+                    <li>〤 <marcador class="resaltado6">Componentes:</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ ASICs (Circuitos Integrados de Aplicación Específica) en routers de alto rendimiento (ej. Cisco ASR, Nexus).</li>
+                        <li>∘ <marcador class="resaltado8">CEF (Cisco Express Forwarding): </marcador>Acelera el reenvío al evitar consultas a la CPU por cada paquete.</li>
+                    </ul>
+                    <li>〤 <marcador class="resaltado6">Ejemplo:</marcador></li>
+                    <p>Un paquete entrante se reenvía a su destino usando la FIB en hardware, sin involucrar al plano de control.</p>
+                </ul>
+                <h6>Plano de Mantenimiento (Management Plane)</h6>
+                <ul style="list-style-type: none;">
+                    <li>〤 <marcador class="resaltado6">Funciones clave:</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ Procesa acceso SSH, Telnet, HTTP/HTTPS (interfaz de gestión).</li>
+                        <li>∘ Recopila logs, SNMP traps y telemetría.</li>
+                        <li>∘ Permite actualizaciones de firmware y configuraciones.</li>
+                    </ul>
+                    <li>〤 <marcador class="resaltado6">Componentes:</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ Interfaces de gestión (puerto MGMT, consola AUX).</li>
+                        <li>∘ Servicios como syslog, NetFlow y APIs (RESTCONF).</li>
+                    </ul>
+                    <li>〤 <marcador class="resaltado6">Ejemplo:</marcador></li>
+                    <p>Un administrador accede vía SSH para configurar una ACL.</p>
+                </ul>
+                <p>En la arquitectura de red, la interacción entre los planos de control y de datos se caracteriza por una separación lógica clara, diseñada para evitar que fallos en uno afecten al otro; por ejemplo, un ataque DDoS a la CPU, que reside en el plano de control, no debería interrumpir el reenvío de tráfico en el plano de datos si CEF está activo. Sin embargo, existen excepciones, como los paquetes destinados al router mismo (por ejemplo, pings a su interfaz) que son manejados por el plano de control, o los paquetes con opciones IP complejas que pueden requerir un procesamiento más detallado, involucrando a la CPU y, por ende, al plano de control.</p>
+                <div class="blog-image-grande">
+                    <img src="media/mpls8.png" alt="">
+                </div>
+                <h2>Cisco Express Forwarding (CEF) y Fast Switching</h2>
+                <p>El reenvío de paquetes en MPLS depende en gran medida de métodos eficientes de procesamiento en los routers. Cisco ofrece dos tecnologías clave para optimizar este proceso: Fast Switching y Cisco Express Forwarding (CEF).</p>
+                <h6>Fast Switching</h6>
+                <p>Fast Switching es una técnica de almacenamiento en caché que acelera la conmutación de paquetes en routers Cisco. Funciona al almacenar la primera consulta en la tabla de enrutamiento y crear una entrada en caché para paquetes similares, lo que reduce el tiempo de procesamiento en envíos posteriores.</p>
+                <p>Para activar Fast Switching en un router Cisco:</p>
+                <div class="consola">
+                    
+                    <div class="barra-superior-consola">
+                        <div class="grupo-icono-texto">
+                            <img src="../media/cmd.png" alt="Icono" class="icono-cmd">
+                            <span class="texto-cmd">C:\Windows\system32\cmd.exe</span>
+                        </div>
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>router(config)# interface GigabitEthernet0/1
+router(config-if)# ip route-cache</code></pre>
+                    </div>
+                </div>
+                <p>Este comando habilita Fast Switching en la interfaz especificada, permitiendo un reenvío más eficiente de paquetes.</p>
+                <p>Para verificar "fast switching", puedes intentar verificar su estado y caché utilizando el comando <marcador class="subrayado">show ip cache verbose</marcador>.</p>
+                <h6>Cisco Express Forwarding (CEF)</h6>
+                <p>El procesamiento de paquetes en MPLS depende de la eficiencia con la que los routers pueden reenviar tráfico. Aquí es donde Cisco Express Forwarding (CEF) juega un papel crucial al optimizar la Forwarding Information Base (FIB).</p>
+                <p>La FIB almacena rutas precomputadas para un reenvío más rápido de paquetes en el plano de datos, eliminando la necesidad de consultas recurrentes en la tabla de enrutamiento. Sin embargo, la actualización y mantenimiento de la FIB dependen del plano de control, lo que implica procesamiento adicional en la CPU.</p>
+                <p>CEF mejora la FIB al optimizar su construcción y mantenimiento mediante el uso de un motor de reenvío especializado. Este proceso divide el trabajo en dos componentes clave:</p>
+                <ol>
+                    <li><marcador class="resaltado8">FIB (Forwarding Information Base): </marcador>Contiene las rutas optimizadas para reenviar paquetes sin necesidad de consultar la tabla de enrutamiento.</li>
+                    <li><marcador class="resaltado8">Adjacency Table: </marcador>Mantiene información sobre los enlaces vecinos y direcciones MAC para reducir la carga en la CPU.</li>
+                </ol>
+                <p>Con CEF activado, los paquetes pueden ser reenviados directamente desde la FIB sin necesidad de intervención del plano de control, lo que minimiza el uso de la CPU y acelera la conmutación.</p>
+                <p>Para activarlo en una interfaz específica:</p>
+                <div class="consola">
+                    
+                    <div class="barra-superior-consola">
+                        <div class="grupo-icono-texto">
+                            <img src="../media/cmd.png" alt="Icono" class="icono-cmd">
+                            <span class="texto-cmd">C:\Windows\system32\cmd.exe</span>
+                        </div>
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>router(config)# interface GigabitEthernet0/1
+router(config-if)# ip cef</code></pre>
+                    </div>
+                </div>
+                <p>Para verificar CEF en un entorno MPLS, puedes utilizar el comando <marcador class="subrayado">show ip cef summary</marcador> en dispositivos Cisco. Este comando proporciona un resumen del estado de CEF, indicando si está habilitado y funcionando correctamente.</p>
+                <p>En el contexto de MPLS, el "fast switching" tradicional ha sido en gran medida reemplazado por CEF, que proporciona un reenvío de paquetes más eficiente y escalable; por lo tanto, la verificación se centra en asegurar que CEF esté habilitado y funcionando correctamente mediante comandos como <marcador class="subrayado">show ip cef</marcador>, <marcador class="subrayado">show mpls interfaces</marcador> y <marcador class="subrayado">show mpls ldp neighbor</marcador>.</p>
+                <p>Para habilitar Distributed CEF (dCEF), que permite el procesamiento distribuido en hardware en tarjetas específicas de un router modular (como las line cards de plataformas como Cisco 7600 o ASR9000), se utiliza el comando global de configuración <marcador class="subrayado">ip cef distributed</marcador>. CEF es el método de reenvío predeterminado en la mayoría de los dispositivos Cisco modernos debido a su eficiencia y escalabilidad, ya que optimiza el rendimiento al utilizar tablas de reenvío basadas en hardware (FIB y Adjacency Table) y evita la sobrecarga del plano de control. Al activar dCEF, el router distribuye las operaciones de reenvío entre las tarjetas de interfaz, mejorando aún más el rendimiento en entornos de alto tráfico. Esta configuración es esencial en routers modulares donde el procesamiento centralizado podría convertirse en un cuello de botella.</p>
+                <div class="blog-image-grande">
+                    <img src="media/mpls9.jpg" alt="">
+                </div>
+                <h2>LDP (Label Distribution Protocol)</h2>
+                <p>LDP es un protocolo utilizado en redes MPLS para distribuir etiquetas entre los routers. Su función principal es permitir que los routers se comuniquen y compartan información sobre las etiquetas que deben ser utilizadas para los paquetes en la red. Aquí están los aspectos clave de LDP:</p>
+                <ol style="list-style-type: none;">
+                    <li>⦿ <marcador class="resaltado6">Puertos Utilizados: </marcador>LDP utiliza el puerto 646 para el establecimiento de conexiones entre los routers.</li>
+                    <p>En LDP, el uso de UDP y TCP tiene un propósito distinto para cada tipo de comunicación:</p>
+                    <p>∘ <marcador class="resaltado8">UDP: </marcador>En LDP, los mensajes "Hello" y otros mensajes de descubrimiento de vecinos, como los "Discovery" y "Advertisement" iniciales, se envían utilizando UDP en el puerto 646. Estos mensajes sirven para que los routers se descubran entre sí en una red MPLS y establezcan la comunicación inicial.</p>
+                    <p>∘ <marcador class="resaltado8">TCP: </marcador>Una vez que los routers se han descubierto y han establecido una relación LDP, las sesiones de distribución de etiquetas (para intercambiar las etiquetas y otros parámetros de enrutamiento) se realizan sobre TCP en el mismo puerto 646. TCP asegura la fiabilidad en la comunicación entre routers durante la asignación de etiquetas y el mantenimiento de las sesiones.</p>
+                    <li>⦿ <marcador class="resaltado6">Dirección Multicast: </marcador>LDP utiliza la dirección 224.0.0.2 / FF01::2 para la comunicación entre routers en una red.</li>
+                    <p>Esta dirección es utilizada para enviar mensajes LDP a todos los routers en el área que se encuentran escuchando.</p>
+                    <li>⦿ <marcador class="resaltado6">Estándar: </marcador>LDP es definido por el RFC 5036, que especifica el uso de LDP para la distribución de etiquetas en redes MPLS.</li>
+                    <li>⦿ <marcador class="resaltado6">Tipos de Mensaje LDP:</marcador></li>
+                    <p>Los mensajes LDP se agrupan en diferentes tipos:</p>
+                    <p>∘ <marcador class="resaltado8">Hello: </marcador>Utilizado para descubrir otros routers LDP y establecer la comunicación.</p>
+                    <p>∘ <marcador class="resaltado8">Initialization: </marcador>Esta es una fase importante para establecer la comunicación entre los routers. Los mensajes de inicialización (LDP Initialization) se envían para asegurar que ambas partes se comuniquen de manera confiable y puedan negociar el intercambio de etiquetas.</p>
+                    <p>∘ <marcador class="resaltado8">Label Mapping: </marcador>Mensajes que asignan y distribuyen etiquetas para una FEC.</p>
+                    <p>∘ <marcador class="resaltado8">Label Request: </marcador>Solicita la asignación de una etiqueta para una FEC específica.</p>
+                    <p>∘ <marcador class="resaltado8">Label Release: </marcador>Mensaje para liberar una etiqueta que ya no es necesaria.</p>
+                    <p>∘ <marcador class="resaltado8">Label Withdraw: </marcador>Retira una etiqueta previamente asignada.</p>
+                    <li>⦿ <marcador class="resaltado6">Tiempos:</marcador></li>
+                    <p>∘ <marcador class="resaltado8">Hello Time: </marcador>El tiempo en el que un router espera recibir un mensaje Hello de un vecino. El valor por defecto es 5 segundos.</p>
+                    <p>∘ <marcador class="resaltado8">Hold Time: </marcador>El tiempo durante el cual un router mantendrá la sesión LDP activa si no recibe mensajes del vecino. El valor por defecto es 15 segundos.</p>
+                </ol>
+                <div class="blog-image">
+                    <img src="media/mpls10.jpg" alt="">
+                </div>
+                <h2>Label Switched Path (LSP)</h2>
+                <p>El LSP en MPLS se establece utilizando el Label Distribution Protocol (LDP) para distribuir las etiquetas entre routers. Sin embargo, LDP no selecciona los caminos de manera directa en función de las métricas, sino que utiliza la tabla de enrutamiento IP y las rutas ya configuradas en la red para determinar cómo enrutar los paquetes.</p>
+                <p>Aquí está el proceso de cómo se seleccionan los caminos:</p>
+                <ol style="list-style-type: none;">
+                    <li><marcador class="resaltado8">Selección de la ruta: </marcador>LDP no se encarga de calcular las rutas basadas en métricas como lo hace un protocolo de enrutamiento (como OSPF o BGP). En lugar de eso, los routers que ejecutan LDP seleccionan las rutas de salida utilizando las rutas previamente calculadas por los protocolos de enrutamiento, basándose en las métricas de enrutamiento (como distancia, costo, etc.). Esas rutas se almacenan en la tabla de enrutamiento.</li>
+                    <li><marcador class="resaltado8">Creación del LSP: </marcador>Una vez que un router determina qué ruta utilizar (según la tabla de enrutamiento), LDP asigna etiquetas a esos caminos. Cada FEC (Forwarding Equivalence Class), que representa un grupo de paquetes tratados de la misma forma, tiene una etiqueta asociada, y estas etiquetas se distribuyen a través de LDP para los routers en la red.</li>
+                    <li><marcador class="resaltado8">Distribución de las etiquetas (Label Mapping): </marcador>Cuando un router encuentra una ruta de salida, utiliza LDP para comunicar a los routers vecinos las etiquetas correspondientes a los destinos de las rutas. Esto se hace mediante los mensajes Label Mapping. Los routers utilizan esta información para encaminar los paquetes en función de las etiquetas, no de las direcciones IP.</li>
+                    <li><marcador class="resaltado8">Selección de rutas de LSP: </marcador>Los caminos LSPs se eligen en función de las rutas IP disponibles y las tablas de enrutamiento de los routers. Si el protocolo de enrutamiento está utilizando una métrica de costo para seleccionar una ruta, esa misma ruta se usará para el LSP. Si el protocolo de enrutamiento cambia de ruta debido a un cambio de métrica, el LSP también se ajustará para usar la nueva ruta.</li>
+                    <li><marcador class="resaltado8">Reconfiguración de LSP en caso de fallos: </marcador>Si ocurre un cambio en la red, como un fallo de enlace, el protocolo de enrutamiento recalcula las rutas, y los routers actualizan los LSPs para reflejar estos cambios, lo que asegura que los paquetes sigan la nueva ruta utilizando las nuevas etiquetas distribuidas por LDP.</li>
+                </ol>
+                <br>
+                <p>En MPLS, Holdtime y Keepalive son mecanismos fundamentales para mantener la estabilidad de las sesiones entre routers: el Holdtime (180 segundos por defecto) define el tiempo máximo que un router esperará sin recibir mensajes Keepalive antes de declarar caída la sesión, mientras que el Keepalive (60 segundos por defecto) es el intervalo regular entre estos mensajes de "vida" que los routers intercambian para verificar la conexión activa. Estos valores (relación 3:1 entre Holdtime y Keepalive) equilibran la detección de fallos con la eficiencia del protocolo, pudiendo ajustarse según necesidades de la red mediante comandos específicos.</p>
+                <div class="blog-image-grande">
+                    <img src="media/mpls11.jpg" alt="">
+                </div>
+                <h2>Etiquetas Reservadas</h2>
+                <ol style="list-style-type: none;">
+                    <li>⦿ <marcador class="resaltado6">Label 0 (Reservado para LSR): </marcador>Esta etiqueta está reservada para indicar que el paquete no está siendo manejado por la infraestructura MPLS. Se utiliza durante el proceso de "pop" de la etiqueta, cuando un paquete sale de la red MPLS y vuelve a ser tratado como un paquete IP estándar.</li>
+                    <p>Esta etiqueta se usa cuando el valor de EXP (la prioridad del paquete) está configurado de tal manera que se desactiva el PHP. En este caso, el último router en la ruta MPLS eliminará la etiqueta, en lugar de hacerlo el penúltimo router.</p>
+                    <li>⦿ <marcador class="resaltado6">Label 16: </marcador>El valor de la etiqueta 16 se utiliza para referirse a la etiqueta de "última etiqueta", indicando que no hay más etiquetas en la pila.</li>
+                    <li>⦿ <marcador class="resaltado6">Label 15: </marcador>Este valor de etiqueta se utiliza para el tráfico de "loopback" dentro de las redes MPLS.</li>
+                    <li>⦿ <marcador class="resaltado6">Label 255: </marcador>Se utiliza para el "Default Label", que generalmente es asignado en escenarios donde no se puede asignar una etiqueta específica a los paquetes.</li>
+                    <li>⦿ <marcador class="resaltado6">Reserved Labels (Entre 1 y 15): </marcador>Los valores de etiquetas entre 1 y 15 están reservados para propósitos especiales y no deben ser utilizadas para etiquetar paquetes de tráfico normal.</li>
+                    <p>∘ <marcador class="resaltado8">Etiqueta 1: </marcador>Se utiliza en MPLS para indicar que no se debe realizar el procesamiento habitual de etiquetas. En su lugar, se recurre al direccionamiento IP convencional. Esto implica que el paquete debe ser procesado por las rutas IP tradicionales en lugar de las rutas MPLS basadas en etiquetas.</p>
+                    <p>∘ <marcador class="resaltado8">Etiqueta 2: </marcador>Se utiliza en MPLS cuando se trabaja con paquetes IPv6. Tiene la misma función que la Etiqueta 0, pero aplicada en el contexto de IPv6. Esta etiqueta impone una etiqueta MPLS a los paquetes IPv6 entrantes, permitiendo que se conmutan dentro de la red MPLS de acuerdo con la etiqueta asignada.</p>                    
+                    <p>∘ <marcador class="resaltado8">Etiqueta 3: </marcador>Se utiliza para el mecanismo de Penultimate Hop Popping (PHP). Este proceso permite que el penúltimo router en la ruta MPLS (justo antes de la salida) retire la etiqueta del paquete antes de llegar al último router. Esto optimiza el procesamiento del paquete en el último hop y reduce la carga en el router final, ya que este solo tendrá que tratar el paquete como un paquete IP convencional.</p>
+                    <p>∘ <marcador class="resaltado8">Etiqueta 4-12 y 15: </marcador>No asignadas.</p>
+                    <p>∘ <marcador class="resaltado8">Etiqueta 13: </marcador>Se utiliza para señalar un canal asociado genérico en una red MPLS, específicamente para fines de señalización y administración de la red. Es usada para la transmisión de información relacionada con el mantenimiento y la supervisión de la red.</p>   
+                    <p>∘ <marcador class="resaltado8">Etiqueta 14: </marcador>Se utiliza en MPLS para facilitar la operación, administración y mantenimiento de la red. Se asocia con funciones de monitoreo y diagnóstico, permitiendo a los operadores verificar el estado de la red y detectar problemas.</p>
+                    <li>⦿ <marcador class="resaltado6">Rango de etiquetas válidas: </marcador>16 a 1,048,575 (de 0x00010 a 0xFFFFF).</li>
+                </ol>
+                <div class="blog-image">
+                    <img src="media/mpls12.png" alt="">
+                </div>
                 <p></p>
-                <p></p>
+                <h2>Configuración</h2>
+                <p>La siguiente topología muestra una red MPLS con varios enrutadores interconectados. Los enrutadores están configurados con direcciones de loopback para identificación y segmentación de red virtual. La red utiliza protocolos de enrutamiento IBGP y BGP para el intercambio de información de enrutamiento y la distribución de etiquetas MPLS, esenciales para el reenvío eficiente del tráfico a través de la red MPLS.</p>
+                <p>Se procederá a configurar algunos de los equipos de la topología utilizando dos tipos de sistemas operativos de enrutadores: IOS XE y IOS XR, con el fin de demostrar la interoperabilidad y las capacidades de configuración de MPLS en entornos heterogéneos.</p>
+                <div class="blog-image-grande">
+                    <img src="media/mpls13.png" alt="">
+                </div>
+                <h5>Cisco</h5>
+                <p>❍ Configuración para IOS_PE2</p>
+                <div class="consola">
+                    
+                    <div class="barra-superior-consola">
+                        <div class="grupo-icono-texto">
+                            <img src="../media/cmd.png" alt="Icono" class="icono-cmd">
+                            <span class="texto-cmd">C:\Windows\system32\cmd.exe</span>
+                        </div>
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>conf t
+
+! Habilitar MPLS en el router
+ip cef
+mpls label protocol ldp
+mpls ldp discovery hello interval 4
+mpls ldp discovery hello holdtime 12
+mpls ldp holdtime 90
+
+! Usar la Loopback0 como ID de LDP
+mpls ldp router-id Loopback0 force
+
+! Definir el rango de etiquetas MPLS de 200 a 400
+mpls label range 200 400
+
+! Configurar interfaces para MPLS y LDP
+interface GigabitEthernet0/0
+    mtu 8986
+    mpls ip
+interface GigabitEthernet0/2
+    mtu 8986
+    mpls ip
+
+! Configurar OSPF para la conectividad IGP
+router ospf 1
+    network 2.2.2.2 0.0.0.0 area 0
+    network 10.10.21.0 0.0.0.3 area 0
+    network 10.10.22.0 0.0.0.3 area 0
+
+! Configurar BGP con Core1 y Core2
+router bgp 65000
+    neighbor 10.10.21.2 remote-as 65000
+    neighbor 10.10.21.2 update-source Loopback0
+    neighbor 10.10.21.2 next-hop-self
+    neighbor 10.10.22.2 remote-as 65000
+    neighbor 10.10.22.2 update-source Loopback0
+    neighbor 10.10.22.2 next-hop-self
+exit
+exit</code></pre>
+                    </div>
+                </div>
+                <p>En IOS XR, la implementación de MPLS presenta diferencias clave respecto a IOS tradicional: no se requiere activar manualmente CEF (Cisco Express Forwarding) ya que el reenvío se gestiona automáticamente mediante la RIB/FIB integrada en la arquitectura del sistema, y tampoco es necesario configurar "mpls ip" en interfaces individuales, ya que basta con habilitar MPLS globalmente mediante el comando "mpls ldp" para que se active automáticamente en todas las interfaces configuradas con protocolos IGP, simplificando significativamente la implementación y mantenimiento de la red MPLS.</p>
+                <p>❍ Configuración para IOS-XR_PE4</p>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <div class="grupo-icono-texto">
+                            <img src="../media/cmd.png" alt="Icono" class="icono-cmd">
+                            <span class="texto-cmd">C:\Windows\system32\cmd.exe</span>
+                        </div>
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+                <pre><code>configure terminal
+
+! Habilitar MPLS y LDP en el router
+mpls ldp
+    router-id 4.4.4.4
+    discovery hello interval 4
+    discovery hello holdtime 12
+    session holdtime 90
+    label range 16600 16900
+
+! Configurar interfaces para MPLS y LDP
+interface GigabitEthernet0/0/0/0
+    mtu 9000
+
+interface GigabitEthernet0/0/0/1
+    mtu 9000
+
+! Configurar OSPF para la conectividad IGP
+router ospf 1
+    area 0
+        network 4.4.4.4/32
+        network 10.10.41.0/30
+        network 10.10.42.0/30
+
+! Configurar BGP con Core1 y Core2
+router bgp 65000
+    neighbor 10.10.41.2
+        remote-as 65000
+        update-source Loopback0
+        next-hop-self
+    neighbor 10.10.42.2
+        remote-as 65000
+        update-source Loopback0
+        next-hop-self
+commit
+end</code></pre>
+                    </div>
+                </div>
+                <p>En redes MPLS, es crítico que ambas interfaces tengan configurada la misma MTU (Maximum Transmission Unit), ya que la discrepancia en este valor puede causar problemas de fragmentación o descarte de paquetes debido al overhead adicional que introducen las etiquetas MPLS (4+ bytes por etiqueta). Este requisito de uniformidad en la MTU se extiende también a protocolos como OSPF, el cual verifica explícitamente que la MTU sea idéntica en ambos extremos de un enlace durante el establecimiento de adyacencias, si existe una diferencia, los routers no podrán formar una adyacencia completa.</p>
+                <p>Si configuras la MTU en 9000 bytes en la interfaz de un XR, en realidad la capacidad útil (payload) de la MTU será 9000 menos esos 14 bytes de sobrecarga. Esto puede resultar en que la MTU efectiva (usada para el payload de datos) sea 8986 bytes.</p>
+                <p>❍ Configuración para XR_Core2</p>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <div class="grupo-icono-texto">
+                            <img src="../media/cmd.png" alt="Icono" class="icono-cmd">
+                            <span class="texto-cmd">C:\Windows\system32\cmd.exe</span>
+                        </div>
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+                <pre><code>configure terminal
+
+! Habilitar MPLS y LDP en el router
+mpls ldp router-id 100.2.2.2
+mpls ldp label range 16600 16900
+
+! Configurar interfaces para MPLS y LDP
+interface GigabitEthernet0/0/0/1
+    mtu 9000
+
+interface GigabitEthernet0/0/0/2
+    mtu 9000
+
+interface GigabitEthernet0/0/0/4
+    mtu 9000
+
+interface GigabitEthernet0/0/0/5
+    mtu 9000
+
+interface GigabitEthernet0/0/0/6
+    mtu 9000
+
+! Configurar OSPF para la conectividad IGP
+router ospf 1
+    mpls ldp auto-config
+    area 0
+        network 100.2.2.2/32
+        network 10.10.1.0/30
+        network 10.10.2.0/30
+        network 10.10.22.0/30
+        network 10.10.42.0/30
+        network 10.10.52.0/30
+
+! Configurar BGP en Core2
+router bgp 65000
+    neighbor 10.10.1.1
+        remote-as 65000
+        update-source Loopback0
+        next-hop-self
+    neighbor 10.10.2.1
+        remote-as 65000
+        update-source Loopback0
+        next-hop-self
+    neighbor 10.10.22.1
+        remote-as 65000
+        update-source Loopback0
+        next-hop-self
+    neighbor 10.10.42.1
+        remote-as 65000
+        update-source Loopback0
+        next-hop-self
+    neighbor 10.10.52.1
+        remote-as 65000
+        update-source Loopback0
+        next-hop-self
+commit
+end</code></pre>
+                    </div>
+                </div>
+                <p>Para anunciar una IP en una interfaz en un entorno MPLS, debes utilizar el comando <marcador class="subrayado">mpls ldp discovery transport-address IP</marcador>, donde <span class="subrayado">IP</span> es la dirección IP que deseas configurar en la interfaz correspondiente para que el protocolo LDP pueda utilizarla.</p>
+                <p>Generalmente se utiliza la dirección IP del router ID como la dirección de transporte para LDP, ya que es una dirección estable y única, lo que mejora la confiabilidad y la gestión de la red.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Ver la tabla MPLS:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="show mpls forwarding-table" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Este comando muestra las entradas de la tabla de conmutación de etiquetas (MPLS Forwarding Table), indicando la correspondencia entre las etiquetas y las rutas.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Ver las etiquetas asignadas:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="show mpls ldp bindings" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Este comando muestra los enlaces LDP (Label Distribution Protocol) y las etiquetas asociadas.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Ver los vecinos LDP:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="show mpls ldp neighbor" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Ver el MTU de la interfaz GigabitEthernet0/0/0:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="do show im database interface gigabit0/0/0" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <h5>Huawei</h5>
+                <p>❍ Configuración para IOS_PE2</p>
+                <div class="consola">
+                    
+                    <div class="barra-superior-consola">
+                        <div class="grupo-icono-texto">
+                            <img src="../media/cmd.png" alt="Icono" class="icono-cmd">
+                            <span class="texto-cmd">C:\Windows\system32\cmd.exe</span>
+                        </div>
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>system-view
+
+! Habilitar MPLS en el router
+mpls
+mpls ldp
+mpls lsr-id 2.2.2.2
+mpls ldp label policy static
+mpls ldp label range 200 400
+mpls ldp hello interval 4
+mpls ldp hello hold-time 16
+mpls ldp keepalive hold-time 100
+
+! Configurar interfaces para MPLS con MTU modificada
+interface GigabitEthernet0/0/0
+    mtu 9216
+    mpls
+interface GigabitEthernet0/0/1
+    mtu 9216
+    mpls
+
+! Configurar OSPF para la conectividad IGP
+ospf 1
+    area 0.0.0.0
+    network 2.2.2.2 0.0.0.0
+    network 10.10.21.0 0.0.0.3
+    network 10.10.22.0 0.0.0.3
+
+! Configurar BGP con Core1
+bgp 65000
+    peer 100.1.1.1 as-number 65000
+    peer 100.1.1.1 connect-interface Loopback0
+    peer 100.1.1.1 next-hop-local
+quit</code></pre>
+                    </div>
+                </div>                
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Ver la tabla de conmutación de etiquetas MPLS:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="display mpls forwarding-table" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Este comando muestra la tabla de conmutación de etiquetas MPLS, que incluye las entradas de las etiquetas y las rutas a las que están asociadas.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Ver las etiquetas LDP (si estás usando LDP para la distribución de etiquetas):
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="display mpls ldp bindings" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Este comando muestra las etiquetas LDP asignadas, las cuales se utilizan para la conmutación de tráfico MPLS a través de la red.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Ver los vecinos LDP:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="display mpls ldp neighbor" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <h2>LDP-IGP Synchronization</h2>
+                <p>El LDP-IGP Synchronization (LDP-IGP Sync) es una técnica que ayuda a evitar la pérdida de paquetes en una red MPLS cuando un Label Switched Path (LSP) no está completamente establecido en un enlace. Esto es importante porque en redes MPLS, si el IGP (como OSPF o IS-IS) instala una ruta en la tabla de enrutamiento antes de que LDP haya podido establecer el LSP correspondiente, los paquetes pueden ser enviados sin etiquetas, causando pérdida de tráfico o forwarding incorrecto.</p>
+                <p>Cuando se habilita LDP-IGP Sync, el proceso funciona de la siguiente manera:</p>
+                <ol>
+                    <li><marcador class="resaltado8">Detección del estado de LDP: </marcador>Cada router monitorea si LDP ha podido establecer LSPs en las interfaces donde se ha activado.</li>
+                    <li><marcador class="resaltado8">Modificación de la métrica IGP: </marcador>Si el LSP en un enlace falla o aún no está disponible, el router incrementa artificialmente la métrica del enlace en el IGP (OSPF/IS-IS).</li>
+                    <p>Esto hace que el IGP seleccione otro camino donde LDP sí tenga un LSP funcional.</p>
+                    <li><marcador class="resaltado8">Restauración de la métrica: </marcador>Una vez que el LSP se restablece, la métrica del enlace vuelve a su valor normal y el tráfico puede fluir nuevamente por la ruta MPLS.</li>
+                </ol>
+                <p>Si el LSP falla en un enlace y LDP-IGP Sync está habilitado, el IGP intentará evitar ese enlace y redirigirá el tráfico por otra ruta con un LSP válido. Esto previene la pérdida de paquetes y el reenvío de tráfico sin etiquetas.</p>
+                <p>Si LDP-IGP Sync no está habilitado, el tráfico IP podría seguir usando la ruta fallida, pero como no hay etiquetas MPLS, los paquetes podrían perderse o ser enviados incorrectamente.</p>
+                <p>Si estás utilizando OSPF como protocolo de enrutamiento, habilitas LDP-IGP Sync con el siguiente comando dentro del proceso OSPF:</p>
+                <div class="consola">
+                    
+                    <div class="barra-superior-consola">
+                        <div class="grupo-icono-texto">
+                            <img src="../media/cmd.png" alt="Icono" class="icono-cmd">
+                            <span class="texto-cmd">C:\Windows\system32\cmd.exe</span>
+                        </div>
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>router(config)# router ospf 1
+router(config-router)# mpls ldp sync</code></pre>
+                    </div>
+                </div>
+                <p>Si deseas activarlo solo en una interfaz específica, usa:</p>
+                <div class="consola">
+                    
+                    <div class="barra-superior-consola">
+                        <div class="grupo-icono-texto">
+                            <img src="../media/cmd.png" alt="Icono" class="icono-cmd">
+                            <span class="texto-cmd">C:\Windows\system32\cmd.exe</span>
+                        </div>
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>router(config)# ospf 1
+router(config-router)# area 0
+router(config-if)# interface GigabitEthernet0/0
+router(config-if)# mpls ldp sync</code></pre>
+                    </div>
+                </div>
+                <p>El holdtime del sincronismo LDP-IGP (mpls ldp sync) es el tiempo que se espera antes de considerar que la sesión LDP ha fallado. Por defecto, este valor suele ser de 30 segundos, pero puede ajustarse según la configuración de la red con el comando <marcador class="subrayado">mpls ldp igp sync holddown <span class="subrayado">segundos</span></marcador>, donde <span class="subrayado">segundos</span> es el tiempo definido en segundos, o <marcador class="subrayado">mpls ldp igp sync delay <span class="subrayado">segundos</span></marcador> para XR.</p>
+                <div class="blog-image">
+                    <img src="media/mpls14.png" alt="">
+                </div>
+                <h2>Autenticación de LDP</h2>
+                <p>La autenticación en LDP (Label Distribution Protocol) es crucial para garantizar que las conexiones LDP sean establecidas solo entre routers confiables. Para implementar la autenticación de LDP y restringir el acceso a las direcciones IP específicas, puedes usar una lista de acceso (ACL) que permita solo esas IPs.</p>
+                <p>Para habilitar la autenticación LDP en MPLS, puedes configurar lo siguiente:</p>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <div class="grupo-icono-texto">
+                            <img src="../media/cmd.png" alt="Icono" class="icono-cmd">
+                            <span class="texto-cmd">C:\Windows\system32\cmd.exe</span>
+                        </div>
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+                <pre><code>router(config)# access-list 1 permit 2.2.2.2
+router(config)# access-list 1 permit 100.2.2.2
+router(config)# access-list 1 deny
+router(config)# mpls ldp neighbor 2.2.2.2 password CISCO123
+router(config)# mpls ldp neighbor 100.2.2.2 password CISCO123
+router(config)# mpls ldp password required for 1</code></pre>
+                    </div>
+                </div>
+                <p>Esta autenticación asegura que solo los routers con las IPs autorizadas puedan establecer sesiones LDP entre sí, proporcionando un nivel adicional de seguridad en la red MPLS.</p>
+                <p>El comando <marcador class="subrayado">mlps ldp password required</marcador> en la autenticación MPLS es crucial para exigir obligatoriamente que todas las sesiones (LDP o RSVP-TE) se autentiquen, rechazando conexiones con routers que no presenten credenciales válidas.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Habilita autenticación MD5 para sesiones LDP vecinas:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="mpls ldp neighbor 100.1.1.1 password CISCO123" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <h2>Creación de Sesiones Remotas de LDP</h2>
+                <p>En redes MPLS, puede ser necesario establecer sesiones LDP directamente entre dos routers remotos, saltándose un router intermedio. Este enfoque puede ser útil en ciertos casos donde no se desea que un router intermedio participe en la distribución de etiquetas, o cuando se busca optimizar el uso de recursos.</p>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <div class="grupo-icono-texto">
+                            <img src="../media/cmd.png" alt="Icono" class="icono-cmd">
+                            <span class="texto-cmd">C:\Windows\system32\cmd.exe</span>
+                        </div>
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <pre><code>router(config)# access-list 1 remark Remote-LDP-peer
+router(config)# access-list 1 permit 100.2.2.2
+router(config)# access-list 1 deny
+router(config)# mpls ldp discovery targeted-hello accept from 1
+router(config)# mpls ldp neighbor 100.2.2.2 targeted ldp
+router(config)# mpls ldp discovery targeted-hello interval 10
+router(config)# mpls ldp discovery targeted-hello holdtime 90</code></pre>
+                    </div>
+                </div>                
+                <p>Esta configuración en el primer router realiza lo siguiente:</p>
+                <ul>
+                    <li>Se crea una lista de acceso (ACL) que permite únicamente la IP del router remoto (<code>100.2.2.2</code>), evitando conexiones no deseadas.</li>
+                    <li>El comando <marcador class="subrayado">mpls ldp discovery targeted-hello accept from 1</marcador> permite que el router acepte mensajes `targeted-hello` solo de la IP configurada en la ACL.</li>
+                    <li>El comando <marcador class="subrayado">mpls ldp neighbor 100.2.2.2 targeted ldp</marcador> establece una sesión LDP remota con el router <code>100.2.2.2</code>, sin necesidad de un enlace directo entre ellos.</li>
+                </ul>
+                <p>Recuerda que es necesario tener configurada la conectividad entre estos dos routers de forma adecuada, ya que las sesiones remotas solo se pueden establecer si hay una ruta disponible entre ellos. Esta configuración es útil cuando se desean establecer conexiones específicas entre routers remotos para un control más granular del tráfico MPLS.</p>
+                <p>En el router XR, los pasos son similares.</p>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <div class="grupo-icono-texto">
+                            <img src="../media/cmd.png" alt="Icono" class="icono-cmd">
+                            <span class="texto-cmd">C:\Windows\system32\cmd.exe</span>
+                        </div>
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <pre><code>router(config)# ipv4 access-list remote-LDP-peer
+router(config-ipv4-acl)# permit 2.2.2.2
+router(config-ipv4-acl)# exit
+router(config)# mpls ldp address-family ipv4
+router(config-ldp-af)# discovery targeted-hello accept from remote
+router(config-ldp-af)# neighbor 2.2.2.2 targeted
+router(config-ldp-af)# root
+router(config-ldp-af)# exit
+router(config)# mpls ldp discovery
+router(config-ldp-disc)# targeted-hello interval 10
+router(config-ldp-disc)# targeted-hello holdtime 90</code></pre>
+                    </div>
+                </div>                             
+                <p>Con esta configuración, los dos routers pueden establecer una comunicación LDP remota a través de un enlace de transporte, sin necesidad de conectividad directa. Esto puede ser útil cuando se desea establecer rutas LDP entre routers en diferentes ubicaciones sin depender de un router intermedio para la distribución de etiquetas.</p>
+                <p>Al usar el comando <marcador class="subrayado">mpls ldp discovery all detail</marcador> se obtiene información detallada sobre los descubrimientos LDP, como las direcciones IP de los vecinos, el estado de la sesión, los timers de hello y el estado de las sesiones LDP activas. Esta información es útil para realizar un diagnóstico completo de la operación de LDP.</p>
+                <p>El comando <marcador class="subrayado">mpls ldp discovery backoff 15 120</marcador> establece que el router esperará 15 segundos antes de intentar nuevamente descubrir a los vecinos LDP tras un fallo, y repetirá este intento durante un máximo de 120 segundos. Estos valores permiten controlar el comportamiento del protocolo LDP en situaciones de fallo, evitando intentos de descubrimiento demasiado frecuentes.</p>                <div class="blog-image">
+                    <img src="media/mpls15.gif" alt="">
+                </div>
                 <p></p>
             </div>
         </div>       
