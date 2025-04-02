@@ -230,6 +230,100 @@ router(config-if)# service-policy input remarcado</code></pre>
                 <p>∘ <marcador class="subrayado">policy-map</marcador>: define una política de QoS que aplicará modificaciones a los paquetes clasificados. En este caso, la política llamada "remarcado" ajustará la precedencia de los paquetes según su clase.</p> 
                 <p>∘ <marcador class="subrayado">set precedence</marcador>: cambia la precedencia de los paquetes. En este caso, el tráfico de voz se le asigna una precedencia de 5 (alta prioridad), el tráfico HTTP se remarca con una precedencia de 3 (prioridad media), y el tráfico ICMP se asigna con una precedencia de 0 (baja prioridad), asegurando un tratamiento diferenciado en la red.</p> 
                 <p>∘ <marcador class="subrayado">service-policy input</marcador>: aplica la política en la interfaz de entrada (s0/2/0), lo que significa que los paquetes entrantes en esta interfaz serán clasificados y su precedencia será ajustada de acuerdo con la configuración establecida.</p>
+                <h5>Huawei</h5>
+                <p>❍ Router 0</p>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <div class="grupo-icono-texto">
+                            <img src="../media/cmd.png" alt="Icono" class="icono-cmd">
+                            <span class="texto-cmd">C:\Windows\system32\cmd.exe</span>
+                        </div>
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+        <pre><code>system-view
+traffic classifier voice operator and
+ if-match protocol rtp
+ if-match protocol skype
+quit
+
+traffic classifier web operator and
+ if-match protocol http
+ if-match protocol https
+quit
+
+traffic classifier icmp operator and
+ if-match protocol icmp
+quit
+
+traffic behavior marcado
+ remark dscp ef classifier voice
+ remark dscp af31 classifier web
+ remark dscp af11 classifier icmp
+quit
+
+traffic policy qos_policy
+ classifier voice behavior marcado
+ classifier web behavior marcado
+ classifier icmp behavior marcado
+quit
+
+interface Serial0/1/0
+ traffic-policy qos_policy outbound
+quit
+return</code></pre>
+                    </div>
+                </div>
+                <p>◦ <marcador class="subrayado">traffic classifier</marcador>: define clases de tráfico en función de protocolos específicos, lo que permite la categorización de paquetes en Huawei.</p>
+                <p>◦ <marcador class="subrayado">if-match protocol</marcador>: especifica el protocolo a identificar dentro de una clase para que el tráfico sea clasificado correctamente.</p>
+                <p>◦ <marcador class="subrayado">traffic behavior</marcador>: define el comportamiento a aplicar a los paquetes clasificados, como la marcación DSCP.</p>
+                <p>◦ <marcador class="subrayado">traffic policy</marcador>: asocia los clasificadores con los comportamientos para aplicar las reglas de QoS.</p>
+                <p>◦ <marcador class="subrayado">traffic-policy outbound</marcador>: aplica la política de QoS en la interfaz de salida.</p>
+
+                <p>❍ Router 1</p>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <div class="grupo-icono-texto">
+                            <img src="../media/cmd.png" alt="Icono" class="icono-cmd">
+                            <span class="texto-cmd">C:\Windows\system32\cmd.exe</span>
+                        </div>
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <pre><code>system-view
+traffic classifier voice operator and
+ if-match dscp ef
+quit
+
+traffic classifier web operator and
+ if-match dscp af31
+quit
+
+traffic classifier icmp operator and
+ if-match dscp af11
+quit
+
+traffic behavior remarcado
+ remark precedence 5 classifier voice
+ remark precedence 3 classifier web
+ remark precedence 0 classifier icmp
+quit
+
+traffic policy qos_remark
+ classifier voice behavior remarcado
+ classifier web behavior remarcado
+ classifier icmp behavior remarcado
+quit
+
+interface Serial0/2/0
+ traffic-policy qos_remark inbound
+quit
+return</code></pre>
+                    </div>
+                </div>
+                <p>◦ <marcador class="subrayado">traffic behavior</marcador>: en este caso, redefine la precedencia de los paquetes clasificados.</p>
+                <p>◦ <marcador class="subrayado">remark precedence</marcador>: cambia la precedencia del tráfico, estableciendo niveles de prioridad diferenciados.</p>
+                <p>◦ <marcador class="subrayado">traffic-policy inbound</marcador>: aplica la política de QoS en la interfaz de entrada.</p>
                 <div class="blog-image-zoom">
                     <img src="media/qos10.jpg" alt="">
                 </div>
