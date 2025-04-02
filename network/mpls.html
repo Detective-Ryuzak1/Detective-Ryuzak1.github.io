@@ -734,7 +734,8 @@ router(config-ldp-disc)# targeted-hello holdtime 90</code></pre>
                 </div>                             
                 <p>Con esta configuración, los dos routers pueden establecer una comunicación LDP remota a través de un enlace de transporte, sin necesidad de conectividad directa. Esto puede ser útil cuando se desea establecer rutas LDP entre routers en diferentes ubicaciones sin depender de un router intermedio para la distribución de etiquetas.</p>
                 <p>Al usar el comando <marcador class="subrayado">mpls ldp discovery all detail</marcador> se obtiene información detallada sobre los descubrimientos LDP, como las direcciones IP de los vecinos, el estado de la sesión, los timers de hello y el estado de las sesiones LDP activas. Esta información es útil para realizar un diagnóstico completo de la operación de LDP.</p>
-                <p>El comando <marcador class="subrayado">mpls ldp discovery backoff 15 120</marcador> establece que el router esperará 15 segundos antes de intentar nuevamente descubrir a los vecinos LDP tras un fallo, y repetirá este intento durante un máximo de 120 segundos. Estos valores permiten controlar el comportamiento del protocolo LDP en situaciones de fallo, evitando intentos de descubrimiento demasiado frecuentes.</p>                <div class="blog-image">
+                <p>El comando <marcador class="subrayado">mpls ldp discovery backoff 15 120</marcador> establece que el router esperará 15 segundos antes de intentar nuevamente descubrir a los vecinos LDP tras un fallo, y repetirá este intento durante un máximo de 120 segundos. Estos valores permiten controlar el comportamiento del protocolo LDP en situaciones de fallo, evitando intentos de descubrimiento demasiado frecuentes.</p>                
+                <div class="blog-image">
                     <img src="media/mpls15.gif" alt="">
                 </div>
             </div>
