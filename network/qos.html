@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <link rel="icon" href="../media/imagen41.png" type="image/png">
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                        <li><a href="../devops.html">DevOps</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Aportar" onclick="window.open('https://buymeacoffee.com/ryuzak1', '_blank');">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <br>
+                <br>
+                <h1>Calidad de Servicio</h1>
+                <p>La Calidad de Servicio (QoS) es un conjunto de mecanismos y técnicas utilizadas en redes para garantizar un rendimiento óptimo del tráfico, asegurando que aplicaciones críticas como voz, video y datos operen de manera eficiente. A medida que las redes se vuelven más complejas y convergentes, QoS se convierte en un elemento esencial para administrar el tráfico y evitar problemas como la congestión, la latencia y la pérdida de paquetes.</p>
+                <h2>Redes Convergentes</h2>
+                <p>Las redes convergentes integran múltiples tipos de tráfico, incluyendo voz, video y datos en una sola infraestructura. Para garantizar una experiencia óptima, QoS se emplea para priorizar el tráfico y asegurar que los servicios sensibles al tiempo, como llamadas VoIP y videoconferencias, no sean interrumpidos por la congestión de la red.</p>
+                <p>Esta convergencia simplifica la administración y reduce costos operativos al eliminar redes dedicadas para cada servicio, pero introduce desafíos críticos en cuanto a calidad de servicio (QoS), latencia y ancho de banda.</p>
+                <p>Para garantizar un rendimiento óptimo, las redes convergentes implementan mecanismos avanzados de QoS que priorizan el tráfico según su sensibilidad:</p>
+                <ul style="list-style-type: none;">
+                    <li>∘ <marcador class="resaltado8">Tráfico en tiempo real </marcador>(ej: VoIP, Zoom, Teams) se marca con alta prioridad (Clase EF o CS6) para minimizar latencia y jitter.</li>
+                    <li>∘ <marcador class="resaltado8">Video </marcador>(ej: YouTube, videovigilancia) recibe prioridad media (Clase AF4x) para evitar buffering.</li>
+                    <li>∘ <marcador class="resaltado8">Datos críticos </marcador>(ERP, backups) pueden usar colas dedicadas (CBWFQ).</li>
+                    <li>∘ <marcador class="resaltado8">Tráfico best-effort </marcador>(correo, navegación) se maneja con los recursos restantes.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/qos1.png" alt="">
+                </div>
+                <h2>Transporte de Audio, Video y Voz</h2>
+                <p>El tráfico de voz es altamente sensible al delay, ya que cualquier latencia excesiva puede afectar la calidad de la comunicación. Además, consume pocos recursos en comparación con otros tipos de tráfico y utiliza el protocolo UDP, lo que significa que no acepta retransmisión en caso de pérdida de paquetes. Para garantizar una comunicación fluida, el jitter, que representa la variabilidad en la llegada de los paquetes, debe mantenerse por debajo de los 30 ms para evitar cortes o degradación en la calidad del audio.</p>
+                <p>El tráfico de video también requiere baja latencia para asegurar una reproducción fluida, pero su tolerancia a la pérdida de paquetes es ligeramente mayor en comparación con la voz. Este tipo de tráfico demanda más ancho de banda debido a la cantidad de datos transmitidos por cuadro, y generalmente usa UDP para minimizar la latencia. Sin embargo, en algunos casos se emplean mecanismos de corrección de errores para compensar pérdidas moderadas de paquetes y mejorar la experiencia visual.</p>
+                <p>El tráfico de datos, a diferencia de la voz y el video, es menos sensible a la latencia, ya que las aplicaciones pueden tolerar cierto retraso en la entrega de paquetes. Sin embargo, suele requerir confiabilidad en la transmisión, lo que lleva al uso de TCP, que permite retransmisión en caso de pérdida de datos. Este tipo de tráfico puede variar en sus necesidades de ancho de banda dependiendo de la aplicación, desde transacciones simples hasta transferencias masivas de archivos, y puede ser administrado con menor prioridad en redes con políticas de QoS bien definidas.</p>
+                <p>El tráfico de audio, video y voz tiene requisitos específicos para asegurar una comunicación fluida:</p>
+                <ul style="list-style-type: none;">
+                    <li>𖦹 <marcador class="resaltado9">Latencia: </marcador>Debe mantenerse por debajo de 150 ms para garantizar una comunicación sin interrupciones.</li>
+                    <li>𖦹 <marcador class="resaltado9">Pérdida de paquetes: </marcador>Una pérdida superior al 1% puede afectar la calidad de la voz y el video.</li>
+                    <li>𖦹 <marcador class="resaltado9">Jitter: </marcador>Variaciones en el tiempo de llegada de los paquetes deben ser minimizadas para evitar interrupciones en la reproducción.</li>
+                    <li>𖦹 <marcador class="resaltado9">Protocolos utilizados: </marcador>RTP (Real-time Transport Protocol) es comúnmente empleado para transmisión de voz y video, mientras que SIP y H.323 se usan para señalización en VoIP.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/qos2.png" alt="">
+                </div>
+                <h2>Garantía de Ancho de Banda y Priorización del Tráfico</h2>
+                <p>QoS permite asignar y garantizar el ancho de banda para diferentes tipos de tráfico, evitando que aplicaciones no críticas consuman recursos excesivos. Esto se logra a través de la clasificación y priorización del tráfico, donde los paquetes se identifican y se les asigna un nivel de servicio basado en su importancia.</p>
+                <p>Este proceso se inicia con la clasificación del tráfico, donde los paquetes se identifican mediante criterios como direcciones IP, números de puerto, protocolos o marcas en la cabecera del paquete. Una vez clasificados, los paquetes se marcan con un valor que indica su nivel de servicio, utilizando campos como DSCP (Differentiated Services Code Point) o CoS (Class of Service). Posteriormente, se aplica la priorización, donde los paquetes marcados se colocan en diferentes colas de salida según su nivel de servicio, utilizando algoritmos como Weighted Fair Queuing (WFQ) o Low Latency Queuing (LLQ). Además, se puede implementar el control de congestión mediante técnicas como Weighted Random Early Detection (WRED) para evitar la pérdida de paquetes durante períodos de alta demanda. Finalmente, se realiza la conformación y modelado del tráfico para garantizar que el tráfico se ajuste a los límites de ancho de banda asignados, utilizando técnicas como Traffic Shaping y Policing.</p>
+                <div class="blog-image-grande">
+                    <img src="media/qos3.jpg" alt="">
+                </div>
+                <h2>Congestión de la Red y Administración de la Congestión</h2>
+                <p>La congestión ocurre cuando el tráfico supera la capacidad disponible de la red. Para mitigar este problema, QoS implementa mecanismos como:</p>
+                <ul style="list-style-type: none;">
+                    <li>∘ <marcador class="resaltado8">FIFO (First In, First Out): </marcador>Método más simple de gestión de colas donde los paquetes se procesan en el orden en que llegan, sin distinción de prioridad.</li>
+                    <li>∘ <marcador class="resaltado8">WFQ (Weighted Fair Queueing): </marcador>Distribuye equitativamente el ancho de banda entre los flujos de tráfico, asignando mayor prioridad a los paquetes con menor tamaño para mejorar el rendimiento de tráfico interactivo.</li>
+                    <li>∘ <marcador class="resaltado8">CBWFQ (Class-Based Weighted Fair Queueing): </marcador>Extensión de WFQ que permite clasificar el tráfico en diferentes clases y asignar ancho de banda garantizado a cada una, proporcionando mayor control sobre la priorización.</li>
+                    <li>∘ <marcador class="resaltado8">LLQ (Low Latency Queueing): </marcador>Agrega una cola de prioridad estricta a CBWFQ, asegurando que el tráfico de voz y otros datos sensibles al retardo sean transmitidos de inmediato, evitando el jitter y la latencia excesiva.</li>
+                    <li>∘ <marcador class="resaltado8">Policing y Shaping: </marcador>Controlan el flujo de tráfico, evitando el uso excesivo del ancho de banda.</li>
+                    <li>∘ <marcador class="resaltado8">WRED (Weighted Random Early Detection): </marcador>Previene la congestión eliminando paquetes de manera controlada antes de que se produzca la saturación.</li>
+                </ul>
+                <div class="blog-image-doble-grande">
+                    <img src="media/qos4.jpeg" alt="">
+                    <img src="media/qos5.png" alt="">
+                </div>
+                <h2>Modelos de QoS</h2>
+                <p>Existen tres modelos principales de QoS:</p>
+                <ul style="list-style-type: none;">
+                    <li>⋆ <marcador class="resaltado5">Best Effort: </marcador>No ofrece garantías de rendimiento y trata a todos los paquetes por igual.</li>
+                    <li>⋆ <marcador class="resaltado5">Integrated Services (IntServ): </marcador>Reserva recursos para cada flujo de datos, asegurando calidad, pero con alta sobrecarga en la red.</li>
+                    <li>⋆ <marcador class="resaltado5">Differentiated Services (DiffServ): </marcador>Clasifica y marca los paquetes en distintos niveles de prioridad, lo que permite gestionar el tráfico de manera más escalable y eficiente en comparación con otros enfoques como IntServ. Al asignar diferentes clases de servicio, la red puede priorizar aplicaciones sensibles al rendimiento, como voz y video, asegurando una mejor calidad en su transmisión. Sin embargo, DiffServ funciona dentro de un dominio administrativo específico, lo que significa que su efectividad puede verse limitada cuando los paquetes atraviesan múltiples redes de distintos proveedores. Si estos proveedores no respetan las mismas políticas de marcado, la prioridad del tráfico puede perderse o degradarse, afectando el desempeño de las aplicaciones críticas.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/qos6.png" alt="">
+                </div>
+                <h2>Clasificación y Marcado de Tráfico</h2>
+                <p>Para aplicar QoS, los paquetes deben ser clasificados y marcados utilizando mecanismos como:</p>
+                <ul style="list-style-type: none;">
+                    <li>⦿ <marcador class="resaltado6">DSCP (Differentiated Services Code Point):</marcador> Marca paquetes en la capa 3 para diferenciar niveles de servicio, priorizando el tráfico según su tipo (voz, video, datos).</li>
+                    <li>⦿ <marcador class="resaltado6">802.1p (CoS - Class of Service):</marcador> Define prioridades en la capa 2 (Ethernet) mediante tres bits en la cabecera de la trama, indicando la importancia del tráfico para dispositivos de red local.</li>
+                    <li>⦿ <marcador class="resaltado6">MPLS EXP (Experimental bits):</marcador> Se usa en redes MPLS para asignar niveles de QoS.</li>
+                    <li>⦿ <marcador class="resaltado6">ToS (Type of Service):</marcador> Campo en la cabecera IPv4 que permite clasificar el tráfico según su prioridad, aunque ha sido en gran medida reemplazado por DSCP.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/qos7.png" alt="">
+                </div>
+                <h2>Control y Manipulación del Tráfico</h2>
+                <p>Para garantizar el cumplimiento de las políticas de QoS, se aplican técnicas como:</p>
+                <ul style="list-style-type: none;">
+                    <li>∘ <marcador class="resaltado8">Rate Limiting: </marcador>Restringe el ancho de banda disponible para ciertos flujos de tráfico.</li>
+                    <li>∘ <marcador class="resaltado8">Traffic Shaping: </marcador>Suaviza ráfagas de tráfico para mantener un flujo estable.</li>
+                    <li>∘ <marcador class="resaltado8">Congestion Avoidance: </marcador>Utiliza mecanismos como WRED para prevenir la saturación de la red.</li>
+                </ul>
+                <h2>Definición de Políticas de QoS</h2>
+                <p>Las políticas de Calidad de Servicio son un conjunto de reglas esenciales en la gestión de redes, diseñadas para controlar el tráfico y asegurar un rendimiento óptimo de las aplicaciones. Estas políticas permiten a los administradores de red definir cómo se maneja el tráfico, priorizando aplicaciones críticas como VoIP o videoconferencias, asignando un ancho de banda garantizado para servicios esenciales, y controlando el tráfico para evitar la congestión y la pérdida de paquetes. La implementación efectiva de políticas de QoS es crucial para mantener la calidad de la experiencia del usuario, especialmente en redes con tráfico diverso y exigente.</p>
+                <div class="blog-image-grande">
+                    <img src="media/qos8.jpg" alt="">
+                </div>
+                <h2>Configuración</h2>
+                <p>En esta topología, la Calidad de Servicio (QoS) se implementará en Capa 3 para garantizar una transmisión eficiente del tráfico. A nivel de Capa 3, los routers aplicarán mecanismos de clasificación y gestión del tráfico para mantener la prioridad de los paquetes a lo largo de la red.</p>
+                <div class="blog-image-zoom">
+                    <img src="media/qos9.png" alt="">
+                </div>
+                <h5>Cisco</h5>
+                <p>❍ Router 0</p>
+                <div class="consola">
+                    
+                    <div class="barra-superior-consola">
+                        <div class="grupo-icono-texto">
+                            <img src="../media/cmd.png" alt="Icono" class="icono-cmd">
+                            <span class="texto-cmd">C:\Windows\system32\cmd.exe</span>
+                        </div>
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>router(config)# class-map match-all voice
+router(config-cmap)# match protocol rtp
+router(config-cmap)# match protocol skype
+router(config-cmap)# exit
+
+router(config)# class-map match-all web
+router(config-cmap)# match protocol http
+router(config-cmap)# match protocol secure-http
+router(config-cmap)# exit
+
+router(config)# class-map match-all icmp
+router(config-cmap)# match protocol icmp
+router(config-cmap)# exit
+
+router(config)# policy-map marcado
+router(config-pmap)# class voice
+router(config-pmap-c)# priority 1000
+router(config-pmap-c)# set ip dscp ef
+router(config-pmap-c)# exit
+
+router(config-pmap)# class web 
+router(config-pmap-c)# bandwidth 500
+router(config-pmap-c)# set ip dscp af31
+router(config-pmap-c)# exit
+
+router(config-pmap)# class icmp 
+router(config-pmap-c)# bandwidth 25
+router(config-pmap-c)# set ip dscp af11
+router(config-pmap-c)# exit
+router(config-pmap)# exit
+
+router(config)# interface s0/1/0
+router(config-if)# service-policy output marcado</code></pre>
+                    </div>
+                </div>
+                <p>∘ <marcador class="subrayado">class-map match-all</marcador>: se utiliza para definir una clase de tráfico basada en un criterio específico. En este caso, se crean clases para tráfico de voz, HTTP e ICMP, lo que permitirá aplicar diferentes políticas de QoS a cada tipo de tráfico.</p> 
+                <p>∘ <marcador class="subrayado">match protocol</marcador>: dentro de la clase especifica el protocolo que se va a identificar. Esto permite que el router pueda clasificar correctamente el tráfico según el protocolo utilizado, asegurando que cada tipo de tráfico reciba el tratamiento adecuado.</p> 
+                <p>∘ <marcador class="subrayado">policy-map</marcador>: crea una política de QoS que define cómo se manejará el tráfico clasificado previamente. En este caso, la política denominada "marcado" establece diferentes niveles de prioridad y asignaciones de ancho de banda.</p> 
+                <p>∘ <marcador class="subrayado">priority</marcador>: dentro de la clase de voz asigna 1000 Kbps de ancho de banda con prioridad estricta, lo que significa que este tráfico se procesará antes que cualquier otro, garantizando una baja latencia para servicios en tiempo real.</p> 
+                <p>Es importante notar que el comando priority reserva ancho de banda para el tráfico crítico, y que este ancho de banda reservado no es un ancho de banda maximo, sino un ancho de banda minimo garantizado. El sistema tratara de darle todo el ancho de banda que necesite el trafico de voz, pero garantizara que al menos 1000 kbps esten disponibles.</p>
+                <p>∘ <marcador class="subrayado">bandwidth</marcador>: en las clases HTTP e ICMP reserva un ancho de banda mínimo para estos tipos de tráfico, asegurando que no sean bloqueados en condiciones de congestión.</p> 
+                <p>A diferencia del comando priority, el comando bandwidth asigna un ancho de banda que se comparte con otras clases de tráfico. Esto significa que el tráfico "web" tendrá garantizado un mínimo de 500 kbps, pero podrá utilizar más ancho de banda si está disponible.</p>
+                <p>∘ <marcador class="subrayado">set ip dscp</marcador>: marca los paquetes con diferentes valores DSCP (Differentiated Services Code Point), lo que permite que el tráfico sea tratado con diferentes niveles de prioridad en la red.</p> 
+                <p>∘ <marcador class="subrayado">service-policy output</marcador>: aplica la política de QoS a la interfaz de salida, garantizando que los paquetes sean clasificados, priorizados y marcados adecuadamente antes de ser transmitidos.</p>
+                <p>En la clase class-default, que es la que captura todo el tráfico no clasificado explícitamente, no se suelen definir protocolos específicos, ya que actúa como un contenedor de tráfico general. Sin embargo, podrías configurarla para manejar tráfico de baja prioridad o tráfico sin clasificación específica.</p>
+                <p>❍ Router 1</p>
+                <div class="consola">
+                    
+                    <div class="barra-superior-consola">
+                        <div class="grupo-icono-texto">
+                            <img src="../media/cmd.png" alt="Icono" class="icono-cmd">
+                            <span class="texto-cmd">C:\Windows\system32\cmd.exe</span>
+                        </div>
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>router(config)# class-map match-all voice
+router(config-cmap)# match ip dscp ef
+router(config-cmap)# exit
+
+router(config)# class-map match-all web
+router(config-cmap)# match ip dscp af31
+router(config-cmap)# exit
+
+router(config)# class-map match-all icmp
+router(config-cmap)# match ip dscp af11
+router(config-cmap)# exit
+
+router(config)# policy-map remarcado
+router(config-pmap)# class voice
+router(config-pmap-c)# set precedence 5
+router(config-pmap-c)# exit
+
+router(config-pmap)# class web 
+router(config-pmap-c)# set precedence 3
+router(config-pmap-c)# exit
+
+router(config-pmap)# class icmp 
+router(config-pmap-c)# set precedence 0
+router(config-pmap-c)# exit
+router(config-pmap)# exit
+
+router(config)# interface s0/2/0
+router(config-if)# service-policy input remarcado</code></pre>
+                    </div>
+                </div>
+                <p>∘ <marcador class="subrayado">policy-map</marcador>: define una política de QoS que aplicará modificaciones a los paquetes clasificados. En este caso, la política llamada "remarcado" ajustará la precedencia de los paquetes según su clase.</p> 
+                <p>∘ <marcador class="subrayado">set precedence</marcador>: cambia la precedencia de los paquetes. En este caso, el tráfico de voz se le asigna una precedencia de 5 (alta prioridad), el tráfico HTTP se remarca con una precedencia de 3 (prioridad media), y el tráfico ICMP se asigna con una precedencia de 0 (baja prioridad), asegurando un tratamiento diferenciado en la red.</p> 
+                <p>∘ <marcador class="subrayado">service-policy input</marcador>: aplica la política en la interfaz de entrada (s0/2/0), lo que significa que los paquetes entrantes en esta interfaz serán clasificados y su precedencia será ajustada de acuerdo con la configuración establecida.</p>
+                <div class="blog-image-zoom">
+                    <img src="media/qos10.jpg" alt="">
+                </div>
+            </div>
+        </div>       
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
