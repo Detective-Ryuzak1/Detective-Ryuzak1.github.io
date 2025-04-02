@@ -302,7 +302,6 @@ router(config-if)# ip cef</code></pre>
                 <div class="blog-image">
                     <img src="media/mpls12.png" alt="">
                 </div>
-                <p></p>
                 <h2>Configuración</h2>
                 <p>La siguiente topología muestra una red MPLS con varios enrutadores interconectados. Los enrutadores están configurados con direcciones de loopback para identificación y segmentación de red virtual. La red utiliza protocolos de enrutamiento IBGP y BGP para el intercambio de información de enrutamiento y la distribución de etiquetas MPLS, esenciales para el reenvío eficiente del tráfico a través de la red MPLS.</p>
                 <p>Se procederá a configurar algunos de los equipos de la topología utilizando dos tipos de sistemas operativos de enrutadores: IOS XE y IOS XR, con el fin de demostrar la interoperabilidad y las capacidades de configuración de MPLS en entornos heterogéneos.</p>
@@ -738,7 +737,6 @@ router(config-ldp-disc)# targeted-hello holdtime 90</code></pre>
                 <p>El comando <marcador class="subrayado">mpls ldp discovery backoff 15 120</marcador> establece que el router esperará 15 segundos antes de intentar nuevamente descubrir a los vecinos LDP tras un fallo, y repetirá este intento durante un máximo de 120 segundos. Estos valores permiten controlar el comportamiento del protocolo LDP en situaciones de fallo, evitando intentos de descubrimiento demasiado frecuentes.</p>                <div class="blog-image">
                     <img src="media/mpls15.gif" alt="">
                 </div>
-                <p></p>
             </div>
         </div>       
     </main>
