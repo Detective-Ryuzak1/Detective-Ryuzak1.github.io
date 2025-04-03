@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <link rel="icon" href="../media/imagen41.png" type="image/png">
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                        <li><a href="../devops.html">DevOps</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Aportar" onclick="window.open('https://buymeacoffee.com/ryuzak1', '_blank');">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <br>
+                <br>
+                <h1>Voz sobre IP (VoIP)</h1>
+                <p>La comunicación vocal ha sido fundamental para la interacción humana desde tiempos inmemoriales. A lo largo de la historia, hemos buscado formas de transmitir la voz a distancia. Desde los primitivos sistemas de mensajería hasta la invención del teléfono en el siglo XIX, la tecnología ha jugado un papel crucial en la evolución de la comunicación vocal.</p>
+                <p>Con la llegada de la era digital, la voz comenzó a transformarse en señales eléctricas que podían ser transmitidas a través de cables y ondas de radio. Sin embargo, no fue hasta la década de 1990 cuando la Voz sobre Protocolo de Internet (VoIP) revolucionó la forma en que nos comunicamos, permitiendo la transmisión de voz a través de redes IP.</p>
+                <h2>Equipos y Componentes</h2>
+                <p>La VoIP requiere una serie de equipos y componentes para funcionar correctamente:</p>
+                <ul style="list-style-type: none;">
+                    <li>∘ <marcador class="resaltado8">Teléfonos IP: </marcador>Dispositivos que se conectan a la red IP y permiten realizar llamadas VoIP.</li>
+                    <li>∘ <marcador class="resaltado8">Adaptadores ATA (Analog Telephone Adapters): </marcador>Permiten conectar teléfonos analógicos tradicionales a la red IP.</li>
+                    <li>∘ <marcador class="resaltado8">Gateways VoIP: </marcador>Dispositivos que convierten las señales de voz entre redes IP y redes telefónicas tradicionales (PSTN).</li>
+                    <li>∘ <marcador class="resaltado8">Servidores VoIP: </marcador>Equipos que gestionan las llamadas VoIP, incluyendo la señalización, el enrutamiento y la facturación.</li>
+                    <li>∘ <marcador class="resaltado8">Codecs: </marcador>Algoritmos que codifican y decodifican las señales de voz para su transmisión a través de la red IP.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/voip1.png" alt="">
+                </div>
+                <h2>PBX</h2>
+                <p>Antes, la comunicación telefónica mediante una PBX (Private Branch Exchange) funcionaba conectando teléfonos internos a una central privada, que a su vez enlazaba con la red pública mediante líneas troncales. Los teléfonos usaban cables de par trenzado con dos hilos: Tip (T) y Ring (R). La señal analógica tenía una amplitud de aproximadamente -48V en reposo y fluctuaba entre -3V y -12V durante la conversación. Cada canal de voz ocupaba 4 kHz de ancho de banda, con una modulación basada en pulsos o tonos DTMF. Desde la PBX, la señal se enviaba a la central telefónica pública mediante E1 (2.048 Mbps, 32 canales de 64 Kbps cada uno) o líneas analógicas con señalización de corriente de bucle.</p>
+                <p>La PSTN conectaba las PBX empresariales mediante líneas troncales, que podían ser analógicas (FXO/FXS) o digitales (ISDN, PRI, BRI). En la central telefónica, los conmutadores dirigían las llamadas según la numeración y la señalización empleada, como SS7 (Signaling System 7) en redes modernas.</p>
+                <p>En la telefonía analógica y digital tradicional, se necesitaba un canal físico dedicado para cada comunicación. En los primeros sistemas de telefonía, cada llamada requería un par de cables de cobre (tip y ring) conectados a una central telefónica o PBX (Private Branch Exchange), lo que limitaba el número de llamadas simultáneas según la cantidad de líneas disponibles.</p>
+                <p>La conmutación de circuitos, utilizada en la Red Telefónica Pública Conmutada (PSTN), establecía un canal dedicado entre los interlocutores durante toda la duración de la llamada. Esto significaba que mientras la comunicación estaba activa, el ancho de banda del canal (generalmente 64 kbps en telefonía digital con PCM) quedaba reservado para esa llamada, sin posibilidad de compartirlo con otras conexiones hasta que la llamada finalizara.</p>
+                <p>VoIP eliminó esta restricción al digitalizar la voz y transmitirla en paquetes de datos a través de redes IP, lo que permite compartir un mismo canal para múltiples llamadas y otros tipos de tráfico, optimizando así el uso del ancho de banda disponible.</p>
+                <div class="blog-image">
+                    <img src="media/voip2.png" alt="">
+                </div>
+                <h2>Enlaces E1</h2>
+                <p>En VoIP, los enlaces E1 se utilizan principalmente con Gateways VoIP, dispositivos que convierten la señal de telefonía digital (TDM) en paquetes de datos IP para que pueda ser transportada por redes VoIP. Estos gateways pueden estar conectados a una PBX tradicional o directamente a la red pública PSTN.</p>
+                <h6>Funcionamiento</h6>
+                <ol>
+                    <li>𖦹 <marcador class="resaltado9">Estructura del E1:</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ Un E1 tiene 2.048 Mbps de ancho de banda y se divide en 32 canales de 64 kbps cada uno.</li>
+                        <li>∘ <marcador class="resaltado8">Canales de voz: </marcador>30 canales (timeslots 1-15 y 17-31) se usan para llamadas de voz.</li>
+                        <li>∘ <marcador class="resaltado8">Canal de señalización: </marcador>1 canal (TS16) para señalización, si se usa R2 o ISDN PRI.</li>
+                        <p>Esto significa que el TS16 lleva información sobre el estado de las llamadas (descolgado, marcado, etc.) para los otros canales.</p>
+                        <li>∘ <marcador class="resaltado8">Canal de sincronización: </marcador>1 canal (TS0) para sincronización.</li>
+                    </ul>
+                    <li>𖦹 <marcador class="resaltado9">Conversión a VoIP:</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ El gateway VoIP toma las señales digitales del E1 y las convierte en paquetes de voz (RTP).</li>
+                        <li>∘ Usa protocolos como SIP o H.323 para señalización y control de llamadas.</li>
+                        <li>∘ La compresión de audio puede usar códecs como G.711, G.729 o Opus.</li>
+                    </ul>
+                    <li>𖦹 <marcador class="resaltado9">Interoperabilidad:</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ Un PBX tradicional usa un E1 para conectar con una PSTN, pero al integrar un Gateway VoIP, puede comunicarse con redes IP sin cambiar toda su infraestructura.</li>
+                        <li>∘ En empresas, un PBX IP puede conectarse a una red PSTN mediante un E1 SIP Gateway, permitiendo llamadas a teléfonos convencionales.</li>
+                    </ul>
+                </ol>
+                <br>
+                <p>El T1 es un estándar de telecomunicaciones norteamericano que ofrece 24 canales de voz. Aunque su uso principal se concentra en Norteamérica, también ha tenido presencia en México, aunque en menor medida en comparación con el estándar europeo E1.</p>
+                <h2>Conceptos Técnicos</h2>
+                <h6>Paquetización</h6>
+                <p>La paquetización en VoIP consiste en convertir la señal de voz analógica en datos digitales, dividirla en paquetes y transmitirlos sobre una red IP. Este proceso ocurre en varias etapas:</p>
+                <ul>
+                    <li><marcador class="resaltado5">Muestreo: </marcador> En VoIP, la voz analógica se convierte en datos digitales mediante Pulse Code Modulation (PCM). Para esto, se realiza un muestreo de la señal a una frecuencia de 8 kHz (8000 muestras por segundo). Esto se debe a que el oído humano puede percibir frecuencias en un rango de 20 Hz a 20 kHz, pero el habla humana está mayormente contenida entre 300 Hz y 3400 Hz, por lo que no es necesario muestrear frecuencias superiores para una comunicación clara.</li>
+                    <p>Según el teorema de Nyquist, para reconstruir una señal analógica sin pérdida de información, debe muestrearse al doble de la frecuencia máxima contenida en la señal. Como la voz telefónica estándar se limita a 3400 Hz, el muestreo mínimo requerido es de 6800 Hz. En telefonía digital y VoIP, este valor se redondea a 8000 Hz (8 kHz) para simplificar el procesamiento y garantizar la compatibilidad con el estándar G.711, el cual es ampliamente utilizado en sistemas de comunicación digital.</p>
+                    <li><marcador class="resaltado5">Cuantización: </marcador>Después del muestreo, la señal de voz pasa por un proceso de cuantización, donde los valores analógicos muestreados se convierten en bits. En VoIP, normalmente se utiliza una cuantización de 8 bits por muestra, lo que genera una tasa de 64 Kbps por canal cuando se emplea el códec G.711. Este códec proporciona una calidad de audio equivalente a la telefonía tradicional (PSTN), ya que no aplica compresión y mantiene la fidelidad de la voz. Sin embargo, su alto consumo de ancho de banda puede ser una limitación en redes con capacidad restringida.</li>
+                    <li><marcador class="resaltado5">Compresión (Opcional): </marcador>Para optimizar el uso del ancho de banda, se pueden emplear códecs con compresión con pérdida, como G.729 (8 Kbps) o Opus, que reducen significativamente el tamaño de los datos transmitidos. Aunque estos códecs permiten enviar más llamadas simultáneas con el mismo ancho de banda, la compresión puede afectar la calidad del audio, especialmente en redes congestionadas o con alta latencia. En condiciones normales, los usuarios pueden notar una leve diferencia en la claridad y naturalidad de la voz, pero en escenarios de baja calidad de conexión, la pérdida de datos puede hacer que la comunicación sea menos inteligible. Si se dispone de suficiente capacidad de transmisión, utilizar un códec sin compresión como G.711 es ideal para mantener una mejor calidad de voz, mientras que en redes con limitaciones, los códecs comprimidos pueden ser la mejor opción para equilibrar calidad y eficiencia.</li>
+                    <li><marcador class="resaltado5">Encapsulación: </marcador>Los datos de voz se agrupan en paquetes que contienen:</li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">Encabezados (headers): </marcador>Información de control para el enrutamiento. Se encapsula dentro de RTP (Real-time Transport Protocol) y luego en UDP o TCP.</li>
+                        <li>∘ <marcador class="resaltado8">Carga útil (payload): </marcador>La información de voz digitalizada.</li>
+                    </ul>
+                </ul>
+                <div class="blog-image-doble-grande">
+                    <img src="media/voip3.png" alt="">
+                    <img src="media/voip11.png" alt="">
+                </div>
+                <h6>Protocolos de Señalización</h6>
+                <p>Los protocolos de señalización en VoIP se encargan de establecer, mantener y finalizar llamadas. Los más comunes son:</p>
+                <ul>
+                    <li><marcador class="resaltado8">SIP (Session Initiation Protocol): </marcador>Protocolo basado en texto que usa el modelo cliente-servidor y permite establecer sesiones de voz y video.</li>
+                    <li><marcador class="resaltado8">H.323: </marcador>Un protocolo más antiguo basado en ITU-T, con funciones similares a SIP, pero más complejo.</li>
+                    <li><marcador class="resaltado8">MGCP (Media Gateway Control Protocol): </marcador>Protocolo para controlar puertas de enlace de medios en VoIP.</li>
+                    <li><marcador class="resaltado8">RTSP (Real Time Streaming Protocol): </marcador>Se usa en streaming, pero también puede aparecer en algunos sistemas VoIP.</li>
+                </ul>
+                <p>Estos protocolos funcionan en la capa de aplicación del modelo OSI y utilizan mensajes como:</p>
+                <ul style="list-style-type: none;">
+                    <li>⦿ <marcador class="resaltado6">INVITE: </marcador>Para iniciar una llamada en SIP.</li>
+                    <li>⦿ <marcador class="resaltado6">BYE: </marcador>Para finalizar la llamada.</li>
+                    <li>⦿ <marcador class="resaltado6">ACK: </marcador>Para confirmar la recepción de respuestas.</li>
+                </ul>
+                <br>
+                <p>El Session Initiation Protocol (SIP) es un protocolo de señalización utilizado en VoIP para establecer, modificar y finalizar sesiones de comunicación en tiempo real, como llamadas de voz y video. SIP es un protocolo basado en texto que opera en la capa de aplicación del modelo OSI y utiliza los métodos INVITE, ACK, BYE, REGISTER, CANCEL, entre otros, para gestionar las sesiones.</p>
+                <p>Cuando un usuario inicia una llamada SIP, su dispositivo (User Agent) envía un mensaje INVITE al servidor SIP, que puede ser un Proxy o un Registrador. Este servidor localiza al destinatario y retransmite la solicitud. Si el receptor acepta la llamada, responde con un 200 OK, y el remitente confirma con un ACK, estableciendo la sesión. Durante la llamada, SIP no transporta la voz, sino que trabaja junto con RTP (Real-time Transport Protocol), que maneja la transmisión de audio y video. Al finalizar la conversación, un mensaje BYE cierra la sesión.</p>
+                <p>SIP permite flexibilidad en redes VoIP, soportando movilidad y características avanzadas como transferencia de llamadas y conferencias. Funciona sobre UDP (habitualmente en el puerto 5060) o TCP/TLS (para seguridad en el puerto 5061), garantizando comunicación eficiente y segura en entornos empresariales y de telecomunicaciones.</p>
+                <div class="blog-image-doble-grande">
+                    <img src="media/voip5.png" alt="">
+                    <img src="media/voip4.jpg" alt="">
+                </div>
+                <h6>Calidad de Servicio (QoS)</h6>
+                <ul>
+                    <li><marcador class="resaltado5">Priorización del tráfico:</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">DSCP (Differentiated Services Code Point): </marcador>Marca los paquetes con valores como EF (Expedited Forwarding) para tráfico de voz.</li>
+                        <li>∘ <marcador class="resaltado8">802.1p (CoS - Class of Service): </marcador>Define prioridades en redes Ethernet.</li>
+                    </ul>
+                    <li><marcador class="resaltado5">Control de congestión:</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">Traffic shaping: </marcador>Regula la tasa de envío de paquetes.</li>
+                        <li>∘ <marcador class="resaltado8">Políticas de encolado: </marcador>Se usan colas como PQ (Priority Queuing) o LLQ (Low Latency Queuing) para priorizar voz sobre otros datos.</li>
+                    </ul>
+                    <li><marcador class="resaltado5">Minimización de latencia y jitter:</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ La latencia aceptable para VoIP es menos de 150 ms (ITU-T G.114).</li>
+                        <li>∘ Se usan buffers adaptativos para reducir el jitter (variación en el tiempo de llegada de los paquetes).</li>
+                    </ul>
+                </ul>
+                <div class="blog-image">
+                    <img src="media/voip6.png" alt="">
+                </div>
+                <h6>Ancho de Banda</h6>
+                <p>El ancho de banda necesario para VoIP depende del códec utilizado y del overhead de los protocolos de red:</p>
+                <table>
+                    <tr>
+                        <th>Códec</th>
+                        <th>Tasa de Bits</th>
+                        <th>Ancho de Banda Real (con RTP/UDP/IP)</th>
+                    </tr>
+                    <tr>
+                        <td>G.711</td>
+                        <td>64 Kbps</td>
+                        <td>80-90 Kbps</td>
+                    </tr>
+                    <tr>
+                        <td>G.729</td>
+                        <td>8 Kbps</td>
+                        <td>24-30 Kbps</td>
+                    </tr>
+                    <tr>
+                        <td>Opus</td>
+                        <td>Variable (6-510 Kbps)</td>
+                        <td>Depende de la configuración</td>
+                    </tr>
+                </table>
+                <p>Factores que afectan el ancho de banda:</p>
+                <ul style="list-style-type: none;">
+                    <li>∘ <marcador class="resaltado8">Overhead de la red: </marcador>Cada paquete tiene encabezados RTP (12B), UDP (8B) e IP (20B), lo que agrega consumo adicional.</li>
+                    <li>∘ <marcador class="resaltado8">Tamaño de los paquetes: </marcador>Mayor tamaño reduce overhead, pero aumenta latencia.</li>
+                    <li>∘ <marcador class="resaltado8">Número de llamadas simultáneas: </marcador>Se debe calcular el ancho de banda total requerido.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/voip7.avif" alt="">
+                </div>
+                <h6>Formato de numeración</h6>
+                <p>El estándar E.164 define el formato de numeración para redes públicas de telefonía y VoIP. Se usa para identificar números de teléfono de manera única en todo el mundo.</p>
+                <p>El formato del número E.164 puede tener hasta 15 dígitos.</p>
+                <p>Incluye:</p>
+                <ul style="list-style-type: none;">
+                    <li>∘ Código de país (CC) (1 a 3 dígitos).</li>
+                    <li>∘ Código de área o de red (National Destination Code - NDC).</li>
+                    <li>∘ Número de suscriptor (SN).</li>
+                </ul>
+                <br>
+                <p>Ejemplo de número E.164: +1 212 555 1234</p>
+                <ul style="list-style-type: none;">
+                    <li>+1 → Código de país (EE.UU.)</li>
+                    <li>212 → Código de área (Nueva York)</li>
+                    <li>5551234 → Número de abonado</li>
+                </ul>
+                <br>
+                <p>En VoIP, los servidores SIP y los sistemas de enrutamiento pueden usar números en formato E.164 para enrutar llamadas entre redes VoIP y PSTN.</p>
+                <h2>Funcionamiento</h2>
+                <p>El funcionamiento de la VoIP se puede resumir en los siguientes pasos:</p>
+                <ol>
+                    <li><marcador class="resaltado8">El usuario realiza una llamada: </marcador>El teléfono IP, adaptador ATA o gateway VoIP envía una solicitud de llamada al servidor VoIP.</li>
+                    <li><marcador class="resaltado8">El servidor VoIP establece la llamada: </marcador>El servidor VoIP utiliza protocolos de señalización como SIP para establecer la llamada entre los dos usuarios.</li>
+                    <li><marcador class="resaltado8">La voz se transmite a través de la red IP: </marcador>La voz se divide en paquetes de datos que se transmiten a través de la red IP utilizando RTP.</li>
+                    <li><marcador class="resaltado8">La voz se reconstruye en el destino: </marcador>Los paquetes de voz se reconstruyen en el destino y se convierten en señales de voz analógicas.</li>
+                </ol>
+                <div class="blog-image-grande">
+                    <img src="media/voip8.jpg" alt="">
+                </div>
+                <h2>DSP</h2>
+                <p>Un Procesador Digital de Señales (DSP) es un componente electrónico especializado diseñado para manipular señales de voz en formato digital. En el contexto de VoIP, los DSPs son fundamentales para el procesamiento y la optimización de las comunicaciones de voz a través de redes IP. Su función principal es transformar la voz analógica en datos digitales que pueden ser transmitidos por internet, y viceversa, convirtiendo los datos digitales recibidos en sonido audible.</p>
+                <p>Los DSPs desempeñan un papel crucial en la mejora de la calidad de las llamadas VoIP. Utilizan algoritmos complejos para reducir el ruido de fondo, eliminar el eco y ajustar automáticamente el volumen, lo que garantiza una comunicación clara y sin interrupciones. Además, los DSPs son responsables de la codificación y decodificación de la voz, utilizando códecs como G.711, G.729 y Opus para comprimir y descomprimir los datos de audio. Esta capacidad de compresión es esencial para optimizar el uso del ancho de banda, permitiendo que más llamadas se realicen simultáneamente sin sacrificar la calidad del sonido.</p>
+                <p>Además de la mejora de la calidad de la voz y la optimización del ancho de banda, los DSPs también juegan un papel importante en el manejo del jitter. El jitter se refiere a la variación en el tiempo de llegada de los paquetes de voz, lo que puede causar interrupciones y distorsiones en la comunicación. Los DSPs implementan buffers que almacenan temporalmente los paquetes de voz, compensando las variaciones en el tiempo de llegada y garantizando una reproducción de audio fluida y sin cortes. En resumen, los DSPs son componentes esenciales en la tecnología VoIP, actuando como "traductores" y "optimizadores" de la voz para asegurar comunicaciones eficientes y de alta calidad a través de internet.</p>
+                <h2>RTP</h2>
+                <p>El Protocolo de Transporte en Tiempo Real (RTP, Real-time Transport Protocol) es el protocolo utilizado en VoIP para la transmisión de datos en tiempo real, como la voz y el video. Su función principal es entregar los paquetes de audio y video con la menor latencia posible, asegurando una comunicación fluida. RTP trabaja sobre el protocolo UDP (User Datagram Protocol) en lugar de TCP, ya que UDP no requiere confirmación de recepción de los paquetes, evitando retrasos innecesarios.</p>
+                <h6>Funcionamiento</h6>
+                <p>Cuando un usuario habla en una llamada VoIP, la señal de voz se muestrea, cuantiza y codifica en pequeños fragmentos de datos. Estos datos se dividen en paquetes RTP, los cuales incluyen:</p>
+                <ol>
+                    <li><marcador class="resaltado8">Cabecera RTP: </marcador>Contiene información esencial como el número de secuencia (para reordenar paquetes), la marca de tiempo (para sincronización) y el tipo de carga útil (códec utilizado).</li>
+                    <li><marcador class="resaltado8">Carga útil (Payload): </marcador>Es el contenido de audio o video codificado.</li>
+                </ol>
+                <p>Estos paquetes son enviados a través de la red IP, y al llegar al destino, se reconstruye la señal de voz usando la información de la cabecera para corregir desorden, jitter y pérdidas parciales de paquetes.</p>
+                <p>RTP por sí solo no garantiza la calidad de la transmisión. Para mejorarla, suele combinarse con:</p>
+                <ul style="list-style-type: none;">
+                    <li><marcador class="resaltado8">RTCP (Real-time Transport Control Protocol): </marcador>Permite monitorear la calidad de la transmisión (latencia, jitter, pérdida de paquetes).</li>
+                    <li><marcador class="resaltado8">QoS (Quality of Service): </marcador>Prioriza el tráfico de voz sobre otros datos en la red para minimizar retrasos y cortes.</li>
+                </ul>
+                <h6>Header</h6>
+                <p>El header de RTP tiene 12 bytes y contiene varios campos esenciales para la correcta transmisión de datos en tiempo real. Version (2 bits) indica la versión del protocolo, usualmente 2. Padding (1 bit) señala si hay bytes adicionales de relleno al final del paquete. Extension (1 bit) indica si hay un encabezado extendido. CSRC Count (4 bits) define cuántos identificadores de fuentes de contribución están presentes. Marker (1 bit) puede señalar eventos especiales, como el inicio de una nueva unidad de datos. Payload Type (7 bits) especifica el códec de audio o video usado (por ejemplo, G.711, Opus). Sequence Number (16 bits) ayuda a reordenar los paquetes y detectar pérdidas. Timestamp (32 bits) marca el tiempo de muestreo para sincronizar la reproducción. SSRC (32 bits) identifica la fuente de la transmisión. CSRC List (0-15 entradas de 32 bits) identifica fuentes de contribución en sesiones de conferencia. Estos campos permiten que RTP garantice la entrega ordenada y sincronizada de audio y video en VoIP y otras aplicaciones en tiempo real.</p>
+                <div class="blog-image-grande">
+                    <img src="media/voip13.png" alt="">
+                </div>
+                <h2>Características</h2>
+                <p>La tecnología VoIP presenta múltiples ventajas en comparación con la telefonía tradicional. Una de sus principales ventajas es el menor costo, ya que las llamadas VoIP suelen ser más económicas debido a la reducción en tarifas de larga distancia y el uso de Internet en lugar de líneas telefónicas dedicadas. Además, VoIP ofrece una mayor flexibilidad, permitiendo a los usuarios realizar llamadas desde cualquier ubicación con conexión a Internet, sin depender de una infraestructura física específica. Otra característica destacada es la inclusión de funciones avanzadas como correo de voz, conferencias y llamadas en espera, que amplían las capacidades de comunicación. Asimismo, VoIP permite la integración con otras aplicaciones empresariales como CRM y plataformas de mensajería instantánea, facilitando la gestión centralizada de la comunicación.</p>
+                <p>Sin embargo, VoIP también enfrenta ciertos desafíos. La calidad de la voz puede verse afectada por problemas técnicos como latencia, jitter y pérdida de paquetes, lo que puede degradar la experiencia del usuario. La seguridad es otro aspecto crítico, ya que las llamadas VoIP pueden ser vulnerables a ataques como la interceptación de datos y los ataques de denegación de servicio (DoS), requiriendo medidas de protección como cifrado y firewalls especializados. Además, VoIP depende completamente de la estabilidad y velocidad de la conexión a Internet, lo que significa que interrupciones en la red pueden afectar la capacidad de realizar llamadas de manera confiable.</p>
+                <div class="blog-image-grande">
+                    <img src="media/voip9.jpeg" alt="">
+                </div>
+                <h2>Automatización de llamadas</h2>
+                <p>Las operaciones automáticas dentro de las llamadas VoIP se realizan mediante la combinación de protocolos de señalización, servidores de aplicaciones y sistemas de respuesta interactiva, lo que permite funciones avanzadas como enrutamiento inteligente, desvío de llamadas, menús de voz y reconocimiento de voz.</p>
+                <p>El protocolo SIP (Session Initiation Protocol) es el encargado de gestionar el establecimiento y control de llamadas en VoIP. Cuando una llamada se origina, SIP coordina la sesión y, dependiendo de la configuración del servidor y sus reglas de enrutamiento, la llamada puede ser dirigida automáticamente a un agente, a otro número o a un sistema IVR.</p>
+                <p>Los sistemas IVR (Interactive Voice Response) permiten la automatización de respuestas sin intervención humana. A través de tonos DTMF (Dual-Tone Multi-Frequency) o reconocimiento de voz, los usuarios pueden interactuar con un menú preconfigurado para acceder a información o realizar acciones como consultas de saldo, generación de tickets o autenticaciones, mejorando la eficiencia en la gestión de llamadas.</p>
+                <p>En escenarios empresariales, plataformas como Asterisk, FreeSWITCH o BroadSoft permiten la creación de flujos automáticos de llamadas. Estas plataformas pueden integrarse con bases de datos y sistemas CRM mediante APIs RESTful o SIP Trunks, lo que habilita funciones como el enrutamiento dinámico basado en la identidad del usuario, la programación de llamadas según horarios de atención o la asignación de llamadas en función de la disponibilidad de los agentes.</p>
+                <p>El avance de la inteligencia artificial ha permitido el desarrollo de bots de voz que reemplazan los IVR tradicionales. Tecnologías como Google Dialogflow o Amazon Lex permiten que los asistentes de voz interpreten el lenguaje natural y automatizan respuestas sin depender de opciones numéricas, proporcionando una experiencia más fluida e intuitiva para los usuarios.</p>
+                <div class="blog-image-grande">
+                    <img src="media/voip14.jpg" alt="">
+                </div>
+                <h2>Call Manager</h2>
+                <p>El Call Manager es un software de gestión de llamadas utilizado en entornos VoIP para centralizar el control de comunicaciones dentro de una red. Su función principal es gestionar el establecimiento, mantenimiento y terminación de llamadas, asegurando la correcta comunicación entre dispositivos como teléfonos IP, gateways y servidores de medios.</p>
+                <p>En el caso de Cisco Unified Communications Manager (CUCM), este actúa como un PBX basado en IP, ofreciendo características avanzadas como el enrutamiento de llamadas, integración con sistemas de correo de voz, conferencias, control de ancho de banda y soporte para múltiples protocolos de señalización como SIP, SCCP, H.323 y MGCP.</p>
+                <p>El Call Manager también administra políticas de calidad de servicio (QoS), asegurando que las llamadas de voz tengan prioridad sobre otros tipos de tráfico en la red. Además, permite la integración con soluciones de mensajería unificada, videollamadas y aplicaciones de colaboración empresarial, facilitando la automatización de procesos y mejorando la eficiencia en la comunicación corporativa.</p>
+                <p>En grandes empresas y operadores de telecomunicaciones, los Call Managers como Cisco Unified Communications Manager (CUCM), Asterisk, FreeSWITCH o BroadSoft son comunes, ya que centralizan la gestión de llamadas, políticas de QoS, y ofrecen integración con otros sistemas empresariales como CRM y IVR.</p>
+                <p>Los Call Managers suelen contar con una base de datos interna o externa para almacenar y gestionar información clave sobre la infraestructura de comunicaciones. Uno de los principales datos que se almacenan son los usuarios y sus extensiones, donde se guarda la configuración de cada usuario, su número de extensión, permisos y grupos de llamadas. Además, se administran las reglas de enrutamiento, que definen la lógica de cómo se dirigen las llamadas dentro de la red VoIP, estableciendo prioridades y condiciones específicas para su correcta gestión.</p>
+                <p>Otro aspecto fundamental es el almacenamiento de los registros de llamadas, conocidos como Call Detail Records (CDR), que contienen información detallada sobre las llamadas realizadas, incluyendo el número de origen, el destino, la duración y los costos asociados. También se mantiene la configuración de los dispositivos conectados a la red, como teléfonos IP y gateways, lo que permite su correcta administración y monitoreo. Finalmente, la base de datos del Call Manager puede contener información relacionada con la seguridad y autenticación, almacenando credenciales cifradas y políticas de acceso para usuarios y dispositivos VoIP, asegurando así un entorno de comunicación seguro y eficiente.</p>
+                <p>En sistemas como Cisco Unified Communications Manager (CUCM), se usa una base de datos Informix para almacenar esta información, mientras que plataformas como Asterisk pueden usar MySQL, PostgreSQL o SQLite según la configuración. Esta base de datos permite que el Call Manager administre llamadas de manera eficiente y brinde funcionalidades avanzadas como reportes, monitoreo y control de calidad de servicio (QoS).</p>
+                <div class="blog-image-doble-grande">
+                    <img src="media/voip15.jpg" alt="">
+                    <img src="media/voip16.png" alt="">
+                </div>
+                <h2>Cisco Unity Connection</h2>
+                <p>Cisco Unity Connection es una plataforma de mensajería unificada que ofrece servicios de correo de voz, integración con correo electrónico y funcionalidades avanzadas de comunicación dentro de un entorno empresarial. Su objetivo principal es proporcionar una gestión eficiente de los mensajes de voz con capacidades de accesibilidad desde distintos dispositivos y redes.</p>
+                <h6>Funcionamiento</h6>
+                <p>Cisco Unity Connection opera como un servidor de mensajería unificada que se integra con los sistemas de telefonía IP, como Cisco Unified Communications Manager (CUCM), utilizando protocolos como SIP y SCCP. Cuando un usuario no responde una llamada, el sistema redirige la comunicación al servidor de Unity Connection, donde el mensaje de voz se graba y se almacena en su base de datos. Dependiendo de la configuración, el usuario puede acceder a sus mensajes desde un teléfono IP, un cliente de correo electrónico (mediante IMAP o Exchange) o una interfaz web.</p>
+                <p>El sistema también soporta la conversión de voz a texto (SpeechView), lo que permite a los usuarios recibir transcripciones de sus mensajes de voz por correo electrónico. Además, Unity Connection puede integrarse con directorios corporativos para autenticación y gestión centralizada de usuarios.</p>
+                <h6>Prestaciones</h6>
+                <ul style="list-style-type: none;">
+                    <li>∘ <marcador class="resaltado8">Correo de voz avanzado: </marcador>Permite el almacenamiento y gestión de mensajes de voz con acceso a través de múltiples dispositivos.</li>
+                    <li>∘ <marcador class="resaltado8">Integración con correo electrónico: </marcador>Puede sincronizar mensajes de voz con plataformas como Microsoft Exchange y Office 365, permitiendo a los usuarios recibir y gestionar sus mensajes desde su bandeja de entrada.</li>
+                    <li>∘ <marcador class="resaltado8">Accesibilidad multiplataforma: </marcador>Los mensajes pueden ser consultados desde teléfonos IP, aplicaciones móviles, interfaces web o clientes de correo electrónico.</li>
+                    <li>∘ <marcador class="resaltado8">Conversión de voz a texto (SpeechView): </marcador>Transcribe los mensajes de voz y los envía por correo electrónico para su lectura.</li>
+                    <li>∘ <marcador class="resaltado8">Soporte para IVR y respuestas automáticas: </marcador>Permite configurar menús interactivos y flujos de llamadas para automatizar la comunicación dentro de una empresa.</li>
+                    <li>∘ <marcador class="resaltado8">Mensajería unificada: </marcador>Consolida los mensajes de voz y notificaciones en un solo sistema accesible desde diferentes medios.</li>
+                    <li>∘ <marcador class="resaltado8">Alta disponibilidad y redundancia: </marcador>Puede configurarse en entornos de alta disponibilidad para garantizar la continuidad del servicio en caso de fallos.</li>
+                    <li>∘ <marcador class="resaltado8">Seguridad y autenticación: </marcador>Soporta cifrado, autenticación de usuarios mediante directorios LDAP y control de acceso basado en roles.</li>
+                </ul>
+                <p>Cisco Unity Connection es una solución avanzada para la gestión de mensajes de voz en entornos corporativos, diseñada para optimizar la comunicación y la productividad mediante una experiencia centralizada y flexible.</p>
+                <p>Para empresas que requieren comunicación en tiempo real con funciones de mensajería instantánea, Cisco ofrece opciones como Cisco Jabber y Cisco Webex, que permiten chats, presencia y colaboración en equipo. Estos pueden integrarse con Unity Connection, facilitando la recepción de notificaciones de correo de voz dentro de un entorno unificado de comunicación.</p>
+                <div class="blog-image-grande">
+                    <img src="media/voip17.png" alt="">
+                </div>
+                <h2>Configuración</h2>
+                <p>El proceso de inicio de un teléfono VoIP generalmente comienza con la alimentación a través de PoE (Power over Ethernet), lo que le permite recibir energía directamente del cable UTP. Una vez encendido, el teléfono carga su firmware, el software interno que controla su funcionamiento. Es común que el teléfono detecte la VLAN (Red Local Virtual) en la que está configurado, utilizando protocolos como LLDP o CDP para obtener esta información de los equipos de capa 2. La VLAN es crucial para separar el tráfico de voz del tráfico de datos en la red, garantizando la calidad de las llamadas.</p>
+                <p>A continuación, el teléfono envía una solicitud DHCP (Protocolo de Configuración Dinámica de Host) para obtener una dirección IP, máscara de subred, puerta de enlace y servidores DNS. Una vez que tiene una dirección IP, utiliza TFTP (Protocolo de Transferencia de Archivos Trivial) para descargar su archivo de configuración. Este archivo contiene parámetros específicos del teléfono, como la dirección del Call Manager, números de extensión y otras configuraciones. Con la información del Call Manager, el teléfono se conecta y se registra, lo que le permite al Call Manager gestionar sus llamadas.</p>
+                <p>Durante una llamada, la voz se digitaliza, se empaqueta en paquetes RTP (Protocolo de Transporte en Tiempo Real) y se transmite a través de la red IP. Se utilizan códecs para codificar y decodificar la voz, lo que afecta la calidad de la voz y el ancho de banda utilizado. Además, se utilizan protocolos de señalización como SIP (Protocolo de Inicio de Sesión) para establecer, mantener y finalizar las llamadas. Es fundamental implementar QoS (Calidad de Servicio) en la red para priorizar el tráfico de voz y garantizar una buena calidad de las llamadas.</p>
+                <p>En entornos de red modernos, la implementación de una VLAN de voz es esencial para garantizar una comunicación clara, priorizada y segura para el tráfico de telefonía IP (VoIP). Al segmentar el tráfico de voz en una VLAN dedicada, se mejora la calidad del servicio (QoS), se reduce la latencia y se minimizan las interferencias con otros tipos de tráfico de datos.</p>
+                <p>A continuación, se detallan los pasos necesarios para implementar correctamente una VLAN de voz.</p>
+                <div class="blog-image-grande">
+                    <img src="media/voip18.png" alt="">
+                </div>
+                <p>❍ Switch 0</p>
+                <div class="consola">
+                    
+                    <div class="barra-superior-consola">
+                        <div class="grupo-icono-texto">
+                            <img src="../media/cmd.png" alt="Icono" class="icono-cmd">
+                            <span class="texto-cmd">C:\Windows\system32\cmd.exe</span>
+                        </div>
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>Switch (config)# vlan 50
+Switch (config-vlan)# name Voice
+Switch (config-vlan)# vlan 10
+Switch (config-vlan)# name Data
+Switch (config-vlan)# exit
+
+Switch (config)# interface f0/2
+Switch (if-config)# switchport mode access
+Switch (if-config)# switchport access vlan 10
+Switch (if-config)# switchport voice vlan 50
+Switch (if-config)# spanning-tree portfast   ! Habilita PortFast para evitar retardos en el arranque
+
+Switch (config)# interface f0/3
+Switch (if-config)# switchport mode access
+Switch (if-config)# switchport access vlan 10
+Switch (if-config)# switchport voice vlan 50
+Switch (if-config)# spanning-tree portfast   ! Habilita PortFast para evitar retardos en el arranque
+
+Switch (config)# interface f0/1
+Switch (if-config)# switchport trunk native vlan 10
+Switch (if-config)# switchport trunk encapsulation dot1q
+Switch (if-config)# switchport mode trunk
+</code></pre>
+                    </div>
+                </div>
+                <p>❍ Router 0</p>
+                <div class="consola">
+                    
+                    <div class="barra-superior-consola">
+                        <div class="grupo-icono-texto">
+                            <img src="../media/cmd.png" alt="Icono" class="icono-cmd">
+                            <span class="texto-cmd">C:\Windows\system32\cmd.exe</span>
+                        </div>
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>Router (config)# ip dhcp excluded-address 10.10.0.1 10.10.0.10
+Router (config)# ip dhcp excluded-address 10.50.0.1 10.50.0.10
+Router (config)# ip dhcp pool DATA
+Router (dhcp-config)# network 10.10.0.0 255.255.255.0
+Router (dhcp-config)# default-router 10.10.0.1
+Router (dhcp-config)# dns-server 10.10.0.1
+Router (dhcp-config)# exit
+Router (config)# ip dhcp pool VOICE
+Router (dhcp-config)# network 10.50.0.0 255.255.255.0
+Router (dhcp-config)# default-router 10.50.0.1
+Router (dhcp-config)# dns-server 10.50.0.1
+Router (dhcp-config)# option 150 ip 10.50.0.1
+Router (dhcp-config)# exit
+
+Router (config)# interface f0/0.10
+Router (config-subif)# encapsulation dot1q 10
+Router (config-subif)# ip address 10.10.0.1 255.255.255.0
+Router (config-subif)# no shutdown
+Router (config-subif)# exit
+
+Router (config)# interface f0/0.50
+Router (config-subif)# encapsulation dot1q 50
+Router (config-subif)# ip address 10.50.0.1 255.255.255.0
+Router (config-subif)# no shutdown
+Router (config-subif)# exit
+
+Router (config)# tftp-server flash:/P0030702T023.loads alias P0030702T023.loads
+Router (config)# tftp-server flash:/P0030702T023.bin alias P0030702T023.bin
+Router (config)# tftp-server flash:/P0030702T023.sbn alias P0030702T023.sbn
+Router (config)# tftp-server flash:/P0030702T023.sb2 alias P0030702T023.sb2
+
+Router (config)# telephony-service
+Router (config-telephony)# max-ephones 24   ! Número de telefonos IP soportados
+Router (config-telephony)# max-dn 48    ! Número de extensiones soportadas
+Router (config-telephony)# load 7960 P0030702T023 ! Carga el firmware del teléfono IP 7960
+Router (config-telephony)# ip source-address 10.50.0.1 port 2000 ! Dirección IP del router para el tráfico de voz
+Router(config-telephony)# auto assign 1 to 3 ! Asigna automáticamente las extensiones a los teléfonos IP
+Router(config-telephony)# keepalive 100 ! Mantiene la conexión activa con los teléfonos IP
+Router (config-telephony)# create cnf-files    ! Crea los archivos de configuración para los teléfonos IP
+Router (config-telephony)# end
+Router # show telephony-service tftp-bindings ! Verifica que los archivos de configuración se hayan creado correctamente
+Router # show dhcp binding ! Verifica que los teléfonos IP hayan recibido una dirección IP
+Router # show ephone ! Verifica que los teléfonos IP estén registrados correctamente
+
+Router # configure terminal
+Router (config)# ephone-dn 1
+Router (config-ephone-dn)# number 1001
+Router (config-ephone-dn)# exit
+
+Router (config)# ephone-dn 2 dual-line ! Configura una línea dual para el teléfono
+Router (config-ephone-dn)#  number 1002
+Router (config-ephone-dn)# exit
+
+Router (config)# ephone 1
+Router (config-ephone)# mac-address 00E0.FB12.3456 ! Dirección MAC del teléfono IP
+Router (config-ephone)# button 1:1 ! Asocia la extensión 1001 al botón 1 del teléfono
+Router (config-ephone)# exit
+
+Router (config)# ephone 2
+Router (config-ephone)# mac-address 00E0.FB12.3457 ! Dirección MAC del teléfono IP
+Router (config-ephone)# button 1:2 ! Asocia la extensión 1002 al botón 2 del teléfono
+Router (config-ephone)# end
+Router # show ephone
+Router # copy running-config startup-config ! Guarda la configuración en la memoria NVRAM
+</code></pre>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Verificar archivos en la memoria flash (configuración del TFTP).:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="show flash:/" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>❍ NTP</p>
+                <p>El protocolo NTP (Network Time Protocol) es esencial para sincronizar la hora en routers, switches y otros dispositivos de red, lo que facilita la correlación de logs, seguridad (como certificados digitales) y operaciones de red.</p>
+                <div class="consola">
+                    
+                    <div class="barra-superior-consola">
+                        <div class="grupo-icono-texto">
+                            <img src="../media/cmd.png" alt="Icono" class="icono-cmd">
+                            <span class="texto-cmd">C:\Windows\system32\cmd.exe</span>
+                        </div>
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>Router # configure terminal
+Router (config)# ntp server 0.pool.ntp.org  
+Router (config)# ntp server 1.pool.ntp.org  
+Router (config)# clock timezone CST -6      ! Hora estándar de Ciudad de México (UTC-6)
+Router (config)# clock summer-time CDT recurring  ! Horario de verano (UTC-5)
+Router (config)# end
+Router # show ntp associations 
+</code></pre>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Ajustar la hora manualmente (si no hay NTP disponible):
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="clock set 14:30:00 03 APR 2025" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                  </div>
+                  <p>❍ Cisco Call Manager</p>
+                <p>Cisco Call Manager (ahora Cisco Unified Communications Manager o CUCM) es una plataforma de gestión de llamadas IP que permite administrar teléfonos IP, gateways y otros dispositivos VoIP. Para que un usuario pueda conectarse a través de la GUI, es necesario configurarlo correctamente en CUCM.</p>
+                <div class="consola">
+                    
+                    <div class="barra-superior-consola">
+                        <div class="grupo-icono-texto">
+                            <img src="../media/cmd.png" alt="Icono" class="icono-cmd">
+                            <span class="texto-cmd">C:\Windows\system32\cmd.exe</span>
+                        </div>
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <!-- Contenido del código -->
+<pre><code>Router # configure terminal
+Router (config)# interface f0/0
+Router (config-if)# ip address 10.10.0.1 255.255.255.0
+Router (config-if)# no shutdown
+Router (config-if)# exit
+
+Router (config)# username paco privilige 15 secret Cisco1234
+Router (config)# ip http server
+Router (config)# ip http secure-server
+Router (config)# line vty 0 4
+Router (config)# login local
+Router (config)# transport telnet ssh
+
+Router (config)# telephony-service
+Router (config-telephony)# ?    ! Este comando muestra la lista de comandos disponibles
+Router (config-telephony)# end
+Router # show ephone    ! Este comando muestra información sobre los teléfonos IP (ephones) registrados
+</code></pre>
+                    </div>
+                </div>
+                <div class="blog-image-grande">
+                    <img src="media/voip19.jpg" alt="">
+                </div>
+            </div>
+        </div>       
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
