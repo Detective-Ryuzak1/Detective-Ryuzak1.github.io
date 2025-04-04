@@ -208,6 +208,7 @@
                         <ul style="list-style-type: none;">
                             <li>∘ Los switches que reciben la "propuesta" recalculan la topología y ajustan los roles de sus puertos.</li>
                             <li>∘ Envían BPDUs de "acuerdo" para confirmar los cambios.</li>
+                            <li>∘  Los switches vacían las direcciones MAC aprendidas en todos sus puertos, excepto en el puerto donde recibieron la BPDU de cambio de topología. Esto asegura que la tabla de direcciones MAC se actualice rápidamente con la nueva topología.</li>
                         </ul>
                         <li><marcador class="resaltado8">Convergencia Acelerada:</marcador></li>
                         <ul style="list-style-type: none;">
