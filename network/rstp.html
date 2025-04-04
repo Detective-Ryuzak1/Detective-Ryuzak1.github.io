@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="widtd=device-widtd, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <link rel="icon" href="../media/imagen41.png" type="image/png">
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                        <li><a href="../devops.html">DevOps</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Aportar" onclick="window.open('https://buymeacoffee.com/ryuzak1', '_blank');">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <br>
+                <br>
+                <h1>RSTP (Rapid Spanning Tree Protocol)</h1>
+                <p>El protocolo RSTP (Rapid Spanning Tree Protocol) es la evolución del clásico STP (Spanning Tree Protocol), diseñado para prevenir bucles de capa 2 en redes conmutadas. RSTP mejora sustancialmente los tiempos de convergencia y es ampliamente utilizado en redes modernas para garantizar una topología redundante y estable sin sacrificar velocidad.</p>
+                <div class="blog-image-grande">
+                    <img src="media/rstp1.png" alt="">
+                </div>
+                <h2>Características</h2>
+                <p>RSTP está definido por el estándar IEEE 802.1w, publicado como una mejora directa del protocolo IEEE 802.1D (STP original). Aunque su función principal sigue siendo la prevención de bucles, RSTP introduce nuevos mecanismos para detectar cambios en la topología más rápidamente, logrando convergencias en cuestión de milisegundos a segundos, frente a los 30-50 segundos típicos del STP original.</p>
+                <p>Comparativa con STP:</p>
+                <table>
+                    <tr>
+                        <th>Característica</th>
+                        <th>STP (802.1D)</th>
+                        <th>RSTP (802.1w)</th>
+                    </tr>
+                    <tr>
+                        <td>Tiempo de convergencia</td>
+                        <td>~50 seg</td>
+                        <td>1 a 3 seg</td>
+                    </tr>
+                    <tr>
+                        <td>Tipo de puertos</td>
+                        <td>5 (Blocking, Listening, Learning, Forwarding, Disabled)</td>
+                        <td>3 (Discarding, Learning, Forwarding)</td>
+                    </tr>
+                    <tr>
+                        <td>Proceso de elección</td>
+                        <td>Lento</td>
+                        <td>Rápido y dinámico</td>
+                    </tr>
+                    <tr>
+                        <td>Compatibilidad</td>
+                        <td>Amplia</td>
+                        <td>Retrocompatible con STP</td>
+                    </tr>
+                </table>
+                <h2>Funcionamiento</h2>
+                <p>RSTP mantiene la lógica central de un único puente raíz (Root Bridge), al cual todos los switches tratan de llegar mediante la ruta más corta. Sin embargo, redefine algunos roles y estados de los puertos:</p>
+                <p>A continuación se describe el proceso completo que ocurre cuando se forma o se adapta la topología:</p>
+                <h6>Elección del Root Bridge</h6>
+                <p>Cada switch envía BPDUs (Bridge Protocol Data Units) anunciando su Bridge ID, que incluye su prioridad y dirección MAC. El switch con la menor prioridad (y en caso de empate, con la MAC más baja) es elegido como el Root Bridge.</p>
+                <p>Nota: Por defecto, todos los switches tienen una prioridad de 32768, pero se recomienda establecerla manualmente en el switch que desees como Root Bridge.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Cambiar la prioridad de puerto:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="spannig-tree vlan 10 priority 24626" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Configura este switch como el puente raíz primario para la VLAN actual:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="spanning-tree vlan 10 root primary" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>La selección del puente raíz es un proceso crítico para asegurar una topología de red libre de bucles. Este proceso se basa en la comparación de los Bridge IDs (BIDs), que constan de dos componentes principales: la prioridad del puente y la dirección MAC del switch.</p>
+                <ul style="list-style-type: none;">
+                    <li>⋆ <marcador class="resaltado5">Prioridad del Puente (Bridge Priority):</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ Este es el primer factor que se evalúa. La prioridad del puente es un valor configurable que permite a los administradores de red influir en la elección del puente raíz.</li>
+                        <li>∘ Los valores de prioridad son múltiplos de 4096, y el valor predeterminado es 32768.</li>
+                        <li>∘ El switch con el valor de prioridad más bajo se convierte en el puente raíz.</li>
+                        <li>∘ Si varios switches tienen la misma prioridad, se pasa al siguiente factor.</li>
+                    </ul>
+                    <li>⋆ <marcador class="resaltado5">Dirección MAC del Switch (MAC Address):</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ Si hay un empate en la prioridad del puente, se utiliza la dirección MAC del switch como criterio de desempate.</li>
+                        <li>∘ La dirección MAC es un identificador único de 48 bits asignado a cada interfaz de red.</li>
+                        <li>∘ El switch con la dirección MAC más baja se convierte en el puente raíz.</li>
+                    </ul>
+                </ul>
+                <br>
+                <p>En el proceso de selección del puente raíz , los switches intercambian BPDUs, que contienen sus identificadores de puente (BIDs). Primero, se compara la prioridad configurada en cada switch, seleccionándose como puente raíz aquel con la prioridad más baja. En caso de empate, es decir, cuando dos o más switches tienen la misma prioridad, se utiliza como criterio de desempate la dirección MAC: el switch con la dirección MAC más baja será elegido finalmente como puente raíz. Este mecanismo garantiza una selección determinista y evita conflictos en la topología de red.</p>
+                <p>En el proceso de determinación de la topología STP/RSTP, además de la selección del puente raíz, intervienen otros factores clave. El costo de la ruta (Path Cost) juega un papel fundamental al definir los puertos raíz y designados, aunque no influye en la elección inicial del puente raíz. Este valor se calcula en función de la velocidad del enlace, asignando costos más bajos a conexiones más rápidas para priorizarlas en la topología. Cuando se presentan empates en el costo de ruta, el protocolo recurre al ID del puerto como criterio de desempate, utilizando esta información para seleccionar definitivamente cuál puerto actuará como puerto raíz o designado. Estos mecanismos adicionales garantizan una configuración óptima y eficiente de la red, evitando bucles y asegurando la mejor ruta posible para el tráfico de datos.</p>
+                <p>La configuración de la prioridad del puente resulta fundamental en el diseño de redes con STP/RSTP, ya que permite a los administradores ejercer un control determinante sobre la selección del puente raíz. Al asignar manualmente prioridades más bajas a switches estratégicos (generalmente los más robustos o centrales), los profesionales de red pueden garantizar que estos dispositivos sean elegidos como raíz, optimizando así el flujo del tráfico y manteniendo una topología predecible.</p>
+                <div class="blog-image">
+                    <img src="media/rstp2.png" alt="">
+                </div>
+                <h6>Elección de puertos</h6>
+                <p>Una vez elegido el Root Bridge, cada switch debe determinar cuál de sus puertos es el mejor camino hacia él. Se calculan los costes de camino (path cost), dependiendo de la velocidad del enlace:</p>
+                <table>
+                    <tr>
+                        <th>Velocidad del enlace</th>
+                        <th>Costo (802.1t estándar)</th>
+                    </tr>
+                    <tr>
+                        <td>10 Mbps</td>
+                        <td>2,000,000</td>
+                    </tr>
+                    <tr>
+                        <td>100 Mbps</td>
+                        <td>200,000</td>
+                    </tr>
+                    <tr>
+                        <td>1 Gbps</td>
+                        <td>20,000</td>
+                    </tr>
+                    <tr>
+                        <td>10 Gbps</td>
+                        <td>2,000</td>
+                    </tr>
+                </table>
+                <ol style="list-style-type: none;">
+                    <li>𖦹 <marcador class="resaltado9">Roles de los puertos:</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">Root Port (RP): </marcador>Es el puerto con el menor coste acumulado hacia el Root Bridge. Cada switch (excepto el root) tiene uno.</li>
+                        <li>∘ <marcador class="resaltado8">Designated Port (DP): </marcador>Es el puerto que ofrece la mejor ruta hacia un segmento de red. Puede haber varios por switch.</li>
+                        <li>∘ <marcador class="resaltado8">Alternate Port: </marcador>Es un puerto que recibe BPDUs pero no es el mejor camino. Está listo para activarse si falla el Root Port.</li>
+                        <li>∘ <marcador class="resaltado8">Backup Port: </marcador>Es una copia de un Designated Port dentro del mismo switch y segmento. Solo se usa en configuraciones muy específicas.</li>
+                    </ul>
+                    <br>
+                    <p>A diferencia de STP, que pasa por múltiples estados (Blocking → Listening → Learning → Forwarding), RSTP simplifica esto en solo tres estados funcionales:</p>
+                    <li>𖦹 <marcador class="resaltado9">Estados de los puertos:</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">Discarding: </marcador>El puerto bloquea el tráfico de datos, aunque puede seguir escuchando BPDUs. Es un estado seguro usado para evitar bucles (equivale a Blocking y Listening en STP).</li>
+                        <li>∘ <marcador class="resaltado8">Learning: </marcador>Aprende direcciones MAC, pero aún no reenvía tráfico.</li>
+                        <li>∘ <marcador class="resaltado8">Forwarding: </marcador>El puerto reenvía tráfico de datos y continúa aprendiendo direcciones MAC.</li>
+                    </ul>
+                </ol>
+                <div class="blog-image">
+                    <img src="media/rstp3.png" alt="">
+                </div>
+                <h6>Convergencia rápida</h6>
+                <p>El protocolo RSTP (Rapid Spanning Tree Protocol) introduce un mecanismo de "propuesta/acuerdo" para lograr una convergencia más rápida en comparación con el protocolo STP (Spanning Tree Protocol) original. Este mecanismo permite a los switches negociar rápidamente los roles de los puertos y establecer una topología libre de bucles.</p>
+                <ul style="list-style-type: none;">
+                    <li>⋆ <marcador class="resaltado5">Inicio de la Convergencia:</marcador></li>
+                    <ol>
+                        <li><marcador class="resaltado8">Detección del Puente Raíz:</marcador></li>
+                        <ul style="list-style-type: none;">
+                            <li>∘ Al encenderse los switches, cada uno asume inicialmente que es el puente raíz.</li>
+                            <li>∘ Intercambian BPDUs para determinar cuál tiene la mejor ID de puente raíz.</li>
+                            <li>∘ El switch con la ID de puente raíz más baja se convierte en el puente raíz.</li>
+                        </ul>
+                        <li><marcador class="resaltado8">Propuesta:</marcador></li>
+                        <ul style="list-style-type: none;">
+                            <li>∘ El puente raíz envía BPDUs de "propuesta" a sus puertos designados.</li>
+                            <li>∘ Estos BPDUs indican que el puente raíz propone que los puertos receptores se conviertan en puertos raíz o puertos designados.</li>
+                        </ul>
+                        <li><marcador class="resaltado8">Acuerdo:</marcador></li>
+                        <ul style="list-style-type: none;">
+                            <li>∘ Los switches que reciben la "propuesta" evalúan si pueden aceptar la propuesta.</li>
+                            <li>∘ Si aceptan, envían BPDUs de "acuerdo" de vuelta al puente raíz.</li>
+                            <li>∘ Este proceso se repite en toda la red, con cada switch pasando la "propuesta" a sus vecinos y recibiendo "acuerdos".</li>
+                        </ul>
+                        <li><marcador class="resaltado8">Convergencia Rápida:</marcador></li>
+                        <ul style="list-style-type: none;">
+                            <li>∘ Este intercambio de "propuestas" y "acuerdos" permite que la red converja rápidamente, ya que los switches no tienen que esperar a que expiren los temporizadores como en STP.</li>
+                        </ul>
+                    </ol>
+                    <li>⋆ <marcador class="resaltado5">Cambios en la Topología:</marcador></li>
+                    <ol>
+                        <li><marcador class="resaltado8">Detección del Cambio:</marcador></li>
+                        <ul style="list-style-type: none;">
+                            <li>∘ Cuando ocurre un cambio en la topología (por ejemplo, falla un enlace), los switches detectan el cambio inmediatamente.</li>
+                        </ul>
+                        <li><marcador class="resaltado8">Propagación del Cambio:</marcador></li>
+                        <ul style="list-style-type: none;">
+                            <li>∘ El switch que detecta el cambio envía BPDUs de "propuesta" a sus vecinos.</li>
+                            <li>∘ Estos BPDUs informan a los vecinos sobre el cambio en la topología.</li>
+                        </ul>
+                        <li><marcador class="resaltado8">Recálculo de la Topología:</marcador></li>
+                        <ul style="list-style-type: none;">
+                            <li>∘ Los switches que reciben la "propuesta" recalculan la topología y ajustan los roles de sus puertos.</li>
+                            <li>∘ Envían BPDUs de "acuerdo" para confirmar los cambios.</li>
+                        </ul>
+                        <li><marcador class="resaltado8">Convergencia Acelerada:</marcador></li>
+                        <ul style="list-style-type: none;">
+                            <li>∘ El proceso de "propuesta/acuerdo" permite que la red se adapte rápidamente al cambio, minimizando el tiempo de inactividad.</li>
+                        </ul>
+                    </ol>
+                </ul>
+                <br>
+                <p>El RSTP (Rapid Spanning Tree Protocol) puede lograr una convergencia en tan solo 1 o 2 segundos, e incluso en entornos óptimos alcanzar tiempos inferiores a los 500 milisegundos (0.5 segundos). Esto representa una mejora drástica frente al STP tradicional (Spanning Tree Protocol), que requiere entre 30 y 50 segundos para converger tras un cambio en la topología. La rápida recuperación del RSTP lo convierte en la solución ideal para redes modernas donde la alta disponibilidad y la mínima interrupción del servicio son críticas, especialmente en entornos con VoIP, videoconferencia o transmisión de datos en tiempo real.</p>
+                <div class="blog-image-grande">
+                    <img src="media/rspt5.png" alt="">
+                </div>
+                <p>La principal diferencia entre las BPDUs de STP y RSTP se manifiesta en tres aspectos clave. En primer lugar, en el campo de versión del encabezado, STP utiliza la versión 0 en el Protocol Identifier, mientras que RSTP emplea la versión 2, la cual es compartida también por MSTP. En segundo lugar, las flags o banderas presentan diferencias significativas. STP solo hace uso de 2 bits, los cuales corresponden a Topology Change (bit 7) y Topology Change Acknowledgment (bit 0). En contraste, RSTP utiliza los 8 bits disponibles en la BPDU para incluir funciones avanzadas. Dentro de estos, los bits 4 y 5 indican el rol del puerto, donde 00 representa un estado desconocido, 01 indica un puerto Alternate o Backup, 10 representa un Root Port, y 11 corresponde a un Designated Port. Además, el bit 6 se emplea para Proposal, permitiendo la sincronización rápida de los switches, mientras que los bits 3 y 2 indican si el puerto está en estado de aprendizaje (Learning) o de reenvío (Forwarding). El bit 1 es utilizado para el Agreement, lo que facilita la transición rápida de los puertos, y finalmente, los bits 7 y 0 siguen manteniendo la función de Topology Change y TC Acknowledgment, respectivamente.</p>
+                <p>El tercer aspecto clave es el manejo del tiempo de vida de los mensajes (Message Age). En STP, la convergencia de la red depende de temporizadores fijos, como el Forward Delay y el Max Age, lo que puede generar tiempos de respuesta más lentos ante cambios en la topología. Por otro lado, RSTP generalmente ignora estos temporizadores al utilizar un mecanismo de negociación basado en handshakes con los bits Proposal y Agreement, lo que permite alcanzar una convergencia mucho más rápida y eficiente en la red.</p>
+                <div class="blog-image-grande">
+                    <img src="media/rstp4.png" alt="">
+                </div>
+                <h2>Optimización del rendimiento</h2>
+                <p>Para optimizar el comportamiento de RSTP y evitar que enlaces innecesarios ralenticen el proceso de convergencia, se pueden implementar las siguientes buenas prácticas:</p>
+                <p>∘ <marcador class="resaltado8">Habilitar PortFast en enlaces a dispositivos finales.</marcador></p>
+                <p>Las interfaces que se conectan a hosts, impresoras, PCs o teléfonos IP no forman parte del camino redundante, por lo tanto, no deberían participar en RSTP. Para esto, se activa el modo PortFast, que pone el puerto en estado Forwarding inmediatamente:</p>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <div class="grupo-icono-texto">
+                            <img src="../media/cmd.png" alt="Icono" class="icono-cmd">
+                            <span class="texto-cmd">C:\Windows\system32\cmd.exe</span>
+                        </div>
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+        <pre><code>Switch(config)# interface range f0/1 - 24
+Switch(config-if-range)# spanning-tree portfast</code></pre>
+                    </div>
+                </div>
+                <p>∘ <marcador class="resaltado8">Desactivar STP en puertos innecesarios.</marcador></p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Si hay interfaces aisladas o fuera de producción, puedes desactivar RSTP con:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="spanning-tree bpdufilter enable" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Esto debe hacerse solo si estás completamente seguro de que ese enlace nunca será parte de un bucle, ya que podrías comprometer la seguridad de la red.</p>
+                <p>∘ <marcador class="resaltado8">Usar BPDU Guard en puertos con PortFast.</marcador></p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Previene que dispositivos no autorizados participen en STP/RSTP:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="spanning-tree bpduguard enable" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>∘ <marcador class="resaltado8">Loop Guard para prevenir bucles por fallos unidireccionales.</marcador></p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Previene la creación de bucles causados por fallos unidireccionales:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="spanning-tree loopguard default" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>El Loop Guard opera exclusivamente en puertos con rol Root o Alternate, protegiendo contra bucles cuando estos dejan de recibir BPDUs debido a fallas o configuraciones erróneas. </p>
+                <div class="blog-image-grande">
+                    <img src="media/rstp7.png" alt="">
+                </div>
+                <h2>Configuración</h2>
+                <p>En el análisis de la topología mostrada en la imagen, se observan varios elementos clave del protocolo spanning tree. El "Root Bridge" se identifica como el switch con la prioridad más baja, cuyos puertos son todos designados (DP). Los puertos raíz (RP), claramente marcados en la imagen, representan los caminos óptimos hacia el puente raíz desde cada switch. Los puertos designados (DP), también señalados, son los encargados de reenviar el tráfico en sus respectivos segmentos de red. Particularmente importante es el puerto alternativo (AP) en el "Switch 2", que permanece bloqueado para prevenir bucles. La imagen muestra específicamente una falla en el enlace entre el "Root Bridge" y el "Switch 2", situación que activará el mecanismo de recuperación haciendo que el puerto AP en "Switch 2" transite al estado de reenvío para restaurar la conectividad, demostrando así la resiliencia del protocolo ante fallos de enlace.</p>
+                <div class="blog-image-grande">
+                    <img src="media/rstp8.png" alt="">
+                </div>
+                <p>Los puertos etiquetados como "0" en cada switch están destinados a la conexión con hosts o dispositivos finales, mientras que los puertos "1" y "2" se utilizan para las interconexiones entre switches.</p>
+                <h5>Cisco</h5>
+                <p>❍ Switch Root</p>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <div class="grupo-icono-texto">
+                            <img src="../media/cmd.png" alt="Icono" class="icono-cmd">
+                            <span class="texto-cmd">C:\Windows\system32\cmd.exe</span>
+                        </div>
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+        <pre><code>SWRoot (config)# vlan 50
+SWRoot (config-vlan)# name IT
+SWRoot (config-vlan)# exit
+
+SWRoot (config)# interface e0/2
+SWRoot (config-if)# switchport mode access
+SWRoot (config-if)# switchport access vlan 50
+SWRoot (config-if)# spannig-tree portfast
+SWRoot(config-if)# spanning-tree bpduguard enable
+SWRoot (config-if)# exit
+
+SWRoot (config)# interface range e0/0 - 1
+SWRoot (config-if)# switchport trunk encapsulation dot1q
+SWRoot (config-if)# switchport mode trunk
+SWRoot (config-if)# spanning-tree port-priority 16
+SWRoot (config-if)# exit
+
+
+SWRoot (config)# spanning-tree mode rapid-pvst
+SWRoot (config)# spanning-tree vlan 50 root primary</code></pre>
+                    </div>
+                </div>
+                <p>❍ Switch 1</p>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <div class="grupo-icono-texto">
+                            <img src="../media/cmd.png" alt="Icono" class="icono-cmd">
+                            <span class="texto-cmd">C:\Windows\system32\cmd.exe</span>
+                        </div>
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+        <pre><code>SW1 (config)# vlan 50
+SW1 (config-vlan)# name IT
+SW1 (config-vlan)# exit
+
+SW1 (config)# interface e0/2
+SW1 (config-if)# switchport mode access
+SW1 (config-if)# switchport access vlan 50
+SW1 (config-if)# spannig-tree portfast
+SW1 (config-if)# spanning-tree bpduguard enable
+SW1 (config-if)# exit
+
+SW1 (config)# interface range e0/0 - 1
+SW1 (config-if)# switchport trunk encapsulation dot1q
+SW1 (config-if)# switchport mode trunk
+SW1(config-if)# spanning-tree port-priority 32
+SW1 (config-if)# exit
+SW1 (config)# interface e0/1
+SW1 (config-if)# spanning-tree loopguard enable     ! Root port
+SW1 (config-if)# exit
+
+SW1 (config)# spanning-tree mode rapid-pvst
+SW1 (config)# spanning-tree vlan 50 root secondary</code></pre>
+                    </div>
+                </div>
+                <p>❍ Switch 2</p>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <div class="grupo-icono-texto">
+                            <img src="../media/cmd.png" alt="Icono" class="icono-cmd">
+                            <span class="texto-cmd">C:\Windows\system32\cmd.exe</span>
+                        </div>
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+        <pre><code>SW2 (config)# vlan 50
+SW2 (config-vlan)# name IT
+SW2 (config-vlan)# exit
+
+SW2 (config)# interface e0/2
+SW2 (config-if)# switchport mode access
+SW2 (config-if)# switchport access vlan 50
+SW2 (config-if)# spannig-tree portfast
+SW2 (config-if)# spanning-tree bpduguard enable
+SW2 (config-if)# exit
+
+SW2 (config)# interface range e0/0 - 1
+SW2 (config-if)# switchport trunk encapsulation dot1q
+SW2 (config-if)# switchport mode trunk
+SW2 (config-if)# spanning-tree loopguard enable    ! Alternate port y Root port
+SW2(config-if)# spanning-tree port-priority 48
+SW2 (config-if)# exit
+
+SW2 (config)# spanning-tree mode rapid-pvst</code></pre>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Muestra el estado actual del Spanning Tree:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="show spanning-tree" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Muestra el estado del Spanning Tree para la VLAN 50:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="show spanning-tree vlan 50" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Muestra información detallada sobre el Spanning Tree:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="show spanning-tree detail" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>               
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Muestra información sobre la interfaz f0/1 en el Spanning Tree:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="show spanning-tree interface f0/1" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <h5>Huawei</h5>
+                <p>❍ Switch Root</p>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <div class="grupo-icono-texto">
+                            <img src="../media/cmd.png" alt="Icono" class="icono-cmd">
+                            <span class="texto-cmd">C:\Windows\system32\cmd.exe</span>
+                        </div>
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                <pre><code>[SWRoot] sys
+[SWRoot] vlan batch 50
+[SWRoot] interface GigabitEthernet0/0/2
+[SWRoot-GigabitEthernet0/0/2] port link-type access
+[SWRoot-GigabitEthernet0/0/2] port default vlan 50
+[SWRoot-GigabitEthernet0/0/2] stp edged-port enable
+[SWRoot-GigabitEthernet0/0/2] stp bpdu-protection enable
+[SWRoot-GigabitEthernet0/0/2] quit
+
+[SWRoot] interface range GigabitEthernet0/0/0 to GigabitEthernet0/0/1
+[SWRoot-if-range] port link-type trunk
+[SWRoot-if-range] port trunk allow-pass vlan 50
+[SWRoot-if-range] stp port priority 16
+[SWRoot-if-range] quit
+
+[SWRoot] stp mode rstp
+[SWRoot] stp vlan 50 root primary</code></pre>
+                    </div>
+                </div>
+                <p>loopguard solo se aplica en puertos root y alternate.</p>
+                <p>❍ Switch 1</p>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <div class="grupo-icono-texto">
+                            <img src="../media/cmd.png" alt="Icono" class="icono-cmd">
+                            <span class="texto-cmd">C:\Windows\system32\cmd.exe</span>
+                        </div>
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                <pre><code>[SW1] sys
+[SW1] vlan batch 50
+[SW1] interface GigabitEthernet0/0/2
+[SW1-GigabitEthernet0/0/2] port link-type access
+[SW1-GigabitEthernet0/0/2] port default vlan 50
+[SW1-GigabitEthernet0/0/2] stp edged-port enable
+[SW1-GigabitEthernet0/0/2] stp bpdu-protection enable
+[SW1-GigabitEthernet0/0/2] quit
+
+[SW1] interface range GigabitEthernet0/0/0 to GigabitEthernet0/0/1
+[SW1-if-range] port link-type trunk
+[SW1-if-range] port trunk allow-pass vlan 50
+[SW1-if-range] stp port priority 32
+[SW1-if-range] quit
+
+[SW1] interface GigabitEthernet0/0/1
+[SW1-GigabitEthernet0/0/1] stp loop-protection enable  ! Root port
+[SW1-GigabitEthernet0/0/1] quit
+
+[SW1] stp mode rstp
+[SW1] stp vlan 50 root secondary</code></pre>
+                    </div>
+                </div>
+                <p>❍ Switch 2</p>
+                <div class="consola">
+                    <div class="barra-superior-consola">
+                        <div class="grupo-icono-texto">
+                            <img src="../media/cmd.png" alt="Icono" class="icono-cmd">
+                            <span class="texto-cmd">C:\Windows\system32\cmd.exe</span>
+                        </div>
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                <pre><code>[SW2] sys
+[SW2] vlan batch 50
+[SW2] interface GigabitEthernet0/0/2
+[SW2-GigabitEthernet0/0/2] port link-type access
+[SW2-GigabitEthernet0/0/2] port default vlan 50
+[SW2-GigabitEthernet0/0/2] stp edged-port enable
+[SW2-GigabitEthernet0/0/2] stp bpdu-protection enable
+[SW2-GigabitEthernet0/0/2] quit
+
+[SW2] interface range GigabitEthernet0/0/0 to GigabitEthernet0/0/1
+[SW2-if-range] port link-type trunk
+[SW2-if-range] port trunk allow-pass vlan 50
+[SW2-if-range] stp loop-protection enable   ! Alternate port y Root port
+[SW2-if-range] stp port priority 48   
+[SW2-if-range] quit
+
+[SW2] stp mode rstp</code></pre>
+                    </div>
+                </div>
+
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Muestra el estado actual del Spanning Tree:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="display stp" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Muestra el estado del Spanning Tree para la VLAN 50:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="display stp vlan 50" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Muestra información detallada sobre el Spanning Tree:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="display stp brief" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>               
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Muestra información sobre la interfaz GigabitEthernet0/0/1 en el Spanning Tree:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="display stp interface GigabitEthernet0/0/1" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="blog-image-grande">
+                    <img src="media/rstp9.jpeg" alt="">
+                </div>
+            </div>
+        </div>       
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>

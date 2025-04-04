@@ -68,7 +68,7 @@
                 <p>En VoIP, los enlaces E1 se utilizan principalmente con Gateways VoIP, dispositivos que convierten la señal de telefonía digital (TDM) en paquetes de datos IP para que pueda ser transportada por redes VoIP. Estos gateways pueden estar conectados a una PBX tradicional o directamente a la red pública PSTN.</p>
                 <h6>Funcionamiento</h6>
                 <ol>
-                    <li>𖦹 <marcador class="resaltado9">Estructura del E1:</marcador></li>
+                    <li><marcador class="resaltado9">Estructura del E1:</marcador></li>
                     <ul style="list-style-type: none;">
                         <li>∘ Un E1 tiene 2.048 Mbps de ancho de banda y se divide en 32 canales de 64 kbps cada uno.</li>
                         <li>∘ <marcador class="resaltado8">Canales de voz: </marcador>30 canales (timeslots 1-15 y 17-31) se usan para llamadas de voz.</li>
@@ -76,13 +76,13 @@
                         <p>Esto significa que el TS16 lleva información sobre el estado de las llamadas (descolgado, marcado, etc.) para los otros canales.</p>
                         <li>∘ <marcador class="resaltado8">Canal de sincronización: </marcador>1 canal (TS0) para sincronización.</li>
                     </ul>
-                    <li>𖦹 <marcador class="resaltado9">Conversión a VoIP:</marcador></li>
+                    <li><marcador class="resaltado9">Conversión a VoIP:</marcador></li>
                     <ul style="list-style-type: none;">
                         <li>∘ El gateway VoIP toma las señales digitales del E1 y las convierte en paquetes de voz (RTP).</li>
                         <li>∘ Usa protocolos como SIP o H.323 para señalización y control de llamadas.</li>
                         <li>∘ La compresión de audio puede usar códecs como G.711, G.729 o Opus.</li>
                     </ul>
-                    <li>𖦹 <marcador class="resaltado9">Interoperabilidad:</marcador></li>
+                    <li><marcador class="resaltado9">Interoperabilidad:</marcador></li>
                     <ul style="list-style-type: none;">
                         <li>∘ Un PBX tradicional usa un E1 para conectar con una PSTN, pero al integrar un Gateway VoIP, puede comunicarse con redes IP sin cambiar toda su infraestructura.</li>
                         <li>∘ En empresas, un PBX IP puede conectarse a una red PSTN mediante un E1 SIP Gateway, permitiendo llamadas a teléfonos convencionales.</li>
@@ -411,7 +411,7 @@ Router # copy running-config startup-config ! Guarda la configuración en la mem
                 </div>
                 <div class="contenedor">
                     <div class="etiqueta">
-                        Verificar archivos en la memoria flash (configuración del TFTP).:
+                        Verificar archivos en la memoria flash (configuración del TFTP):
                     </div>
                     <div class="comandos">
                         <input type="text" class="text" value="show flash:/" oninput="ajustarAncho(this)">
