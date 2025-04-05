@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <link rel="icon" href="../media/imagen41.png" type="image/png">
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                        <li><a href="../devops.html">DevOps</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Aportar" onclick="window.open('https://buymeacoffee.com/ryuzak1', '_blank');">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <br>
+                <br>
+                <h1>Ansible</h1>
+                <p>Ansible es una potente herramienta de automatización de código abierto que simplifica la gestión de configuraciones, la implementación de aplicaciones y la orquestación de tareas en entornos informáticos. A diferencia de otras herramientas similares, Ansible opera sin necesidad de instalar agentes en los sistemas que administra, lo que reduce la complejidad y el mantenimiento.</p>
+                <p>Su funcionamiento se basa en la creación de "playbooks", archivos escritos en YAML que describen el estado deseado de los sistemas y las tareas a realizar. Ansible se conecta a los servidores a través de SSH (en sistemas Linux/Unix) o WinRM (en Windows) y ejecuta los módulos definidos en los playbooks para lograr la configuración deseada. Esta arquitectura sin agentes y su lenguaje declarativo hacen de Ansible una herramienta versátil y fácil de usar para automatizar una amplia gama de tareas de TI.</p>
+                <div class="blog-image-grande">
+                    <img src="media/ansible1.png" alt="">
+                </div>
+                <h2>¿Para qué sirve?</h2>
+                <p>Ansible se usa para automatizar:</p>
+                <ul  style="list-style-type: none;">
+                    <li>🎮 Configuración de servidores (como instalar paquetes o cambiar archivos de configuración).</li>
+                    <li>🎮 Despliegue de aplicaciones.</li>
+                    <li>🎮 Orquestación de tareas entre múltiples sistemas.</li>
+                    <li>🎮 Gestión de usuarios, servicios y actualizaciones.</li>
+                    <li>🎮 Integración con la nube (AWS, GCP, Azure, etc).</li>
+                </ul>
+                <p>Todo esto a través de playbooks escritos en YAML, lo que lo hace muy legible y fácil de versionar.</p>
+                <div class="blog-image-grande">
+                    <img src="media/ansible2.png" alt="">
+                </div>
+                <h2>Arquitectura</h2>
+                <p>Ansible, una herramienta de automatización de código abierto, destaca por su modelo push sin agentes, donde un nodo de control se conecta vía SSH a los hosts definidos en un inventario para ejecutar tareas, lo que simplifica la gestión al eliminar la necesidad de instalar software en los nodos remotos. A pesar de su simplicidad, Ansible cuenta con una arquitectura robusta, compuesta por componentes esenciales que trabajan conjuntamente para permitir la automatización eficiente y segura de diversas tareas en entornos informáticos.</p>
+                <h6>Nodo de Control (Control Node)</h6>
+                <p>Este es el punto central desde donde se ejecutan todos los comandos y playbooks. Es la máquina que tiene Ansible instalado y desde la cual se orquesta todo. Puede ser una laptop, servidor o contenedor, siempre que tenga acceso SSH a los nodos gestionados.</p>
+                <ul  style="list-style-type: none;">
+                    <li>◈ No requiere instalar software en los destinos.</li>
+                    <li>◈ Es donde escribes y ejecutas tus playbooks.</li>
+                    <li>◈ Solo un nodo de control es necesario para manejar cientos o miles de hosts.</li>
+                </ul>
+                <div class="blog-image">
+                    <img src="media/ansible3.avif" alt="">
+                </div>
+                <h6>Inventario (Inventory)</h6>
+                <p>El inventario es un archivo que define los hosts o grupos de hosts sobre los cuales Ansible va a ejecutar tareas. Puede ser estático (archivo INI o YAML) o dinámico (generado desde scripts o nubes como AWS, GCP, Azure).</p>
+                <p>⌭ Ejemplo:</p>
+                <div class="archivo">
+[webservers]
+192.168.1.10
+192.168.1.11
+
+[db]
+dbserver ansible_host=192.168.1.20
+                </div>
+                <p>Ansible usa esta información para conectarse a los hosts usando SSH, y para aplicar tareas en grupos específicos.</p>
+                <div class="blog-image-grande">
+                    <img src="media/ansible4.png" alt="">
+                </div>
+                <h6>Playbooks</h6>
+                <p>Los playbooks son archivos escritos en YAML que definen qué tareas deben ejecutarse en qué hosts. Representan el corazón de la automatización en Ansible, y permiten definir flujos de trabajo complejos de manera ordenada y legible.</p>
+                <p>Cada playbook contiene:</p>
+                <ul  style="list-style-type: none;">
+                    <li>◈ Un grupo de hosts.</li>
+                    <li>◈ Privilegios (como become: true para sudo).</li>
+                    <li>◈ Una lista ordenada de tareas.</li>
+                    <li>◈ Variables y condicionales.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/ansible5.png" alt="">
+                </div>
+                <div class="blog-image-grande">
+                    <img src="media/ansible6.png" alt="">
+                </div>
+                <h6>Módulos</h6>
+                <p>Los módulos son unidades de trabajo reutilizables que ejecutan tareas específicas, como instalar paquetes, copiar archivos, crear usuarios, reiniciar servicios, etc. Ansible tiene cientos de módulos integrados, y puedes crear los tuyos propios.</p>
+                <p>Ejemplos de módulos comunes:</p>
+                <ul  style="list-style-type: none;">
+                    <li>◈ <marcador class="subrayado">apt</marcador>, <marcador class="subrayado">yum</marcador>, <marcador class="subrayado">dnf</marcador> → Instalación de paquetes.</li>
+                    <li>◈ <marcador class="subrayado">copy</marcador>, <marcador class="subrayado">template</marcador> → Archivos.</li>
+                    <li>◈ <marcador class="subrayado">user</marcador>, <marcador class="subrayado">group</marcador> → Gestión de usuarios.</li>
+                    <li>◈ <marcador class="subrayado">service</marcador> → Control de servicios.</li>
+                </ul>
+
+                <p>Se ejecutan en los hosts remotos y son idempotentes: si algo ya está hecho, no se vuelve a aplicar.</p>
+                <br>
+                <p>La documentación oficial de <a href="https://docs.ansible.com/ansible/2.9/modules/list_of_all_modules.html" target="blank">Ansible</a>, es la fuente principal para obtener información detallada sobre los módulos disponibles, incluyendo descripciones exhaustivas y ejemplos prácticos de uso.</p>
+                <p>También puedes utilizar el comando <marcador class="subrayado">ansible-doc</marcador> en tu línea de comandos para obtener información sobre los módulos disponibles.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Comando ansible-doc para listar todos los módulos disponibles:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="ansible-doc -l" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>  
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Comando ansible-doc para obtener información de un módulo específico:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="ansible-doc <nombre_del_módulo>" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="blog-image-zoom">
+                    <img src="media/ansible7.png" alt="">
+                </div>
+                <h6>Roles</h6>
+                <p>En Ansible, los roles son una forma estructurada y reutilizable de organizar código. Permiten dividir una automatización compleja en piezas pequeñas, modulares y fáciles de mantener. Cada rol se encarga de una funcionalidad específica (como instalar Apache, configurar un firewall o gestionar usuarios).</p>
+                <p>Se usan principalmente para:</p>
+                <ul  style="list-style-type: none;">
+                    <li>◈ Modularizar proyectos grandes.</li>
+                    <li>◈ Reutilizar código entre diferentes playbooks.</li>
+                    <li>◈ Establecer una convención estándar de carpetas.</li>
+                </ul>
+                <p>Cuando usas un rol, Ansible carga automáticamente sus tareas, archivos, variables, templates y handlers.</p>
+                <p>⌭ Estructura de un rol:</p>
+                <div class="archivo">
+roles/
+└── nombre_del_rol/
+    ├── defaults/      → Variables por defecto (más débiles)
+    │   └── main.yml
+    ├── vars/          → Variables fuertes (sobrescriben a defaults)
+    │   └── main.yml
+    ├── files/         → Archivos que se copian tal cual
+    ├── templates/     → Archivos .j2 que usan variables
+    ├── tasks/         → Lista principal de tareas
+    │   └── main.yml
+    ├── handlers/      → Acciones que se ejecutan tras cambios (ej: reiniciar)
+    ├── meta/          → Dependencias con otros roles
+    └── README.md      → Documentación del rol
+                </div>
+                <p>Los roles más comunes o recomendados al diseñar infraestructuras automatizadas son:</p>
+                <ul style="list-style-type: none;">
+                    <li>◬ <marcador class="resaltado2">Roles de sistema operativo</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">os_hardening: </marcador>seguridad del sistema.</li>
+                        <li>∘ <marcador class="resaltado8">common: </marcador>ajustes básicos como timezone, idioma, hostname, usuarios.</li>
+                    </ul>
+                    <li>◬ <marcador class="resaltado2">Roles de red y conectividad</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">firewall: </marcador>gestión de reglas iptables o firewalld.</li>
+                        <li>∘ <marcador class="resaltado8">dns_client: </marcador>configurar DNS y resolv.conf.</li>
+                        <li>∘ <marcador class="resaltado8">ntp: </marcador>sincronización horaria.</li>
+                    </ul>
+                    <li>◬ <marcador class="resaltado2">Roles de herramientas</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">docker: </marcador>instalación y configuración del engine.</li>
+                        <li>∘ <marcador class="resaltado8">kubernetes: </marcador>instalación del clúster.</li>
+                        <li>∘ <marcador class="resaltado8">monitoring: </marcador>configuración de Prometheus, Grafana, etc.</li>
+                    </ul>
+                    <li>◬ <marcador class="resaltado2">Roles de aplicaciones</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">nginx, apache, haproxy: </marcador>servidores web o balanceadores.</li>
+                        <li>∘ <marcador class="resaltado8">mysql, postgres, mongodb: </marcador>bases de datos.</li>
+                        <li>∘ <marcador class="resaltado8">app_deploy: </marcador>despliegue de aplicaciones personalizadas.</li>
+                    </ul>
+                    <li>◬ <marcador class="resaltado2">Roles de seguridad</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">fail2ban: </marcador>protección contra fuerza bruta.</li>
+                        <li>∘ <marcador class="resaltado8">ssh_hardening: </marcador>políticas de acceso remoto.</li>
+                        <li>∘ <marcador class="resaltado8">users: </marcador>crear y gestionar usuarios seguros.</li>
+                    </ul>
+                </ul>
+                <br>
+                <p>La arquitectura de Ansible, basada en roles, promueve una clara separación de responsabilidades, lo que resulta en un código más limpio y fácil de mantener. Esta modularidad facilita la reutilización de configuraciones entre distintos proyectos o entornos, optimizando el tiempo y el esfuerzo invertido en la automatización. Además, Ansible Galaxy permite compartir estos roles con otros equipos o incluso con la comunidad global, fomentando la colaboración y la adopción de mejores prácticas.</p>
+                <h6>Plugins</h6>
+                <p>Ansible tiene plugins para extender funcionalidades. Algunos tipos son:</p>
+                <ul style="list-style-type: none;">
+                    <li>▱ <marcador class="resaltado3">Connection Plugins: </marcador>controlan cómo Ansible se conecta a los hosts (ej. ssh, local, paramiko).</li>
+                    <li>▱ <marcador class="resaltado3">Callback Plugins: </marcador>definen cómo se muestra la salida (por ejemplo, en JSON o en formato legible).</li>
+                    <li>▱ <marcador class="resaltado3">Lookup Plugins: </marcador>permiten acceder a datos externos, como contraseñas o inventarios dinámicos.</li>
+                </ul>
+                <div class="blog-image-zoom">
+                    <img src="media/ansible9.png" alt="">
+                </div>
+                <h6>Ansible Vault</h6>
+                <p>Aunque no es obligatorio, ansible-vault permite encriptar archivos sensibles como contraseñas, claves o tokens. Se integra directamente con los playbooks y evita guardar secretos en texto plano.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Cifrar un archivo con Ansible Vault:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="ansible-vault encrypt secrets.yml" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <h6>Ansible Galaxy</h6>
+                <p>Ansible Galaxy es un repositorio en línea que sirve como una plataforma centralizada para compartir y descubrir contenido de Ansible. Principalmente, alberga "roles" y "colecciones", que son unidades preempaquetadas de código Ansible diseñadas para simplificar la automatización de tareas complejas. Los roles y colecciones permiten a los usuarios reutilizar configuraciones y mejores prácticas, acelerando así el desarrollo y la implementación de automatizaciones.</p>
+                <p>En resumen, <a href="https://galaxy.ansible.com/ui/standalone/roles/" target="blank">Ansible Galaxy</a> es el repositorio donde la comunidad comparte roles ya listos para usar. Algunos ejemplos populares:</p>
+                <table>
+                    <tr>
+                        <th>Rol</th>
+                        <th>Descripción</th>
+                    </tr>
+                    <tr>
+                        <td>geerlingguy.mysql</td>
+                        <td>Instala y configura MySQL/MariaDB.</td>
+                    </tr>
+                    <tr>
+                        <td>geerlingguy.apache</td>
+                        <td>Configura servidores Apache.</td>
+                    </tr>
+                    <tr>
+                        <td>nginxinc.nginx</td>
+                        <td>Rol oficial de NGINX para configurar y administrar.</td>
+                    </tr>
+                    <tr>
+                        <td>dev-sec.os-hardening</td>
+                        <td>Aplica políticas de seguridad al sistema operativo.</td>
+                    </tr>
+                    <tr>
+                        <td>elastic.elasticsearch</td>
+                        <td>Implementa un clúster de Elasticsearch.</td>
+                    </tr>
+                    <tr>
+                        <td>ansible-role-docker</td>
+                        <td>Instala y configura Docker Engine.</td>
+                    </tr>
+                </table>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Se instalan así:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="ansible-galaxy install geerlingguy.apache" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Y luego los llamas desde tu playbook.</p>
+                <div class="blog-image-zoom">
+                    <img src="media/ansible10.png" alt="">
+                </div>
+                <h6>Nodos Gestionados (Managed Nodes)</h6>
+                <p>Son los servidores o dispositivos que Ansible administra. No requieren instalar ningún software adicional: basta con que tengan SSH y Python. Las tareas se ejecutan desde el nodo de control hacia ellos.</p>
+                <p>Pueden ser:</p>
+                <ul  style="list-style-type: none;">
+                    <li>◈ Servidores Linux</li>
+                    <li>◈ Equipos Windows (usando WinRM)</li>
+                    <li>◈ Equipos de red (switches, routers, firewalls)</li>
+                    <li>◈ Entornos cloud</li>
+                </ul>
+                <br>
+                <p>El flujo de ejecución de Ansible comienza con la invocación de un ansible-playbook, que actúa como el punto de entrada para la automatización. El nodo de control, donde se ejecuta Ansible, procede a leer el inventario, un archivo que define los hosts gestionados y sus agrupaciones, esencial para determinar a qué sistemas se aplicarán las tareas. A continuación, Ansible carga los playbooks, archivos YAML que describen el estado deseado de los sistemas y las tareas a realizar, junto con las variables y roles necesarios para la configuración. La conexión con los nodos gestionados se establece mediante SSH, un protocolo seguro que permite la ejecución remota de comandos. Las tareas definidas en los playbooks se ejecutan secuencialmente, utilizando módulos de Ansible que realizan acciones específicas en los sistemas remotos. Una característica clave de Ansible es su idempotencia: los cambios se aplican solo si son necesarios, evitando modificaciones innecesarias y asegurando la consistencia del sistema. Finalmente, Ansible muestra el resultado de la ejecución, incluyendo cualquier error que haya ocurrido, proporcionando una visión clara del estado de la automatización.</p>
+                <h2>Comandos básicos</h2>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Instala Ansible en el sistema Ubuntu:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="sudo apt install ansible -y" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Verifica la conectividad SSH a todos los hosts definidos en el inventario:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="ansible all -m ping -i inventario.ini" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Ejecuta el comando "uptime" en los hosts del grupo "web":
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="ansible web -a &quot;uptime&quot; -i inventario.ini" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Ejecuta el playbook "apache.yml" en los hosts definidos en el inventario:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="ansible-playbook apache.yml -i inventario.ini" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="blog-image-grande">
+                    <img src="media/ansible11.png" alt="">
+                </div>
+                <p></p>
+            </div>
+        </div>       
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
