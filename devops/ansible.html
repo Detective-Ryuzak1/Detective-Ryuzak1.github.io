@@ -113,7 +113,7 @@ dbserver ansible_host=192.168.1.20
 
                 <p>Se ejecutan en los hosts remotos y son idempotentes: si algo ya está hecho, no se vuelve a aplicar.</p>
                 <br>
-                <p>La documentación oficial de <a href="https://docs.ansible.com/ansible/2.9/modules/list_of_all_modules.html" target="blank">Ansible</a>, es la fuente principal para obtener información detallada sobre los módulos disponibles, incluyendo descripciones exhaustivas y ejemplos prácticos de uso.</p>
+                <p>La documentación oficial de <a href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/index.html#plugins-in-ansible-builtin" target="blank">Ansible</a>, es la fuente principal para obtener información detallada sobre los módulos disponibles, incluyendo descripciones exhaustivas y ejemplos prácticos de uso.</p>
                 <p>También puedes utilizar el comando <marcador class="subrayado">ansible-doc</marcador> en tu línea de comandos para obtener información sobre los módulos disponibles.</p>
                 <div class="contenedor">
                     <div class="etiqueta">
@@ -312,6 +312,748 @@ roles/
                 </div>
                 <div class="blog-image-grande">
                     <img src="media/ansible11.png" alt="">
+                </div>
+                <h2>Configuración</h2>
+                <p>❏ Crear un archivo Dockerfile:</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9633;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="sudo"></marcador><marcador class="tool">nano</marcador> ContainerFile <marcador class="param"></marcador></span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">FROM ubuntu:latest
+
+# Instala OpenSSH y Ansible
+RUN apt-get update && apt-get install -y openssh-server openssh-client sudo ansible procps nano less net-tools iputils-ping
+
+# Configura el usuario ansible
+RUN useradd -ms /bin/bash ansible && echo "ansible:ansible" | chpasswd && echo 'ansible ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+
+# Permite login por contraseña
+RUN sed -i 's/#PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config && \
+    sed -i 's/#PasswordAuthentication.*/PasswordAuthentication yes/' /etc/ssh/sshd_config
+
+EXPOSE 22
+
+CMD ["/usr/sbin/sshd", "-D"]
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>❏ Construye la imagen.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Creación de una imagen de Fedora con la configuración básica:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="podman build -t ansible -f ContainerFile" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Verificar que la imagen existe:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="podman images" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Crea una red Docker personalizada (modo bridge):
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="podman network create --driver bridge mi_red" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Verificar la red:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="podman network ls" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>❏ Crear los contenedores.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Lanza 3 contenedores, cada uno con un puerto SSH distinto (nodo1 2221, nodo2 2222 y nodo3 2223):
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="podman run -d --name nodo1 --network mi_red --cap-add=ALL -p 2221:22 <image-id> sleep infinity" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Verificar las IPs:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="podman inspect -f '{{.NetworkSettings.Networks.mi_red.IPAddress}}' nodo1" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Como estás usando Podman, todos los contenedores estarán en la red podman por defecto y ya tienen NAT a tu host, por lo tanto no necesitas una red personalizada.</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9633;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="sudo"></marcador><marcador class="tool">podman</marcador> ps <marcador class="param"></marcador></span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">CONTAINER ID  IMAGE                                     COMMAND         CREATED             STATUS             PORTS                 NAMES
+14e57979967e  registry.fedoraproject.org/fedora:latest  sleep infinity  5 minutes ago       Up 5 minutes       0.0.0.0:2221->22/tcp  nodo1
+7a8e438784a7  registry.fedoraproject.org/fedora:latest  sleep infinity  About a minute ago  Up About a minute  0.0.0.0:2222->22/tcp  nodo2
+161965d9d0a5  registry.fedoraproject.org/fedora:latest  sleep infinity  56 seconds ago      Up 57 seconds      0.0.0.0:2223->22/tcp  nodo3                               
+                            </span>
+                        </div>
+                    </section>
+                </div>
+
+                <p>❏ Verificar la conexión en los contenedores.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Entrar al contenedor:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="podman exec -it nodo1 bash" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Añadir al usuario ansible al grupo sudo:</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9633;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="sudo"></marcador><marcador class="tool">visudo</marcador> <marcador class="param"></marcador></span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">## The COMMANDS section may have other options added to it.
+##
+## Allow root to run any commands anywhere
+root        ALL=(ALL)       ALL
+ansible     ALL=(ALL)       ALL                                                            
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>La configuración que aplicada al usuario "ansible" le otorga privilegios de superusuario a través de sudo, lo que significa que puede ejecutar cualquier comando en el sistema sin restricciones, similar a lo que haría el usuario "root". Esto es crucial en entornos de automatización como Ansible, donde se requiere acceso completo al sistema para realizar tareas de configuración y administración. Sin embargo, esta configuración también conlleva riesgos de seguridad significativos si no se implementa y controla adecuadamente, ya que cualquier error o acceso no autorizado podría comprometer la integridad del sistema.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Arrancar el servicio sshd:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="service ssh start" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Es importante recordar que el servicio SSH (sshd) debe estar en ejecución dentro de cada contenedor para permitir conexiones remotas. Por lo tanto, se debe asegurar que el servicio SSH se inicie correctamente en todos los contenedores que requieran acceso remoto a través de SSH.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Cambiar la contraseña del usuario root:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="passwd" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>En la configuración proporcionada, tanto el usuario "root" como el usuario "ansible" poseen privilegios y contraseñas equivalentes para operar el servicio de Ansible. Esto se debe a que se ha configurado al usuario "ansible" con la capacidad de ejecutar cualquier comando mediante sudo sin necesidad de contraseña, y se ha establecido la misma contraseña ("ansible") para ambos usuarios. Por lo tanto, cualquier operación o tarea que pueda realizarse con el usuario "root" también puede llevarse a cabo con el usuario "ansible", lo que facilita la automatización y administración del sistema a través de Ansible.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Conectarse por SSH:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="ssh ansible@localhost -p 2221" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>❏ Preparar la conexión entre nodos.</p>
+                <p><marcador class="subrayado">ansible-doc</marcador> es una herramienta de Ansible que se utiliza para mostrar la documentación de módulos, plugins y otros componentes de Ansible.</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9633;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="sudo"></marcador><marcador class="tool">ansible-doc</marcador> <marcador class="param">-l</marcador></span>    
+                        <span id="terminal__prompt--cursor"></span>
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">amazon.aws.autoscaling_group
+amazon.aws.autoscaling_group_info
+amazon.aws.aws_az_info
+amazon.aws.aws_caller_info
+amazon.aws.aws_region_info
+amazon.aws.backup_plan  
+amazon.aws.backup_plan_info       
+amazon.aws.backup_restore_job_info
+amazon.aws.backup_selection  
+amazon.aws.backup_selection_info
+amazon.aws.backup_tag
+amazon.aws.backup_tag_info
+amazon.aws.backup_vault
+amazon.aws.backup_vault_info
+amazon.aws.cloudformation
+amazon.aws.cloudformation_info
+amazon.aws.cloudtrail
+amazon.aws.cloudtrail_info
+amazon.aws.cloudwatch_metric_alarm
+amazon.aws.cloudwatch_metric_alarm_info
+amazon.aws.cloudwatchevent_rule
+amazon.aws.cloudwatchlogs_log_group
+amazon.aws.cloudwatchlogs_log_group_info
+. . . [ snip ] . . .
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Generar claves SSH:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="ssh-keygen" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Copiar clave SSH pública al servidor remoto:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="ssh-copy-id ansible@10.89.0.14" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Para poder enviar la clave SSH a los otros nodos (nodo2 y nodo3) y permitir la autenticación sin contraseña, es fundamental que la contraseña del usuario "root" haya sido modificada en todos los contenedores. Esto se debe a que <marcador class="subrayado">ssh-copy-id</marcador> requiere autenticarse inicialmente con la contraseña para copiar la clave pública SSH al archivo <marcador class="resaltado1">authorized_keys</marcador> de los nodos remotos (nodo2: &lt;ip_nodo2>, nodo3: &lt;ip_nodo3>). Una vez que la clave pública se ha copiado correctamente, se podrán establecer conexiones SSH sin necesidad de ingresar la contraseña.</p>
+                <p>❏ Editar el archivo que asigna nombres de host a direcciones IP (<marcador class="subrayado">nano /etc/hosts</marcador>) en el nodo de control (nodo1):</p>
+                <div class="archivo">
+192.168.1.68    host.containers.internal host.docker.internal
+10.89.0.13      e27ceca2da38 nodo1
+10.89.0.14      7d96d7e0d90b nodo2
+10.89.0.15      6132a20cf403 nodo3                    
+                </div>
+                <p>❏ Verificar la conexión:</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9633;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="sudo"></marcador><marcador class="tool">ping</marcador> nodo2<marcador class="param"></marcador></span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">PING 7d96d7e0d90b (10.89.0.14) 56(84) bytes of data.
+64 bytes from 7d96d7e0d90b (10.89.0.14): icmp_seq=1 ttl=64 time=0.037 ms
+64 bytes from 7d96d7e0d90b (10.89.0.14): icmp_seq=2 ttl=64 time=0.042 ms
+64 bytes from 7d96d7e0d90b (10.89.0.14): icmp_seq=3 ttl=64 time=0.044 ms
+64 bytes from 7d96d7e0d90b (10.89.0.14): icmp_seq=4 ttl=64 time=0.046 ms
+64 bytes from 7d96d7e0d90b (10.89.0.14): icmp_seq=5 ttl=64 time=0.044 ms
+64 bytes from 7d96d7e0d90b (10.89.0.14): icmp_seq=6 ttl=64 time=0.045 ms
+^C
+--- 7d96d7e0d90b ping statistics ---
+6 packets transmitted, 6 received, 0% packet loss, time 5111ms
+rtt min/avg/max/mdev = 0.037/0.043/0.046/0.003 ms                                
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>❏ Crear el archivo que contiene los hosts a gestionar (<marcador class="subrayado">nano maquinas</marcador>):</p>
+                <div class="archivo">
+nodo2
+nodo3
+                </div>
+                <p>❏ Verificar la conexión:</p>
+<div id="terminal">
+    <section id="terminal__bar">
+        <div id="bar__buttons">
+        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+        <button class="bar__button">&#9633;</button>
+        <button class="bar__button">&#9472;</button>
+        </div>
+        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+    </section>
+    <section id="terminal__body">
+        <div id="terminal__prompt">
+        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="sudo"></marcador><marcador class="tool">ansible</marcador> -i maquinas all -m ping<marcador class="param"></marcador></span>    
+        </div>
+        <div class="command-response-container">
+            <span id="terminal__prompt--response" class="multiline-text">nodo3 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+nodo2 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}            
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>Para confirmar la autenticidad de cada host y asegurar una conexión segura, se recomienda realizar un ping individual a cada nodo (<marcador class="subrayado">ansible -i maquinas nodo2 -m ping</marcador>). Esto ayuda a verificar que te estás conectando al host correcto.</p>
+                <p>❏ Usar shell commands para crear un archivo en el nodo3:</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9633;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="sudo"></marcador><marcador class="tool">ansible</marcador> <marcador class="param">-i</marcador> maquinas nodo3 <marcador class="param">-m</marcador> command <marcador class="param">-a</marcador> "touch /home/ansible/test.txt"<marcador class="param"></marcador></span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">nodo3 | CHANGED | rc=0 >>
+                                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>❏ Usar shell commands para listar enlaces simbólicos en el nodo3:</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9633;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="sudo"></marcador><marcador class="tool">ansible</marcador> <marcador class="param">-i</marcador> maquinas nodo3 <marcador class="param">-m</marcador> shell <marcador class="param">-a</marcador> "ls -la / | grep lrwxrwxrwx"<marcador class="param"></marcador></span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">nodo3 | CHANGED | rc=0 >>
+lrwxrwxrwx   1 root   root       7 Apr 22  2024 bin -> usr/bin
+lrwxrwxrwx   1 root   root       7 Apr 22  2024 lib -> usr/lib
+lrwxrwxrwx   1 root   root       9 Apr 22  2024 lib64 -> usr/lib64
+lrwxrwxrwx   1 root   root       8 Apr 22  2024 sbin -> usr/sbin                                
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>El modulo <marcador class="subrayado">-m command</marcador> se cambio a <marcador class="subrayado">-m shell</marcador> para que el comando pueda usar pipes y redireccionadores.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Crear un archivo de prueba:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="touch test.txt" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>❏ Copiar un archivo a todos los nodos:</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9633;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="sudo"></marcador><marcador class="tool">ansible</marcador> <marcador class="param">-i</marcador> maquinas nodo* <marcador class="param">-m</marcador> copy <marcador class="param">-a</marcador> "src=test.txt dest=/home/ansible"<marcador class="param"></marcador></span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">nodo3 | CHANGED => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": true,
+    "checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+    "dest": "/home/ansible/test2.txt",
+    "gid": 0,
+    "group": "root",
+    "md5sum": "d41d8cd98f00b204e9800998ecf8427e",
+    "mode": "0644",
+    "owner": "root",
+    "size": 0,
+    "src": "/root/.ansible/tmp/ansible-tmp-1743974511.523381-438-188031703668177/source",
+    "state": "file",
+    "uid": 0
+}
+nodo2 | CHANGED => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": true,
+    "checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+    "dest": "/home/ansible/test2.txt",
+    "gid": 0,
+    "group": "root",
+    "md5sum": "d41d8cd98f00b204e9800998ecf8427e",
+    "mode": "0644",
+    "owner": "root",
+    "size": 0,
+    "src": "/root/.ansible/tmp/ansible-tmp-1743974511.5220792-437-209822629953954/source",
+    "state": "file",
+    "uid": 0
+}
+                                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>❏ Instalar o actualizar curl en el nodo2:</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9633;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="sudo"></marcador><marcador class="tool">ansible</marcador> <marcador class="param">-i</marcador> maquinas nodo2 <marcador class="param">-m</marcador> apt <marcador class="param">-a</marcador> "name=curl state=latest"<marcador class="param"></marcador></span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">nodo2 | CHANGED => {
+"ansible_facts": {
+    "discovered_interpreter_python": "/usr/bin/python3"
+},
+"cache_update_time": 1743974872,
+"cache_updated": false,
+"changed": true,
+"stderr": "debconf: delaying package configuration, since apt-utils is not installed\n",
+"stderr_lines": [
+    "debconf: delaying package configuration, since apt-utils is not installed"
+],
+. . . [ snip ] . . .
+                            
+                                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>Cuando se utilizan los parámetros <marcador class="subrayado">-b</marcador> y <marcador class="subrayado">-K</marcador> en un comando Ansible, se indica que se desea ejecutar el comando con privilegios elevados (como <marcador class="subrayado">sudo</marcador>) y se solicita la contraseña de elevación de privilegios. Esto es necesario cuando el usuario "ansible" no tiene permisos suficientes para realizar ciertas tareas, como instalar paquetes o modificar archivos de configuración del sistema. Al usar <marcador class="subrayado">-b</marcador>, Ansible intentará ejecutar el comando con <marcador class="subrayado">sudo</marcador> o un método similar para obtener privilegios de superusuario. El parámetro <marcador class="subrayado">-K</marcador> le indica a Ansible que solicite la contraseña necesaria para la elevación de privilegios.</p>
+                <p>❏ Instalar o actualizar Apache2 en el nodo2 con privilegios elevados:</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9633;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="sudo"></marcador><marcador class="tool">ansible</marcador> <marcador class="param">-i</marcador> maquinas nodo2 <marcador class="param">-b</marcador> <marcador class="param">-K</marcador> <marcador class="param">-m</marcador> apt <marcador class="param">-a</marcador> "name=apache2 state=latest"<marcador class="param"></marcador></span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">BECOME password: 
+nodo2 | CHANGED => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "cache_update_time": 1743974872,
+    "cache_updated": false,
+    "changed": true,
+    "stderr": "debconf: delaying package configuration, since apt-utils is not installed\n",
+    "stderr_lines": [
+        "debconf: delaying package configuration, since apt-utils is not installed"
+    ],
+. . . [ snip ] . . .
+                                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>❏ Iniciar y habilitar Apache2 en el nodo2 con privilegios elevados:</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9633;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="sudo"></marcador><marcador class="tool">ansible</marcador> <marcador class="param">-i</marcador> maquinas nodo2 <marcador class="param">-b</marcador> <marcador class="param">-K</marcador> <marcador class="param">-m</marcador> service <marcador class="param">-a</marcador> "name=apache2 state=started enabled=yes"<marcador class="param"></marcador></span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">BECOME password: 
+nodo2 | CHANGED => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": true,
+    "enabled": true,
+    "name": "apache2",
+    "state": "started"
+}                               
+                                            </span>
+                        </div>
+                    </section>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Verificar el estado de Apache2 en el nodo2:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="service apache2 status" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Crear un archivo de configuración de Ansible deshabilitado por defecto:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="ansible-config init --disabled > ansible.cfg" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Al generar este archivo con todas las opciones inicialmente deshabilitadas, se ofrece un lienzo en blanco para configurar Ansible de acuerdo con las necesidades específicas del proyecto. Esto facilita la activación selectiva de las opciones requeridas, optimizando así el comportamiento de Ansible para cada caso de uso particular.</p>
+                <p>El archivo <marcador class="resaltado1">ansible.cfg</marcador> actúa como el centro de control para ajustar el comportamiento de Ansible. A través de este archivo, se pueden definir parámetros cruciales como la ubicación de los inventarios, los ajustes de conexión y las opciones de los módulos. La flexibilidad que ofrece este archivo permite adaptar Ansible a una amplia gama de entornos y flujos de trabajo. Para editar el archivo <marcador class="resaltado1">ansible.cfg</marcador> y personalizar su contenido, se pueden utilizar editores de texto como <marcador class="subrayado">nano</marcador> o <marcador class="subrayado">vi</marcador>, herramientas que brindan la capacidad de modificar las opciones de configuración de manera precisa y eficiente.</p>
+                <p>Cuando Ansible busca archivos de configuración, sigue un orden de prioridad específico para determinar qué archivo utilizar. Este orden de prioridad es el siguiente:</p>
+                <ul style="list-style-type: none;">
+                    <li>∘ <marcador class="resaltado8">ANSIBLE_CONFIG (variable de entorno): </marcador>Si se define la variable de entorno <marcador class="subrayado">ANSIBLE_CONFIG</marcador>, Ansible utilizará el archivo especificado en esta variable.</li>
+                    <li>∘ <marcador class="resaltado8">ansible.cfg (directorio de trabajo actual): </marcador>Si no se define la variable de entorno, Ansible buscará un archivo <marcador class="resaltado1">ansible.cfg</marcador> en el directorio de trabajo actual.</li>
+                    <li>∘ <marcador class="resaltado8">~/.ansible.cfg (directorio de inicio del usuario): </marcador>Si no se encuentra en el directorio de trabajo actual, Ansible buscará un archivo <marcador class="resaltado1">ansible.cfg</marcador> en el directorio de inicio del usuario.</li>
+                    <li>∘ <marcador class="resaltado8">/etc/ansible/ansible.cfg (directorio de configuración del sistema): </marcador>Si no se encuentra en el directorio de inicio del usuario, Ansible buscará un archivo <marcador class="resaltado1">ansible.cfg</marcador> en el directorio de configuración del sistema.</li>
+                </ul>
+                <p>Este orden de prioridad permite una gran flexibilidad en la configuración de Ansible, permitiendo configuraciones a nivel de proyecto, usuario o sistema.</p>
+                <h6>Ansible Playbooks</h6>
+                <p>❏ Crear el archivo de inventario (<marcador class="subrayado">nano inventario</marcador>):</p>
+                <div class="archivo">
+[servidores_web]
+nodo2 ansible_user=ansible
+
+[bases_de_datos]
+nodo3 ansible_user=ansible    
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Verificar la conectividad:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="ansible -i inventario servidores_web -m ping" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>❏ Playbook para instalar Apache en servidores_web (<marcador class="subrayado">nano nginx.yml</marcador>):</p>
+                <div class="archivo">
+---
+- name: Instalar y configurar NGINX en servidores web
+  hosts: servidores_web
+  become: yes
+
+  tasks:
+  - name: Instalar NGINX
+    apt:
+      name: nginx
+      state: present
+      update_cache: yes
+
+  - name: Asegurar que NGINX esté iniciado y habilitado
+    service:
+      name: nginx
+      state: started
+      enabled: yes
+                </div>
+                <p>En YAML, la indentación es crucial para definir la estructura del archivo. En tu playbook, cada línea debe estar indentada correctamente. </p>
+                <p>❏ Ejecutar un playbook de Ansible para configurar Nginx:</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9633;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="sudo"></marcador><marcador class="tool">ansible-playbook</marcador> <marcador class="param">-i</marcador> inventario nginx.yml <marcador class="param">-K</marcador><marcador class="param"></marcador></span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">BECOME password: 
+
+PLAY [Instalar y configurar NGINX en servidores web] ***********************************
+
+TASK [Gathering Facts] *****************************************************************
+ok: [nodo2]
+
+TASK [Instalar NGINX] ******************************************************************
+changed: [nodo2]
+
+TASK [Asegurar que NGINX esté iniciado y habilitado] ***********************************
+fatal: [nodo2]: FAILED! => {"changed": false, "msg": " * Starting nginx nginx\n   ...fail!\n"}
+
+PLAY RECAP *****************************************************************************
+nodo2                      : ok=2    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0    
+                                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>❏ Playbook para instalar MySQL en bases_de_datos (<marcador class="subrayado">nano mysql.yml</marcador>):</p>
+                <div class="archivo">
+---
+- name: Instalar MySQL en bases de datos
+  hosts: bases_de_datos
+  become: yes
+  vars:
+    db_user: ansible
+    db_pass: ansible
+    db_name: testdb
+
+  tasks:
+    - name: Instalar apt-utils
+      apt:
+        name: apt-utils
+        state: present
+
+    - name: Instalar MySQL y dependencias
+      package:
+        name: "{{item}}"
+        state: present
+        update_cache: yes
+      loop:
+        - mysql-server
+        - mysql-client
+        - python3-mysqldb
+        - libmysqlclient-dev
+
+    - name: Iniciar y habilitar el servicio MySQL
+      service:
+        name: mysql
+        state: started
+        enabled: yes
+
+    - name: Crear usuario de MySQL
+      mysql_user:
+        name: "{{db_user}}"
+        password: "{{db_pass}}"
+        priv: '*.*:ALL'
+        host: '%'
+        state: present
+
+    - name: Crear base de datos
+      mysql_db:
+        name: "{{db_name}}"
+        state: present
+
+    - name: Permitir conexiones remotas a MySQL
+      lineinfile:
+        path: /etc/mysql/mysql.conf.d/mysqld.cnf # Ajusta la ruta si es necesario
+        regexp: '^bind-address'
+        line: 'bind-address = 0.0.0.0'
+        backup: yes
+      notify:
+        - Reiniciar MySQL
+
+  handlers:
+    - name: Reiniciar MySQL
+      service:
+        name: mysql
+        state: restarted
+                </div>
+                <p>❏ Ejecutar un playbook de Ansible para configurar MySQL:</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9633;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="sudo"></marcador><marcador class="tool">ansible-playbook</marcador> <marcador class="param">-i</marcador> inventario mysql.yml <marcador class="param">-K</marcador><marcador class="param"></marcador></span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">BECOME password: 
+   
+                                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>El paquete mysql-server-8.0 está parcialmente instalado y fallando en la post-instalación. Esto es común en contenedores, especialmente porque muchos scripts postinstalación intentan iniciar servicios... y los contenedores no suelen tener un sistema de init o systemd completo.</p>
+                <p>❏ Borrar los recursos de Docker.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Detener los contenedores:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="podman stop nodo1 nodo2 nodo3" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Eliminar los contenedores:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="podman rm nodo1 nodo2 nodo3" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Eliminar la red con Docker:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="podman network rm mi_red" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Eliminar la imagen fedora-ansible:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="podman rmi <image-id>" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
                 </div>
                 <p></p>
             </div>
