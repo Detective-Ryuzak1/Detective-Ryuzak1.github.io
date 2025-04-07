@@ -1026,6 +1026,27 @@ ok: [nodo3]
                     </section>
                 </div>
                 <p>El paquete mysql-server-8.0 está parcialmente instalado y fallando en la post-instalación. Esto es común en contenedores, especialmente porque muchos scripts postinstalación intentan iniciar servicios... y los contenedores no suelen tener un sistema de init o systemd completo.</p>
+                <!--
+                <p>Podés engañar al sistema para que nunca intente arrancar servicios dentro del contenedor creando un policy-rc.d que lo impida.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Hacelo antes de instalar mysql-server:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="echo '#!/bin/sh\nexit 101' | sudo tee /usr/sbin/policy-rc.d" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Dar permisos de ejecución:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="sudo chmod +x /usr/sbin/policy-rc.d" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                -->
                 <p>❏ Borrar los recursos de Docker.</p>
                 <div class="contenedor">
                     <div class="etiqueta">
