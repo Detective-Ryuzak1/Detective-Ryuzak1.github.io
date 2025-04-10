@@ -264,7 +264,21 @@ main{
 
 #icon_fire{
     width: 300px;
-    margin-top: -100px;
+    margin-top: -115px;
+    position: relative;
+    opacity: 0.6;
+}
+
+.banner__icon-water{
+    height: 100%;
+    position: absolute;
+    right: 10px;
+    overflow: hidden;
+}
+
+#icon_water{
+    width: 300px;
+    margin-top: 100px;
     position: relative;
     opacity: 0.6;
 }
