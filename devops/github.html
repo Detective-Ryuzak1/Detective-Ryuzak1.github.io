@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <link rel="icon" href="../media/imagen41.png" type="image/png">
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                        <li><a href="../devops.html">DevOps</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Aportar" onclick="window.open('https://buymeacoffee.com/ryuzak1', '_blank');">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <br>
+                <br>
+                <h1>GitHub</h1>
+                <p>GitHub es una de las plataformas más conocidas y utilizadas por desarrolladores, ingenieros, científicos de datos y equipos DevOps de todo el mundo. Desde proyectos personales hasta código fuente de grandes corporaciones, GitHub se ha convertido en el centro neurálgico de la colaboración basada en Git, el sistema de control de versiones más popular.</p>
+                <p>Es una plataforma para alojar repositorios de código, basada en Git. Permitiendo a los usuarios guardar versiones del código, colaborar con otros programadores, llevar seguimiento de cambios y contribuir de forma controlada. GitHub ofrece tanto funcionalidades sociales (como seguimiento de proyectos, issues o pull requests) como integraciones de CI/CD (como GitHub Actions), todo desde la nube.</p>
+                <p>Fue fundado en 2008 por Tom Preston-Werner, Chris Wanstrath, PJ Hyett y Scott Chacon con el propósito de hacer Git más accesible y visualmente entendible para los desarrolladores. Git ya existía, creado por Linus Torvalds, pero su uso era completamente desde la línea de comandos y algo complejo. GitHub trajo una interfaz gráfica web, herramientas colaborativas y comunidad abierta, lo que revolucionó la forma de compartir y gestionar código.</p>
+                <p>En 2018, Microsoft adquirió GitHub por $7.5 mil millones en acciones, asegurando su continuidad como herramienta libre para la comunidad y potenciando aún más su ecosistema.</p>
+                <div class="blog-image">
+                    <img src="media/github2.png" alt="">
+                </div>
+                <h2>¿Para qué sirve GitHub?</h2>
+                <p>GitHub es mucho más que un simple repositorio. Estas son sus funciones más destacadas:</p>
+                <ul style="list-style-type: none;">
+                    <li>∘ <marcador class="resaltado8">Control de versiones: </marcador>manejar diferentes versiones de código de manera segura.</li>
+                    <li>∘ <marcador class="resaltado8">Colaboración: </marcador>múltiples usuarios pueden trabajar en el mismo proyecto, con gestión de cambios y solicitudes de revisión.</li>
+                    <li>∘ <marcador class="resaltado8">Revisión de código: </marcador>mediante pull requests e issues, se puede analizar el código antes de integrarlo.</li>
+                    <li>∘ <marcador class="resaltado8">Despliegue automático: </marcador>con GitHub Actions, puedes ejecutar tareas como pruebas, compilación y despliegue continuo.</li>
+                    <li>∘ <marcador class="resaltado8">Documentación: </marcador>se puede crear documentación y wikis del proyecto.</li>
+                    <li>∘ <marcador class="resaltado8">Seguimiento de errores y tareas: </marcador>con el sistema de issues y projects, puedes llevar el flujo de trabajo como en un gestor de tareas.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/github3.png" alt="">
+                </div>
+                <h2>Funciones principales</h2>
+                <ul style="list-style-type: none;">
+                    <li>⌭ <marcador class="resaltado3">Clonar un repositorio</marcador></li>
+                    <p>Clonar significa copiar un repositorio remoto (como el de GitHub) a tu máquina local. Esto te permite tener el código fuente completo para modificarlo, probarlo o colaborar.</p>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            Este comando descarga el proyecto y todo su historial de versiones.
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="git clone https://github.com/usuario/repositorio.git" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <li>⌭ <marcador class="resaltado3">Crear una rama (git branch / git checkout -b)</marcador></li>
+                    <p>Las ramas (branches) son como líneas paralelas de trabajo, perfectas para desarrollar nuevas funcionalidades sin afectar el código principal (la rama main o master).</p>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            Esto crea una nueva rama y cambia a ella. Así puedes trabajar de forma aislada y segura.
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="git checkout -b nueva-funcionalidad" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <li>⌭ <marcador class="resaltado3">Hacer commits</marcador></li>
+                    <p>Un commit es una instantánea del código en un momento específico. Git guarda el cambio y lo etiqueta con un mensaje que lo describe.</p>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            Primero se agregan los archivos con add.
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="git add archivo_modificado.py" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            Luego se registra el cambio con commit.
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="git commit -m 'Agrego función de login'" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <li>⌭ <marcador class="resaltado3">Enviar cambios</marcador></li>
+                    <p>Envía tus commits locales al repositorio remoto de GitHub.</p>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            Es lo que hace que tu trabajo local quede disponible en la nube.
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="git push origin nombre-de-la-rama" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <li>⌭ <marcador class="resaltado3">Recibir cambios</marcador></li>
+                    <p>Descarga los cambios más recientes desde el repositorio remoto hacia tu máquina local.</p>
+                    <div class="contenedor">
+                        <div class="etiqueta">
+                            Esto asegura que tienes la versión más actualizada del proyecto.
+                        </div>
+                        <div class="comandos">
+                            <input type="text" class="text" value="git pull origin main" oninput="ajustarAncho(this)">
+                            <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                        </div>
+                    </div>
+                    <li>⌭ <marcador class="resaltado3">Pull Requests</marcador></li>
+                    <p>Cuando trabajas con ramas, GitHub permite abrir una Pull Request (PR) para proponer tus cambios al repositorio principal. Es un flujo de trabajo colaborativo: otros pueden revisar tu código, hacer comentarios, aprobar o pedir cambios antes de integrar (mergear) tus modificaciones.</p>
+                    <li>⌭ <marcador class="resaltado3">Issues</marcador></li>
+                    <p>Son reportes de errores, tareas o solicitudes de mejora. Funcionan como tickets de soporte o notas de planificación, y pueden vincularse con commits o PRs.</p>
+                    <li>⌭ <marcador class="resaltado3">Fork</marcador></li>
+                    <p>Es una copia de un repositorio en tu propia cuenta de GitHub. Muy útil cuando quieres contribuir a un proyecto externo sin tener permisos de escritura directos. Puedes hacer cambios en tu fork y luego abrir una pull request hacia el repositorio original.</p>
+                    <li>⌭ <marcador class="resaltado3">Wikis y Documentación</marcador></li>
+                    <p>Cada proyecto puede tener una wiki, que actúa como una documentación interna o externa del repositorio. También se pueden usar archivos README.md y CONTRIBUTING.md como punto de inicio para explicar de qué trata el proyecto o cómo contribuir.</p>
+                    <li>⌭ <marcador class="resaltado3">Gestión de permisos y equipos</marcador></li>
+                    <p>Puedes crear organizaciones, equipos, roles y permisos específicos. Por ejemplo, algunos usuarios pueden solo ver el código, otros pueden editarlo, y algunos más pueden aprobar cambios o gestionar automatizaciones.</p>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/github4.png" alt="">
+                </div>
+                <p>Clonar significa copiar un repositorio remoto (como el de GitHub) a tu máquina local. Esto te permite tener el código fuente completo para modificarlo, probarlo o colaborar.</p>
+                <h2>Plataformas</h2>
+                <ul style="list-style-type: none;">
+                    <li>★ <marcador class="resaltado2">GitHub Web</marcador></li>
+                    <p>La plataforma central accesible desde cualquier navegador, donde puedes gestionar tus repositorios, issues, pull requests y workflows.</p>
+                    <li>★ <marcador class="resaltado2">GitHub Desktop</marcador></li>
+                    <p>Una aplicación para Windows y macOS que simplifica el uso de Git y GitHub mediante una interfaz gráfica. Permite clonar, crear ramas, hacer commits y push/pull fácilmente sin usar la terminal.</p>
+                    <li>★ <marcador class="resaltado2">GitHub Mobile</marcador></li>
+                    <p>Aplicación para iOS y Android que permite responder a issues, revisar código y seguir proyectos estés donde estés.</p>
+                    <li>★ <marcador class="resaltado2">GitHub Actions</marcador></li>
+                    <p>Es la plataforma de automatización integrada de GitHub. Permite definir flujos de trabajo (workflows) para:</p>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">Ejecutar pruebas automatizadas.</marcador></li>
+                        <li>∘ <marcador class="resaltado8">Compilar y desplegar proyectos.</marcador></li>
+                        <li>∘ <marcador class="resaltado8">Realizar linting y escaneos de seguridad.</marcador></li>
+                        <li>∘ <marcador class="resaltado8">Integrarse con servicios como Docker, AWS, Kubernetes, etc.</marcador></li>
+                    </ul>
+                    <li>★ <marcador class="resaltado2">GitHub CLI</marcador></li>
+                    <p>Herramienta oficial de línea de comandos (gh) que permite interactuar con GitHub desde la terminal: crear issues, pull requests, revisar código y ejecutar acciones automatizadas.</p>
+                    <li>★ <marcador class="resaltado2">GitHub Codespaces</marcador></li>
+                    <p>Un entorno de desarrollo completamente en la nube, basado en VS Code, que permite editar, compilar y depurar sin necesidad de instalar nada localmente.</p>
+                    <li>★ <marcador class="resaltado2">GitLab (alternativa similar)</marcador></li>
+                    <p>GitLab es una plataforma open-source alternativa a GitHub, con funciones muy similares: repositorios, pipelines de CI/CD, control de acceso, etc. Aunque es independiente, también permite alojar proyectos Git de forma privada o pública, y tiene fuerte adopción empresarial.</p>
+                </ul>
+                <div class="blog-image-zoom">
+                    <img src="media/github5.png" alt="">
+                </div>
+                <h2>Ejemplo</h2>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Cambia la política de ejecución e instala Chocolatey (gestor de paquetes en Windows):
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                    <div class="etiqueta">
+                        Instala Git LFS (gestión de archivos grandes) con Chocolatey:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="choco install git-lfs" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                    <div class="etiqueta">
+                        Inicializa Git LFS en el sistema:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="git lfs install" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>               
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Clona un repositorio remoto de GitHub:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="git clone https://github.com/usuario/repositorio" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                    <div class="etiqueta">
+                        Entra al directorio del proyecto clonado:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="cd .\repositorio\carpeta" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>                
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Rastrear archivos CSV grandes con Git LFS:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value='git lfs track "*.csv"' oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                    <div class="etiqueta">
+                        Añade el archivo .gitattributes al área de staging:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="git add .gitattributes" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                    <div class="etiqueta">
+                        Configura el correo global de Git (requerido para commits):
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value='git config --global user.email "email"' oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                    <div class="etiqueta">
+                        Configura tu nombre de usuario global en Git:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value='git config --global user.name "usuario"' oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                    <div class="etiqueta">
+                        Añade el archivo CSV al área de staging:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="git add archivo.csv" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                    <div class="etiqueta">
+                        Realiza un commit con un mensaje personalizado:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value='git commit -m "Subiendo archivo"' oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>               
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Muestra todas las ramas locales del repositorio:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="git branch" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                    <div class="etiqueta">
+                        Sube tus cambios al repositorio remoto en la rama principal (main):
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="git push origin main" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <h2>Github Desktop</h2>
+                <p>Para descargar GitHub Desktop, solo tienes que ir al <a href="https://github.com/apps/desktop" target="blank">enlace oficial</a>.</p>
+                <p>Al hacer clic en "Download for Windows" (o "macOS" si estás en un Mac), comenzará la descarga del instalador. Una vez descargado, solo debes ejecutarlo y seguir los pasos del asistente de instalación.</p>
+                <p>GitHub Desktop te permite realizar muchas de las mismas acciones que puedes hacer desde la terminal, pero de forma visual. Por ejemplo:</p>
+                <ul style="list-style-type: none;">
+                    <li>∘ Clonar repositorios con un solo clic.</li>
+                    <li>∘ Crear ramas nuevas fácilmente desde el menú.</li>
+                    <li>∘ Ver los cambios realizados en archivos (diff).</li>
+                    <li>∘ Hacer commits con mensaje sin usar comandos.</li>
+                    <li>∘ Sincronizar con GitHub mediante push y pull con botones.</li>
+                    <li>∘ Resolver conflictos de merge con ayuda visual.</li>
+                </ul>
+                <p>Aunque no reemplaza por completo el uso avanzado de Git, es excelente para usuarios que prefieren una interfaz gráfica o que están empezando. Además, se integra muy bien con editores como VS Code.</p>
+                <div class="blog-image-zoom">
+                    <img src="media/github7.png" alt="">
+                </div>
+                <h2>Casos de uso comunes</h2>
+                <ul style="list-style-type: none;">
+                    <li>∘ <marcador class="resaltado8">Desarrolladores open source: </marcador>compartiendo proyectos públicos y colaborando con la comunidad.</li>
+                    <li>∘ <marcador class="resaltado8">Empresas privadas: </marcador>gestionando versiones, ramas y despliegues automatizados de software.</li>
+                    <li>∘ <marcador class="resaltado8">Científicos de datos y ML: </marcador>alojando notebooks, datasets y modelos.</li>
+                    <li>∘ <marcador class="resaltado8">Administradores de sistemas y DevOps: </marcador>usando GitHub Actions para automatización y gestión de infraestructura como código.</li>
+                </ul>
+                <div class="blog-image-zoom">
+                    <img src="media/github6.png" alt="">
+                </div>
+                <h2>Bitbucket</h2>
+                <p>Bitbucket es una plataforma de gestión de repositorios de código basada en Git y Mercurial, utilizada principalmente por desarrolladores para alojar su código fuente, colaborar con equipos y automatizar el proceso de desarrollo y despliegue de software. Es muy popular en el entorno empresarial y en proyectos de desarrollo profesional, especialmente en compañías que ya utilizan otras herramientas del ecosistema Atlassian.</p>
+                <p>Fue creado originalmente en 2008 por una empresa llamada Vanity Software como una plataforma enfocada en proyectos Mercurial. En 2010, fue adquirido por Atlassian, la misma compañía que está detrás de productos como Jira, Trello y Confluence. Tras su adquisición, Bitbucket fue evolucionando para dar soporte completo a Git, el sistema de control de versiones más popular hoy en día.</p>
+                <p>Bitbucket ofrece planes gratuitos y de pago. El plan gratuito es bastante generoso para equipos pequeños: permite hasta 5 usuarios con repositorios privados ilimitados, lo que lo convierte en una excelente opción para desarrolladores independientes, estudiantes o pequeños equipos de startups. A partir de 5 usuarios, los planes de pago ofrecen más capacidad de usuarios, funcionalidades avanzadas de seguridad y almacenamiento adicional para los pipelines de CI/CD.</p>
+                <h6>Características</h6>
+                <p>Con Bitbucket puedes crear repositorios de código privados o públicos, colaborar con otros desarrolladores mediante pull requests, revisar código, gestionar ramas y versiones, y conectar tu flujo de trabajo con herramientas de automatización como pipelines (integración continua y entrega continua, CI/CD). También permite la integración con Jira, lo cual hace que sea una solución potente para equipos que necesitan rastrear errores, tareas y el ciclo completo de desarrollo.</p>
+                <p>Aunque GitHub es la plataforma más conocida, Bitbucket tiene ciertas ventajas que pueden ser decisivas en algunos entornos. Una de las más destacadas es su profunda integración con Jira, lo cual permite conectar commits, ramas y pull requests directamente con tareas de gestión de proyectos. Además, Bitbucket incluye Bitbucket Pipelines, una herramienta de CI/CD integrada sin necesidad de configurar un servidor externo como Jenkins. Esto permite automatizar pruebas, despliegues o compilaciones con facilidad y sin salir del entorno de Bitbucket.</p>
+                <p>Algunas características destacables son:</p>
+                <ul style="list-style-type: none;">
+                    <li>∘ Repositorios privados ilimitados en todos los planes.</li>
+                    <li>∘ Control de acceso y permisos por rama, ideal para grandes equipos.</li>
+                    <li>∘ Integración con Slack, Trello, Jenkins y otros servicios populares.</li>
+                    <li>∘ Visualización de historial de commits y ramas desde la interfaz web.</li>
+                    <li>∘ Herramientas de revisión de código con comentarios línea por línea.</li>
+                    <li>∘ Soporte para Webhooks y API REST para integraciones personalizadas.</li>
+                </ul>
+                <h6>¿Cómo se usa Bitbucket?</h6>
+                <p>Para comenzar a usar Bitbucket, solo necesitas una cuenta gratuita en <a href="https://bitbucket.org/" target="blank">bitbucket.org</a>. Una vez dentro, puedes crear un repositorio nuevo e iniciar tu proyecto. Puedes clonar el repositorio en tu máquina local usando Git, subir tu código, crear ramas para nuevas funciones, hacer commits y enviar pull requests para que tu equipo revise tus cambios. Todo este flujo está diseñado para fomentar la colaboración, revisión de código y buenas prácticas en el desarrollo.</p>
+                <p>También exploraremos cómo utilizar Bitbucket Pipelines, la herramienta de CI/CD integrada que permite automatizar procesos como pruebas, compilación y despliegue directamente desde tu repositorio. A través de un tutorial práctico, aprenderás a configurar tu primer pipeline y a integrarlo en tu flujo de desarrollo. Puedes seguir el tutorial completo <a href="https://www.youtube.com/watch?v=GJ0lu2mLmiM&list=PLhm6Ol1r7G8xOLA3mAYYPVIhjDjvhhedM" target="blank">aquí</a>.</p>
+                <div class="blog-image-zoom">
+                    <img src="media/github8.png" alt="">
+                </div>
+                <p></p>
+            </div>
+        </div>       
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
