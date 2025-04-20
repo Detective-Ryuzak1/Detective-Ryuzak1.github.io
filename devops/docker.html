@@ -797,6 +797,16 @@ bloodhound_1  | {"time":"2025-03-13T17:47:53.77841472Z","level":"INFO","message"
                     <li>Usuario: admin</li>
                     <li>Contraseña: Es proporcionada la primera vez que se inicia el servicio y debe ser cambiada una vez que se haya iniciado sesión en la interfaz.</li>
                 </ul>
+                <p>Puede que BloodHound no arranque correctamente porque intenta conectarse al contenedor de Neo4j (graph-db) demasiado pronto, antes de que esté listo para aceptar conexiones.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Una vez que graph-db esté corriendo, reinicia solo el contenedor de BloodHound:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="podman restart docker-compose_bloodhound_1" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
                 <div class="blog-image-grande">
                     <img src="media/docker6.png" alt="">
                 </div>
