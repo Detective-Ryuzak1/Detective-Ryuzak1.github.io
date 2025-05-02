@@ -163,6 +163,15 @@
                         Eliminar todos los contenedores detenidos:
                     </div>
                     <div class="comandos">
+                      <input type="text" class="text" value="docker rm -a" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Eliminar todos los contenedores detenidos:
+                    </div>
+                    <div class="comandos">
                       <input type="text" class="text" value="docker rm $(docker ps -a -q) --force" oninput="ajustarAncho(this)">
                       <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
@@ -173,6 +182,15 @@
                     </div>
                     <div class="comandos">
                       <input type="text" class="text" value="docker rmi $(docker images -q)" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Eliminar las imágenes descargadas:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="docker rmi -a" oninput="ajustarAncho(this)">
                       <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                 </div>
@@ -269,6 +287,15 @@
                     </div>
                     <div class="comandos">
                       <input type="text" class="text" value="docker volume rm nombre_del_volumen" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Eliminar todos los volúmenes:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="docker volume rm $(podman volume ls -q)" oninput="ajustarAncho(this)">
                       <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                 </div>
@@ -845,6 +872,35 @@ bloodhound_1  | {"time":"2025-03-13T17:47:53.77841472Z","level":"INFO","message"
                     <div class="comandos">
                       <input type="text" class="text" value="podman-compose down -v" oninput="ajustarAncho(this)">
                       <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <h6>Alternativa de instalación para BloodHound</h6>
+                <p>Descarga los archivos desde la página oficial de <a href="" target="blank">BloodHound Community Edition</a>. </p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Primero, elimina cualquier instalación previa de Docker y actualiza los repositorios:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="sudo apt remove docker docker.io containerd runc && apt update" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Instalar Docker:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="sudo apt install docker.io" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Entra al directorio descargado y ejecuta el siguiente comando para instalar bloodhound-cli:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="./bloodhound-cli install" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                 </div>
                 <br>
