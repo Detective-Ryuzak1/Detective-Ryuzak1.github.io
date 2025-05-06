@@ -626,6 +626,8 @@ output "instance_type" {
                 </ol>
                 <br>
                 <p>Todas las funciones están bien explicadas en la <a href="https://developer.hashicorp.com/terraform/language/functions" target="blank">documentación oficial</a>.</p>
+                <h6>Despliegue de infraestructura en AWS</h6>
+                <p>Terraform creará múltiples instancias EC2 basadas en una lista de nombres de servicios, cada una con una IP pública, en una red virtual (VPC) con subredes públicas y un grupo de seguridad que permite tráfico HTTPS. Se usan variables para manejar credenciales de forma segura y se configuran etiquetas y grupos de logs en CloudWatch para cada instancia. Además, se definen módulos externos para gestionar la red (VPC) y los grupos de seguridad, y se genera una salida con las IPs privadas de las instancias, todo organizado de forma modular y reutilizable.</p>
                 <p>❏ Crea un archivo llamado <marcador class="subrayado">main.tf</marcador> con el siguiente contenido:</p>
                 <div class="archivo">
 terraform {
