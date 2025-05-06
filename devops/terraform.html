@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <link rel="icon" href="../media/imagen41.png" type="image/png">
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                        <li><a href="../devops.html">DevOps</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Aportar" onclick="window.open('https://buymeacoffee.com/ryuzak1', '_blank');">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <br>
+                <br>
+                <h1>Terraform</h1>
+                <p>En la era de la computación en la nube y el aprovisionamiento dinámico de recursos, las empresas buscan herramientas que les permitan gestionar su infraestructura de manera eficiente, reproducible y segura. Una de las soluciones más populares que ha revolucionado la forma en que construimos y desplegamos infraestructura es Terraform.</p>
+                <p>Terraform es una herramienta de código abierto desarrollada por HashiCorp y lanzada en 2014. Su propósito es permitir a los administradores de sistemas, equipos DevOps e ingenieros de nube definir, aprovisionar y gestionar infraestructura usando un lenguaje declarativo. Esta filosofía se conoce como Infraestructura como Código (IaC).</p>
+                <p>En lugar de crear manualmente recursos como instancias virtuales, redes o balanceadores de carga, Terraform permite describirlos en archivos de texto plano. Al ejecutar estos archivos, Terraform se encarga de crear o modificar la infraestructura para que coincida con el estado deseado.</p>
+                <div class="blog-image-grande">
+                    <img src="media/terraform1.png" alt="">
+                </div>
+                <h2>Terraform vs Ansible</h2>
+                <h6>Terraform</h6>
+                <p>Terraform es una herramienta de provisionamiento de infraestructura como código.</p>
+                <p>Su función principal es crear, cambiar y destruir infraestructura (máquinas virtuales, redes, balanceadores, etc.) en la nube o entornos locales.</p>
+                <ul style="list-style-type: none;">
+                    <li>∘ Se enfoca en declarar el estado deseado y Terraform se encarga de alcanzarlo.</li>
+                    <li>∘ Usa archivos .tf (HCL, HashiCorp Configuration Language).</li>
+                    <li>∘ Es idempotente (si algo ya existe como lo pediste, no lo toca).</li>
+                    <li>∘ Ideal para: crear instancias en AWS, configurar redes, balanceadores, etc.</li>
+                </ul>
+                <h6>Ansible</h6>
+                <p>Ansible es una herramienta de automatización de configuración y despliegue, desarrollada por Red Hat.
+                    Su fuerte es aplicar configuraciones sobre sistemas ya existentes: instalar software, copiar archivos, iniciar servicios, etc.</p>
+                <ul style="list-style-type: none;">
+                    <li>∘ Usa archivos YAML llamados playbooks.</li>
+                    <li>∘ No necesita agentes instalados (usa SSH por defecto).</li>
+                    <li>∘ También puede hacer provisionamiento (limitado), pero su fuerte es la configuración y orquestación.</li>
+                </ul>
+                <br>
+                <p>Ejemplo:</p>
+                <ol>
+                    <li>Terraform crea 10 máquinas en AWS.</li>
+                    <li>Ansible entra por SSH y les instala Docker, NGINX y configura los firewalls.</li>
+                </ol>
+                <div class="blog-image-grande">
+                    <img src="media/terraform2.png" alt="">
+                </div>
+                <h2>Componentes principales</h2>
+                <p>Terraform se compone de varios elementos esenciales:</p>
+                <ul style="list-style-type: none;">
+                    <li>⌭ <marcador class="resaltado3">Providers: </marcador>Los providers son plugins que permiten a Terraform interactuar con distintas plataformas y servicios como AWS, Azure, Google Cloud, VMware, GitHub, Kubernetes y muchos otros. Cada proveedor expone recursos que Terraform puede gestionar.</li>
+                    <div class="blog-image-grande">
+                        <img src="media/terraform3.png" alt="">
+                    </div>
+                    <li>⌭ <marcador class="resaltado3">Resources: </marcador>En Terraform, los resources o recursos son los bloques fundamentales que describen los elementos de infraestructura que se quieren crear, modificar o eliminar. Cada bloque resource declara un tipo de recurso (como aws_instance, azurerm_storage_account o google_compute_network) y un nombre lógico para identificarlo dentro del proyecto. Estos recursos están ligados a proveedores (providers) y definen las propiedades necesarias para que Terraform pueda interactuar con la API del servicio correspondiente. A través de los recursos, se describe la infraestructura deseada en un lenguaje declarativo, y es Terraform quien se encarga de aplicarlo en el proveedor correspondiente. Por ejemplo, un recurso puede representar una instancia de máquina virtual, un bucket de almacenamiento o un grupo de seguridad, entre muchos otros. Al definir recursos, Terraform genera una representación del estado deseado de la infraestructura, y al aplicar los cambios, compara ese estado con el real, ajustando lo necesario para que coincidan. Esto hace posible automatizar el despliegue, mantenimiento y eliminación de componentes de forma segura y repetible.</li>
+                    <div class="blog-image-grande">
+                        <img src="media/terraform4.png" alt="">
+                    </div>
+                    <li>⌭ <marcador class="resaltado3">Modules: </marcador>Los módulos son bloques reutilizables de configuración de Terraform. Permiten estructurar y reutilizar código para gestionar partes complejas de infraestructura como un clúster completo o una arquitectura multi-nivel.</li>
+                    <p>En Terraform se separan los módulos reutilizables de la configuración principal (o root module). Un módulo puede ser cualquier conjunto de archivos .tf dentro de una carpeta que define recursos específicos, como una red, una instancia EC2, etc.</p>
+                    <p>Dentro de un módulo:</p>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">main.tf: </marcador>Archivo principal donde se definen los recursos.</li>
+                        <li>∘ <marcador class="resaltado8">variables.tf: </marcador>Definición de variables de entrada.</li>
+                        <li>∘ <marcador class="resaltado8">outputs.tf: </marcador>Definición de outputs que el módulo devolverá.</li>
+                    </ul>
+                    <div class="blog-image-grande">
+                        <img src="media/terraform6.png" alt="">
+                    </div>
+                    <li>⌭ <marcador class="resaltado3">Variables: </marcador>En Terraform, las variables de entrada permiten que las configuraciones sean reutilizables y dinámicas, ya que separan la definición de los recursos de los valores concretos que estos deben utilizar. Dentro de un módulo, el archivo variables.tf se encarga de definir las variables que ese módulo necesita para funcionar, utilizando bloques variable que establecen su tipo, posibles valores por defecto o descripciones. Por otro lado, fuera del módulo, los valores concretos que se asignan a esas variables suelen estar en un archivo con extensión .tfvars, el cual sirve para parametrizar la infraestructura según el entorno deseado.</li>
+                    <p>De este modo, aunque ambos archivos están relacionados con las variables de entrada, cumplen funciones diferentes: uno define las variables, y el otro les proporciona valores específicos. Esta separación permite reutilizar módulos con diferentes configuraciones dependiendo del entorno (como desarrollo, pruebas o producción), sin necesidad de duplicar código. Los valores también pueden ser pasados desde la línea de comandos o mediante variables de entorno, lo que ofrece flexibilidad adicional para automatizar y gestionar despliegues en múltiples contextos.</p>
+                    <div class="blog-image-grande">
+                        <img src="media/terraform55.png" alt="">
+                    </div>
+                    <div class="blog-image-grande">
+                        <img src="media/terraform5.png" alt="">
+                    </div>
+                    <li>⌭ <marcador class="resaltado3">State file (terraform.tfstate): </marcador>En Terraform, el archivo de estado o state file (terraform.tfstate) es un componente fundamental que mantiene un registro de la infraestructura real que ha sido creada. Este archivo actúa como una fuente de verdad para Terraform, permitiéndole saber qué recursos existen, cuáles fueron sus valores en la última ejecución, y cómo se relacionan entre sí. Gracias a este archivo, Terraform puede hacer operaciones diferenciales: es decir, comparar el estado actual con el deseado (definido en los archivos .tf) y aplicar únicamente los cambios necesarios. El archivo de estado puede almacenarse localmente o en servicios remotos como AWS S3 o Terraform Cloud, lo cual es importante en equipos de trabajo para evitar conflictos.</li>
+                    <p>Además, como el archivo puede contener datos sensibles (como IPs, contraseñas o tokens), es fundamental gestionarlo con cuidado, aplicando cifrado y control de acceso cuando se almacena de forma remota. El state file no solo permite a Terraform tener memoria de lo que ha hecho, sino que también garantiza consistencia, automatización y precisión en la gestión de la infraestructura.</p>
+                    <div class="blog-image-grande">
+                        <img src="media/terraform7.png" alt="">
+                    </div>
+                    <li>⌭ <marcador class="resaltado3">Outputs: </marcador>Los outputs son valores que Terraform puede devolver al finalizar la ejecución. Son útiles para compartir información entre módulos o para mostrar datos relevantes al usuario.</li>
+                    <div class="blog-image-grande">
+                        <img src="media/terraform8.png" alt="">
+                    </div>
+                </ul>
+                <h2>¿Cómo funciona?</h2>
+                <p>Terraform sigue un flujo muy específico de trabajo:</p>
+                <ul style="list-style-type: none;">
+                    <li>⍚ <marcador class="resaltado2">Escritura: </marcador>Se define el estado deseado de la infraestructura en archivos .tf usando el lenguaje HCL (HashiCorp Configuration Language).</li>
+                    <li>⍚ <marcador class="resaltado2">Planificación: </marcador>Terraform analiza las configuraciones y muestra los cambios que aplicaría sin hacerlos aún.</li>
+                    <li>⍚ <marcador class="resaltado2">Aplicación: </marcador>Ejecuta los cambios necesarios para que la infraestructura coincida con lo definido.</li>
+                    <li>⍚ <marcador class="resaltado2">Seguimiento: </marcador>El archivo terraform.tfstate se actualiza con la información actual de los recursos.</li>
+                    <li>⍚ <marcador class="resaltado2">Destrucción: </marcador>Borra todos los recursos creados, si se desea desmontar la infraestructura.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/terraform9.png" alt="">
+                </div>
+                <h2>Casos típicos de uso</h2>
+                <p>Terraform es extremadamente versátil. Algunos ejemplos reales de su aplicación son:</p>
+                <ul style="list-style-type: none;">
+                    <li>∘ <marcador class="resaltado8">Provisionamiento en la nube: </marcador>Crear instancias EC2, balanceadores y VPCs en AWS con solo un archivo de configuración.</li>
+                    <li>∘ <marcador class="resaltado8">Gestión multi-cloud: </marcador>Controlar infraestructura en varios proveedores (como AWS + GCP) desde un solo conjunto de archivos.</li>
+                    <li>∘ <marcador class="resaltado8">CI/CD en infraestructura: </marcador>Integrar Terraform en pipelines para desplegar infraestructuras automáticamente cuando hay cambios en la configuración.</li>
+                    <li>∘ <marcador class="resaltado8">Kubernetes y contenedores: </marcador>Automatizar la creación de clústeres Kubernetes y sus configuraciones de red, almacenamiento, etc.</li>
+                    <li>∘ <marcador class="resaltado8">Laboratorios de pruebas: </marcador>Levantar entornos temporales para pruebas automatizadas y destruirlos al finalizar.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/terraform10.png" alt="">
+                </div>
+                <h2>Configuración</h2>
+                <h6>Instalar Terraform en Windows</h6>
+                <p>Para descargar Terraform en Windows de 64 bits, dirígete a la página oficial de descargas de  <a href="https://developer.hashicorp.com/terraform/downloads" target="blank">Terraform</a>. Una vez allí, localiza la sección correspondiente a Windows y haz clic en la opción de descarga para la versión de 64 bits, lo que iniciará la descarga del archivo <marcador class="subrayado">.zip</marcador>.</p>
+                <p>Una vez descargado el archivo <marcador class="subrayado">.zip</marcador> de Terraform, el siguiente paso es extraer su contenido. Para ello, crea una nueva carpeta en tu disco duro, por ejemplo, <marcador class="resaltado1">C:\Terraform</marcador>, y descomprime el archivo dentro de esta carpeta. Al finalizar la extracción, encontrarás el archivo ejecutable de Terraform, llamado <marcador class="subrayado">terraform.exe</marcador>, dentro de la carpeta que creaste.</p>
+                <p>Para que puedas ejecutar Terraform desde cualquier línea de comandos en tu sistema Windows, es necesario agregar la ubicación del ejecutable <marcador class="subrayado">terraform.exe</marcador> a la variable de entorno Path. Para ello, presiona la tecla de Windows en tu teclado y comienza a escribir "variables de entorno". Debería aparecer la opción "Editar las variables de entorno del sistema". Selecciónala. Esto abrirá directamente la ventana de "Propiedades del sistema" en la pestaña "Opciones avanzadas". Desde allí, haz clic en el botón "Variables de entorno...". Luego, en la sección "Variables del sistema", busca la variable "Path", selecciónala, haz clic en "Editar...", agrega la ruta a la carpeta de <marcador class="subrayado">terraform.exe</marcador> como una nueva entrada, y guarda los cambios con "Aceptar" en todas las ventanas.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Verificar instalación:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="terraform -version" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <h6>Instalar AWS CLI en Windows</h6>
+                <p>Para descargar el instalador de la AWS CLI versión 2 en Windows, dirígete a <a href="https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-windows.html" target="blank">AWS</a>. En esa página, localiza y descarga el archivo con extensión  <marcador class="subrayado">.msi</marcador> correspondiente al instalador de la AWS CLI v2 para Windows.</p>
+                <p>Una vez que hayas descargado el archivo de la AWS CLI v2, localízalo en tu sistema y haz doble clic sobre él para iniciar el asistente de instalación. Sigue las instrucciones que aparecerán en pantalla para completar el proceso de instalación de la AWS CLI en tu computadora.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Verificar instalación:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="aws --version" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Después de instalar AWS CLI, puedes configurarlo con tus credenciales:
+                    </div>
+                    <div class="comandos">
+                      <input type="text" class="text" value="aws configure" oninput="ajustarAncho(this)">
+                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <ul style="list-style-type: none;">
+                    <li>∘ AWS Access Key ID</li>
+                    <li>∘ AWS Secret Access Key</li>
+                    <li>∘ Región por defecto (ej. us-east-1)</li>
+                    <li>∘ Formato de salida (ej. json)</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/terraform11.jpg" alt="">
+                </div>
+                <h6>Configurar el Acceso a AWS</h6>
+                <p>Para crear una cuenta de AWS, el primer paso es dirigirte a <a href="https://aws.amazon.com/es/" target="blank">AWS</a> y hacer clic en el botón "Crear una cuenta de AWS" o similar. Deberás proporcionar una dirección de correo electrónico, crear una contraseña y seguir las instrucciones para completar el registro, que incluye proporcionar información de contacto y un método de pago.</p>
+                <p>Una vez que tengas tu cuenta de AWS, para crear un par de claves de acceso que Terraform pueda usar, sigue estos pasos:</p>
+                <ol>
+                    <li><marcador class="resaltado8">Inicia sesión en la Consola de Administración de AWS: </marcador>Ve a la consola de AWS (Consola de AWS) e inicia sesión con las credenciales de tu cuenta.</li>
+                    <li><marcador class="resaltado8">Busca el servicio IAM: </marcador>En la barra de búsqueda, escribe "IAM" y selecciona el servicio "IAM" (Identity and Access Management).</li>
+                    <li><marcador class="resaltado8">Usuarios: </marcador>En el panel de navegación izquierdo, haz clic en "Personas" (Users).</li>
+                    <li><marcador class="resaltado8">Añadir usuario: </marcador>Haz clic en el botón "Crear persona" (Add Users).</li>
+                    <li><marcador class="resaltado8">Nombre de usuario: </marcador>Ingresa un nombre para el usuario (por ejemplo, "terraform-user").</li>
+                    <li><marcador class="resaltado8">Permisos: </marcador>Define los permisos que este usuario tendrá. Para Terraform, lo ideal es crear un grupo con los permisos necesarios (por ejemplo, para crear y gestionar recursos de EC2, S3, etc.) y añadir el usuario a ese grupo.</li>
+                    <p>Para crear un grupo de permisos en IAM, haz clic en el botón "Crear grupo" e ingresa un nombre descriptivo, como "terraform-administrators", en el campo correspondiente. Luego, en la sección "Adjuntar políticas de permisos", busca y selecciona la política "AdministratorAccess" marcando la casilla junto a ella, teniendo en cuenta que esta política otorga permisos administrativos completos y debe usarse con precaución, aunque puede ser conveniente para entornos de aprendizaje o personales. Finalmente, revisa la información del grupo y haz clic en el botón "Crear grupo" para completar el proceso.</p>
+                    <p>Y asegúrate de añadir al usuario que estás creando a este grupo después de finalizar el asistente.</p>
+                    <li><marcador class="resaltado8">Selecciona el usuario: </marcador>Haz clic en el nombre del usuario para el que deseas crear las claves de acceso (por ejemplo, "terraform-user"). Esto te llevará a la página de detalles de ese usuario.</li>
+                    <li><marcador class="resaltado8">Crear clave de acceso: </marcador></marcador>Dentro de la página de detalles del usuario de IAM, localiza y haz clic en la pestaña o sección denominada "Credenciales de seguridad", luego desplázate hacia abajo hasta encontrar la sección "Claves de acceso (clave de acceso e ID secreto)" y haz clic en el botón "Crear clave de acceso". En la siguiente pantalla, AWS te preguntará sobre el caso de uso; para Terraform (que utiliza la AWS CLI por debajo), selecciona la opción "Interfaz de línea de comandos (CLI)", marca la casilla de verificación para confirmar el acuerdo con las prácticas recomendadas y luego puedes ingresar una etiqueta opcional para la clave, como "clave-terraform", en el campo de "Descripción (opcional)". Finalmente, haz clic en "Crear clave de acceso" para generar el ID de clave de acceso y la clave secreta de acceso. Asegúrate de descargar el archivo .csv haciendo clic en "Descargar archivo .csv" o copiar ambas claves y guardarlas en un lugar seguro de inmediato, ya que no podrás acceder a la clave secreta nuevamente.</li>
+                    <li><marcador class="resaltado8">Configura Terraform: </marcador>Utiliza el "ID de clave de acceso" y la "clave secreta de acceso" en tu configuración de Terraform para la autenticación en AWS.</li>
+                </ol>
+                <div class="blog-image-grande">
+                    <img src="media/terraform12.jpg" alt="">
+                </div>
+                <h6>Comandos Básicos</h6>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Inicializar un proyecto:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="terraform init" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>                
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Validar la sintaxis de los archivos:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="terraform validate" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>                
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Ver plan de ejecución:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="terraform plan" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>                
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Aplicar cambios a la infraestructura:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="terraform apply" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>               
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Destruir la infraestructura:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="terraform destroy" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>               
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Formatear el código Terraform:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="terraform fmt" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>                
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Ver estado de los recursos:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="terraform show" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <h6>Obtener el Subnet ID (identificador único de una subred) para AWS</h6>
+                <p>Aquí te explico cómo sería el flujo para crear la subred y luego obtener su ID:</p>
+                <ol>
+                    <li><marcador class="resaltado8">Navega al servicio VPC (Virtual Private Cloud): </marcador>Busca "VPC" en la barra de búsqueda o encuéntralo en la sección "Redes y contenido".</li>
+                    <li><marcador class="resaltado8">Crear VPC: </marcador>En la página "Tus VPC", haz clic en el botón "Crear VPC". Y para una configuración básica, selecciona "VPC solamente".</li>
+                    <li><marcador class="resaltado8">Configura la VPC:</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>∘  Ingresa un nombre descriptivo para tu VPC (ejemplo: terraform-vpc).</li>
+                        <li>∘ Define el rango de direcciones IP privadas para tu VPC (ejemplo: 10.0.0.0/24). Elige un rango que se ajuste a tus necesidades y que no se superponga con otras redes.</li>
+                        <li>∘ Tenencia puedes dejarlo en "Predeterminado".</li>
+                    </ul>
+                    <li><marcador class="resaltado8">Haz clic en "Subredes": </marcador>En el panel de navegación izquierdo, selecciona "Subredes".</li>
+                    <li><marcador class="resaltado8">Crea la subred: </marcador>Haz clic en el botón "Crear subred".</li>
+                    <li><marcador class="resaltado8">Configura la subred: </marcador>En la página de creación de la subred, deberás especificar la siguiente información: </li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ Nombre de la subred (opcional).</li>
+                        <li>∘ ID de la VPC (selecciona la VPC donde deseas crear la subred). En este caso terraform-vpc.</li>
+                        <li>∘ Elige la zona de disponibilidad en la que quieres que resida la subred (ejemplo: us-east-2a).</li>
+                        <li>∘ Define el rango de direcciones IP privadas para tu subred (ejemplo: 10.0.0.0/28). Asegúrate de que este rango no se superponga con otros rangos de CIDR en tu VPC.</li> 
+                    </ul>
+                    <li><marcador class="resaltado8">Haz clic en "Crear subred": </marcador>Una vez que hayas configurado los detalles de tu nueva subred, haz clic en el botón "Crear subred" en la parte inferior de la página.</li>
+                    <li><marcador class="resaltado8">Localiza la subred creada y obtén su ID: </marcador>Después de crear la subred, volverás a la lista de subredes. Busca la subred que acabas de crear por su nombre o el rango CIDR que especificaste. La columna "ID de subred" ahora mostrará el identificador único asignado a esta nueva subred (por ejemplo, subnet-xxxxxxxxxxxxxxxxx). Este es el ID que necesitas obtener.</li>
+                </ol>
+                <div class="blog-image-zoom">
+                    <img src="media/terraform13.png" alt="">
+                </div>
+                <h6>Crear una instancia EC2 con Terraform</h6>
+                <p>Amazon Web Services (AWS) ofrece una capa gratuita que permite a los nuevos usuarios utilizar ciertos servicios sin costo durante 12 meses. Uno de estos servicios es la instancia EC2 t2.micro, una pequeña máquina virtual ideal para hacer pruebas, aprender, y levantar pequeños servidores. En esta guía, veremos cómo usar Terraform para crear automáticamente una de estas instancias, aprovechando esa capa gratuita.</p>
+                <p>Con este proyecto, se desplegará una máquina virtual EC2 dentro de AWS. Esta máquina tendrá un sistema operativo (Ubuntu Server 24.04 LTS) y estará alojada en una región específica, lista para recibir conexiones por SSH si así se configura. Todo el proceso es automatizado gracias a Terraform, una herramienta de infraestructura como código.</p>
+                <p>Para visualizar las AMIs (Amazon Machine Images) elegibles para la capa gratuita sin necesidad de crear una instancia EC2, navega al servicio EC2 dentro de la Consola de Administración de AWS, haz clic en "Instances" en el menú de la izquierda y luego selecciona el botón "Launch instance"; en la página "Choose an Amazon Machine Image (AMI)", examina la lista de AMIs básicas como Amazon Linux, Ubuntu o Windows Server, buscando la etiqueta "Free tier eligible" que indica su elegibilidad para la capa gratuita, la cual suele aparecer justo debajo del nombre de la AMI o en una columna adyacente.</p>
+                <p>Puedes ver los detalles de la capa gratuita de AWS (AWS Free Tier) directamente en la página oficial de <a href="https://aws.amazon.com/es/free/" target="blank">Amazon Web Services</a>.</p>
+                <p>❏ Crea un archivo llamado main.tf con el siguiente contenido:</p>
+                <div class="archivo">
+terraform {
+    required_providers {
+        aws = {
+            source  = "hashicorp/aws"
+            version = "~> 3.0"
+        }
+    }
+}
+    
+provider "aws" {
+    region     = "us-east-2"
+    access_key = "Poner tu Access Key ID aquí"
+    secret_key = "Poner tu Secret Access Key aquí"
+}
+    
+resource "aws_instance" "instancia_gratuita" {
+    ami           = "ami-04f167a56786e4b09"     # Ubuntu Server 24.04 LTS
+    instance_type = "t2.micro"
+    subnet_id        = "Poner el Subnet ID aquí"
+
+    tags = {
+        Name = "MiInstanciaGratuita"
+    }
+}                    
+                </div>
+                <p>Abre una ventana de terminal o símbolo del sistema y navega hasta el directorio donde guardaste tu archivo de configuración principal de Terraform, usualmente llamado main.tf. Una vez dentro de esa carpeta, podrás ejecutar los comandos de Terraform.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Inicializa el proyecto y descarga plugins:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="terraform init" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Muestra lo que se va a crear:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="terraform plan" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Aplica los cambios y crea la instancia:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="terraform apply" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Este ejemplo crea una instancia básica sin una clave SSH ni grupo de seguridad específico. Si quieres acceder por SSH o exponer puertos como el 22 o el 80, deberías definir un key_name y un security_group también con Terraform. Y aunque t2.micro es gratis durante los primeros 12 meses, si olvidas destruir la instancia, podrías empezar a generar cargos si cambias de tipo o pasa el año gratuito.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Para destruirla cuando ya no la necesites:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="terraform destroy" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="blog-image-zoom">
+                    <img src="media/terraform14.png" alt="">
+                </div>
+                <p></p>
+            </div>
+        </div>       
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
