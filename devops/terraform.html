@@ -296,27 +296,27 @@
                 <p>Con este proyecto, se desplegará una máquina virtual EC2 dentro de AWS. Esta máquina tendrá un sistema operativo (Ubuntu Server 24.04 LTS) y estará alojada en una región específica, lista para recibir conexiones por SSH si así se configura. Todo el proceso es automatizado gracias a Terraform, una herramienta de infraestructura como código.</p>
                 <p>Para visualizar las AMIs (Amazon Machine Images) elegibles para la capa gratuita sin necesidad de crear una instancia EC2, navega al servicio EC2 dentro de la Consola de Administración de AWS, haz clic en "Instances" en el menú de la izquierda y luego selecciona el botón "Launch instance"; en la página "Choose an Amazon Machine Image (AMI)", examina la lista de AMIs básicas como Amazon Linux, Ubuntu o Windows Server, buscando la etiqueta "Free tier eligible" que indica su elegibilidad para la capa gratuita, la cual suele aparecer justo debajo del nombre de la AMI o en una columna adyacente.</p>
                 <p>Puedes ver los detalles de la capa gratuita de AWS (AWS Free Tier) directamente en la página oficial de <a href="https://aws.amazon.com/es/free/" target="blank">Amazon Web Services</a>.</p>
-                <p>❏ Crea un archivo llamado main.tf con el siguiente contenido:</p>
+                <p>❏ Crea un archivo llamado <marcador class="subrayado">main.tf</marcador> con el siguiente contenido:</p>
                 <div class="archivo">
 terraform {
     required_providers {
         aws = {
-            source  = "hashicorp/aws"
+            source = "hashicorp/aws"
             version = "~> 3.0"
         }
     }
 }
     
 provider "aws" {
-    region     = "us-east-2"
+    region = "us-east-2"
     access_key = "Poner tu Access Key ID aquí"
     secret_key = "Poner tu Secret Access Key aquí"
 }
     
 resource "aws_instance" "instancia_gratuita" {
-    ami           = "ami-04f167a56786e4b09"     # Ubuntu Server 24.04 LTS
+    ami = "ami-04f167a56786e4b09"     # Ubuntu Server 24.04 LTS (us-east-2)
     instance_type = "t2.micro"
-    subnet_id        = "Poner el Subnet ID aquí"
+    subnet_id = "Poner el Subnet ID aquí"
 
     tags = {
         Name = "MiInstanciaGratuita"
@@ -363,8 +363,415 @@ resource "aws_instance" "instancia_gratuita" {
                 </div>
                 <div class="blog-image-zoom">
                     <img src="media/terraform14.png" alt="">
+                </div>                
+                <h6>Crear una instancia EC2 con Terraform de Cero</h6>
+                <p>Con Terraform podemos crear una infraestructura completa desde cero, incluyendo una red virtual (VPC), subredes, reglas de firewall (grupos de seguridad), y finalmente una instancia EC2 gratuita.</p>
+                <p>A continuación, se muestra la estructura de los archivos para crear los siguientes recursos en AWS: una VPC personalizada con el rango de red 10.0.0.0/16, una subred pública dentro de esta VPC, un Internet Gateway y una tabla de ruteo configurada para permitir la salida a internet. Adicionalmente, se provisionará un grupo de seguridad que habilitará conexiones SSH a través del puerto 22 y, finalmente, una instancia EC2 de tipo t2.micro será lanzada dentro de la subred pública con acceso desde internet. Si se desea habilitar el acceso SSH a la instancia mediante una clave, se puede especificar el key_name de una clave SSH existente en AWS. Es crucial marcar las claves de acceso de AWS (como aws_access_key y aws_secret_key) como sensitive dentro de la configuración de Terraform para evitar que se muestren en los logs o la salida de la consola, protegiendo así información confidencial.</p>
+                <p>❏ Crea un archivo llamado <marcador class="subrayado">main.tf</marcador> con el siguiente contenido:</p>
+                <div class="archivo">
+terraform {
+    required_providers {
+        aws = {
+            source  = "hashicorp/aws"
+        }
+    }
+}
+
+provider "aws" {
+    region = "us-east-2"
+    access_key = var.access_key
+    secret_key = var.secret_key
+}
+
+# VPC
+resource "aws_vpc" "mi_vpc" {
+    cidr_block = "10.0.0.0/16"
+
+    tags = {
+        Name = "MiVPC"
+    }
+}
+
+# Subnet
+resource "aws_subnet" "mi_subnet" {
+    vpc_id            = aws_vpc.mi_vpc.id
+    cidr_block        = "10.0.1.0/24"
+    availability_zone = "us-east-2a"
+
+    tags = {
+        Name = "MiSubnet"
+    }
+}
+
+# Internet Gateway
+resource "aws_internet_gateway" "mi_gateway" {
+    vpc_id = aws_vpc.mi_vpc.id
+
+    tags = {
+        Name = "MiInternetGateway"
+    }
+}
+
+# Tabla de ruteo
+resource "aws_route_table" "mi_ruta" {
+    vpc_id = aws_vpc.mi_vpc.id
+
+    route {
+        cidr_block = "0.0.0.0/0"
+        gateway_id = aws_internet_gateway.mi_gateway.id
+    }
+
+    tags = {
+        Name = "MiTablaDeRutas"
+    }
+}
+
+# Asociación entre tabla de ruteo y subnet
+resource "aws_route_table_association" "asociacion_ruta_subnet" {
+    subnet_id      = aws_subnet.mi_subnet.id
+    route_table_id = aws_route_table.mi_ruta.id
+}
+
+# Grupo de seguridad para permitir SSH
+resource "aws_security_group" "ssh_sg" {
+    name        = "permitir_ssh"
+    description = "Permitir acceso SSH"
+    vpc_id      = aws_vpc.mi_vpc.id
+
+    ingress {
+        description = "SSH desde cualquier IP"
+        from_port   = 22
+        to_port     = 22
+        protocol    = "tcp"
+        cidr_blocks = ["0.0.0.0/0"]
+    }
+
+    egress {
+        from_port   = 0
+        to_port     = 0
+        protocol    = "-1"
+        cidr_blocks = ["0.0.0.0/0"]
+    }
+
+    tags = {
+        Name = "SSH-SG"
+    }
+}
+
+# Instancia EC2
+resource "aws_instance" "instancia_gratuita2" {
+    ami           = "ami-04f167a56786e4b09"      # Ubuntu Server 24.04 LTS (us-east-2)
+    instance_type = "t2.micro"
+    subnet_id     = aws_subnet.mi_subnet.id
+    vpc_security_group_ids = [aws_security_group.ssh_sg.id]
+
+    tags = {
+        Name = "EC2Terraform2"
+    }
+}                     
                 </div>
-                <p></p>
+                <p>❏ Crea un archivo llamado <marcador class="subrayado">variables.tf</marcador> con el siguiente contenido:</p>
+                <div class="archivo">
+variable "access_key" {
+    description = "AWS Access Key ID"
+    type        = string
+    sensitive   = true
+}
+variable "secret_key" {
+    description = "AWS Secret Access Key"
+    type        = string
+    sensitive   = true
+}
+                </div>
+                <p>❏ Crea un archivo llamado <marcador class="subrayado">terraform.tfvars</marcador> con el siguiente contenido:</p>
+                <div class="archivo">
+access_key = "Poner tu Access Key ID aquí"
+secret_key = "Poner tu Secret Access Key aquí"
+                </div>
+                <p>❏ Crea un archivo llamado <marcador class="subrayado">output.tf</marcador> con el siguiente contenido:</p>
+                <div class="archivo">  
+output "instance_id" {
+    value = aws_instance.instancia_gratuita2.id
+}
+output "instance_public_ip" {
+    value = aws_instance.instancia_gratuita2.public_ip
+}
+output "instance_private_ip" {
+    value = aws_instance.instancia_gratuita2.private_ip
+}
+output "instance_ami" { 
+    value = aws_instance.instancia_gratuita2.ami
+}
+output "instance_type" {
+    value = aws_instance.instancia_gratuita2.instance_type
+}
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Inicializa el proyecto y descarga plugins:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="terraform init" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Aplica los cambios y crea la instancia:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="terraform apply -auto-approve" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Para destruir los recursos cuando ya no la necesites:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="terraform destroy" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="blog-image-zoom">
+                    <img src="media/terraform15.png" alt="">
+                </div>
+                <h2>Ejemplo Avanzado</h2>
+                <h6>Funciones de Terraform</h6>
+                <p>Las funciones en Terraform se utilizan principalmente dentro de las expresiones de configuración para manipular valores, realizar cálculos, transformar datos y tomar decisiones dinámicas al definir la infraestructura.</p>
+                <ol style="list-style-type: none;">
+                    <li>✧ <marcador class="resaltado3">Funciones comunes:</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">file(path): </marcador>Lee el contenido de un archivo local.</li>
+                        <p><marcador class="resaltado6">Ejemplo: </marcador>file("user_data.sh")</p>
+                        <li>∘ <marcador class="resaltado8">length(list): </marcador>Retorna el número de elementos en una lista.</li>
+                        <p><marcador class="resaltado6">Ejemplo: </marcador>length(var.subnets)</p>
+                        <li>∘ <marcador class="resaltado8">concat(list1, list2): </marcador>Une dos listas en una sola.</li>
+                        <p><marcador class="resaltado6">Ejemplo: </marcador>concat(var.private_subnets, var.public_subnets)</p>
+                        <li>∘ <marcador class="resaltado8">join(separator, list): </marcador>Une los elementos de una lista con un separador.</li>
+                        <p><marcador class="resaltado6">Ejemplo: </marcador>join(",", var.azs)</p>
+                        <li>∘ <marcador class="resaltado8">split(separator, string): </marcador>Divide un string en una lista usando un separador.</li>
+                        <p><marcador class="resaltado6">Ejemplo: </marcador>split(",", "a,b,c")</p>
+                        <li>∘ <marcador class="resaltado8">lookup(map, key, default): </marcador>Busca un valor en un mapa; si no existe, devuelve un valor por defecto.</li>
+                        <p><marcador class="resaltado6">Ejemplo: </marcador>lookup(var.tags, "Environment", "dev")</p>
+                        <li>∘ <marcador class="resaltado8">element(list, index): </marcador>Devuelve el elemento de una lista en una posición específica.</li>
+                        <p><marcador class="resaltado6">Ejemplo: </marcador>element(var.azs, 1)</p>
+                        <li>∘ <marcador class="resaltado8">cidrsubnet(cidr, newbits, netnum): </marcador>Calcula subredes a partir de un CIDR base.</li>
+                        <p><marcador class="resaltado6">Ejemplo: </marcador>cidrsubnet("10.0.0.0/16", 8, 1)</p>
+                        <li>∘ <marcador class="resaltado8">basename(path): </marcador>Extrae el nombre del archivo de una ruta.</li>
+                        <p><marcador class="resaltado6">Ejemplo: </marcador>basename("/path/to/file.txt") → "file.txt"</p>
+                        <li>∘ <marcador class="resaltado8">format(format_string, values...): </marcador>Formatea un string como con printf.</li>
+                        <p><marcador class="resaltado6">Ejemplo: </marcador>format("vm-%02d", 5) → "vm-05"</p>
+                    </ul>
+                    <li>✧ <marcador class="resaltado3">Funciones de manipulación de cadenas:</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">join(delimiter, list): </marcador>Concatena los elementos de una lista de cadenas en una sola cadena, utilizando un delimitador especificado.</li>
+                        <li>∘ <marcador class="resaltado8">split(delimiter, string): </marcador>Divide una cadena en una lista de subcadenas utilizando un delimitador especificado.</li>
+                        <li>∘ <marcador class="resaltado8">lower(string): </marcador>Convierte una cadena a minúsculas.</li>
+                        <li>∘ <marcador class="resaltado8">upper(string): </marcador>Convierte una cadena a mayúsculas.</li>
+                        <li>∘ <marcador class="resaltado8">replace(string, substring, replacement): </marcador>Reemplaza todas las ocurrencias de una subcadena dentro de una cadena con otra subcadena.</li>
+                        <li>∘ <marcador class="resaltado8">substring(string, offset, length): </marcador>Extrae una subcadena de una cadena dada.</li>
+                        <li>∘ <marcador class="resaltado8">trim(string, chars): </marcador>Elimina los caracteres especificados del inicio y del final de una cadena.</li>
+                    </ul>
+                    <li>✧ <marcador class="resaltado3">Funciones numéricas:</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">abs(number): </marcador>Devuelve el valor absoluto de un número.</li>
+                        <li>∘ <marcador class="resaltado8">ceil(number): </marcador>Devuelve el entero menor o igual al número dado.</li>
+                        <li>∘ <marcador class="resaltado8">floor(number): </marcador>Devuelve el entero mayor o igual al número dado.</li>
+                        <li>∘ <marcador class="resaltado8">max(numbers...): </marcador>Devuelve el valor más grande de un conjunto de números.</li>
+                        <li>∘ <marcador class="resaltado8">min(numbers...): </marcador>Devuelve el valor más pequeño de un conjunto de números.</li>
+                        <li>∘ <marcador class="resaltado8">round(number): </marcador>Redondea un número al entero más cercano.</li>
+                    </ul>
+                    <li>✧ <marcador class="resaltado3">Funciones de colección (listas y mapas):</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">length(collection): </marcador>Devuelve el número de elementos en una lista o el número de claves en un mapa.</li>
+                        <li>∘ <marcador class="resaltado8">element(list, index): </marcador>Devuelve el elemento en el índice especificado de una lista.</li>
+                        <li>∘ <marcador class="resaltado8">slice(list, start, end): </marcador>Devuelve una porción de una lista.</li>
+                        <li>∘ <marcador class="resaltado8">keys(map): </marcador>Devuelve una lista de las claves de un mapa.</li>
+                        <li>∘ <marcador class="resaltado8">values(map): </marcador>Devuelve una lista de los valores de un mapa.</li>
+                        <li>∘ <marcador class="resaltado8">merge(map1, map2, ...): </marcador>Combina varios mapas en uno solo.</li>
+                        <li>∘ <marcador class="resaltado8">tolist(set): </marcador>Convierte un conjunto en una lista.</li>
+                        <li>∘ <marcador class="resaltado8">toset(list): </marcador>Convierte una lista en un conjunto (eliminando duplicados).</li>
+                    </ul>
+                    <li>✧ <marcador class="resaltado3">Funciones de lógica y comparación:</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">contains(collection, value): </marcador>Indica si una colección contiene un valor específico.</li>
+                        <li>∘ <marcador class="resaltado8">startswith(string, prefix): </marcador>Indica si una cadena comienza con un prefijo específico.</li>
+                        <li>∘ <marcador class="resaltado8">endswith(string, suffix): </marcador>Indica si una cadena termina con un sufijo específico.</li>
+                        <li>∘ <marcador class="resaltado8">equal(a, b): </marcador>Compara si dos valores son iguales.</li>
+                        <li>∘ <marcador class="resaltado8">not_equal(a, b): </marcador>Compara si dos valores no son iguales.</li>
+                    </ul>
+                    <li>✧ <marcador class="resaltado3">Funciones de codificación:</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">base64encode(string): </marcador>Codifica una cadena en Base64.</li>
+                        <li>∘ <marcador class="resaltado8">base64decode(string): </marcador>Decodifica una cadena desde Base64.</li>
+                        <li>∘ <marcador class="resaltado8">jsonencode(value): </marcador>Codifica un valor en formato JSON.</li>
+                        <li>∘ <marcador class="resaltado8">jsondecode(string): </marcador>Decodifica una cadena JSON en un valor de Terraform.</li>
+                    </ul>
+                    <li>✧ <marcador class="resaltado3">Funciones de fecha y tiempo:</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">timestamp(): </marcador>Devuelve la hora actual en formato RFC3339.</li>
+                        <li>∘ <marcador class="resaltado8">formatdate(format, timestamp): </marcador>Formatea una marca de tiempo en un formato específico.</li>
+                    </ul>
+                    <li>✧ <marcador class="resaltado3">Otras funciones importantes:</marcador></li>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">lookup(map, key, default): </marcador>Busca un valor en un mapa usando una clave. Si la clave no existe, devuelve un valor predeterminado (si se proporciona).</li>
+                        <li>∘ <marcador class="resaltado8">default(value, default_value): </marcador>Devuelve el valor dado si no es nulo ni una cadena vacía; de lo contrario, devuelve el valor predeterminado.</li>
+                        <li>∘ <marcador class="resaltado8">file(path): </marcador>Lee el contenido de un archivo local.</li>
+                        <li>∘ <marcador class="resaltado8">filebase64(path): </marcador>Lee el contenido de un archivo local y lo codifica en Base64.</li>
+                        <li>∘ <marcador class="resaltado8">cidrsubnet(ip_range, new_bits, netnum): </marcador>Calcula una subred dentro de un rango CIDR dado.</li>
+                        <li>∘ <marcador class="resaltado8">cidrhost(ip_range, hostnum): </marcador>Calcula una dirección IP dentro de un rango CIDR dado.</li>
+                        <li>∘ <marcador class="resaltado8">uuid(): </marcador>Genera un identificador único universal (UUID).</li>
+                    </ul>
+                </ol>
+                <br>
+                <p>Todas las funciones están bien explicadas en la <a href="https://developer.hashicorp.com/terraform/language/functions" target="blank">documentación oficial</a>.</p>
+                <p>❏ Crea un archivo llamado <marcador class="subrayado">main.tf</marcador> con el siguiente contenido:</p>
+                <div class="archivo">
+terraform {
+    required_providers {
+        aws = {
+            source  = "hashicorp/aws"
+        }
+    }
+}
+
+provider "aws" {
+    region      = "us-east-2"
+    access_key  = var.access_key
+    secret_key  = var.secret_key
+}
+
+locals {
+    extra_tag = "extra-tag"
+}
+
+resource "aws_instance" "example" {
+    for_each = var.service_names
+
+    ami                         = "ami-04f167a56786e4b09"       # Ubuntu Server 24.04 LTS (us-east-2)
+    instance_type               = "t2.micro"
+    subnet_id                   = module.vpc.public_subnets[0]
+    vpc_security_group_ids      = [module.terraform-sg.security_group_id] 
+    associate_public_ip_address = true 
+
+    tags = {
+        ExtraTag    = local.extra_tag
+        Name        = "EC2-${each.key}"
+    }
+}
+
+resource "aws_cloudwatch_log_group" "ec2_log_group" {
+    for_each = var.service_names
+
+
+    tags = {
+        Environment = "test"
+        Service     = each.key
+    }
+    lifecycle {
+        create_before_destroy = true
+    }
+}
+                </div>
+                <p>❏ Crea un archivo llamado <marcador class="subrayado">variables.tf</marcador> con el siguiente contenido:</p>
+                <div class="archivo">
+variable "access_key" {
+    description = "access_key"
+    type        = string
+    sensitive   = true
+}
+
+    variable "secret_key" {
+    description = "secret_key"
+    type        = string
+    sensitive   = true
+}
+
+    variable "service_names" {
+    description = "Name of the ECR repositories"
+    type        = set(string)
+}    
+                </div>
+                <p>❏ Crea un archivo llamado <marcador class="subrayado">terraform.tfvars</marcador> con el siguiente contenido:</p>
+                <div class="archivo">
+access_key = "Poner tu Access Key ID aquí"
+secret_key = "Poner tu Secret Access Key aquí"
+service_names = ["service1", "service2", "service3"]
+                </div>   
+                <p>❏ Crea un archivo llamado <marcador class="subrayado">outputs.tf</marcador> con el siguiente contenido:</p>
+                <div class="archivo">
+output "instance_ip_addr" {
+    #value = values(aws_instance.example).*.private_ip
+    value = { for service, i in aws_instance.example : service => i.private_ip }
+}
+                </div>
+                <h6>¿Qué es un módulo en Terraform?</h6>
+                <p>Un módulo en Terraform es simplemente un conjunto de archivos .tf organizados en una carpeta, que encapsulan recursos reutilizables. Es como una función en programación: define lógica que puedes reutilizar muchas veces con diferentes parámetros.</p>
+                <p>Terraform ya tiene muchos módulos oficiales y comunitarios publicados en <a href="https://registry.terraform.io/browse/modules" target="blank">Terraform Registry</a>.</p>
+                <p>❏ Crea un archivo llamado <marcador class="subrayado">networking.tf</marcador> con el siguiente contenido:</p>
+                <div class="archivo">
+module "vpc" {
+    source = "terraform-aws-modules/vpc/aws"
+    
+    name = "terraform-vpc-ohio"
+    cidr = "10.0.0.0/16"
+    
+    azs            = ["us-east-2a", "us-east-2b"]
+    public_subnets = ["10.0.101.0/24", "10.0.102.0/24"]
+    
+    enable_vpn_gateway   = true
+    enable_dns_hostnames = true
+    enable_dns_support   = true
+    
+    tags = {
+        Terraform   = "true"
+        Environment = "dev"
+    }
+}
+    
+module "terraform-sg" {
+    source = "terraform-aws-modules/security-group/aws"
+    
+    name                = "https rule"
+    description         = "Security Group con Terraform"
+    vpc_id              = module.vpc.vpc_id
+    ingress_cidr_blocks = ["0.0.0.0/0"]
+    ingress_rules       = ["https-443-tcp"]
+    egress_cidr_blocks  = ["0.0.0.0/0"]
+    egress_rules        = ["https-443-tcp"]
+}
+                </div> 
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Inicializa el proyecto y descarga plugins:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="terraform init" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Aplica los cambios y crea la instancia:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="terraform apply -auto-approve" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Para destruir los recursos cuando ya no la necesites:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="terraform destroy" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div> 
+                <div class="blog-image-zoom">
+                    <img src="media/terraform16.png" alt="">
+                </div>                                                                                         
             </div>
         </div>       
     </main>
