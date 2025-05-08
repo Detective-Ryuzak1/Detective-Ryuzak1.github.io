@@ -773,7 +773,49 @@ module "terraform-sg" {
                 </div> 
                 <div class="blog-image-zoom">
                     <img src="media/terraform16.png" alt="">
-                </div>                                                                                         
+                </div>
+                <h2>Backend y Workspace</h2>
+                <p>En Terraform, el backend es el componente que define dónde y cómo se guarda el estado de la infraestructura (el archivo terraform.tfstate). Por defecto, Terraform lo guarda localmente, pero puedes configurar un backend remoto (como S3, Consul, o Terraform Cloud) para compartir el estado entre equipos, habilitar bloqueo de estado y mejorar la colaboración.</p>
+                <p>Por otro lado, los workspaces permiten tener múltiples versiones del estado dentro del mismo backend, lo que es útil, por ejemplo, para gestionar distintos entornos como dev, staging y prod sin duplicar código. Cada workspace mantiene su propio estado, por lo que puedes aplicar la misma configuración pero con recursos separados según el entorno.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Para crear un nuevo workspace:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="terraform workspace new nombre_del_workspace" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>                
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Para listar todos los workspaces existentes:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="terraform workspace list" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>                
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Para cambiar al workspace deseado:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="terraform workspace select nombre_del_workspace" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>    
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Para borrar un workspace que ya no necesites:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="terraform workspace delete nombre_del_workspace" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                    <div class="blog-image-grande">
+                        <img src="media/terraform17.png" alt="">
+                    </div>
+                </div>
             </div>
         </div>       
     </main>
