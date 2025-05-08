@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <link rel="icon" href="../media/imagen41.png" type="image/png">
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                        <li><a href="../devops.html">DevOps</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Aportar" onclick="window.open('https://buymeacoffee.com/ryuzak1', '_blank');">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <br>
+                <br>
+                <h1>Apache Flink</h1>
+                <p>Apache Flink es un sistema de procesamiento de datos distribuido y una plataforma de análisis de flujos en tiempo real. Está diseñado para ejecutar aplicaciones de procesamiento de eventos con baja latencia, alto rendimiento y una fuerte capacidad de recuperación ante fallos. Nacido en el ecosistema de proyectos de código abierto de la Apache Software Foundation, Flink ha ganado protagonismo como una alternativa avanzada a otros motores de procesamiento, particularmente por su enfoque nativo al streaming de datos.</p>
+                <p>A diferencia de motores como Hadoop o Spark que nacieron bajo paradigmas batch y luego evolucionaron al streaming, Flink fue construido desde cero para el procesamiento continuo, lo cual lo convierte en una herramienta clave para aplicaciones donde los datos nunca se detienen, como análisis de logs en tiempo real, detección de fraudes financieros, sistemas de monitoreo o análisis de redes sociales.</p>
+                <ul style="list-style-type: none;">
+                    <li>∘ Procesamiento de eventos en tiempo real (true streaming).</li>
+                    <li>∘ Baja latencia y alto rendimiento.</li>
+                    <li>∘ Tolerancia a fallos avanzada.</li>
+                    <li>∘ Soporte para estado (stateful processing).</li>
+                    <li>∘ Integración con múltiples fuentes de datos (Kafka, HDFS, JDBC, etc.).</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/flink1.jpeg" alt="">
+                </div>
+                <h2>Componentes principales</h2>
+                <p>La arquitectura de Flink está compuesta por varios componentes que trabajan en conjunto para orquestar el procesamiento de datos en un clúster distribuido. Estos son los pilares que permiten a Flink manejar trabajos complejos con eficiencia:</p>
+                <ul style="list-style-type: none;">
+                    <li>➰ <marcador class="resaltado2">JobManager: </marcador>Es el componente maestro. Su responsabilidad es coordinar la ejecución de los trabajos, distribuir las tareas a los nodos trabajadores (TaskManagers), y manejar el estado del trabajo, los checkpoints y las recuperaciones en caso de fallos. Se puede configurar en modo de alta disponibilidad (HA).</li>
+                    <li>➰ <marcador class="resaltado2">TaskManager: </marcador>Es el componente que ejecuta las tareas individuales. Cada TaskManager gestiona un número configurable de slots, donde cada slot representa la capacidad para ejecutar una sub-tarea de manera paralela. Estos nodos también se comunican entre sí para intercambiar datos intermedios.</li>
+                    <li>➰ <marcador class="resaltado2">Dispatcher y ResourceManager: </marcador>En una arquitectura moderna de Flink (desde la integración con Kubernetes o Yarn), el Dispatcher recibe las peticiones de los trabajos, mientras que el ResourceManager interactúa con el gestor de recursos del clúster para aprovisionar nodos según necesidad.</li>
+                    <li>➰ <marcador class="resaltado2">State Backend: </marcador>Es el componente que define cómo y dónde se guarda el estado del trabajo. Puede usarse memoria, sistemas de archivos distribuidos como HDFS o bases de datos especializadas como RocksDB para manejar estados grandes.</li>
+                    <li>➰ <marcador class="resaltado2">Checkpointing System: </marcador>Este sistema realiza instantáneas del estado del trabajo en intervalos definidos, permitiendo que, en caso de fallos, la ejecución pueda continuar desde el último checkpoint sin pérdida de datos ni inconsistencia.</li>
+                    <li>➰ <marcador class="resaltado2">APIs de Flink: </marcador>Flink proporciona múltiples APIs como la DataStream API (para flujos no estructurados), la Table API (similar a SQL para flujos y lotes) y la SQL API, que facilita el acceso a analistas y usuarios no técnicos.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/flink2.jpg" alt="">
+                </div>
+                <h2>¿Cómo funciona Apache Flink?</h2>
+                <p>El funcionamiento de Apache Flink gira alrededor de un modelo de procesamiento de eventos individuales, lo que lo convierte en un verdadero motor de streaming. Cuando un trabajo es lanzado, Flink construye un grafo dirigido acíclico (DAG) de operaciones, conocido como Job Graph. Este grafo es transformado en un Execution Graph, donde cada nodo representa una operación lógica del pipeline.</p>
+                <p>Una vez desplegado, Flink empieza a recibir eventos en tiempo real desde las fuentes configuradas (como Kafka, Kinesis, sockets, archivos, etc.). Cada evento es procesado tan pronto como llega, a diferencia del modelo por lotes o micro-lotes. Esta es una de sus mayores fortalezas, ya que permite tiempos de respuesta muy reducidos. El sistema puede mantener estado asociado a cada clave del flujo de datos (por ejemplo, el saldo de una cuenta bancaria, un contador, un mapa de sesiones activas, etc.), lo que permite construir aplicaciones que requieren memoria de eventos anteriores.</p>
+                <p>El estado en Flink puede ser almacenado en memoria para operaciones rápidas, o en backends externos como RocksDB para operaciones de mayor volumen. Este estado es tolerante a fallos gracias al mecanismo de checkpointing distribuido. Cuando ocurre una interrupción o fallo, Flink reinicia las tareas desde el último checkpoint sin volver a procesar los eventos ya entregados, garantizando exactly-once semantics en la mayoría de los casos.</p>
+                <p>Una de las capacidades más avanzadas de Flink es el procesamiento basado en event-time, lo que permite procesar los datos en función del momento en que ocurrieron, y no en el orden de llegada. Esto es clave cuando trabajamos con sistemas distribuidos donde los eventos pueden llegar fuera de orden o con latencia. Flink usa watermarks para indicar qué tan adelante está el sistema en cuanto a la línea de tiempo de eventos, lo cual le permite agrupar correctamente los datos en ventanas de tiempo y emitir resultados consistentes, incluso cuando algunos datos llegan tarde.</p>
+                <p>Además, Flink puede usar operadores de transformación complejos, como uniones de flujos, filtros condicionales, funciones de agregación personalizadas, o ventanas deslizantes y acumulativas, todo sin necesidad de almacenar temporalmente el dataset completo.</p>
+                <div class="blog-image-grande">
+                    <img src="media/flink3.png" alt="">
+                </div>
+                <h2>Flink vs Spark</h2>
+                <p>Apache Spark es un motor poderoso, pero su enfoque hacia el procesamiento de flujos es diferente. Spark Structured Streaming funciona bajo el modelo de micro-batch, donde agrupa los eventos que llegan en un intervalo de tiempo (por ejemplo, cada segundo) y los procesa como un lote pequeño. Esto permite aprovechar optimizaciones existentes del procesamiento batch, pero añade una latencia inherente entre la llegada de datos y la obtención del resultado.</p>
+                <p>Flink, en cambio, sigue el paradigma de streaming verdadero (real-time streaming). Cada evento se procesa de inmediato en cuanto llega. No hay necesidad de esperar a agrupar los eventos. Esto se traduce en menor latencia, procesamiento más fino y mayor capacidad de reaccionar a los datos en tiempo real. Además, Flink soporta una semántica de procesamiento más precisa sobre event-time, mientras que Spark ha tenido históricamente más limitaciones en ese aspecto, aunque ha mejorado con el tiempo.</p>
+                <p>También se diferencia en cómo ambos manejan el estado: Flink puede trabajar con estados grandes y complejos distribuidos en todo el clúster, sin necesidad de persistir resultados externos intermedios. Esto hace que Flink sea más eficiente en casos donde se necesita mantener memoria entre eventos, como en detección de patrones o enriquecimiento de datos.</p>
+                <p>Supón que tienes una aplicación de detección de fraudes que observa millones de transacciones bancarias por segundo. Para detectar comportamientos sospechosos, necesitas:</p>
+                <ul style="list-style-type: none;">
+                    <li>∘ Guardar el historial de transacciones de cada usuario (últimos montos, países, dispositivos).</li>
+                    <li>∘ Detectar si hubo varias transacciones en diferentes países en menos de 5 minutos.</li>
+                    <li>∘ Ver si hay patrones repetitivos (como usar una tarjeta justo antes de que se bloquee).</li>
+                </ul>
+                <p>Para hacer esto en Flink, cada usuario tiene asociado un estado (por ejemplo, una lista de transacciones recientes, el último país donde usó la tarjeta, etc.). Este estado es guardado internamente por Flink y distribuido en memoria (o en disco local si es muy grande) a lo largo de todo el clúster. Cuando llegan nuevas transacciones, Flink accede al estado del usuario, decide si hay fraude y lo actualiza.</p>
+                <p>Ese “estado” puede ser grande y complejo: miles de claves (usuarios), cada una con su propio historial, contadores, mapas, listas, temporizadores, etc. Flink permite manejar todo esto de forma eficiente sin necesidad de consultar una base de datos externa cada vez que llega un evento.</p>
+                <div class="blog-image-grande">
+                    <img src="media/flink4.png" alt="">
+                </div>
+                <h2>Optimización</h2>
+                <p>Apache Flink cuenta con un optimizador de consultas muy avanzado, diseñado especialmente para el procesamiento de datos en flujo (streaming) y también por lotes (batch). Este optimizador analiza el plan lógico que define el usuario (es decir, las transformaciones como filtros, joins, agrupaciones, ventanas, etc.) y lo convierte en un plan físico más eficiente antes de que se ejecute en el clúster.</p>
+                <p>Su método de optimización se basa en:</p>
+                <ul style="list-style-type: none;">
+                    <li>ׄ🐿️ <marcador class="resaltado8">Reordenamiento de operadores: </marcador>El optimizador puede cambiar el orden de las operaciones para minimizar el volumen de datos que se mueven por la red. Por ejemplo, si se puede aplicar un filtro antes de un join costoso, lo hace automáticamente.</li>
+                    <li>🐿️ <marcador class="resaltado8">Uso de estadísticas: </marcador>Cuando están disponibles, Flink utiliza estadísticas de los datos (como el número de filas, distribución de claves, tamaños) para tomar decisiones sobre el mejor plan de ejecución.</li>
+                    <li>🐿️ <marcador class="resaltado8">Optimización de joins: </marcador>Uno de los puntos más complejos en sistemas distribuidos. Flink decide si conviene hacer un broadcast join (enviar una tabla pequeña a todos los nodos), un hash join, o incluso un stateful join en streaming con ventanas temporales. Esta decisión es crítica para el rendimiento.</li>
+                    <li>🐿️ <marcador class="resaltado8">Pipelines de ejecución eficientes: </marcador>Flink convierte las operaciones en tareas altamente optimizadas, muchas de las cuales pueden operar sincrónicamente dentro del mismo proceso si detecta que no hace falta pasar datos entre nodos.</li>
+                </ul>
+                <p>Este proceso de optimización es automático y permite a Flink ejecutar trabajos de forma muy eficiente, especialmente en flujos donde cada milisegundo importa.</p>
+                <div class="blog-image-grande">
+                    <img src="media/flink5.png" alt="">
+                </div>
+                <h2>Tolerancia a fallos</h2>
+                <p>La tolerancia a fallos en Apache Flink se basa en un mecanismo robusto y eficiente de <strong>checkpoints automáticos</strong> y <strong>savepoints manuales</strong>. Estos puntos de control permiten recuperar el estado completo del sistema ante cualquier fallo (ya sea una caída de nodo, error de red o reinicio inesperado) sin perder datos ni procesar eventos duplicados.</p>
+                <p>Piensa en los checkpoints como fotos sincronizadas de todos los componentes que procesan los datos. Si ocurre un error, Flink puede volver a esa foto y continuar desde ahí. Los savepoints, por su parte, son capturas manuales que tú decides cuándo tomar, útiles por ejemplo para actualizaciones de código.</p>
+                <p>El mecanismo subyacente funciona así:</p>
+                <ul style="list-style-type: none;">
+                    <li>🐿️ <strong>Checkpoint Coordinator:</strong> Es el nodo maestro que inicia el proceso de checkpoint. Envía una señal a todas las tareas del job (source, operadores y sink) para que tomen una instantánea sincronizada del estado.</li>
+                    <li>🐿️ <strong>Source:</strong> Guarda los <em>offsets</em> de los datos de entrada. Es decir, el punto exacto hasta donde ha leído del sistema fuente (por ejemplo, Kafka o archivos).</li>
+                    <li>🐿️ <strong>Operadores intermedios:</strong> Guardan su estado interno, como buffers, listas, contadores o ventanas. Este estado se almacena en un <strong>state backend</strong>, que puede ser en memoria o usando RocksDB para escalar.</li>
+                    <li>🐿️ <strong>Sink:</strong> Si es transaccional, primero realiza un <em>pre-commit</em> de los datos que ya ha recibido. Esto significa que los datos se escriben de forma segura, pero no se hacen visibles hasta que el checkpoint es exitoso.</li>
+                    <li>🐿️ <strong>Consistencia exactly-once:</strong> El checkpoint no se considera válido hasta que todas las tareas confirman al coordinador que su parte del estado ha sido correctamente persistida. Solo entonces se hace un commit final en el sink. Esto evita duplicados y garantiza procesamiento exactamente una vez.</li>
+                    <li>🐿️ <strong>Almacenamiento persistente:</strong> El estado y los offsets se guardan en sistemas como S3, HDFS o sistemas distribuidos (DFS), permitiendo una recuperación segura incluso tras reinicios completos del clúster.</li>                
+                    <li>🐿️ <strong>Savepoints manuales:</strong> A diferencia de los checkpoints, son controlados por el usuario. Se utilizan para pausas planificadas, migraciones de versión, o reinicios desde un punto específico. Los savepoints también se almacenan en un DFS y pueden ser retomados explícitamente.</li>
+                </ul>                
+                <p>Este diseño hace que Flink sea ideal para sistemas donde la fiabilidad es crítica, como procesamiento de pagos, detección de fraudes o sistemas financieros en tiempo real.</p>
+                <div class="blog-image-grande">
+                    <img src="media/flink6.png" alt="">
+                </div>
+                <p>Supongamos que tienes una aplicación de procesamiento de pagos en tiempo real. Flink guarda el estado de cada usuario: cuántas transacciones hizo, de qué tipo, desde qué país, etc. Si un nodo que procesa a cierto grupo de usuarios se cae, Flink automáticamente reprograma esa parte del trabajo en otro nodo y restaura todo el estado desde el último checkpoint. El procesamiento continúa casi sin interrupciones, y ninguna transacción se procesa dos veces ni se pierde.</p>
+            </div>
+        </div>       
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
