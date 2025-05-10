@@ -90,6 +90,21 @@
                 <div class="blog-image-grande">
                     <img src="media/flink4.png" alt="">
                 </div>
+                <h2>DAG: Directed Acyclic Graph (Grafo Acíclico Dirigido)</h2>
+                <p>En el contexto de la ciencia de datos, un DAG es una representación visual y matemática de un flujo de trabajo o un proceso que consta de una serie de tareas (nodos) conectadas por dependencias direccionales (aristas). La característica crucial de un DAG es que no contiene ciclos, lo que significa que no puedes comenzar en un nodo y volver al mismo nodo siguiendo las direcciones de las aristas.</p>
+                <p>La importancia de usar DAG's en ciencia de datos se debe a:</p>
+                <ul style="list-style-type: none;">
+                    <li>ׄ🕵🏻‍♀️ <marcador class="resaltado9">Orquestación de flujos de trabajo: </marcador>Los DAGs son fundamentales en herramientas de orquestación de flujos de trabajo como Apache Airflow, Prefect, y dbt (data build tool). Permiten definir y gestionar pipelines de datos complejos, especificando el orden en que deben ejecutarse las tareas y las dependencias entre ellas.</li>
+                    <li>ׄ🕵🏻‍♀️ <marcador class="resaltado9">Representación de pipelines de datos: </marcador>Un DAG puede visualizar claramente el linaje de los datos, mostrando cómo se transforman los datos desde su origen hasta su destino final. Esto facilita la comprensión, el mantenimiento y la depuración de los pipelines.</li>
+                    <li>ׄ🕵🏻‍♀️ <marcador class="resaltado9">Paralelización y concurrencia: </marcador>Al definir las dependencias, los sistemas de orquestación basados en DAGs pueden ejecutar en paralelo las tareas que no dependen unas de otras, optimizando el tiempo de procesamiento.</li>
+                    <li>ׄ🕵🏻‍♀️ <marcador class="resaltado9">Manejo de errores y reintentos: </marcador>Los DAGs permiten definir estrategias específicas para el manejo de errores en cada tarea. Si una tarea falla, el sistema puede reintentarla o notificar a los responsables, sin afectar necesariamente a otras partes del flujo de trabajo.</li>
+                    <li>ׄ🕵🏻‍♀️ <marcador class="resaltado9">Reproducibilidad: </marcador>Al definir el flujo de trabajo de manera explícita en un DAG, se facilita la reproducción de los análisis y los procesos de transformación de datos.</li>
+                    <li>ׄ🕵🏻‍♀️ <marcador class="resaltado9">Modelado de dependencias: </marcador>En diversas áreas de la ciencia de datos, como el modelado causal (con redes bayesianas) o la compilación de código, los DAGs se utilizan para representar las relaciones de dependencia entre variables o componentes.</li>
+                </ul>
+                <p>En ciencia de datos, un DAG (Grafo Acíclico Dirigido) se utiliza para representar visualmente flujos de trabajo complejos, como en pipelines ETL/ELT donde muestra las dependencias entre las transformaciones de datos, en el entrenamiento de modelos de Machine Learning para definir los pasos desde el preprocesamiento hasta el despliegue, en el análisis de datos para orquestar scripts, y en herramientas como dbt para representar las dependencias entre los diferentes modelos de datos (SQL) en un proyecto de transformación.</p>
+                <div class="blog-image-grande">
+                    <img src="media/flink7.png" alt="">
+                </div>
                 <h2>Optimización</h2>
                 <p>Apache Flink cuenta con un optimizador de consultas muy avanzado, diseñado especialmente para el procesamiento de datos en flujo (streaming) y también por lotes (batch). Este optimizador analiza el plan lógico que define el usuario (es decir, las transformaciones como filtros, joins, agrupaciones, ventanas, etc.) y lo convierte en un plan físico más eficiente antes de que se ejecute en el clúster.</p>
                 <p>Su método de optimización se basa en:</p>
@@ -104,23 +119,182 @@
                     <img src="media/flink5.png" alt="">
                 </div>
                 <h2>Tolerancia a fallos</h2>
-                <p>La tolerancia a fallos en Apache Flink se basa en un mecanismo robusto y eficiente de <strong>checkpoints automáticos</strong> y <strong>savepoints manuales</strong>. Estos puntos de control permiten recuperar el estado completo del sistema ante cualquier fallo (ya sea una caída de nodo, error de red o reinicio inesperado) sin perder datos ni procesar eventos duplicados.</p>
+                <p>La tolerancia a fallos en Apache Flink se basa en un mecanismo robusto y eficiente de <marcador class="resaltado8">checkpoints automáticos</marcador class="resaltado8"> y <marcador class="resaltado8">savepoints manuales</marcador class="resaltado8">. Estos puntos de control permiten recuperar el estado completo del sistema ante cualquier fallo (ya sea una caída de nodo, error de red o reinicio inesperado) sin perder datos ni procesar eventos duplicados.</p>
                 <p>Piensa en los checkpoints como fotos sincronizadas de todos los componentes que procesan los datos. Si ocurre un error, Flink puede volver a esa foto y continuar desde ahí. Los savepoints, por su parte, son capturas manuales que tú decides cuándo tomar, útiles por ejemplo para actualizaciones de código.</p>
                 <p>El mecanismo subyacente funciona así:</p>
                 <ul style="list-style-type: none;">
-                    <li>🐿️ <strong>Checkpoint Coordinator:</strong> Es el nodo maestro que inicia el proceso de checkpoint. Envía una señal a todas las tareas del job (source, operadores y sink) para que tomen una instantánea sincronizada del estado.</li>
-                    <li>🐿️ <strong>Source:</strong> Guarda los <em>offsets</em> de los datos de entrada. Es decir, el punto exacto hasta donde ha leído del sistema fuente (por ejemplo, Kafka o archivos).</li>
-                    <li>🐿️ <strong>Operadores intermedios:</strong> Guardan su estado interno, como buffers, listas, contadores o ventanas. Este estado se almacena en un <strong>state backend</strong>, que puede ser en memoria o usando RocksDB para escalar.</li>
-                    <li>🐿️ <strong>Sink:</strong> Si es transaccional, primero realiza un <em>pre-commit</em> de los datos que ya ha recibido. Esto significa que los datos se escriben de forma segura, pero no se hacen visibles hasta que el checkpoint es exitoso.</li>
-                    <li>🐿️ <strong>Consistencia exactly-once:</strong> El checkpoint no se considera válido hasta que todas las tareas confirman al coordinador que su parte del estado ha sido correctamente persistida. Solo entonces se hace un commit final en el sink. Esto evita duplicados y garantiza procesamiento exactamente una vez.</li>
-                    <li>🐿️ <strong>Almacenamiento persistente:</strong> El estado y los offsets se guardan en sistemas como S3, HDFS o sistemas distribuidos (DFS), permitiendo una recuperación segura incluso tras reinicios completos del clúster.</li>                
-                    <li>🐿️ <strong>Savepoints manuales:</strong> A diferencia de los checkpoints, son controlados por el usuario. Se utilizan para pausas planificadas, migraciones de versión, o reinicios desde un punto específico. Los savepoints también se almacenan en un DFS y pueden ser retomados explícitamente.</li>
+                    <li>🐿️ <marcador class="resaltado8">Checkpoint Coordinator:</marcador class="resaltado8"> Es el nodo maestro que inicia el proceso de checkpoint. Envía una señal a todas las tareas del job (source, operadores y sink) para que tomen una instantánea sincronizada del estado.</li>
+                    <li>🐿️ <marcador class="resaltado8">Source:</marcador class="resaltado8"> Guarda los <em>offsets</em> de los datos de entrada. Es decir, el punto exacto hasta donde ha leído del sistema fuente (por ejemplo, Kafka o archivos).</li>
+                    <li>🐿️ <marcador class="resaltado8">Operadores intermedios:</marcador class="resaltado8"> Guardan su estado interno, como buffers, listas, contadores o ventanas. Este estado se almacena en un <marcador class="resaltado8">state backend</marcador class="resaltado8">, que puede ser en memoria o usando RocksDB para escalar.</li>
+                    <li>🐿️ <marcador class="resaltado8">Sink:</marcador class="resaltado8"> Si es transaccional, primero realiza un <em>pre-commit</em> de los datos que ya ha recibido. Esto significa que los datos se escriben de forma segura, pero no se hacen visibles hasta que el checkpoint es exitoso.</li>
+                    <li>🐿️ <marcador class="resaltado8">Consistencia exactly-once:</marcador class="resaltado8"> El checkpoint no se considera válido hasta que todas las tareas confirman al coordinador que su parte del estado ha sido correctamente persistida. Solo entonces se hace un commit final en el sink. Esto evita duplicados y garantiza procesamiento exactamente una vez.</li>
+                    <li>🐿️ <marcador class="resaltado8">Almacenamiento persistente:</marcador class="resaltado8"> El estado y los offsets se guardan en sistemas como S3, HDFS o sistemas distribuidos (DFS), permitiendo una recuperación segura incluso tras reinicios completos del clúster.</li>                
+                    <li>🐿️ <marcador class="resaltado8">Savepoints manuales:</marcador class="resaltado8"> A diferencia de los checkpoints, son controlados por el usuario. Se utilizan para pausas planificadas, migraciones de versión, o reinicios desde un punto específico. Los savepoints también se almacenan en un DFS y pueden ser retomados explícitamente.</li>
                 </ul>                
                 <p>Este diseño hace que Flink sea ideal para sistemas donde la fiabilidad es crítica, como procesamiento de pagos, detección de fraudes o sistemas financieros en tiempo real.</p>
                 <div class="blog-image-grande">
                     <img src="media/flink6.png" alt="">
                 </div>
                 <p>Supongamos que tienes una aplicación de procesamiento de pagos en tiempo real. Flink guarda el estado de cada usuario: cuántas transacciones hizo, de qué tipo, desde qué país, etc. Si un nodo que procesa a cierto grupo de usuarios se cae, Flink automáticamente reprograma esa parte del trabajo en otro nodo y restaura todo el estado desde el último checkpoint. El procesamiento continúa casi sin interrupciones, y ninguna transacción se procesa dos veces ni se pierde.</p>
+                <h2>Instalación de Apache Flink en modo Standalone</h2>
+                <p>Apache Flink puede ejecutarse como un clúster en modo "standalone", lo que significa que no depende de herramientas como YARN o Kubernetes para su orquestación. Este enfoque es útil cuando deseas tener control total sobre las máquinas y la configuración del entorno.</p>
+                <p>En este ejemplo, se usa una configuración de tres nodos, cada uno ejecutando uno o más componentes de Flink (JobManager o TaskManager).</p>
+                <p>Primero, asegúrate de tener Java instalado y configurado correctamente en todos los nodos. Luego descarga y descomprime Flink en una ruta compartida o réplica local en cada nodo.</p>
+                <p>Sitio oficial de descarga: <a href="https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/try-flink/local_installation/" target="blank">Apache Flink</a>.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">Descarga Apache Flink:</div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="wget https://dlcdn.apache.org/flink/flink-2.0.0/flink-2.0.0-bin-scala_2.12.tgz --no-check-certificate" oninput="ajustarancho(this)">
+                        <button><i class="fa fa-clone"></i><span> copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">Extrae el paquete descargado:</div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="sudo tar -zxvf flink-2.0.0-bin-scala_2.12.tgz -C /opt" oninput="ajustarancho(this)">
+                        <button><i class="fa fa-clone"></i><span> copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">Crea un enlace simbólico:</div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="sudo ln -sfn /opt/flink-2.0.0 flink" oninput="ajustarancho(this)">
+                        <button><i class="fa fa-clone"></i><span> copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">Cambia el propietario del directorio (opcional):</div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="sudo chown -R usuario:usuario /opt/flink-2.0.0" oninput="ajustarancho(this)">
+                        <button><i class="fa fa-clone"></i><span> copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">Verificar el nombre del host:</div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="hostname" oninput="ajustarancho(this)">
+                        <button><i class="fa fa-clone"></i><span> copy</span></button>
+                    </div>
+                </div>
+                <h6>Configuración de los nodos</h6>
+                <p>⌭ Modifica el archivo de configuración con los siguientes valores utilizando el siguiente comando: <marcador class="subrayado">nano /opt/flink-2.0.0/conf/config.yaml</marcador>.</p>
+                <ul>
+                    <li>Los campos bind-host deben tener el valor 0.0.0.0 como dirección.</li>
+                    <li>los campos address deben contener el nombre del host correspondiente.</li>
+                </ul>
+                <div class="archivo">
+# To enable this, set the bind-host address to one that has access to an outside facing network
+# interface, such as 0.0.0.0.
+bind-host: 0.0.0.0
+rpc:
+    # The external address of the host on which the JobManager runs and can be
+    # reached by the TaskManagers and any clients which want to connect. This setting
+    # is only used in Standalone mode and may be overwritten on the JobManager side
+    # by specifying the --host <hostname> parameter of the bin/jobmanager.sh executable.
+    # In high availability mode, if you use the bin/start-cluster.sh script and setup
+    # the conf/masters file, this will be taken care of automatically. Yarn
+    # automatically configure the host name based on the hostname of the node where the
+    # JobManager runs.
+    address: NombreDeHost
+    # The RPC port where the JobManager is reachable.
+    port: 6123
+memory:
+    process:
+    # The total process memory size for the JobManager.
+    # Note this accounts for all memory usage within the JobManager process, including JVM metaspace and other overhead.
+    size: 1600m
+execution:
+    # The failover strategy, i.e., how the job computation recovers from task failures.
+    # Only restart tasks that may have been affected by the task failure, which typically includes
+    # downstream tasks and potentially upstream tasks if their produced data is no longer available for consumption.
+    failover-strategy: region                  
+                </div>
+                <p>❏ Verificar los cambios:</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9633;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="sudo"></marcador><marcador class="tool">cat</marcador> config.yaml | <marcador class="tool">grep</marcador> <marcador class="param">-vE</marcador> '^\s*#|^\s*$' | <marcador class="tool">grep</marcador> <marcador class="param">-vE</marcador> 'env|java|opts|all'</span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">jobmanager:
+bind-host: 0.0.0.0
+rpc:
+    address: NombreDeHost
+    port: 6123
+memory:
+    process:
+    size: 1600m
+execution:
+    failover-strategy: region
+taskmanager:
+bind-host: 0.0.0.0
+host: NombreDeHost
+numberOfTaskSlots: 2    
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>⌭ Modifica el archivo del master con los siguientes valores utilizando el siguiente comando: <marcador class="subrayado">nano /opt/flink-2.0.0/conf/masters</marcador>.</p>
+                <div class="archivo">
+NombreDeHost1:8081
+                </div>
+                <p>⌭ Modifica el archivo de los workers con los siguientes valores utilizando el siguiente comando: <marcador class="subrayado">nano /opt/flink-2.0.0/conf/workers</marcador>.</p>
+                <div class="archivo">
+NombreDeHost1
+NombreDeHost2
+NombreDeHost3
+                </div>
+                <p>En esta configuración se asignan los siguientes roles:</p>
+                <ul style="list-style-type: none;">
+                    <li>∘ <marcador class="resaltado8">192.168.88.151</marcador>: JobManager y TaskManager</li>
+                    <li>∘ <marcador class="resaltado8">192.168.88.152</marcador>: TaskManager</li>
+                    <li>∘ <marcador class="resaltado8">192.168.88.153</marcador>: TaskManager</li>
+                </ul>
+                <p>En el archivo <marcador class="resaltado1">conf/masters</marcador> en el nodo donde se iniciará el JobManager, escribe:</p>
+                <div class="contenedor">
+                    <div class="etiqueta">Configura el JobManager:</div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="192.168.88.151:8081" oninput="ajustarancho(this)">
+                        <button><i class="fa fa-clone"></i><span> copy</span></button>
+                    </div>
+                </div>
+                <p>En el archivo <marcador class="resaltado1">conf/slaves</marcador> (o <marcador class="resaltado1">workers</marcador>), en todos los nodos:</p>
+                <div class="contenedor">
+                    <div class="etiqueta">Configura los TaskManagers:</div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="192.168.88.151 192.168.88.152 192.168.88.153" oninput="ajustarancho(this)">
+                        <button><i class="fa fa-clone"></i><span> copy</span></button>
+                    </div>
+                </div>
+                <h6>Iniciar el clúster</h6>
+                <div class="contenedor">
+                    <div class="etiqueta">Inicia el clúster de Flink:</div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="./bin/start-cluster.sh" oninput="ajustarancho(this)">
+                        <button><i class="fa fa-clone"></i><span> copy</span></button>
+                    </div>
+                </div>
+                <h6>Verificación y prueba</h6>
+                <p>Una vez iniciado, puedes verificar que el clúster esté funcionando accediendo a la interfaz web desde tu navegador:</p>
+                <div class="contenedor">
+                    <div class="etiqueta">Interfaz web:</div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="http://192.168.88.151:8081" oninput="ajustarancho(this)">
+                        <button><i class="fa fa-clone"></i><span> copy</span></button>
+                    </div>
+                </div>
+                <p>En esa interfaz deberías poder ver los TaskManagers conectados, el estado del JobManager y otros detalles de monitoreo.</p>
+                <p>También puedes revisar los logs en el directorio <marcador class="resaltado1">log/</marcador> para diagnosticar cualquier problema o asegurarte de que todos los nodos se hayan conectado correctamente.</p>
+                <br>
+                <br>
             </div>
         </div>       
     </main>
