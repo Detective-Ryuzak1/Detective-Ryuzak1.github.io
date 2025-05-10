@@ -178,19 +178,10 @@
                 </div>
                 <div class="contenedor">
                     <div class="etiqueta">
-                        Eliminar todas las imágenes no usadas:
+                        Eliminar todas las imágenes descargadas:
                     </div>
                     <div class="comandos">
                       <input type="text" class="text" value="docker rmi $(docker images -q)" oninput="ajustarAncho(this)">
-                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
-                    </div>
-                </div>
-                <div class="contenedor">
-                    <div class="etiqueta">
-                        Eliminar las imágenes descargadas:
-                    </div>
-                    <div class="comandos">
-                      <input type="text" class="text" value="docker rmi -a" oninput="ajustarAncho(this)">
                       <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                 </div>
