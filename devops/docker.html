@@ -163,15 +163,6 @@
                         Eliminar todos los contenedores detenidos:
                     </div>
                     <div class="comandos">
-                      <input type="text" class="text" value="docker rm -a" oninput="ajustarAncho(this)">
-                      <button><i class="fa fa-clone"></i><span> Copy</span></button>
-                    </div>
-                </div>
-                <div class="contenedor">
-                    <div class="etiqueta">
-                        Eliminar todos los contenedores detenidos:
-                    </div>
-                    <div class="comandos">
                       <input type="text" class="text" value="docker rm $(docker ps -a -q) --force" oninput="ajustarAncho(this)">
                       <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
