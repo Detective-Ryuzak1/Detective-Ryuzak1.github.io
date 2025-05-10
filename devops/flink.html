@@ -142,6 +142,41 @@
                 <p>Primero, asegúrate de tener Java instalado y configurado correctamente en todos los nodos. Luego descarga y descomprime Flink en una ruta compartida o réplica local en cada nodo.</p>
                 <p>Sitio oficial de descarga: <a href="https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/try-flink/local_installation/" target="blank">Apache Flink</a>.</p>
                 <div class="contenedor">
+                    <div class="etiqueta">
+                        Creación de los contenedores con Docker: 
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="sudo podman run -it --rm ubuntu:latest" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Es necesario crear 3 contenedores en diferentes terminales, para cada uno de los nodos del cluster.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Verificar las direcciones IP: 
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="cat /etc/hosts" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">Verificar el nombre del host:</div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="hostname" oninput="ajustarancho(this)">
+                        <button><i class="fa fa-clone"></i><span> copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Instalar las dependencias en los contenedores: 
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="apt update && apt install -y nano wget curl openjdk-11-jdk" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
                     <div class="etiqueta">Descarga Apache Flink:</div>
                     <div class="comandos">
                         <input type="text" class="text" value="wget https://dlcdn.apache.org/flink/flink-2.0.0/flink-2.0.0-bin-scala_2.12.tgz --no-check-certificate" oninput="ajustarancho(this)">
@@ -169,20 +204,28 @@
                         <button><i class="fa fa-clone"></i><span> copy</span></button>
                     </div>
                 </div>
-                <div class="contenedor">
-                    <div class="etiqueta">Verificar el nombre del host:</div>
-                    <div class="comandos">
-                        <input type="text" class="text" value="hostname" oninput="ajustarancho(this)">
-                        <button><i class="fa fa-clone"></i><span> copy</span></button>
-                    </div>
-                </div>
-                <h6>Configuración de los nodos</h6>
+                <h6>Configuración del nodo maestro</h6>
                 <p>⌭ Modifica el archivo de configuración con los siguientes valores utilizando el siguiente comando: <marcador class="subrayado">nano /opt/flink-2.0.0/conf/config.yaml</marcador>.</p>
                 <ul>
                     <li>Los campos bind-host deben tener el valor 0.0.0.0 como dirección.</li>
                     <li>los campos address deben contener el nombre del host correspondiente.</li>
                 </ul>
-                <div class="archivo">
+                <p>❏ Configurar el master en el nodo 1.</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9633;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="sudo"></marcador><marcador class="tool">nano</marcador> /opt/flink-2.0.0/conf/config.yaml <marcador class="param"></marcador></span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">
 # To enable this, set the bind-host address to one that has access to an outside facing network
 # interface, such as 0.0.0.0.
 bind-host: 0.0.0.0
@@ -190,7 +233,7 @@ rpc:
     # The external address of the host on which the JobManager runs and can be
     # reached by the TaskManagers and any clients which want to connect. This setting
     # is only used in Standalone mode and may be overwritten on the JobManager side
-    # by specifying the --host <hostname> parameter of the bin/jobmanager.sh executable.
+    # by specifying the --host  parameter of the bin/jobmanager.sh executable.
     # In high availability mode, if you use the bin/start-cluster.sh script and setup
     # the conf/masters file, this will be taken care of automatically. Yarn
     # automatically configure the host name based on the hostname of the node where the
@@ -207,7 +250,10 @@ execution:
     # The failover strategy, i.e., how the job computation recovers from task failures.
     # Only restart tasks that may have been affected by the task failure, which typically includes
     # downstream tasks and potentially upstream tasks if their produced data is no longer available for consumption.
-    failover-strategy: region                  
+    failover-strategy: region 
+                            </span>
+                        </div>
+                    </section>
                 </div>
                 <p>❏ Verificar los cambios:</p>
                 <div id="terminal">
@@ -242,11 +288,25 @@ numberOfTaskSlots: 2
                         </div>
                     </section>
                 </div>
-                <p>⌭ Modifica el archivo del master con los siguientes valores utilizando el siguiente comando: <marcador class="subrayado">nano /opt/flink-2.0.0/conf/masters</marcador>.</p>
+                <p>⌭ En el archivo <marcador class="subrayado">/opt/flink-2.0.0/conf/masters</marcador>, en el nodo donde se iniciará el JobManager, escribe el nombre del host seguido del puerto (por defecto 6123). Este nodo actuará como el JobManager del clúster.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">Configura el JobManager:</div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="nano /opt/flink-2.0.0/conf/masters" oninput="ajustarancho(this)">
+                        <button><i class="fa fa-clone"></i><span> copy</span></button>
+                    </div>
+                </div>
                 <div class="archivo">
 NombreDeHost1:8081
                 </div>
-                <p>⌭ Modifica el archivo de los workers con los siguientes valores utilizando el siguiente comando: <marcador class="subrayado">nano /opt/flink-2.0.0/conf/workers</marcador>.</p>
+                <p>⌭ En todos los nodos, configura los TaskManagers editando el archivo <marcador class="subrayado">/opt/flink-2.0.0/conf/workers</marcador>.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">Para ello, utiliza el siguiente comando: </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="nano /opt/flink-2.0.0/conf/workers" oninput="ajustarancho(this)">
+                        <button><i class="fa fa-clone"></i><span> copy</span></button>
+                    </div>
+                </div>
                 <div class="archivo">
 NombreDeHost1
 NombreDeHost2
@@ -258,22 +318,7 @@ NombreDeHost3
                     <li>∘ <marcador class="resaltado8">192.168.88.152</marcador>: TaskManager</li>
                     <li>∘ <marcador class="resaltado8">192.168.88.153</marcador>: TaskManager</li>
                 </ul>
-                <p>En el archivo <marcador class="resaltado1">conf/masters</marcador> en el nodo donde se iniciará el JobManager, escribe:</p>
-                <div class="contenedor">
-                    <div class="etiqueta">Configura el JobManager:</div>
-                    <div class="comandos">
-                        <input type="text" class="text" value="192.168.88.151:8081" oninput="ajustarancho(this)">
-                        <button><i class="fa fa-clone"></i><span> copy</span></button>
-                    </div>
-                </div>
-                <p>En el archivo <marcador class="resaltado1">conf/slaves</marcador> (o <marcador class="resaltado1">workers</marcador>), en todos los nodos:</p>
-                <div class="contenedor">
-                    <div class="etiqueta">Configura los TaskManagers:</div>
-                    <div class="comandos">
-                        <input type="text" class="text" value="192.168.88.151 192.168.88.152 192.168.88.153" oninput="ajustarancho(this)">
-                        <button><i class="fa fa-clone"></i><span> copy</span></button>
-                    </div>
-                </div>
+                <h6>Configuración de los nodos workers</h6>
                 <h6>Iniciar el clúster</h6>
                 <div class="contenedor">
                     <div class="etiqueta">Inicia el clúster de Flink:</div>
