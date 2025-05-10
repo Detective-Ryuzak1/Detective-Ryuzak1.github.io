@@ -335,7 +335,7 @@ advertised.listeners=PLAINTEXT://IP_DEL_SERVIDOR:9092
                         <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                 </div>
-                <p>❏ Configurar Zookeeper.</p>
+                <p>❏ Configurar Zookeeper en el nodo 1.</p>
                 <div id="terminal">
                     <section id="terminal__bar">
                         <div id="bar__buttons">
@@ -398,14 +398,14 @@ admin.enableServer=false
                 </div>
                 <div class="contenedor">
                     <div class="etiqueta">
-                        Crear la carpeta para el nodo 1 y 2: 
+                        Crear la carpeta para el nodo 2 y 3: 
                     </div>
                     <div class="comandos">
                         <input type="text" class="text" value="mkdir /root/kafka-logs" oninput="ajustarAncho(this)">
                         <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                 </div>
-                <p>❏ Configurar el nodo 1:</p>
+                <p>❏ Configurar el nodo 2:</p>
                 <div id="terminal">
                     <section id="terminal__bar">
                         <div id="bar__buttons">
@@ -470,14 +470,14 @@ zookeeper.connect=10.88.0.2:2181
                 </div>
                 <div class="contenedor">
                     <div class="etiqueta">
-                        Iniciar el nodo 1:
+                        Iniciar el nodo 2:
                     </div>
                     <div class="comandos">
                         <input type="text" class="text" value="bin/kafka-server-start.sh config/server.properties" oninput="ajustarAncho(this)">
                         <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                 </div>
-                <p>❏ Configurar el nodo 2:</p>
+                <p>❏ Configurar el nodo 3:</p>
                 <div id="terminal">
                     <section id="terminal__bar">
                         <div id="bar__buttons">
@@ -536,7 +536,7 @@ zookeeper.connect=10.88.0.2:2181
                 </div>
                 <div class="contenedor">
                     <div class="etiqueta">
-                        Iniciar el nodo 2:
+                        Iniciar el nodo 3:
                     </div>
                     <div class="comandos">
                         <input type="text" class="text" value="bin/kafka-server-start.sh config/server.properties" oninput="ajustarAncho(this)">
@@ -545,19 +545,28 @@ zookeeper.connect=10.88.0.2:2181
                 </div>
                 <div class="contenedor">
                     <div class="etiqueta">
-                        Ahora, asegúrate de ir al directorio de kafka en una nueva terminal: 
+                        Listar el nombre-del-contenedor en nodo 2 y 3:
                     </div>
                     <div class="comandos">
-                        <input type="text" class="text" value="cd kafka-3.9.0-src" oninput="ajustarAncho(this)">
+                        <input type="text" class="text" value="hostname" oninput="ajustarAncho(this)">
                         <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                 </div>
                 <div class="contenedor">
                     <div class="etiqueta">
-                        Construir el proyecto:
+                        Entrar en nodo 2 y 3:
                     </div>
                     <div class="comandos">
-                        <input type="text" class="text" value="./gradlew jar -PscalaVersion=2.13.14" oninput="ajustarAncho(this)">
+                        <input type="text" class="text" value="docker exec -it nombre-del-contenedor /bin/sh" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Ahora, asegúrate de ir al directorio de kafka en la nueva terminal: 
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="cd kafka-3.9.0-src" oninput="ajustarAncho(this)">
                         <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                 </div>
