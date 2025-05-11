@@ -177,7 +177,7 @@
                     </div>
                 </div>
                 <div class="contenedor">
-                    <div class="etiqueta">Descarga Apache Flink:</div>
+                    <div class="etiqueta">Descarga Apache Flink en los contenedores:</div>
                     <div class="comandos">
                         <input type="text" class="text" value="wget https://dlcdn.apache.org/flink/flink-2.0.0/flink-2.0.0-bin-scala_2.12.tgz --no-check-certificate" oninput="ajustarancho(this)">
                         <button><i class="fa fa-clone"></i><span> copy</span></button>
@@ -267,7 +267,7 @@ execution:
                     </section>
                     <section id="terminal__body">
                         <div id="terminal__prompt">
-                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="sudo"></marcador><marcador class="tool">cat</marcador> config.yaml | <marcador class="tool">grep</marcador> <marcador class="param">-vE</marcador> '^\s*#|^\s*$' | <marcador class="tool">grep</marcador> <marcador class="param">-vE</marcador> 'env|java|opts|all'</span>    
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="sudo"></marcador><marcador class="tool">cat</marcador> /opt/flink-2.0.0/conf/config.yaml | <marcador class="tool">grep</marcador> <marcador class="param">-vE</marcador> '^\s*#|^\s*$' | <marcador class="tool">grep</marcador> <marcador class="param">-vE</marcador> 'env|java|opts|all'</span>    
                         </div>
                         <div class="command-response-container">
                             <span id="terminal__prompt--response" class="multiline-text">jobmanager:
@@ -283,7 +283,10 @@ execution:
 taskmanager:
 bind-host: 0.0.0.0
 host: nodo1
-numberOfTaskSlots: 2    
+numberOfTaskSlots: 2 
+rest:
+  address: nodo1
+  bind-address: 0.0.0.0
                             </span>
                         </div>
                     </section>
