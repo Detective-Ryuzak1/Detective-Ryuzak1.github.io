@@ -146,11 +146,11 @@
                         Creación de los contenedores con Docker: 
                     </div>
                     <div class="comandos">
-                        <input type="text" class="text" value="sudo podman run  --privileged -it --rm --name contenedor1 --hostname nodo1 -p 8081:8081 ubuntu:latest" oninput="ajustarAncho(this)">
+                        <input type="text" class="text" value="sudo podman run  --privileged -it --rm --name contenedor1 --hostname nodo1 -p 8081:8081 -p 2221:22 ubuntu:latest" oninput="ajustarAncho(this)">
                         <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                 </div>
-                <p>Es necesario crear 3 contenedores en diferentes terminales, para cada uno de los nodos del cluster.</p>
+                <p>Es necesario crear tres contenedores en diferentes terminales para cada uno de los nodos del clúster. Cada contenedor debe exponer un puerto SSH distinto: el nodo1 en el puerto 2221, el nodo2 en el 2222 y el nodo3 en el 2223. Además, el nodo1 también debe exponer el puerto 8081.</p>
                 <div class="contenedor">
                     <div class="etiqueta">
                         Verificar las direcciones IP: 
