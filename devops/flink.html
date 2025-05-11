@@ -146,7 +146,7 @@
                         Creación de los contenedores con Docker: 
                     </div>
                     <div class="comandos">
-                        <input type="text" class="text" value="sudo podman run -it --rm ubuntu:latest" oninput="ajustarAncho(this)">
+                        <input type="text" class="text" value="sudo podman run -it --rm --name contenedor1 --hostname nodo1 ubuntu:latest" oninput="ajustarAncho(this)">
                         <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                 </div>
@@ -156,7 +156,7 @@
                         Verificar las direcciones IP: 
                     </div>
                     <div class="comandos">
-                        <input type="text" class="text" value="cat /etc/hosts" oninput="ajustarAncho(this)">
+                        <input type="text" class="text" value="hostname -I" oninput="ajustarAncho(this)">
                         <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                 </div>
@@ -186,21 +186,21 @@
                 <div class="contenedor">
                     <div class="etiqueta">Extrae el paquete descargado:</div>
                     <div class="comandos">
-                        <input type="text" class="text" value="sudo tar -zxvf flink-2.0.0-bin-scala_2.12.tgz -C /opt" oninput="ajustarancho(this)">
+                        <input type="text" class="text" value="tar -zxvf flink-2.0.0-bin-scala_2.12.tgz -C /opt" oninput="ajustarancho(this)">
                         <button><i class="fa fa-clone"></i><span> copy</span></button>
                     </div>
                 </div>
                 <div class="contenedor">
                     <div class="etiqueta">Crea un enlace simbólico:</div>
                     <div class="comandos">
-                        <input type="text" class="text" value="sudo ln -sfn /opt/flink-2.0.0 flink" oninput="ajustarancho(this)">
+                        <input type="text" class="text" value="ln -sfn /opt/flink-2.0.0 flink" oninput="ajustarancho(this)">
                         <button><i class="fa fa-clone"></i><span> copy</span></button>
                     </div>
                 </div>
                 <div class="contenedor">
                     <div class="etiqueta">Cambia el propietario del directorio (opcional):</div>
                     <div class="comandos">
-                        <input type="text" class="text" value="sudo chown -R usuario:usuario /opt/flink-2.0.0" oninput="ajustarancho(this)">
+                        <input type="text" class="text" value="chown -R usuario:usuario /opt/flink-2.0.0" oninput="ajustarancho(this)">
                         <button><i class="fa fa-clone"></i><span> copy</span></button>
                     </div>
                 </div>
@@ -238,7 +238,7 @@ rpc:
     # the conf/masters file, this will be taken care of automatically. Yarn
     # automatically configure the host name based on the hostname of the node where the
     # JobManager runs.
-    address: NombreDeHost
+    address: nodo1
     # The RPC port where the JobManager is reachable.
     port: 6123
 memory:
@@ -273,7 +273,7 @@ execution:
                             <span id="terminal__prompt--response" class="multiline-text">jobmanager:
 bind-host: 0.0.0.0
 rpc:
-    address: NombreDeHost
+    address: nodo1
     port: 6123
 memory:
     process:
@@ -282,7 +282,7 @@ execution:
     failover-strategy: region
 taskmanager:
 bind-host: 0.0.0.0
-host: NombreDeHost
+host: nodo1
 numberOfTaskSlots: 2    
                             </span>
                         </div>
@@ -297,7 +297,7 @@ numberOfTaskSlots: 2
                     </div>
                 </div>
                 <div class="archivo">
-NombreDeHost1:8081
+nodo1:8081
                 </div>
                 <p>⌭ En todos los nodos, configura los TaskManagers editando el archivo <marcador class="subrayado">/opt/flink-2.0.0/conf/workers</marcador>.</p>
                 <div class="contenedor">
@@ -308,9 +308,9 @@ NombreDeHost1:8081
                     </div>
                 </div>
                 <div class="archivo">
-NombreDeHost1
-NombreDeHost2
-NombreDeHost3
+nodo1
+nodo2
+nodo3
                 </div>
                 <p>En esta configuración se asignan los siguientes roles:</p>
                 <ul style="list-style-type: none;">
