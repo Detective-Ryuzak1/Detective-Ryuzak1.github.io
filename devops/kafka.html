@@ -304,7 +304,7 @@ advertised.listeners=PLAINTEXT://IP_DEL_SERVIDOR:9092
                         Verificar las direcciones IP: 
                     </div>
                     <div class="comandos">
-                        <input type="text" class="text" value="cat /etc/hosts" oninput="ajustarAncho(this)">
+                        <input type="text" class="text" value="hostname -I" oninput="ajustarAncho(this)">
                         <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                 </div>
@@ -448,7 +448,6 @@ log.dirs=/root/kafka-logs
 # You can also append an optional chroot string to the urls to specify the
 # root directory for all kafka znodes.
 zookeeper.connect=10.88.0.2:2181
-
                             </span>
                         </div>
                     </section>
@@ -520,7 +519,6 @@ log.dirs=/root/kafka-logs
 # You can also append an optional chroot string to the urls to specify the
 # root directory for all kafka znodes.
 zookeeper.connect=10.88.0.2:2181
-
                             </span>
                         </div>
                     </section>
@@ -548,7 +546,7 @@ zookeeper.connect=10.88.0.2:2181
                         Listar el nombre-del-contenedor en nodo 2 y 3:
                     </div>
                     <div class="comandos">
-                        <input type="text" class="text" value="hostname" oninput="ajustarAncho(this)">
+                        <input type="text" class="text" value="docker ps -a" oninput="ajustarAncho(this)">
                         <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                 </div>
@@ -657,7 +655,7 @@ feeling good
                         </div>
                     </section>
                 </div>
-                <p></p>
+                <p>Las peticiones al clúster de Kafka se pueden llevar a cabo desde la máquina anfitriona o desde los contenedores. Solo es necesario conectarse al productor o al consumidor, asegurándose de apuntar a la IP de algún contenedor que tenga Kafka iniciado.</p>
                 <div class="blog-image-grande">
                     <img src="media/kafka7.png" alt="">
                 </div>
