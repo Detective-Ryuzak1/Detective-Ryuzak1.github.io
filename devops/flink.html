@@ -143,30 +143,23 @@
                 <p>Sitio oficial de descarga: <a href="https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/try-flink/local_installation/" target="blank">Apache Flink</a>.</p>
                 <div class="contenedor">
                     <div class="etiqueta">
+                        Crea una red personalizada: 
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="sudo podman network create flink-net" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
                         Creación de los contenedores con Docker: 
                     </div>
                     <div class="comandos">
-                        <input type="text" class="text" value="sudo podman run  --privileged -it --rm --name contenedor1 --hostname nodo1 -p 8081:8081 -p 2221:22 ubuntu:latest" oninput="ajustarAncho(this)">
+                        <input type="text" class="text" value="sudo podman run -it --privileged --name Flink1 --hostname nodo1 --network flink-net -p 8081:8081 -p 2221:22 ubuntu:latest" oninput="ajustarAncho(this)">
                         <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                 </div>
                 <p>Es necesario crear tres contenedores en diferentes terminales para cada uno de los nodos del clúster. Cada contenedor debe exponer un puerto SSH distinto: el nodo1 en el puerto 2221, el nodo2 en el 2222 y el nodo3 en el 2223. Además, el nodo1 también debe exponer el puerto 8081.</p>
-                <div class="contenedor">
-                    <div class="etiqueta">
-                        Verificar las direcciones IP: 
-                    </div>
-                    <div class="comandos">
-                        <input type="text" class="text" value="hostname -I" oninput="ajustarAncho(this)">
-                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
-                    </div>
-                </div>
-                <div class="contenedor">
-                    <div class="etiqueta">Verificar el nombre del host:</div>
-                    <div class="comandos">
-                        <input type="text" class="text" value="hostname" oninput="ajustarancho(this)">
-                        <button><i class="fa fa-clone"></i><span> copy</span></button>
-                    </div>
-                </div>
                 <div class="contenedor">
                     <div class="etiqueta">
                         Instalar las dependencias en los contenedores: 
@@ -194,6 +187,22 @@
                     <div class="etiqueta">Crea un enlace simbólico:</div>
                     <div class="comandos">
                         <input type="text" class="text" value="ln -sfn /opt/flink-2.0.0 flink" oninput="ajustarancho(this)">
+                        <button><i class="fa fa-clone"></i><span> copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Verificar las direcciones IP: 
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="hostname -I" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">Verificar el nombre del host:</div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="hostname" oninput="ajustarancho(this)">
                         <button><i class="fa fa-clone"></i><span> copy</span></button>
                     </div>
                 </div>
@@ -530,7 +539,7 @@ PasswordAuthentication yes
                 <div class="contenedor">
                     <div class="etiqueta">Inicia el clúster de Flink en el nodo maestro:</div>
                     <div class="comandos">
-                        <input type="text" class="text" value="./bin/start-cluster.sh" oninput="ajustarancho(this)">
+                        <input type="text" class="text" value="./opt/flink-2.0.0/bin/start-cluster.sh" oninput="ajustarancho(this)">
                         <button><i class="fa fa-clone"></i><span> copy</span></button>
                     </div>
                 </div>
@@ -554,7 +563,7 @@ PasswordAuthentication yes
                 <div class="contenedor">
                     <div class="etiqueta">Interfaz web:</div>
                     <div class="comandos">
-                        <input type="text" class="text" value="http://192.168.88.151:8081" oninput="ajustarancho(this)">
+                        <input type="text" class="text" value="http://10.88.0.2:8081" oninput="ajustarancho(this)">
                         <button><i class="fa fa-clone"></i><span> copy</span></button>
                     </div>
                 </div>

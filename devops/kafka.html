@@ -561,13 +561,14 @@ zookeeper.connect=10.88.0.2:2181
                 </div>
                 <div class="contenedor">
                     <div class="etiqueta">
-                        Ahora, asegúrate de ir al directorio de kafka en la nueva terminal: 
+                        Ahora, asegúrate de ir al directorio de kafka en una nueva terminal: 
                     </div>
                     <div class="comandos">
                         <input type="text" class="text" value="cd kafka-3.9.0-src" oninput="ajustarAncho(this)">
                         <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                 </div>
+                <p>Con la configuración actual, la interacción con el clúster de Kafka resulta flexible, permitiendo realizar peticiones tanto desde el sistema anfitrión como directamente desde cualquiera de los contenedores; la clave reside en especificar correctamente la dirección del host al que se dirige la solicitud, ya sea un nodo worker o master.</p>
                 <p>❏ Crear un Topic en el cluster Kafka:</p>
                 <div id="terminal">
                     <section id="terminal__bar">
