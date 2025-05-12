@@ -136,7 +136,7 @@
                     <img src="media/flink6.png" alt="">
                 </div>
                 <p>Supongamos que tienes una aplicación de procesamiento de pagos en tiempo real. Flink guarda el estado de cada usuario: cuántas transacciones hizo, de qué tipo, desde qué país, etc. Si un nodo que procesa a cierto grupo de usuarios se cae, Flink automáticamente reprograma esa parte del trabajo en otro nodo y restaura todo el estado desde el último checkpoint. El procesamiento continúa casi sin interrupciones, y ninguna transacción se procesa dos veces ni se pierde.</p>
-                <h2>Instalación de Apache Flink en modo Standalone</h2>
+                <h2>Instalación de Apache Flink en modo Cluster Standalone</h2>
                 <p>Apache Flink puede ejecutarse como un clúster en modo "standalone", lo que significa que no depende de herramientas como YARN o Kubernetes para su orquestación. Este enfoque es útil cuando deseas tener control total sobre las máquinas y la configuración del entorno.</p>
                 <p>En este ejemplo, se usa una configuración de tres nodos, cada uno ejecutando uno o más componentes de Flink (JobManager o TaskManager).</p>
                 <p>Primero, asegúrate de tener Java instalado y configurado correctamente en todos los nodos. Luego descarga y descomprime Flink en una ruta compartida o réplica local en cada nodo.</p>
@@ -172,7 +172,7 @@
                         Instalar las dependencias en los contenedores: 
                     </div>
                     <div class="comandos">
-                        <input type="text" class="text" value="apt update && apt install -y nano wget curl openjdk-11-jdkapt openssh-client openssh-server iproute2 netcat-openbsd iputils-ping" oninput="ajustarAncho(this)">
+                        <input type="text" class="text" value="apt update && apt install -y nano wget curl openjdk-17-jdk apt openssh-client openssh-server iproute2 netcat-openbsd iputils-ping" oninput="ajustarAncho(this)">
                         <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                 </div>
@@ -208,7 +208,7 @@
                 <p>⌭ Modifica el archivo de configuración con los siguientes valores utilizando el siguiente comando: <marcador class="subrayado">nano /opt/flink-2.0.0/conf/config.yaml</marcador>.</p>
                 <ul>
                     <li>Los campos bind-host deben tener el valor 0.0.0.0 como dirección.</li>
-                    <li>los campos address deben contener el nombre del host correspondiente.</li>
+                    <li>Los campos address y host deben contener el nombre del host correspondiente.</li>
                 </ul>
                 <p>❏ Configurar el master en el nodo 1.</p>
                 <div id="terminal">
@@ -493,7 +493,48 @@ rest:
                         </div>
                     </section>
                 </div>
-                <p>Cuando levantas Flink en varios contenedores Docker, es mejor usar Kubernetes, Docker Compose o scripts de inicio manuales, evitando por completo SSH entre contenedores. En estos casos, deberías iniciar manualmente los servicios:</p>
+                <h6>Iniciar el clúster por ssh</h6>
+                <div class="contenedor">
+                    <div class="etiqueta">Opcionalmente, cambia el password de root (si quieres acceso con usuario root) en los nodos 2 y 3:</div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="passwd" oninput="ajustarancho(this)">
+                        <button><i class="fa fa-clone"></i><span> copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">Edita el archivo de configuración de SSH:</div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="nano /etc/ssh/sshd_config" oninput="ajustarancho(this)">
+                        <button><i class="fa fa-clone"></i><span> copy</span></button>
+                    </div>
+                </div>
+                <p>Y asegúrate de tener estas líneas (descomenta y modifica si es necesario):</p>
+                <div class="archivo">
+PermitRootLogin yes
+PasswordAuthentication yes                   
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">Iniciar el servicio SSH:</div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="service ssh start" oninput="ajustarancho(this)">
+                        <button><i class="fa fa-clone"></i><span> copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">Verificar que el servicio SSH este escuchando en el puerto 22 (localmente):</div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="ss -tuln | grep :22" oninput="ajustarancho(this)">
+                        <button><i class="fa fa-clone"></i><span> copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">Inicia el clúster de Flink en el nodo maestro:</div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="./bin/start-cluster.sh" oninput="ajustarancho(this)">
+                        <button><i class="fa fa-clone"></i><span> copy</span></button>
+                    </div>
+                </div>
+                <p>⌭ Iniciar manualmente los servicios:</p>
                 <div class="contenedor">
                     <div class="etiqueta">El nodo 1 para el JobManager:</div>
                     <div class="comandos">
@@ -521,47 +562,6 @@ rest:
                 <p>También puedes revisar los logs en el directorio <marcador class="resaltado1">log/</marcador> para diagnosticar cualquier problema o asegurarte de que todos los nodos se hayan conectado correctamente.</p>
                 <div class="blog-image-zoom">
                     <img src="media/flink7.png" alt="">
-                </div>
-                <h6>Iniciar el clúster por ssh</h6>
-                <div class="contenedor">
-                    <div class="etiqueta">Asegúrate de que el directorio de runtime de SSH existe:</div>
-                    <div class="comandos">
-                        <input type="text" class="text" value="mkdir -p /var/run/sshd" oninput="ajustarancho(this)">
-                        <button><i class="fa fa-clone"></i><span> copy</span></button>
-                    </div>
-                </div>
-                <div class="contenedor">
-                    <div class="etiqueta">Opcionalmente, cambia el password de root (si quieres acceso con usuario root) en los nodos 2 y 3:</div>
-                    <div class="comandos">
-                        <input type="text" class="text" value="echo 'root:toor' | chpasswd" oninput="ajustarancho(this)">
-                        <button><i class="fa fa-clone"></i><span> copy</span></button>
-                    </div>
-                </div>
-                <div class="contenedor">
-                    <div class="etiqueta">Edita el archivo de configuración de SSH:</div>
-                    <div class="comandos">
-                        <input type="text" class="text" value="nano /etc/ssh/sshd_config" oninput="ajustarancho(this)">
-                        <button><i class="fa fa-clone"></i><span> copy</span></button>
-                    </div>
-                </div>
-                <p>Y asegúrate de tener estas líneas (descomenta y modifica si es necesario):</p>
-                <div class="archivo">
-PermitRootLogin yes
-PasswordAuthentication yes                   
-                </div>
-                <div class="contenedor">
-                    <div class="etiqueta">Iniciar el servicio SSH:</div>
-                    <div class="comandos">
-                        <input type="text" class="text" value="service ssh start" oninput="ajustarancho(this)">
-                        <button><i class="fa fa-clone"></i><span> copy</span></button>
-                    </div>
-                </div>
-                <div class="contenedor">
-                    <div class="etiqueta">Inicia el clúster de Flink en el nodo maestro:</div>
-                    <div class="comandos">
-                        <input type="text" class="text" value="./bin/start-cluster.sh" oninput="ajustarancho(this)">
-                        <button><i class="fa fa-clone"></i><span> copy</span></button>
-                    </div>
                 </div>
                 <h2>Ejemplo de Uso</h2>
                 <p>El ejemplo WordCount.jar que viene con Apache Flink es una demostración clásica del procesamiento de datos. Su propósito es contar cuántas veces aparece cada palabra en un texto. Al ejecutar el comando con el JAR y el parámetro --output, Flink lanza un job que procesa líneas de texto, las divide en palabras y suma cuántas veces se repite cada una, escribiendo los resultados en un archivo.</p>
