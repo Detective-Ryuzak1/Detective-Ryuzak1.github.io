@@ -579,11 +579,91 @@ PasswordAuthentication yes
                 <div class="contenedor">
                     <div class="etiqueta">Ese comando ejecuta un job de Flink en modo batch o streaming (según el ejemplo) usando el JAR proporcionado, y guarda los resultados en un archivo.</div>
                     <div class="comandos">
-                        <input type="text" class="text" value="./opt/flink-2.0.0/bin/flink run /opt/flink-2.0.0/examples/streaming/WordCount.jar --output /root/flink.txt" oninput="ajustarancho(this)">
+                        <input type="text" class="text" value="./opt/flink-2.0.0/bin/flink run /opt/flink-2.0.0/examples/streaming/WordCount.jar --output /home/ubuntu/fl1nk" oninput="ajustarancho(this)">
                         <button><i class="fa fa-clone"></i><span> copy</span></button>
                     </div>
                 </div>
-                
+                <p>❏ Verificar la salida del job en todos los nodos:</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9633;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="sudo"></marcador><marcador class="tool">cat</marcador> /home/ubuntu/fl1nk/2025-05-12--02/part-c605f951-3e1f-4260-8f5b-6ea2b6606d3d-0<marcador class="tool"></marcador> <marcador class="param"></marcador><marcador class="tool"></marcador><marcador class="param"></marcador></span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">(to,1)
+(be,1)
+(or,1)
+(not,1)
+(to,2)
+(be,2)
+(that,1)
+(is,1)
+(the,1)
+(question,1)
+(whether,1)
+(tis,1)
+(nobler,1)
+(in,1)
+(the,2)
+(mind,1)
+(to,3)
+(suffer,1)
+(the,3)
+(slings,1)
+(and,1)
+(arrows,1)
+(of,1)
+(outrageous,1)
+(fortune,1)
+(or,2)
+(to,4)
+(take,1)
+(arms,1)
+(against,1)
+(a,1)
+(sea,1)
+(of,2)
+(troubles,1)
+(and,2)
+(by,1)
+(opposing,1)
+(end,1)
+(them,1)
+(to,5)
+(die,1)
+(to,6)
+(sleep,1)
+(no,1)
+(more,1)
+(and,3)
+(by,2)
+(a,2)
+(sleep,2)
+(to,7)
+(say,1)
+(we,1)
+(end,2)
+(the,4)
+(heartache,1)
+(and,4)
+(the,5)
+(thousand,1)
+(natural,1)
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <div class="blog-image-zoom">
+                    <img src="media/flink8.png" alt="">
+                </div>
             </div>
         </div>       
     </main>
