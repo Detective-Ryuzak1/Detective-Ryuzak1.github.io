@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <link rel="icon" href="../media/imagen41.png" type="image/png">
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-1.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                        <li><a href="../devops.html">DevOps</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Aportar" onclick="window.open('https://buymeacoffee.com/ryuzak1', '_blank');">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <br>
+                <br>
+                <h1>Apache Airflow</h1>
+                <p>Apache Airflow es una plataforma de código abierto creada por Airbnb y gestionada por la Apache Software Foundation, que permite diseñar, programar y monitorizar flujos de trabajo (workflows) programables. Airflow no ejecuta código por sí mismo, sino que coordina cuándo, cómo y en qué orden deben ejecutarse tareas definidas por el usuario. Es una herramienta fundamental en entornos de ingeniería de datos moderna, donde se requiere que procesos complejos se ejecuten en etapas secuenciales o paralelas con condiciones lógicas.</p>
+                <p>Airflow es útil porque permite automatizar y gestionar pipelines de datos complejos con lógica condicional, dependencias entre tareas, manejo de errores, reintentos, programación periódica y visibilidad total desde una interfaz web. Su diseño modular y extensible permite integrarse con servicios en la nube, bases de datos, APIs, sistemas de ficheros, y más. Además, está pensado para escalar horizontalmente y adaptarse tanto a pequeños scripts diarios como a grandes flujos de datos empresariales.</p>
+                <div class="blog-image-grande">
+                    <img src="media/airflow1.png" alt="">
+                </div>
+                <h2>Arquitectura</h2>
+                <p>Airflow se compone de varios servicios que trabajan juntos:</p>
+                <ul style="list-style-type: none;">
+                    <li>🪁 <marcador class="resaltado8">Scheduler: </marcador>Escanea los DAGs y programa las tareas según su definición temporal y dependencias.</li>
+                    <li>🪁 <marcador class="resaltado8">Webserver: </marcador>Proporciona la interfaz web para visualizar el estado de los DAGs, logs, ejecuciones pasadas y detalles de las tareas.</li>
+                    <li>🪁 <marcador class="resaltado8">Worker(s): </marcador>Ejecutan las tareas que han sido programadas. Pueden escalarse horizontalmente.</li>
+                    <li>🪁 <marcador class="resaltado8">Metadata Database: </marcador>Guarda toda la información sobre DAGs, tareas, logs, estados y configuraciones. Usa PostgreSQL o MySQL.</li>
+                    <li>🪁 <marcador class="resaltado8">Triggerer (a partir de Airflow 2): </marcador>Gestiona los Deferrable Operators y reduce el consumo de recursos al esperar eventos externos.</li>
+                </ul>
+                <div class="blog-image-zoom">
+                    <img src="media/airflow2.gif" alt="">
+                </div>
+                <h2>Componentes Fundamentales</h2>
+                <h6>DAGs (Directed Acyclic Graphs)</h6>
+                <p>Los DAGs son la unidad principal de Airflow. Representan un flujo de trabajo como un grafo dirigido sin ciclos. Cada nodo es una tarea, y las aristas representan dependencias entre ellas. Están definidos en archivos Python que se cargan dinámicamente.</p>
+                <div class="archivo">
+from airflow import DAG
+from datetime import datetime
+
+dag = DAG(
+    dag_id="mi_pipeline",
+    start_date=datetime(2024, 1, 1),
+    schedule_interval="@daily"
+)
+                </div>
+                <h6>Tasks y Operators</h6>
+                <p>Una Task es una unidad de trabajo. Se define a través de un Operator, que es una plantilla que encapsula una acción específica.</p>
+                <ul style="list-style-type: none;">
+                    <li>📑 <marcador class="resaltado8">PythonOperator: </marcador>ejecuta una función Python.</li>
+                    <li>📑 <marcador class="resaltado8">BashOperator: </marcador>ejecuta comandos de bash.</li>
+                    <li>📑 <marcador class="resaltado8">EmailOperator: </marcador>envía correos.</li>
+                    <li>📑 <marcador class="resaltado8">DockerOperator: </marcador>ejecuta tareas dentro de un contenedor Docker.</li>
+                    <li>📑 <marcador class="resaltado8">KubernetesPodOperator: </marcador>ejecuta pods en Kubernetes.</li>
+                </ul>
+                <div class="blog-image-zoom">
+                    <img src="media/airflow3.png" alt="">
+                </div>
+                <div class="blog-image-zoom">
+                    <img src="media/airflow5.gif" alt="">
+                </div>
+                <h6>Sensors</h6>
+                <p>Los Sensors son tareas que esperan a que ocurra una condición externa. Por ejemplo, un archivo aparezca, una tabla esté disponible, o una API responda. Existen sensores como FileSensor, S3KeySensor, ExternalTaskSensor.</p>
+                <div class="blog-image-grande">
+                    <img src="media/airflow4.png" alt="">
+                </div>
+                <h6>Deferrable Operators y Triggerer</h6>
+                <p>A partir de Airflow 2, se introdujeron los Deferrable Operators, que permiten suspender una tarea en espera de un evento sin ocupar un worker. Estas tareas son gestionadas por el Triggerer, que utiliza async IO para mantenerlas vivas de manera eficiente.</p>
+                <div class="blog-image-grande">
+                    <img src="media/airflow6.png" alt="">
+                </div>
+                <h6>XCom (Cross-Communication)</h6>
+                <p>XCom (Cross-Communication) es el mecanismo de Airflow para compartir pequeños datos entre tareas de un mismo DAG. Los datos se almacenan en la base de datos de Airflow (tabla xcom).</p>
+                <p>📄 Puedes “empujar” un valor desde una tarea y “jalarlo” desde otra.</p>
+                <div class="archivo">
+context['ti'].xcom_push(key='clave', value='valor', execution_date=otra_fecha)
+valor = context['ti'].xcom_pull(key='clave', task_ids='tarea_origen')                </div>
+                <ul style="list-style-type: none;">
+                    <li>🔸<marcador class="resaltado8">xcom_push()</marcador></li>
+                    <p>📄 Se usa para enviar datos. Internamente, Airflow ejecuta:</p>
+                    <div class="archivo">
+XCom.set(
+    key="mi_clave", 
+    value="mi_valor", 
+    task_id=task_instance.task_id,
+    dag_id=task_instance.dag_id,
+    execution_date=task_instance.execution_date  # ¡Importante!
+)
+                    </div>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">execution_date: </marcador>Siempre se guarda en XCom y determina a qué ejecución (DAGRun) pertenece el dato.</li>
+                        <li>∘ Puedes sobrescribir el execution_date.</li>
+                    </ul>
+                    <li>🔸<marcador class="resaltado8">xcom_pull()</marcador></li>
+                    <p>Se usa para recuperar datos. Por defecto, busca registros con:</p>
+                    <ul style="list-style-type: none;">
+                        <li>⊡ Mismo dag_id (DAG actual).</li>
+                        <li>⊡ Mismo execution_date (solo datos de la ejecución actual).</li>
+                    </ul>
+                    <p>📄 Por defecto, se filtran los resultados por la ejecución actual.</p>
+                    <div class="archivo">
+SELECT * FROM xcom 
+WHERE dag_id = ? AND execution_date = ? AND key = ?;
+                    </div>
+                    <p>∘ No mezcla datos entre diferentes ejecuciones del DAG.</p>
+                    <p>El execution_date es crucial porque Airflow, por defecto, aísla los XComs entre ejecuciones, requiriendo que se especifique manualmente un execution_date diferente para acceder a datos de otros DAGRuns.</p>
+                </ul>
+                <p>No abuses de XCom, no está diseñado para datos grandes (usa sistemas externos como S3 o Redis para eso).</p>
+                <div class="blog-image-grande">
+                    <img src="media/airflow7.png" alt="">
+                </div>
+                <h6>Hooks y Providers</h6>
+                <ul style="list-style-type: none;">
+                    <li>🔸<marcador class="resaltado8">Hooks: </marcador>Son interfaces reutilizables para interactuar con sistemas externos: S3, MySQL, BigQuery, etc.</li>
+                    <p>Los hooks, también conocidos como "conectores" o "enlaces", son componentes fundamentales en Airflow que actúan como interfaces, puentes o conectores entre Airflow y sistemas externos. Estos hooks permiten la interacción, conexión y comunicación con diversas plataformas, bases de datos y servicios.</p>
+                    <p>Características clave:</p>
+                    <ul style="list-style-type: none;">
+                        <li>∘ <marcador class="resaltado8">Interfaz unificada: </marcador>Proporcionan una forma estandarizada de interactuar con sistemas externos.</li>
+                        <li>∘ <marcador class="resaltado8">Manejo de conexiones: </marcador>Gestionan automáticamente las conexiones, sesiones y autenticaciones.</li>
+                        <li>∘ <marcador class="resaltado8">Reutilizables: </marcador>Pueden ser usados múltiples veces en diferentes tareas y DAGs.</li>
+                    </ul>
+                    <p>Tipos Comunes de Hooks:</p>
+                    <ol>
+                        <li><marcador class="resaltado9">Database Hooks:</marcador></li>
+                        <ul style="list-style-type: none;">
+                            <li>∘ <marcador class="resaltado8">PostgresHook: </marcador>Para PostgreSQL (conexiones a PostgreSQL).</li>
+                            <li>∘ <marcador class="resaltado8">MySqlHook: </marcador>Para MySQL (gestión de MySQL).</li>
+                        </ul>
+                        <li><marcador class="resaltado9">Cloud Hooks:</marcador></li>
+                        <ul style="list-style-type: none;">
+                            <li>∘ <marcador class="resaltado8">S3Hook: </marcador>Interactúa con Amazon S3 (almacenamiento en S3).</li>
+                            <li>∘ <marcador class="resaltado8">GCSHook: </marcador>Para Google Cloud Storage (acceso a GCS).</li>
+                        </ul>
+                        <li><marcador class="resaltado9">API Hooks:</marcador></li>
+                        <ul style="list-style-type: none;">
+                            <li>∘ <marcador class="resaltado8">HttpHook: </marcador>Para llamadas HTTP (solicitudes HTTP).</li>
+                            <li>∘ <marcador class="resaltado8">SlackHook: </marcador>Notificaciones en Slack (mensajes a Slack).</li>
+                        </ul>
+                        <br>
+                        <p>Los hooks de Airflow simplifican la interacción con sistemas externos al abstraer la lógica de conexión, recuperando credenciales de las Connections de Airflow, estableciendo la conexión, ejecutando operaciones y cerrándola automáticamente al finalizar su uso.</p>
+                    </ol>
+                    <p>📄 Ejemplo de Uso:</p>
+                    <div class="archivo">
+from airflow.providers.postgres.hooks.postgres import PostgresHook
+
+# Crear instancia del hook (inicialización del hook)
+hook = PostgresHook(postgres_conn_id='mi_postgres')
+
+# Ejecutar consulta (uso del hook para consultar)
+resultados = hook.get_records("SELECT * FROM tabla")
+
+# El hook maneja la conexión automáticamente (sin necesidad de abrir/cerrar manualmente)     
+                    </div>
+                    <li>🔸<marcador class="resaltado8">Providers: </marcador>Son paquetes que agrupan hooks, operators, sensors y configuraciones para integrar servicios como Google Cloud, AWS, Slack, Snowflake, etc.</li>
+                </ul>
+
+                <div class="blog-image-zoom">
+                    <img src="media/airflow8.png" alt="">
+                </div>
+                <div class="blog-image-zoom">
+                    <img src="media/airflow9.png" alt="">
+                </div>
+                <h6>Variables y Connections</h6>
+                <ul style="list-style-type: none;">
+                    <li>∘ <marcador class="resaltado8">Variables: </marcador>Claves/valores que se almacenan en la base de datos y pueden usarse desde cualquier DAG.</li>
+                    <li>∘ <marcador class="resaltado8">Connections: </marcador>Configuraciones predefinidas de conexión con servicios externos (host, puerto, usuario, contraseña, etc.).</li>
+                </ul>
+                <p>📄 Estas se configuran desde la UI o vía CLI:</p>
+                <div class="archivo">
+airflow variables set nombre valor
+airflow connections add my_db --conn-uri postgres://user:pass@host/db    
+                </div>
+                <div class="blog-image-grande">
+                    <img src="media/airflow10.png" alt="">
+                </div>
+                <div class="blog-image-grande">
+                    <img src="media/airflow11.png" alt="">
+                </div>
+                <h6>Trigger Rules y Condicionales</h6>
+                <p>Las Trigger Rules controlan cuándo se ejecuta una tarea según el estado de las tareas anteriores. Ejemplo: all_success, one_failed, all_done, etc.</p>
+                <p>📄 Puedes crear flujos condicionales dinámicos usando operadores como BranchPythonOperator:</p>
+                <div class="archivo">
+from airflow.operators.python import BranchPythonOperator
+
+def elegir_ruta():
+    return "task_a" if condicion else "task_b"
+
+BranchPythonOperator(
+    task_id='elige',
+    python_callable=elegir_ruta,
+    dag=dag
+)
+                </div>
+                <div class="blog-image-grande">
+                    <img src="media/airflow12.jpeg" alt="">
+                </div>
+                <h6>Setup y Teardown</h6>
+                <p>A partir de Airflow 2.6, se introdujo setup y teardown para definir tareas que deben ejecutarse al inicio o al final de un DAG (como preparar o limpiar recursos), independientemente del éxito o fallo de otras tareas.</p>
+                <div class="archivo">
+@dag.setup()
+def inicializar():
+    ...
+
+@dag.teardown()
+def limpiar():
+    ...
+                </div>
+                <div class="blog-image-grande">
+                    <img src="media/airflow13.png" alt="">
+                </div>
+                <h6>Decorators</h6>
+                <p>Los Decorators (@task, @dag) permiten definir tareas y DAGs de forma más limpia y funcional desde Python puro.</p>
+                <div class="archivo">
+from airflow.decorators import dag, task
+
+@task
+def suma(a, b):
+    return a + b
+
+@dag(schedule="@daily", start_date=datetime(2024, 1, 1))
+def flujo():
+    suma(3, 5)
+
+flujo_dag = flujo()
+                </div>
+                <div class="blog-image-grande">
+                    <img src="media/airflow14.jpeg" alt="">
+                </div>
+                <h2></h2>
+                <p></p>
+            </div>
+        </div>       
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
