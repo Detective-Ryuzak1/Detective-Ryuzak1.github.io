@@ -620,7 +620,7 @@ insert_book_data_task = PythonOperator(
 
 fetch_book_data_task >> create_table_task >> insert_book_data_task
             </div>
-            <p>En la sección de DAGs y buscar por el DAG llamado fetch_and_store_amazon_book; una vez dentro, dar clic en el botón de "Play" para ejecutar la tarea.</p>
+            <p>En la sección de DAGs buscar por el DAG llamado fetch_and_store_amazon_book; una vez dentro, dar clic en el botón de "Play" para ejecutar la tarea.</p>
             <p>Ve a pgAdmin para verificar los datos obtenidos de Amazon. Haz clic derecho en "Tables" y selecciona "Query Tool".</p>
             <div class="blog-image-zoom">
                 <img src="media/airflow19.png" alt="">
