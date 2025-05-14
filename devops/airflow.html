@@ -253,8 +253,378 @@ flujo_dag = flujo()
                 <div class="blog-image-grande">
                     <img src="media/airflow14.jpeg" alt="">
                 </div>
-                <h2></h2>
-                <p></p>
+                <h2>Proyecto Básico en Linux</h2>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Creación de un entorno virtual:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="python3 -m venv venv" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Activar el entorno virtual:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="source venv/bin/activate" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Puedes consultar la documentación oficial de <a href="https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html" target="blank">Apache Airflow</a> para instalarlo utilizando Docker Compose.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Descarga del archivo docker-compose.yaml:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="curl -LfO 'https://airflow.apache.org/docs/apache-airflow/3.0.1/docker-compose.yaml'" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Creación de carpetas del entorno:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="mkdir -p ./dags ./ logs ./plugins ./config" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>En tu máquina, puedes corregir los permisos (50000:1000) para que el contenedor corra como un usuario no-root.</p>
+                <p>Edita el archivo <marcador class="resaltado1">/etc/containers/registries.conf</marcador>:</p>
+                <div class="archivo">
+[registries.search]
+registries = ['docker.io']
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Asignación de variable de entorno:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="echo &quot;AIRFLOW_UID=$(id -u)&quot; | sponge .env" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Revisa con <marcador class="subrayado">cat .env</marcador> que el UID tenga un valor numérico; si no, establécelo manualmente.</p>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Levantar el servicio:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="podman-compose up airflow-init" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Levantar la interfaz web:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="podman-compose up -d" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">Interfaz web de Airflow:</div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="http://localhost:8080/" oninput="ajustarancho(this)">
+                        <button><i class="fa fa-clone"></i><span> copy</span></button>
+                    </div>
+                </div>
+                <p>La contraseña predeterminada para el usuario airflow en las instalaciones iniciales de Apache Airflow es también airflow.</p>
+                <div class="blog-image-grande">
+                    <img src="media/airflow15.png" alt="">
+                </div>
+                <p>⌭ Modificar el <marcador class="resaltado1">docker-compose.yaml</marcador> para añadir una base de datos.</p>
+                <div class="archivo">            
+services:
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+    volumes:
+      - postgres-db-volume:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "airflow"]
+      interval: 10s
+      retries: 5
+      start_period: 5s
+    restart: always
+    ports:
+      - "5432:5432"
+
+  pgadmin:
+    container_name: pgadmin4_container2
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - "5050:80"
+                </div>
+            <div class="contenedor">
+                <div class="etiqueta">
+                    Detener el servicio:
+                </div>
+                <div class="comandos">
+                    <input type="text" class="text" value="podman-compose down" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                </div>
+            </div>
+            <div class="contenedor">
+                <div class="etiqueta">
+                    Levantar Airflow:
+                </div>
+                <div class="comandos">
+                    <input type="text" class="text" value="podman-compose up -d" oninput="ajustarAncho(this)">
+                    <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                </div>
+            </div>
+            <div class="contenedor">
+                <div class="etiqueta">Interfaz web de Airflow:</div>
+                <div class="comandos">
+                    <input type="text" class="text" value="http://localhost:5050/" oninput="ajustarancho(this)">
+                    <button><i class="fa fa-clone"></i><span> copy</span></button>
+                </div>
+            </div>
+            <p>La contraseña predeterminada para el usuario admin@admin.com en la base de datos pgAdmin es root.</p>
+            <div class="blog-image-grande">
+                <img src="media/airflow16.png" alt="">
+            </div>
+            <p>❏ Buscar el contenedor postgre.</p>
+            <div id="terminal">
+                <section id="terminal__bar">
+                    <div id="bar__buttons">
+                    <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                    <button class="bar__button">&#9633;</button>
+                    <button class="bar__button">&#9472;</button>
+                    </div>
+                    <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                </section>
+                <section id="terminal__body">
+                    <div id="terminal__prompt">
+                    <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">podman</marcador> ps <marcador class="param">-a</marcador></span>
+                    
+
+                    </div>
+                    <div class="command-response-container">
+                        <span id="terminal__prompt--response" class="multiline-text">CONTAINER ID  IMAGE                                 COMMAND               CREATED        STATUS                    PORTS                   NAMES
+3398a6229828  docker.io/library/postgres:13         postgres              9 minutes ago  Up 9 minutes (healthy)    0.0.0.0:5432->5432/tcp  airflow_postgres_1
+9c6544ddbcdd  docker.io/dpage/pgadmin4:latest                             9 minutes ago  Up 9 minutes              0.0.0.0:5050->80/tcp    pgadmin4_container2
+514587874e67  docker.io/library/redis:7.2-bookworm  redis-server          9 minutes ago  Up 9 minutes (healthy)                            airflow_redis_1
+a5aa5aa7161b  docker.io/apache/airflow:3.0.1        -c if [[ -z "1000...  9 minutes ago  Exited (0) 8 minutes ago                          airflow_airflow-init_1
+f2d305d2d01d  docker.io/apache/airflow:3.0.1        bash -c airflow       9 minutes ago  Exited (2) 9 minutes ago                          airflow_airflow-cli_1
+d32d734888a4  docker.io/apache/airflow:3.0.1        api-server            9 minutes ago  Up 9 minutes (healthy)    0.0.0.0:8080->8080/tcp  airflow_airflow-apiserver_1
+6544fcc60245  docker.io/apache/airflow:3.0.1        scheduler             9 minutes ago  Up 9 minutes (healthy)                            airflow_airflow-scheduler_1
+e94074a424a0  docker.io/apache/airflow:3.0.1        dag-processor         9 minutes ago  Up 9 minutes (healthy)                            airflow_airflow-dag-processor_1
+8ec81ef33dc1  docker.io/apache/airflow:3.0.1        triggerer             9 minutes ago  Up 9 minutes (healthy)                            airflow_airflow-triggerer_1
+256a2bb757be  docker.io/apache/airflow:3.0.1        celery flower         9 minutes ago  Up 9 minutes (healthy)    0.0.0.0:5555->5555/tcp  airflow_flower_1
+445a415b36a9  docker.io/apache/airflow:3.0.1        celery worker         9 minutes ago  Up 9 minutes (unhealthy)                          airflow_airflow-worker_1                        
+                        </span>
+                    </div>
+                </section>
+            </div>
+            <p>❏ Buscar la IP del contenedor postgre.</p>
+            <div id="terminal">
+                <section id="terminal__bar">
+                    <div id="bar__buttons">
+                    <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                    <button class="bar__button">&#9633;</button>
+                    <button class="bar__button">&#9472;</button>
+                    </div>
+                    <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                </section>
+                <section id="terminal__body">
+                    <div id="terminal__prompt">
+                    <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">podman</marcador> inspect 3398a6229828 | <marcador class="tool">jq</marcador> '.[0].NetworkSettings.Networks'<marcador class="param"></marcador></span>
+
+                    </div>
+                    <div class="command-response-container">
+                        <span id="terminal__prompt--response" class="multiline-text">{
+    "airflow_default": {
+        "EndpointID": "",
+        "Gateway": "10.89.0.1",
+        "IPAddress": "10.89.0.92",
+        "IPPrefixLen": 24,
+        "IPv6Gateway": "",
+        "GlobalIPv6Address": "",
+        "GlobalIPv6PrefixLen": 0,
+        "MacAddress": "92:42:1f:c3:21:99",
+        "NetworkID": "airflow_default",
+        "DriverOpts": null,
+        "IPAMConfig": null,
+        "Links": null,
+        "Aliases": [
+        "postgres",
+        "3398a6229828"
+        ]
+    }
+}
+                        </span>
+                    </div>
+                </section>
+            </div>
+            <p>Añadir un nuevo servidor con los siguientes valores: en Name, poner 'ps_db'. En la sección de Connections, colocar la IP en el campo Hostname, y 'airflow' en Username y Password. Por último, hacer clic en Save.</p>
+            <div class="blog-image-zoom">
+                <img src="media/airflow17.png" alt="">
+            </div>
+            <p>Crea una base de datos haciendo clic derecho sobre "Databases" y simplemente establece el nombre 'amazon_books'.</p>
+            <p>En la sección de "Admin" y luego en "Connections", crea una nueva conexión con los siguientes valores:</p>
+            <div class="blog-image-zoom">
+                <img src="media/airflow18.png" alt="">
+            </div>
+            <p>⌭ Crea un script llamado dag.py en la carpeta dags y modifica la fecha.</p>
+            <div class="archivo">
+from datetime import datetime, timedelta
+from airflow import DAG
+import requests
+import pandas as pd
+from bs4 import BeautifulSoup
+from airflow.operators.python import PythonOperator
+from airflow.providers.common.sql.operators.sql import SQLExecuteQueryOperator
+from airflow.providers.postgres.hooks.postgres import PostgresHook
+
+# Headers que funcionaron en el script exitoso
+headers = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+    "Accept-Language": "en-US,en;q=0.9"
+}
+
+def get_amazon_data_books(num_books, ti):
+    print(f"🚀 Iniciando scraping para {num_books} libros")
+    base_url = "https://www.amazon.com/s?k=data+engineering+books"
+    books = []
+    page = 1
+    
+    while len(books) < num_books:
+        url = f"{base_url}&page={page}"
+        print(f"📖 Procesando página {page}: {url}")
+        
+        response = requests.get(url, headers=headers, timeout=30)
+        print(f"🔍 Status code: {response.status_code}")
+        
+        if response.status_code != 200:
+            print(f"❌ Error en la petición: {response.status_code}")
+            break
+            
+        soup = BeautifulSoup(response.content, "html.parser")
+        book_containers = soup.find_all('div', {'data-component-type': 's-search-result'})
+        print(f"📚 Encontrados {len(book_containers)} contenedores de libros")
+        
+        for book in book_containers:
+            try:
+                title = book.find('h2').text.strip() if book.find('h2') else None
+                author = book.find('a', {'class': 'a-size-base'})
+                price = book.find('span', {'class': 'a-price-whole'})
+                rating = book.find('span', {'class': 'a-icon-alt'})
+                
+                if title and author and price and rating:
+                    books.append({
+                        "Title": title[:100],  # Limitar longitud para DB
+                        "Author": author.text.strip(),
+                        "Price": price.text.strip(),
+                        "Rating": rating.text.split()[0]  # Solo el número
+                    })
+                    print(f"✅ Añadido: {title[:30]}...")
+            except Exception as e:
+                print(f"⚠️ Error procesando libro: {str(e)}")
+                continue
+                
+        page += 1
+        if page > 3:  # Límite de páginas para pruebas
+            break
+    
+    df = pd.DataFrame(books[:num_books])
+    print(f"📊 Total de libros obtenidos: {len(df)}")
+    ti.xcom_push(key='book_data', value=df.to_dict('records'))
+
+def insert_book_data_into_postgres(ti):
+    book_data = ti.xcom_pull(key='book_data', task_ids='fetch_book_data')
+    print(f"📥 Datos recibidos para insertar: {len(book_data) if book_data else 0} registros")
+    
+    if not book_data:
+        raise ValueError("No se encontraron datos de libros")
+    
+    hook = PostgresHook(postgres_conn_id='books_connection')
+    conn = hook.get_conn()
+    cursor = conn.cursor()
+    
+    try:
+        for book in book_data:
+            cursor.execute("""
+                INSERT INTO books (title, authors, price, rating)
+                VALUES (%s, %s, %s, %s)
+            """, (book['Title'], book['Author'], book['Price'], book['Rating']))
+        conn.commit()
+        print(f"💾 Insertados {len(book_data)} registros en PostgreSQL")
+    except Exception as e:
+        conn.rollback()
+        print(f"❌ Error en la inserción: {str(e)}")
+        raise
+    finally:
+        cursor.close()
+        conn.close()
+
+default_args = {
+    'owner': 'airflow',
+    'depends_on_past': False,
+    'start_date': datetime(2025, 5, 14),
+    'retries': 1,
+    'retry_delay': timedelta(minutes=5),
+}
+
+dag = DAG(
+    dag_id='fetch_and_store_amazon_books',
+    default_args=default_args,
+    description='A simple DAG to fetch book data from Amazon and store it in Postgres',
+    schedule=timedelta(days=1),
+)
+
+#operators : Python Operator and PostgresOperator
+#hooks - allows connection to postgres
+
+
+fetch_book_data_task = PythonOperator(
+    task_id='fetch_book_data',
+    python_callable=get_amazon_data_books,
+    op_args=[50],  # Number of books to fetch
+    dag=dag,
+)
+
+create_table_task = SQLExecuteQueryOperator(
+    task_id='create_table',
+    conn_id='books_connection',
+    sql="""
+    CREATE TABLE IF NOT EXISTS books (
+        id SERIAL PRIMARY KEY,
+        title TEXT NOT NULL,
+        authors TEXT,
+        price TEXT,
+        rating TEXT
+    );
+    """,
+    dag=dag,
+)
+
+insert_book_data_task = PythonOperator(
+    task_id='insert_book_data',
+    python_callable=insert_book_data_into_postgres,
+    dag=dag,
+)
+
+#dependencies
+
+fetch_book_data_task >> create_table_task >> insert_book_data_task
+            </div>
+            <p>En la sección de DAGs y buscar por el DAG llamado fetch_and_store_amazon_book; una vez dentro, dar clic en el botón de "Play" para ejecutar la tarea.</p>
+            <p>Ve a pgAdmin para verificar los datos obtenidos de Amazon. Haz clic derecho en "Tables" y selecciona "Query Tool".</p>
+            <div class="blog-image-zoom">
+                <img src="media/airflow19.png" alt="">
+            </div>
             </div>
         </div>       
     </main>
