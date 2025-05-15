@@ -165,7 +165,7 @@
                         Instalar las dependencias en los contenedores: 
                     </div>
                     <div class="comandos">
-                        <input type="text" class="text" value="apt update && apt install -y nano wget curl openjdk-17-jdk apt openssh-client openssh-server iproute2 netcat-openbsd iputils-ping" oninput="ajustarAncho(this)">
+                        <input type="text" class="text" value="apt update && apt install -y nano wget curl openjdk-17-jdk maven apt openssh-client openssh-server iproute2 netcat-openbsd iputils-ping" oninput="ajustarAncho(this)">
                         <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                 </div>
@@ -663,6 +663,673 @@ PasswordAuthentication yes
                 </div>
                 <div class="blog-image-zoom">
                     <img src="media/flink8.png" alt="">
+                </div>
+                <h2>Proyecto Avanzado</h2>
+                <div class="contenedor">
+                    <div class="etiqueta">Descarga Apache Flink:</div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="wget https://dlcdn.apache.org/flink/flink-2.0.0/flink-2.0.0-bin-scala_2.12.tgz --no-check-certificate" oninput="ajustarancho(this)">
+                        <button><i class="fa fa-clone"></i><span> copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">Extrae el paquete descargado:</div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="tar -zxvf flink-2.0.0-bin-scala_2.12.tgz" oninput="ajustarancho(this)">
+                        <button><i class="fa fa-clone"></i><span> copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">Entrar a la carpeta y comprobar los recursos existentes:</div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="cd flink-2.0.0/ && ll" oninput="ajustarancho(this)">
+                        <button><i class="fa fa-clone"></i><span> copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">Iniciar el clúster de Flink:</div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="./bin/start-cluster.sh" oninput="ajustarancho(this)">
+                        <button><i class="fa fa-clone"></i><span> copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">Una vez iniciado, puedes acceder a la interfaz web desde tu navegador para gestionar las tareas:</div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="http://localhost:8081" oninput="ajustarancho(this)">
+                        <button><i class="fa fa-clone"></i><span> copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">Preparar el entorno:</div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="mkdir ../proyecto && cd ../proyecto" oninput="ajustarancho(this)">
+                        <button><i class="fa fa-clone"></i><span> copy</span></button>
+                    </div>
+                </div>
+                <p>Usaremos Maven como sistema de construcción.</p>
+                <p>Estructura del proyecto:</p>
+                <div class="archivo">
+mvn archetype:generate \
+    -DarchetypeGroupId=org.apache.flink \
+    -DarchetypeArtifactId=flink-walkthrough-datastream-java \
+    -DarchetypeVersion=2.0.0 \
+    -DgroupId=frauddetection \
+    -DartifactId=frauddetection \
+    -Dversion=0.1 \
+    -Dpackage=spendreport \
+    -DinteractiveMode=false \
+    -Dscala.binary.version=2.12 
+                </div>
+                <p><marcador class="subrayado">&lt;scope&gt;provided&lt;scope&gt;</marcador> indica que Flink ya proveerá esas librerías cuando la aplicación se ejecute dentro del clúster o framework. Esto no es útil para ejecutarla de forma local o empaquetarla como un JAR independiente (como estás haciendo con maven-shade-plugin). Por lo tanto, quita esta parte del archivo <marcador class="resaltado1">frauddetection/pom.xml</marcador> para que quede así:</p>
+                <div class="archivo">
+&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.flink&lt;/groupId&gt;
+    &lt;artifactId&gt;flink-streaming-java_${scala.binary.version}&lt;/artifactId&gt;
+    &lt;version&gt;${flink.version}&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.flink&lt;/groupId&gt;
+    &lt;artifactId&gt;flink-clients_${scala.binary.version}&lt;/artifactId&gt;
+    &lt;version&gt;${flink.version}&lt;/version&gt;
+&lt;/dependency&gt;
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">Ir a la ubicación del ejecutable:</div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="cd frauddetection/src/main/java/spendreport/ && ll" oninput="ajustarancho(this)">
+                        <button><i class="fa fa-clone"></i><span> copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">Respaldar ejecutable:</div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="mv FraudDetectionJob.java FraudDetectionJob.java.backup" oninput="ajustarancho(this)">
+                        <button><i class="fa fa-clone"></i><span> copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">Respaldar ejecutable:</div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="mv FraudDetector.java FraudDetector.java.backup" oninput="ajustarancho(this)">
+                        <button><i class="fa fa-clone"></i><span> copy</span></button>
+                    </div>
+                </div>
+                <p>Este es un programa de ejemplo desarrollado con Apache Flink que simula un sistema de detección de fraude financiero. El flujo de datos (stream) consiste en una serie de transacciones codificadas como cadenas con formato "cuenta importe". Cada transacción es procesada y, si se detecta un posible fraude (en este caso simplemente por estructura), se genera una alerta que se envía a un sink.</p>
+                <p>El FraudDetector no contiene lógica real de detección. Emite una alerta por cada transacción, sin importar el importe. Esto es solo una estructura básica.</p>
+                <p>⌭ Crear un programa con el nombre FraudDetectionJob.java con el siguiente código:</p>
+                <div class="archivo">
+package spendreport;
+
+import java.util.ArrayList;
+
+import org.apache.flink.streaming.api.datastream.DataStream;
+import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+import org.apache.flink.walkthrough.common.sink.AlertSink;
+import org.apache.flink.walkthrough.common.entity.Alert;
+
+public class FraudDetectionJob {
+
+    public static void main(String[] args) throws Exception {
+        // Crea el entorno de ejecución de Flink
+        StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+
+        // Simula una lista de transacciones como cadenas de texto "cuenta importe"
+        ArrayList&lt;String&gt; trans=new ArrayList&lt;String&gt;();
+        trans.add("1 15"); /* cuenta importe */
+        trans.add("2 12");
+        trans.add("1 2");
+        trans.add("4 20");
+        trans.add("1 5");
+
+        // Convierte la colección en un DataStream para procesar en Flink
+        DataStream&lt;String&gt; transactions = env
+            .fromCollection( trans )
+            .name("transactions");
+
+        // Agrupa el flujo por ID de cuenta (primer valor) y aplica el proceso de detección de fraude
+        DataStream&lt;Alert&gt; alerts = transactions
+            .keyBy( (String x) -&gt; { return x.split(" ")[0]; } ) // clave = ID de cuenta
+            .process(new FraudDetector()) // aplica lógica personalizada de detección
+            .name("fraud-detector");
+
+        // Envía las alertas a un destino (sink)
+        alerts
+            .addSink(new AlertSink())
+            .name("send-alerts");
+
+        // Ejecuta el job de Flink
+        env.execute("Fraud Detection");
+    }
+}
+                </div>
+                <p>⌭ Crear un programa con el nombre FraudDetector.java con el siguiente código:</p>
+                <div class="archivo">
+package spendreport;
+
+import java.math.BigDecimal;
+
+import org.apache.flink.api.common.state.ValueState;
+import org.apache.flink.api.common.state.ValueStateDescriptor;
+import org.apache.flink.api.common.typeinfo.Types;
+import org.apache.flink.configuration.Configuration;
+import org.apache.flink.streaming.api.functions.KeyedProcessFunction;
+import org.apache.flink.util.Collector;
+import org.apache.flink.walkthrough.common.entity.Alert;
+import org.apache.flink.walkthrough.common.entity.Transaction;
+
+// Procesa cada transacción agrupada por ID de cuenta y emite una alerta
+public class FraudDetector extends KeyedProcessFunction&lt;String, String, Alert&gt; {
+    private static final long serialVersionUID = 1L;
+
+    @Override
+    public void processElement( String transaction, Context context, Collector&lt;Alert&gt; collector) throws Exception {	
+        // Crea una alerta para la cuenta asociada a esta transacción
+        Alert alert = new Alert();
+        alert.setId( new Long( transaction.split(" ")[0] ) ); // extrae el ID de la cuenta
+
+        // Emite la alerta al siguiente paso del flujo
+        collector.collect(alert);
+        }
+}                  
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">Ir a la raíz del proyecto y compilarlo:</div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="cd ../../../../ && mvn package" oninput="ajustarancho(this)">
+                        <button><i class="fa fa-clone"></i><span> copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">Sube el Job a Flink:</div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="../../flink-2.0.0/bin/flink run target/frauddetection-0.1.jar" oninput="ajustarancho(this)">
+                        <button><i class="fa fa-clone"></i><span> copy</span></button>
+                    </div>
+                </div>
+                <p>❏ Verifica la salida de los logs para observar cómo se llevó a cabo el procesamiento de la tarea.</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9633;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">cat</marcador> ../../flink-2.0.0/log/flink-usuario-taskexecutor-0-NombreHost.log<marcador class="param"></marcador></span>
+    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">2025-05-15 04:02:32,023 INFO  org.apache.flink.runtime.taskmanager.Task                    [] - fraud-detector -> Sink: send-alerts (1/1)#0 (52442b4a9ea31971fb24503dc0e2dc2a_20ba6b65f97481d5570070de90e4e791_0_0) switched from INITIALIZING to RUNNING.
+2025-05-15 04:02:32,027 INFO  org.apache.flink.walkthrough.common.sink.AlertSink           [] - Alert{id=1}
+2025-05-15 04:02:32,027 INFO  org.apache.flink.walkthrough.common.sink.AlertSink           [] - Alert{id=2}
+2025-05-15 04:02:32,027 INFO  org.apache.flink.walkthrough.common.sink.AlertSink           [] - Alert{id=1}
+2025-05-15 04:02:32,027 INFO  org.apache.flink.walkthrough.common.sink.AlertSink           [] - Alert{id=4}
+2025-05-15 04:02:32,027 INFO  org.apache.flink.walkthrough.common.sink.AlertSink           [] - Alert{id=1}
+2025-05-15 04:02:32,029 INFO  org.apache.flink.runtime.taskmanager.Task                    [] - fraud-detector -> Sink: send-alerts (1/1)#0 (52442b4a9ea31971fb24503dc0e2dc2a_20ba6b65f97481d5570070de90e4e791_0_0) switched from RUNNING to FINISHED.
+2025-05-15 04:02:32,029 INFO  org.apache.flink.runtime.taskmanager.Task                    [] - Freeing task resources for fraud-detector -> Sink: send-alerts (1/1)#0 (52442b4a9ea31971fb24503dc0e2dc2a_20ba6b65f97481d5570070de90e4e791_0_0).
+2025-05-15 04:02:32,029 INFO  org.apache.flink.runtime.taskexecutor.TaskExecutor           [] - Un-registering task and sending final execution state FINISHED to JobManager for task fraud-detector -> Sink: send-alerts (1/1)#0 52442b4a9ea31971fb24503dc0e2dc2a_20ba6b65f97481d5570070de90e4e791_0_0.
+2025-05-15 04:02:32,053 INFO  org.apache.flink.runtime.taskexecutor.slot.TaskSlotTableImpl [] - Free slot TaskSlot(index:1, state:ACTIVE, resource profile: ResourceProfile{cpuCores=1, taskHeapMemory=384.000mb (402653174 bytes), taskOffHeapMemory=0 bytes, managedMemory=512.000mb (536870920 bytes), networkMemory=128.000mb (134217730 bytes)}, allocationId: e5ceb0aa965c2e81ebea343a62298291, jobId: e284d7a72078b83e994882c5f4834690).
+2025-05-15 04:02:32,054 INFO  org.apache.flink.runtime.taskexecutor.DefaultJobLeaderService [] - Remove job e284d7a72078b83e994882c5f4834690 from job leader monitoring.
+2025-05-15 04:02:32,054 INFO  org.apache.flink.runtime.taskexecutor.TaskExecutor           [] - Close JobManager connection for job e284d7a72078b83e994882c5f4834690.                                
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>Este código implementa un sistema básico de detección de transacciones potencialmente fraudulentas utilizando Apache Flink, el framework de procesamiento de streams distribuido. El sistema procesa un flujo continuo de transacciones financieras en formato "ID_Cuenta Importe" (ej: "1 150.50") y genera alertas para cada transacción.</p>
+                <p>⌭ Cambia el programa con el nombre FraudDetector.java con el siguiente código:</p>
+                <div class="archivo">
+// Paquete donde se encuentra la clase
+package spendreport;
+
+// Importaciones necesarias
+import java.math.BigDecimal; // Para manejar cantidades monetarias con precisión
+
+// Clases de Flink para manejo de estado
+import org.apache.flink.api.common.state.ValueState;
+import org.apache.flink.api.common.state.ValueStateDescriptor;
+import org.apache.flink.api.common.typeinfo.Types;
+
+// Clases para configuración y ejecución
+import org.apache.flink.configuration.Configuration;
+import org.apache.flink.streaming.api.functions.KeyedProcessFunction;
+import org.apache.flink.util.Collector;
+
+// Entidad para representar alertas
+import org.apache.flink.walkthrough.common.entity.Alert;
+import org.apache.flink.api.common.functions.OpenContext;
+
+/**
+ * Clase que implementa la detección de fraudes en transacciones financieras.
+ * Extiende KeyedProcessFunction para procesar flujos de datos agrupados por clave.
+ */
+public class FraudDetector extends KeyedProcessFunction&lt;String, String, Alert&gt; {
+    // Identificador de versión para serialización
+    private static final long serialVersionUID = 1L;
+    
+    // Estado para almacenar información entre transacciones (transiente = no se serializa)
+    private transient ValueState&lt;BigDecimal&gt; importState;
+
+    /**
+     * Método que se ejecuta al inicializar el operador.
+     * @param openContext Contexto de inicialización proporcionado por Flink
+     */
+    @Override
+    public void open(OpenContext openContext) throws Exception {
+        // Llama al método open de la clase padre
+        super.open(openContext);
+        
+        // Mensaje de log para depuración
+        System.out.println("\n\nOpen\n=====================================================");
+        
+        // Crea un descriptor para el estado que almacenará valores BigDecimal
+        ValueStateDescriptor&lt;BigDecimal&gt; importDescriptor = 
+            new ValueStateDescriptor&lt;&gt;("flag", Types.BIG_DEC);
+        
+        // Obtiene el estado del contexto de ejecución
+        importState = getRuntimeContext().getState(importDescriptor);
+    }
+
+    /**
+     * Procesa cada transacción individual.
+     * @param transaction Transacción en formato "ID_Cuenta Importe"
+     * @param context Contexto de ejecución con información adicional
+     * @param collector Colector para emitir alertas
+     */
+    @Override
+    public void processElement(String transaction, Context context, Collector&lt;Alert&gt; collector) throws Exception {
+        // Divide la transacción en partes (ID e importe)
+        String[] tr = transaction.split(" ");
+        
+        // Registra la transacción y el estado actual (para depuración)
+        System.out.println("Transaction " + transaction + " (" + importState.value() + ")");
+        
+        /* Actualiza el estado con el nuevo importe */
+        importState.update(new BigDecimal(tr[1]));
+        
+        /* Crea y emite una alerta */
+        Alert alert = new Alert();
+        alert.setId(Long.parseLong(tr[0])); // Establece el ID de la cuenta como ID de alerta
+        
+        collector.collect(alert); // Envía la alerta al siguiente paso del pipeline
+    }
+}
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">Ir a la raíz del proyecto y compilarlo:</div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="cd ../../../../ && mvn clean package" oninput="ajustarancho(this)">
+                        <button><i class="fa fa-clone"></i><span> copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">Sube el Job a Flink:</div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="../../flink-2.0.0/bin/flink run target/frauddetection-0.1.jar" oninput="ajustarancho(this)">
+                        <button><i class="fa fa-clone"></i><span> copy</span></button>
+                    </div>
+                </div>
+                <p>❏ Verifica la salida estándar para observar cómo se llevó a cabo el procesamiento de la tarea.</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9633;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">cat</marcador> ../../flink-2.0.0/log/flink-usuario-taskexecutor-0-NombreHost.out<marcador class="param"></marcador></span>
+    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">Open
+=====================================================
+Transaction 1 15 (null)
+Transaction 2 12 (null)
+Transaction 1 2 (15)
+Transaction 4 20 (null)
+Transaction 1 5 (2)                                     
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>El siguiente programa en Java define una clase llamada FraudDetector, que extiende KeyedProcessFunction de Apache Flink y forma parte del paquete spendreport. Su propósito es detectar posibles fraudes a partir de una secuencia de transacciones representadas como cadenas de texto. Cada transacción es recibida como un String, separada por espacios, donde se espera que el primer valor sea un identificador (ID) y el segundo un importe. Al iniciar, en el método open, se crea un estado llamado importState usando un ValueStateDescriptor, que guarda el importe de la última transacción para cada clave. En el método processElement, por cada transacción entrante, se actualiza el estado con el nuevo importe, se registra un temporizador para dentro de 9 segundos, y se genera una alerta (objeto Alert) con el ID extraído, que luego se envía al siguiente operador usando el Collector. Además, de forma experimental (y no recomendada para producción), se incluye un Thread.sleep(3000) que bloquea el hilo durante 3 segundos, posiblemente para simular una espera. Finalmente, cuando se dispara el temporizador, el método onTimer se encarga de limpiar el estado asociado a esa clave. Este flujo demuestra un patrón común en Flink para el procesamiento basado en estados y temporizadores, útil para detectar condiciones de fraude u otras anomalías temporales en flujos de datos en tiempo real.</p>
+                <p>⌭ Cambia el programa con el nombre FraudDetector.java con el siguiente código:</p>
+                <div class="archivo">
+package spendreport;
+
+import java.math.BigDecimal;
+
+import org.apache.flink.api.common.functions.OpenContext; // Nueva importación para Flink 2.0.0+
+import org.apache.flink.api.common.state.ValueState;
+import org.apache.flink.api.common.state.ValueStateDescriptor;
+import org.apache.flink.api.common.typeinfo.Types;
+import org.apache.flink.configuration.Configuration; // Sigue siendo útil para ValueStateDescriptor, pero ya no para el método open()
+import org.apache.flink.streaming.api.functions.KeyedProcessFunction;
+import org.apache.flink.util.Collector;
+import org.apache.flink.walkthrough.common.entity.Alert;
+// import org.apache.flink.walkthrough.common.entity.Transaction; // Descomenta si lo usas explícitamente en alguna parte
+
+public class FraudDetector extends KeyedProcessFunction&lt;String, String, Alert&gt; {
+    private static final long serialVersionUID = 1L;
+    private transient ValueState&lt;BigDecimal&gt; importState;
+
+    @Override
+    public void open(OpenContext openContext) throws Exception { // ¡Cambiado para Flink 2.0.0+!
+        super.open(openContext); // Siempre es buena práctica llamar al método de la superclase
+        System.out.println("\n\nOpen\n=====================================================");
+
+        ValueStateDescriptor&lt;BigDecimal&gt; importDescriptor = new ValueStateDescriptor&lt;&gt;("flag", Types.BIG_DEC);
+
+        // getRuntimeContext() todavía funciona para acceder al entorno de tiempo de ejecución y al estado
+        importState = getRuntimeContext().getState(importDescriptor);
+    }
+
+    @Override
+    public void processElement(String transaction, Context context, Collector&lt;Alert&gt; collector) throws Exception {
+        String[] tr = transaction.split(" ");
+
+        // Verifica si la importState tiene un valor para imprimirlo, si no, se inicializa a null
+        // Esto previene un NullPointerException si importState.value() se llama antes de que se actualice
+        BigDecimal currentImport = importState.value();
+        System.out.println("Transaction " + transaction + " (Current State: " + (currentImport != null ? currentImport : "null") + ")");
+
+        /* Crear flag */
+        importState.update(new BigDecimal(tr[1]));
+
+        /* Borrar flag - registramos un temporizador */
+        // Flink 2.0.0 podría tener ligeras variaciones en cómo se registran los temporizadores
+        // `context.timerService().currentProcessingTime()` sigue siendo el método estándar
+        context.timerService().registerProcessingTimeTimer(context.timerService().currentProcessingTime() + 9000);
+
+        /* Alarmas */
+        Alert alert = new Alert();
+        alert.setId(Long.parseLong(tr[0]));
+
+        collector.collect(alert);
+
+        /* Espera 3 segundos */
+        // Ojo: Thread.sleep() bloquea el hilo y es MALO para el rendimiento en Flink.
+        // Solo úsalo para pruebas y **nunca** en producción.
+        // En una aplicación real, no deberías tener Thread.sleep() dentro de processElement.
+        // Si necesitas retrasar la emisión o el procesamiento, usa temporizadores de Flink o ventanas.
+        Thread.sleep(3000);
+    }
+
+    @Override
+    public void onTimer(long timestamp, OnTimerContext ctx, Collector&lt;Alert&gt; out) throws Exception { // onTimer también puede lanzar excepción
+        System.out.println("Limpiando " + ctx.getCurrentKey());
+        importState.clear();
+    }
+}
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">Ir a la raíz del proyecto y compilarlo:</div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="cd ../../../../ && mvn clean package" oninput="ajustarancho(this)">
+                        <button><i class="fa fa-clone"></i><span> copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">Sube el Job a Flink:</div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="../../flink-2.0.0/bin/flink run target/frauddetection-0.1.jar" oninput="ajustarancho(this)">
+                        <button><i class="fa fa-clone"></i><span> copy</span></button>
+                    </div>
+                </div>
+                <p>❏ Verifica la salida estándar para observar cómo se llevó a cabo el procesamiento de la tarea.</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9633;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">cat</marcador> ../../flink-2.0.0/log/flink-usuario-taskexecutor-0-NombreHost.out<marcador class="param"></marcador></span>
+    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">Open
+=====================================================
+Transaction 1 15 (Current State: null)
+Transaction 2 12 (Current State: null)
+Transaction 1 2 (Current State: 15)
+Limpiando 1
+Transaction 4 20 (Current State: null)
+Limpiando 2
+Transaction 1 5 (Current State: null)
+Limpiando 1                                      
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <p>El siguiente programa, compuesto por FraudDetectionJob.java y FraudDetector.java, está diseñado para detectar un tipo básico de fraude en transacciones financieras en tiempo real. Funciona ingiriendo un flujo de transacciones, procesándolas individualmente por cuenta, y generando alertas cuando se cumplen ciertas condiciones de fraude.</p>
+                <p>El FraudDetectionJob es el punto de entrada de la aplicación. Primero, configura un entorno de ejecución de Flink para procesar datos en un flujo continuo. Luego, simula un flujo de transacciones a partir de una lista precargada de cadenas de texto, donde cada cadena representa una transacción con un ID de cuenta y un monto (ej. "1 15.00"). Cada una de estas cadenas se convierte en un objeto Transaction, que es el formato de datos estándar con el que trabajará el sistema. Una vez que las transacciones están en el formato de objeto, el trabajo las agrupa por accountId para que todas las transacciones de una misma cuenta sean procesadas secuencialmente por la misma instancia de la lógica de detección de fraude. Finalmente, este flujo de transacciones agrupadas se pasa al FraudDetector para el análisis. Las alertas generadas por el detector se envían a un AlertSink (un destino de salida) y el trabajo se ejecuta, procesando los datos.</p>
+                <p>Por otro lado, el FraudDetector es el "cerebro" de la detección. Es una KeyedProcessFunction, lo que significa que procesa cada transacción individualmente para una clave (en este caso, el accountId). Dentro de esta función, se mantienen dos piezas de estado por cada cuenta: flagState (un booleano que indica si la cuenta ha sido marcada como fraudulenta) y timerState (para controlar cuándo se debe limpiar el estado fraudulento). Cuando el detector procesa una nueva transacción, primero verifica si la cuenta ya está marcada como fraudulenta. Si lo está, genera una alerta, asumiendo que cualquier transacción de una cuenta ya marcada es sospechosa. Si la cuenta no está marcada, aplica una regla de detección simple: si el monto de la transacción supera un umbral de $50, la cuenta se marca como fraudulenta y se emite una alerta inicial. Al mismo tiempo, se registra un temporizador para que, después de 10 segundos de tiempo de procesamiento, la bandera de fraude de esa cuenta se restablezca, permitiendo que la cuenta vuelva a un estado "limpio" si no hay más actividad fraudulenta. Este mecanismo de temporizador es crucial para limpiar el estado y evitar que las cuentas queden marcadas indefinidamente, además de ser una forma eficiente y no bloqueante de manejar operaciones temporales en Flink.</p>
+                <p>⌭ Cambia el programa con el nombre FraudDetectionJob.java con el siguiente código:</p>
+                <div class="archivo">
+package spendreport;
+
+import java.util.ArrayList;
+
+import org.apache.flink.streaming.api.datastream.DataStream;
+import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+import org.apache.flink.walkthrough.common.sink.AlertSink;
+import org.apache.flink.walkthrough.common.entity.Alert;
+import org.apache.flink.walkthrough.common.entity.Transaction;
+
+public class FraudDetectionJob {
+
+    public static void main(String[] args) throws Exception {
+        StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+
+        // Simula una lista de transacciones como cadenas de texto "cuenta importe"
+        ArrayList&lt;String&gt; rawTransactions = new ArrayList&lt;&gt;();
+        rawTransactions.add("1 15.00"); // cuenta importe
+        rawTransactions.add("2 12.50");
+        rawTransactions.add("1 60.00"); // Monto alto, debería activar la bandera
+        rawTransactions.add("4 20.00");
+        rawTransactions.add("1 5.00"); // Esta transacción debería generar una alerta porque la cuenta 1 ya está marcada
+        rawTransactions.add("3 100.00"); // Monto alto, debería activar la bandera para cuenta 3
+        rawTransactions.add("2 12.50");
+
+
+        // Convierte la colección de Strings en un DataStream de objetos Transaction
+        DataStream&lt;Transaction&gt; transactions = env
+            .fromCollection(rawTransactions)
+            .map(raw -&gt; {
+                String[] parts = raw.split(" ");
+                long accountId = Long.parseLong(parts[0]);
+                double amount = Double.parseDouble(parts[1]);
+                // Asumiendo un constructor Transaction(long accountId, long transactionId, double amount)
+                // Usaremos un ID de transacción simple, idealmente sería único y real.
+                return new Transaction(accountId, System.nanoTime(), amount); // Usamos System.nanoTime() para un ID único
+            })
+            .name("transactions");
+
+        // Agrupa el flujo por ID de cuenta y aplica el proceso de detección de fraude
+        DataStream&lt;Alert&gt; alerts = transactions
+            .keyBy(Transaction::getAccountId) // KeyBy por el accountId (Long)
+            .process(new FraudDetector()) // aplica lógica personalizada de detección
+            .name("fraud-detector");
+
+        // Envía las alertas a un destino (sink)
+        alerts
+            .addSink(new AlertSink())
+            .name("send-alerts");
+
+        // Ejecuta el job de Flink
+        env.execute("Fraud Detection Simple");
+    }
+}
+                </div>
+                <p>⌭ Cambia el programa con el nombre FraudDetector.java con el siguiente código:</p>
+                <div class="archivo">
+package spendreport;
+
+import java.math.BigDecimal; // Sigue siendo útil para cálculos, pero Transaction no usa BigDecimal
+import java.time.Duration;
+
+import org.apache.flink.api.common.functions.OpenContext;
+import org.apache.flink.api.common.state.ValueState;
+import org.apache.flink.api.common.state.ValueStateDescriptor;
+import org.apache.flink.api.common.typeinfo.Types;
+import org.apache.flink.streaming.api.functions.KeyedProcessFunction;
+import org.apache.flink.util.Collector;
+import org.apache.flink.walkthrough.common.entity.Alert;
+import org.apache.flink.walkthrough.common.entity.Transaction; // Asegúrate de que esta es la clase correcta
+
+public class FraudDetector extends KeyedProcessFunction&lt;Long, Transaction, Alert&gt; { // La clave ahora es Long (accountId)
+    private static final long serialVersionUID = 1L;
+
+    // Estado para guardar si una cuenta está marcada como fraudulenta (solo true/false)
+    private transient ValueState&lt;Boolean&gt; flagState;
+
+    // Estado para guardar un temporizador para limpiar la marca fraudulenta
+    private transient ValueState&lt;Long&gt; timerState;
+
+    // Intervalo de tiempo para mantener una cuenta marcada como fraudulenta
+    private static final Duration FRAUD_FLAG_LIFETIME = Duration.ofSeconds(10); // Ejemplo: 10 segundos
+
+    @Override
+    public void open(OpenContext openContext) throws Exception {
+        super.open(openContext);
+        System.out.println("\n\nOpen - Inicializando FraudDetector.");
+
+        ValueStateDescriptor&lt;Boolean&gt; flagDescriptor = new ValueStateDescriptor&lt;&gt;(
+                "fraud-flag",
+                Types.BOOLEAN); // Estado para una bandera booleana
+        flagState = getRuntimeContext().getState(flagDescriptor);
+
+        ValueStateDescriptor&lt;Long&gt; timerDescriptor = new ValueStateDescriptor&lt;&gt;(
+                "fraud-timer",
+                Types.LONG);
+        timerState = getRuntimeContext().getState(timerDescriptor);
+    }
+
+    @Override
+    public void processElement(Transaction transaction, Context context, Collector&lt;Alert&gt; collector) throws Exception {
+        // Obtiene el estado actual de la bandera de fraude para esta cuenta
+        Boolean isFlagged = flagState.value();
+        if (isFlagged == null) {
+            isFlagged = false; // Por defecto, no es fraudulenta
+        }
+
+        System.out.println("Procesando Transacción: " + transaction.getAccountId() + // Usar getAccountId()
+                            " | Monto: " + transaction.getAmount() + // Usar getAmount()
+                            " | ¿Flagged?: " + isFlagged);
+
+        if (isFlagged) {
+            // Si la cuenta ya está marcada como fraudulenta, genera una alerta por cada transacción
+            Alert alert = new Alert();
+            alert.setId(transaction.getAccountId()); // Usar accountId para la alerta
+            System.out.println("¡ALERTA DE FRAUDE CONTINUO para cuenta " + transaction.getAccountId() +
+                                " (Monto: " + transaction.getAmount() + ")");
+            collector.collect(alert);
+        } else {
+            // Lógica de detección de fraude (simplificada para el ejemplo)
+            // Ejemplo: Marcar como fraudulenta si el monto es mayor a 50
+            if (transaction.getAmount() &gt; 50.0) { // Comparar directamente doubles
+                flagState.update(true); // Marcar la cuenta como fraudulenta
+                Alert alert = new Alert();
+                alert.setId(transaction.getAccountId());
+                System.out.println("¡ALERTA DE FRAUDE DETECTADA para cuenta " + transaction.getAccountId() +
+                                    " (Monto alto: " + transaction.getAmount() + ")");
+                collector.collect(alert);
+
+                // Registrar un temporizador para limpiar la bandera de fraude después de un tiempo
+                long currentProcessingTime = context.timerService().currentProcessingTime();
+                long timerTime = currentProcessingTime + FRAUD_FLAG_LIFETIME.toMillis();
+                context.timerService().registerProcessingTimeTimer(timerTime);
+                timerState.update(timerTime);
+                System.out.println("  Temporizador registrado para la cuenta " + transaction.getAccountId() + " en " + timerTime);
+            }
+        }
+    }
+
+    @Override
+    public void onTimer(long timestamp, OnTimerContext ctx, Collector&lt;Alert&gt; out) throws Exception {
+        // Cuando el temporizador expira, limpia la bandera de fraude para esta cuenta
+        System.out.println("Limpiando bandera de fraude para la cuenta: " + ctx.getCurrentKey() + " debido al temporizador.");
+        flagState.clear();
+        timerState.clear();
+    }
+
+    @Override
+    public void close() throws Exception {
+        super.close();
+        if (flagState != null) {
+            flagState.clear();
+        }
+        if (timerState != null) {
+            timerState.clear();
+        }
+        System.out.println("\n\nClose - Destruyendo FraudDetector.");
+    }
+}
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">Ir a la raíz del proyecto y compilarlo:</div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="cd ../../../../ && mvn clean package" oninput="ajustarancho(this)">
+                        <button><i class="fa fa-clone"></i><span> copy</span></button>
+                    </div>
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">Sube el Job a Flink:</div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="../../flink-2.0.0/bin/flink run target/frauddetection-0.1.jar" oninput="ajustarancho(this)">
+                        <button><i class="fa fa-clone"></i><span> copy</span></button>
+                    </div>
+                </div>
+                <p>❏ Verifica la salida estándar para observar cómo se llevó a cabo el procesamiento de la tarea.</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9633;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">cat</marcador> ../../flink-2.0.0/log/flink-usuario-taskexecutor-0-NombreHost.out<marcador class="param"></marcador></span>
+    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">Open - Inicializando FraudDetector.
+Procesando Transacción: 1 | Monto: 15.0 | ¿Flagged?: false
+Procesando Transacción: 2 | Monto: 12.5 | ¿Flagged?: false
+Procesando Transacción: 1 | Monto: 60.0 | ¿Flagged?: false
+¡ALERTA DE FRAUDE DETECTADA para cuenta 1 (Monto alto: 60.0)
+    Temporizador registrado para la cuenta 1 en 1747310982975
+Procesando Transacción: 4 | Monto: 20.0 | ¿Flagged?: false
+Procesando Transacción: 1 | Monto: 5.0 | ¿Flagged?: true
+¡ALERTA DE FRAUDE CONTINUO para cuenta 1 (Monto: 5.0)
+Procesando Transacción: 3 | Monto: 100.0 | ¿Flagged?: false
+¡ALERTA DE FRAUDE DETECTADA para cuenta 3 (Monto alto: 100.0)
+    Temporizador registrado para la cuenta 3 en 1747310982976
+Procesando Transacción: 2 | Monto: 12.5 | ¿Flagged?: false
+
+
+Close - Destruyendo FraudDetector.                                                                  
+                            </span>
+                        </div>
+                    </section>
+                </div>
+                <div class="blog-image-zoom">
+                    <img src="media/flink9.png" alt="">
                 </div>
             </div>
         </div>       

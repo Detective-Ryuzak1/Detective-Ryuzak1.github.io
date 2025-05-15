@@ -478,7 +478,7 @@ e94074a424a0  docker.io/apache/airflow:3.0.1        dag-processor         9 minu
                 <img src="media/airflow18.png" alt="">
             </div>
             <p>Este proyecto de Airflow automatiza la extracción de información de libros de ingeniería de datos desde la página de resultados de búsqueda de Amazon. Utiliza Python para realizar el scraping web, parseando el HTML con BeautifulSoup para extraer títulos, autores, precios y calificaciones. Los datos extraídos se almacenan temporalmente utilizando XComs y luego se insertan en una base de datos PostgreSQL. El flujo de trabajo incluye la creación de la tabla en PostgreSQL (si no existe), la obtención de los datos de Amazon y la posterior inserción de estos datos en la tabla, todo orquestado por Airflow de forma diaria.</p>
-            <p>⌭ Crea un script llamado dag.py en la carpeta dags y modifica la fecha.</p>
+            <p>⌭ Crear un script con el nombre dag.py en la carpeta dags y modificar la fecha.</p>
             <div class="archivo">
 from datetime import datetime, timedelta
 from airflow import DAG
