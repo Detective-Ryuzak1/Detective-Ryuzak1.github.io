@@ -701,6 +701,7 @@ import tweepy
 import pandas as pd
 import json
 from datetime import datetime
+from zoneinfo import ZoneInfo
 import s3fs  # Opcional si vas a guardar en S3, puedes omitir si solo guardas localmente
 
 def run_twitter_etl():
@@ -711,7 +712,7 @@ def run_twitter_etl():
     client = tweepy.Client(bearer_token=bearer_token)
 
     # Nombre de usuario sin el '@'
-    username = "elonmusk"
+    username = "samyriveratv"
 
     try:
         # Obtener información del usuario (necesario para obtener su ID)
@@ -726,8 +727,8 @@ def run_twitter_etl():
         # Obtener últimos tweets del usuario
         response = client.get_users_tweets(
             id=user_id,
-            max_results=10,  # Máximo permitido por request en API gratuita
-            tweet_fields=["created_at", "text"]
+            max_results=5,  # Máximo permitido por request en API gratuita
+            tweet_fields=["created_at", "text", "public_metrics"]
         )
 
         # Verificar si se recibieron tweets
@@ -739,10 +740,13 @@ def run_twitter_etl():
         # Procesar los tweets recibidos
         tweets = []
         for tweet in tweets_data:
+            metrics = tweet.public_metrics
             refined_tweet = {
                 "user": user.username,
                 "text": tweet.text,
-                "created_at": tweet.created_at
+                "created_at": tweet.created_at.astimezone(ZoneInfo("America/Mexico_City")).strftime("%Y-%m-%d %H:%M:%S"),
+                "likes": metrics["like_count"],
+                "retweets": metrics["retweet_count"]
             }
             tweets.append(refined_tweet)
 
@@ -1085,13 +1089,6 @@ run_etl
                 <div class="etiqueta">Matar los procesos asociados a gunicorn:</div>
                 <div class="comandos">
                     <input type="text" class="text" value="pkill -f gunicorn" oninput="ajustarancho(this)">
-                    <button><i class="fa fa-clone"></i><span> copy</span></button>
-                </div>
-            </div>
-            <div class="contenedor">
-                <div class="etiqueta">Eliminar archivos PID residuales:</div>
-                <div class="comandos">
-                    <input type="text" class="text" value="rm -f ~/airflow/*.pid && rm -f ~/airflow/webserver_config.py" oninput="ajustarancho(this)">
                     <button><i class="fa fa-clone"></i><span> copy</span></button>
                 </div>
             </div>
