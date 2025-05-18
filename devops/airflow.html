@@ -627,6 +627,14 @@ fetch_book_data_task >> create_table_task >> insert_book_data_task
                 <img src="media/airflow19.png" alt="">
             </div>
             <h2>Proyecto en la Nube</h2>
+            <p>En el mundo del análisis de datos, la capacidad de extraer información valiosa de redes sociales como Twitter y almacenarla de manera eficiente es fundamental. Un proyecto ETL (Extract, Transform, Load) que utiliza Python para conectarse a la API de Twitter, procesar los datos y cargarlos en un bucket de Amazon S3 puede ser una solución escalable y automatizada para este propósito.</p>
+            <p>El proyecto consiste en un flujo automatizado que:</p>
+            <ol>
+                <li><marcador class="resaltado8">Extrae </marcador>tweets en tiempo real o históricos mediante la API de Twitter (usando bibliotecas como tweepy o python-twitter).</li>
+                <li><marcador class="resaltado8">Transforma </marcador>los datos crudos, aplicando filtros, limpieza de texto, análisis de sentimientos o estructurado en un formato óptimo (como CSV, JSON o Parquet).</li>
+                <li><marcador class="resaltado8">Carga </marcador>la información procesada en un bucket de Amazon S3, utilizando el SDK de AWS (boto3), donde podrá ser consultada por herramientas de analytics o machine learning.</li>
+            </ol>
+            <p>Este proceso puede ejecutarse periódicamente mediante servicios como AWS Lambda o Airflow, garantizando una base de datos actualizada para su posterior análisis.</p>
             <h6>Generar un Access Token para Twitter</h6>
             <p>Para comenzar a usar la API de Twitter, dirígete a <a href="https://developer.twitter.com" target="blank">Twitter Developer Platform</a>, inicia sesión con tu cuenta de Twitter, y luego solicita el acceso de desarrollador gratuito a través del nivel "Essential".</p>
             <p>Una vez dentro del panel de desarrollador de Twitter, navega a la sección "Projects & Apps" y selecciona "Overview". Aquí, procederás a usar el proyecto default. Este proyecto te proporcionará las credenciales esenciales para interactuar con la API de Twitter: el Bearer Token , con las opciones de generar el Bearer Token.</p>
@@ -656,7 +664,7 @@ fetch_book_data_task >> create_table_task >> insert_book_data_task
                     <button><i class="fa fa-clone"></i><span> copy</span></button>
                 </div>
             </div>
-            <p>⌭ Crear un script en Python se conecta a la API de Twitter usando tweepy, se autentica con la API y recupera los 10 últimos tweets del usuario @elonmusk, mostrándolos por pantalla. Sirve para analizar o monitorear contenido público de una cuenta.</p>
+            <p>⌭ Crear un script en Python que se conecta a la API de Twitter usando tweepy y recupera los 10 últimos tweets de un usuario, mostrándolos por pantalla. Sirve para analizar o monitorear contenido público de una cuenta.</p>
             <div class="archivo">
 import tweepy
 import time
@@ -687,7 +695,7 @@ except tweepy.TooManyRequests as e:
     print("Límite de peticiones alcanzado. Esperando 15 minutos...")
     time.sleep(15 * 60)  # Esperar 15 minutos
             </div>
-            <p>⌭ El siguiente script conecta con la API v2 de Twitter utilizando un bearer token para extraer los últimos tweets del usuario especificado (en este caso, elonmusk), y luego guarda información relevante como el texto del tweet, número de likes, retweets y la fecha de creación en un archivo CSV llamado refined_tweets.csv.</p>
+            <p>⌭ El siguiente script se conecta con la API v2 de Twitter para extraer los últimos tweets del usuario especificado (en este caso, elonmusk), y luego guarda información relevante como el texto del tweet, número de likes, retweets y la fecha de creación en un archivo CSV llamado refined_tweets.csv.</p>
             <div class="archivo">
 import tweepy
 import pandas as pd
@@ -762,12 +770,12 @@ run_twitter_etl()
                     <button><i class="fa fa-clone"></i><span> copy</span></button>
                 </div>
             </div>
-            <p>Como variante se puede utilizar la API de YouTube Data v3 para extraer y procesar todos los comentarios de un video específico de YouTube. Primero se configura la conexión con la API usando una clave de desarrollador, luego realiza solicitudes paginadas para obtener los comentarios (hasta 100 por petición) y los procesa para extraer información clave como el autor, el texto del comentario y la fecha de publicación. La aplicación maneja automáticamente la paginación para recolectar todos los comentarios disponibles, incluso cuando superan el límite por solicitud. Los datos se estructuran en una lista de diccionarios para su fácil análisis posterior, mostrando finalmente un resumen con el total de comentarios recolectados y ejemplos de los primeros comentarios. El código incluye manejo de errores para casos donde la estructura de los comentarios no sea la esperada, y está diseñado para ser fácilmente integrable en sistemas más grandes de análisis de datos o moderación de contenido.</p>
+            <p>Como variante se puede utilizar la API de YouTube Data v3 para extraer y procesar todos los comentarios de un video específico de YouTube. Primero se configura la conexión con la API, luego se realizan solicitudes paginadas para obtener los comentarios (hasta 100 por petición) y las procesa para extraer información clave como el autor, el texto del comentario y la fecha de publicación. La aplicación maneja automáticamente la paginación para recolectar todos los comentarios disponibles. Los datos son estructurados en una lista de diccionarios para su fácil análisis, mostrando finalmente un resumen con el total de comentarios recolectados. El código incluye manejo de errores para casos donde la estructura de los comentarios no sea la esperada, y está diseñado para ser fácilmente integrable en sistemas más grandes de análisis de datos o moderación de contenido.</p>
             <p>Para obtener una Clave de API, ve a la <a href="https://console.developers.google.com/" target="blank">Consola de APIs de Google</a>, donde podrás crear un nuevo proyecto o seleccionar uno ya existente. Después, activa la API de YouTube Data API v3 y dirígete a la sección "Credenciales" para crear una nueva Clave de API, la cual deberás copiar una vez generada.</p>
             <div class="blog-image-zoom">
                 <img src="media/airflow28.png" alt="">
             </div>
-            <p>⌭ Aplicación Completa para Obtener Comentarios de YouTube.</p>
+            <p>⌭ El script para obtener comentarios de YouTube quedaría de la siguiente forma:</p>
             <div class="archivo">
 import os
 import csv
@@ -945,7 +953,8 @@ if __name__ == "__main__":
                 </div>
             </div>
             <p>Posteriormente, deberás editar el archivo de configuración de Airflow, <marcador class="resaltado1">airflow.cfg</marcador>. Dentro de este archivo, busca la variable <marcador class="subrayado">dags_folder</marcador> y modifica su valor para que apunte a la carpeta que creaste para tus DAGs, específicamente a la ruta <marcador class="resaltado1">/home/ubuntu/airflow/twitter_dag</marcador>.</p>
-            <p>Ahora, dentro del directorio <marcador class="resaltado1">twitter_dags</marcador>, es fundamental crear los dos archivos de Python: <marcador class="resaltado1">twitter_etl.py</marcador> y <marcador class="resaltado1">twitter_dag.py</marcador>. Es crucial recordar que tu script <marcador class="resaltado1">twitter_etl.py</marcador> debe estar configurado para apuntar al bucket S3 que has creado, ya que allí se almacenarán los datos procesados.</p>
+            <p>Usar el SequentialExecutor es la mejor opción para tu servidor con recursos limitados, ya que es más simple y ligero. Para configurarlo, deberás abrir tu archivo <marcador class="resaltado1">airflow.cfg</marcador> y cambiar la configuración de executor de LocalExecutor a SequentialExecutor.</p>
+            <p>Adicionalmente, dentro del mismo archivo <marcador class="resaltado1">airflow.cfg</marcador>, localiza la sección [core] y ajusta los siguientes parámetros: establece parallelism = 1, max_active_runs_per_dag = 1, y workers = 1.</p>
             <div class="contenedor">
                 <div class="etiqueta">
                     Crear las carpetas para la gestión de Airflow:
@@ -1041,7 +1050,8 @@ run_etl
             <p>Para crear un bucket S3, inicia sesión en la Consola de AWS y navega hasta el servicio S3. Una vez allí, haz clic en "Crear bucket" y asígnale un nombre único que sea globalmente distintivo (por ejemplo, airflow-bucket-twitter-datos). Puedes dejar las configuraciones de bloqueo de acceso público y el resto de las opciones por defecto para empezar, a menos que tengas requisitos de seguridad específicos. Finalmente, haz clic en "Crear bucket" para completar el proceso.</p>
             <p>En el script ETL es necesario modificar la línea donde se guarda el DataFrame para que apunte al bucket de Amazon S3. Esto se logra reemplazando la ruta local por df.to_csv('s3://airflow-bucket-twitter-datos/refined_tweets.csv', index=False), lo cual permite que los datos procesados se almacenen directamente en el bucket especificado.</p>
             <p>En una terminal separada, necesitarás establecer una nueva conexión SSH a tu instancia EC2. Una vez que hayas accedido exitosamente a la instancia, el siguiente paso es navegar hasta el directorio de Airflow, que es donde se almacenan y gestionan los DAGs de tu proyecto.</p>
-            <p>Después de realizar esos cambios, es necesario detener y reiniciar los servicios de Airflow para que detecte las nuevas configuraciones. Para ello, vuelve a ejecutar los comandos <marcador class="subrayado">airflow api-server --port 8080 --workers 1</marcador> y <marcador class="subrayado">airflow scheduler</marcador>. Esto asegurará que los cambios en la carpeta de DAGs y la configuración sean aplicados correctamente.</p>
+            <p>Ahora, dentro del directorio <marcador class="resaltado1">twitter_dags</marcador>, es fundamental crear los dos archivos de Python: <marcador class="resaltado1">twitter_etl.py</marcador> y <marcador class="resaltado1">twitter_dag.py</marcador>. Es crucial recordar que tu script <marcador class="resaltado1">twitter_etl.py</marcador>debe estar configurado para apuntar al bucket S3 que se creará, ya que allí se almacenarán los datos procesados, tal como se mostrará más adelante.</p>
+            <p>Después de realizar esos cambios, es necesario detener y reiniciar los servicios de Airflow para que detecte las nuevas configuraciones. Y luego, vuelve a ejecutar los comandos <marcador class="subrayado">airflow api-server --port 8080 --workers 1</marcador> y <marcador class="subrayado">airflow scheduler</marcador> para reiniciar el servicio de Airflow. Esto asegurará que los cambios en la carpeta de DAGs y la configuración sean aplicados correctamente.</p>
             <div class="contenedor">
                 <div class="etiqueta">Encuentra el PID del proceso que está usando el puerto con:</div>
                 <div class="comandos">
@@ -1088,7 +1098,7 @@ run_etl
             <div class="contenedor">
                 <div class="etiqueta">Permisos extendidos:</div>
                 <div class="comandos">
-                    <input type="text" class="text" value="sudo chmod -R 755 ~/airflow/dags" oninput="ajustarancho(this)">
+                    <input type="text" class="text" value="sudo chmod -R 755 ~/airflow/twitter_dag" oninput="ajustarancho(this)">
                     <button><i class="fa fa-clone"></i><span> copy</span></button>
                 </div>
             </div>
@@ -1099,6 +1109,7 @@ run_etl
                     <button><i class="fa fa-clone"></i><span> copy</span></button>
                 </div>
             </div>
+            <p>Cuidado: reset elimina todo lo que tengas en la base de datos de Airflow (DAGs ejecutados, conexiones, variables, etc.).</p>
             <div class="contenedor">
                 <div class="etiqueta">Aplicar todas las migraciones necesarias a la base de datos:</div>
                 <div class="comandos">
@@ -1106,7 +1117,6 @@ run_etl
                     <button><i class="fa fa-clone"></i><span> copy</span></button>
                 </div>
             </div>
-            <p>Cuidado: reset elimina todo lo que tengas en la base de datos de Airflow (DAGs ejecutados, conexiones, variables, etc.).</p>
             <div class="contenedor">
                 <div class="etiqueta">Levantar el servidor web:</div>
                 <div class="comandos">
@@ -1121,10 +1131,8 @@ run_etl
                     <button><i class="fa fa-clone"></i><span> copy</span></button>
                 </div>
             </div>
-            <p>Usar el SequentialExecutor es la mejor opción para tu servidor con recursos limitados, ya que es más simple y ligero. Para configurarlo, deberás abrir tu archivo <marcador class="resaltado1">airflow.cfg</marcador> y cambiar la configuración de executor de LocalExecutor a SequentialExecutor.</p>
-            <p>Adicionalmente, dentro del mismo archivo <marcador class="resaltado1">airflow.cfg</marcador>, localiza la sección [core] y ajusta los siguientes parámetros: establece parallelism = 1, max_active_runs_per_dag = 1, y workers = 1.</p>
             <div class="contenedor">
-                <div class="etiqueta">Verificar el DAG aparece</div>
+                <div class="etiqueta">Verificar que el DAG esté disponible en la lista:</div>
                 <div class="comandos">
                     <input type="text" class="text" value="airflow dags list" oninput="ajustarancho(this)">
                     <button><i class="fa fa-clone"></i><span> copy</span></button>
