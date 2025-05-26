@@ -159,7 +159,7 @@ network.host: 0.0.0.0
 # Pass an initial list of hosts to perform discovery when this node is started:
 # The default list of hosts is ["127.0.0.1", "[::1]"]
 # 
-discovery.seed_hosts: ["127.0.0.1"]
+# discovery.seed_hosts: ["127.0.0.1"]
 #
 # Bootstrap the cluster using an initial set of master-eligible nodes:
 #
@@ -228,7 +228,7 @@ xpack.security.transport.ssl:
                         Habilitar elasticsearch:
                     </div>
                     <div class="comandos">
-                        <input type="text" class="text" value="sudo systemctl start elasticsearch" oninput="ajustarAncho(this)">
+                        <input type="text" class="text" value="sudo systemctl enable --now elasticsearch" oninput="ajustarAncho(this)">
                         <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                 </div>
@@ -401,6 +401,55 @@ CGroup: /system.slice/elasticsearch.service
                         </div>
                     </section>
                 </div>
+                                <p>❏ Cuando se necesita buscar un usuario por nombre sin conocer su ID, se puede usar una consulta como esta que filtra por el campo nombre, en este caso buscando todos los documentos que contengan el valor "Ana" dentro del índice test.</p>
+                <div id="terminal">
+                    <section id="terminal__bar">
+                        <div id="bar__buttons">
+                        <button class="bar__button" id="bar__button--exit">&#10005;</button>
+                        <button class="bar__button">&#9633;</button>
+                        <button class="bar__button">&#9472;</button>
+                        </div>
+                        <p id="bar__user">ryuzak1@ubuntu: ~</p>
+                    </section>
+                    <section id="terminal__body">
+                        <div id="terminal__prompt">
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">curl</marcador> <marcador class="param">-X</marcador> GET &quot;http://localhost:9400/test/_search?q=nombre:Ana&pretty&quot; <marcador class="param"></marcador></span>    
+                        </div>
+                        <div class="command-response-container">
+                            <span id="terminal__prompt--response" class="multiline-text">{
+  "took" : 4,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 1,
+      "relation" : "eq"
+    },
+    "max_score" : 1.2809337,
+    "hits" : [
+      {
+        "_index" : "test",
+        "_id" : "1",
+        "_score" : 1.2809337,
+        "_source" : {
+          "nombre" : "Ana López",
+          "edad" : 26,
+          "ciudad" : "Barcelona",
+          "profesion" : "Analista"
+        }
+      }
+    ]
+  }
+}                                              
+                            </span>
+                        </div>
+                    </section>
+                </div>
                 <p>❏ Puedes buscar documentos que cumplan ciertos criterios usando _search:</p>
                 <div id="terminal">
                     <section id="terminal__bar">
@@ -515,10 +564,61 @@ CGroup: /system.slice/elasticsearch.service
                     </section>
                     <section id="terminal__body">
                         <div id="terminal__prompt">
-                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">curl</marcador> <marcador class="param">-X</marcador> GET &quot;http://localhost:9200/test/_search&quot; <marcador class="param">-H</marcador> &quot;Content-Type: application/json&quot; <marcador class="param">-d</marcador> '{&quot;query&quot;: {&quot;range&quot;: {&quot;edad&quot;: {&quot;gte&quot;: 25, &quot;lte&quot;: 28 }}}}'</span>    
+                        <span id="terminal__prompt--command"><marcador class="user">ryuzak1@ubuntu:</marcador><marcador class="location">~</marcador><marcador class="bling">$&nbsp;</marcador><marcador class="tool">curl</marcador> <marcador class="param">-X</marcador> <marcador class="param">-s</marcador> GET &quot;http://localhost:9200/test/_search&quot; <marcador class="param">-H</marcador> &quot;Content-Type: application/json&quot; <marcador class="param">-d</marcador> '{&quot;query&quot;: {&quot;range&quot;: {&quot;edad&quot;: {&quot;gte&quot;: 25, &quot;lte&quot;: 28 }}}}' <marcador class="param">|</marcador> <marcador class="tool">jq</marcador></span>    
                         </div>
                         <div class="command-response-container">
-                            <span id="terminal__prompt--response" class="multiline-text">{"took":8,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":3,"relation":"eq"},"max_score":1.0,"hits":[{"_index":"test","_id":"2","_score":1.0,"_source":{"nombre": "Pedro Alba", "edad": 27, "ciudad": "Barcelona", "profesion": "Analista"}},{"_index":"test","_id":"4","_score":1.0,"_source":{"nombre": "Francisco Pérez", "edad": 26, "ciudad": "Madrid", "profesion": "Diseñador Gráfico"}},{"_index":"test","_id":"1","_score":1.0,"_source":{"nombre":"Ana López","edad":26,"ciudad":"Barcelona","profesion":"Analista"}}]}}                  
+                            <span id="terminal__prompt--response" class="multiline-text">{
+  "took": 1,
+  "timed_out": false,
+  "_shards": {
+    "total": 1,
+    "successful": 1,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": {
+      "value": 3,
+      "relation": "eq"
+    },
+    "max_score": 1.0,
+    "hits": [
+      {
+        "_index": "test",
+        "_id": "2",
+        "_score": 1.0,
+        "_source": {
+          "nombre": "Pedro Alba",
+          "edad": 27,
+          "ciudad": "Barcelona",
+          "profesion": "Analista"
+        }
+      },
+      {
+        "_index": "test",
+        "_id": "4",
+        "_score": 1.0,
+        "_source": {
+          "nombre": "Francisco Pérez",
+          "edad": 26,
+          "ciudad": "Madrid",
+          "profesion": "Diseñador Gráfico"
+        }
+      },
+      {
+        "_index": "test",
+        "_id": "1",
+        "_score": 1.0,
+        "_source": {
+          "nombre": "Ana López",
+          "edad": 26,
+          "ciudad": "Barcelona",
+          "profesion": "Analista"
+        }
+      }
+    ]
+  }
+}                  
                             </span>
                         </div>
                     </section>
@@ -625,6 +725,38 @@ CGroup: /system.slice/elasticsearch.service
                         <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                 </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Para iniciar Logstash:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="sudo systemctl start logstash" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Para probar que Logstash esté en funcionamiento, se puede crear un archivo con el siguiente contenido. Esto permitirá verificar la entrada estándar de la terminal de Linux y reportar todo por la salida estándar, utilizando <marcador class="subrayado">nano test.conf</marcador>.</p>
+                <div class="archivo">
+input { 
+        stdin{}
+}
+ 
+filter {
+        mutate { uppercase => ["message"] }
+}
+ 
+output { 
+        stdout { codec => rubydebug }
+}                   
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Para ejecutar Logstash:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="echo &quot;Hello World\!&quot; | sudo /usr/share/logstash/bin/logstash -f ~/Documents/ELK/test.conf" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
                 <h6>Uso Básico de Logstash</h6>
                 <p>❏ Generar Tráfico de Registro:</p>
                 <ul style="list-style-type: none;">
@@ -659,7 +791,7 @@ input {
 
 filter {
     grok {
-        match => { "message" => "%{SYSLOGTIMESTAMP:timestamp} %{SYSLOGHOST:host} %{DATA:process}(?:\[%{POSINT:pid}\])?: %{GREEDYDATA:log}" }
+        match => { "message" => "%{SYSLOGTIMESTAMP:timestamp} %{SYSLOGHOST:host} %{DATA:process}(?:\[%{POSINT:pid}\])?: %{GREEDYDATA:syslog_message}" }
     }
 }
 
@@ -676,16 +808,18 @@ output {
                     <li><marcador class="resaltado8">filter: </marcador>Usa grok para extraer campos estructurados del log.</li>
                     <li><marcador class="resaltado8">output: </marcador>Envía los datos a un índice en Elasticsearch llamado logs-syslog y los muestra en la terminal (stdout).</li>
                 </ul>
-                <p>❏ Iniciar Logstash con el Archivo de Configuración.</p>
-                <div class="contenedor">
+                <br>
+                <p>Para ciertos registros, también se pueden visualizar en rutas como <marcador class="resaltado1">/var/log/auth.log</marcador> o <marcador class="resaltado1">/var/log/messages</marcador>, dependiendo de los errores o eventos que se estén tratando de alertar.</p>
+                                <div class="contenedor">
                     <div class="etiqueta">
-                        Para ejecutar Logstash con la configuración creada:
+                        Puedes verlos con:
                     </div>
                     <div class="comandos">
-                        <input type="text" class="text" value="sudo systemctl start logstash" oninput="ajustarAncho(this)">
+                        <input type="text" class="text" value="sudo tail -f /var/log/auth.log" oninput="ajustarAncho(this)">
                         <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                 </div>
+                <p>❏ Ejecutar Logstash con el Archivo de Configuración.</p>
                 <div class="contenedor">
                     <div class="etiqueta">
                         O si prefieres correrlo manualmente desde el archivo de configuración:
@@ -700,7 +834,7 @@ output {
                         Usa la API de Elasticsearch para listar los índices:
                     </div>
                     <div class="comandos">
-                        <input type="text" class="text" value="curl http://localhost:9200/_cat/indices?v" oninput="ajustarAncho(this)">
+                        <input type="text" class="text" value="curl 'http://localhost:9200/_cat/indices?v'" oninput="ajustarAncho(this)">
                         <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                 </div>
@@ -709,7 +843,7 @@ output {
                         Usa la API de Elasticsearch para listar los documentos en el índice:
                     </div>
                     <div class="comandos">
-                        <input type="text" class="text" value="curl http://localhost:9200/logs-syslog/_search?pretty" oninput="ajustarAncho(this)">
+                        <input type="text" class="text" value="curl 'http://localhost:9200/logs-syslog/_search?size=5&sort=@timestamp:desc&pretty'" oninput="ajustarAncho(this)">
                         <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                 </div>
@@ -724,15 +858,6 @@ output {
                 </div>
                 <div class="contenedor">
                     <div class="etiqueta">
-                        Para borrar todos los índices en Elasticsearch, puedes usar el siguiente comando:
-                    </div>
-                    <div class="comandos">
-                        <input type="text" class="text" value="curl -X DELETE 'http://localhost:9200/_all?pretty'" oninput="ajustarAncho(this)">
-                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
-                    </div>
-                </div>
-                <div class="contenedor">
-                    <div class="etiqueta">
                         Si deseas eliminar todos los datos asociados con un data stream específico, puedes eliminar el data stream completo, usando:
                     </div>
                     <div class="comandos">
@@ -740,6 +865,16 @@ output {
                         <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                 </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Para borrar todos los índices en Elasticsearch, puedes usar el siguiente comando:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="curl -X DELETE 'http://localhost:9200/_all?pretty'" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>❏ Ejecutar Logstash para Data Streams.</p>
                 <p>Logstash puede crear un índice para Data Streams en Elasticsearch, lo cual es común si has habilitado ILM (Index Lifecycle Management) o Data Streams en tu configuración.</p>
                 <p>Un Data Stream es una abstracción en Elasticsearch que permite manejar índices basados en el tiempo (time-series) de manera más eficiente.</p>
                 <p>Para configurar un data stream en Logstash, necesitarás configurar un pipeline de Logstash que pueda consumir datos desde una fuente (como un archivo, un servidor de base de datos o un servicio) y luego enviarlos a un destino (como Elasticsearch).</p>
@@ -758,7 +893,7 @@ output {
                         Verifica si estás utilizando un Data Stream:
                     </div>
                     <div class="comandos">
-                        <input type="text" class="text" value="curl http://localhost:9200/_data_stream/logs-generic-default?pretty" oninput="ajustarAncho(this)">
+                        <input type="text" class="text" value="curl 'http://localhost:9200/_data_stream/logs-generic-default?pretty'" oninput="ajustarAncho(this)">
                         <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                 </div>
@@ -767,7 +902,7 @@ output {
                         Usa la API de Elasticsearch para listar los documentos en el índice:
                     </div>
                     <div class="comandos">
-                        <input type="text" class="text" value="curl http://localhost:9200/logs-generic-default/_search?pretty" oninput="ajustarAncho(this)">
+                        <input type="text" class="text" value="curl 'http://localhost:9200/logs-generic-default/_search?pretty'" oninput="ajustarAncho(this)">
                         <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                 </div>
@@ -789,6 +924,58 @@ output {
                         <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                 </div>
+                <h6>Filtrado de datos con Logstash</h6>
+                <p>Logstash permite filtrar y transformar datos de diversas maneras. Aquí te muestro un ejemplo:</p>
+                <p>❏ Configuración de un Pipeline de Logstash.</p>
+                <p>Para crear un pipeline de Logstash que filtre y transforme datos, puedes usar la siguiente configuración:</p>
+                <div class="archivo">
+input {
+    file {
+        path => "/var/log/auth.log"
+        start_position => "beginning"
+        sincedb_path => "/var/lib/logstash/test2.sincedb"
+    }
+}
+
+filter {
+    if [message] =~ /USER=root/ {
+        mutate {
+            add_field => { "run_as_sudo" => "yes" }
+        }
+    }
+    else {
+        drop {}
+    }
+}
+
+output {
+    elasticsearch {
+        hosts => ["http://localhost:9200"]
+        index => "sudo_command"
+    }
+    stdout { codec => rubydebug }
+}
+                </div>
+                <div class="contenedor">
+                    <div class="etiqueta">
+                        Luego ejecutarlo manualmente desde el archivo de configuración:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="sudo /usr/share/logstash/bin/logstash -f ~/Documents/ELK/test2.conf" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <p>Después puedes probar que esté capturando correctamente los registros ejecutando comandos como superusuario, como podrían ser <marcador class="subrayado">sudo id</marcador> o <marcador class="subrayado">sudo whoami</marcador>.</p>
+                                <div class="contenedor">
+                    <div class="etiqueta">
+                        Lista los documentos del índice:
+                    </div>
+                    <div class="comandos">
+                        <input type="text" class="text" value="curl 'http://localhost:9200/sudo_command*/_search?pretty'" oninput="ajustarAncho(this)">
+                        <button><i class="fa fa-clone"></i><span> Copy</span></button>
+                    </div>
+                </div>
+                <h6>Ejemplos de Configuración de Logstash</h6>
                 <p>❏ Leer Datos desde Diferentes Fuentes.</p>
                 <ol>
                     <li>Leer desde un Archivo</li>
@@ -951,6 +1138,8 @@ server.host: "0.0.0.0"
 # =================== System: Elasticsearch ===================
 # The URLs of the Elasticsearch instances to use for all your queries.
 elasticsearch.hosts: ["http://localhost:9200"]
+
+xpack.encryptedSavedObjects.encryptionKey: "una_clave_de_32_números_aleatorios"
                             </span>
                         </div>
                     </section>
@@ -964,19 +1153,21 @@ elasticsearch.hosts: ["http://localhost:9200"]
                         <button><i class="fa fa-clone"></i><span> Copy</span></button>
                     </div>
                 </div>
-                <p>Accede en un navegador a: http://localhost:5601</p>
+                <p>Accede en un navegador a: http://localhost:5601 y luego haz clic en el botón "Explore on my own" para acceder a la interfaz principal de Kibana y empezar a explorar.</p>
                 <h6>Importar Datos en Kibana.</h6>
-                <p>Desde un Archivo CSV o JSON</p>
+                <p>Desde Elasticsearch:</p>
                 <ol>
-                    <li>Ve a "Stack Management" → "Index Patterns".</li>
-                    <li>Usa "Upload a file" para cargar un CSV o JSON.</li>
-                    <li>Define los campos y crea un índice.</li>
+                    <li>Ve a Stack Management → Data Views → Create data view.</li>
+                    <li>Escribes el nombre del índice que cargaste (ej: logs-*, ventas, etc).</li>
+                    <li>Y ¡listo! Ya puedes visualizarlo desde Discover.</li>
                 </ol>
                 <h6>Alertas y Monitorización en Kibana.</h6>
                 <p>Si quieres recibir alertas cuando los datos cumplan ciertas condiciones:</p>
                 <ol>
-                    <li>Ve a "Alerts & Actions".</li>
-                    <li>Define una nueva alerta con condiciones específicas (por ejemplo, si un servidor está caído).</li>
+                    <li>Para definir una "Regla" (Rule) que evalúe condiciones y dispare alertas en Kibana, navega a Alerts → Manage Rules, que es la sección designada para esta configuración, y luego haz clic en el botón "Create rule" para comenzar el proceso de creación.</li>
+                    <li>Para monitorear datos directamente desde Elasticsearch, como los documentos que visualizas en Discover, debes elegir la opción "Elasticsearch Query".</li>
+                    <li>En esta sección, debes escribir la query en KQL (Kibana Query Language). Si lo que te interesa es detectar cuando aparece host.name: "Ubuntu"</li>
+                    <li>También puedes definir una nueva alerta con condiciones específicas (por ejemplo, si un servidor está caído).</li>
                     <li>Configura las acciones: Enviar un email, webhook o Slack notification.</li>
                 </ol>
                 <h6>Uso Básico de Kibana</h6>
@@ -1000,7 +1191,7 @@ output {
                 </div>
                 <p>Luego, en Kibana:</p>
                 <ol>
-                    <li>Ve a "Stack Management" → "Index Patterns".</li>
+                    <li>Ve a Stack Management → Data Views → Create data view.</li>
                     <li>Crea un patrón de índice para logs*.</li>
                     <li>Visualiza los datos en "Discover".</li>
                 </ol>
