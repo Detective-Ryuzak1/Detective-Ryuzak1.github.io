@@ -12,7 +12,11 @@
 
 body{
     /*background: rgba(0, 0, 0, 0.800);*/
-    background: rgb(0, 0, 0, 0.870);
+    background: linear-gradient(180deg, #0a0a0a 0%, #100c38 40%, #000000 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    color: white;
     
 }
 
@@ -33,7 +37,8 @@ header{
 }
 
 header.mover{
-    background: #202020;
+    background: transparent;
+    backdrop-filter: blur(9px);
     width: 100%;
     position: fixed;
     z-index: 10;
@@ -59,33 +64,69 @@ header.mover{
     padding: 0px 20px;
 }
 .menu nav ul a{
+    position: relative; /* necesario para usar ::after */
     font-size: 16px;
     text-decoration: none;
-    color: white;
+    color: rgb(116, 104, 209);
     transition: opacity 300ms;
-    opacity: 0.7;
+    opacity: 1;
     font-family: 'Roboto', sans-serif;
 }
-.menu nav ul a:hover{
-    color: silver;
+/* Línea inferior oculta por defecto */
+.menu nav ul a::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* espacio bajo el texto */
+    width: 0%;
+    height: 2px;
+    background-color: rgb(170, 236, 78); /* mismo color del hover */
+    transition: width 0.3s ease-in-out;
 }
-
+.menu nav ul a:hover{
+    color: rgb(171, 243, 70);
+}
+.menu nav ul a:hover::after{
+    width: 100%;
+}
 .btn__header-botonMenu{
     padding: 14px 50px;
-    border: none;
-    background: white;
+    border: 1px solid #ffffff;
+    background: rgb(214, 225, 254);
     color: black;
-    font-weight: 500;
+    font-weight: 450;
     font-size: 16px;
     font-family: 'Roboto', sans-serif;
     cursor: pointer;
     transition: background, color, 300ms;
-    opacity: 0.7;
+    border-radius: 5px;
+    opacity: 1;
 }
 .btn__header-botonMenu:hover{
-    background: mediumpurple;
+    background: rgb(119, 110, 168);
     color: white;
     opacity: 0.9;
+}
+
+
+.header-icons {
+    display: flex;
+    gap: 15px; /* separación entre iconos */
+    margin-left: 20px;
+}
+
+.header-icons img {
+    width: 28px; /* ajusta el tamaño a tu gusto */
+    height: 28px;
+    
+    opacity: 0.8;
+    transition: transform 0.3s, opacity 0.3s;
+    cursor: pointer;
+}
+
+.header-icons img:hover {
+    transform: scale(1.2);
+    opacity: 1;
 }
 
 #icon_menu{
@@ -785,7 +826,7 @@ iframe {
     tab-size: 4; /* Establece el tamaño de tabulación */
     font-size: 16px; /* Tamaño de fuente */
     line-height: 1.5; /* Altura de línea */
-    background-color: #252323; /* Fondo */
+    background-color: #100f0f; /* Fondo */
     padding: 10px; /* Espaciado interno */
     border-radius: 0 0 5px 5px; /* Bordes redondeados */
     border: 2px solid rgb(117, 236, 240); /* Borde */

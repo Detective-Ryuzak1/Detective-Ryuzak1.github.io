@@ -23,7 +23,7 @@ window.addEventListener("scroll", function() {
     if (window.pageYOffset !== 0) {
       header.classList.remove("mover");
     }
-  }, 6000);
+  }, 9000);
 });
 
 window.onscroll = function () {
