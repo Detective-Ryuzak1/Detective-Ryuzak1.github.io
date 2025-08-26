@@ -363,7 +363,9 @@ body::-webkit-scrollbar-thumb:hover {
         color: #000 !important; 
     }
     
-
+    .header-icons img {
+        display: none;
+    }
 
     .header__botonMenu{
         display: none;

@@ -1285,6 +1285,10 @@ body::-webkit-scrollbar-thumb:hover {
         display: none;
     }
 
+    .header-icons img {
+        display: none;
+    }
+
     .menu{
         height: 0px;
         position: absolute;
