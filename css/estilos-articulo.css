@@ -110,7 +110,7 @@ header.mover{
 .btn__header-botonMenu:hover{
     background: rgb(119, 110, 168);
     color: white;
-    opacity: 0.9;
+    opacity: 1;
 }
 
 
