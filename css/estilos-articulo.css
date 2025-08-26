@@ -1078,7 +1078,7 @@ iframe {
 }
 .archivo::-webkit-scrollbar {
     width: 5px; /* Ancho de la barra de desplazamiento */
-    background: rgb(28, 37, 28);
+    background: rgb(36, 48, 36);
     transition: all 0.3s;
 }
 .archivo::-webkit-scrollbar-thumb {
