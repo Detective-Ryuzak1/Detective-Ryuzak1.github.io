@@ -1025,12 +1025,12 @@ iframe {
 
 /* Contenido de un archivo */
 .archivo {
-    background-color: rgb(31, 41, 31);
+    background-color: rgb(15, 20, 15);
     color: white;
     font-family: Roboto;
     padding-left: 10px;
     border-radius: 5px;
-    border: 2px solid rgba(194, 74, 74, 0.438);
+    border: 2px solid rgba(214, 15, 15, 0.438);
     width: 100%;
     text-align: left;
     margin-left: auto;
