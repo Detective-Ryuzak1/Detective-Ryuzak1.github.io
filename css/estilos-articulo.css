@@ -370,18 +370,18 @@ a:hover {
 /* Marcador*/
 .subrayado {
     background-color: #000000;
-    border-radius: 3px;
-    padding: 0px 3px;
+    border-radius: 4px;
+    padding: 0px 4px;
     box-shadow: 0 1px 3px rgba(255, 255, 255, 0.3);
     font-family: 'Roboto';
   }
 .resaltado1 {
     /*color: rgb(137, 170, 231);
     opacity: 1;*/
-  background: linear-gradient(120deg, #00e5ff 0%, #2979ff 100%);
-  color: #000000;
-  border-radius: 4px;
-  padding: 1px 6px;
+    background: linear-gradient(120deg, #00e5ff 0%, #2979ff 100%);
+    color: #000000;
+    border-radius: 4px;
+    padding: 0px 4px;
     font-family: 'Roboto';
 }
 
