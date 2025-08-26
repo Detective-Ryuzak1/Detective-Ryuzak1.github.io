@@ -369,11 +369,10 @@ a:hover {
 
 /* Marcador*/
 .subrayado {
-    background-color: #080808;
+    background-color: #000000;
     border-radius: 3px;
-    padding-left: 3px; /* Agrega padding a la izquierda */
-    padding-right: 3px; /* Agrega padding a la derecha */
-    box-shadow: 0 1px 3px rgba(255, 255, 255, 0.4);
+    padding: 0px 3px;
+    box-shadow: 0 1px 3px rgba(255, 255, 255, 0.3);
     font-family: 'Roboto';
   }
 .resaltado1 {
