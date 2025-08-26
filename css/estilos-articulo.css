@@ -21,6 +21,10 @@ body{
     
 }
 
+html, body {
+    overflow-x: hidden;
+}
+
 header{
     height: 100px;
 }
