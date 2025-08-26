@@ -138,7 +138,7 @@ header.mover{
 /* PORTADA - COVER */
 main{
     max-width: 1200px;
-    height: calc(100vh + 800px);
+    min-height: 100vh;
     padding-top: 40px;
     margin: auto;
 }
