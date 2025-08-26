@@ -1370,6 +1370,11 @@ body::-webkit-scrollbar-thumb:hover {
 }    
 
 @media (max-width: 720px){
+    
+    body {
+
+        background-attachment: scroll;
+    }
 
     .blog-image-doble img {
         width: 47%; /* Ajusta el ancho de las imágenes para dejar espacio entre ellas */
