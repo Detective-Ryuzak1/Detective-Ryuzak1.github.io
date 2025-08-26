@@ -593,13 +593,14 @@ a:hover {
 
 /* Tablas */
 .text__articulo-cover table {
-  font-size: 15px;      /* mantiene tamaño */
+  font-size: 14px;      
   margin: 20px auto;
   border-collapse: collapse;
-  color: #eee;          /* mantiene color */
-  width: 90%;
+  color: #eee;          
+  width: 100%;
   border: none;
   position: relative;
+  font-family: 'Roboto';
 }
 
 /* Celdas con líneas horizontales + verticales */
@@ -609,7 +610,6 @@ a:hover {
   border-bottom: 1px solid rgba(255,255,255,0.1);
   border-right: 1px solid rgba(255,255,255,0.1);
   text-align: left;
-  /* 👇 aquí NO se define font-family */
 }
 
 /* Quita la línea derecha en la última columna */
@@ -619,7 +619,8 @@ a:hover {
 }
 
 .text__articulo-cover table th {
-  color: #eeff00;
+  color: rgb(228, 240, 59);
+  font-size: 16px;
   font-weight: 400;         /* un poco más grueso */
   text-transform: uppercase;  /* mayúsculas */
   letter-spacing: 1px;
