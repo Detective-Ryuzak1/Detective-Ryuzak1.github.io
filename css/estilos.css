@@ -536,6 +536,10 @@ body::-webkit-scrollbar-thumb:hover {
         right: -1px;
 
     }
+
+    .br-container {
+        display: none;
+    }
 }
 
 @media (max-width: 920px){
