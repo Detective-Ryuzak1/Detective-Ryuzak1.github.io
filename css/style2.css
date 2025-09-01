@@ -462,9 +462,8 @@ footer .content{
     }
 }
 
-.autoRotate{
-    animation: autoRotateAnimation;
-    animation-timeline: view();
+.autoRotate {
+    animation: autoRotateAnimation 5s linear infinite;
 }
 @keyframes autoRotateAnimation{
     from{
