@@ -34,7 +34,23 @@ window.onscroll = function () {
     elemento2.style.top = posicion * 0.1 + "px";
 }
 
+// Seleccionamos todos los elementos con la clase autoShow
+const autoShowElements = document.querySelectorAll('.autoShow');
 
+// Creamos el observer
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            // Agregamos una clase que activa la animación
+            entry.target.classList.add('show');
+            // Opcional: dejar de observar después de la primera vez
+            observer.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.1 }); // 10% del elemento visible
+
+// Observamos cada elemento
+autoShowElements.forEach(el => observer.observe(el));
 
 // Función para ajustar el ancho del input en función de su contenido
 function ajustarAncho(input) {
