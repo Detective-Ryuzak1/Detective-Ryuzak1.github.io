@@ -34,40 +34,6 @@ window.onscroll = function () {
     elemento2.style.top = posicion * 0.1 + "px";
 }
 
-// Seleccionamos todos los elementos con la clase autoShow
-const autoShowElements = document.querySelectorAll('.autoShow');
-
-// Creamos el observer
-const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting){
-            // Agregamos una clase que activa la animación
-            entry.target.classList.add('show');
-            // Opcional: dejar de observar después de la primera vez
-            observer.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.1 }); // 10% del elemento visible
-
-// Observamos cada elemento
-autoShowElements.forEach(el => observer.observe(el));
-
-// Seleccionamos todos los elementos con la clase autoBLur
-const autoBlurElements = document.querySelectorAll('.autoBLur');
-
-// Creamos el observer
-const observerBlur = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting){
-            entry.target.classList.add('blur-animate');
-            observer.unobserve(entry.target); // opcional: animar solo una vez
-        }
-    });
-}, { threshold: 0.1 });
-
-// Observamos cada elemento
-autoBlurElements.forEach(el => observerBlur.observe(el));
-
 // Función para ajustar el ancho del input en función de su contenido
 function ajustarAncho(input) {
   input.style.width = 'auto';
@@ -170,5 +136,37 @@ botonesCopiar.forEach((boton) => {
 
 
 
+// Seleccionamos todos los elementos con la clase autoShow
+const autoShowElements = document.querySelectorAll('.autoShow');
 
+// Creamos el observer
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            // Agregamos una clase que activa la animación
+            entry.target.classList.add('show');
+            // Opcional: dejar de observar después de la primera vez
+            observer.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.1 }); // 10% del elemento visible
+
+// Observamos cada elemento
+autoShowElements.forEach(el => observer.observe(el));
+
+// Seleccionamos todos los elementos con la clase autoBLur
+const autoBlurElements = document.querySelectorAll('.autoBLur');
+
+// Creamos el observer
+const observerBlur = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add('blur-animate');
+            observer.unobserve(entry.target); // opcional: animar solo una vez
+        }
+    });
+}, { threshold: 0.1 });
+
+// Observamos cada elemento
+autoBlurElements.forEach(el => observerBlur.observe(el));
 

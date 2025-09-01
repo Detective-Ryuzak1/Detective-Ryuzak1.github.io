@@ -386,6 +386,8 @@ footer .content{
         height: 90%;
         left: -90%;
     }
+
+
     .container__header{
         padding-top: 20px;
         padding-bottom: 20px;
@@ -430,6 +432,10 @@ footer .content{
         padding: 10px 40px;
     } 
     
+    .mostrar_menu{
+        height: auto;
+
+    }
 
     /* Oculta la imagen dentro de figure con sich.png */
     .grid-1 figure:nth-child(1) {
