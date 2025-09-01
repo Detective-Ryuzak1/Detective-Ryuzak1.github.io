@@ -52,6 +52,22 @@ const observer = new IntersectionObserver((entries, observer) => {
 // Observamos cada elemento
 autoShowElements.forEach(el => observer.observe(el));
 
+// Seleccionamos todos los elementos con la clase autoBLur
+const autoBlurElements = document.querySelectorAll('.autoBLur');
+
+// Creamos el observer
+const observerBlur = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add('blur-animate');
+            observer.unobserve(entry.target); // opcional: animar solo una vez
+        }
+    });
+}, { threshold: 0.1 });
+
+// Observamos cada elemento
+autoBlurElements.forEach(el => observerBlur.observe(el));
+
 // Función para ajustar el ancho del input en función de su contenido
 function ajustarAncho(input) {
   input.style.width = 'auto';

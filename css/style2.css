@@ -483,18 +483,18 @@ footer .content{
     opacity: 1;
     transform: translateY(0) scale(1);
 }
-.autoBLur{
-    animation: autoBLurAnimation linear both;
-    animation-timeline: view();
+.autoBLur {
+    filter: blur(40px);
+    transition: filter 5s linear;
 }
-@keyframes autoBLurAnimation{
-    0%{
-        filter: blur(40px);
-    }
-    45%, 55%{
-        filter: blur(0px);
-    }
-    100%{
-        filter: blur(40px);
-    }
+
+.autoBLur.blur-animate {
+    filter: blur(0px);
+    animation: blurPulse 5s linear infinite;
+}
+
+@keyframes blurPulse {
+    0% { filter: blur(40px); }
+    45%, 55% { filter: blur(0px); }
+    100% { filter: blur(40px); }
 }
