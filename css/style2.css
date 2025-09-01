@@ -161,6 +161,8 @@ header2 img{
     width: 100%;
     height: 400px;
     background-image: url(../images/banner.png);
+    background-size: cover; /* cubre todo el contenedor */
+    background-position: width: 100%;
     position: relative;
 }
 .banner .image img{
@@ -192,6 +194,10 @@ header2 img{
     width: 30%;
 }
 
+.grid figure6 img{
+    width: 100%;
+}
+
 .grid figure10 img{
     width: 40%;
     -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
@@ -220,6 +226,13 @@ header2 img{
     grid-row: 5;
     z-index: 1;
 }
+
+.grid-1 div:nth-child(4){
+    grid-column: 1 / 4;
+    grid-row: 6;
+    font-size: 1.7em;
+}
+
 .grid-1{
     --row: 2;
 }
@@ -324,6 +337,18 @@ footer .content{
     header2 img{
         height: 2em;
     }
+
+    .grid-1{
+        --row: 1;
+    }
+    .grid-2{
+        --row: 6;
+    }
+    .grid {
+        margin-top: 20px; /* Reduce el espacio entre grids */
+        gap: 20px;        /* Reduce el espacio interno entre elementos */
+    }
+
     .banner .content h1{
         font-size: 12em;
     }
@@ -343,11 +368,72 @@ footer .content{
         font-size: 5em;
         line-height: 1em;
     }
+    .grid-5 div:nth-child(1) {
+        margin-bottom: 20px;
+    }
+    .grid-5 div:nth-child(2) {
+        margin-bottom: 20px;
+    }
+    .banner .image img{
+        height: 100%;
+        left: -70%;
+    }
 }
 @media screen and (max-width: 1023px){
+        .container__header, main{
+        padding: 20px;
+    }
+    main{
+        padding-top: 110px;
+    }
+
+    #icon_menu{
+        display: block;
+        cursor: pointer;
+        font-size: 24px;
+        color: #000 !important; 
+    }
+    
+    .header-icons img {
+        display: none;
+    }
+
+    .header__botonMenu{
+        display: none;
+    }
+
+    .menu{
+        height: 0px;
+        position: absolute;
+        right: 20px;
+        top: 70px;
+        overflow: hidden;
+        z-index: 10;
+        box-shadow: 0px 0px 30px -20px rgba(0,0,0,0.5);
+        transition: all 300ms;
+    }
+
+    .menu nav ul{
+        padding: 20px 0px;
+        flex-direction: column;
+        background: #fff;
+    } 
+
+    .menu nav ul li{
+        padding: 10px 40px;
+    } 
+    
     header2 img{
         height: unset;
         width: 100%;
+    }
+    header2 img:nth-child(2) {
+        display: none;
+    }
+
+    /* Oculta la imagen dentro de figure con sich.png */
+    .grid-1 figure:nth-child(1) {
+        display: none;
     }
     .banner .content h1{
         font-size: 7em;
@@ -361,6 +447,8 @@ footer .content{
     .banner{
         overflow: hidden;
     }
+
+    
     .grid-1 h2:nth-child(3){
         font-size: 3em;
     }
