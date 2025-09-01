@@ -338,6 +338,14 @@ footer .content{
         height: 2em;
     }
 
+    header2 img{
+        height: unset;
+        width: 100%;
+    }
+    header2 img:nth-child(2) {
+        display: none;
+    }
+
     .grid-1{
         --row: 1;
     }
@@ -375,13 +383,12 @@ footer .content{
         margin-bottom: 20px;
     }
     .banner .image img{
-        height: 100%;
-        left: -100%;
+        height: 90%;
+        left: -90%;
     }
-}
-@media screen and (max-width: 1023px){
-        .container__header{
-        padding: 20px;
+    .container__header{
+        padding-top: 20px;
+        padding-bottom: 20px;
     }
     main{
         padding-top: 110px;
@@ -423,13 +430,6 @@ footer .content{
         padding: 10px 40px;
     } 
     
-    header2 img{
-        height: unset;
-        width: 100%;
-    }
-    header2 img:nth-child(2) {
-        display: none;
-    }
 
     /* Oculta la imagen dentro de figure con sich.png */
     .grid-1 figure:nth-child(1) {
@@ -460,6 +460,9 @@ footer .content{
         display: block;
         margin-bottom: 100px;
     }
+}
+@media screen and (max-width: 1023px){
+    
 }
 
 .autoRotate {
