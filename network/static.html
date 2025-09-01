@@ -140,7 +140,7 @@ Interfaz de salida: FastEthernet0/0</div>
                 <div class="blog-image-grande">
                     <img src="media/static3.jpeg" alt="">
                 </div>
-                <h66>Direccionamiento y conexiones:</h6>
+                <h6>Direccionamiento y conexiones:</h6>
                 <ul style="list-style-type: none;">
                     <li>∘ R1 f0/0: 10.10.10.1/30 (Conecta con R3 f0/0)</li>
                     <li>∘ R1 f1/0: 10.10.11.1/30 (Conecta con R2 f1/0)</li>
@@ -249,7 +249,7 @@ ip route 10.10.11.0 255.255.255.252 10.10.13.1  # Ruta hacia R1 a través de R2<
                     </div>
                 </div>
                 </ul>
-                <h66>Explicación:</h6>
+                <h6>Explicación:</h6>
                 <p>En Cisco, se utiliza el comando <marcardor class="subrayado">configure terminal</marcardor> para entrar al modo de configuración global.</p>
                 <p>El comando <marcardor class="subrayado">ip address</marcardor> configura la dirección IP en cada interfaz.</p>
                 <div class="contenedor">
@@ -368,7 +368,7 @@ ip route-static 10.10.11.0 255.255.255.252 10.10.13.1  # Ruta hacia R1 a través
                     </div>
                 </div>
                 </ul>
-                <h66>Explicación:</h6>
+                <h6>Explicación:</h6>
                 <p>En Huawei, se utiliza el comando <marcardor class="subrayado">system-view</marcardor> para entrar al modo de configuración global.</p>
                 <p>El comando <marcardor class="subrayado">ip address</marcardor> configura la dirección IP en cada interfaz.</p>
                 <div class="contenedor">
@@ -386,13 +386,13 @@ ip route-static 10.10.11.0 255.255.255.252 10.10.13.1  # Ruta hacia R1 a través
                 <div class="blog-image-grande">
                     <img src="media/static9.png" alt="">
                 </div>
-                <h66>Direccionamiento y conexiones:</h6>
+                <h6>Direccionamiento y conexiones:</h6>
                 <ul style="list-style-type: none;">
                     <li>∘ Entre A y B: Red 70.0.0.0/24 (A: 70.0.0.1, B: 70.0.0.2).</li>
                     <li>∘ Entre B y C: Red 20.0.0.0/24 (B: 20.0.0.1, C: 20.0.0.2).</li>
                     <li>∘ Entre C y D: Red 40.0.0.0/24 (C: 40.0.0.1, D: 40.0.0.2).</li>
                 </ul>
-                <h66>Configuración de rutas en cada router:</h6>
+                <h6>Configuración de rutas en cada router:</h6>
                 <p><marcador class="resaltado8">En Router A: </marcador>Router A tiene una conexión directa con Router B en la red 70.0.0.0/24. Como la red de Router D es remota (40.0.0.0/24), es necesario decirle a Router A que para llegar a la red 40.0.0.0/24, debe enviar el tráfico a Router B, que tiene la IP 70.0.0.2.</p>
                 <div class="contenedor">
                     <div class="etiqueta">

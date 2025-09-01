@@ -114,7 +114,7 @@
                 </div>
                 <h2>Configuración</h2>
                 <h3>Cisco</h3>
-                <h66>Configuración de NAT Estático</h6>
+                <h6>Configuración de NAT Estático</h6>
                 <p>NAT estático mapea una dirección IP privada a una dirección IP pública específica. Esta configuración es útil cuando necesitas que un dispositivo interno, como un servidor web, sea accesible desde el exterior.</p>
                 <div class="consola">
                     <div class="barra-superior-consola">
@@ -138,7 +138,7 @@ ip nat inside source static 192.168.1.10 203.0.113.10</code></pre>
                     </div>
                 </div>
                 <p>Mapea la IP privada 192.168.1.10 a la IP pública 203.0.113.10.</p>
-                <h66>Configuración de NAT Dinámico</h6>
+                <h6>Configuración de NAT Dinámico</h6>
                 <p>NAT dinámico asigna una dirección IP pública desde un pool a cada dispositivo que necesita acceso a Internet. Este tipo es útil cuando tienes un conjunto limitado de direcciones IP públicas y quieres que se asignen dinámicamente a los dispositivos internos.</p>
                 <div class="consola">
                     <div class="barra-superior-consola">
@@ -164,7 +164,7 @@ interface GigabitEthernet0/2
                     </div>
                 </div>
                 <p>Escenario: Asigna direcciones IP desde el pool 203.0.113.10 a 203.0.113.20 a los dispositivos de la red interna 192.168.1.0/24.</p>
-                <h66>Configuración de PAT (NAT Sobrecargado)</h6>
+                <h6>Configuración de PAT (NAT Sobrecargado)</h6>
                 <p>PAT permite que varios dispositivos compartan una única dirección IP pública al usar puertos diferentes. Es común en redes domésticas y pequeñas empresas.</p>
                 <div class="consola">
                     <div class="barra-superior-consola">
@@ -191,7 +191,7 @@ ip nat inside source list 1 interface GigabitEthernet0/2 overload</code></pre>
                 <p>Usa la dirección IP 203.0.113.10 para todos los dispositivos en la red interna 192.168.1.0/24 y permite que compartan esta IP mediante la sobrecarga de puertos.</p>
                 <p>El comando <marcador class="subrayado">show ip nat statistics</marcador> proporciona un resumen del estado de la configuración NAT, incluyendo la cantidad de direcciones internas y externas, así como el número de traducciones activas y fallidas. Esto ayuda a los administradores a evaluar el rendimiento y la eficacia del NAT en la red. Por otro lado, <marcador class="subrayado">show ip nat translations</marcador> muestra la tabla de traducción actual, detallando las traducciones activas entre direcciones IP internas y externas, lo que permite identificar qué dispositivos están utilizando NAT y cómo se están traduciendo sus direcciones.</p>
                 <h3>Huawei</h3>
-                <h66>Configuración de NAT Estático</h6>
+                <h6>Configuración de NAT Estático</h6>
                 <p>NAT estático en Huawei permite el mapeo de una dirección IP privada específica a una dirección IP pública. Esto es útil para servicios internos que deben ser accesibles desde el exterior.</p>
                 <div class="consola">
                     <div class="barra-superior-consola">
@@ -215,7 +215,7 @@ nat static global 203.0.113.10 inside 192.168.1.10</code></pre>
                     </div>
                 </div>
                 <p>Mapear la IP privada 192.168.1.10 a la IP pública 203.0.113.10.</p>
-                <h66>Configuración de NAT Dinámico</h6>
+                <h6>Configuración de NAT Dinámico</h6>
                 <p>NAT dinámico en Huawei utiliza un grupo de direcciones IP públicas para asignarlas a dispositivos internos cuando necesitan acceso a Internet. Es útil cuando se cuenta con múltiples IPs públicas.</p>
                 <div class="consola">
                     <div class="barra-superior-consola">
@@ -242,7 +242,7 @@ nat outbound 2001 address-group 1</code></pre>
                     </div>
                 </div>
                 <p>Usar direcciones del pool 203.0.113.10 a 203.0.113.20 para dispositivos en la red 192.168.1.0/24.</p>
-                <h66>Configuración de PAT (NAT Sobrecargado)</h6>
+                <h6>Configuración de PAT (NAT Sobrecargado)</h6>
                 <p>PAT permite que varios dispositivos internos compartan una sola dirección IP pública usando diferentes puertos. Es útil para redes que necesitan asignar una única IP pública a múltiples dispositivos.</p>
                 <div class="consola">
                     <div class="barra-superior-consola">

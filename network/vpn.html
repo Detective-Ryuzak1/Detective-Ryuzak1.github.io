@@ -109,13 +109,13 @@
                     <img src="media/vpn4.png" alt="">
                 </div>
                 <h2>Ventajas y desventajas de una VPN entre dispositivos de red</h2>
-                <h66>Ventajas</h6>
+                <h6>Ventajas</h6>
                 <ul style="list-style-type: none;">
                     <li><marcador class="resaltado8">Seguridad de datos: </marcador>La VPN asegura que la información transmitida esté protegida contra interceptación.</li>
                     <li><marcador class="resaltado8">Flexibilidad y accesibilidad: </marcador>Permite conectar dispositivos ubicados en diferentes sitios sin necesidad de infraestructura dedicada.</li>
                     <li><marcador class="resaltado8">Escalabilidad: </marcador>Las conexiones VPN pueden escalarse a medida que las necesidades de la red cambian.</li>
                 </ul>
-                <h66>Desventajas</h6>
+                <h6>Desventajas</h6>
                 <ul style="list-style-type: none;">
                     <li><marcador class="resaltado8">Rendimiento: </marcador>El cifrado y descifrado de datos consume recursos de procesamiento, lo que puede ralentizar la red.</li>
                     <li><marcador class="resaltado8">Complejidad: </marcador>La configuración de una VPN entre dispositivos requiere conocimientos técnicos avanzados, especialmente en el caso de protocolos como IPsec.</li>
@@ -140,7 +140,7 @@
                     <li>∘ IP externa en la interfaz GigabitEthernet0/0/0: 200.0.0.1</li>
                     <li>∘ Red interna: 192.168.2.0/24</li>
                 </ul>
-                <h66>Pasos de Configuración</h6>
+                <h6>Pasos de Configuración</h6>
                 <ol>
                     <li><marcador class="resaltado8">Paso 1: </marcador>Configurar el Acceso a la ACL de Criptografía</li>
                     <p>Cada router necesita una lista de acceso (ACL) para identificar el tráfico que será cifrado y enviado a través del túnel.</p>
@@ -155,7 +155,7 @@
                     <p>Finalmente, aplicamos el mapa de criptografía a la interfaz externa en cada router.</p>
                 </ol>
                 
-                <h66>Router A</h6>
+                <h6>Router A</h6>
                 <div class="consola">
                     <div class="barra-superior-consola">
                         <div class="grupo-icono-texto">
@@ -202,7 +202,7 @@ ip route 192.168.2.0 255.255.255.0 200.0.0.1</code></pre>
                     </div>
                 </div>
                 <p>Nota: Cambia ClaveSecreta por una clave segura para ambos routers.</p>
-                <h66>Router B</h6>
+                <h6>Router B</h6>
                 <div class="consola">
                     <div class="barra-superior-consola">
                         <div class="grupo-icono-texto">
@@ -249,7 +249,7 @@ ip route 192.168.1.0 255.255.255.0 100.0.0.1</code></pre>
                     </div>
                 </div>
                 <p>Con esta configuración, los routers establecerán un túnel VPN IPsec seguro entre las redes 10.1.1.0/24 y 10.2.2.0/24, permitiendo el paso de tráfico cifrado entre ellas.</p>
-                <h66>Verificación</h6>
+                <h6>Verificación</h6>
                 <p>Para verificar el estado del túnel, podemos usar los siguientes comandos en ambos routers:</p>
                 <div class="consola">
                     <div class="barra-superior-consola">
@@ -277,7 +277,7 @@ show crypto ipsec sa     ! Verifica la Fase 2 (IPsec)</code></pre>
                     <li>∘ IP externa en la interfaz GigabitEthernet0/0/0: 200.0.0.1</li>
                     <li>∘ Red interna: 192.168.2.0/24</li>
                 </ul>
-                <h66>Router A</h6>
+                <h6>Router A</h6>
                 <div class="consola">
                     <div class="barra-superior-consola">
                         <div class="grupo-icono-texto">
@@ -330,7 +330,7 @@ ip route-static 192.168.2.0 255.255.255.0 200.0.0.1</code></pre>
                     </div>
                 </div>
                 <p>Nota: Cambia ClaveSecreta por una clave segura para ambos routers.</p>
-                <h66>Router B</h6>
+                <h6>Router B</h6>
                 <div class="consola">
                     <div class="barra-superior-consola">
                         <div class="grupo-icono-texto">
