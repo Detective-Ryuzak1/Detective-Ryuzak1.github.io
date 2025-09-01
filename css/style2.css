@@ -1,4 +1,61 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Odibee+Sans&display=swap');
+@font-face {
+    font-family: 'Only';
+    src: url('../fonts/locals-only/Locals\ Only.ttf');
+}
+@font-face {    
+    font-family: 'Spanky';
+    src: url('../fonts/spanky/spanky.ttf');
+}
+@font-face {    
+    font-family: 'Dripping Marker';
+    src: url('../fonts/a-dripping-marker/adrip1.ttf');
+}
+@font-face {    
+    font-family: 'Pagal';
+    src: url('../fonts/pagal-font/Pagal\ Font.TTF');
+}
+@font-face {    
+    font-family: 'Ruthless1';
+    src: url('../fonts/ruthless-one/RuthlessWreckin1.ttf');
+}
+@font-face {    
+    font-family: 'Ruthless2';
+    src: url('../fonts/ruthless-two/RuthlessWreckin2.ttf');
+}
+@font-face {    
+    font-family: 'Trhowupz';
+    src: url('../fonts/throwupz/throwupz.ttf');
+}
+@font-face {    
+    font-family: 'Thug';
+    src: url('../fonts/thug/THUG.TTF');
+}
+@font-face {    
+    font-family: 'Martyric';
+    src: url('../fonts/martyric/Martyric_PersonalUse.ttf');
+}
+@font-face {    
+    font-family: 'Mainstream';
+    src: url('../fonts/mainstream/Mainstream_PERSONAL_USE_ONLY.ttf');
+}
+@font-face {    
+    font-family: 'DocallismeOnStreet';
+    src: url('../fonts/docallisme-on-street/docallismeonstreet.otf');
+}
+@font-face {    
+    font-family: 'Bubble';
+    src: url('../fonts/el-font-bubble/Font\ \(el&font\ bubble\).ttf');
+}
+@font-face {    
+    font-family: 'Skidmarked';
+    src: url('../fonts/skidmarked/Skidmarked.ttf');
+}
+@font-face {    
+    font-family: 'Subway';
+    src: url('../fonts/subway/subway.ttf');
+}
+
 html, body{
     scroll-behavior: smooth;
 }
@@ -334,6 +391,61 @@ footer .content{
     /* background-color: red; */
     z-index: 100;
     pointer-events: none;
+}
+
+/* Barra Graffiti */
+.graffiti-bar {
+  width: 100%;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px) saturate(150%);
+  -webkit-backdrop-filter: blur(10px) saturate(150%);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  mask-repeat: no-repeat;
+  mask-size: 100% 100%;
+}
+
+/* Contenedor del scroll de palabras */
+.track {
+  display: flex;
+  white-space: nowrap;
+  animation: scrollWords 15s linear infinite;
+}
+
+/* Estilo general de las palabras */
+.word {
+  color: black;
+  font-size: 2em;
+  font-weight: bold;
+  white-space: nowrap;
+  margin-right: 80px;
+  display: inline-block;
+}
+
+/* Diferentes estilos tipo graffiti , , , , */
+.style1 { font-family: 'Only', cursive; transform: rotate(-5deg); }
+.style2 { font-family: 'Skidmarked', cursive; transform: rotate(3deg); }
+.style3 { font-family: 'Trhowupz', cursive; transform: rotate(-2deg); }
+.style4 { font-family: 'Thug', cursive; transform: rotate(4deg); }
+.style5 { font-family: 'Pagal', cursive; transform: rotate(-3deg); }
+.style6 { font-family: 'Ruthless1', cursive; transform: rotate(-5deg); }
+.style7 { font-family: 'Martyric', cursive; transform: rotate(3deg); }
+.style8 { font-family: 'Mainstream', cursive; transform: rotate(-2deg); }
+.style9 { font-family: 'DocallismeOnStreet', cursive; transform: rotate(4deg); }
+.style10 { font-family: 'Bubble', cursive; transform: rotate(-3deg); }
+
+/* Animación de scroll */
+@keyframes scrollWords {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 @media screen and (max-width: 1023px){
