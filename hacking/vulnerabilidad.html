@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <link rel="icon" href="../media/imagen41.png" type="image/png">
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-4.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                        <li><a href="../devops.html">DevOps</a></li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <div class="header-icons">
+            <a href="https://github.com/Detective-Ryuzak1" target="_blank"><img src="../media/icon2.png" alt="github"></a>
+            <a href="https://www.youtube.com/@Ryuzak1-z8p" target="_blank"><img src="../media/icon3.png" alt="youtube"></a>
+            <a href="https://www.linkedin.com/in/c%C3%A9sar-augusto-flores-razo-b11863208/" target="_blank"><img src="../media/icon4.png" alt="linkedin"></a>
+            <a href="https://buymeacoffee.com/ryuzak1" target="_blank"><img src="../media/icon1.png" alt="coffee"></a>
+            </div>
+
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Bonus" onclick="window.open('https://checkio.org/', '_blank');">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <br>
+                <br>
+                <h1>Vulnerabilidades en Sistemas Informaticos</h1>
+                <p>En el mundo de la ciberseguridad, la seguridad perfecta no existe. Cada sistema operativo, aplicación web o infraestructura de red puede presentar fallos o debilidades conocidos como vulnerabilidades. Comprender qué son, cómo se explotan y qué impacto tienen es el primer paso tanto para los administradores que buscan defender sus redes como para los entusiastas del Red Teaming que evalúan su resistencia.</p>
+                <p>Una vulnerabilidad es un fallo, error de diseño o debilidad en el código de un sistema o en su configuración que permite a un atacante comprometer la seguridad de la información, obtener accesos no autorizados o interrumpir los servicios.</p>
+                <div class="blog-image-grande">
+                    <img src="media/vuln1.jpg" alt="">
+                </div> 
+                <h4>Recursos clave</h4>
+                <p>Para entender cómo se investigan y explotan estas fallas, los profesionales de la seguridad utilizan repositorios de conocimiento y herramientas especializadas:</p>
+                <ol style="list-style-type: none;">
+                    <li>⌾ <marcador class="resaltado9"><a href="https://github.com/swisskyrepo/PayloadsAllTheThings" target="blank">PayloadsAllTheThings: </a></marcador>Una guía exhaustiva paso a paso sobre metodologías de hacking, escalada de privilegios y explotación de servicios tanto en entornos Windows como Linux.</li>
+                    <li>⌾ <marcador class="resaltado9"><a href="https://hacktricks.wiki/es/pentesting-web/hacking-with-cookies/index.html" target="blank">HackTricks: </a></marcador>Una guía exhaustiva paso a paso sobre metodologías de hacking, escalada de privilegios y explotación de servicios tanto en entornos Windows como Linux.</li>
+                    <li>⌾ <marcador class="resaltado9"><a href="https://gchq.github.io/CyberChef/" target="blank">CyberChef: </a></marcador>Desarrollada por el GCHQ, es una herramienta web indispensable conocida como la "navaja suiza" del ciberespacio. Permite cifrar, codificar (Base64, Hex), descomprimir y manipular datos durante el análisis de cargas útiles (payloads).</li>
+                </ol>
+
+                <div class="blog-image-grande">
+                    <img src="media/vuln3.jpg" alt="">
+                </div> 
+                <h4>¿Cómo funciona una vulnerabilidad y su explotación?</h4>
+                <p>Para ilustrar el proceso, tomemos un clásico ejemplo conceptual: la Inyección de Comandos (Command Injection) en una aplicación web mal sanitizada.</p>
+                <p>Imagina una aplicación web que permite a los usuarios hacer un ping a una dirección IP escribiéndola en un formulario. Por dentro, el servidor toma ese texto y lo ejecuta directamente en el sistema operativo:</p>
+                                    <div class="consola">
+                    <div class="barra-superior-consola">
+                        <div class="grupo-icono-texto">
+                            <img src="../media/cmd.png" alt="Icono" class="icono-cmd">
+                            <span class="texto-cmd">C:\Windows\system32\cmd.exe</span>
+                        </div>
+                        <button class="boton-copiar-consola"><i class="fas fa-copy"></i>&nbsp;Copy</button>
+                    </div>
+                    <div class="codigo-consola">
+                        <pre><code>ping ip_introducida_por_el_usuario
+                        </code></pre>
+                    </div>
+                </div>
+                <p>Si el desarrollador no validó ni limpió la entrada, el usuario malintencionado no solo puede poner una IP, sino concatenar comandos adicionales usando caracteres especiales como ; o &&.</p>
+                <p>⍟ <marcador class="resaltado8">Análisis y Pruebas: </marcador>Utilizando guías prácticas de recursos como HackTricks, el auditor descubre que el campo es vulnerable ingresando un comando concatenado: <marcardor class="subrayado">127.0.0.1; whoami</marcardor>.</p>
+                <p>⍟ <marcador class="resaltado8">Uso de Payloads: </marcador>Consultando PayloadsAllTheThings, el atacante selecciona un payload de reverse shell (una línea de código en PowerShell o Bash) para que la máquina víctima devuelva una conexión interactiva hacia el servidor del atacante.</p>
+                <p>⍟ <marcador class="resaltado8">Codificación: </marcador>A menudo, para evitar que los caracteres especiales rompan la petición HTTP, el atacante utiliza CyberChef para codificar su comando malicioso en Base64 o URL Encoding antes de enviarlo.</p>
+                <p>El impacto de una vulnerabilidad de este tipo suele ser crítico:</p>
+                <ol style="list-style-type: none;">
+                    <li>◍ <marcador class="resaltado2">Compromiso Total del Servidor (RCE): </marcador>Permite Ejecución Remota de Código.</li>
+                    <li>◍ <marcador class="resaltado2">Escalada de Privilegios: </marcador>Si la aplicación web corre con permisos elevados (por ejemplo, como usuario SYSTEM o root), el atacante toma el control absoluto de la máquina.</li>
+                    <li>◍ <marcador class="resaltado2">Robo de Datos y Pivote:</marcador>Facilita la extracción de información confidencial y sirve como punto de partida para atacar otros equipos dentro de la misma red.</li>
+                </ol>
+                <div class="blog-image-grande">
+                    <img src="media/vuln2.png" alt="">
+                </div> 
+                <p></p>
+            </div>
+        </div>       
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
