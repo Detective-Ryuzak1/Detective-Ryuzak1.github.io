@@ -658,8 +658,10 @@ iframe {
 }
 
 /* Estilos para la sección de comandos */
+/* Estilos para la sección de comandos */
 .contenedor{
     position: relative;
+    max-width: 100%;
 }
 .etiqueta{
     padding: 10px;
@@ -672,12 +674,14 @@ iframe {
     position: relative;
     padding: 5px;
     border-radius: 10px;
-    display: inline-flex; /* <- Mantiene el tamaño compacto adaptado al contenido */
+    display: inline-flex; /* Mantener tamaño compacto ajustado al contenido */
+    max-width: 100%; /* Evita que desborde la pantalla en móviles */
+    box-sizing: border-box;
 }
 
 .comandos input.text{
     width: auto;
-    min-width: 250px; /* <- Asegura un tamaño mínimo cómodo para que los comandos cortos no se compriman */
+    min-width: 0; /* Permite adaptarse en pantallas pequeñas sin empujar el botón fuera */
     padding: 10px;
     padding-right: 0px;
     font-size: 16px;
@@ -694,7 +698,7 @@ iframe {
 
 .comandos textarea.text { 
     width: auto;
-    min-width: 250px; /* <- Mismo tamaño mínimo para consistencia */
+    min-width: 0; /* Evita que empuje el botón fuera de la pantalla */
     font-size: 16px;
     color: white;
     border: none;
@@ -729,7 +733,7 @@ iframe {
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     cursor: pointer;
-    flex-shrink: 0;
+    flex-shrink: 0; /* Garantiza que el botón siempre sea visible */
     animation: brilloMulticolor 6s ease infinite;
 }
 
