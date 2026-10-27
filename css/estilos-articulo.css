@@ -724,7 +724,7 @@ iframe {
 .comandos button{
     position: relative;
     padding: 10px;
-    background: linear-gradient(120deg, #1d33be, #2845d7, #5e29c2, #9150fa, #4f17e7, #120be4);
+    background: linear-gradient(120deg, #0086f3, #45b8ff, #1931e6, #19afe6, #17b0e7, #120be4);
     background-size: 300% 300%;
     color: #000;
     font-size: 18px;
@@ -760,7 +760,7 @@ iframe {
     position: absolute;
     top: -45px;
     left: 0px;
-    background: linear-gradient(120deg, #1d33be, #3f7de0, #982fd9, #9750fa, #6017e7, #e40b94);
+    background: linear-gradient(120deg, #381fd7, #5f3fe0, #a174e1, #327aff, #13fcdd, #17e794);
     background-size: 300% 300%; 
     animation: brilloMulticolor 6s ease infinite; 
     font-family: monospace;
