@@ -55,15 +55,15 @@
                 <h7>¿De qué está compuesto?</h7>
                 <p>La arquitectura interna de un microcontrolador PIC se compone fundamentalmente de tres elementos principales que trabajan en conjunto:</p>
                 <ul style="list-style-type: none;">
-                    <li>▱ <marcador class="resaltado6">Unidad Central de Procesamiento (CPU):</marcador>Es el "cerebro" encargado de interpretar las instrucciones del programa, realizar operaciones lógicas y aritméticas, y coordinar al resto de los componentes internos.</li>
-                    <li>▱ <marcador class="resaltado6">Memoria:</marcador></li>
+                    <li>▱ <marcador class="resaltado16">Unidad Central de Procesamiento (CPU):</marcador>Es el "cerebro" encargado de interpretar las instrucciones del programa, realizar operaciones lógicas y aritméticas, y coordinar al resto de los componentes internos.</li>
+                    <li>▱ <marcador class="resaltado16">Memoria:</marcador></li>
                     <ol style="list-style-type: none;">
-                        <li>◦ <marcador class="resaltado5">Memoria de Programa (Flash): </marcador>Donde se almacena de forma permanente el código o las instrucciones escritas por el programador. No se borra aunque se apague el dispositivo.</li>
-                        <li>◦ <marcador class="resaltado5">Memoria de Datos (RAM): </marcador>Utilizada para almacenar de manera temporal las variables y los datos dinámicos mientras el microcontrolador está funcionando.</li>
-                        <li>◦ <marcador class="resaltado5">Memoria EEPROM: </marcador>Memoria de almacenamiento no volátil destinada a guardar información que debe conservarse aun cuando se interrumpa la alimentación eléctrica (como configuraciones de usuario).</li>
+                        <li>◦ <marcador class="resaltado121">Memoria de Programa (Flash): </marcador>Donde se almacena de forma permanente el código o las instrucciones escritas por el programador. No se borra aunque se apague el dispositivo.</li>
+                        <li>◦ <marcador class="resaltado121">Memoria de Datos (RAM): </marcador>Utilizada para almacenar de manera temporal las variables y los datos dinámicos mientras el microcontrolador está funcionando.</li>
+                        <li>◦ <marcador class="resaltado121">Memoria EEPROM: </marcador>Memoria de almacenamiento no volátil destinada a guardar información que debe conservarse aun cuando se interrumpa la alimentación eléctrica (como configuraciones de usuario).</li>
                     </ol>
-                    <li>▱ <marcador class="resaltado6">Líneas de Entrada/Salida (Puertos E/S):</marcador>Los pines físicos que permiten al microcontrolador interactuar con el mundo exterior, conectándose a sensores, motores, pantallas y otros periféricos.</li>
-                    <li>▱ <marcador class="resaltado6">Periféricos internos:</marcador>Módulos especializados integrados en el silicio, tales como temporizadores (timers), convertidores analógico-digitales (ADC), y módulos de comunicación (UART, SPI, I2C).</li>
+                    <li>▱ <marcador class="resaltado16">Líneas de Entrada/Salida (Puertos E/S):</marcador>Los pines físicos que permiten al microcontrolador interactuar con el mundo exterior, conectándose a sensores, motores, pantallas y otros periféricos.</li>
+                    <li>▱ <marcador class="resaltado16">Periféricos internos:</marcador>Módulos especializados integrados en el silicio, tales como temporizadores (timers), convertidores analógico-digitales (ADC), y módulos de comunicación (UART, SPI, I2C).</li>
                 </ul>
                 <div class="blog-image-grande">
                     <img src="media/micro1.png" alt="">
@@ -83,24 +83,24 @@
                 <h7>Los Pines</h7>
                 <p>Los pines son las terminales físicas del circuito integrado que permiten al microcontrolador interactuar con el entorno exterior, conectar componentes de alimentación y transferir señales de control o datos. Tomando como referencia la distribución de 40 pines del PIC16F874A/877A, estos se organizan en los siguientes grupos principales:</p>
                 <ul style="list-style-type: none;">
-                    <li>φ <marcador class="resaltado6">Pines de Alimentación y Reset:</marcador>
+                    <li>φ <marcador class="resaltado16">Pines de Alimentación y Reset:</marcador>
                         <ol style="list-style-type: none;">
-                           <li>◦ <marcador class="resaltado5">VDD y VSS:</marcador> Terminales de alimentación positiva y tierra distribuidas en varios pines del chip (como los pines 11, 12, 31 y 32) para garantizar la estabilidad eléctrica.</li>
-                           <li>◦ <marcador class="resaltado5">MCLR/VPP:</marcador> Pin 1, encargado de recibir el pulso de reinicio maestro (*Master Clear*) y el voltaje de programación.</li>
+                           <li>◦ <marcador class="resaltado115">VDD y VSS:</marcador> Terminales de alimentación positiva y tierra distribuidas en varios pines del chip (como los pines 11, 12, 31 y 32) para garantizar la estabilidad eléctrica.</li>
+                           <li>◦ <marcador class="resaltado115">MCLR/VPP:</marcador> Pin 1, encargado de recibir el pulso de reinicio maestro (*Master Clear*) y el voltaje de programación.</li>
                         </ol>
                     </li>
-                    <li>φ <marcador class="resaltado6">Puertos de Entrada/Salida Digital y Analógica (Puertos A, B, C, D y E):</marcador>
+                    <li>φ <marcador class="resaltado16">Puertos de Entrada/Salida Digital y Analógica (Puertos A, B, C, D y E):</marcador>
                         <ol style="list-style-type: none;">
-                           <li>◦ <marcador class="resaltado5">Puerto A (RA0–RA5):</marcador> Pines 2 a 7, con funciones multiplexadas que incluyen canales analógicos del conversor ADC (AN0–AN4), voltajes de referencia y temporizadores.</li>
-                           <li>◦ <marcador class="resaltado5">Puerto B (RB0–RB7):</marcador> Pines 33 a 40, destacados por incluir la interrupción externa en RB0 y las líneas de programación serial en circuito ICSP (PGC, PGD, PGM).</li>
-                           <li>◦ <marcador class="resaltado5">Puerto C (RC0–RC7):</marcador> Pines 15 a 18 y 23 a 26, dedicados a la comunicación serial (UART, SPI, I2C) y módulos de captura/comparación/PWM.</li>
-                           <li>◦ <marcador class="resaltado5">Puerto D (RD0–RD7):</marcador> Pines 19 a 22 y 27 a 30, configurables como E/S digitales de propósito general o como bus de datos para una interfaz paralela esclava (PSP).</li>
-                           <li>◦ <marcador class="resaltado5">Puerto E (RE0–RE2):</marcador> Pines 8 a 10, que completan los canales analógicos (AN5–AN7) y proveen señales de control de lectura/escritura externa.</li>
+                           <li>◦ <marcador class="resaltado115">Puerto A (RA0–RA5):</marcador> Pines 2 a 7, con funciones multiplexadas que incluyen canales analógicos del conversor ADC (AN0–AN4), voltajes de referencia y temporizadores.</li>
+                           <li>◦ <marcador class="resaltado115">Puerto B (RB0–RB7):</marcador> Pines 33 a 40, destacados por incluir la interrupción externa en RB0 y las líneas de programación serial en circuito ICSP (PGC, PGD, PGM).</li>
+                           <li>◦ <marcador class="resaltado115">Puerto C (RC0–RC7):</marcador> Pines 15 a 18 y 23 a 26, dedicados a la comunicación serial (UART, SPI, I2C) y módulos de captura/comparación/PWM.</li>
+                           <li>◦ <marcador class="resaltado115">Puerto D (RD0–RD7):</marcador> Pines 19 a 22 y 27 a 30, configurables como E/S digitales de propósito general o como bus de datos para una interfaz paralela esclava (PSP).</li>
+                           <li>◦ <marcador class="resaltado115">Puerto E (RE0–RE2):</marcador> Pines 8 a 10, que completan los canales analógicos (AN5–AN7) y proveen señales de control de lectura/escritura externa.</li>
                         </ol>
                     </li>
                 </ul>
                 <h7>El Oscilador</h7>
-                <p>El oscilador es el sistema encargado de generar los pulsos de reloj que marcan el ritmo y la velocidad a la que el microcontrolador ejecuta cada una de las instrucciones de su programa. En la estructura del PIC, este sistema se conecta directamente a los pines físicos externos <marcador class="resaltado5">OSC1/CLKI</marcador> y <marcador class="resaltado5">OSC2/CLKO</marcador> (pines 13 y 14). Puede configurarse mediante el uso de cristales de cuarzo, resonadores cerámicos o redes RC externas para establecer la frecuencia de oscilación deseada.</p>
+                <p>El oscilador es el sistema encargado de generar los pulsos de reloj que marcan el ritmo y la velocidad a la que el microcontrolador ejecuta cada una de las instrucciones de su programa. En la estructura del PIC, este sistema se conecta directamente a los pines físicos externos <marcador class="resaltado115">OSC1/CLKI</marcador> y <marcador class="resaltado115">OSC2/CLKO</marcador> (pines 13 y 14). Puede configurarse mediante el uso de cristales de cuarzo, resonadores cerámicos o redes RC externas para establecer la frecuencia de oscilación deseada.</p>
 
                 <div class="blog-image">
                     <img src="media/micro3.png" alt="">
@@ -108,10 +108,10 @@
                 <h7>Los Registros</h7>
                 <p>Los registros son espacios de almacenamiento de alta velocidad ubicados dentro de la memoria de datos (RAM) del microcontrolador. Funcionan como celdas de memoria especializadas donde se configuran los periféricos, se controlan los estados de los puertos de E/S y se gestionan las operaciones internas del sistema. Entre los registros esenciales del PIC destacan:</p>
                 <ul style="list-style-type: none;">
-                    <li>φ <marcador class="resaltado6">Registros de los Puertos (PORTA, PORTB, etc.):</marcador> Almacenan el estado lógico actual (alto o bajo) presente en los pines físicos de los puertos.</li>
-                    <li>φ <marcador class="resaltado6">Registros de Dirección de Datos (TRISA, TRISB, etc.):</marcador> Definen si un pin específico funciona como entrada (configurado en 1) o como salida (configurado en 0).</li>
-                    <li>φ <marcador class="resaltado6">Registro STATUS (03h / 83h):</marcador> Contiene las banderas o indicadores de estado de la ALU, como el bit de cero, de arrastre (*carry*) y los bits de selección de bancos de memoria.</li>
-                    <li>φ <marcador class="resaltado6">Registros de Control y Configuración:</marcador> Tales como <marcador class="resaltado1">INTCON</marcador> (para la gestión de interrupciones), <marcador class="resaltado1">TMR0</marcador> (para temporizaciones), y los registros asociados al manejo de la memoria EEPROM (<marcador class="subrayado">EEDATA, EEADR, EECON1, EECON2</marcador>).</li>
+                    <li>φ <marcador class="resaltado16">Registros de los Puertos (PORTA, PORTB, etc.):</marcador> Almacenan el estado lógico actual (alto o bajo) presente en los pines físicos de los puertos.</li>
+                    <li>φ <marcador class="resaltado16">Registros de Dirección de Datos (TRISA, TRISB, etc.):</marcador> Definen si un pin específico funciona como entrada (configurado en 1) o como salida (configurado en 0).</li>
+                    <li>φ <marcador class="resaltado16">Registro STATUS (03h / 83h):</marcador> Contiene las banderas o indicadores de estado de la ALU, como el bit de cero, de arrastre (*carry*) y los bits de selección de bancos de memoria.</li>
+                    <li>φ <marcador class="resaltado16">Registros de Control y Configuración:</marcador> Tales como <marcador class="resaltado112">INTCON</marcador> (para la gestión de interrupciones), <marcador class="resaltado112">TMR0</marcador> (para temporizaciones), y los registros asociados al manejo de la memoria EEPROM (<marcador class="subrayado">EEDATA, EEADR, EECON1, EECON2</marcador>).</li>
                 </ul>
                 <div class="blog-image">
                     <img src="media/micro4.png" alt="">
@@ -124,7 +124,7 @@
                     <img src="media/micro5.jpg" alt="">
                 </div>
                 <h7>El Conjunto de Instrucciones</h7>
-                <p>El conjunto de instrucciones de un microcontrolador PIC (específicamente en la gama media como el PIC16F874A/877A) se basa en una arquitectura <marcador class="resaltado1">RISC (Reduced Instruction Set Computer)</marcador>. Esto significa que el procesador cuenta con un repertorio reducido y optimizado de instrucciones (típicamente 35 instrucciones en total), lo que simplifica el hardware interno y acelera la ejecución del código.</p>
+                <p>El conjunto de instrucciones de un microcontrolador PIC (específicamente en la gama media como el PIC16F874A/877A) se basa en una arquitectura <marcador class="resaltado112">RISC (Reduced Instruction Set Computer)</marcador>. Esto significa que el procesador cuenta con un repertorio reducido y optimizado de instrucciones (típicamente 35 instrucciones en total), lo que simplifica el hardware interno y acelera la ejecución del código.</p>
                 <ul style="list-style-type: none;">
                     <li>⍟ <marcador class="resaltado8">Formato y Longitud:</marcador> Cada instrucción en la memoria de programa tiene una longitud fija de 14 bits, lo que permite contener tanto el código de operación como los operandos o registros involucrados en una sola palabra.</li>
                     <li>⍟ <marcador class="resaltado8">Velocidad de Ejecución (Ciclos de Instrucción):</marcador> La gran mayoría de las instrucciones se ejecutan en un solo ciclo de instrucción. Dado que la arquitectura interna divide cada ciclo de instrucción en cuatro periodos de reloj, la velocidad real de ejecución de una instrucción equivale a la frecuencia del oscilador dividida entre cuatro (4 ciclos de reloj por instrucción). Las únicas excepciones son las instrucciones de salto o bifurcación, las cuales toman dos ciclos en completarse.</li>
