@@ -236,7 +236,7 @@ main{
 .text__articulo-cover h8{
     font-size: 20px;
     /*color: rgb(122, 162, 235);*/
-    color: rgb(122, 255, 44);
+    color: rgb(44, 255, 107);
     font-weight: normal;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -247,6 +247,56 @@ main{
     font-size: 20px;
     /*color: rgb(122, 162, 235);*/
     color: rgb(76, 154, 156);
+    font-weight: normal;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: 'Roboto';
+}
+
+.text__articulo-cover h10{
+    font-size: 20px;
+    /*color: rgb(122, 162, 235);*/
+    color: rgb(210, 20, 121);
+    font-weight: normal;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: 'Roboto';
+}
+
+.text__articulo-cover h11{
+    font-size: 20px;
+    /*color: rgb(122, 162, 235);*/
+    color: rgb(158, 62, 214);
+    font-weight: normal;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: 'Roboto';
+}
+
+.text__articulo-cover h12{
+    font-size: 20px;
+    /*color: rgb(122, 162, 235);*/
+    color: rgb(139, 206, 15);
+    font-weight: normal;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: 'Roboto';
+}
+
+.text__articulo-cover h13{
+    font-size: 20px;
+    /*color: rgb(122, 162, 235);*/
+    color: rgb(15, 44, 206);
+    font-weight: normal;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: 'Roboto';
+}
+
+.text__articulo-cover h14{
+    font-size: 20px;
+    /*color: rgb(122, 162, 235);*/
+    color: rgb(174, 79, 209);
     font-weight: normal;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -399,6 +449,26 @@ a:hover {
     /*color: rgb(137, 170, 231);
     opacity: 1;*/
     background: linear-gradient(120deg, #c3ff00 0%, #eaff29 100%);
+    color: #000000;
+    border-radius: 4px;
+    padding: 0px 4px;
+    font-family: 'Roboto';
+}
+
+.resaltado123 {
+    /*color: rgb(137, 170, 231);
+    opacity: 1;*/
+    background: linear-gradient(120deg, #9900ff 0%, #f4025b 100%);
+    color: #ffffff;
+    border-radius: 4px;
+    padding: 0px 4px;
+    font-family: 'Roboto';
+}
+
+.resaltado124 {
+    /*color: rgb(137, 170, 231);
+    opacity: 1;*/
+    background: linear-gradient(120deg, #c96903 0%, #a6ff00 100%);
     color: #000000;
     border-radius: 4px;
     padding: 0px 4px;
