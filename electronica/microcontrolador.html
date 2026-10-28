@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Tecnología</title>
+    <link rel="icon" href="../media/imagen41.png" type="image/png">
+    <script src="https://kit.fontawesome.com/9474e300a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estilos-articulo.css">
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</head>
+<body>
+
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="../media/logo-4.png" alt="">
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../electronica.html">Electrónica</a></li>
+                        <li><a href="../network.html">Networking</a></li>
+                        <li><a href="../ia.html">Inteligencia Artificial</a></li>
+                        <li><a href="../hacking.html">Ciberseguridad</a></li>
+                        <li><a href="../devops.html">DevOps</a></li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <div class="header-icons">
+            <a href="https://github.com/Detective-Ryuzak1" target="_blank"><img src="../media/icon2.png" alt="github"></a>
+            <a href="https://www.youtube.com/@Ryuzak1-z8p" target="_blank"><img src="../media/icon3.png" alt="youtube"></a>
+            <a href="https://www.linkedin.com/in/c%C3%A9sar-augusto-flores-razo-b11863208/" target="_blank"><img src="../media/icon4.png" alt="linkedin"></a>
+            <a href="https://buymeacoffee.com/ryuzak1" target="_blank"><img src="../media/icon1.png" alt="coffee"></a>
+            </div>
+
+            <i class="fa-solid fa-bars" style="color: #ffffff;" id="icon_menu"></i>
+            <div class="header__botonMenu">
+                <input type="button" class="btn__header-botonMenu" value="Bonus" onclick="window.open('https://checkio.org/', '_blank');">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cover">
+            <div class="text__articulo-cover">
+                <br>
+                <br>
+                <h1>Microcontroladores</h1>
+                <p>En el corazón de la electrónica moderna y los sistemas empotrados se encuentran los microcontroladores: pequeños ordenadores integrados en un solo circuito impreso que están diseñados para automatizar procesos y controlar dispositivos. Para comprender cómo funcionan a fondo, tomaremos como referencia clásica a la familia de microcontroladores PIC (Peripheral Interface Controller) de Microchip, ampliamente utilizados en la industria y la educación por su robustez y versatilidad.</p>
+                <p>Un microcontrolador es un circuito integrado programable capaz de ejecutar órdenes almacenadas en su memoria. A diferencia de un microprocesador convencional (como el de un ordenador), que requiere componentes externos como memoria RAM y almacenamiento para funcionar, el microcontrolador es un sistema en un solo chip (SoC - System on a Chip) que incluye todos los elementos necesarios para operar de manera autónoma en una tarea específica.</p>
+                <h7>¿De qué está compuesto?</h7>
+                <p>La arquitectura interna de un microcontrolador PIC se compone fundamentalmente de tres elementos principales que trabajan en conjunto:</p>
+                <ul style="list-style-type: none;">
+                    <li>▱ <marcador class="resaltado6">Unidad Central de Procesamiento (CPU):</marcador>Es el "cerebro" encargado de interpretar las instrucciones del programa, realizar operaciones lógicas y aritméticas, y coordinar al resto de los componentes internos.</li>
+                    <li>▱ <marcador class="resaltado6">Memoria:</marcador></li>
+                    <ol style="list-style-type: none;">
+                        <li>◦ <marcador class="resaltado5">Memoria de Programa (Flash): </marcador>Donde se almacena de forma permanente el código o las instrucciones escritas por el programador. No se borra aunque se apague el dispositivo.</li>
+                        <li>◦ <marcador class="resaltado5">Memoria de Datos (RAM): </marcador>Utilizada para almacenar de manera temporal las variables y los datos dinámicos mientras el microcontrolador está funcionando.</li>
+                        <li>◦ <marcador class="resaltado5">Memoria EEPROM: </marcador>Memoria de almacenamiento no volátil destinada a guardar información que debe conservarse aun cuando se interrumpa la alimentación eléctrica (como configuraciones de usuario).</li>
+                    </ol>
+                    <li>▱ <marcador class="resaltado6">Líneas de Entrada/Salida (Puertos E/S):</marcador>Los pines físicos que permiten al microcontrolador interactuar con el mundo exterior, conectándose a sensores, motores, pantallas y otros periféricos.</li>
+                    <li>▱ <marcador class="resaltado6">Periféricos internos:</marcador>Módulos especializados integrados en el silicio, tales como temporizadores (timers), convertidores analógico-digitales (ADC), y módulos de comunicación (UART, SPI, I2C).</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/micro1.png" alt="">
+                </div>
+                <p>La imagen muestra un diagrama en bloques del PIC16F84 de Microchip Technology con I/O y algunos periféricos. Introducido a principios de la década de 1990, realiza funciones básicas. Los MCUs de 8 bits actuales suelen integrar múltiples periféricos, lo que genera mayor complejidad de software para el desarrollador de aplicaciones.</p>
+                <h7>¿Cómo programarlo?</h7> 
+                <p>El proceso de programar un microcontrolador PIC requiere transformar una idea lógica en señales eléctricas que su memoria pueda interpretar. Los pasos generales son:</p>
+                <ul style="list-style-type: none;">
+                    <li>⓵ <marcador class="resaltado8">Diseño del circuito:</marcador> Se debe planificar la conexión de los componentes y los pines del microcontrolador.</li>
+                    <li>⓶ <marcador class="resaltado8">Desarrollo del código:</marcador> Se redacta el programa utilizando lenguajes de programación como C (empleando entornos de desarrollo oficiales como MPLAB X IDE) o incluso en lenguaje ensamblador para un control milimétrico del hardware.</li>
+                    <li>⓷ <marcador class="resaltado8">Compilación:</marcador> El entorno de desarrollo traduce el código legible por humanos a un archivo binario o hexadecimal (.hex), que contiene las instrucciones exactas en lenguaje de máquina.</li>
+                    <li>⓸ <marcador class="resaltado8">Carga del programa:</marcador> Utilizando un dispositivo programador/depurador físico (como el PICkit 3 o PICkit 4) conectado al ordenador y a los pines específicos de programación del PIC (como ICSP: In-Circuit Serial Programming), se transfiere el archivo hexadecimal directamente a la memoria Flash del microcontrolador. Una vez finalizado este proceso, el PIC comenzará a ejecutar el programa de forma independiente de inmediato.</li>
+                </ul>
+                <div class="blog-image">
+                    <img src="media/micro2.jpg" alt="">
+                </div>
+                <h7>Los Pines</h7>
+                <p>Los pines son las terminales físicas del circuito integrado que permiten al microcontrolador interactuar con el entorno exterior, conectar componentes de alimentación y transferir señales de control o datos. Tomando como referencia la distribución de 40 pines del PIC16F874A/877A, estos se organizan en los siguientes grupos principales:</p>
+                <ul style="list-style-type: none;">
+                    <li>φ <marcador class="resaltado6">Pines de Alimentación y Reset:</marcador>
+                        <ol style="list-style-type: none;">
+                           <li>◦ <marcador class="resaltado5">VDD y VSS:</marcador> Terminales de alimentación positiva y tierra distribuidas en varios pines del chip (como los pines 11, 12, 31 y 32) para garantizar la estabilidad eléctrica.</li>
+                           <li><marcador class="resaltado5">MCLR/VPP:</marcador> Pin 1, encargado de recibir el pulso de reinicio maestro (*Master Clear*) y el voltaje de programación.</li>
+                        </ol>
+                    </li>
+                    <li>φ <marcador class="resaltado6">Puertos de Entrada/Salida Digital y Analógica (Puertos A, B, C, D y E):</marcador>
+                        <ol style="list-style-type: none;">
+                           <li>◦ <marcador class="resaltado5">Puerto A (RA0–RA5):</marcador> Pines 2 a 7, con funciones multiplexadas que incluyen canales analógicos del conversor ADC (AN0–AN4), voltajes de referencia y temporizadores.</li>
+                           <li>◦ <marcador class="resaltado5">Puerto B (RB0–RB7):</marcador> Pines 33 a 40, destacados por incluir la interrupción externa en RB0 y las líneas de programación serial en circuito ICSP (PGC, PGD, PGM).</li>
+                           <li>◦ <marcador class="resaltado5">Puerto C (RC0–RC7):</marcador> Pines 15 a 18 y 23 a 26, dedicados a la comunicación serial (UART, SPI, I2C) y módulos de captura/comparación/PWM.</li>
+                           <li>◦ <marcador class="resaltado5">Puerto D (RD0–RD7):</marcador> Pines 19 a 22 y 27 a 30, configurables como E/S digitales de propósito general o como bus de datos para una interfaz paralela esclava (PSP).</li>
+                           <li>◦ <marcador class="resaltado5">Puerto E (RE0–RE2):</marcador> Pines 8 a 10, que completan los canales analógicos (AN5–AN7) y proveen señales de control de lectura/escritura externa.</li>
+                        </ol>
+                    </li>
+                </ul>
+                <h7>El Oscilador</h7>
+                <p>El oscilador es el sistema encargado de generar los pulsos de reloj que marcan el ritmo y la velocidad a la que el microcontrolador ejecuta cada una de las instrucciones de su programa. En la estructura del PIC, este sistema se conecta directamente a los pines físicos externos <marcador class="resaltado5">OSC1/CLKI</marcador> y <marcador class="resaltado5">OSC2/CLKO</marcador> (pines 13 y 14). Puede configurarse mediante el uso de cristales de cuarzo, resonadores cerámicos o redes RC externas para establecer la frecuencia de oscilación deseada.</p>
+
+                <div class="blog-image">
+                    <img src="media/micro3.png" alt="">
+                </div>
+                <h7>Los Registros</h7>
+                <p>Los registros son espacios de almacenamiento de alta velocidad ubicados dentro de la memoria de datos (RAM) del microcontrolador. Funcionan como celdas de memoria especializadas donde se configuran los periféricos, se controlan los estados de los puertos de E/S y se gestionan las operaciones internas del sistema. Entre los registros esenciales del PIC destacan:</p>
+                <ul style="list-style-type: none;">
+                    <li>φ <marcador class="resaltado6">Registros de los Puertos (PORTA, PORTB, etc.):</marcador> Almacenan el estado lógico actual (alto o bajo) presente en los pines físicos de los puertos.</li>
+                    <li>φ <marcador class="resaltado6">Registros de Dirección de Datos (TRISA, TRISB, etc.):</marcador> Definen si un pin específico funciona como entrada (configurado en 1) o como salida (configurado en 0).</li>
+                    <li>φ <marcador class="resaltado6">Registro STATUS (03h / 83h):</marcador> Contiene las banderas o indicadores de estado de la ALU, como el bit de cero, de arrastre (*carry*) y los bits de selección de bancos de memoria.</li>
+                    <li>φ <marcador class="resaltado6">Registros de Control y Configuración:</marcador> Tales como <marcador class="resaltado1">INTCON</marcador> (para la gestión de interrupciones), <marcador class="resaltado1">TMR0</marcador> (para temporizaciones), y los registros asociados al manejo de la memoria EEPROM (<marcador class="subrayado">EEDATA, EEADR, EECON1, EECON2</marcador>).</li>
+                </ul>
+                <div class="blog-image">
+                    <img src="media/micro4.png" alt="">
+                </div>
+                <h7>El Registro W (Working)</h7>
+                <p>El registro W, o registro de trabajo (*Working Register*), es un acumulador temporal fundamental dentro de la arquitectura del microcontrolador. A diferencia de otros registros, el registro W no posee una dirección fija en el mapa de memoria RAM para acceso directo común. Es el destino u origen predeterminado para la gran mayoría de las operaciones aritméticas y lógicas ejecutadas por la Unidad Aritmética Lógica (ALU), sirviendo como un puente rápido para mover datos entre los diferentes registros de la memoria y procesar información de manera eficiente.</p>
+                <h7>El Contador de Programa (Program Counter - PC)</h7>
+                <p>El Contador de Programa es un registro especial de 13 bits encargado de almacenar la dirección de memoria exacta de la siguiente instrucción que el microcontrolador debe buscar y ejecutar. Tras leer una instrucción, el contador se incrementa automáticamente de forma secuencial, salvo cuando ocurren saltos, llamadas a subrutinas o interrupciones, momento en el cual se actualiza con una nueva dirección para alterar el flujo de ejecución del programa. En la arquitectura PIC, se complementa con registros como <marcador class="subrayado">PCL</marcador> y <marcador class="subrayado">PCLATH</marcador> para gestionar el direccionamiento completo del espacio de memoria de programa.</p>
+                <div class="blog-image">
+                    <img src="media/micro5.jpg" alt="">
+                </div>
+                <h7>El Conjunto de Instrucciones</h7>
+                <p>El conjunto de instrucciones de un microcontrolador PIC (específicamente en la gama media como el PIC16F874A/877A) se basa en una arquitectura <marcador class="resaltado1">RISC (Reduced Instruction Set Computer)</marcador>. Esto significa que el procesador cuenta con un repertorio reducido y optimizado de instrucciones (típicamente 35 instrucciones en total), lo que simplifica el hardware interno y acelera la ejecución del código.</p>
+                <ul style="list-style-type: none;">
+                    <li>⍟ <marcador class="resaltado8">Formato y Longitud:</marcador> Cada instrucción en la memoria de programa tiene una longitud fija de 14 bits, lo que permite contener tanto el código de operación como los operandos o registros involucrados en una sola palabra.</li>
+                    <li>⍟ <marcador class="resaltado8">Velocidad de Ejecución (Ciclos de Instrucción):</marcador> La gran mayoría de las instrucciones se ejecutan en un solo ciclo de instrucción. Dado que la arquitectura interna divide cada ciclo de instrucción en cuatro periodos de reloj, la velocidad real de ejecución de una instrucción equivale a la frecuencia del oscilador dividida entre cuatro (4 ciclos de reloj por instrucción). Las únicas excepciones son las instrucciones de salto o bifurcación, las cuales toman dos ciclos en completarse.</li>
+                    <li>⍟ <marcador class="resaltado8">Ortogonalidad:</marcador> Aunque el repertorio es reducido, las instrucciones están diseñadas para operar de manera flexible entre el registro de trabajo (W), los registros de la memoria de datos (RAM) y los pines de E/S, permitiendo realizar operaciones aritméticas, lógicas, de transferencia de datos y de control de flujo de forma sumamente eficiente.</li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/micro6.jpg" alt="">
+                </div>
+                <h7>Cómo escribir en los puertos</h7>
+                <p>Para escribir o enviar datos hacia el exterior a través de los pines de un puerto (por ejemplo, el Puerto B), es necesario seguir dos pasos fundamentales en la programación:</p>
+                <ul style="list-style-type: none;">
+                    <li>⌲ <marcador class="resaltado9">Configurar la dirección (Registro TRIS):</marcador> Se debe configurar el registro de control correspondiente (como <code>TRISB</code>) cargando un <code>0</code> en los bits que se desean como salida y un <code>1</code> en los que funcionarán como entrada. Por ejemplo, configurar todo el Puerto B como salida se logra cargando el valor <code>0x00</code> en <code>TRISB</code>.</li>
+                    <li>⌲ <marcador class="resaltado9">Escribir el dato (Registro PORT):</marcador> Una vez configurado como salida, se asigna el valor deseado directamente al registro del puerto (como <code>PORTB</code>). Esto establece un nivel lógico alto (5V) o bajo (0V) en los pines físicos correspondientes.</li>
+                </ul>
+
+                <h7>Bucles de retardo</h7>
+                <p>Los bucles de retardo son rutinas basadas en estructuras de repetición (como bucles <code>for</code> o <code>while</code> decrecientes) diseñadas para consumir ciclos de reloj intencionalmente. Dado que los microcontroladores ejecutan millones de instrucciones por segundo, estos retardos permiten pausar la ejecución del programa durante un tiempo determinado —por ejemplo, para mantener encendido un LED visiblemente antes de cambiar su estado— permitiendo al usuario percibir los cambios visuales o sincronizar la comunicación con dispositivos externos más lentos.</p>
+                <h3>Ejemplo de programa</h3>
+                <p>A continuación se muestra un ejemplo clásico y comentado de un programa básico en lenguaje C (para compiladores como XC8) que hace parpadear (*blinking*) un LED conectado al pin RB0 del microcontrolador:</p>
+                
+                <div class="archivo">
+#include &lt;xc.h&gt; // Librería principal con las definiciones de los registros del PIC
+
+// Configuración de los fusibles (Configuration Bits)
+#pragma config FOSC = XT     // Oscilador de cristal externo
+#pragma config WDTE = OFF    // Perro guardián (Watchdog Timer) desactivado
+#pragma config PWRTE = ON    // Retardo al encender el dispositivo
+#pragma config BOREN = ON    // Reset por bajo voltaje activado
+#pragma config LVP = OFF     // Programación en bajo voltaje desactivada
+
+#define _XTAL_FREQ 4000000   // Frecuencia del oscilador (4 MHz) usada por __delay_ms
+
+void main(void) {
+    // 1. Configuración de puertos
+    TRISBbits.TRISB0 = 0;    // Configura el pin RB0 como salida (0 = salida, 1 = entrada)
+    PORTBbits.RB0 = 0;       // Inicializa el pin RB0 en estado bajo (LED apagado)
+
+    // 2. Bucle principal infinito
+    while(1) {
+        PORTBbits.RB0 = 1;   // Enciende el LED conectado a RB0 (nivel alto)
+        __delay_ms(500);     // Retardo de 500 milisegundos (medio segundo)
+        
+        PORTBbits.RB0 = 0;   // Apaga el LED conectado a RB0 (nivel bajo)
+        __delay_ms(500);     // Retardo de 500 milisegundos
+    }
+}
+                </div>
+                <p></p>
+                <p></p>
+
+                <p></p>
+                <p></p>
+            </div>  
+        </div>     
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
