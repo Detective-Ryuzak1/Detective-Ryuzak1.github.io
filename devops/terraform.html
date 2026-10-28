@@ -85,15 +85,15 @@
                 <h2>Componentes principales</h2>
                 <p>Terraform se compone de varios elementos esenciales:</p>
                 <ul style="list-style-type: none;">
-                    <li>⌭ <marcador class="resaltado3">Providers: </marcador>Los providers son plugins que permiten a Terraform interactuar con distintas plataformas y servicios como AWS, Azure, Google Cloud, VMware, GitHub, Kubernetes y muchos otros. Cada proveedor expone recursos que Terraform puede gestionar.</li>
+                    <li>⌭ <marcador class="resaltado123">Providers:</marcador> Los providers son plugins que permiten a Terraform interactuar con distintas plataformas y servicios como AWS, Azure, Google Cloud, VMware, GitHub, Kubernetes y muchos otros. Cada proveedor expone recursos que Terraform puede gestionar.</li>
                     <div class="blog-image-grande">
                         <img src="media/terraform3.png" alt="">
                     </div>
-                    <li>⌭ <marcador class="resaltado3">Resources: </marcador>En Terraform, los resources o recursos son los bloques fundamentales que describen los elementos de infraestructura que se quieren crear, modificar o eliminar. Cada bloque resource declara un tipo de recurso (como aws_instance, azurerm_storage_account o google_compute_network) y un nombre lógico para identificarlo dentro del proyecto. Estos recursos están ligados a proveedores (providers) y definen las propiedades necesarias para que Terraform pueda interactuar con la API del servicio correspondiente. A través de los recursos, se describe la infraestructura deseada en un lenguaje declarativo, y es Terraform quien se encarga de aplicarlo en el proveedor correspondiente. Por ejemplo, un recurso puede representar una instancia de máquina virtual, un bucket de almacenamiento o un grupo de seguridad, entre muchos otros. Al definir recursos, Terraform genera una representación del estado deseado de la infraestructura, y al aplicar los cambios, compara ese estado con el real, ajustando lo necesario para que coincidan. Esto hace posible automatizar el despliegue, mantenimiento y eliminación de componentes de forma segura y repetible.</li>
+                    <li>⌭ <marcador class="resaltado123">Resources:</marcador> En Terraform, los resources o recursos son los bloques fundamentales que describen los elementos de infraestructura que se quieren crear, modificar o eliminar. Cada bloque resource declara un tipo de recurso (como aws_instance, azurerm_storage_account o google_compute_network) y un nombre lógico para identificarlo dentro del proyecto. Estos recursos están ligados a proveedores (providers) y definen las propiedades necesarias para que Terraform pueda interactuar con la API del servicio correspondiente. A través de los recursos, se describe la infraestructura deseada en un lenguaje declarativo, y es Terraform quien se encarga de aplicarlo en el proveedor correspondiente. Por ejemplo, un recurso puede representar una instancia de máquina virtual, un bucket de almacenamiento o un grupo de seguridad, entre muchos otros. Al definir recursos, Terraform genera una representación del estado deseado de la infraestructura, y al aplicar los cambios, compara ese estado con el real, ajustando lo necesario para que coincidan. Esto hace posible automatizar el despliegue, mantenimiento y eliminación de componentes de forma segura y repetible.</li>
                     <div class="blog-image-grande">
                         <img src="media/terraform4.png" alt="">
                     </div>
-                    <li>⌭ <marcador class="resaltado3">Modules: </marcador>Los módulos son bloques reutilizables de configuración de Terraform. Permiten estructurar y reutilizar código para gestionar partes complejas de infraestructura como un clúster completo o una arquitectura multi-nivel.</li>
+                    <li>⌭ <marcador class="resaltado123">Modules:</marcador> Los módulos son bloques reutilizables de configuración de Terraform. Permiten estructurar y reutilizar código para gestionar partes complejas de infraestructura como un clúster completo o una arquitectura multi-nivel.</li>
                     <p>En Terraform se separan los módulos reutilizables de la configuración principal (o root module). Un módulo puede ser cualquier conjunto de archivos .tf dentro de una carpeta que define recursos específicos, como una red, una instancia EC2, etc.</p>
                     <p>Dentro de un módulo:</p>
                     <ul style="list-style-type: none;">
@@ -104,7 +104,7 @@
                     <div class="blog-image-grande">
                         <img src="media/terraform6.png" alt="">
                     </div>
-                    <li>⌭ <marcador class="resaltado3">Variables: </marcador>En Terraform, las variables de entrada permiten que las configuraciones sean reutilizables y dinámicas, ya que separan la definición de los recursos de los valores concretos que estos deben utilizar. Dentro de un módulo, el archivo variables.tf se encarga de definir las variables que ese módulo necesita para funcionar, utilizando bloques variable que establecen su tipo, posibles valores por defecto o descripciones. Por otro lado, fuera del módulo, los valores concretos que se asignan a esas variables suelen estar en un archivo con extensión .tfvars, el cual sirve para parametrizar la infraestructura según el entorno deseado.</li>
+                    <li>⌭ <marcador class="resaltado123">Variables:</marcador> En Terraform, las variables de entrada permiten que las configuraciones sean reutilizables y dinámicas, ya que separan la definición de los recursos de los valores concretos que estos deben utilizar. Dentro de un módulo, el archivo variables.tf se encarga de definir las variables que ese módulo necesita para funcionar, utilizando bloques variable que establecen su tipo, posibles valores por defecto o descripciones. Por otro lado, fuera del módulo, los valores concretos que se asignan a esas variables suelen estar en un archivo con extensión .tfvars, el cual sirve para parametrizar la infraestructura según el entorno deseado.</li>
                     <p>De este modo, aunque ambos archivos están relacionados con las variables de entrada, cumplen funciones diferentes: uno define las variables, y el otro les proporciona valores específicos. Esta separación permite reutilizar módulos con diferentes configuraciones dependiendo del entorno (como desarrollo, pruebas o producción), sin necesidad de duplicar código. Los valores también pueden ser pasados desde la línea de comandos o mediante variables de entorno, lo que ofrece flexibilidad adicional para automatizar y gestionar despliegues en múltiples contextos.</p>
                     <div class="blog-image-grande">
                         <img src="media/terraform55.png" alt="">
@@ -112,12 +112,12 @@
                     <div class="blog-image-grande">
                         <img src="media/terraform5.png" alt="">
                     </div>
-                    <li>⌭ <marcador class="resaltado3">State file (terraform.tfstate): </marcador>En Terraform, el archivo de estado o state file (terraform.tfstate) es un componente fundamental que mantiene un registro de la infraestructura real que ha sido creada. Este archivo actúa como una fuente de verdad para Terraform, permitiéndole saber qué recursos existen, cuáles fueron sus valores en la última ejecución, y cómo se relacionan entre sí. Gracias a este archivo, Terraform puede hacer operaciones diferenciales: es decir, comparar el estado actual con el deseado (definido en los archivos .tf) y aplicar únicamente los cambios necesarios. El archivo de estado puede almacenarse localmente o en servicios remotos como AWS S3 o Terraform Cloud, lo cual es importante en equipos de trabajo para evitar conflictos.</li>
+                    <li>⌭ <marcador class="resaltado123">State file (terraform.tfstate):</marcador> En Terraform, el archivo de estado o state file (terraform.tfstate) es un componente fundamental que mantiene un registro de la infraestructura real que ha sido creada. Este archivo actúa como una fuente de verdad para Terraform, permitiéndole saber qué recursos existen, cuáles fueron sus valores en la última ejecución, y cómo se relacionan entre sí. Gracias a este archivo, Terraform puede hacer operaciones diferenciales: es decir, comparar el estado actual con el deseado (definido en los archivos .tf) y aplicar únicamente los cambios necesarios. El archivo de estado puede almacenarse localmente o en servicios remotos como AWS S3 o Terraform Cloud, lo cual es importante en equipos de trabajo para evitar conflictos.</li>
                     <p>Además, como el archivo puede contener datos sensibles (como IPs, contraseñas o tokens), es fundamental gestionarlo con cuidado, aplicando cifrado y control de acceso cuando se almacena de forma remota. El state file no solo permite a Terraform tener memoria de lo que ha hecho, sino que también garantiza consistencia, automatización y precisión en la gestión de la infraestructura.</p>
                     <div class="blog-image-grande">
                         <img src="media/terraform7.png" alt="">
                     </div>
-                    <li>⌭ <marcador class="resaltado3">Outputs: </marcador>Los outputs son valores que Terraform puede devolver al finalizar la ejecución. Son útiles para compartir información entre módulos o para mostrar datos relevantes al usuario.</li>
+                    <li>⌭ <marcador class="resaltado123">Outputs:</marcador> Los outputs son valores que Terraform puede devolver al finalizar la ejecución. Son útiles para compartir información entre módulos o para mostrar datos relevantes al usuario.</li>
                     <div class="blog-image-grande">
                         <img src="media/terraform8.png" alt="">
                     </div>
@@ -125,11 +125,11 @@
                 <h2>¿Cómo funciona?</h2>
                 <p>Terraform sigue un flujo muy específico de trabajo:</p>
                 <ul style="list-style-type: none;">
-                    <li>⍚ <marcador class="resaltado2">Escritura: </marcador>Se define el estado deseado de la infraestructura en archivos .tf usando el lenguaje HCL (HashiCorp Configuration Language).</li>
-                    <li>⍚ <marcador class="resaltado2">Planificación: </marcador>Terraform analiza las configuraciones y muestra los cambios que aplicaría sin hacerlos aún.</li>
-                    <li>⍚ <marcador class="resaltado2">Aplicación: </marcador>Ejecuta los cambios necesarios para que la infraestructura coincida con lo definido.</li>
-                    <li>⍚ <marcador class="resaltado2">Seguimiento: </marcador>El archivo terraform.tfstate se actualiza con la información actual de los recursos.</li>
-                    <li>⍚ <marcador class="resaltado2">Destrucción: </marcador>Borra todos los recursos creados, si se desea desmontar la infraestructura.</li>
+                    <li><marcador class="resaltado2">⍚ </marcador><marcador class="resaltado8">Escritura: </marcador>Se define el estado deseado de la infraestructura en archivos .tf usando el lenguaje HCL (HashiCorp Configuration Language).</li>
+                    <li><marcador class="resaltado2">⍚ </marcador><marcador class="resaltado8">Planificación: </marcador>Terraform analiza las configuraciones y muestra los cambios que aplicaría sin hacerlos aún.</li>
+                    <li><marcador class="resaltado2">⍚ </marcador><marcador class="resaltado8">Aplicación: </marcador>Ejecuta los cambios necesarios para que la infraestructura coincida con lo definido.</li>
+                    <li><marcador class="resaltado2">⍚ </marcador><marcador class="resaltado8">Seguimiento: </marcador>El archivo terraform.tfstate se actualiza con la información actual de los recursos.</li>
+                    <li><marcador class="resaltado2">⍚ </marcador><marcador class="resaltado8">Destrucción: </marcador>Borra todos los recursos creados, si se desea desmontar la infraestructura.</li>
                 </ul>
                 <div class="blog-image-grande">
                     <img src="media/terraform9.png" alt="">
@@ -148,9 +148,9 @@
                 </div>
                 <h2>Configuración</h2>
                 <h6>Instalar Terraform en Windows</h6>
-                <p>Para descargar Terraform en Windows de 64 bits, dirígete a la página oficial de descargas de  <a href="https://developer.hashicorp.com/terraform/downloads" target="blank">Terraform</a>. Una vez allí, localiza la sección correspondiente a Windows y haz clic en la opción de descarga para la versión de 64 bits, lo que iniciará la descarga del archivo <marcador class="subrayado">.zip</marcador>.</p>
-                <p>Una vez descargado el archivo <marcador class="subrayado">.zip</marcador> de Terraform, el siguiente paso es extraer su contenido. Para ello, crea una nueva carpeta en tu disco duro, por ejemplo, <marcador class="resaltado1">C:\Terraform</marcador>, y descomprime el archivo dentro de esta carpeta. Al finalizar la extracción, encontrarás el archivo ejecutable de Terraform, llamado <marcador class="subrayado">terraform.exe</marcador>, dentro de la carpeta que creaste.</p>
-                <p>Para que puedas ejecutar Terraform desde cualquier línea de comandos en tu sistema Windows, es necesario agregar la ubicación del ejecutable <marcador class="subrayado">terraform.exe</marcador> a la variable de entorno Path. Para ello, presiona la tecla de Windows en tu teclado y comienza a escribir "variables de entorno". Debería aparecer la opción "Editar las variables de entorno del sistema". Selecciónala. Esto abrirá directamente la ventana de "Propiedades del sistema" en la pestaña "Opciones avanzadas". Desde allí, haz clic en el botón "Variables de entorno...". Luego, en la sección "Variables del sistema", busca la variable "Path", selecciónala, haz clic en "Editar...", agrega la ruta a la carpeta de <marcador class="subrayado">terraform.exe</marcador> como una nueva entrada, y guarda los cambios con "Aceptar" en todas las ventanas.</p>
+                <p>Para descargar Terraform en Windows de 64 bits, dirígete a la página oficial de descargas de  <a href="https://developer.hashicorp.com/terraform/downloads" target="blank">Terraform</a>. Una vez allí, localiza la sección correspondiente a Windows y haz clic en la opción de descarga para la versión de 64 bits, lo que iniciará la descarga del archivo <marcador class="resaltado1">.zip</marcador>.</p>
+                <p>Una vez descargado el archivo <marcador class="resaltado1">.zip</marcador> de Terraform, el siguiente paso es extraer su contenido. Para ello, crea una nueva carpeta en tu disco duro, por ejemplo, <marcador class="resaltado1">C:\Terraform</marcador>, y descomprime el archivo dentro de esta carpeta. Al finalizar la extracción, encontrarás el archivo ejecutable de Terraform, llamado <marcador class="resaltado1">terraform.exe</marcador>, dentro de la carpeta que creaste.</p>
+                <p>Para que puedas ejecutar Terraform desde cualquier línea de comandos en tu sistema Windows, es necesario agregar la ubicación del ejecutable <marcador class="resaltado1">terraform.exe</marcador> a la variable de entorno Path. Para ello, presiona la tecla de Windows en tu teclado y comienza a escribir "variables de entorno". Debería aparecer la opción "Editar las variables de entorno del sistema". Selecciónala. Esto abrirá directamente la ventana de "Propiedades del sistema" en la pestaña "Opciones avanzadas". Desde allí, haz clic en el botón "Variables de entorno...". Luego, en la sección "Variables del sistema", busca la variable "Path", selecciónala, haz clic en "Editar...", agrega la ruta a la carpeta de <marcador class="resaltado1">terraform.exe</marcador> como una nueva entrada, y guarda los cambios con "Aceptar" en todas las ventanas.</p>
                 <div class="contenedor">
                     <div class="etiqueta">
                         Verificar instalación:
@@ -161,7 +161,7 @@
                     </div>
                 </div>
                 <h6>Instalar AWS CLI en Windows</h6>
-                <p>Para descargar el instalador de la AWS CLI versión 2 en Windows, dirígete a <a href="https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-windows.html" target="blank">AWS</a>. En esa página, localiza y descarga el archivo con extensión  <marcador class="subrayado">.msi</marcador> correspondiente al instalador de la AWS CLI v2 para Windows.</p>
+                <p>Para descargar el instalador de la AWS CLI versión 2 en Windows, dirígete a <a href="https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-windows.html" target="blank">AWS</a>. En esa página, localiza y descarga el archivo con extensión  <marcador class="resaltado1">.msi</marcador> correspondiente al instalador de la AWS CLI v2 para Windows.</p>
                 <p>Una vez que hayas descargado el archivo de la AWS CLI v2, localízalo en tu sistema y haz doble clic sobre él para iniciar el asistente de instalación. Sigue las instrucciones que aparecerán en pantalla para completar el proceso de instalación de la AWS CLI en tu computadora.</p>
                 <div class="contenedor">
                     <div class="etiqueta">
@@ -548,7 +548,7 @@ output "instance_type" {
                 <h6>Funciones de Terraform</h6>
                 <p>Las funciones en Terraform se utilizan principalmente dentro de las expresiones de configuración para manipular valores, realizar cálculos, transformar datos y tomar decisiones dinámicas al definir la infraestructura.</p>
                 <ol style="list-style-type: none;">
-                    <li>✧ <marcador class="resaltado3">Funciones comunes:</marcador></li>
+                    <li>✧ <marcador class="resaltado115">Funciones comunes:</marcador></li>
                     <ul style="list-style-type: none;">
                         <li>∘ <marcador class="resaltado8">file(path): </marcador>Lee el contenido de un archivo local.</li>
                         <p><marcador class="resaltado6">Ejemplo: </marcador>file("user_data.sh")</p>
@@ -571,7 +571,7 @@ output "instance_type" {
                         <li>∘ <marcador class="resaltado8">format(format_string, values...): </marcador>Formatea un string como con printf.</li>
                         <p><marcador class="resaltado6">Ejemplo: </marcador>format("vm-%02d", 5) → "vm-05"</p>
                     </ul>
-                    <li>✧ <marcador class="resaltado3">Funciones de manipulación de cadenas:</marcador></li>
+                    <li>✧ <marcador class="resaltado115">Funciones de manipulación de cadenas:</marcador></li>
                     <ul style="list-style-type: none;">
                         <li>∘ <marcador class="resaltado8">join(delimiter, list): </marcador>Concatena los elementos de una lista de cadenas en una sola cadena, utilizando un delimitador especificado.</li>
                         <li>∘ <marcador class="resaltado8">split(delimiter, string): </marcador>Divide una cadena en una lista de subcadenas utilizando un delimitador especificado.</li>
@@ -581,7 +581,7 @@ output "instance_type" {
                         <li>∘ <marcador class="resaltado8">substring(string, offset, length): </marcador>Extrae una subcadena de una cadena dada.</li>
                         <li>∘ <marcador class="resaltado8">trim(string, chars): </marcador>Elimina los caracteres especificados del inicio y del final de una cadena.</li>
                     </ul>
-                    <li>✧ <marcador class="resaltado3">Funciones numéricas:</marcador></li>
+                    <li>✧ <marcador class="resaltado115">Funciones numéricas:</marcador></li>
                     <ul style="list-style-type: none;">
                         <li>∘ <marcador class="resaltado8">abs(number): </marcador>Devuelve el valor absoluto de un número.</li>
                         <li>∘ <marcador class="resaltado8">ceil(number): </marcador>Devuelve el entero menor o igual al número dado.</li>
@@ -590,7 +590,7 @@ output "instance_type" {
                         <li>∘ <marcador class="resaltado8">min(numbers...): </marcador>Devuelve el valor más pequeño de un conjunto de números.</li>
                         <li>∘ <marcador class="resaltado8">round(number): </marcador>Redondea un número al entero más cercano.</li>
                     </ul>
-                    <li>✧ <marcador class="resaltado3">Funciones de colección (listas y mapas):</marcador></li>
+                    <li>✧ <marcador class="resaltado115">Funciones de colección (listas y mapas):</marcador></li>
                     <ul style="list-style-type: none;">
                         <li>∘ <marcador class="resaltado8">length(collection): </marcador>Devuelve el número de elementos en una lista o el número de claves en un mapa.</li>
                         <li>∘ <marcador class="resaltado8">element(list, index): </marcador>Devuelve el elemento en el índice especificado de una lista.</li>
@@ -601,7 +601,7 @@ output "instance_type" {
                         <li>∘ <marcador class="resaltado8">tolist(set): </marcador>Convierte un conjunto en una lista.</li>
                         <li>∘ <marcador class="resaltado8">toset(list): </marcador>Convierte una lista en un conjunto (eliminando duplicados).</li>
                     </ul>
-                    <li>✧ <marcador class="resaltado3">Funciones de lógica y comparación:</marcador></li>
+                    <li>✧ <marcador class="resaltado115">Funciones de lógica y comparación:</marcador></li>
                     <ul style="list-style-type: none;">
                         <li>∘ <marcador class="resaltado8">contains(collection, value): </marcador>Indica si una colección contiene un valor específico.</li>
                         <li>∘ <marcador class="resaltado8">startswith(string, prefix): </marcador>Indica si una cadena comienza con un prefijo específico.</li>
@@ -609,19 +609,19 @@ output "instance_type" {
                         <li>∘ <marcador class="resaltado8">equal(a, b): </marcador>Compara si dos valores son iguales.</li>
                         <li>∘ <marcador class="resaltado8">not_equal(a, b): </marcador>Compara si dos valores no son iguales.</li>
                     </ul>
-                    <li>✧ <marcador class="resaltado3">Funciones de codificación:</marcador></li>
+                    <li>✧ <marcador class="resaltado115">Funciones de codificación:</marcador></li>
                     <ul style="list-style-type: none;">
                         <li>∘ <marcador class="resaltado8">base64encode(string): </marcador>Codifica una cadena en Base64.</li>
                         <li>∘ <marcador class="resaltado8">base64decode(string): </marcador>Decodifica una cadena desde Base64.</li>
                         <li>∘ <marcador class="resaltado8">jsonencode(value): </marcador>Codifica un valor en formato JSON.</li>
                         <li>∘ <marcador class="resaltado8">jsondecode(string): </marcador>Decodifica una cadena JSON en un valor de Terraform.</li>
                     </ul>
-                    <li>✧ <marcador class="resaltado3">Funciones de fecha y tiempo:</marcador></li>
+                    <li>✧ <marcador class="resaltado115">Funciones de fecha y tiempo:</marcador></li>
                     <ul style="list-style-type: none;">
                         <li>∘ <marcador class="resaltado8">timestamp(): </marcador>Devuelve la hora actual en formato RFC3339.</li>
                         <li>∘ <marcador class="resaltado8">formatdate(format, timestamp): </marcador>Formatea una marca de tiempo en un formato específico.</li>
                     </ul>
-                    <li>✧ <marcador class="resaltado3">Otras funciones importantes:</marcador></li>
+                    <li>✧ <marcador class="resaltado115">Otras funciones importantes:</marcador></li>
                     <ul style="list-style-type: none;">
                         <li>∘ <marcador class="resaltado8">lookup(map, key, default): </marcador>Busca un valor en un mapa usando una clave. Si la clave no existe, devuelve un valor predeterminado (si se proporciona).</li>
                         <li>∘ <marcador class="resaltado8">default(value, default_value): </marcador>Devuelve el valor dado si no es nulo ni una cadena vacía; de lo contrario, devuelve el valor predeterminado.</li>
