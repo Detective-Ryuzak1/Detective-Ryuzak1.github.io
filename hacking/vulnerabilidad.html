@@ -54,7 +54,7 @@
                 <div class="blog-image-grande">
                     <img src="media/vuln1.jpg" alt="">
                 </div> 
-                <h4>Recursos clave</h4>
+                <h6>Recursos clave</h6>
                 <p>Para entender cómo se investigan y explotan estas fallas, los profesionales de la seguridad utilizan repositorios de conocimiento y herramientas especializadas:</p>
                 <ol style="list-style-type: none;">
                     <li>⌾ <marcador class="resaltado9"><a href="https://github.com/swisskyrepo/PayloadsAllTheThings" target="blank">PayloadsAllTheThings: </a></marcador>Una guía exhaustiva paso a paso sobre metodologías de hacking, escalada de privilegios y explotación de servicios tanto en entornos Windows como Linux.</li>
@@ -65,7 +65,7 @@
                 <div class="blog-image-grande">
                     <img src="media/vuln3.jpg" alt="">
                 </div> 
-                <h4>¿Cómo funciona una vulnerabilidad y su explotación?</h4>
+                <h7>¿Cómo funciona una vulnerabilidad y su explotación?</h7>
                 <p>Para ilustrar el proceso, tomemos un clásico ejemplo conceptual: la Inyección de Comandos (Command Injection) en una aplicación web mal sanitizada.</p>
                 <p>Imagina una aplicación web que permite a los usuarios hacer un ping a una dirección IP escribiéndola en un formulario. Por dentro, el servidor toma ese texto y lo ejecuta directamente en el sistema operativo:</p>
                                     <div class="consola">
@@ -87,9 +87,9 @@
                 <p>⍟ <marcador class="resaltado8">Codificación: </marcador>A menudo, para evitar que los caracteres especiales rompan la petición HTTP, el atacante utiliza CyberChef para codificar su comando malicioso en Base64 o URL Encoding antes de enviarlo.</p>
                 <p>El impacto de una vulnerabilidad de este tipo suele ser crítico:</p>
                 <ol style="list-style-type: none;">
-                    <li>◦ <marcador class="resaltado2">Compromiso Total del Servidor (RCE): </marcador>Permite Ejecución Remota de Código.</li>
-                    <li>◦ <marcador class="resaltado2">Escalada de Privilegios: </marcador>Si la aplicación web corre con permisos elevados (por ejemplo, como usuario SYSTEM o root), el atacante toma el control absoluto de la máquina.</li>
-                    <li>◦ <marcador class="resaltado2">Robo de Datos y Pivote:</marcador>Facilita la extracción de información confidencial y sirve como punto de partida para atacar otros equipos dentro de la misma red.</li>
+                    <li>◦ <marcador class="resaltado3">Compromiso Total del Servidor (RCE): </marcador>Permite Ejecución Remota de Código.</li>
+                    <li>◦ <marcador class="resaltado3">Escalada de Privilegios: </marcador>Si la aplicación web corre con permisos elevados (por ejemplo, como usuario SYSTEM o root), el atacante toma el control absoluto de la máquina.</li>
+                    <li>◦ <marcador class="resaltado3">Robo de Datos y Pivote:</marcador>Facilita la extracción de información confidencial y sirve como punto de partida para atacar otros equipos dentro de la misma red.</li>
                 </ol>
                 <div class="blog-image-grande">
                     <img src="media/vuln2.png" alt="">
@@ -164,7 +164,7 @@
                 <h2>Burpsuite</h2>
                 <p>Burp Suite es una de las plataformas y herramientas de software más populares y utilizadas en el ámbito de la ciberseguridad, específicamente para realizar pruebas de penetración (pentesting) en aplicaciones web y auditorías de seguridad.</p>
                 <p>Funciona principalmente como un proxy de intercepción HTTP/HTTPS que se sitúa en medio del navegador del usuario (o cliente) y la aplicación web objetivo. Esto permite interceptar, ver, modificar y reenviar todas las solicitudes y respuestas que viajan entre ambos extremos en tiempo real.</p>
-                <h4>Características y funciones principales</h4>
+                <h3>Características y funciones principales</h3>
                 <ol style="list-style-type: none;">
                     <li>◍ <marcador class="resaltado2">Proxy de intercepción: </marcador>Permite pausar el tráfico web para analizar cada parámetro, cabecera o cookie, modificar los datos de forma manual e intentar alterar el comportamiento de la aplicación.</li>
                     <li>◍ <marcador class="resaltado2">Escáner de vulnerabilidades: </marcador>Cuenta con herramientas automatizadas (en sus versiones avanzadas) para detectar fallos comunes de seguridad como Inyección SQL, XSS, CSRF, entre otros.</li>
