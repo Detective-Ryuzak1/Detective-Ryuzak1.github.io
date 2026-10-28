@@ -385,6 +385,26 @@ a:hover {
     font-family: 'Roboto';
 }
 
+.resaltado121 {
+    /*color: rgb(137, 170, 231);
+    opacity: 1;*/
+    background: linear-gradient(120deg, #bbff00 0%, #ffad29 100%);
+    color: #000000;
+    border-radius: 4px;
+    padding: 0px 4px;
+    font-family: 'Roboto';
+}
+
+.resaltado122 {
+    /*color: rgb(137, 170, 231);
+    opacity: 1;*/
+    background: linear-gradient(120deg, #c3ff00 0%, #eaff29 100%);
+    color: #000000;
+    border-radius: 4px;
+    padding: 0px 4px;
+    font-family: 'Roboto';
+}
+
 .resaltado111 {
     color: rgb(255, 0, 128);
     opacity: 1.5;
@@ -419,6 +439,16 @@ a:hover {
     color: rgb(0, 0, 0);
     opacity: 1.5;
     background-color: rgb(123, 255, 0);
+    border-radius: 5px;
+    padding-left: 3px; /* Agrega padding a la izquierda */
+    padding-right: 3px; /* Agrega padding a la derecha */
+    font-family: 'Roboto';
+}
+
+.resaltado115 {
+    color: rgb(0, 0, 0);
+    opacity: 1.5;
+    background-color: rgb(220, 68, 18);
     border-radius: 5px;
     padding-left: 3px; /* Agrega padding a la izquierda */
     padding-right: 3px; /* Agrega padding a la derecha */
@@ -463,6 +493,13 @@ a:hover {
     font-family: 'Roboto';
 }
 
+.resaltado16 {
+    font-style: italic;
+    opacity: 1.5;
+    color: #eef2a0; /* Cambia el color a tu preferencia */
+    font-family: 'Roboto';
+}
+
 /* Resultado de ecuaciones */
 .resaltado7 {
     border: 1px solid #e9ff22;
@@ -474,6 +511,7 @@ a:hover {
     padding: 4px;
     font-family: 'Roboto';
 }
+
 
  /* Subrayado */
  .resaltado15 {
