@@ -102,31 +102,31 @@
                 </div>
                 <h2>Ventajas de la arquitectura Maestro-Trabajador:</h2>
                 <ul>
-                    <li><marcador class="resaltado6">Escalabilidad: </marcador>Permite procesar grandes cantidades de datos distribuyendo el trabajo entre varios nodos.</li>
-                    <li><marcador class="resaltado6">Tolerancia a fallos: </marcador>Si un nodo trabajador falla, el maestro puede reasignar la tarea a otro nodo disponible.</li>
-                    <li><marcador class="resaltado6">Flexibilidad: </marcador>Se puede usar con distintos sistemas de gestión de clústeres y en la nube o en instalaciones locales.</li>
+                    <li><marcador class="resaltado115">Escalabilidad:</marcador> Permite procesar grandes cantidades de datos distribuyendo el trabajo entre varios nodos.</li>
+                    <li><marcador class="resaltado115">Tolerancia a fallos:</marcador> Si un nodo trabajador falla, el maestro puede reasignar la tarea a otro nodo disponible.</li>
+                    <li><marcador class="resaltado115">Flexibilidad:</marcador> Se puede usar con distintos sistemas de gestión de clústeres y en la nube o en instalaciones locales.</li>
                 </ul>
                 <p>Entonces, sí, hay un nodo maestro en la orquestación de clústeres en Spark. Este nodo maestro coordina y organiza el procesamiento, mientras que los nodos trabajadores ejecutan las tareas distribuidas, permitiendo manejar datos a gran escala con eficiencia y rapidez.</p>
                 <h2>Pandas vs PySpark</h2>
                 <p>PySpark y pandas son similares en cuanto a su propósito, ya que ambas herramientas se utilizan para manipular y analizar datos. Sin embargo, tienen diferencias clave, especialmente en el tipo de datos que manejan y el tamaño de los conjuntos de datos para los que están diseñados.</p>
                 <p>Las diferencias principales entre PySpark y pandas son:</p>
                 <ol>
-                    <li><marcador class="resaltado115">Escalabilidad y manejo de grandes volúmenes de datos: </marcador></li>
+                    <li><marcador class="resaltado6">Escalabilidad y manejo de grandes volúmenes de datos: </marcador></li>
                     <ul style="list-style-type: none;">
                         <li>◉ <marcador class="resaltado8">Pandas: </marcador>Su principal estructura de datos es el DataFrame, que es una tabla en memoria con filas y columnas. Pandas proporciona una gran cantidad de métodos y funciones para trabajar con datos en formato tabular de manera muy eficiente.</li>
                         <li>◉ <marcador class="resaltado8">PySpark: </marcador>También utiliza DataFrames, pero estos son estructuras distribuidas que se procesan en paralelo en un clúster de Spark. Esto hace que algunos métodos y operaciones en PySpark sean diferentes o no tan directos como en pandas, ya que deben realizarse de forma distribuida.</li>
                     </ul>
-                    <li><marcador class="resaltado115">Estructura de datos: </marcador></li>
+                    <li><marcador class="resaltado6">Estructura de datos: </marcador></li>
                     <ul style="list-style-type: none;">
                         <li>◉ <marcador class="resaltado8">Pandas: </marcador>Es muy rápido en operaciones en una sola máquina, especialmente para conjuntos de datos pequeños y medianos.</li>
                         <li>◉ <marcador class="resaltado8">PySpark: </marcador>Aunque tiene una latencia más alta en la inicialización y ciertas operaciones, debido a la coordinación entre máquinas en el clúster, su ventaja es que puede procesar terabytes de datos en paralelo, lo que lo hace mucho más rápido que pandas para grandes volúmenes.</li>
                     </ul>
-                    <li><marcador class="resaltado115">Velocidad de procesamiento: </marcador></li>
+                    <li><marcador class="resaltado6">Velocidad de procesamiento: </marcador></li>
                     <ul style="list-style-type: none;">
                         <li>◉ <marcador class="resaltado8">Pandas: </marcador>Tiene una gran cantidad de funciones para manipular datos en memoria, y su sintaxis es bastante sencilla y directa.</li>
                         <li>◉ <marcador class="resaltado8">PySpark: </marcador>Tiene una sintaxis algo similar a pandas, pero algunas operaciones pueden ser menos intuitivas debido a la necesidad de realizar procesamiento distribuido. Además, muchas funciones deben expresarse usando el API de Spark, que tiene sus propias particularidades.</li>
                     </ul>
-                    <li><marcador class="resaltado115">Uso de funciones y operaciones: </marcador></li>
+                    <li><marcador class="resaltado6">Uso de funciones y operaciones: </marcador></li>
                     <ul style="list-style-type: none;">
                         <li>◉ <marcador class="resaltado8">Pandas: </marcador>Para proyectos que pueden manejarse en una sola máquina y cuando el tamaño de los datos es lo suficientemente pequeño como para caber en la memoria RAM.</li>
                         <li>◉ <marcador class="resaltado8">PySpark: </marcador>Cuando trabajas con big data, necesitas procesamiento en paralelo o estás trabajando en un entorno de clúster.</li>
