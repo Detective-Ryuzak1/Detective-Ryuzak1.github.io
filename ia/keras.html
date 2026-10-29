@@ -148,17 +148,17 @@
                 <p>Ajustar estos hiperparámetros de manera adecuada es crucial para obtener un rendimiento óptimo del modelo en una variedad de problemas de aprendizaje automático y profundamente aprendidos.</p>
                 <p>Estas son tres técnicas comunes utilizadas para ajustar los hiperparámetros de un modelo de aprendizaje automático:</p>
                 <ul>
-                    <li><marcador class="resaltado112">Búsqueda en Cuadrícula (Grid Search):</marcador></li>
+                    <li><marcador class="resaltado119">Búsqueda en Cuadrícula (Grid Search):</marcador></li>
                     <ul type="none">
                         <li>λ <marcador class="resaltado8">Descripción: </marcador>En la búsqueda en cuadrícula, se especifica una lista de valores posibles para cada hiperparámetro que se desea ajustar. Luego, se evalúa el rendimiento del modelo para todas las combinaciones posibles de valores de hiperparámetros utilizando una estrategia de validación cruzada.</li>
                         <li>λ <marcador class="resaltado8">Aplicación: </marcador>Es útil cuando se tiene un conjunto de hiperparámetros relativamente pequeño y el espacio de búsqueda es manejable. Sin embargo, puede volverse computacionalmente costoso a medida que el número de hiperparámetros y valores posibles aumenta.</li>
                     </ul>
-                    <li><marcador class="resaltado112">Búsqueda Aleatoria (Random Search):</marcador></li>
+                    <li><marcador class="resaltado119">Búsqueda Aleatoria (Random Search):</marcador></li>
                     <ul type="none">
                         <li>λ <marcador class="resaltado8">Descripción: </marcador>En la búsqueda aleatoria, se seleccionan aleatoriamente combinaciones de valores de hiperparámetros para evaluar el rendimiento del modelo. A diferencia de la búsqueda en cuadrícula, no se exploran todas las combinaciones posibles, lo que puede llevar a un ahorro de tiempo significativo.</li>
                         <li>λ <marcador class="resaltado8">Aplicación: </marcador>Es útil cuando el espacio de búsqueda de hiperparámetros es grande y explorar todas las combinaciones posibles es computacionalmente costoso. A menudo, la búsqueda aleatoria puede encontrar combinaciones de hiperparámetros que son igual de buenas o mejores que las encontradas por la búsqueda en cuadrícula.</li>
                     </ul>
-                    <li><marcador class="resaltado112">Optimización Bayesiana:</marcador></li>
+                    <li><marcador class="resaltado119">Optimización Bayesiana:</marcador></li>
                     <ul type="none">
                         <li>λ <marcador class="resaltado8">Descripción: </marcador>La optimización bayesiana utiliza métodos basados en probabilidades para encontrar la combinación óptima de hiperparámetros. En lugar de evaluar todas las combinaciones posibles, utiliza información sobre iteraciones anteriores para decidir qué combinación de hiperparámetros explorar a continuación.</li>
                         <li>λ <marcador class="resaltado8">Aplicación: </marcador>Es útil cuando el espacio de búsqueda es grande y costoso de explorar, ya que tiende a encontrar combinaciones de hiperparámetros que son óptimas en menos iteraciones en comparación con la búsqueda aleatoria o en cuadrícula. Es particularmente efectiva cuando el rendimiento del modelo es difícil de predecir y cuando el tiempo de cómputo es limitado.</li>
