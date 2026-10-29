@@ -497,7 +497,7 @@ a:hover {
     /*color: rgb(137, 170, 231);
     opacity: 1;*/
     background: linear-gradient(120deg, #dfd110 0%, #e31a96 100%);
-    color: #ffffff;
+    color: #000000;
     border-radius: 4px;
     padding: 0px 4px;
     font-family: 'Roboto';
