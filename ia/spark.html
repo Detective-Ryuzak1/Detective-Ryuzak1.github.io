@@ -65,26 +65,26 @@
                 <p>En Apache Spark (y en muchos otros sistemas distribuidos), el clúster se organiza en una arquitectura Master-Slave (Maestro-Esclavo), donde hay un nodo maestro y varios nodos trabajadores (workers). Esta estructura permite una distribución y administración eficiente del trabajo en el clúster.</p>
                 <p>Apache Spark se divide en:</p>
                 <ol style="list-style-type: none;">
-                    <li>▸ <marcador class="resaltado3">Nodo Maestro (Master):</marcador></li>
+                    <li>▸ <marcador class="resaltado118">Nodo Maestro (Master):</marcador></li>
                     <ul style="list-style-type: none;">
                         <li>🔸El nodo maestro coordina y administra el clúster.</li>
                         <li>🔸Asigna tareas a los nodos trabajadores y realiza un seguimiento de su progreso.</li>
                         <li>🔸Maneja la división y distribución de los trabajos (o "jobs") que Spark recibe para procesar.</li>
                         <li>🔸Gestiona la división de tareas en subtareas más pequeñas y la asignación de estas a los nodos trabajadores.</li>
                     </ul>
-                    <li>▸ <marcador class="resaltado3">Nodos Trabajadores (Workers):</marcador></li>
+                    <li>▸ <marcador class="resaltado118">Nodos Trabajadores (Workers):</marcador></li>
                     <ul style="list-style-type: none;">
                         <li>🔸Los nodos trabajadores realizan el procesamiento real de los datos.</li>
                         <li>🔸Cada worker tiene múltiples ejecutores (executors) que ejecutan las tareas específicas asignadas por el nodo maestro.</li>
                         <li>🔸Los workers reciben sus tareas del nodo maestro y ejecutan operaciones en los datos, como filtros, mapeos, agregaciones, etc.</li>
                         <li>🔸Cada worker se encarga de una parte del conjunto de datos, procesándolos en paralelo con otros workers, lo que permite manejar grandes volúmenes de datos de manera rápida.</li>
                     </ul>
-                    <li>▸ <marcador class="resaltado3">Driver:</marcador></li>
+                    <li>▸ <marcador class="resaltado118">Driver:</marcador></li>
                     <ul style="list-style-type: none;">
                         <li>🔸El Driver es la aplicación que envía el trabajo al clúster. Inicia el proceso de cálculo en Spark, definiendo la lógica del procesamiento y los datos que se van a analizar.</li>
                         <li>🔸Interactúa directamente con el nodo maestro para crear un DAG (gráfico acíclico dirigido) de tareas, que luego es gestionado por el maestro.</li>
                     </ul>
-                    <li>▸ <marcador class="resaltado3">Cluster Manager:</marcador></li>
+                    <li>▸ <marcador class="resaltado118">Cluster Manager:</marcador></li>
                     <ul style="list-style-type: none;">
                         <li>🔸Apache Spark puede ejecutarse en varios sistemas de gestión de clústeres, como YARN (en Hadoop), Mesos o Kubernetes.</li>
                         <li>🔸El gestor del clúster asigna recursos a los nodos del clúster (como memoria y CPU), de modo que Spark pueda ejecutar tareas de manera eficiente.</li>
@@ -102,31 +102,31 @@
                 </div>
                 <h2>Ventajas de la arquitectura Maestro-Trabajador:</h2>
                 <ul>
-                    <li><marcador class="resaltado9">Escalabilidad: </marcador>Permite procesar grandes cantidades de datos distribuyendo el trabajo entre varios nodos.</li>
-                    <li><marcador class="resaltado9">Tolerancia a fallos: </marcador>Si un nodo trabajador falla, el maestro puede reasignar la tarea a otro nodo disponible.</li>
-                    <li><marcador class="resaltado9">Flexibilidad: </marcador>Se puede usar con distintos sistemas de gestión de clústeres y en la nube o en instalaciones locales.</li>
+                    <li><marcador class="resaltado6">Escalabilidad: </marcador>Permite procesar grandes cantidades de datos distribuyendo el trabajo entre varios nodos.</li>
+                    <li><marcador class="resaltado6">Tolerancia a fallos: </marcador>Si un nodo trabajador falla, el maestro puede reasignar la tarea a otro nodo disponible.</li>
+                    <li><marcador class="resaltado6">Flexibilidad: </marcador>Se puede usar con distintos sistemas de gestión de clústeres y en la nube o en instalaciones locales.</li>
                 </ul>
                 <p>Entonces, sí, hay un nodo maestro en la orquestación de clústeres en Spark. Este nodo maestro coordina y organiza el procesamiento, mientras que los nodos trabajadores ejecutan las tareas distribuidas, permitiendo manejar datos a gran escala con eficiencia y rapidez.</p>
                 <h2>Pandas vs PySpark</h2>
                 <p>PySpark y pandas son similares en cuanto a su propósito, ya que ambas herramientas se utilizan para manipular y analizar datos. Sin embargo, tienen diferencias clave, especialmente en el tipo de datos que manejan y el tamaño de los conjuntos de datos para los que están diseñados.</p>
                 <p>Las diferencias principales entre PySpark y pandas son:</p>
                 <ol>
-                    <li><marcador class="resaltado9">Escalabilidad y manejo de grandes volúmenes de datos: </marcador></li>
+                    <li><marcador class="resaltado115">Escalabilidad y manejo de grandes volúmenes de datos: </marcador></li>
                     <ul style="list-style-type: none;">
                         <li>◉ <marcador class="resaltado8">Pandas: </marcador>Su principal estructura de datos es el DataFrame, que es una tabla en memoria con filas y columnas. Pandas proporciona una gran cantidad de métodos y funciones para trabajar con datos en formato tabular de manera muy eficiente.</li>
                         <li>◉ <marcador class="resaltado8">PySpark: </marcador>También utiliza DataFrames, pero estos son estructuras distribuidas que se procesan en paralelo en un clúster de Spark. Esto hace que algunos métodos y operaciones en PySpark sean diferentes o no tan directos como en pandas, ya que deben realizarse de forma distribuida.</li>
                     </ul>
-                    <li><marcador class="resaltado9">Estructura de datos: </marcador></li>
+                    <li><marcador class="resaltado115">Estructura de datos: </marcador></li>
                     <ul style="list-style-type: none;">
                         <li>◉ <marcador class="resaltado8">Pandas: </marcador>Es muy rápido en operaciones en una sola máquina, especialmente para conjuntos de datos pequeños y medianos.</li>
                         <li>◉ <marcador class="resaltado8">PySpark: </marcador>Aunque tiene una latencia más alta en la inicialización y ciertas operaciones, debido a la coordinación entre máquinas en el clúster, su ventaja es que puede procesar terabytes de datos en paralelo, lo que lo hace mucho más rápido que pandas para grandes volúmenes.</li>
                     </ul>
-                    <li><marcador class="resaltado9">Velocidad de procesamiento: </marcador></li>
+                    <li><marcador class="resaltado115">Velocidad de procesamiento: </marcador></li>
                     <ul style="list-style-type: none;">
                         <li>◉ <marcador class="resaltado8">Pandas: </marcador>Tiene una gran cantidad de funciones para manipular datos en memoria, y su sintaxis es bastante sencilla y directa.</li>
                         <li>◉ <marcador class="resaltado8">PySpark: </marcador>Tiene una sintaxis algo similar a pandas, pero algunas operaciones pueden ser menos intuitivas debido a la necesidad de realizar procesamiento distribuido. Además, muchas funciones deben expresarse usando el API de Spark, que tiene sus propias particularidades.</li>
                     </ul>
-                    <li><marcador class="resaltado9">Uso de funciones y operaciones: </marcador></li>
+                    <li><marcador class="resaltado115">Uso de funciones y operaciones: </marcador></li>
                     <ul style="list-style-type: none;">
                         <li>◉ <marcador class="resaltado8">Pandas: </marcador>Para proyectos que pueden manejarse en una sola máquina y cuando el tamaño de los datos es lo suficientemente pequeño como para caber en la memoria RAM.</li>
                         <li>◉ <marcador class="resaltado8">PySpark: </marcador>Cuando trabajas con big data, necesitas procesamiento en paralelo o estás trabajando en un entorno de clúster.</li>

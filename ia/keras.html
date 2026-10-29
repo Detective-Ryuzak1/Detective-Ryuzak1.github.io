@@ -63,26 +63,26 @@
                 <div class="blog-image-grande">
                     <img src="media/keras2.png" alt="">
                 </div>
-                <h6>CNN</h6>
+                <h7>CNN</h7>
                 <p>Las Redes Neuronales Convolucionales (CNN) son un tipo especializado de redes neuronales diseñadas principalmente para procesar datos de tipo grid, como imágenes. Funcionan mediante la aplicación de filtros convolucionales a la entrada, seguido de operaciones de agrupación (pooling) para reducir la dimensionalidad y finalmente, capas completamente conectadas para realizar la clasificación o regresión.</p>
                 <ul type="none">
-                    <li>✦ <marcador class="resaltado4">Convolución: </marcador>La convolución implica deslizar un filtro sobre la entrada y calcular la suma ponderada de los valores en la región de entrada correspondiente al filtro. Esto ayuda a detectar patrones locales como bordes, texturas o formas.</li>
-                    <li>✦ <marcador class="resaltado4">Funciones de Activación: </marcador>Después de cada operación de convolución, se aplica una función de activación (generalmente ReLU) para introducir no linealidad en la red.</li>
-                    <li>✦ <marcador class="resaltado4">Agrupación (Pooling): </marcador>Las capas de agrupación se utilizan para reducir la dimensionalidad de las características extraídas, manteniendo las características más importantes. La operación comúnmente usada es el max-pooling, que conserva el valor máximo en cada región de agrupación.</li>
-                    <li>✦ <marcador class="resaltado4">Capas Completamente Conectadas: </marcador>Después de varias capas de convolución y agrupación, las características se aplanan y se pasan a través de capas completamente conectadas para realizar la clasificación final.</li>
+                    <li>✦ <marcador class="resaltado116">Convolución:</marcador> La convolución implica deslizar un filtro sobre la entrada y calcular la suma ponderada de los valores en la región de entrada correspondiente al filtro. Esto ayuda a detectar patrones locales como bordes, texturas o formas.</li>
+                    <li>✦ <marcador class="resaltado116">Funciones de Activación:</marcador> Después de cada operación de convolución, se aplica una función de activación (generalmente ReLU) para introducir no linealidad en la red.</li>
+                    <li>✦ <marcador class="resaltado116">Agrupación (Pooling):</marcador> Las capas de agrupación se utilizan para reducir la dimensionalidad de las características extraídas, manteniendo las características más importantes. La operación comúnmente usada es el max-pooling, que conserva el valor máximo en cada región de agrupación.</li>
+                    <li>✦ <marcador class="resaltado116">Capas Completamente Conectadas:</marcador> Después de varias capas de convolución y agrupación, las características se aplanan y se pasan a través de capas completamente conectadas para realizar la clasificación final.</li>
                 </ul>
                 <p>Las CNN tienen la capacidad de aprender automáticamente características jerárquicas en los datos, lo que las hace extremadamente poderosas en tareas de visión por computadora como reconocimiento de imágenes, segmentación semántica y detección de objetos. Además, su capacidad de compartir pesos y su invarianza a la traslación las hacen eficientes en el manejo de datos de entrada con variaciones espaciales.</p>
                 <div class="blog-image-grande">
                     <img src="media/keras3.png" alt="">
                 </div>
-                <h6>RNN</h6>
+                <h7>RNN</h7>
                 <p>Las Redes Neuronales Recurrentes (RNN) son un tipo de red neuronal diseñada para trabajar con datos secuenciales, como series temporales, texto o audio. A diferencia de las redes feedforward tradicionales, las RNN tienen conexiones recurrentes que les permiten mantener y utilizar información sobre estados anteriores en la secuencia de entrada.</p>
                 <p>El funcionamiento básico de una RNN implica que cada neurona en la red tiene una "memoria" interna que recuerda la información procesada anteriormente. Esto le permite a la red capturar dependencias a lo largo del tiempo en los datos de entrada.</p>
                 <ul type="none">
-                    <li>✦ <marcador class="resaltado4">Recurrencia: </marcador>En cada paso de tiempo, la RNN toma una entrada y una representación de su estado anterior, y produce una salida y una actualización de su estado interno.</li>
-                    <li>✦ <marcador class="resaltado4">Compartir Pesos: </marcador>A diferencia de las redes feedforward, donde cada capa tiene sus propios pesos, las RNN comparten los mismos pesos a lo largo de todas las etapas de tiempo. Esto permite que la red aprenda patrones en secuencias de longitud variable.</li>
-                    <li>✦ <marcador class="resaltado4">Backpropagation Through Time (BPTT): </marcador>Durante el entrenamiento, se utiliza el algoritmo de retropropagación a lo largo del tiempo (BPTT) para calcular los gradientes y ajustar los pesos de la red.</li>
-                    <li>✦ <marcador class="resaltado4">Problema de Desvanecimiento/Explotación del Gradiente: </marcador>Las RNN tradicionales pueden sufrir de problemas de desvanecimiento o explosión del gradiente, lo que dificulta el entrenamiento de dependencias a largo plazo. Para abordar este problema, se han desarrollado variantes de RNN como Long Short-Term Memory (LSTM) y Gated Recurrent Unit (GRU), que incorporan mecanismos de memoria más sofisticados.</li>
+                    <li>✦ <marcador class="resaltado116">Recurrencia:</marcador> En cada paso de tiempo, la RNN toma una entrada y una representación de su estado anterior, y produce una salida y una actualización de su estado interno.</li>
+                    <li>✦ <marcador class="resaltado116">Compartir Pesos:</marcador> A diferencia de las redes feedforward, donde cada capa tiene sus propios pesos, las RNN comparten los mismos pesos a lo largo de todas las etapas de tiempo. Esto permite que la red aprenda patrones en secuencias de longitud variable.</li>
+                    <li>✦ <marcador class="resaltado116">Backpropagation Through Time (BPTT):</marcador> Durante el entrenamiento, se utiliza el algoritmo de retropropagación a lo largo del tiempo (BPTT) para calcular los gradientes y ajustar los pesos de la red.</li>
+                    <li>✦ <marcador class="resaltado116">Problema de Desvanecimiento/Explotación del Gradiente:</marcador> Las RNN tradicionales pueden sufrir de problemas de desvanecimiento o explosión del gradiente, lo que dificulta el entrenamiento de dependencias a largo plazo. Para abordar este problema, se han desarrollado variantes de RNN como Long Short-Term Memory (LSTM) y Gated Recurrent Unit (GRU), que incorporan mecanismos de memoria más sofisticados.</li>
                 </ul>
                 <p>Las RNN son ampliamente utilizadas en aplicaciones que involucran datos secuenciales, como el procesamiento de lenguaje natural (NLP), la generación de texto, la traducción automática, la predicción de series temporales y más. Su capacidad para modelar dependencias a largo plazo las hace especialmente útiles en tareas donde la comprensión del contexto es crucial.</p>
                 <div class="blog-image-grande">
@@ -93,52 +93,52 @@
                 <p>En contraste, los parámetros del modelo, como los pesos en una red neuronal, son valores que se aprenden durante el entrenamiento a partir de los datos de entrenamiento.</p>
                 <p>Los hiperparámetros pueden incluir cosas como la tasa de aprendizaje, el tamaño del lote, el número de épocas, la arquitectura del modelo (número de capas y neuronas), las funciones de activación, los métodos de regularización, los optimizadores, entre otros.</p>
                 <ul>
-                    <li><marcador class="resaltado3">Tasa de Aprendizaje (Learning Rate):</marcador></li>
+                    <li><marcador class="resaltado118">Tasa de Aprendizaje (Learning Rate):</marcador></li>
                     <ul type="none">
                         <li>λ <marcador class="resaltado8">Descripción: </marcador>Controla el tamaño de los pasos que el algoritmo de optimización toma durante el entrenamiento.</li>
                         <li>λ <marcador class="resaltado8">Casos de uso: </marcador>Ajustar la tasa de aprendizaje es crucial para garantizar una convergencia estable del modelo. Se ajusta para mejorar la velocidad de convergencia y evitar oscilaciones.</li>
                     </ul>
-                    <li><marcador class="resaltado3">Tamaño del Lote (Batch Size):</marcador></li>
+                    <li><marcador class="resaltado118">Tamaño del Lote (Batch Size):</marcador></li>
                     <ul type="none">
                         <li>λ <marcador class="resaltado8">Descripción: </marcador>Determina el número de ejemplos de entrenamiento que se utilizan en cada iteración de entrenamiento.</li>
                         <li>λ <marcador class="resaltado8">Casos de uso: </marcador>Se ajusta para equilibrar la eficiencia computacional con la estabilidad del entrenamiento. Tamaños de lote más grandes pueden acelerar el entrenamiento, pero pueden aumentar la variabilidad del gradiente.</li>
                     </ul>
-                    <li><marcador class="resaltado3">Número de Épocas (Number of Epochs):</marcador></li>
+                    <li><marcador class="resaltado118">Número de Épocas (Number of Epochs):</marcador></li>
                     <ul type="none">
                         <li>λ <marcador class="resaltado8">Descripción: </marcador>Define la cantidad de veces que el modelo verá todo el conjunto de datos durante el entrenamiento.</li>
                         <li>λ <marcador class="resaltado8">Casos de uso: </marcador>Se ajusta para controlar la duración total del entrenamiento y evitar el sobreajuste. Se detiene el entrenamiento después de un número óptimo de épocas para evitar el sobreajuste.</li>
                     </ul>
-                    <li><marcador class="resaltado3">Regularización (Regularization):</marcador></li>
+                    <li><marcador class="resaltado118">Regularización (Regularization):</marcador></li>
                     <ul type="none">
                         <li>λ <marcador class="resaltado8">Descripción: </marcador>Controla la complejidad del modelo al penalizar los pesos grandes.</li>
                         <li>λ <marcador class="resaltado8">Casos de uso: </marcador>Se ajusta para evitar el sobreajuste al introducir una penalización en los pesos grandes. La regularización L1 y L2 son dos técnicas comunes utilizadas para este propósito.</li>
                     </ul>
-                    <li><marcador class="resaltado3">Número de Capas y Neuronas (Number of Layers and Neurons):</marcador></li>
+                    <li><marcador class="resaltado118">Número de Capas y Neuronas (Number of Layers and Neurons):</marcador></li>
                     <ul type="none">
                         <li>λ <marcador class="resaltado8">Descripción: </marcador>Define la arquitectura del modelo especificando el número de capas ocultas y el número de neuronas en cada capa.</li>
                         <li>λ <marcador class="resaltado8">Casos de uso: </marcador>Se ajusta para controlar la capacidad del modelo y encontrar un equilibrio entre la capacidad de representación y el riesgo de sobreajuste.</li>
                     </ul>
-                    <li><marcador class="resaltado3">Función de Activación (Activation Function):</marcador></li>
+                    <li><marcador class="resaltado118">Función de Activación (Activation Function):</marcador></li>
                     <ul type="none">
                         <li>λ <marcador class="resaltado8">Descripción: </marcador>Determina cómo se combinan y transforman las entradas en una capa para producir la salida.</li>
                         <li>λ <marcador class="resaltado8">Casos de uso: </marcador>Se ajusta para introducir no linealidad en la red y mejorar su capacidad de representación. ReLU, tanh y sigmoid son algunas de las funciones de activación comunes.</li>
                     </ul>
-                    <li><marcador class="resaltado3">Inicialización de Pesos (Weight Initialization):</marcador></li>
+                    <li><marcador class="resaltado118">Inicialización de Pesos (Weight Initialization):</marcador></li>
                     <ul type="none">
                         <li>λ <marcador class="resaltado8">Descripción: </marcador>Define cómo se inicializan los pesos del modelo antes del entrenamiento.</li>
                         <li>λ <marcador class="resaltado8">Casos de uso: </marcador>Se ajusta para ayudar al modelo a converger más rápido y evitar problemas como el estancamiento del gradiente. Xavier y He son dos métodos de inicialización comunes.</li>
                     </ul>
-                    <li><marcador class="resaltado3">Optimizador (Optimizer):</marcador></li>
+                    <li><marcador class="resaltado118">Optimizador (Optimizer):</marcador></li>
                     <ul type="none">
                         <li>λ <marcador class="resaltado8">Descripción: </marcador>Controla cómo se actualizan los pesos del modelo durante el entrenamiento.</li>
                         <li>λ <marcador class="resaltado8">Casos de uso: </marcador>Se ajusta para mejorar la velocidad de convergencia y la estabilidad del entrenamiento. Adam, RMSprop y SGD son optimizadores comunes.</li>
                     </ul>
-                    <li><marcador class="resaltado3">Función de Pérdida (Loss Function):</marcador></li>
+                    <li><marcador class="resaltado118">Función de Pérdida (Loss Function):</marcador></li>
                     <ul type="none">
                         <li>λ <marcador class="resaltado8">Descripción: </marcador>Define cómo se calcula la discrepancia entre las predicciones del modelo y los valores reales.</li>
                         <li>λ <marcador class="resaltado8">Casos de uso: </marcador>Se ajusta para adaptarse al tipo de problema que se está abordando. Entropía cruzada categórica, error cuadrático medio y pérdida de Huber son ejemplos comunes.</li>
                     </ul>
-                    <li><marcador class="resaltado3">Aumento de Datos (Data Augmentation):</marcador></li>
+                    <li><marcador class="resaltado118">Aumento de Datos (Data Augmentation):</marcador></li>
                     <ul type="none">
                         <li>λ <marcador class="resaltado8">Descripción: </marcador>Genera nuevas muestras de datos modificando las muestras existentes, como rotaciones, traslaciones y zooms.</li>
                         <li>λ <marcador class="resaltado8">Casos de uso: </marcador>Se ajusta para mejorar la capacidad de generalización del modelo y evitar el sobreajuste. Es particularmente útil en problemas de visión por computadora donde se dispone de un conjunto de datos limitado.</li>
@@ -148,17 +148,17 @@
                 <p>Ajustar estos hiperparámetros de manera adecuada es crucial para obtener un rendimiento óptimo del modelo en una variedad de problemas de aprendizaje automático y profundamente aprendidos.</p>
                 <p>Estas son tres técnicas comunes utilizadas para ajustar los hiperparámetros de un modelo de aprendizaje automático:</p>
                 <ul>
-                    <li><marcador class="resaltado2">Búsqueda en Cuadrícula (Grid Search):</marcador></li>
+                    <li><marcador class="resaltado112">Búsqueda en Cuadrícula (Grid Search):</marcador></li>
                     <ul type="none">
                         <li>λ <marcador class="resaltado8">Descripción: </marcador>En la búsqueda en cuadrícula, se especifica una lista de valores posibles para cada hiperparámetro que se desea ajustar. Luego, se evalúa el rendimiento del modelo para todas las combinaciones posibles de valores de hiperparámetros utilizando una estrategia de validación cruzada.</li>
                         <li>λ <marcador class="resaltado8">Aplicación: </marcador>Es útil cuando se tiene un conjunto de hiperparámetros relativamente pequeño y el espacio de búsqueda es manejable. Sin embargo, puede volverse computacionalmente costoso a medida que el número de hiperparámetros y valores posibles aumenta.</li>
                     </ul>
-                    <li><marcador class="resaltado2">Búsqueda Aleatoria (Random Search):</marcador></li>
+                    <li><marcador class="resaltado112">Búsqueda Aleatoria (Random Search):</marcador></li>
                     <ul type="none">
                         <li>λ <marcador class="resaltado8">Descripción: </marcador>En la búsqueda aleatoria, se seleccionan aleatoriamente combinaciones de valores de hiperparámetros para evaluar el rendimiento del modelo. A diferencia de la búsqueda en cuadrícula, no se exploran todas las combinaciones posibles, lo que puede llevar a un ahorro de tiempo significativo.</li>
                         <li>λ <marcador class="resaltado8">Aplicación: </marcador>Es útil cuando el espacio de búsqueda de hiperparámetros es grande y explorar todas las combinaciones posibles es computacionalmente costoso. A menudo, la búsqueda aleatoria puede encontrar combinaciones de hiperparámetros que son igual de buenas o mejores que las encontradas por la búsqueda en cuadrícula.</li>
                     </ul>
-                    <li><marcador class="resaltado2">Optimización Bayesiana:</marcador></li>
+                    <li><marcador class="resaltado112">Optimización Bayesiana:</marcador></li>
                     <ul type="none">
                         <li>λ <marcador class="resaltado8">Descripción: </marcador>La optimización bayesiana utiliza métodos basados en probabilidades para encontrar la combinación óptima de hiperparámetros. En lugar de evaluar todas las combinaciones posibles, utiliza información sobre iteraciones anteriores para decidir qué combinación de hiperparámetros explorar a continuación.</li>
                         <li>λ <marcador class="resaltado8">Aplicación: </marcador>Es útil cuando el espacio de búsqueda es grande y costoso de explorar, ya que tiende a encontrar combinaciones de hiperparámetros que son óptimas en menos iteraciones en comparación con la búsqueda aleatoria o en cuadrícula. Es particularmente efectiva cuando el rendimiento del modelo es difícil de predecir y cuando el tiempo de cómputo es limitado.</li>
@@ -172,43 +172,43 @@
                 <p>El preprocesamiento de datos es una etapa crítica en el desarrollo de modelos de aprendizaje profundo. Keras proporciona herramientas para normalizar datos, manejar valores atípicos y convertir datos en formatos adecuados para la entrada del modelo. Además, el aumento de datos, como la rotación, el volteo y el recorte, puede ayudar a mejorar la generalización del modelo y prevenir el sobreajuste.</p>
                 <p>Aquí tienes algunos ejemplos de técnicas de normalización y preprocesamiento de datos:</p>
                 <ol>
-                    <li><marcador class="resaltado3">Normalización de características:</marcador></li>
+                    <li><marcador class="resaltado118">Normalización de características:</marcador></li>
                     <ul type="none">
                         <li>θ <marcador class="resaltado8">Descripción: </marcador>Ajusta los valores de las características para que tengan una media cercana a cero y una desviación estándar de uno.</li>
                         <li>θ <marcador class="resaltado8">Capa de aplicación: </marcador>Puede aplicarse como una capa de preprocesamiento antes de la primera capa densa de la red neuronal.</li>
                     </ul>
-                    <li><marcador class="resaltado3">Normalización por lotes (Batch Normalization):</marcador></li>
+                    <li><marcador class="resaltado118">Normalización por lotes (Batch Normalization):</marcador></li>
                     <ul type="none">
                         <li>θ <marcador class="resaltado8">Descripción: </marcador>Normaliza las activaciones de cada capa utilizando la media y la desviación estándar de los datos en mini lotes durante el entrenamiento. Esto significa que los datos se normalizan con respecto a las estadísticas del lote en lugar de a cada instancia de forma individual.</li>
                         <li>θ <marcador class="resaltado8">Capa de aplicación: </marcador>Se aplica típicamente después de las operaciones lineales (como las capas densas o convolucionales) y antes de las funciones de activación en cada capa.</li>
                     </ul>
-                    <li><marcador class="resaltado3">Normalización por instancia (Instance Normalization)</marcador></li>
+                    <li><marcador class="resaltado118">Normalización por instancia (Instance Normalization)</marcador></li>
                     <ul type="none">
                         <li>θ <marcador class="resaltado8">Descripción: </marcador>Normaliza las activaciones de cada instancia de manera independiente, lo que significa que las estadísticas de normalización se calculan para cada ejemplo en el conjunto de datos, en lugar de para lotes de ejemplos. No utiliza estadísticas agregadas de lotes.</li>
                         <li>θ <marcador class="resaltado8">Capa de aplicación: </marcador>Se puede aplicar después de las operaciones lineales y antes de las funciones de activación en cada capa, similar a Batch Normalization.</li>
                         <p>La diferencia clave es que Batch Normalization normaliza las activaciones basándose en estadísticas agregadas de lotes de datos, mientras que Instance Normalization normaliza las activaciones de manera independiente para cada instancia de datos. Esto hace que Instance Normalization sea más adecuada para aplicaciones donde la estructura estadística de los datos varía significativamente entre instancias individuales, como el procesamiento de imágenes donde cada imagen puede tener diferentes iluminaciones, ángulos y estilos. Por otro lado, Batch Normalization suele ser más útil en redes neuronales profundas donde se pueden beneficiar de la estabilidad del entrenamiento que proporciona la normalización por lotes.</p>
                     </ul>
-                    <li><marcador class="resaltado3">Escalamiento de características:</marcador></li>
+                    <li><marcador class="resaltado118">Escalamiento de características:</marcador></li>
                     <ul type="none">
                         <li>θ <marcador class="resaltado8">Descripción: </marcador>Escala los valores de las características para que estén en un rango específico, como entre 0 y 1.</li>
                         <li>θ <marcador class="resaltado8">Capa de aplicación: </marcador>Puede aplicarse como una capa de preprocesamiento antes de la primera capa densa de la red neuronal.</li>
                     </ul>
-                    <li><marcador class="resaltado3">Escalamiento de características en la capa de salida:</marcador></li>
+                    <li><marcador class="resaltado118">Escalamiento de características en la capa de salida:</marcador></li>
                     <ul type="none">
                         <li>θ <marcador class="resaltado8">Descripción: </marcador>Escala los valores de salida de la red para que estén en un rango específico, como entre 0 y 1.</li>
                         <li>θ <marcador class="resaltado8">Capa de aplicación: </marcador>Se realiza como parte de la capa de salida, especialmente en problemas de regresión donde se requieren valores específicos.</li>
                     </ul>
-                    <li><marcador class="resaltado3">Escalamiento de píxeles (Pixel Scaling):</marcador></li>
+                    <li><marcador class="resaltado118">Escalamiento de píxeles (Pixel Scaling):</marcador></li>
                     <ul type="none">
                         <li>θ <marcador class="resaltado8">Descripción: </marcador>Escala los valores de los píxeles de una imagen a un rango específico, como entre 0 y 1.</li>
                         <li>θ <marcador class="resaltado8">Capa de aplicación: </marcador>Puede aplicarse como una capa de preprocesamiento antes de la primera capa de una red neuronal convolucional (CNN).</li>
                     </ul>
-                    <li><marcador class="resaltado3">Aumento de datos mediante espejo y rotación:</marcador></li>
+                    <li><marcador class="resaltado118">Aumento de datos mediante espejo y rotación:</marcador></li>
                     <ul type="none">
                         <li>θ <marcador class="resaltado8">Descripción: </marcador>Esta técnica implica la aplicación de transformaciones como el volteo horizontal, el volteo vertical y la rotación a las imágenes de entrada. Por ejemplo, una imagen original puede ser espejada horizontalmente, verticalmente o rotada en diferentes ángulos para generar nuevas muestras de entrenamiento. El objetivo es introducir variabilidad en los datos de entrenamiento sin cambiar la etiqueta asociada. Esto ayuda al modelo a generalizar mejor y a ser más robusto ante diferentes orientaciones y posiciones de objetos en las imágenes.</li>
                         <li>θ <marcador class="resaltado8">Capa de aplicación: </marcador>Se aplica a conjuntos de datos de imágenes durante la fase de preprocesamiento, antes o durante el entrenamiento del modelo. Puede ser implementado utilizando bibliotecas de procesamiento de imágenes como OpenCV, PIL (Python Imaging Library) o mediante funciones integradas en bibliotecas de aprendizaje profundo como TensorFlow o PyTorch.</li>
                     </ul>
-                    <li><marcador class="resaltado3">Aumento de datos mediante cambio de brillo y contraste:</marcador></li>
+                    <li><marcador class="resaltado118">Aumento de datos mediante cambio de brillo y contraste:</marcador></li>
                     <ul type="none">
                         <li>θ <marcador class="resaltado8">Descripción: </marcador>Esta técnica implica la aplicación de cambios en el brillo, contraste y/o saturación de las imágenes de entrada. Estos cambios pueden simular diferentes condiciones de iluminación y mejorar la capacidad del modelo para generalizar a imágenes con diferentes niveles de luz y contraste. Por ejemplo, se pueden aplicar aumentos de brillo y contraste multiplicando cada píxel por un factor de escala adecuado.</li>
                         <li>θ <marcador class="resaltado8">Capa de aplicación: </marcador>Similar al aumento de datos mediante espejo y rotación, se aplica a conjuntos de datos de imágenes durante la fase de preprocesamiento o durante el entrenamiento del modelo. También puede ser implementado utilizando bibliotecas de procesamiento de imágenes o funciones integradas en bibliotecas de aprendizaje profundo.</li>
@@ -362,32 +362,32 @@
                 <p>Además de las técnicas mencionadas anteriormente, Keras ofrece herramientas adicionales para mejorar la capacidad predictiva de los modelos. El early stopping, por ejemplo, detiene el entrenamiento del modelo cuando la pérdida en el conjunto de validación deja de disminuir, lo que ayuda a evitar el sobreajuste. La normalización de datos también es crucial para asegurar que todas las características contribuyan de manera equitativa al proceso de entrenamiento.</p>
                 <p>Algunas técnicas adicionales que pueden mejorar el rendimiento de un modelo de aprendizaje profundo son:</p>
                 <ul>
-                    <li><marcador class="resaltado3">Early Stopping:</marcador></li>
+                    <li><marcador class="resaltado118">Early Stopping:</marcador></li>
                     <ul type="none">
                         <li>Σ <marcador class="resaltado8">Descripción: </marcador>Detiene el entrenamiento del modelo cuando la métrica de rendimiento en un conjunto de validación deja de mejorar, con el fin de evitar el sobreajuste.</li>
                         <li>Σ <marcador class="resaltado8">Aplicación: </marcador>Se utiliza durante el entrenamiento del modelo para evitar el sobreajuste y mejorar la generalización.</li>
                     </ul>
-                    <li><marcador class="resaltado3">Dropout:</marcador></li>
+                    <li><marcador class="resaltado118">Dropout:</marcador></li>
                     <ul type="none">
                         <li>Σ <marcador class="resaltado8">Descripción: </marcador>Aleatoriamente apaga una fracción de las neuronas durante el entrenamiento para evitar la coadaptación de las neuronas.</li>
                         <li>Σ <marcador class="resaltado8">Aplicación: </marcador>Se aplica en las capas ocultas de la red para mejorar la capacidad de generalización y evitar el sobreajuste.</li>
                     </ul>
-                    <li><marcador class="resaltado3">Regularización L1 y L2:</marcador></li>
+                    <li><marcador class="resaltado118">Regularización L1 y L2:</marcador></li>
                     <ul type="none">
                         <li>Σ <marcador class="resaltado8">Descripción: </marcador>Penaliza los pesos de la red neuronal para evitar que se vuelvan demasiado grandes.</li>
                         <li>Σ <marcador class="resaltado8">Aplicación: </marcador>Se aplica como una técnica de regularización en las capas densas para evitar el sobreajuste y mejorar la generalización.</li>
                     </ul>
-                    <li><marcador class="resaltado3">Reducción de la tasa de aprendizaje (Learning Rate Decay):</marcador></li>
+                    <li><marcador class="resaltado118">Reducción de la tasa de aprendizaje (Learning Rate Decay):</marcador></li>
                     <ul type="none">
                         <li>Σ <marcador class="resaltado8">Descripción: </marcador>Reduce gradualmente la tasa de aprendizaje durante el entrenamiento para ayudar al modelo a converger de manera más estable.</li>
                         <li>Σ <marcador class="resaltado8">Aplicación: </marcador>Se aplica durante el entrenamiento para evitar oscilaciones y mejorar la convergencia del modelo.</li>
                     </ul>
-                    <li><marcador class="resaltado3">Ensemble Learning:</marcador></li>
+                    <li><marcador class="resaltado118">Ensemble Learning:</marcador></li>
                     <ul type="none">
                         <li>Σ <marcador class="resaltado8">Descripción: </marcador>Combina las predicciones de múltiples modelos para mejorar el rendimiento predictivo.</li>
                         <li>Σ <marcador class="resaltado8">Aplicación: </marcador>Se utilizan múltiples modelos entrenados de forma independiente y luego se combinan sus predicciones, por ejemplo, mediante votación o promedio ponderado.</li>
                     </ul>
-                    <li><marcador class="resaltado3">Ajuste de hiperparámetros (Hyperparameter Tuning):</marcador></li>
+                    <li><marcador class="resaltado118">Ajuste de hiperparámetros (Hyperparameter Tuning):</marcador></li>
                     <ul type="none">
                         <li>Σ <marcador class="resaltado8">Descripción: </marcador>Optimiza los hiperparámetros del modelo, como la tasa de aprendizaje, el tamaño del lote y la arquitectura de la red, para mejorar el rendimiento.</li>
                         <li>Σ <marcador class="resaltado8">Aplicación: </marcador>Se utiliza mediante técnicas como la búsqueda en cuadrícula, la búsqueda aleatoria o la optimización bayesiana para encontrar la combinación óptima de hiperparámetros.</li>
