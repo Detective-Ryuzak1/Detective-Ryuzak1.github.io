@@ -172,6 +172,522 @@ void main(void) {
     }
 }
                 </div>
+                <h7>Subrutinas</h7>
+                <p>Las subrutinas son bloques de código reutilizables que permiten modularizar un programa. En el lenguaje ensamblador de los microcontroladores PIC, una subrutina se invoca mediante la instrucción <code>CALL</code>, la cual guarda automáticamente la dirección de retorno en la pila (*stack*) y salta a la etiqueta especificada. Al finalizar las instrucciones de la subrutina, la instrucción <code>RETURN</code> recupera esa dirección de la pila para que el programa principal continúe exactamente en el punto donde se quedó.</p>
+
+                <h4>Cómo leer los puertos</h4>
+                <p>Para leer el estado lógico de los pines de un puerto externo (por ejemplo, leer botones o sensores conectados al Puerto B), se deben seguir los siguientes pasos operativos:</p>
+                <ul style="list-style-type: none;">
+                    <li>⌲ <marcador class="resaltado9">Configurar como entrada (Registro TRIS):</marcador> Se debe cargar un <code>1</code> en el bit correspondiente del registro de dirección de datos (como <code>TRISB</code>) para habilitar el pin como alta impedancia (entrada).</li>
+                    <li>⌲ <marcador class="resaltado9">Lectura del puerto (Registro PORT):</marcador> Se ejecuta una instrucción de lectura directamente sobre el registro del puerto (como <code>PORTB</code>), almacenando el valor obtenido en el registro de trabajo (W) o en un registro de propósito general para su posterior evaluación lógica.</li>
+                </ul>
+
+                <h3>Ejemplo en Ensamblador: Lectura de Puertos y Subrutinas</h3>
+                <p>A continuación se presenta un programa completo escrito en lenguaje ensamblador puro y comentado, el cual configura pines, implementa una subrutina de lectura de puertos y gestiona el flujo del programa:</p>
+
+                <div class="archivo">
+<pre><code>; =====================================================================
+; Programa de Ejemplo: Lectura de Puerto B y llamada a Subrutina
+; Microcontrolador: PIC16F874A / PIC16F877A
+; =====================================================================
+
+    LIST P=16F877A        ; Especifica el microcontrolador
+    #include &lt;p16f877a.inc&gt; ; Incluye las definiciones de registros
+
+    ; Bits de configuración (Configuration Words)
+    __CONFIG _FOSC_XT &amp; _WDTE_OFF &amp; _PWRTE_ON &amp; _BOREN_ON &amp; _LVP_OFF
+
+    CBLOCK 0x20           ; Inicio de memoria RAM de propósito general
+        D1                ; Variable para el bucle de retardo
+        D2
+    ENDC
+
+    ORG 0x00              ; Vector de inicio / Reset
+    GOTO    INICIO
+
+    ORG 0x04              ; Vector de interrupciones (no utilizado aquí)
+    RETFIE
+
+INICIO:
+    ; --- Configuración de Bancos y Puertos ---
+    BSF     STATUS, RP0   ; Selecciona el Banco 1 (RP0 = 1)
+    MOVLW   B'11111111'   ; Configura todo el Puerto B como entrada (1s)
+    MOVWF   TRISB
+    MOVLW   B'00000000'   ; Configura todo el Puerto A como salida (0s)
+    MOVWF   TRISA
+    BCF     STATUS, RP0   ; Regresa al Banco 0 (RP0 = 0)
+
+BUCLE_PRINCIPAL:
+    CALL    LEER_PUERTO   ; Llama a la subrutina para leer el estado del Puerto B
+    MOVWF   PORTA         ; Mueve el valor leído del puerto B al Puerto A (refleja el estado)
+    GOTO    BUCLE_PRINCIPAL
+
+; =====================================================================
+; Subrutina: LEER_PUERTO
+; Lee el valor actual presente en el Puerto B y lo deja en W
+; =====================================================================
+LEER_PUERTO:
+    MOVF    PORTB, W      ; Lee el registro PORTB y almacena el resultado en W
+    RETURN                ; Retorna al programa principal con el valor en W
+
+    END                   ; Fin del programa fuente
+</code></pre>
+                </div>
+                <h3>Código en Ensamblador: Lectura con Interpretación Lógica</h3>
+                <p>Para hacer el programa más interesante que un simple reflejo de datos, vamos a implementar una lógica condicional. En este ejemplo, el microcontrolador leerá el estado del Puerto B (donde podemos suponer que hay interruptores o botones conectados) y evaluará si un bit específico está activo. Si el botón está presionado, activará una secuencia de salida especial en el Puerto A; de lo contrario, mantendrá un patrón alternativo.</p>
+                <p>La comunicación interna y directa con los pines de los puertos (como PORTA o PORTB) no es serial ni multiplexada, sino de tipo **paralelo** y basada en un bus de datos interno de 8 bits. Cada pin físico del puerto está conectado directamente a un flip-flop o buffer dentro del registro correspondiente, lo que permite que el microcontrolador lea o escriba el estado lógico de todos los pines del puerto de manera simultánea (en un solo ciclo de instrucción). Sin embargo, muchos de estos pines están multiplexados en su circuitería física externa para compartir múltiples funciones (por ejemplo, un pin puede funcionar como E/S digital, entrada analógica ADC o línea de comunicación serial USART/SPI, según se configure en los registros de control).</p>
+                <p>A continuación se presenta el código en ensamblador puro y comentado que lee el puerto, evalúa una condición lógica y ejecuta una acción diferenciada:</p>
+
+                <div class="archivo">
+<pre><code>; =====================================================================
+; Programa de Ejemplo: Lectura con Interpretación Lógica (Bifurcación)
+; Microcontrolador: PIC16F874A / PIC16F877A
+; =====================================================================
+
+    LIST P=16F877A        ; Especifica el microcontrolador
+    #include &lt;p16f877a.inc&gt; ; Incluye las definiciones de registros
+
+    ; Bits de configuración (Configuration Words)
+    __CONFIG _FOSC_XT &amp; _WDTE_OFF &amp; _PWRTE_ON &amp; _BOREN_ON &amp; _LVP_OFF
+
+    ORG 0x00              ; Vector de inicio / Reset
+    GOTO    INICIO
+
+    ORG 0x04              ; Vector de interrupciones (no utilizado aquí)
+    RETFIE
+
+INICIO:
+    ; --- Configuración de Bancos y Puertos ---
+    BSF     STATUS, RP0   ; Selecciona el Banco 1 (RP0 = 1)
+    MOVLW   B'00000001'   ; RB0 como entrada (botón), el resto como salida
+    MOVWF   TRISB
+    MOVLW   B'00000000'   ; Todo el Puerto A como salida (LEDs de control)
+    MOVWF   TRISA
+    BCF     STATUS, RP0   ; Regresa al Banco 0 (RP0 = 0)
+
+BUCLE_PRINCIPAL:
+    CALL    LEER_PUERTO   ; Llama a la subrutina para leer el estado del Puerto B
+    
+    ; --- Interpretación lógica de la lectura ---
+    BTFSC   PORTB, 0      ; Prueba el bit 0 de PORTB. Si es 0 (botón no presionado), salta la siguiente instrucción.
+    GOTO    ACCION_BOTON  ; Si el bit es 1 (botón presionado), ejecuta esta sección.
+
+    ; Caso por defecto (Botón NO presionado)
+    MOVLW   B'00001111'   ; Enciende los primeros 4 bits del Puerto A
+    MOVWF   PORTA
+    GOTO    BUCLE_PRINCIPAL
+
+ACCION_BOTON:
+    ; Caso alternativo (Botón PRESIONADO)
+    MOVLW   B'11110000'   ; Enciende los últimos 4 bits del Puerto A como señal de alerta
+    MOVWF   PORTA
+    GOTO    BUCLE_PRINCIPAL
+
+; =====================================================================
+; Subrutina: LEER_PUERTO
+; Lee el valor actual presente en el Puerto B y lo deja en W
+; =====================================================================
+LEER_PUERTO:
+    MOVF    PORTB, W      ; Lee el registro PORTB y almacena el resultado en W
+    RETURN                ; Retorna al programa principal con el valor en W
+
+    END                   ; Fin del programa fuente
+</code></pre>
+                </div>
+                <br>◦ 
+                <h7>Los Registros de Control</h7>
+                <p>Los registros de control son celdas de memoria especializadas dentro de la arquitectura del microcontrolador cuya función principal no es almacenar datos temporales de usuario, sino configurar, habilitar o modificar el comportamiento de los distintos bloques de hardware y periféricos internos. En la familia PIC, estos registros están mapeados directamente en la memoria RAM (distribuidos entre los diferentes bancos de memoria) y permiten al programador definir cómo operarán los puertos, las interrupciones, los temporizadores y los sistemas de comunicación.</p>
+                <ul style="list-style-type: none;">
+                    <li>ꕥ <marcador class="resaltado121">Registros TRIS (TRISA, TRISB, etc.):</marcador> Controlan la dirección de los pines de E/S distribuidos en 8 bits (desde el bit 7 hasta el bit 0). Al escribir un <code>1</code> configuran el pin correspondiente como entrada de alta impedancia, y al escribir un <code>0</code> lo configuran como salida de controlador activo. Cada bit del registro corresponde directamente a una línea física del puerto respectivo.</li>
+                    <li>ꕥ <marcador class="resaltado121">Registro STATUS (03h / 83h):</marcador> Almacena las banderas de estado de la Unidad Aritmética Lógica (ALU) y los bits de selección de bancos:
+                        <ol style="list-style-type: none;">
+                            <li>◦ <marcador class="resaltado125">Bit 7 (IRP):</marcador> Bit de selección de banco para direccionamiento indirecto (permite acceder a los bancos de memoria RAM superiores).</li>
+                            <li>◦ <marcador class="resaltado125">Bit 6 (RP1):</marcador> Bit 1 de selección de banco de memoria para direccionamiento directo.</li>
+                            <li>◦ <marcador class="resaltado125">Bit 5 (RP0):</marcador> Bit 0 de selección de banco de memoria para direccionamiento directo (permite alternar entre el Banco 0, 1, 2 y 3 en conjunto con RP1).</li>
+                            <li>◦ <marcador class="resaltado125">Bit 4 (TO):</marcador> Bit de tiempo fuera (*Time-out*), se pone a 0 si ocurre un reinicio por el temporizador Perro Guardián (Watchdog).</li>
+                            <li>◦ <marcador class="resaltado125">Bit 3 (PD):</marcador> Bit de bajada de potencia (*Power-down*), se pone a 0 si el microcontrolador entra en modo de bajo consumo (Sleep).</li>
+                            <li>◦ <marcador class="resaltado125">Bit 2 (Z):</marcador> Bit de cero (*Zero*), se establece en 1 si el resultado de una operación aritmética o lógica ejecutada por la ALU es igual a cero.</li>
+                            <li>◦ <marcador class="resaltado125">Bit 1 (DC):</marcador> Bit de acarreo/préstamo dígito (*Digit Carry/Borrow*), indica si hubo un desbordamiento o subdesbordamiento en el nibble inferior (bit 4) durante operaciones de adición o sustracción.</li>
+                            <li>◦ <marcador class="resaltado125">Bit 0 (C):</marcador> Bit de acarreo/préstamo (*Carry/Borrow*), indica si hubo un desbordamiento o subdesbordamiento en el bit más significativo (bit 7) durante operaciones aritméticas.</li>
+                        </ol>
+                    </li>
+                    <li>ꕥ <marcador class="resaltado121">Registro INTCON (0Bh / 8Bh):</marcador> Administra las fuentes de interrupción del sistema a nivel de bits individuales:
+                        <ol style="list-style-type: none;">
+                            <li>◦ <marcador class="resaltado125">Bit 7 (GIE):</marcador> Habilitador global de interrupciones (1 = Permite todas las interrupciones enmascaradas, 0 = Desactiva todas las interrupciones de forma global).</li>
+                            <li>◦ <marcador class="resaltado125">Bit 6 (PEIE):</marcador> Habilitador de interrupciones de periféricos (1 = Habilita las interrupciones periféricas, 0 = Las deshabilita).</li>
+                            <li>◦ <marcador class="resaltado125">Bit 5 (TMR0IE):</marcador> Habilitador de interrupción por desbordamiento del Temporizador 0 (1 = Habilitado, 0 = Deshabilitado).</li>
+                            <li>◦ <marcador class="resaltado125">Bit 4 (INTE):</marcador> Habilitador de interrupción externa en el pin RB0/INT (1 = Habilitado, 0 = Deshabilitado).</li>
+                            <li>◦ <marcador class="resaltado125">Bit 3 (RBIE):</marcador> Habilitador de interrupción por cambio de estado en los pines del Puerto B de la parte alta (RB4 a RB7) (1 = Habilitado, 0 = Deshabilitado).</li>
+                            <li>◦ <marcador class="resaltado125">Bit 2 (TMR0IF):</marcador> Bandera de desbordamiento del Temporizador 0 (se pone a 1 automáticamente cuando TMR0 desborda de FFh a 00h y debe borrarse por software).</li>
+                            <li>◦ <marcador class="resaltado125">Bit 1 (INTF):</marcador> Bandera de interrupción externa en el pin RB0/INT (se pone a 1 al detectarse el flanco configurado en el pin y debe borrarse por software).</li>
+                            <li>◦ <marcador class="resaltado125">Bit 0 (RBIF):</marcador> Bandera de cambio de estado en los pines RB4:RB7 del Puerto B (se pone a 1 cuando ocurre un cambio lógico en cualquiera de esos pines y debe borrarse por software).</li>
+                        </ol>
+                    </li>
+                    <li>ꕥ <marcador class="resaltado121">Registros OPTION_REG (81h):</marcador> Configura opciones globales del hardware interno:
+                        <ol style="list-style-type: none;">
+                            <li>◦ <marcador class="resaltado125">Bit 7 (RBPU):</marcador> Habilitador de resistencias de pull-up internas del Puerto B (0 = Resistencias de pull-up habilitadas en los pines del Puerto B, 1 = Deshabilitadas).</li>
+                            <li>◦ <marcador class="resaltado125">Bit 6 (INTEDG):</marcador> Selector de flanco de disparo para la interrupción externa en RB0 (1 = Disparo por flanco de subida, 0 = Disparo por flanco de bajada).</li>
+                            <li>◦ <marcador class="resaltado125">Bit 5 (T0CS):</marcador> Selector de fuente de reloj para el Temporizador 0 (1 = Transición en el pin externo T0CKI, 0 = Ciclo de instrucción interno FOSC/4).</li>
+                            <li>◦ <marcador class="resaltado125">Bit 4 (T0SE):</marcador> Selector de flanco para el Temporizador 0 en modo de transición externa (1 = Incrementa en flanco de bajada, 0 = Incrementa en flanco de subida).</li>
+                            <li>◦ <marcador class="resaltado125">Bit 3 (PSA):</marcador> Asignación del prescaler (divisor de frecuencia) (1 = El prescaler se asigna al Perro Guardián WDT, 0 = El prescaler se asigna al Temporizador 0).</li>
+                            <li>◦ <marcador class="resaltado125">Bits 2-0 (PS2:PS0):</marcador> Bits de selección de la tasa de división del prescaler, permitiendo ajustar la relación de división desde 1:2 hasta 1:256 para el temporizador o el WDT.</li>
+                        </ol>
+                    </li>
+                    <li>ꕥ <marcador class="resaltado121">Registros de Control de EEPROM (EECON1 y EECON2):</marcador> Gestionan los ciclos de lectura y escritura de la memoria no volátil:
+                        <ol style="list-style-type: none;">
+                            <li>◦ <marcador class="resaltado125">EECON1 - Bit 7 (EEPGD):</marcador> Selector de memoria de acceso (1 = Selecciona la memoria Flash de programa, 0 = Selecciona la memoria de datos EEPROM).</li>
+                            <li>◦ <marcador class="resaltado125">EECON1 - Bit 5 (WRERR):</marcador> Bandera de error de escritura en la EEPROM (se activa automáticamente si el microcontrolador sufre un reinicio prematuro durante un ciclo de escritura activo).</li>
+                            <li>◦ <marcador class="resaltado125">EECON1 - Bit 4 (WREN):</marcador> Habilitador de ciclos de escritura (1 = Permite operaciones de escritura en la EEPROM, 0 = Bloquea y protege contra escrituras accidentales).</li>
+                            <li>◦ <marcador class="resaltado125">EECON1 - Bit 3 (WR):</marcador> Bit de control de inicio de escritura (al ponerlo en 1 inicia físicamente el proceso de programación en la EEPROM; el hardware lo borra automáticamente al finalizar).</li>
+                            <li>◦ <marcador class="resaltado125">EECON1 - Bit 2 (RD):</marcador> Bit de control de inicio de lectura (al ponerlo en 1 inicia una operación de lectura instantánea de la posición indicada; el hardware lo limpia solo en el siguiente ciclo).</li>
+                            <li>◦ <marcador class="resaltado125">EECON2:</marcador> No es un registro físico de almacenamiento de datos, sino una dirección de control de seguridad. Exige que se ejecute una secuencia estricta de escritura de códigos específicos (primero 55h y luego AAh) para desbloquear y autorizar la modificación segura de la memoria EEPROM.</li>
+                        </ol>
+                    </li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/micro7.gif" alt="">
+                </div>
+                <h7>El Conversor Analógico-Digital (ADC) y sus Registros</h7>
+                <p>El Conversor Analógico-Digital (ADC) es un periférico interno fundamental que permite al microcontrolador transformar señales analógicas continuas del mundo físico (como voltajes provenientes de sensores de temperatura, luz, presión o potenciómetros) en valores numéricos digitales discretos que la CPU puede procesar. En la familia PIC16F874A/877A, este módulo cuenta con canales multiplexados de entrada analógica y registros de control específicos para gestionar su funcionamiento.</p>
+
+                <ul style="list-style-type: none;">
+                    <li>ꕥ <marcador class="resaltado121">Registro ADCON0 (Control 0 del ADC):</marcador> Gestiona la configuración operativa principal, la selección del canal analógico activo y el estado de la conversión:
+                        <ol style="list-style-type: none;">
+                            <li><marcador class="resaltado125">Bits 7-6 (ADCS1:ADCS0):</marcador> Bits de selección del reloj de conversión ADC (determinan la velocidad del reloj interno en función de la frecuencia del oscilador FOSC).</li>
+                            <li><marcador class="resaltado125">Bits 5-3 (CHS2:CHS0):</marcador> Bits de selección del canal analógico (permiten elegir cuál de las patillas de entrada analógica AN0 a AN7 será muestreada).</li>
+                            <li><marcador class="resaltado125">Bit 2 (GO/DONE):</marcador> Bit de estado y control de inicio (se pone a 1 por software para iniciar una conversión analógico-digital; el hardware lo limpia automáticamente a 0 cuando la conversión finaliza).</li>
+                            <li><marcador class="resaltado125">Bit 0 (ADON):</marcador> Bit de encendido del módulo ADC (1 = Enciende y habilita el módulo ADC, 0 = Apaga el módulo para ahorrar energía).</li>
+                        </ol>
+                    </li>
+                    <li>ꕥ <marcador class="resaltado121">Registro ADCON1 (Control 1 del ADC):</marcador> Configura el formato de justificación del resultado y la función de los pines como entradas analógicas o digitales, así como los voltajes de referencia:
+                        <ol style="list-style-type: none;">
+                            <li><marcador class="resaltado125">Bit 7 (ADFM):</marcador> Bit de formato de justificación del resultado (1 = Justificado a la derecha, 0 = Justificado a la izquierda en los registros de resultado).</li>
+                            <li><marcador class="resaltado125">Bits 3-0 (PCFG3:PCFG0):</marcador> Bits de configuración del puerto analógico/digital (definen qué pines específicos funcionan como entradas analógicas y cuáles como E/S digitales de propósito general, además de seleccionar las fuentes de voltaje de referencia VREF+ y VREF-).</li>
+                        </ol>
+                    </li>
+                    <li>ꕥ <marcador class="resaltado121">Registros de Resultado (ADRESH y ADRESL):</marcador> Son los registros de almacenamiento donde se deposita el valor digital binario resultante de la conversión de 10 bits:
+                        <ol style="list-style-type: none;">
+                            <li><marcador class="resaltado125">ADRESH (Byte Alto):</marcador> Almacena los bits más significativos del resultado de la conversión (bits 9 a 2 si está justificado a la izquierda, o los bits 9 y 8 si está justificado a la derecha).</li>
+                            <li><marcador class="resaltado125">ADRESL (Byte Bajo):</marcador> Almacena los bits menos significativos del resultado digital obtenido tras completar el muestreo.</li>
+                        </ol>
+                    </li>
+                </ul>
+                <h3>Ejemplo en Ensamblador: Lectura de Potenciómetro y Conversión de Rango</h3>
+                <p>Para leer el valor de un potenciómetro conectado a un canal analógico (como AN0) y convertirlo a un rango de valores útil, se utiliza el módulo ADC del microcontrolador. Dado que el resultado nativo del ADC en la familia PIC16F874A/877A es de 10 bits (un valor de 0 a 1023), una forma eficiente y común de adaptarlo a un rango de 8 bits (de 0 a 255) en lenguaje ensamblador es configurar el registro <code>ADCON1</code> con justificación a la izquierda y leer directamente el registro <marcador class="subrayado">ADRESH</marcador>. Esto descarta los 2 bits menos significativos mediante hardware, escalando linealmente la lectura del potenciómetro de manera inmediata.</p>
+                <p>A continuación se presenta un programa completo en ensamblador puro y comentado que realiza la lectura del potenciómetro y mapea su valor:</p>
+
+                <div class="archivo">
+<pre><code>; =====================================================================
+; Programa de Ejemplo: Lectura de Potenciómetro y Mapeo de Rango
+; Microcontrolador: PIC16F874A / PIC16F877A
+; =====================================================================
+
+    LIST P=16F877A        ; Especifica el microcontrolador
+    #include &lt;p16f877a.inc&gt; ; Incluye las definiciones de registros
+
+    ; Bits de configuración (Configuration Words)
+    __CONFIG _FOSC_XT &amp; _WDTE_OFF &amp; _PWRTE_ON &amp; _BOREN_ON &amp; _LVP_OFF
+
+    CBLOCK 0x20           ; Inicio de memoria RAM de propósito general
+        VALOR_ADC         ; Variable para almacenar el valor escalado del potenciómetro
+    ENDC
+
+    ORG 0x00              ; Vector de inicio / Reset
+    GOTO    INICIO
+
+    ORG 0x04              ; Vector de interrupciones (no utilizado aquí)
+    RETFIE
+
+INICIO:
+    ; --- Configuración de Puertos y ADC ---
+    BSF     STATUS, RP0   ; Selecciona el Banco 1 (RP0 = 1)
+    
+    MOVLW   B'00000001'   ; Configura RA0/AN0 como entrada analógica, el resto como salidas
+    MOVWF   TRISA
+    
+    MOVLW   B'11110000'   ; Configura Puerto B como salidas (para mostrar el valor escalado)
+    MOVWF   TRISB
+    
+    ; Configuración de ADCON1 (Banco 1): 
+    ; ADFM = 0 (Justificado a la izquierda para usar ADRESH como valor de 0 a 255)
+    ; PCFG3:PCFG0 = 1110 (AN0 como analógica, VDD y VSS como referencias)
+    MOVLW   B'00001110'   
+    MOVWF   ADCON1
+    
+    BCF     STATUS, RP0   ; Regresa al Banco 0 (RP0 = 0)
+
+    ; Configuración de ADCON0 (Banco 0):
+    ; ADCS1:ADCS0 = 01 (Reloj de conversión FOSC/8)
+    ; CHS2:CHS0 = 000 (Selecciona el canal AN0)
+    ; ADON = 1 (Enciende el módulo ADC)
+    MOVLW   B'01000001'
+    MOVWF   ADCON0
+
+BUCLE_PRINCIPAL:
+    CALL    LEER_POTENCIOMETRO ; Llama a la subrutina de conversión ADC
+    
+    ; --- Interpretación y Mapeo del Rango ---
+    ; El valor de 0 a 255 ya se encuentra en la variable VALOR_ADC (gracias a ADRESH).
+    ; Aquí podemos evaluar rangos; por ejemplo, si supera la mitad de la escala (128):
+    MOVFW   VALOR_ADC
+    MOVWF   PORTB         ; Refleja el valor en los LEDs del Puerto B (rango completo escalado)
+    
+    GOTO    BUCLE_PRINCIPAL
+
+; =====================================================================
+; Subrutina: LEER_POTENCIOMETRO
+; Inicia la conversión ADC en AN0 y extrae el valor escalado (0-255)
+; =====================================================================
+LEER_POTENCIOMETRO:
+    ; Pequeño retardo de adquisición (tiempo de muestreo del condensador interno)
+    NOP
+    NOP
+    
+    BSF     ADCON0, GO    ; Inicia el proceso de conversión analógico-digital (pone GO/DONE a 1)
+
+ESPERAR_CONVERSION:
+    BTFSC   ADCON0, GO    ; Comprueba si la conversión ha terminado (GO/DONE se pone a 0)
+    GOTO    ESPERAR_CONVERSION ; Si sigue en 1, espera
+
+    ; La conversión ha finalizado. 
+    ; Al estar justificado a la izquierda, leemos ADRESH (8 bits más significativos, rango 0-255)
+    MOVF    ADRESH, W     
+    MOVWF   VALOR_ADC     ; Guarda el valor escalado en la variable
+    RETURN                ; Retorna al programa principal
+
+    END                   ; Fin del programa fuente
+</code></pre>
+                </div>
+                <div class="blog-image-grande">
+                    <img src="media/micro8.jpg" alt="">
+                </div>
+                <h7>La Comunicación Serial (USART) y sus Registros</h7>
+                <p>La comunicación serial mediante el módulo <marcador class="resaltado112">USART (Universal Synchronous Asynchronous Receiver Transmitter)</marcador> permite al microcontrolador transferir y recibir datos de forma bidireccional bit a bit utilizando líneas independientes, ideal para conectar con ordenadores, módulos Bluetooth, pantallas u otros microcontroladores. Para su funcionamiento, el PIC utiliza registros de control de transmisión, recepción y el cálculo de la velocidad de baudios.</p>
+
+                <ul style="list-style-type: none;">
+                    <li>ꕥ <marcador class="resaltado121">Registro TXSTA (Control de Transmisión):</marcador>
+                        <ol style="list-style-type: none;">
+                            <li><marcador class="resaltado125">Bit 6 (TXEN):</marcador> Habilitador de transmisión (1 = Habilita el transmisor USART, 0 = Deshabilita la transmisión).</li>
+                            <li><marcador class="resaltado125">Bit 5 (SYNC):</marcador> Selector de modo de sincronización (1 = Modo síncrono, 0 = Modo asíncrono serial estándar).</li>
+                            <li><marcador class="resaltado125">Bit 2 (BRGH):</marcador> Selector de alta velocidad de baudios en modo asíncrono (1 = Alta velocidad, 0 = Baja velocidad).</li>
+                        </ol>
+                    </li>
+                    <li>ꕥ <marcador class="resaltado121">Registro RCSTA (Control de Recepción):</marcador>
+                        <ol style="list-style-type: none;">
+                            <li><marcador class="resaltado125">Bit 7 (SPEN):</marcador> Habilitador del puerto serial (1 = Enciende y configura los pines RC6/TX y RC7/RX como puerto serial, 0 = Deshabilita el módulo).</li>
+                            <li><marcador class="resaltado125">Bit 4 (CREN):</marcador> Habilitador de recepción continua (1 = Habilita el receptor asíncrono continuo, 0 = Deshabilita la recepción).</li>
+                        </ol>
+                    </li>
+                    <li>ꕥ <marcador class="resaltado121">Registro SPBRG (Generador de Baudios):</marcador> Almacena el valor numérico de 8 bits que determina la velocidad de transferencia o tasa de baudios (Baud Rate) en comunicación asíncrona en función de la frecuencia del oscilador.</li>
+                    <li>ꕥ <marcador class="resaltado121">Registros de Datos (TXREG y RCREG):</marcador>
+                        <ol style="list-style-type: none;">
+                            <li><marcador class="resaltado125">TXREG (Registro de Transmisión):</marcador> Almacena el byte que se va a transmitir de forma serial al exterior.</li>
+                            <li><marcador class="resaltado125">RCREG (Registro de Recepción):</marcador> Almacena el byte recibido de manera serial desde el exterior.</li>
+                        </ol>
+                    </li>
+                </ul>
+
+                <h3>Ejemplo en Ensamblador: Código Transmisor USART</h3>
+                <p>El siguiente programa configura el módulo USART en modo asíncrono para transmitir continuamente un carácter o dato hacia un dispositivo receptor externo:</p>
+
+                <div class="archivo">
+<pre><code>; =====================================================================
+; Programa Transmisor USART en Ensamblador
+; Microcontrolador: PIC16F874A / PIC16F877A
+; =====================================================================
+
+    LIST P=16F877A
+    __CONFIG _FOSC_XT &amp; _WDTE_OFF &amp; _PWRTE_ON &amp; _BOREN_ON &amp; _LVP_OFF
+    #include &lt;p16f877a.inc&gt;
+
+    ORG 0x00
+    GOTO    INICIO
+
+INICIO:
+    BSF     STATUS, RP0   ; Banco 1
+    
+    ; Configuración de Velocidad de Baudios (SPBRG) para 9600 baudios con FOSC = 4MHz (BRGH = 1)
+    MOVLW   D'25'
+    MOVWF   SPBRG
+    
+    ; Configuración de TXSTA (Banco 1)
+    ; BRGH = 1 (Alta velocidad), SYNC = 0 (Asíncrono), TXEN = 1 (Habilita transmisión)
+    MOVLW   B'00100100'
+    MOVWF   TXSTA
+    
+    BCF     STATUS, RP0   ; Banco 0
+
+    ; Configuración de RCSTA (Banco 0)
+    ; SPEN = 1 (Habilita puerto serial)
+    MOVLW   B'10000000'
+    MOVWF   RCSTA
+
+BUCLE_TX:
+    MOVLW   'A'           ; Letra 'A' a transmitir
+    CALL    ENVIAR_DATO
+    GOTO    BUCLE_TX
+
+ENVIAR_DATO:
+    MOVWF   TXREG         ; Carga el dato en el registro de transmisión
+ESPERAR_TX:
+    BTFSS   PIR1, TXIF    ; Comprueba si el búfer de transmisión está vacío
+    GOTO    ESPERAR_TX    ; Si sigue transmitiendo, espera
+    RETURN
+
+    END
+</code></pre>
+                </div>
+
+                <h3>Ejemplo en Ensamblador: Código Receptor USART</h3>
+                <p>El siguiente programa configura el módulo USART para recibir datos de forma serial y reflejarlos inmediatamente en los LEDs del Puerto B:</p>
+
+                <div class="archivo">
+<pre><code>; =====================================================================
+; Programa Receptor USART en Ensamblador
+; Microcontrolador: PIC16F874A / PIC16F877A
+; =====================================================================
+
+    LIST P=16F877A
+    __CONFIG _FOSC_XT &amp; _WDTE_OFF &amp; _PWRTE_ON &amp; _BOREN_ON &amp; _LVP_OFF
+    #include &lt;p16f877a.inc&gt;
+
+    ORG 0x00
+    GOTO    INICIO
+
+INICIO:
+    BSF     STATUS, RP0   ; Banco 1
+    
+    CLRF    TRISB         ; Puerto B como salidas (para mostrar el dato recibido)
+    
+    ; Configuración de Velocidad de Baudios (SPBRG) para 9600 baudios con FOSC = 4MHz
+    MOVLW   D'25'
+    MOVWF   SPBRG
+    
+    ; Configuración de TXSTA (Banco 1) -> BRGH = 1
+    MOVLW   B'00100100'
+    MOVWF   TXSTA
+    
+    BCF     STATUS, RP0   ; Banco 0
+
+    ; Configuración de RCSTA (Banco 0)
+    ; SPEN = 1 (Habilita puerto serial), CREN = 1 (Habilita recepción continua)
+    MOVLW   B'10010000'
+    MOVWF   RCSTA
+
+BUCLE_RX:
+    BTFSS   PIR1, RCIF    ; Comprueba si hay un dato recibido disponible en el búfer
+    GOTO    BUCLE_RX      ; Si no hay dato, espera
+
+    MOVF    RCREG, W      ; Lee el dato recibido desde el registro RCREG y guárdalo en W
+    MOVWF   PORTB         ; Muestra el byte recibido en los LEDs del Puerto B
+    GOTO    BUCLE_RX      ; Repite el proceso
+
+    END
+</code></pre>
+                </div>
+                <br>
+                <iframe src="https://www.youtube.com/embed/G7aQB6x0LHc" 
+                        title="Comunicacion" 
+                        width="100%" height="315" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+                <h7>Las Interrupciones</h7>
+                <p>Las interrupciones son mecanismos de hardware que permiten detener temporalmente la ejecución del programa principal para atender de manera inmediata un evento prioritario (como el pulso de un sensor, el flanco de un botón o una señal externa). Una vez que la rutina de servicio de interrupción (ISR) finaliza, el microcontrolador del Arduino regresa automáticamente al punto exacto donde se encontraba el código principal sin perder información ni retrasar la lectura de eventos críticos.</p>
+                <p>En las placas Arduino basadas en microcontroladores AVR (como el Arduino Uno con el ATmega328P), esto se gestiona de forma sencilla mediante la función nativa <code>attachInterrupt()</code>, evitando la necesidad de configurar manualmente los registros internos.</p>
+
+                <h3>Ejemplo en Arduino: Uso de Interrupciones Externas</h3>
+                <p>El siguiente programa en C++ para Arduino configura una interrupción externa en el pin digital 2. Cada vez que se detecte un cambio de estado (por ejemplo, al presionar un botón conectado a dicho pin), se activará de inmediato la función de interrupción para alternar el estado de un LED:</p>
+
+                <div class="archivo">
+<pre><code>// Definición de pines
+const int pinBoton = 2;   // El pin 2 en Arduino Uno soporta interrupciones externas (INT0)
+const int pinLed = 13;    // Pin del LED integrado en la placa
+
+// Variable volátil para asegurar que se actualice correctamente dentro y fuera de la interrupción
+volatile boolean estadoLed = LOW;
+
+void setup() {
+    pinMode(pinLed, OUTPUT);     // Configura el pin del LED como salida
+    pinMode(pinBoton, INPUT_PULLUP); // Configura el botón como entrada con resistencia pull-up interna
+
+    // Configura la interrupción externa
+    // digitalPinToInterrupt(pinBoton) traduce el pin 2 a la interrupción correspondiente (INT0)
+    // cambiarEstado es la función (ISR) que se ejecutará al activarse
+    // CHANGE indica que la interrupción se dispara ante cualquier cambio de flanco (subida o bajada)
+    attachInterrupt(digitalPinToInterrupt(pinBoton), cambiarEstado, CHANGE);
+}
+
+void loop() {
+    // El bucle principal puede ejecutar tareas pesadas o estar libre;
+    // el LED cambiará de estado de forma inmediata al ocurrir la interrupción en el pin 2.
+    digitalWrite(pinLed, estadoLed);
+}
+
+// =====================================================================
+// Rutina de Servicio de Interrupción (ISR)
+// Debe ser una función corta, rápida y sin parámetros ni retornos
+// =====================================================================
+void cambiarEstado() {
+    estadoLed = !estadoLed; // Invierte el estado lógico actual del LED
+}
+</code></pre>
+                </div>
+                <br>
+                <iframe src="https://www.youtube.com/embed/81FGI6VVelI" 
+                        title="Arduino" 
+                        width="100%" height="315" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+                <h7>La Transmisión Inalámbrica (Bluetooth y Radiofrecuencia)</h7>
+                <p>La transmisión inalámbrica permite a los microcontroladores comunicarse a distancia sin necesidad de cables físicos, abriendo las puertas al Internet de las Cosas (IoT), la domótica y el monitoreo remoto. Mediante el uso de ondas de radiofrecuencia (RF) y protocolos especializados, un microcontrolador puede enviar y recibir datos hacia ordenadores, teléfonos móviles u otros dispositivos embebidos.</p>
+
+                <ul style="list-style-type: none;">
+                    <li>✴ <marcador class="resaltado112">Fundamentos de Radiofrecuencia (RF):</marcador> Es la tecnología base que utiliza ondas electromagnéticas para transportar información a través del espacio. Los sistemas operan típicamente en bandas de frecuencia libres (como 433 MHz, 868 MHz o la banda global de 2.4 GHz), donde cada frecuencia requiere un diseño de antena adecuado para asegurar una buena propagación y minimizar las interferencias ambientales.</li>
+                    <li>✴ <marcador class="resaltado112">Técnicas de Modulación:</marcador> Como las ondas portadoras de alta frecuencia por sí solas no pueden transmitir datos digitales directamente, se utilizan técnicas de modulación (como ASK, FSK, GFSK o técnicas de espectro ensanchado) para alterar propiedades de la onda —como su frecuencia, fase o amplitud— en función de los ceros y unos de la señal digital.</li>
+                    <li>✴ <marcador class="resaltado112">Bluetooth y Bluetooth Low Energy (BLE):</marcador> Es un estándar de comunicación inalámbrica de corto alcance muy popular. Mientras que el Bluetooth clásico se utiliza para transmisión de datos bidireccionales continuos (como la emulación transparente de puerto serial mediante perfiles SPP), la variante BLE (Bluetooth Low Energy) está optimizada para aplicaciones de bajísimo consumo energético, permitiendo que dispositivos alimentados por pequeñas baterías transmitan telemetría o estados de sensores de manera intermitente durante largos períodos.</li>
+                    <li>✴ <marcador class="resaltado112">Arquitectura Maestro-Esclavo:</marcador> En muchos módulos de comunicación inalámbrica (como los adaptadores Bluetooth tradicionales), la red opera bajo un esquema jerárquico: el dispositivo <marcador class="resaltado125">Maestro</marcador> tiene la iniciativa de buscar, solicitar y establecer la conexión, mientras que el dispositivo <marcador class="resaltado125">Esclavo</marcador> permanece a la espera de ser vinculado para sincronizar el intercambio de información.</li>
+                    <li>✴ <marcador class="resaltado112">Alternativas de Enlace por Radiofrecuencia:</marcador> Dependiendo de los requerimientos del proyecto, se pueden emplear desde módulos transceptores digitales simples (como los nRF24L01 para comunicación directa de corto/mediano alcance por SPI) hasta tecnologías de largo alcance y baja potencia (como LoRa), diseñadas para superar grandes distancias con una mínima inversión energética.</li>
+                </ul>
+                <iframe src="https://www.youtube.com/embed/5SmKOUHhmWk" 
+                        title="Bluetooth" 
+                        width="100%" height="315" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+                <br>
+                <iframe src="https://www.youtube.com/embed/kSl8SUb5L9A" 
+                        title="Bluetooth2" 
+                        width="100%" height="315" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+                <h7>Sensores, Actuadores y Componentes Periféricos</h7>
+                <p>Para que un microcontrolador pueda interactuar de manera útil con el mundo real, no basta con procesar código internamente; requiere de elementos periféricos que actúan como sus sentidos y sus extremidades. Los sensores capturan los fenómenos físicos y los traducen en señales eléctricas, mientras que los actuadores ejecutan las respuestas físicas ordenadas por el sistema de control.</p>
+
+                <ul style="list-style-type: none;">
+                    <li>✴ <marcador class="resaltado126">Los Sensores (Captura de Entorno):</marcador> Son dispositivos transductores encargados de medir magnitudes físicas (como temperatura, humedad, luz, presencia, distancia o presión) y transformarlas en una señal eléctrica interpretable por el microcontrolador. Pueden ser de tipo <marcador class="resaltado125">analógico</marcador> (entregando un voltaje continuo proporcional a la variable, como un potenciómetro o un sensor LM35) o de tipo <marcador class="resaltado125">digital</marcador> (entregando pulsos o tramas de datos mediante protocolos como I2C, SPI o un solo hilo, como los sensores DHT11 o ultrasonicos HC-SR04).</li>
+                    <li>✴ <marcador class="resaltado126">Los Actuadores (Acción y Potencia):</marcador> Son componentes encargados de convertir las señales eléctricas de salida del microcontrolador en acciones físicas, mecánicas o lumínicas sobre el entorno. Incluyen desde elementos sencillos de indicación (como LEDs y zumbadores piezoeléctricos) hasta sistemas electromecánicos y de potencia más complejos como motores de corriente continua (DC), servomotores y motores paso a paso.</li>
+                    <li>✴ <marcador class="resaltado126">Elementos de Interfaz de Potencia (Relés y Transistores):</marcador> Los pines de un microcontrolador estándar (como el PIC o un Arduino) están diseñados para entregar corrientes muy pequeñas (típicamente de 20 mA a 25 mA como máximo). Por esta razón, para controlar cargas de alta potencia o corriente alterna (como lámparas, electroválvulas o motores grandes) es indispensable utilizar etapas de aislamiento y conmutación mediante transistores MOSFET/BJT, optoacopladores o relés electromecánicos.</li>
+                    <li>✴ <marcador class="resaltado126">Componentes de Acondicionamiento y Protección:</marcador> Circuitos auxiliares fundamentales para garantizar la estabilidad operativa del sistema. Esto incluye <marcador class="resaltado125">resistencias de pull-up y pull-down</marcador> para fijar estados lógicos seguros en los pines de entrada y evitar lecturas flotantes; condensadores de desacoplo colocados cerca de los pines de alimentación del microcontrolador para filtrar picos de ruido eléctrico; y diodos de rueda libre (flyback) en paralelo con cargas inductivas para disipar los voltajes inversos generados al apagar motores o relés.</li>
+                </ul>
+                                <iframe src="https://www.youtube.com/embed/V0jOKsjeBWQ" 
+                        title="Sensores" 
+                        width="100%" height="315" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+                <br>
+                <iframe src="https://www.youtube.com/embed/S1L1asiyg6Q" 
+                        title="Actuadores" 
+                        width="100%" height="315" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+                <br>
+                <br>
+
                 <p></p>
                 <p></p>
 
