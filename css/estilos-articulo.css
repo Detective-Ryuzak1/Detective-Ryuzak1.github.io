@@ -435,6 +435,14 @@ a:hover {
     font-family: 'Roboto';
 }
 
+.resaltado120 {
+    background: linear-gradient(120deg, #2b00ff 0%, #ff2994 100%);
+    color: #000000;
+    border-radius: 4px;
+    padding: 0px 4px;
+    font-family: 'Roboto';
+}
+
 .resaltado121 {
     /*color: rgb(137, 170, 231);
     opacity: 1;*/
@@ -479,6 +487,16 @@ a:hover {
     /*color: rgb(137, 170, 231);
     opacity: 1;*/
     background: linear-gradient(120deg, #161616 0%, #646463 100%);
+    color: #ffffff;
+    border-radius: 4px;
+    padding: 0px 4px;
+    font-family: 'Roboto';
+}
+
+.resaltado126 {
+    /*color: rgb(137, 170, 231);
+    opacity: 1;*/
+    background: linear-gradient(120deg, #dfd110 0%, #e31a96 100%);
     color: #ffffff;
     border-radius: 4px;
     padding: 0px 4px;
@@ -568,7 +586,27 @@ a:hover {
 .resaltado119 {
     color: rgb(0, 0, 0);
     opacity: 1.5;
-    background-color: rgb(250, 225, 60);
+    background-color: rgb(250, 240, 60);
+    border-radius: 5px;
+    padding-left: 3px; /* Agrega padding a la izquierda */
+    padding-right: 3px; /* Agrega padding a la derecha */
+    font-family: 'Roboto';
+}
+
+.resaltado130 {
+    color: rgb(0, 0, 0);
+    opacity: 1.5;
+    background-color: rgb(34, 24, 223);
+    border-radius: 5px;
+    padding-left: 3px; /* Agrega padding a la izquierda */
+    padding-right: 3px; /* Agrega padding a la derecha */
+    font-family: 'Roboto';
+}
+
+.resaltado131 {
+    color: rgb(255, 255, 255);
+    opacity: 1.5;
+    background-color: rgb(135, 16, 5);
     border-radius: 5px;
     padding-left: 3px; /* Agrega padding a la izquierda */
     padding-right: 3px; /* Agrega padding a la derecha */
@@ -685,21 +723,21 @@ a:hover {
 
 .resaltado13 {
     color: rgb(128, 25, 201);
-    text-decoration: underline;
+    text-decoration: italic;
     font-family: 'Roboto';
     opacity: 1;
 }
 
 .resaltado15 {
     color: #009933
-    text-decoration: underline;
+    text-decoration: italic;
     font-family: 'Roboto';
     opacity: 1;
 }
 
 .resaltado16 {
     color: rgb(67, 151, 67);
-    text-decoration: underline;
+    text-decoration: italic;
     font-family: 'Roboto';
     opacity: 1;
 }
