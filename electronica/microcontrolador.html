@@ -353,22 +353,22 @@ LEER_PUERTO:
                 <ul style="list-style-type: none;">
                     <li>ꕥ <marcador class="resaltado121">Registro ADCON0 (Control 0 del ADC):</marcador> Gestiona la configuración operativa principal, la selección del canal analógico activo y el estado de la conversión:
                         <ol style="list-style-type: none;">
-                            <li><marcador class="resaltado125">Bits 7-6 (ADCS1:ADCS0):</marcador> Bits de selección del reloj de conversión ADC (determinan la velocidad del reloj interno en función de la frecuencia del oscilador FOSC).</li>
-                            <li><marcador class="resaltado125">Bits 5-3 (CHS2:CHS0):</marcador> Bits de selección del canal analógico (permiten elegir cuál de las patillas de entrada analógica AN0 a AN7 será muestreada).</li>
-                            <li><marcador class="resaltado125">Bit 2 (GO/DONE):</marcador> Bit de estado y control de inicio (se pone a 1 por software para iniciar una conversión analógico-digital; el hardware lo limpia automáticamente a 0 cuando la conversión finaliza).</li>
-                            <li><marcador class="resaltado125">Bit 0 (ADON):</marcador> Bit de encendido del módulo ADC (1 = Enciende y habilita el módulo ADC, 0 = Apaga el módulo para ahorrar energía).</li>
+                            <li>◦ <marcador class="resaltado125">Bits 7-6 (ADCS1:ADCS0):</marcador> Bits de selección del reloj de conversión ADC (determinan la velocidad del reloj interno en función de la frecuencia del oscilador FOSC).</li>
+                            <li>◦ <marcador class="resaltado125">Bits 5-3 (CHS2:CHS0):</marcador> Bits de selección del canal analógico (permiten elegir cuál de las patillas de entrada analógica AN0 a AN7 será muestreada).</li>
+                            <li>◦ <marcador class="resaltado125">Bit 2 (GO/DONE):</marcador> Bit de estado y control de inicio (se pone a 1 por software para iniciar una conversión analógico-digital; el hardware lo limpia automáticamente a 0 cuando la conversión finaliza).</li>
+                            <li>◦ <marcador class="resaltado125">Bit 0 (ADON):</marcador> Bit de encendido del módulo ADC (1 = Enciende y habilita el módulo ADC, 0 = Apaga el módulo para ahorrar energía).</li>
                         </ol>
                     </li>
                     <li>ꕥ <marcador class="resaltado121">Registro ADCON1 (Control 1 del ADC):</marcador> Configura el formato de justificación del resultado y la función de los pines como entradas analógicas o digitales, así como los voltajes de referencia:
                         <ol style="list-style-type: none;">
-                            <li><marcador class="resaltado125">Bit 7 (ADFM):</marcador> Bit de formato de justificación del resultado (1 = Justificado a la derecha, 0 = Justificado a la izquierda en los registros de resultado).</li>
-                            <li><marcador class="resaltado125">Bits 3-0 (PCFG3:PCFG0):</marcador> Bits de configuración del puerto analógico/digital (definen qué pines específicos funcionan como entradas analógicas y cuáles como E/S digitales de propósito general, además de seleccionar las fuentes de voltaje de referencia VREF+ y VREF-).</li>
+                            <li>◦ <marcador class="resaltado125">Bit 7 (ADFM):</marcador> Bit de formato de justificación del resultado (1 = Justificado a la derecha, 0 = Justificado a la izquierda en los registros de resultado).</li>
+                            <li>◦ <marcador class="resaltado125">Bits 3-0 (PCFG3:PCFG0):</marcador> Bits de configuración del puerto analógico/digital (definen qué pines específicos funcionan como entradas analógicas y cuáles como E/S digitales de propósito general, además de seleccionar las fuentes de voltaje de referencia VREF+ y VREF-).</li>
                         </ol>
                     </li>
                     <li>ꕥ <marcador class="resaltado121">Registros de Resultado (ADRESH y ADRESL):</marcador> Son los registros de almacenamiento donde se deposita el valor digital binario resultante de la conversión de 10 bits:
                         <ol style="list-style-type: none;">
-                            <li><marcador class="resaltado125">ADRESH (Byte Alto):</marcador> Almacena los bits más significativos del resultado de la conversión (bits 9 a 2 si está justificado a la izquierda, o los bits 9 y 8 si está justificado a la derecha).</li>
-                            <li><marcador class="resaltado125">ADRESL (Byte Bajo):</marcador> Almacena los bits menos significativos del resultado digital obtenido tras completar el muestreo.</li>
+                            <li>◦ <marcador class="resaltado125">ADRESH (Byte Alto):</marcador> Almacena los bits más significativos del resultado de la conversión (bits 9 a 2 si está justificado a la izquierda, o los bits 9 y 8 si está justificado a la derecha).</li>
+                            <li>◦ <marcador class="resaltado125">ADRESL (Byte Bajo):</marcador> Almacena los bits menos significativos del resultado digital obtenido tras completar el muestreo.</li>
                         </ol>
                     </li>
                 </ul>
@@ -461,28 +461,149 @@ ESPERAR_CONVERSION:
                 <div class="blog-image-grande">
                     <img src="media/micro8.jpg" alt="">
                 </div>
+                <h7>El Watchdog Timer (Perro Guardián)</h7>
+                <p>El Watchdog Timer (WDT) es un temporizador independiente basado en un oscilador RC interno de baja potencia que funciona de manera autónoma, sin depender del reloj principal del microcontrolador. Su función principal es actuar como un sistema de seguridad crítico: si el software del sistema entra en un bucle infinito o se bloquea por una falla imprevista, el WDT cuenta un tiempo predeterminado hasta desbordarse, generando automáticamente un reinicio físico del microcontrolador para recuperar el control operativo.</p>
+                <p>Para mantener el sistema en funcionamiento normal, el programa debe reiniciar periódicamente el temporizador mediante la instrucción en ensamblador <code>CLRWDT</code> antes de que se cumpla el tiempo límite.</p>
+
+                <ul style="list-style-type: none;">
+                    <li>ꕥ <marcador class="resaltado121">Funcionamiento y Configuración por Hardware:</marcador> El WDT se habilita o deshabilita principalmente desde las palabras de configuración del microcontrolador (mediante los bits de fusible como <code>WDTE = ON</code> / <code>OFF</code>). Su tiempo de desbordamiento nominal base (sin divisor de frecuencia) es de aproximadamente 18 milisegundos, el cual puede extenderse considerablemente utilizando un preescalador (prescaler) interno.</li>
+                    <li>ꕥ <marcador class="resaltado121">Relación con el Registro OPTION_REG:</marcador> El divisor de frecuencia del WDT se configura a través de los bits del registro <code>OPTION_REG</code>:
+                        <ol style="list-style-type: none;">
+                            <li>◦ <marcador class="resaltado125">Bit 3 (PSA):</marcador> Asignación del prescaler (para que el divisor afecte al Watchdog Timer, el bit PSA debe configurarse en <code>1</code>).</li>
+                            <li>◦ <marcador class="resaltado125">Bits 2-0 (PS2:PS0):</marcador> Bits de selección de la tasa de división del prescaler, permitiendo ampliar el tiempo de desbordamiento del WDT desde una relación de 1:1 (~18 ms) hasta un máximo de 1:128 (aproximadamente 2.3 segundos).</li>
+                        </ol>
+                    </li>
+                    <li>ꕥ <marcador class="resaltado121">Relación con el Registro STATUS (Banderas de Reinicio):</marcador> El microcontrolador dispone de bits de estado en el registro <code>STATUS</code> para identificar la causa de un reinicio:
+                        <ol style="list-style-type: none;">
+                            <li>◦ <marcador class="resaltado125">Bit 4 (TO - Time-out bit):</marcador> Indicador de tiempo fuera del Watchdog. Se pone automáticamente a <code>0</code> si ocurre un reinicio provocado por el desbordamiento del WDT, lo que permite al programa identificar que el sistema se recuperó de un bloqueo.</li>
+                            <li>◦ <marcador class="resaltado125">Bit 3 (PD - Power-down bit):</marcador> Indicador de modo de suspensión, utilizado en conjunto con TO para diferenciar entre un reinicio por WDT, un reinicio por hardware o un despertar del modo de bajo consumo (*Sleep*).</li>
+                        </ol>
+                    </li>
+                </ul>
+                <div class="blog-image-grande">
+                    <img src="media/micro9.png" alt="">
+                </div>
+                <h7>Los Temporizadores (Timers)</h7>
+                <p>Los temporizadores o contadores internos son periféricos de hardware fundamentales en el microcontrolador que permiten medir el tiempo transcurrido, generar retrasos precisos sin consumir ciclos de CPU en bucles vacíos, contar eventos externos o producir señales moduladas (PWM). En la arquitectura PIC16F874A/877A, el módulo <marcador class="resaltado125">Timer0</marcador> es un contador/temporizador de 8 bits que incrementa su valor de manera autónoma al recibir pulsos de reloj internos o externos.</p>
+
+                <ul style="list-style-type: none;">
+                    <li>ꕥ <marcador class="resaltado121">Registro TMR0 (Registro del Temporizador 0):</marcador> Es el byte de conteo físico (de 8 bits). Se incrementa constantemente de forma automática en cada ciclo de instrucción (o pulso externo). Cuando su valor pasa de <code>FFh</code> a <code>00h</code>, se desborda y activa una bandera de interrupción, lo que permite medir intervalos de tiempo exactos.</li>
+                    <li>ꕥ <marcador class="resaltado121">Registro OPTION_REG (Configuración del Timer0):</marcador> Controla los parámetros operativos fundamentales del temporizador:
+                        <ol style="list-style-type: none;">
+                            <li>◦ <marcador class="resaltado125">Bit 5 (T0CS):</marcador> Selector de fuente de reloj (1 = Transición en el pin externo T0CKI, 0 = Ciclo de instrucción interno FOSC/4).</li>
+                            <li>◦ <marcador class="resaltado125">Bit 4 (T0SE):</marcador> Selector de flanco para el modo externo (1 = Incrementa en flanco de bajada, 0 = Incrementa en flanco de subida).</li>
+                            <li>◦ <marcador class="resaltado125">Bit 3 (PSA):</marcador> Asignación del prescaler (0 = El prescaler se asigna al Timer0, 1 = Se asigna al Watchdog Timer).</li>
+                            <li>◦ <marcador class="resaltado125">Bits 2-0 (PS2:PS0):</marcador> Bits de selección de la tasa de división del prescaler (desde 1:2 hasta 1:256 para escalar la velocidad de conteo).</li>
+                        </ol>
+                    </li>
+                    <li>ꕥ <marcador class="resaltado121">Registro INTCON (Gestión de Banderas del Timer0):</marcador>
+                        <ol style="list-style-type: none;">
+                            <li><marcador class="resaltado125">Bit 5 (TMR0IE):</marcador> Habilitador de interrupción por desbordamiento del Timer0.</li>
+                            <li><marcador class="resaltado125">Bit 2 (TMR0IF):</marcador> Bandera de desbordamiento (se pone a 1 automáticamente cuando el Timer0 pasa de FFh a 00h y debe limpiarse por software).</li>
+                        </ol>
+                    </li>
+                </ul>
+
+                <h3>Ejemplo en Ensamblador: Temporizador para Parpadeo Preciso con Timer0</h3>
+                <p>El siguiente programa implementa un retardo de tiempo basado puramente en el desbordamiento del Timer0, evitando el uso de bucles de retardo por software convencionales y permitiendo un control temporal exacto para hacer parpadear un LED en el Puerto B:</p>
+                <p>A continuación se presenta el código completo en ensamblador comentado:</p>
+
+                <div class="archivo">
+<pre><code>; =====================================================================
+; Programa de Ejemplo: Temporizador Timer0 para Retardo Preciso
+; Microcontrolador: PIC16F874A / PIC16F877A
+; =====================================================================
+
+    LIST P=16F877A        ; Especifica el microcontrolador
+    __CONFIG _FOSC_XT &amp; _WDTE_OFF &amp; _PWRTE_ON &amp; _BOREN_ON &amp; _LVP_OFF
+    #include &lt;p16f877a.inc&gt;
+
+    CBLOCK 0x20
+        CONTADOR_CICLOS   ; Variable auxiliar para contar desbordamientos
+    ENDC
+
+    ORG 0x00
+    GOTO    INICIO
+
+    ORG 0x04
+    RETFIE
+
+INICIO:
+    ; --- Configuración de Puertos ---
+    BSF     STATUS, RP0   ; Selecciona el Banco 1
+    CLRF    TRISB         ; Configura todo el Puerto B como salida (LEDs)
+    
+    ; Configuración de OPTION_REG (Banco 1):
+    ; T0CS = 0 (Reloj interno FOSC/4)
+    ; PSA = 0 (Prescaler asignado a Timer0)
+    ; PS2:PS0 = 111 (Tasa de división de 1:256 para maximizar el tiempo)
+    MOVLW   B'00000111'
+    MOVWF   OPTION_REG
+    
+    BCF     STATUS, RP0   ; Regresa al Banco 0
+
+    CLRF    PORTB         ; Inicializa el Puerto B apagado
+
+BUCLE_PRINCIPAL:
+    BSF     PORTB, 0      ; Enciende el LED en RB0
+    CALL    RETARDO_TIMER0 ; Llama a la rutina de retardo basada en Timer0
+    
+    BCF     PORTB, 0      ; Apaga el LED en RB0
+    CALL    RETARDO_TIMER0 ; Llama nuevamente a la rutina de retardo
+    
+    GOTO    BUCLE_PRINCIPAL
+
+; =====================================================================
+; Subrutina: RETARDO_TIMER0
+; Utiliza el desbordamiento del Timer0 para generar una pausa precisa
+; =====================================================================
+RETARDO_TIMER0:
+    MOVLW   D'10'         ; Carga el número de desbordamientos necesarios para completar la pausa
+    MOVWF   CONTADOR_CICLOS
+
+REINICIAR_TIMER:
+    MOVLW   D'60'         ; Precarga inicial en TMR0 para ajustar el tiempo de conteo
+    MOVWF   TMR0
+    BCF     INTCON, TMR0IF ; Limpia la bandera de desbordamiento del Timer0 (TMR0IF = 0)
+
+ESPERAR_DESBORDAMIENTO:
+    BTFSS   INTCON, TMR0IF ; Revisa si el Timer0 se desbordó (TMR0IF pasa a 1)
+    GOTO    ESPERAR_DESBORDAMIENTO ; Si no ha desbordado, sigue esperando
+
+    ; El Timer0 se desbordó una vez. Decrementamos el contador de ciclos acumulados.
+    DECFSZ  CONTADOR_CICLOS, F
+    GOTO    REINICIAR_TIMER  ; Si faltan desbordamientos, repite
+
+    RETURN                ; Retorna al programa principal al cumplirse el tiempo total
+
+    END
+</code></pre>
+                </div>
+                <div class="blog-image-grande">
+                    <img src="media/micro10.png" alt="">
+                </div>
                 <h7>La Comunicación Serial (USART) y sus Registros</h7>
                 <p>La comunicación serial mediante el módulo <marcador class="resaltado112">USART (Universal Synchronous Asynchronous Receiver Transmitter)</marcador> permite al microcontrolador transferir y recibir datos de forma bidireccional bit a bit utilizando líneas independientes, ideal para conectar con ordenadores, módulos Bluetooth, pantallas u otros microcontroladores. Para su funcionamiento, el PIC utiliza registros de control de transmisión, recepción y el cálculo de la velocidad de baudios.</p>
 
                 <ul style="list-style-type: none;">
                     <li>ꕥ <marcador class="resaltado121">Registro TXSTA (Control de Transmisión):</marcador>
                         <ol style="list-style-type: none;">
-                            <li><marcador class="resaltado125">Bit 6 (TXEN):</marcador> Habilitador de transmisión (1 = Habilita el transmisor USART, 0 = Deshabilita la transmisión).</li>
-                            <li><marcador class="resaltado125">Bit 5 (SYNC):</marcador> Selector de modo de sincronización (1 = Modo síncrono, 0 = Modo asíncrono serial estándar).</li>
-                            <li><marcador class="resaltado125">Bit 2 (BRGH):</marcador> Selector de alta velocidad de baudios en modo asíncrono (1 = Alta velocidad, 0 = Baja velocidad).</li>
+                            <li>◦ <marcador class="resaltado125">Bit 6 (TXEN):</marcador> Habilitador de transmisión (1 = Habilita el transmisor USART, 0 = Deshabilita la transmisión).</li>
+                            <li>◦ <marcador class="resaltado125">Bit 5 (SYNC):</marcador> Selector de modo de sincronización (1 = Modo síncrono, 0 = Modo asíncrono serial estándar).</li>
+                            <li>◦ <marcador class="resaltado125">Bit 2 (BRGH):</marcador> Selector de alta velocidad de baudios en modo asíncrono (1 = Alta velocidad, 0 = Baja velocidad).</li>
                         </ol>
                     </li>
                     <li>ꕥ <marcador class="resaltado121">Registro RCSTA (Control de Recepción):</marcador>
                         <ol style="list-style-type: none;">
-                            <li><marcador class="resaltado125">Bit 7 (SPEN):</marcador> Habilitador del puerto serial (1 = Enciende y configura los pines RC6/TX y RC7/RX como puerto serial, 0 = Deshabilita el módulo).</li>
-                            <li><marcador class="resaltado125">Bit 4 (CREN):</marcador> Habilitador de recepción continua (1 = Habilita el receptor asíncrono continuo, 0 = Deshabilita la recepción).</li>
+                            <li>◦ <marcador class="resaltado125">Bit 7 (SPEN):</marcador> Habilitador del puerto serial (1 = Enciende y configura los pines RC6/TX y RC7/RX como puerto serial, 0 = Deshabilita el módulo).</li>
+                            <li>◦ <marcador class="resaltado125">Bit 4 (CREN):</marcador> Habilitador de recepción continua (1 = Habilita el receptor asíncrono continuo, 0 = Deshabilita la recepción).</li>
                         </ol>
                     </li>
                     <li>ꕥ <marcador class="resaltado121">Registro SPBRG (Generador de Baudios):</marcador> Almacena el valor numérico de 8 bits que determina la velocidad de transferencia o tasa de baudios (Baud Rate) en comunicación asíncrona en función de la frecuencia del oscilador.</li>
                     <li>ꕥ <marcador class="resaltado121">Registros de Datos (TXREG y RCREG):</marcador>
                         <ol style="list-style-type: none;">
-                            <li><marcador class="resaltado125">TXREG (Registro de Transmisión):</marcador> Almacena el byte que se va a transmitir de forma serial al exterior.</li>
-                            <li><marcador class="resaltado125">RCREG (Registro de Recepción):</marcador> Almacena el byte recibido de manera serial desde el exterior.</li>
+                            <li>◦ <marcador class="resaltado125">TXREG (Registro de Transmisión):</marcador> Almacena el byte que se va a transmitir de forma serial al exterior.</li>
+                            <li>◦ <marcador class="resaltado125">RCREG (Registro de Recepción):</marcador> Almacena el byte recibido de manera serial desde el exterior.</li>
                         </ol>
                     </li>
                 </ul>
@@ -667,10 +788,10 @@ void cambiarEstado() {
                 <p>Para que un microcontrolador pueda interactuar de manera útil con el mundo real, no basta con procesar código internamente; requiere de elementos periféricos que actúan como sus sentidos y sus extremidades. Los sensores capturan los fenómenos físicos y los traducen en señales eléctricas, mientras que los actuadores ejecutan las respuestas físicas ordenadas por el sistema de control.</p>
 
                 <ul style="list-style-type: none;">
-                    <li>✴ <marcador class="resaltado126">Los Sensores (Captura de Entorno):</marcador> Son dispositivos transductores encargados de medir magnitudes físicas (como temperatura, humedad, luz, presencia, distancia o presión) y transformarlas en una señal eléctrica interpretable por el microcontrolador. Pueden ser de tipo <marcador class="resaltado125">analógico</marcador> (entregando un voltaje continuo proporcional a la variable, como un potenciómetro o un sensor LM35) o de tipo <marcador class="resaltado125">digital</marcador> (entregando pulsos o tramas de datos mediante protocolos como I2C, SPI o un solo hilo, como los sensores DHT11 o ultrasonicos HC-SR04).</li>
-                    <li>✴ <marcador class="resaltado126">Los Actuadores (Acción y Potencia):</marcador> Son componentes encargados de convertir las señales eléctricas de salida del microcontrolador en acciones físicas, mecánicas o lumínicas sobre el entorno. Incluyen desde elementos sencillos de indicación (como LEDs y zumbadores piezoeléctricos) hasta sistemas electromecánicos y de potencia más complejos como motores de corriente continua (DC), servomotores y motores paso a paso.</li>
-                    <li>✴ <marcador class="resaltado126">Elementos de Interfaz de Potencia (Relés y Transistores):</marcador> Los pines de un microcontrolador estándar (como el PIC o un Arduino) están diseñados para entregar corrientes muy pequeñas (típicamente de 20 mA a 25 mA como máximo). Por esta razón, para controlar cargas de alta potencia o corriente alterna (como lámparas, electroválvulas o motores grandes) es indispensable utilizar etapas de aislamiento y conmutación mediante transistores MOSFET/BJT, optoacopladores o relés electromecánicos.</li>
-                    <li>✴ <marcador class="resaltado126">Componentes de Acondicionamiento y Protección:</marcador> Circuitos auxiliares fundamentales para garantizar la estabilidad operativa del sistema. Esto incluye <marcador class="resaltado125">resistencias de pull-up y pull-down</marcador> para fijar estados lógicos seguros en los pines de entrada y evitar lecturas flotantes; condensadores de desacoplo colocados cerca de los pines de alimentación del microcontrolador para filtrar picos de ruido eléctrico; y diodos de rueda libre (flyback) en paralelo con cargas inductivas para disipar los voltajes inversos generados al apagar motores o relés.</li>
+                    <li>𐍈 <marcador class="resaltado126">Los Sensores (Captura de Entorno):</marcador> Son dispositivos transductores encargados de medir magnitudes físicas (como temperatura, humedad, luz, presencia, distancia o presión) y transformarlas en una señal eléctrica interpretable por el microcontrolador. Pueden ser de tipo <marcador class="resaltado125">analógico</marcador> (entregando un voltaje continuo proporcional a la variable, como un potenciómetro o un sensor LM35) o de tipo <marcador class="resaltado125">digital</marcador> (entregando pulsos o tramas de datos mediante protocolos como I2C, SPI o un solo hilo, como los sensores DHT11 o ultrasonicos HC-SR04).</li>
+                    <li>𐍈 <marcador class="resaltado126">Los Actuadores (Acción y Potencia):</marcador> Son componentes encargados de convertir las señales eléctricas de salida del microcontrolador en acciones físicas, mecánicas o lumínicas sobre el entorno. Incluyen desde elementos sencillos de indicación (como LEDs y zumbadores piezoeléctricos) hasta sistemas electromecánicos y de potencia más complejos como motores de corriente continua (DC), servomotores y motores paso a paso.</li>
+                    <li>𐍈 <marcador class="resaltado126">Elementos de Interfaz de Potencia (Relés y Transistores):</marcador> Los pines de un microcontrolador estándar (como el PIC o un Arduino) están diseñados para entregar corrientes muy pequeñas (típicamente de 20 mA a 25 mA como máximo). Por esta razón, para controlar cargas de alta potencia o corriente alterna (como lámparas, electroválvulas o motores grandes) es indispensable utilizar etapas de aislamiento y conmutación mediante transistores MOSFET/BJT, optoacopladores o relés electromecánicos.</li>
+                    <li>𐍈 <marcador class="resaltado126">Componentes de Acondicionamiento y Protección:</marcador> Circuitos auxiliares fundamentales para garantizar la estabilidad operativa del sistema. Esto incluye <marcador class="resaltado125">resistencias de pull-up y pull-down</marcador> para fijar estados lógicos seguros en los pines de entrada y evitar lecturas flotantes; condensadores de desacoplo colocados cerca de los pines de alimentación del microcontrolador para filtrar picos de ruido eléctrico; y diodos de rueda libre (flyback) en paralelo con cargas inductivas para disipar los voltajes inversos generados al apagar motores o relés.</li>
                 </ul>
                                 <iframe src="https://www.youtube.com/embed/V0jOKsjeBWQ" 
                         title="Sensores" 
