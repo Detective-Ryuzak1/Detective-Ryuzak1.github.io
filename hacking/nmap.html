@@ -327,14 +327,14 @@ PORT   STATE SERVICE VERSION
                 <h2>Tipos de scripts en Nmap NSE</h2>
                 <p>Los scripts NSE (Nmap Scripting Engine) de Nmap son pequeños programas que amplían la funcionalidad básica del escáner de puertos, permitiendo realizar análisis más avanzados y detallados en los sistemas y redes objetivo. Estos scripts son escritos en Lua, un lenguaje de programación ligero, y permiten a Nmap ejecutar tareas adicionales que van más allá de la simple detección de puertos abiertos.</p>
                 <ol>
-                    <li><marcador class="resaltado2">Auth: </marcador>Scripts relacionados con la autenticación, como pruebas de credenciales y métodos de autenticación.</li>
-                    <li><marcador class="resaltado2">Default: </marcador>Scripts que se ejecutan por defecto cuando se utiliza la opción -sC. Son de bajo riesgo y generalmente útiles para la detección de servicios básicos.</li>
-                    <li><marcador class="resaltado2">Discovery: </marcador>Scripts diseñados para descubrir información general sobre un objetivo, como servicios o nombres de host.</li>
-                    <li><marcador class="resaltado2">External: </marcador>Scripts que requieren acceso a Internet, como consultas a bases de datos externas.</li>
-                    <li><marcador class="resaltado2">Intrusive: </marcador>Scripts que pueden alterar o interferir con los sistemas objetivo, ya que realizan pruebas de seguridad más profundas.</li>
-                    <li><marcador class="resaltado2">Malware: </marcador>Dedicados a detectar la presencia de malware o software malicioso en el sistema objetivo.</li>
-                    <li><marcador class="resaltado2">Vuln: </marcador>Scripts enfocados en buscar vulnerabilidades conocidas en los servicios del sistema.</li>
-                    <li><marcador class="resaltado2">Safe: </marcador>Scripts que no generan ningún impacto negativo sobre el sistema objetivo; son seguros de ejecutar.</li>
+                    <li><marcador class="resaltado119">Auth:</marcador> Scripts relacionados con la autenticación, como pruebas de credenciales y métodos de autenticación.</li>
+                    <li><marcador class="resaltado119">Default:</marcador> Scripts que se ejecutan por defecto cuando se utiliza la opción -sC. Son de bajo riesgo y generalmente útiles para la detección de servicios básicos.</li>
+                    <li><marcador class="resaltado119">Discovery:</marcador> Scripts diseñados para descubrir información general sobre un objetivo, como servicios o nombres de host.</li>
+                    <li><marcador class="resaltado119">External:</marcador> Scripts que requieren acceso a Internet, como consultas a bases de datos externas.</li>
+                    <li><marcador class="resaltado119">Intrusive:</marcador> Scripts que pueden alterar o interferir con los sistemas objetivo, ya que realizan pruebas de seguridad más profundas.</li>
+                    <li><marcador class="resaltado119">Malware:</marcador> Dedicados a detectar la presencia de malware o software malicioso en el sistema objetivo.</li>
+                    <li><marcador class="resaltado119">Vuln:</marcador> Scripts enfocados en buscar vulnerabilidades conocidas en los servicios del sistema.</li>
+                    <li><marcador class="resaltado119">Safe:</marcador> Scripts que no generan ningún impacto negativo sobre el sistema objetivo; son seguros de ejecutar.</li>
                 </ol>
                 <br>
                 <p>Haciendo uso del comando <marcardor class="subrayado">locate .nse | xargs grep "categories" | grep -oP '".*?"' | sort -u</marcardor> se obtiene una lista única de todas las categorías de scripts NSE presentes en el sistema.</p>
