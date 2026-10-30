@@ -56,9 +56,9 @@
                 </div>
                 <h2>Componentes de ELK Stack</h2>
                 <ul style="list-style-type: none;">
-                    <li>⌬ <marcador class="resaltado2">Elasticsearch: </marcador>Es el motor de búsqueda y análisis que sirve como base del stack. Elasticsearch está diseñado para almacenar grandes volúmenes de datos y proporcionar búsquedas rápidas y eficientes. Utiliza un modelo de almacenamiento basado en documentos JSON y es altamente escalable gracias a su arquitectura distribuida.</li>
-                    <li>⌬ <marcador class="resaltado2">Logstash: </marcador>Es la herramienta encargada de la ingesta, transformación y carga de datos. Logstash permite recolectar datos desde diversas fuentes, como archivos de registros, bases de datos y colas de mensajes, y procesarlos para normalizarlos antes de enviarlos a Elasticsearch.</li>
-                    <li>⌬ <marcador class="resaltado2">Kibana: </marcador>Es la interfaz de visualización de datos. Permite crear dashboards interactivos, realizar búsquedas avanzadas y analizar tendencias a través de gráficos, mapas y otras herramientas visuales.</li>
+                    <li>⌬ <marcador class="resaltado116">Elasticsearch: </marcador>Es el motor de búsqueda y análisis que sirve como base del stack. Elasticsearch está diseñado para almacenar grandes volúmenes de datos y proporcionar búsquedas rápidas y eficientes. Utiliza un modelo de almacenamiento basado en documentos JSON y es altamente escalable gracias a su arquitectura distribuida.</li>
+                    <li>⌬ <marcador class="resaltado116">Logstash: </marcador>Es la herramienta encargada de la ingesta, transformación y carga de datos. Logstash permite recolectar datos desde diversas fuentes, como archivos de registros, bases de datos y colas de mensajes, y procesarlos para normalizarlos antes de enviarlos a Elasticsearch.</li>
+                    <li>⌬ <marcador class="resaltado116">Kibana: </marcador>Es la interfaz de visualización de datos. Permite crear dashboards interactivos, realizar búsquedas avanzadas y analizar tendencias a través de gráficos, mapas y otras herramientas visuales.</li>
                     <p>Adicionalmente, se puede integrar Beats, una colección de agentes ligeros diseñados para enviar datos desde los servidores a Logstash o directamente a Elasticsearch.</p>
                 </ul>
                 <div class="blog-image-grande">
@@ -333,8 +333,8 @@ CGroup: /system.slice/elasticsearch.service
                     </section>
                 </div>
                 <ul style="list-style-type: none;">
-                    <li>⌭ <marcador class="resaltado8">number_of_shards: </marcador>Número de fragmentos en los que se divide el índice.</li>
-                    <li>⌭ <marcador class="resaltado8">number_of_replicas: </marcador>Número de copias de seguridad de los datos.</li>
+                    <li>◦ <marcador class="resaltado8">number_of_shards: </marcador>Número de fragmentos en los que se divide el índice.</li>
+                    <li>◦ <marcador class="resaltado8">number_of_replicas: </marcador>Número de copias de seguridad de los datos.</li>
                 </ul>
                 <p>Los documentos se almacenan en JSON dentro de un índice. Puedes insertar un documento usando POST o PUT.</p>
                 <p>❏ Ejemplo de agregar un documento con POST:</p>
@@ -671,38 +671,38 @@ CGroup: /system.slice/elasticsearch.service
                 <ol>
                     <li>Filtros de Análisis y Extracción de Datos:</li>
                     <ul style="list-style-type: none;">
-                        <li>⌭ <marcador class="resaltado5">grok: </marcador>Este es uno de los filtros más poderosos. Permite analizar y extraer campos específicos de cadenas de texto no estructuradas utilizando patrones predefinidos o personalizados.</li>
+                        <li>◦ <marcador class="resaltado5">grok: </marcador>Este es uno de los filtros más poderosos. Permite analizar y extraer campos específicos de cadenas de texto no estructuradas utilizando patrones predefinidos o personalizados.</li>
                         <p>Es ideal para procesar registros de logs con formatos variados.</p>
-                        <li>⌭ <marcador class="resaltado5">dissect: </marcador>Similar a Grok, pero más rápido para datos estructurados con delimitadores consistentes.</li>
+                        <li>◦ <marcador class="resaltado5">dissect: </marcador>Similar a Grok, pero más rápido para datos estructurados con delimitadores consistentes.</li>
                         <p>Útil para procesar registros CSV o datos con patrones predecibles.</p>
-                        <li>⌭ <marcador class="resaltado5">csv: </marcador>Analiza datos en formato CSV y los convierte en campos individuales.</li>
-                        <li>⌭ <marcador class="resaltado5">json: </marcador>Analiza datos en formato JSON y los convierte en campos estructurados.</li>
-                        <li>⌭ <marcador class="resaltado5">xml: </marcador>Analiza datos en formato XML y los convierte en campos estructurados.</li>
-                        <li>⌭ <marcador class="resaltado5">kv: </marcador>Analiza pares clave-valor en cadenas de texto y los convierte en campos individuales.</li>
+                        <li>◦ <marcador class="resaltado5">csv: </marcador>Analiza datos en formato CSV y los convierte en campos individuales.</li>
+                        <li>◦ <marcador class="resaltado5">json: </marcador>Analiza datos en formato JSON y los convierte en campos estructurados.</li>
+                        <li>◦ <marcador class="resaltado5">xml: </marcador>Analiza datos en formato XML y los convierte en campos estructurados.</li>
+                        <li>◦ <marcador class="resaltado5">kv: </marcador>Analiza pares clave-valor en cadenas de texto y los convierte en campos individuales.</li>
                     </ul>
                     <li>Filtros de Transformación y Enriquecimiento de Datos:</li>
                     <ul style="list-style-type: none;">
-                        <li>⌭ <marcador class="resaltado5">mutate: </marcador>Permite realizar diversas transformaciones en los campos, como renombrar campos, eliminar campos, reemplazar valores, dividir cadenas y convertir tipos de datos.</li>
-                        <li>⌭ <marcador class="resaltado5">date: </marcador>Analiza cadenas de texto que representan fechas y las convierte en objetos de fecha y hora.</li>
+                        <li>◦ <marcador class="resaltado5">mutate: </marcador>Permite realizar diversas transformaciones en los campos, como renombrar campos, eliminar campos, reemplazar valores, dividir cadenas y convertir tipos de datos.</li>
+                        <li>◦ <marcador class="resaltado5">date: </marcador>Analiza cadenas de texto que representan fechas y las convierte en objetos de fecha y hora.</li>
                         <p>Esencial para trabajar con datos basados en tiempo.</p>
-                        <li>⌭ <marcador class="resaltado5">geoip: </marcador>Enriquece los eventos con información geográfica basada en direcciones IP.</li>
+                        <li>◦ <marcador class="resaltado5">geoip: </marcador>Enriquece los eventos con información geográfica basada en direcciones IP.</li>
                         <p>Permite obtener la ubicación, el país y otros detalles geográficos.</p>
-                        <li>⌭ <marcador class="resaltado5">dns: </marcador>Realiza búsquedas de DNS inversas para obtener nombres de host a partir de direcciones IP.</li>
-                        <li>⌭ <marcador class="resaltado5">ruby: </marcador>Permite ejecutar código Ruby para realizar transformaciones personalizadas complejas.</li>
+                        <li>◦ <marcador class="resaltado5">dns: </marcador>Realiza búsquedas de DNS inversas para obtener nombres de host a partir de direcciones IP.</li>
+                        <li>◦ <marcador class="resaltado5">ruby: </marcador>Permite ejecutar código Ruby para realizar transformaciones personalizadas complejas.</li>
                     </ul>
                     <li>Filtros Condicionales y de Control de Flujo:</li>
                     <ul style="list-style-type: none;">
-                        <li>⌭ <marcador class="resaltado5">if/else: </marcador>Permite aplicar filtros condicionalmente según ciertas condiciones.</li>
+                        <li>◦ <marcador class="resaltado5">if/else: </marcador>Permite aplicar filtros condicionalmente según ciertas condiciones.</li>
                         <p>Esencial para crear pipelines de procesamiento de datos flexibles.</p>
-                        <li>⌭ <marcador class="resaltado5">drop: </marcador>Descarta eventos que no cumplen con ciertos criterios.</li>
+                        <li>◦ <marcador class="resaltado5">drop: </marcador>Descarta eventos que no cumplen con ciertos criterios.</li>
                         <p>Útil para filtrar datos no deseados.</p>
-                        <li>⌭ <marcador class="resaltado5">clone: </marcador>Duplica eventos para procesarlos de diferentes maneras.</li>
-                        <li>⌭ <marcador class="resaltado5">aggregate: </marcador>Combina múltiples eventos en un solo evento.</li>
+                        <li>◦ <marcador class="resaltado5">clone: </marcador>Duplica eventos para procesarlos de diferentes maneras.</li>
+                        <li>◦ <marcador class="resaltado5">aggregate: </marcador>Combina múltiples eventos en un solo evento.</li>
                     </ul>
                     <li>Filtros de Codificación y Decodificación:</li>
                     <ul style="list-style-type: none;">
-                        <li>⌭ <marcador class="resaltado5">urldecode: </marcador>Decodifica cadenas de texto codificadas en formato URL.</li>
-                        <li>⌭ <marcador class="resaltado5">base64: </marcador>Codifica o decodifica datos en formato Base64.</li>
+                        <li>◦ <marcador class="resaltado5">urldecode: </marcador>Decodifica cadenas de texto codificadas en formato URL.</li>
+                        <li>◦ <marcador class="resaltado5">base64: </marcador>Codifica o decodifica datos en formato Base64.</li>
                     </ul>
                 </ol>
                 <h6>Instalación</h6>
@@ -769,14 +769,14 @@ output {
                 <h6>Uso Básico de Logstash</h6>
                 <p>❏ Generar Tráfico de Registro:</p>
                 <ul style="list-style-type: none;">
-                    <li>⌭ <marcador class="resaltado5">Autenticación (auth.log): </marcador>Intenta iniciar sesión con un nombre de usuario incorrecto: <marcador class="subrayado">sudo su - usuario_incorrecto</marcador> (esto generará un intento de autenticación fallido).</li>
+                    <li>⌭ <marcador class="resaltado131">Autenticación (auth.log):</marcador> Intenta iniciar sesión con un nombre de usuario incorrecto: <marcador class="subrayado">sudo su - usuario_incorrecto</marcador> (esto generará un intento de autenticación fallido).</li>
                     <p>O intenta usar <marcador class="subrayado">sudo</marcador> para ejecutar cualquier comando.</p>
-                    <li>⌭ <marcador class="resaltado5">Cron (cron.log): </marcador>Añade una tarea cron sencilla que se ejecute en el próximo minuto: <marcador class="subrayado">(crontab -l ; echo "* * * * * echo 'Prueba Cron' >> /tmp/cron_test.log") | crontab -</marcador> (esto generará una entrada en <marcador class="resaltado1">cron.log</marcador> cuando la tarea se ejecute).</li>
+                    <li>⌭ <marcador class="resaltado131">Cron (cron.log):</marcador> Añade una tarea cron sencilla que se ejecute en el próximo minuto: <marcador class="subrayado">(crontab -l ; echo "* * * * * echo 'Prueba Cron' >> /tmp/cron_test.log") | crontab -</marcador> (esto generará una entrada en <marcador class="resaltado1">cron.log</marcador> cuando la tarea se ejecute).</li>
                     <p>Si deseas que la tarea deje de ejecutarse, debes eliminarla del crontab. Para hacerlo, sigue estos pasos: primero, abre el crontab en modo edición ejecutando <marcador class="subrayado">crontab -e</marcador>, luego busca la línea que añadiste (<marcador class="subrayado">* * * * * echo 'Prueba Cron' >> /tmp/cron_test.log</marcador>), elimínala y guarda el archivo. Finalmente, verifica que la tarea se haya eliminado listando las tareas cron nuevamente con <marcador class="subrayado">crontab -l</marcador>. Este proceso asegura que la tarea programada, que originalmente se ejecutaba cada minuto, ya no esté activa y no continúe escribiendo en el archivo <marcador class="resaltado1">/tmp/cron_test.log</marcador>.</p>
-                    <li>⌭ <marcador class="resaltado5">Kernel (kern.log): </marcador>Conecta o desconecta un dispositivo USB.</li>
+                    <li>⌭ <marcador class="resaltado131">Kernel (kern.log):</marcador> Conecta o desconecta un dispositivo USB.</li>
                     <p>Puedes intentar cargar o descargar un módulo del kernel (con precaución): <marcador class="subrayado">sudo modprobe usb-storage</marcador> o <marcador class="subrayado">sudo modprobe -r usb-storage</marcador>.</p>
-                    <li>⌭ <marcador class="resaltado5">Syslog (syslog): </marcador>Usa el comando logger para enviar mensajes directamente a syslog: <marcador class="subrayado">logger "Mensaje de prueba syslog"</marcador>.</li>
-                    <li>⌭ <marcador class="resaltado5">Mail (mail.log): </marcador>Si tienes un servidor de correo configurado, envía o recibe un correo electrónico.</li>
+                    <li>⌭ <marcador class="resaltado131">Syslog (syslog):</marcador> Usa el comando logger para enviar mensajes directamente a syslog: <marcador class="subrayado">logger "Mensaje de prueba syslog"</marcador>.</li>
+                    <li>⌭ <marcador class="resaltado131">Mail (mail.log):</marcador> Si tienes un servidor de correo configurado, envía o recibe un correo electrónico.</li>
                 </ul>
                 <p>❏ Crear un Archivo de Configuración Básico.</p>
                 <div class="contenedor">
