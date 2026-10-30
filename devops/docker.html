@@ -51,29 +51,29 @@
                 <h1>Docker</h1>
                 <p>Docker es una plataforma de código abierto que permite la creación, despliegue y administración de aplicaciones dentro de contenedores. Los contenedores son entornos ligeros y aislados que agrupan una aplicación junto con todas sus dependencias, lo que facilita la portabilidad y la eficiencia del software. Docker se ha convertido en una de las tecnologías más populares debido a su capacidad para simplificar los procesos de desarrollo y despliegue de software en diferentes entornos.</p>
                 <p>Docker es altamente versátil y eficiente gracias a su enfoque en la contenedorización en lugar de la virtualización tradicional. En lugar de virtualizar un sistema operativo completo, Docker permite ejecutar múltiples contenedores sobre un solo núcleo del sistema operativo, compartiendo recursos como el kernel.</p>
-                <ul>
-                    <li><marcador class="resaltado2">Aislamiento: </marcador>Los contenedores funcionan en entornos aislados, lo que asegura que las aplicaciones no interfieran entre sí, incluso si se ejecutan en el mismo servidor.</li>
-                    <li><marcador class="resaltado2">Portabilidad: </marcador>Los contenedores Docker pueden ejecutarse en cualquier lugar, ya sea en el equipo local de un desarrollador, en servidores en la nube o en centros de datos on-premise, garantizando que funcionarán de manera consistente en diferentes entornos.</li>
-                    <li><marcador class="resaltado2">Ligereza: </marcador>A diferencia de las máquinas virtuales, los contenedores no necesitan un sistema operativo completo, lo que reduce el uso de recursos como CPU y memoria. Los contenedores son ligeros y se inician rápidamente.</li>
-                    <li><marcador class="resaltado2">Escalabilidad: </marcador>Docker facilita la creación de microservicios, lo que permite a las organizaciones escalar sus aplicaciones de manera modular. Cada microservicio se ejecuta en su propio contenedor y puede ser gestionado de forma independiente.</li>
+                <ul style="list-style-type: none;">
+                    <li>🚢 <marcador class="resaltado116">Aislamiento:</marcador> Los contenedores funcionan en entornos aislados, lo que asegura que las aplicaciones no interfieran entre sí, incluso si se ejecutan en el mismo servidor.</li>
+                    <li>🚢 <marcador class="resaltado116">Portabilidad:</marcador> Los contenedores Docker pueden ejecutarse en cualquier lugar, ya sea en el equipo local de un desarrollador, en servidores en la nube o en centros de datos on-premise, garantizando que funcionarán de manera consistente en diferentes entornos.</li>
+                    <li>🚢 <marcador class="resaltado116">Ligereza:</marcador> A diferencia de las máquinas virtuales, los contenedores no necesitan un sistema operativo completo, lo que reduce el uso de recursos como CPU y memoria. Los contenedores son ligeros y se inician rápidamente.</li>
+                    <li>🚢 <marcador class="resaltado116">Escalabilidad:</marcador> Docker facilita la creación de microservicios, lo que permite a las organizaciones escalar sus aplicaciones de manera modular. Cada microservicio se ejecuta en su propio contenedor y puede ser gestionado de forma independiente.</li>
                 </ul>
                 <div class="blog-image">
                     <img src="media/docker1.png" alt="">
                 </div>
                 <h2>Componentes</h2>
                 <p>Docker se compone de varios elementos clave que trabajan en conjunto para proporcionar un ecosistema eficiente para el desarrollo y la ejecución de aplicaciones en contenedores:</p>
-                <ul>
-                    <li><marcador class="resaltado3">Docker Engine: </marcador>Es el corazón de Docker. Se trata de un motor cliente-servidor que gestiona los contenedores. Consta de tres componentes:</li>
+                <ul style="list-style-type: none;">
+                    <li>❖ <marcador class="resaltado3">Docker Engine: </marcador>Es el corazón de Docker. Se trata de un motor cliente-servidor que gestiona los contenedores. Consta de tres componentes:</li>
                     <ol style="list-style-type: none;">
                         <li>▱ <marcador class="resaltado8">Docker Daemon (dockerd): </marcador>Es el servidor que se ejecuta en segundo plano y gestiona los contenedores.</li>
                         <li>▱ <marcador class="resaltado8">API REST: </marcador>Permite a las aplicaciones comunicarse con el Docker Daemon para realizar tareas como crear, eliminar y gestionar contenedores.</li>
                         <li>▱ <marcador class="resaltado8">CLI (Interfaz de Línea de Comandos): </marcador>La herramienta con la que los usuarios interactúan con Docker desde la terminal para ejecutar comandos.</li>
                     </ol>
-                    <li><marcador class="resaltado3">Imágenes Docker: </marcador>Son plantillas inmutables que contienen el código de una aplicación y todas las dependencias necesarias para ejecutarla. Las imágenes se almacenan en registros, como Docker Hub o registros privados.</li>
-                    <li><marcador class="resaltado3">Contenedores Docker: </marcador>Son instancias ejecutables de imágenes de Docker. Cada contenedor se ejecuta de manera aislada en su propio entorno y utiliza recursos del sistema operativo anfitrión, lo que lo hace mucho más ligero que las máquinas virtuales.</li>
-                    <li><marcador class="resaltado3">Dockerfile: </marcador>Es un archivo de texto que contiene un conjunto de instrucciones para construir una imagen Docker. Define cómo debe ser creada la imagen, desde qué base parte, qué dependencias necesita y qué comandos se deben ejecutar.</li>
-                    <li><marcador class="resaltado3">Docker Compose: </marcador>Es una herramienta que permite definir y ejecutar aplicaciones multicontenedor. Mediante un archivo YAML, Docker Compose define cómo interactúan varios servicios dentro de una aplicación.</li>
-                    <li><marcador class="resaltado3">Registros Docker (Docker Registry): </marcador>Son repositorios donde se almacenan las imágenes. Docker Hub es el registro más utilizado, pero también se pueden configurar registros privados.</li>
+                    <li>❖ <marcador class="resaltado3">Imágenes Docker: </marcador>Son plantillas inmutables que contienen el código de una aplicación y todas las dependencias necesarias para ejecutarla. Las imágenes se almacenan en registros, como Docker Hub o registros privados.</li>
+                    <li>❖ <marcador class="resaltado3">Contenedores Docker: </marcador>Son instancias ejecutables de imágenes de Docker. Cada contenedor se ejecuta de manera aislada en su propio entorno y utiliza recursos del sistema operativo anfitrión, lo que lo hace mucho más ligero que las máquinas virtuales.</li>
+                    <li>❖ <marcador class="resaltado3">Dockerfile: </marcador>Es un archivo de texto que contiene un conjunto de instrucciones para construir una imagen Docker. Define cómo debe ser creada la imagen, desde qué base parte, qué dependencias necesita y qué comandos se deben ejecutar.</li>
+                    <li>❖ <marcador class="resaltado3">Docker Compose: </marcador>Es una herramienta que permite definir y ejecutar aplicaciones multicontenedor. Mediante un archivo YAML, Docker Compose define cómo interactúan varios servicios dentro de una aplicación.</li>
+                    <li>❖ <marcador class="resaltado3">Registros Docker (Docker Registry): </marcador>Son repositorios donde se almacenan las imágenes. Docker Hub es el registro más utilizado, pero también se pueden configurar registros privados.</li>
                 </ul>
                 <div class="blog-image-grande">
                     <img src="media/docker2.png" alt="">
