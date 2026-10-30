@@ -172,6 +172,7 @@ void main(void) {
     }
 }
                 </div>
+                <br>
                 <h7>Subrutinas</h7>
                 <p>Las subrutinas son bloques de código reutilizables que permiten modularizar un programa. En el lenguaje ensamblador de los microcontroladores PIC, una subrutina se invoca mediante la instrucción <code>CALL</code>, la cual guarda automáticamente la dirección de retorno en la pila (*stack*) y salta a la etiqueta especificada. Al finalizar las instrucciones de la subrutina, la instrucción <code>RETURN</code> recupera esa dirección de la pila para que el programa principal continúe exactamente en el punto donde se quedó.</p>
 
@@ -754,6 +755,7 @@ ESPERAR_CONVERSION:
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                         allowfullscreen>
                 </iframe>
+                <br>
                 <h7>La Comunicación Serial (USART) y sus Registros</h7>
                 <p>La comunicación serial mediante el módulo <marcador class="resaltado112">USART (Universal Synchronous Asynchronous Receiver Transmitter)</marcador> permite al microcontrolador transferir y recibir datos de forma bidireccional bit a bit utilizando líneas independientes, ideal para conectar con ordenadores, módulos Bluetooth, pantallas u otros microcontroladores. Para su funcionamiento, el PIC utiliza registros de control de transmisión, recepción y el cálculo de la velocidad de baudios.</p>
 
@@ -885,6 +887,7 @@ BUCLE_RX:
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                         allowfullscreen>
                 </iframe>
+                <br>
                 <h7>Las Interrupciones</h7>
                 <p>Las interrupciones son mecanismos de hardware que permiten detener temporalmente la ejecución del programa principal para atender de manera inmediata un evento prioritario (como el pulso de un sensor, el flanco de un botón o una señal externa). Una vez que la rutina de servicio de interrupción (ISR) finaliza, el microcontrolador del Arduino regresa automáticamente al punto exacto donde se encontraba el código principal sin perder información ni retrasar la lectura de eventos críticos.</p>
                 <p>En las placas Arduino basadas en microcontroladores AVR (como el Arduino Uno con el ATmega328P), esto se gestiona de forma sencilla mediante la función nativa <code>attachInterrupt()</code>, evitando la necesidad de configurar manualmente los registros internos.</p>
@@ -933,6 +936,7 @@ void cambiarEstado() {
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                         allowfullscreen>
                 </iframe>
+                <br>
                 <h7>La Transmisión Inalámbrica (Bluetooth y Radiofrecuencia)</h7>
                 <p>La transmisión inalámbrica permite a los microcontroladores comunicarse a distancia sin necesidad de cables físicos, abriendo las puertas al Internet de las Cosas (IoT), la domótica y el monitoreo remoto. Mediante el uso de ondas de radiofrecuencia (RF) y protocolos especializados, un microcontrolador puede enviar y recibir datos hacia ordenadores, teléfonos móviles u otros dispositivos embebidos.</p>
 
@@ -956,6 +960,7 @@ void cambiarEstado() {
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                         allowfullscreen>
                 </iframe>
+                <br>
                 <h7>Sensores, Actuadores y Componentes Periféricos</h7>
                 <p>Para que un microcontrolador pueda interactuar de manera útil con el mundo real, no basta con procesar código internamente; requiere de elementos periféricos que actúan como sus sentidos y sus extremidades. Los sensores capturan los fenómenos físicos y los traducen en señales eléctricas, mientras que los actuadores ejecutan las respuestas físicas ordenadas por el sistema de control.</p>
 
