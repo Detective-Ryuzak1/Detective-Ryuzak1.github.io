@@ -663,7 +663,7 @@ BUCLE_PRINCIPAL:
 </code></pre>
                 </div>
 <h3>Ejemplo en Ensamblador: Control de PWM</h3>
-                <p>Tienes toda la razón, el objetivo correcto es integrar el conversor analógico-digital con el módulo PWM. El siguiente programa lee continuamente el valor de un potenciómetro conectado a <code>AN0</code> y utiliza ese resultado de 8 bits (gracias a la justificación a la izquierda en <code>ADRESH</code>) para actualizar de forma dinámica el ciclo de trabajo (<i>Duty Cycle</i>) del registro <code>CCPR1L</code>. De este modo, al girar el potenciómetro se variará directamente el ancho del pulso de la señal PWM en el pin <code>RC2</code>, regulando de forma suave y proporcional la intensidad lumínica de un LED.</p>
+                <p>El objetivo es integrar el conversor analógico-digital con el módulo PWM. El siguiente programa lee continuamente el valor de un potenciómetro conectado a <code>AN0</code> y utiliza ese resultado de 8 bits (gracias a la justificación a la izquierda en <code>ADRESH</code>) para actualizar de forma dinámica el ciclo de trabajo (<i>Duty Cycle</i>) del registro <code>CCPR1L</code>. De este modo, al girar el potenciómetro se variará directamente el ancho del pulso de la señal PWM en el pin <code>RC2</code>, regulando de forma suave y proporcional la intensidad lumínica de un LED.</p>
                 <p>A continuación se presenta el código completo en ensamblador comentado:</p>
 
                 <div class="archivo">
