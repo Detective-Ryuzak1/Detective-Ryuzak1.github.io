@@ -51,11 +51,11 @@
                 <h1>Kubernetes</h1>
                 <p>Kubernetes es un sistema de orquestación de contenedores de código abierto que permite automatizar el despliegue, la administración y la escalabilidad de aplicaciones en contenedores. Desarrollado inicialmente por Google, Kubernetes es ahora mantenido por la Cloud Native Computing Foundation (CNCF). Gracias a su versatilidad y capacidad de escalabilidad, Kubernetes se ha convertido en un pilar fundamental en la adopción de arquitecturas modernas de microservicios, permitiendo que las aplicaciones sean más resistentes y fácilmente escalables.</p>
                 <h2>Características</h2>
-                <ul>
-                    <li><marcador class="resaltado2">Escalabilidad Automática: </marcador>Kubernetes permite escalar las aplicaciones de manera automática, adaptándose al aumento o disminución de la carga de trabajo mediante el ajuste dinámico de recursos.</li>
-                    <li><marcador class="resaltado2">Despliegues Rápidos y Consistentes: </marcador>Facilita el despliegue de aplicaciones y actualizaciones sin interrupciones, lo que permite una integración y entrega continua.</li>
-                    <li><marcador class="resaltado2">Portabilidad: </marcador>Kubernetes es compatible con múltiples plataformas, desde nubes públicas hasta servidores locales, facilitando la portabilidad de aplicaciones.</li>
-                    <li><marcador class="resaltado2">Recuperación Ante Fallos: </marcador>Kubernetes garantiza la disponibilidad y fiabilidad de las aplicaciones mediante la reiniciación de contenedores fallidos y el reemplazo de nodos no saludables.</li>
+                <ul style="list-style-type: none;">
+                    <li>❊ <marcador class="resaltado2">Escalabilidad Automática: </marcador>Kubernetes permite escalar las aplicaciones de manera automática, adaptándose al aumento o disminución de la carga de trabajo mediante el ajuste dinámico de recursos.</li>
+                    <li>❊ <marcador class="resaltado2">Despliegues Rápidos y Consistentes: </marcador>Facilita el despliegue de aplicaciones y actualizaciones sin interrupciones, lo que permite una integración y entrega continua.</li>
+                    <li>❊ <marcador class="resaltado2">Portabilidad: </marcador>Kubernetes es compatible con múltiples plataformas, desde nubes públicas hasta servidores locales, facilitando la portabilidad de aplicaciones.</li>
+                    <li>❊ <marcador class="resaltado2">Recuperación Ante Fallos: </marcador>Kubernetes garantiza la disponibilidad y fiabilidad de las aplicaciones mediante la reiniciación de contenedores fallidos y el reemplazo de nodos no saludables.</li>
                 </ul>
                 <div class="blog-image-grande">
                     <img src="media/kubernetes2.avif" alt="">
@@ -112,15 +112,15 @@ status:
                 </div>
                 <h2>Componentes</h2>
                 <h6>Nodes y Pods</h6>
-                <ul>
-                    <li><marcador class="resaltado3">Node: </marcador>En Kubernetes, un Node es una máquina (física o virtual) que ejecuta aplicaciones en contenedores. Cada Node forma parte del clúster de Kubernetes y contiene los recursos necesarios para ejecutar Pods. Además, en cada Node se encuentran los componentes necesarios para ejecutar Pods y comunicarse con el resto del clúster, tales como:</li>
+                <ul style="list-style-type: none;">
+                    <li>✦ <marcador class="resaltado118">Node:</marcador> En Kubernetes, un Node es una máquina (física o virtual) que ejecuta aplicaciones en contenedores. Cada Node forma parte del clúster de Kubernetes y contiene los recursos necesarios para ejecutar Pods. Además, en cada Node se encuentran los componentes necesarios para ejecutar Pods y comunicarse con el resto del clúster, tales como:</li>
                     <ul  style="list-style-type: none;">
                         <li>▱ <marcador class="resaltado8">Kubelet: </marcador>Este agente garantiza que los contenedores estén en ejecución, monitorea los Pods asignados al nodo y se comunica con el API Server para reportar el estado.</li>
                         <li>▱ <marcador class="resaltado8">Kube-proxy: </marcador>Es un proxy de red que asegura la comunicación entre los servicios y gestiona las reglas de red en el nodo.</li>
                         <li>▱ <marcador class="resaltado8">Container Runtime: </marcador>Un entorno que ejecuta los contenedores, como Docker o containerd.</li>
                     </ul>
                     <p>Los Nodes trabajan juntos bajo el control del plano de control (Control Plane) de Kubernetes, distribuyendo y gestionando las aplicaciones en el clúster.</p>
-                    <li><marcador class="resaltado3">Pod: </marcador>Un Pod es la unidad de despliegue más pequeña en Kubernetes, encapsulando uno o más contenedores que comparten almacenamiento, red y un espacio de nombres (namespace) de Linux. En casos simples, cada Pod contiene un único contenedor, pero en arquitecturas más complejas, un Pod puede agrupar contenedores que trabajan juntos (por ejemplo, una aplicación y su contenedor de monitoreo).</li>
+                    <li>✦ <marcador class="resaltado118">Pod:</marcador> Un Pod es la unidad de despliegue más pequeña en Kubernetes, encapsulando uno o más contenedores que comparten almacenamiento, red y un espacio de nombres (namespace) de Linux. En casos simples, cada Pod contiene un único contenedor, pero en arquitecturas más complejas, un Pod puede agrupar contenedores que trabajan juntos (por ejemplo, una aplicación y su contenedor de monitoreo).</li>
                     <p>⌭ Ejemplo de configuración de un Pod:</p>
                     <div class="archivo">
 apiVersion: v1
@@ -139,8 +139,8 @@ spec:
                     <img src="media/kubernetes6.jpg" alt="">
                 </div>
                 <h6>Service e Ingress</h6>
-                <ul>
-                    <li><marcador class="resaltado3">Service: </marcador>Un Service es un recurso de Kubernetes que define una política de acceso para Pods, proporcionando una IP fija y un mecanismo de enrutamiento. Es útil cuando varios Pods comparten una función y necesitan ser accesibles de manera consistente, incluso si se recrean.</li>
+                <ul style="list-style-type: none;">
+                    <li>✦ <marcador class="resaltado118">Service:</marcador> Un Service es un recurso de Kubernetes que define una política de acceso para Pods, proporcionando una IP fija y un mecanismo de enrutamiento. Es útil cuando varios Pods comparten una función y necesitan ser accesibles de manera consistente, incluso si se recrean.</li>
                     <p>En Kubernetes, un Service permite definir una capa de abstracción para acceder a uno o más Pods, estableciendo una interfaz de red estable para conectarse a las aplicaciones, incluso si los Pods subyacentes se crean o eliminan. Al mantener una dirección IP y puerto constantes, un Service permite que otros componentes de la red o usuarios interactúen con el clúster sin importar los cambios en los Pods individuales.</p>
                     <p>Existen varios tipos de Service:</p>
                     <ul  style="list-style-type: none;">
@@ -163,7 +163,7 @@ spec:
         targetPort: 8080
                     </div>
                     <p>En este caso, el Service llamado my-service enruta el tráfico al puerto 8080 del Pod seleccionado.</p>
-                    <li><marcador class="resaltado3">Ingress: </marcador>En Kubernetes, un Ingress es un recurso que administra el acceso externo a los servicios del clúster, normalmente mediante HTTP y HTTPS, proporcionando reglas para enrutamiento de tráfico a diferentes Services en función de la ruta o el dominio solicitado. A diferencia de un Service de tipo LoadBalancer, que expone un único Service al exterior, un Ingress permite gestionar y enrutar el tráfico de forma centralizada a múltiples Services según reglas de dominio y ruta.</li>
+                    <li>✦ <marcador class="resaltado118">Ingress:</marcador> En Kubernetes, un Ingress es un recurso que administra el acceso externo a los servicios del clúster, normalmente mediante HTTP y HTTPS, proporcionando reglas para enrutamiento de tráfico a diferentes Services en función de la ruta o el dominio solicitado. A diferencia de un Service de tipo LoadBalancer, que expone un único Service al exterior, un Ingress permite gestionar y enrutar el tráfico de forma centralizada a múltiples Services según reglas de dominio y ruta.</li>
                     <p>El Ingress se conecta con uno o más Services, redirigiendo el tráfico entrante a los Pods asociados mediante estos Services. Utiliza reglas basadas en el nombre de dominio y en las rutas para determinar a qué Service y, por ende, a qué Pods dirigir el tráfico. Además, se configura con dominios en lugar de direcciones IP, lo que proporciona flexibilidad y escalabilidad en la comunicación entre aplicaciones. Dado que las IPs pueden cambiar debido al escalado o reprogramación de Pods, un dominio estático facilita la estabilidad en el enrutamiento y la disponibilidad del servicio, proporcionando un nombre de acceso constante y fácil de recordar. Por último, el Ingress ofrece balanceo de carga de capa 7 (basado en HTTP/HTTPS) y puede gestionar certificados SSL/TLS, permitiendo conexiones seguras al clúster, lo que otorga a los Ingress Controllers un mayor control y seguridad sobre el tráfico.</p>
                     <p>⌭ Ejemplo de configuración de un Ingress:</p>
                     <div class="archivo">
@@ -190,8 +190,8 @@ spec:
                     <img src="media/kubernetes7.png" alt="">
                 </div>
                 <h6>ConfigMaps y Secrets</h6>
-                <ul>
-                    <li><marcador class="resaltado3">ConfigMap: </marcador>ConfigMap en Kubernetes permite almacenar configuraciones no confidenciales en forma de pares clave-valor que pueden ser utilizados por Pods y otros recursos. Esto permite separar la configuración de la aplicación del código, lo que facilita la actualización de configuraciones sin necesidad de modificar o reconstruir las imágenes de los contenedores. ConfigMap puede ser utilizado para proporcionar configuraciones de entorno, variables de configuración de aplicaciones, archivos de configuración de texto o incluso parámetros específicos que los Pods pueden leer durante su ejecución. Además, ConfigMap permite la reutilización de configuraciones a lo largo de diferentes entornos y aplicaciones, ofreciendo flexibilidad y consistencia en el manejo de configuraciones.</li>
+                <ul style="list-style-type: none;">
+                    <li>✦ <marcador class="resaltado118">ConfigMap:</marcador> ConfigMap en Kubernetes permite almacenar configuraciones no confidenciales en forma de pares clave-valor que pueden ser utilizados por Pods y otros recursos. Esto permite separar la configuración de la aplicación del código, lo que facilita la actualización de configuraciones sin necesidad de modificar o reconstruir las imágenes de los contenedores. ConfigMap puede ser utilizado para proporcionar configuraciones de entorno, variables de configuración de aplicaciones, archivos de configuración de texto o incluso parámetros específicos que los Pods pueden leer durante su ejecución. Además, ConfigMap permite la reutilización de configuraciones a lo largo de diferentes entornos y aplicaciones, ofreciendo flexibilidad y consistencia en el manejo de configuraciones.</li>
                     <p>⌭ Ejemplo de configuración de un ConfigMap:</p>
                     <div class="archivo">
 apiVersion: v1
@@ -203,7 +203,7 @@ data:
     APP_ENV: "production"
                     </div>
                     <p>En este caso, my-config almacena variables de configuración que pueden ser accedidas por los contenedores.</p>
-                    <li><marcador class="resaltado3">Secret: </marcador>En Kubernetes, un Secret es un recurso utilizado para almacenar información confidencial, como contraseñas, tokens o claves SSH. Los Secrets pueden configurarse como variables de entorno o montarse como archivos dentro de los contenedores. Estos permiten proteger los datos al reducir la exposición en texto plano dentro del clúster y pueden ser referenciados directamente por los Pods sin necesidad de incluir la información en las configuraciones estándar. Los datos de un Secret se almacenan en formato Base64, lo que permite que contraseñas y otros valores sean representados de manera legible para los sistemas, aunque no completamente encriptados.</li>
+                    <li>✦ <marcador class="resaltado118">Secret:</marcador> En Kubernetes, un Secret es un recurso utilizado para almacenar información confidencial, como contraseñas, tokens o claves SSH. Los Secrets pueden configurarse como variables de entorno o montarse como archivos dentro de los contenedores. Estos permiten proteger los datos al reducir la exposición en texto plano dentro del clúster y pueden ser referenciados directamente por los Pods sin necesidad de incluir la información en las configuraciones estándar. Los datos de un Secret se almacenan en formato Base64, lo que permite que contraseñas y otros valores sean representados de manera legible para los sistemas, aunque no completamente encriptados.</li>
                     <p>Para mayor seguridad, Kubernetes ofrece la opción de cifrar los Secrets en reposo utilizando cifrado AES o mediante proveedores de claves externas como AWS KMS o Google Cloud KMS. Esto garantiza que los datos estén encriptados a nivel de almacenamiento en etcd, evitando el acceso no autorizado y protegiendo la información sensible.</p>
                     <p>Además, el acceso a los Secrets se puede controlar de manera detallada. Se pueden configurar políticas de acceso para que solo ciertos Pods o servicios puedan acceder a ellos, limitando así el riesgo de exposición. El acceso se administra mediante políticas RBAC (Role-Based Access Control), lo que permite definir de forma precisa qué entidades tienen permiso para leer o modificar los Secrets.</p>
                     <p>⌭ Ejemplo de configuración de un Secret:</p>
@@ -222,8 +222,8 @@ data:
                     <img src="media/kubernetes8.png" alt="">
                 </div>
                 <h6>Volumes</h6>
-                <ul>
-                    <li><marcador class="resaltado3">Volumes: </marcador>En Kubernetes, los Volumes permiten almacenar datos que persisten entre reinicios de contenedores, ya que los datos almacenados directamente en un contenedor se pierden si el contenedor se detiene o se reinicia.</li>
+                <ul style="list-style-type: none;">
+                    <li>✦ <marcador class="resaltado118">Volumes:</marcador> En Kubernetes, los Volumes permiten almacenar datos que persisten entre reinicios de contenedores, ya que los datos almacenados directamente en un contenedor se pierden si el contenedor se detiene o se reinicia.</li>
                     <p>Kubernetes ofrece varios tipos de volúmenes para adaptarse a diferentes requisitos de almacenamiento, desde almacenamiento temporal en el nodo hasta almacenamiento persistente que sobrevive al ciclo de vida de los Pods. Estos son algunos de los tipos principales:</p>
                     <ul  style="list-style-type: none;">
                         <li>▱ <marcador class="resaltado8">emptyDir: </marcador>Este volumen se crea cuando se inicia el Pod y se elimina al terminar el Pod. Se utiliza para almacenamiento temporal, donde los datos no son persistentes entre reinicios de Pods.</li>
@@ -257,8 +257,8 @@ spec:
                     <img src="media/kubernetes9.gif" alt="">
                 </div>
                 <h6>Deployment y StatefulSet</h6>
-                <ul>
-                    <li><marcador class="resaltado3">Deployment: </marcador>Deployment se utiliza para aplicaciones sin estado (stateless) que no necesitan almacenamiento persistente o identificación específica en el clúster. Los Pods administrados por un Deployment son intercambiables y no conservan un identificador único entre ellos, lo que facilita el reemplazo de Pods sin necesidad de almacenar información específica en cada instancia.</li>
+                <ul style="list-style-type: none;">
+                    <li>✦ <marcador class="resaltado118">Deployment:</marcador> Deployment se utiliza para aplicaciones sin estado (stateless) que no necesitan almacenamiento persistente o identificación específica en el clúster. Los Pods administrados por un Deployment son intercambiables y no conservan un identificador único entre ellos, lo que facilita el reemplazo de Pods sin necesidad de almacenar información específica en cada instancia.</li>
                     <p>Un Deployment es ideal para aplicaciones sin estado como servidores web o aplicaciones frontend, donde la persistencia de datos no es necesaria entre los reinicios de los Pods. Si un Pod falla, Kubernetes puede reiniciar uno nuevo sin que afecte el comportamiento de la aplicación.</p>
                     <p>El Deployment asegura que un número especificado de Pods esté siempre activo, y si uno de ellos falla, se crea automáticamente otro para mantener la cantidad requerida. Además, permite realizar actualizaciones continuas de la aplicación sin detener todos los Pods a la vez. Si algo sale mal durante una actualización, es fácil retroceder a una versión anterior. También ofrece escalabilidad, permitiendo agregar o eliminar réplicas de Pods para ajustar la carga de trabajo según sea necesario, lo que garantiza que el sistema pueda manejar variaciones en el tráfico o la demanda.</p>
                     <p>⌭ Ejemplo de configuración de un Deployment:</p>
@@ -284,7 +284,7 @@ spec:
         - containerPort: 80
                     </div>
                     <p>Replicas especifica el número de Pods que se ejecutarán, mientras que selector define una etiqueta que Kubernetes usará para identificar los Pods administrados. Finalmente, template describe el contenedor que se ejecutará en cada Pod, proporcionando los detalles necesarios para la creación de los Pods según las especificaciones del contenedor.</p>
-                    <li><marcador class="resaltado3">StatefulSet: </marcador>StatefulSet es un controlador diseñado para aplicaciones con estado, que necesitan que sus Pods tengan una identidad estable y almacenamiento persistente. Es ideal para bases de datos y sistemas de mensajería que dependen de mantener datos y configuraciones específicas entre reinicios.</li>
+                    <li>✦ <marcador class="resaltado118">StatefulSet:</marcador> StatefulSet es un controlador diseñado para aplicaciones con estado, que necesitan que sus Pods tengan una identidad estable y almacenamiento persistente. Es ideal para bases de datos y sistemas de mensajería que dependen de mantener datos y configuraciones específicas entre reinicios.</li>
                     <p>Cada Pod gestionado por un StatefulSet tiene una identidad estable, con un nombre único (como my-app-0, my-app-1) que se mantiene incluso al reiniciar el Pod. Además, los Pods se crean y eliminan en orden secuencial, lo que es crucial para aplicaciones que requieren un inicio o apagado ordenado, como las bases de datos distribuidas. También se asegura la persistencia, ya que cada Pod puede estar asociado con un PersistentVolume que retiene los datos, incluso si el Pod se reinicia o se reemplaza.</p>
                     <p>⌭ Ejemplo de configuración de un StatefulSet:</p>
                     <div class="archivo">
@@ -326,8 +326,8 @@ spec:
                     <img src="media/kubernetes10.png" alt="">
                 </div>
                 <h6>DaemonSet</h6>
-                <ul>
-                    <li><marcador class="resaltado3">DaemonSet: </marcador>Un DaemonSet es un recurso de Kubernetes diseñado para asegurar que un Pod específico se ejecute en cada Node del clúster, o en un subconjunto específico de Nodes. Los DaemonSets son esenciales para desplegar aplicaciones o servicios que deben estar presentes en todos los Nodes, como herramientas de monitoreo, recolección de logs o soluciones de red.</li>
+                <ul style="list-style-type: none;">
+                    <li>✦ <marcador class="resaltado118">DaemonSet:</marcador> Un DaemonSet es un recurso de Kubernetes diseñado para asegurar que un Pod específico se ejecute en cada Node del clúster, o en un subconjunto específico de Nodes. Los DaemonSets son esenciales para desplegar aplicaciones o servicios que deben estar presentes en todos los Nodes, como herramientas de monitoreo, recolección de logs o soluciones de red.</li>
                     <ul style="list-style-type: none;">
                         <li>▱ <marcador class="resaltado8">Distribución en todos los Nodes: </marcador>DaemonSets aseguran que cada Node en el clúster, tanto los nuevos como los ya existentes, ejecuten automáticamente el Pod asociado. Esto garantiza que todos los Nodes tengan el mismo servicio en ejecución, brindando un control uniforme en el clúster.</li>
                         <li>▱ <marcador class="resaltado8">Actualización: </marcador>Permite actualizar todos los Pods de un DaemonSet sin necesidad de intervención manual. Kubernetes controla la propagación de la actualización, evitando interrupciones o duplicaciones de Pods.</li>
