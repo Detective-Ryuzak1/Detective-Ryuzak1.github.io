@@ -77,11 +77,11 @@
                 <h2>Métrica de EIGRP</h2>
                 <p>La métrica utilizada por EIGRP es más avanzada que la simple métrica basada en saltos de RIP. La métrica de EIGRP se basa en los siguientes cinco factores:</p>
                 <ol>
-                    <li>¤ <marcador class="resaltado9">Ancho de banda: </marcador>Este factor se refiere al ancho de banda del enlace más lento en la ruta. EIGRP utiliza el ancho de banda nominal del enlace, lo que significa que considera la velocidad máxima teórica del enlace. Cuanto mayor sea el ancho de banda, mejor será la métrica, lo que favorece rutas más rápidas.</li>
-                    <li>¤ <marcador class="resaltado9">Retardo: </marcador>El retardo es la suma de los retardos de todos los enlaces a lo largo de la ruta. EIGRP permite a los administradores asignar un valor de retardo a cada enlace, y estos valores se suman para calcular el retardo total de la ruta. Una ruta con menor retardo será preferida, mejorando así el rendimiento general de la red.</li>
-                    <li>¤ <marcador class="resaltado9">Confiabilidad: </marcador>Este factor mide la calidad del enlace y se expresa como un valor que varía de 0 a 255, donde 255 indica un enlace altamente confiable. EIGRP puede evaluar la confiabilidad de un enlace en función de errores y problemas en la transmisión de datos. Las rutas a través de enlaces más confiables serán favorecidas en la selección de rutas.</li>
-                    <li>¤ <marcador class="resaltado9">Carga: </marcador>La carga se refiere al tráfico actual que transita por un enlace. EIGRP monitoriza el uso del enlace y utiliza este valor para calcular la métrica. Si un enlace está muy ocupado, su carga será alta, lo que puede hacer que EIGRP prefiera rutas menos congestionadas.</li>
-                    <li>¤ <marcador class="resaltado9">MTU: </marcador>Aunque la MTU se utiliza en el cálculo de la métrica, su influencia es menos directa en la selección de la ruta. La MTU se refiere al tamaño máximo de un paquete que puede ser transmitido a través de un enlace. Si un paquete es demasiado grande para el enlace, se fragmentará, lo que puede afectar el rendimiento. EIGRP considera la MTU para evitar seleccionar rutas que no puedan manejar el tamaño de los paquetes transmitidos.</li>
+                    <li><marcador class="resaltado9">Ancho de banda: </marcador>Este factor se refiere al ancho de banda del enlace más lento en la ruta. EIGRP utiliza el ancho de banda nominal del enlace, lo que significa que considera la velocidad máxima teórica del enlace. Cuanto mayor sea el ancho de banda, mejor será la métrica, lo que favorece rutas más rápidas.</li>
+                    <li><marcador class="resaltado9">Retardo: </marcador>El retardo es la suma de los retardos de todos los enlaces a lo largo de la ruta. EIGRP permite a los administradores asignar un valor de retardo a cada enlace, y estos valores se suman para calcular el retardo total de la ruta. Una ruta con menor retardo será preferida, mejorando así el rendimiento general de la red.</li>
+                    <li><marcador class="resaltado9">Confiabilidad: </marcador>Este factor mide la calidad del enlace y se expresa como un valor que varía de 0 a 255, donde 255 indica un enlace altamente confiable. EIGRP puede evaluar la confiabilidad de un enlace en función de errores y problemas en la transmisión de datos. Las rutas a través de enlaces más confiables serán favorecidas en la selección de rutas.</li>
+                    <li><marcador class="resaltado9">Carga: </marcador>La carga se refiere al tráfico actual que transita por un enlace. EIGRP monitoriza el uso del enlace y utiliza este valor para calcular la métrica. Si un enlace está muy ocupado, su carga será alta, lo que puede hacer que EIGRP prefiera rutas menos congestionadas.</li>
+                    <li><marcador class="resaltado9">MTU: </marcador>Aunque la MTU se utiliza en el cálculo de la métrica, su influencia es menos directa en la selección de la ruta. La MTU se refiere al tamaño máximo de un paquete que puede ser transmitido a través de un enlace. Si un paquete es demasiado grande para el enlace, se fragmentará, lo que puede afectar el rendimiento. EIGRP considera la MTU para evitar seleccionar rutas que no puedan manejar el tamaño de los paquetes transmitidos.</li>
                 </ol>
                 <div class="blog-image-grande">
                     <img src="media/eigrp9.png" alt="">
@@ -101,9 +101,9 @@
                     </ol>
                     <li>⦿ <marcador class="resaltado6">Estados de las Rutas: </marcador>DUAL clasifica las rutas en diferentes estados:</li>
                     <ol>
-                        <li>◦ <marcador class="resaltado8">Rutas Suplementarias: </marcador>Rutas que pueden ser utilizadas si la ruta principal falla.</li>
-                        <li>◦ <marcador class="resaltado8">Rutas Viables: </marcador>Rutas que cumplen con los criterios de DUAL para ser utilizadas.</li>
-                        <li>◦ <marcador class="resaltado8">Rutas No Viables: </marcador>Rutas que no son elegibles para ser utilizadas.</li>
+                        <li><marcador class="resaltado8">Rutas Suplementarias: </marcador>Rutas que pueden ser utilizadas si la ruta principal falla.</li>
+                        <li><marcador class="resaltado8">Rutas Viables: </marcador>Rutas que cumplen con los criterios de DUAL para ser utilizadas.</li>
+                        <li><marcador class="resaltado8">Rutas No Viables: </marcador>Rutas que no son elegibles para ser utilizadas.</li>
                     </ol>
                     <li>⦿ <marcador class="resaltado6">Aseguramiento de Consistencia: </marcador>DUAL utiliza un mecanismo de "diffusing" para garantizar que los cambios en las rutas se propaguen de manera controlada a todos los routers en la red, evitando así bucles de enrutamiento y garantizando la estabilidad.</li>
                 </ul>
@@ -129,8 +129,8 @@
                 <p>Las wildcards (o máscaras comodín) son un tipo de expresión utilizada en redes para especificar un rango de direcciones IP. A diferencia de las máscaras de subred tradicionales, que determinan qué parte de una dirección IP corresponde a la red y qué parte corresponde a los hosts, las wildcards permiten definir qué bits de la dirección se deben considerar y cuáles pueden ser ignorados.</p>
                 <p>Las wildcards son comúnmente utilizadas en varios contextos de configuración de redes, como en:</p>
                 <ul style="list-style-type: none;">
-                    <li>◦ <marcador class="resaltado5">Protocolos de Enrutamiento: </marcador>En protocolos como OSPF y EIGRP, las wildcards se utilizan para definir qué direcciones IP deben incluirse en el proceso de enrutamiento. Por ejemplo, en EIGRP, puedes especificar un rango de direcciones a incluir en la configuración de la red.</li>
-                    <li>◦ <marcador class="resaltado5">Listas de Control de Acceso (ACL): </marcador>En las ACL, las wildcards son utilizadas para especificar qué direcciones IP están permitidas o denegadas. Esto permite un control granular sobre el tráfico que puede entrar o salir de una red.</li>
+                    <li>¤ <marcador class="resaltado5">Protocolos de Enrutamiento: </marcador>En protocolos como OSPF y EIGRP, las wildcards se utilizan para definir qué direcciones IP deben incluirse en el proceso de enrutamiento. Por ejemplo, en EIGRP, puedes especificar un rango de direcciones a incluir en la configuración de la red.</li>
+                    <li>¤ <marcador class="resaltado5">Listas de Control de Acceso (ACL): </marcador>En las ACL, las wildcards son utilizadas para especificar qué direcciones IP están permitidas o denegadas. Esto permite un control granular sobre el tráfico que puede entrar o salir de una red.</li>
                 </ul>
                 <p>Una wildcard se expresa en el mismo formato que una dirección IP, donde cada bit puede ser "0" (que indica que el bit debe coincidir exactamente) o "1" (que indica que el bit puede ser ignorado). Por ejemplo:</p>
                 <ul style="list-style-type: none;">
