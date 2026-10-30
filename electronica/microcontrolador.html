@@ -582,6 +582,170 @@ ESPERAR_DESBORDAMIENTO:
                 <div class="blog-image-grande">
                     <img src="media/micro10.png" alt="">
                 </div>
+                <h7>Modulación por Ancho de Pulso (PWM) y sus Registros</h7>
+                <p>La Modulación por Ancho de Pulso (PWM, por sus siglas en inglés) es una técnica altamente eficiente que permite simular niveles de voltaje analógicos mediante una señal digital de onda cuadrada, variando el tiempo en que la señal permanece en estado alto (ciclo de trabajo o *duty cycle*) respecto al periodo total. En la familia PIC16F874A/877A, los módulos CCP (Capture/Compare/PWM) junto con el Timer2 permiten generar señales PWM de hardware de forma autónoma, ideales para controlar la velocidad de motores de corriente continua, la intensidad lumínica de LEDs o la posición de servomotores.</p>
+
+                <ul style="list-style-type: none;">
+                    <li>ꕥ <marcador class="resaltado121">Registro PR2 (Periodo del Timer2):</marcador> Almacena el valor que define el periodo de la señal PWM. Determina la frecuencia fundamental con la que se repetirá el ciclo de la onda cuadrada en combinación con el preescalador de Timer2.</li>
+                    <li>ꕥ <marcador class="resaltado121">Registro T2CON (Control del Timer2):</marcador> Gestiona la activación y la escala de tiempo del temporizador asociado al PWM:
+                        <ol style="list-style-type: none;">
+                            <li>◦ <marcador class="resaltado125">Bits 6-3 (TOUTPS3:TOUTPS0):</marcador> Bits de postescalador de Timer2 (generalmente se configuran en 0 para PWM estándar).</li>
+                            <li>◦ <marcador class="resaltado125">Bit 2 (TMR2ON):</marcador> Bit de encendido del Timer2 (1 = Enciende el temporizador y habilita el funcionamiento del PWM, 0 = Apaga el temporizador).</li>
+                            <li>◦ <marcador class="resaltado125">Bits 1-0 (T2CKPS1:T2CKPS0):</marcador> Bits de selección del preescalador de Timer2 (permiten dividir la frecuencia de entrada para ajustar la base de tiempo del PWM: 00 = 1:1, 01 = 1:4, 1X = 1:16).</li>
+                        </ol>
+                    </li>
+                    <li>ꕥ <marcador class="resaltado121">Registro CCPR1L (Ciclo de Trabajo de 8 bits):</marcador> Almacena los 8 bits más significativos del ciclo de trabajo (*Duty Cycle*). Modificar este valor permite cambiar dinámicamente el ancho del pulso en alto y, por ende, la potencia aplicada a la carga.</li>
+                    <li>ꕥ <marcador class="resaltado121">Registro CCP1CON (Control del Módulo CCP1):</marcador> Configura el modo operativo del módulo CCP y almacena los bits menos significativos del ciclo de trabajo:
+                        <ol style="list-style-type: none;">
+                            <li>◦ <marcador class="resaltado125">Bits 5-4 (DC1B1:DC1B0):</marcador> Los 2 bits menos significativos del ciclo de trabajo de 10 bits, permitiendo una alta resolución en el ancho de pulso.</li>
+                            <li>◦ <marcador class="resaltado125">Bits 3-0 (CCP1M3:CCP1M0):</marcador> Bits de selección de modo (al configurar el valor <code>1100</code> se habilita el modo PWM estándar con la salida en el pin RC2/CCP1).</li>
+                        </ol>
+                    </li>
+                </ul>
+
+                <h3>Ejemplo en Ensamblador: Generación de Señal PWM para Control de Potencia</h3>
+                <p>El siguiente programa configura el módulo CCP1 y el Timer2 para generar una señal PWM fija en el pin RC2 del microcontrolador, estableciendo un ciclo de trabajo específico para regular la potencia de salida:</p>
+                <p>A continuación se presenta el código completo en ensamblador comentado:</p>
+
+                <div class="archivo">
+<pre><code>; =====================================================================
+; Programa de Ejemplo: Generación de PWM con CCP1 y Timer2
+; Microcontrolador: PIC16F874A / PIC16F877A
+; =====================================================================
+
+    LIST P=16F877A        ; Especifica el microcontrolador
+    __CONFIG _FOSC_XT &amp; _WDTE_OFF &amp; _PWRTE_ON &amp; _BOREN_ON &amp; _LVP_OFF
+    #include &lt;p16f877a.inc&gt;
+
+    ORG 0x00
+    GOTO    INICIO
+
+    ORG 0x04
+    RETFIE
+
+INICIO:
+    ; --- Configuración de Puertos y Periféricos ---
+    BSF     STATUS, RP0   ; Selecciona el Banco 1 (RP0 = 1)
+    
+    BCF     TRISC, 2      ; Configura el pin RC2/CCP1 como salida (necesario para PWM)
+    
+    ; Configuración de la Frecuencia PWM mediante PR2 (Banco 1)
+    ; Se carga un valor para definir el periodo base de la señal
+    MOVLW   D'124'        
+    MOVWF   PR2           
+    
+    BCF     STATUS, RP0   ; Regresa al Banco 0 (RP0 = 0)
+
+    ; --- Configuración del Ciclo de Trabajo (Duty Cycle) ---
+    ; Cargamos un valor intermedio en CCPR1L (ej. 62 para 50% de ciclo de trabajo aproximado)
+    MOVLW   D'62'
+    MOVWF   CCPR1L
+
+    ; --- Configuración de CCP1CON (Banco 0) ---
+    ; CCP1M3:CCP1M0 = 1100 (Modo PWM activado)
+    ; DC1B1:DC1B0 = 00 (Bits de menor peso del ciclo de trabajo)
+    MOVLW   B'00001100'
+    MOVWF   CCP1CON
+
+    ; --- Configuración de Timer2 (T2CON - Banco 0) ---
+    ; TMR2ON = 1 (Enciende el Timer2)
+    ; T2CKPS1:T2CKPS0 = 01 (Preescalador de 1:4)
+    MOVLW   B'00000101'
+    MOVWF   T2CON
+
+BUCLE_PRINCIPAL:
+    ; El hardware del módulo CCP1 genera la señal PWM de manera autónoma en el pin RC2.
+    ; El bucle principal puede dedicarse a otras tareas o actualizar el valor de CCPR1L 
+    ; si se desea modificar dinámicamente la velocidad o intensidad de la carga conectada.
+    GOTO    BUCLE_PRINCIPAL
+
+    END
+</code></pre>
+                </div>
+                <h3>Ejemplo en Ensamblador: Lectura de Potenciómetro y Control de Salida Proporcional</h3>
+                <p>El siguiente programa combina los conocimientos previos del Conversor Analógico-Digital (ADC) y los puertos de E/S. Su objetivo es leer continuamente un potenciómetro conectado al canal analógico <code>AN0</code> (pin RA0) y transferir los bits más significativos del resultado directamente al Puerto B para encender arreglos de LEDs de forma proporcional a la posición del potenciómetro:</p>
+                <p>A continuación se presenta el código completo en ensamblador comentado:</p>
+
+                <div class="archivo">
+<pre><code>; =====================================================================
+; Programa de Ejemplo: Lectura de Potenciómetro y Control de Salida
+; Microcontrolador: PIC16F874A / PIC16F877A
+; =====================================================================
+
+    LIST P=16F877A        ; Especifica el microcontrolador
+    __CONFIG _FOSC_XT &amp; _WDTE_OFF &amp; _PWRTE_ON &amp; _BOREN_ON &amp; _LVP_OFF
+    #include &lt;p16f877a.inc&gt;
+
+    CBLOCK 0x20
+        VALOR_LECTURA     ; Variable para almacenar el dato leido del ADC
+    ENDC
+
+    ORG 0x00
+    GOTO    INICIO
+
+    ORG 0x04
+    RETFIE
+
+INICIO:
+    ; --- Configuración de Registros y Puertos ---
+    BSF     STATUS, RP0   ; Selecciona el Banco 1 (RP0 = 1)
+    
+    MOVLW   B'00000001'   ; Configura RA0/AN0 como entrada analógica, el resto de TRISA como salida
+    MOVWF   TRISA
+    
+    CLRF    TRISB         ; Configura todo el Puerto B como salidas (para los LEDs)
+    
+    ; Configuración de ADCON1 (Banco 1)
+    ; ADFM = 0 (Justificado a la izquierda para usar ADRESH como valor de 0 a 255)
+    ; PCFG3:PCFG0 = 1110 (AN0 como analógica, VDD y VSS como referencias)
+    MOVLW   B'00001110'
+    MOVWF   ADCON1
+    
+    BCF     STATUS, RP0   ; Regresa al Banco 0 (RP0 = 0)
+
+    ; Configuración de ADCON0 (Banco 0)
+    ; ADCS1:ADCS0 = 01 (Reloj FOSC/8)
+    ; CHS2:CHS0 = 000 (Selecciona canal AN0)
+    ; ADON = 1 (Enciende el conversor ADC)
+    MOVLW   B'01000001'
+    MOVWF   ADCON0
+
+BUCLE_PRINCIPAL:
+    ; --- Iniciar Conversión Analógica-Digital ---
+    NOP                   ; Pequeño retardo de adquisición
+    NOP
+    BSF     ADCON0, GO    ; Pone el bit GO/DONE en 1 para iniciar la conversión
+
+ESPERAR_CONVERSION:
+    BTFSC   ADCON0, GO    ; Revisa si terminó la conversión (GO/DONE se pone a 0)
+    GOTO    ESPERAR_CONVERSION ; Si sigue en 1, espera
+
+    ; --- Procesar y Enviar Salida ---
+    ; Lee el byte alto ADRESH (que contiene el rango escalado de 0 a 255)
+    MOVF    ADRESH, W     
+    MOVWF   VALOR_LECTURA ; Guarda el valor en la variable temporal
+    
+    MOVWF   PORTB         ; Refleja el valor directamente en los LEDs del Puerto B
+    
+    GOTO    BUCLE_PRINCIPAL ; Repite el ciclo continuamente
+
+    END
+</code></pre>
+                </div>
+                <br>
+                <iframe src="https://www.youtube.com/embed/ArvU6pEiQdA" 
+                        title="pwm" 
+                        width="100%" height="315" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+                <br>
+                <iframe src="https://www.youtube.com/embed/T0GUbpH-8y4" 
+                        title="pwm2" 
+                        width="100%" height="315" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
                 <h7>La Comunicación Serial (USART) y sus Registros</h7>
                 <p>La comunicación serial mediante el módulo <marcador class="resaltado112">USART (Universal Synchronous Asynchronous Receiver Transmitter)</marcador> permite al microcontrolador transferir y recibir datos de forma bidireccional bit a bit utilizando líneas independientes, ideal para conectar con ordenadores, módulos Bluetooth, pantallas u otros microcontroladores. Para su funcionamiento, el PIC utiliza registros de control de transmisión, recepción y el cálculo de la velocidad de baudios.</p>
 
