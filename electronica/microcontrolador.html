@@ -662,23 +662,19 @@ BUCLE_PRINCIPAL:
     END
 </code></pre>
                 </div>
-                <h3>Ejemplo en Ensamblador: Lectura de Potenciómetro y Control de Salida Proporcional</h3>
-                <p>El siguiente programa combina los conocimientos previos del Conversor Analógico-Digital (ADC) y los puertos de E/S. Su objetivo es leer continuamente un potenciómetro conectado al canal analógico <code>AN0</code> (pin RA0) y transferir los bits más significativos del resultado directamente al Puerto B para encender arreglos de LEDs de forma proporcional a la posición del potenciómetro:</p>
+<h3>Ejemplo en Ensamblador: Control de PWM</h3>
+                <p>Tienes toda la razón, el objetivo correcto es integrar el conversor analógico-digital con el módulo PWM. El siguiente programa lee continuamente el valor de un potenciómetro conectado a <code>AN0</code> y utiliza ese resultado de 8 bits (gracias a la justificación a la izquierda en <code>ADRESH</code>) para actualizar de forma dinámica el ciclo de trabajo (<i>Duty Cycle</i>) del registro <code>CCPR1L</code>. De este modo, al girar el potenciómetro se variará directamente el ancho del pulso de la señal PWM en el pin <code>RC2</code>, regulando de forma suave y proporcional la intensidad lumínica de un LED.</p>
                 <p>A continuación se presenta el código completo en ensamblador comentado:</p>
 
                 <div class="archivo">
 <pre><code>; =====================================================================
-; Programa de Ejemplo: Lectura de Potenciómetro y Control de Salida
+; Programa de Ejemplo: Control de PWM mediante Potenciómetro
 ; Microcontrolador: PIC16F874A / PIC16F877A
 ; =====================================================================
 
     LIST P=16F877A        ; Especifica el microcontrolador
     __CONFIG _FOSC_XT &amp; _WDTE_OFF &amp; _PWRTE_ON &amp; _BOREN_ON &amp; _LVP_OFF
     #include &lt;p16f877a.inc&gt;
-
-    CBLOCK 0x20
-        VALOR_LECTURA     ; Variable para almacenar el dato leido del ADC
-    ENDC
 
     ORG 0x00
     GOTO    INICIO
@@ -687,28 +683,42 @@ BUCLE_PRINCIPAL:
     RETFIE
 
 INICIO:
-    ; --- Configuración de Registros y Puertos ---
+    ; --- Configuración de Puertos y Periféricos ---
     BSF     STATUS, RP0   ; Selecciona el Banco 1 (RP0 = 1)
     
-    MOVLW   B'00000001'   ; Configura RA0/AN0 como entrada analógica, el resto de TRISA como salida
+    MOVLW   B'00000001'   ; Configura RA0/AN0 como entrada analógica (potenciómetro)
     MOVWF   TRISA
     
-    CLRF    TRISB         ; Configura todo el Puerto B como salidas (para los LEDs)
+    BCF     TRISC, 2      ; Configura el pin RC2/CCP1 como salida (salida PWM para el LED)
+    
+    ; Configuración de la Frecuencia PWM mediante PR2 (Banco 1)
+    ; Se carga FFh (255) para un periodo completo de resolución de 8 bits
+    MOVLW   D'255'        
+    MOVWF   PR2           
     
     ; Configuración de ADCON1 (Banco 1)
-    ; ADFM = 0 (Justificado a la izquierda para usar ADRESH como valor de 0 a 255)
+    ; ADFM = 0 (Justificado a la izquierda para usar ADRESH directamente de 0 a 255)
     ; PCFG3:PCFG0 = 1110 (AN0 como analógica, VDD y VSS como referencias)
     MOVLW   B'00001110'
     MOVWF   ADCON1
     
     BCF     STATUS, RP0   ; Regresa al Banco 0 (RP0 = 0)
 
-    ; Configuración de ADCON0 (Banco 0)
+    ; --- Configuración de ADCON0 (Banco 0) ---
     ; ADCS1:ADCS0 = 01 (Reloj FOSC/8)
     ; CHS2:CHS0 = 000 (Selecciona canal AN0)
     ; ADON = 1 (Enciende el conversor ADC)
     MOVLW   B'01000001'
     MOVWF   ADCON0
+
+    ; --- Configuración Inicial del Módulo PWM (CCP1 y Timer2) ---
+    ; CCP1M3:CCP1M0 = 1100 (Modo PWM activado)
+    MOVLW   B'00001100'
+    MOVWF   CCP1CON
+
+    ; TMR2ON = 1 (Enciende el Timer2), Preescalador 1:4 (T2CKPS = 01)
+    MOVLW   B'00000101'
+    MOVWF   T2CON
 
 BUCLE_PRINCIPAL:
     ; --- Iniciar Conversión Analógica-Digital ---
@@ -720,12 +730,10 @@ ESPERAR_CONVERSION:
     BTFSC   ADCON0, GO    ; Revisa si terminó la conversión (GO/DONE se pone a 0)
     GOTO    ESPERAR_CONVERSION ; Si sigue en 1, espera
 
-    ; --- Procesar y Enviar Salida ---
-    ; Lee el byte alto ADRESH (que contiene el rango escalado de 0 a 255)
+    ; --- Actualizar el Ciclo de Trabajo del PWM ---
+    ; Lee ADRESH (rango de 0 a 255) y cárgalo en CCPR1L
     MOVF    ADRESH, W     
-    MOVWF   VALOR_LECTURA ; Guarda el valor en la variable temporal
-    
-    MOVWF   PORTB         ; Refleja el valor directamente en los LEDs del Puerto B
+    MOVWF   CCPR1L        ; Modifica dinámicamente el ancho de pulso según el potenciómetro
     
     GOTO    BUCLE_PRINCIPAL ; Repite el ciclo continuamente
 
