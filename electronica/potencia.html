@@ -242,9 +242,21 @@
                 <p>El TRIAC es un dispositivo de tres terminales: MT1 (Main Terminal 1), MT2 (Main Terminal 2) y compuerta (Gate). Su funcionamiento se basa en la activación mediante un pulso en la compuerta, lo que permite controlar el flujo de corriente en ambos sentidos.</p>
                 <ul>
                     <li><marcador class="resaltado5">Activación: </marcador>Al aplicar un pulso de corriente positiva o negativa en la compuerta, el TRIAC se activa y comienza a conducir corriente entre MT1 y MT2.</li>
-                    <li><marcador class="resaltado5">Conducción: </marcador>Una vez activado, el TRIAC permanece en estado de conducción hasta que la corriente cae por debajo de un valor mínimo, conocido como corriente de mantenimiento.</li>
                     <li><marcador class="resaltado5">Bidireccionalidad: </marcador>El TRIAC puede conducir corriente en ambas direcciones, lo que lo hace ideal para aplicaciones de CA.</li>
                 </ul>
+                <p>Para mantener un sistema funcionando con control de fase (como un motor girando o una lámpara encendida), la regla es clara: necesitas enviar un nuevo pulso en cada semiciclo. Funcionando mediante una secuencia de pulsos breves (un tren de pulsos) que se repite constantemente.</p>
+                <p>La corriente alterna de la casa cambia de polaridad 50 o 60 veces por segundo. Como a nuestro circuito le interesa tanto la parte positiva como la negativa de la onda, en realidad tenemos 100 o 120 semiciclos por segundo.</p>
+                <p>Un ciclo completo (que sube a positivo, baja por cero, se va a negativo y vuelve a subir) dura apenas 16.6 milisegundos (si es de 60 Hz).</p>
+                <p>Como el TRIAC o el SCR se apagan cada vez que la onda pasa por cero, a nuestro circuito en realidad solo le importa la mitad de la onda (el semiciclo). Ese semiciclo dura la mitad: 8.3 milisegundos.</p>
+                <p>Por lo tanto, el microcontrolador tiene que enviar el pulso de disparo 120 veces por segundo (uno por cada semiciclo).</p>
+                <h3>Control del Ángulo de Disparo</h3>
+                <p>El ángulo de disparo no se controla con voltaje, sino con TIEMPO (relojes o temporizadores).</p>
+                <p>Para aumentar o disminuir el ángulo de disparo desde un microcontrolador (como el PIC o Arduino), lo que haces es modificar un retardo de tiempo usando los timers internos:</p>
+                <ul>
+                    <li><marcador class="resaltado8">Para un ángulo pequeño (mucha potencia):</marcador>Programas un temporizador para que cuente un tiempo muy corto (por ejemplo, 1 milisegundo) después del cruce por cero y dispare rápido.</li>
+                    <li><marcador class="resaltado8">Para un ángulo grande (poca potencia):</marcador>Programas el temporizador para que espere casi todo el semiciclo (por ejemplo, 7.5 milisegundos) antes de disparar casi al final.</li>
+                </ul>
+                <p>Si por ejemplo conectas el potenciómetro que leímos antes con el conversor ADC, lo que haces en el código es traducir el valor del potenciómetro (de 0 a 255) en milisegundos de espera. Si el potenciómetro está en un extremo, el retardo es de 1 ms; si lo giras al otro, el retardo sube a 7.5 ms. Así es como controlas la potencia de manera suave y electrónica.</p>
                 <div class="blog-image-grande">
                     <img src="media/potencia15.JPG" alt="">
                 </div>
